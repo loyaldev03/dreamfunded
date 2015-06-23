@@ -9,7 +9,7 @@
 .sign-in-box {
 	background: #ffffff;
 	margin: 70px auto;
-	width: 450px;
+	width: 350px;
 	font-family: "Lato", sans-serif;
 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
@@ -17,8 +17,6 @@
 .sign-in-content {
 	margin-left: auto;
 	margin-right: auto;
-	border-top: 1px solid #E6E6E6;
-	border-bottom: 1px solid #E6E6E6;
 	padding: 5px 20px;
 }
 
@@ -27,11 +25,13 @@
 	padding: 3px 0;
 	font-size: 16px;
 	border: none;
-	border-bottom: 2px solid white;
+	border-bottom: 1px solid gray;
+	margin: 10px 0;
 }
 
 .underline-style.placeholder {
 	color: gray;
+	letter-spacing: 2px;
 }
 
 .underline-style.placeholder:focus {
@@ -39,7 +39,7 @@
 }
 
 .underline-style.focus, .underline-style:focus {
-	border-bottom: 2px solid #000000;
+	border-bottom: 1px solid #000000;
 	outline: 0;
 }
 
@@ -66,5 +66,13 @@
 }
 
 .login-box {
-	margin: 30px 0;
+	margin: 30px 0 50px 0;
 }
+
+
+
+
+
+
+
+
