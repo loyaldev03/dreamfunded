@@ -4,6 +4,7 @@
 	<title>DreamFunded | Log In</title>
 </head>
 
+<!-- Try not to use style in html file. Use ID and Class to define css (Wrap around div if necessary)
 <body>
 	<div class= "sign-in-box spaced-vert">
 		<div style= "margin-top: 30px;"> </div>
@@ -22,6 +23,23 @@
 				</div>
 			</form>
 	</div>
+-->
+
+<body>
+	<%= form_tag("post_login", method: "get") do %>
+	  <%= label_tag(:username, "USERNAME:") %>
+	  <%= text_field_tag(:username) %>
+	  <%= label_tag(:password, "PASSWORD:") %>
+	  <%= text_field_tag(:password) %>
+	  <%= submit_tag("LOGIN") %>
+	<% end %>
+	<div class = "notice">
+		<%= flash[:notice] if flash[:notice] %>
+		<%= @error_message %>
+	</div>
+	<form action="/users/new">
+   		<input type="submit" value="Sign Up">
+	</form>
 </body>
 
 </html>

@@ -1,0 +1,19 @@
+<%= form_tag("create", method: "post") do %>
+   <%= label_tag(:first_name, "First_name:") %>
+   <%= text_field_tag(:first_name) %>
+   <%= label_tag(:last_name, "Last_name:") %>
+   <%= text_field_tag(:last_name) %>
+   <%= label_tag(:login, "LOGIN:") %>
+   <%= text_field_tag(:login) %>
+   <%= label_tag(:email, "E-Mail") %>
+   <%= text_field_tag(:email) %>
+   <%= label_tag(:password, "PASSWORD:") %>
+   <%= text_field_tag(:password) %>
+   <%= label_tag(:password_confirmation, "PASSWORD CONFiRMATION:") %>
+   <%= text_field_tag(:password_confirmation) %>
+   <%= submit_tag("SUBMIT") %>
+<% end %>
+ <div class = "notice">
+ 	<%= flash[:notice] if flash[:notice] %>
+	<%= @error_message %>
+ </div>
