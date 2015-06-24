@@ -1,6 +1,6 @@
 <html>
 <head>
-	<link rel= "stylesheet" href= "../../assets/stylesheets/welcome.css.scss">
+	<link rel= "stylesheet" href= "../../assets/stylesheets/login.css.scss">
 	<title>DreamFunded | Log In</title>
 </head>
 
@@ -26,20 +26,36 @@
 -->
 
 <body>
-	<%= form_tag("post_login", method: "get") do %>
-	  <%= label_tag(:username, "USERNAME:") %>
-	  <%= text_field_tag(:username) %>
-	  <%= label_tag(:password, "PASSWORD:") %>
-	  <%= text_field_tag(:password) %>
-	  <%= submit_tag("LOGIN") %>
-	<% end %>
-	<div class = "notice">
-		<%= flash[:notice] if flash[:notice] %>
-		<%= @error_message %>
+	<div class= "signin-box">
+		<br>
+		<h2 class= "centered">Sign In</h2>
+		<br>
+		<div class= "login-container">
+			<%= form_tag("post_login", method: "get") do %>
+
+				<%= text_field_tag(:username, nil, :class =>"userbox", :placeholder => "Username") %>
+				<br>
+
+				<%= password_field_tag(:password, nil, :class => "passbox", :placeholder => "Password") %>
+				<br>
+				<div class= "centered">
+					<%= submit_tag("Login", :class => "login-button") %>
+				</div>
+			<% end %>
+		</div>
+
+		<div class = "notice centered">
+			<%= flash[:notice] if flash[:notice] %>
+			<%= @error_message %>
+		</div>
+
+		<div class= "centered">
+			<form action="/users/new">
+		   		<input type="submit" value="Sign up here!" class= "signup">
+			</form>
+		</div>
 	</div>
-	<form action="/users/new">
-   		<input type="submit" value="Sign Up">
-	</form>
+
 </body>
 
 </html>

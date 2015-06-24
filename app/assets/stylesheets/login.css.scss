@@ -1,0 +1,54 @@
+// For login.html.erb
+
+.signin-box {
+	margin: 100px auto 0 auto;
+	font-family: "Lato", sans-serif;
+	width: 300px;
+	border: none;
+	background: #ffffff;
+	padding: 40px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.userbox, .passbox {
+	outline: none;
+	border: none;
+	border-bottom: 1px solid gray;
+	padding: 3px 6px;
+	font-size: 16px;
+	width: 100%;
+	margin: 15px 0;
+}
+
+.userbox:focus, .passbox:focus {
+	border-bottom: 2px solid black;
+}
+
+.login-button {
+	width: 200px;
+	height: 30px;
+	background: #3A6EC2;
+	border: none;
+	outline: 0;
+	margin: 20px 0;
+}
+
+.centered {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.signup {
+	outline: 0;
+	border: none;
+	background: white;
+	font-size: 14px;
+}
+
+.signup:hover{
+	text-decoration: underline;
+}
+
+.notice {
+	color: red;
+}
