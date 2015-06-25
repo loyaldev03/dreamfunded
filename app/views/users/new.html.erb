@@ -18,6 +18,11 @@
          <%= text_field_tag(:login, nil, :placeholder => "Username", :class => "input-box") %><br>
          <%= password_field_tag(:password, nil, :placeholder => "Enter Password", :class => "input-box half") %>
          <%= password_field_tag(:password_confirmation, nil, :placeholder => "Confirm Password", :class => "input-box half scoot-left") %><br>
+
+         <div class= "centered">
+            <p>A questionnaire will be sent to your email shortly to determine your account type.</p>
+         </div>
+
          <div class= "centered">
             <%= submit_tag("Submit", :class => "submit-button centered") %>
          </div>
