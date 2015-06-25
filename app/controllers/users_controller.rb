@@ -25,10 +25,10 @@ class UsersController < ApplicationController
 			flash[:notice] = "Registration successful"
 			redirect_to(:action => :login)
 		else
-			flash[:notice] = "Validation failed"
+			flash[:notice] = "Validation failed."
 			@error_message = ""
 			record.errors.full_messages.each do |error|
-				@error_message = @error_message + error
+				@error_message = @error_message + error + ". "
 			end
 			render(:action => :new)
 		end
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 	def post_login
 		login_user = User.find_by(login: params[:username])
 		if login_user == nil
-			flash[:notice] = "The user ID does not exist" 
+			flash[:notice] = "This user ID does not exist" 
 			redirect_to(:action => :login)
 		else
 			password = params[:password]

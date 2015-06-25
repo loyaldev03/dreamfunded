@@ -1,7 +1,7 @@
 // For login.html.erb
 
 .signin-box {
-	margin: 100px auto 0 auto;
+	margin: 100px auto;
 	font-family: "Lato", sans-serif;
 	width: 300px;
 	border: none;
@@ -14,6 +14,7 @@
 	outline: none;
 	border: none;
 	border-bottom: 1px solid gray;
+	border-right: 1px solid white;
 	padding: 3px 6px;
 	font-size: 16px;
 	width: 100%;
@@ -21,20 +22,23 @@
 }
 
 .userbox:focus, .passbox:focus {
-	border-bottom: 2px solid black;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
 }
 
 .login-button {
 	width: 200px;
-	height: 30px;
+	height: 50px;
 	background: #3A6EC2;
 	border: none;
 	outline: 0;
 	margin: 20px 0;
+	font-size: 18px;
+	font-family: "Lato", sans-serif;
+	color: white;
 }
 
 .centered {
-	margin: 0 auto;
 	text-align: center;
 }
 
@@ -42,7 +46,7 @@
 	outline: 0;
 	border: none;
 	background: white;
-	font-size: 14px;
+	font-size: 16px;
 }
 
 .signup:hover{
