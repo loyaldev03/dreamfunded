@@ -1,0 +1,9 @@
+<h1> Companies </h1>
+
+<% if @companies != nil %> 
+	<% @companies.each do |company| %>
+		<p> <%= company.name %> </p>
+		<p> by <%= company.user_id %> </p>
+		<p> <%= company.description %> </p>
+	<% end %>
+<% end %>

@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624073332) do
+ActiveRecord::Schema.define(version: 20150626070313) do
+
+  create_table "companies", force: true do |t|
+    t.string  "user_id"
+    t.string  "name"
+    t.string  "description"
+    t.string  "image_file_name"
+    t.integer "invested_amount"
+  end
 
   create_table "sessions", force: true do |t|
     t.string   "session_id", null: false
