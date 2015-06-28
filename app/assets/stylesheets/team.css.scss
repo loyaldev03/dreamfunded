@@ -1,0 +1,45 @@
+//for team.html.erb
+
+.centered {
+	text-align:center;
+}
+
+.team-header{
+	color:black;
+	font-size:250%;
+}
+
+.team-header-contents{
+	color:black;
+	font-size:120%;
+}
+
+.header-container{
+	background-color:white;
+}
+
+.single-bio{
+	outline: none;
+	border: none;
+	height: 240px;
+	padding: 10px;
+}
+
+.bio-picture{
+	float:left;
+	width:200px;
+	height:200px;
+}
+
+.bio-name{
+	padding: 3px;
+	color:black;
+}
+
+.bio-contents{
+	padding: 3px;
+}
+
+.bio-link{
+	
+}
