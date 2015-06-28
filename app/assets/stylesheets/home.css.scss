@@ -3,10 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 // Styling for index.html.erb
 
-$lightblue: #0090D6;
-$darkblue: #0377B0;
+@import "colors";
 
-body, html {
+body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Ek Mukta';
@@ -15,9 +14,9 @@ body, html {
 .container {
 	max-width: 100%;
 	height: 7000px;
-	background: #ffffff url("skylinedark comp.png") no-repeat top left;
+	background: $gray url("skylinedark comp.png") no-repeat top left;
 	background-size: contain;
-	position: fixed;
+	position: absolute;
 }
 
 .fullWidth {
@@ -25,84 +24,6 @@ body, html {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: initial;
-}
-
-/////////-------------- MENU ------------------//////////
-
-.menu-wrap {
-	background-color: $darkblue; //#17658E;
-	box-shadow: 0 2px 4px rgba(0,0,0,0.25), 0 2px 4px rgba(0,0,0,0.22);
-	position: fixed;
-	top: 0;
-	border: none;
-	outline: 0;
-}
-
-.main-menu {
-	display: block;
-	clear: both;
-}
-
-a {
-	text-decoration: none;
-}
-
-.white a, .white {
-	color: white;
-}
-
-.menu {
-	margin: 0;
-}
-
-.menu li {
-	margin: 0;
-	list-style: none;
-}
-
-.menu > ul > li {
-	display: inline-block;
-	position: relative;
-	font-size: 18px;
-	padding: 12px 20px;
-}
-
-.menu > ul > li:hover {
-	background-color: $lightblue;
-}
-
-.sub-menu {
-	width: 160%;
-	padding: 0;
-	position: absolute;
-	top: 100%;
-	left: 0;
-	z-index: -1;
-	opacity: 0;
-	transition: opacity linear 0.15s;
-	background: $lightblue;
-}
-
-.sub-menu li {
-	padding: 10px 20px;
-}
-
-.sub-menu li:hover {
-	background: $darkblue;
-}
-
-.menu li:hover .sub-menu {
-	z-index: 1;
-	opacity: 1;
-}
-
-#right {
-	float: right;
-}
-
-.arrow {
-	font-size: 10px;
-	line-height: 0%;
 }
 
 ////////------------- Front ----------------//////////
@@ -129,6 +50,20 @@ h1 {
 .button:hover {
 	background: $lightblue;
 }
+
+.remove-margin {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+
+
+
+
+
+
+
+
 
 
 

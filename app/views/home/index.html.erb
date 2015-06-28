@@ -1,38 +1,66 @@
 <html>
 	<head>
 		<link rel= "stylesheet" href= "../../assets/stylesheets/home.css.scss">
+		<link rel= "stylesheet" href= "../../assets/stylesheets/menu.css.scss">
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ek+Mukta">
+
+		<script type= "text/javascript" src= "/app/assets/javascripts/links.js"></script>
+
 		<title>DreamFunded | Home</title>
 	</head>
 
 	<body>
 		<div class= "container fullWidth">
-			<div class= "menu-wrap fullWidth white"> <nav class= "menu">
-				<ul class= "main-menu">
-					<li><a href= "">Invest Now</a></li>
-					<li><a href= "">Why Invest</a></li>
-					<li><a href= "">News</a></li>
-					<li>
-						<a href= "">About Us <span class="arrow">&#9660;</span></a>
+			<div class= "menu-wrap fullWidth"> <nav class= "menu fullWidth">
+				<ul class= "main-menu white">
+					<li><button onclick= "signin()">Login / Sign Up</button></li>
+					<li><button onclick= "about()">About Us <span class="arrow">&#9660;</span></button>
 						<ul class= "sub-menu"> 
-							<li><a href>Our Team</a></li>
-							<li><a href>FAQ</a></li>
-							<li><a href>Contact Us</a></li>
+							<li><button onclick= "team()">Our Team</button></li>
+							<li><button onclick= "faq()">FAQ</button></li>
+							<li><button onclick= "contact()">Contact Us</button></li>
 						</ul>
 					</li>
-					<li><a href= "">Exchange</a></li>
 
-					<li id= "right"><a href= "/users/login">Login / Sign Up</a></li>
-					<li id= "right"><a href= "">Get Funded</a></li>
+					<li><button onclick= "funding()">Get Funded</button></li>
+					<li><button onclick= "exchange()">Exchange</button></li>
+					<li><button onclick= "news()">News</button></li>
+					<li><button onclick= "whyInv()">Why Invest</button></li>
+					<li><button onclick= "signUp()">Invest Now</button></li>
+					<li id= "left"><div class= "logo"></div></li>
 				</ul>
 			</nav></div>
 
 			<div class= "big-title white">
-				<h1>Access to Pre-Screened Silicon Valley Startups</h1>
+				<h1 class= "remove-margin">Access to Pre-Screened Silicon Valley Startups</h1>
+				<h3 class= "remove-margin">Open an investor's account with us today. It's easy and FREE.</h3>
+				<div class= "button"><button onclick= "signUp()">Get Started</button></div>
+			</div>
 
-				<div class= "button"><a href= "">Get Started</a></div>
+			<div class= "section2">
+				<div class= "section2-box">
+
+				</div>
+				<div class= "section2-box">
+
+				</div>
+				<div class= "section2-box">
+
+				</div>
 			</div>
 		</div>
 	</body>
 
  </html>
+
+
+
+
+
+
+
+
+
+
+
+
