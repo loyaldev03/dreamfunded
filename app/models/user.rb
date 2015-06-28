@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
+	has_many :companies
 	#Getter
-
 	validates :first_name, presence:true
 	validates :last_name, presence:true
 	validates_uniqueness_of :login
