@@ -44,7 +44,7 @@ class UsersController < ApplicationController
 			password = params[:password]
 			
 			if(login_user.password_valid?(password))
-				session[:current_user_name] = login_user.first_name 
+				session[:current_user] = login_user.login 
 				redirect_to url_for(:controller => 'home', :action => 'index')
 			else
 				flash[:notice] = "Wrong password. Please try again"
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
 	end
 
 	def log_out
-		session[:current_user_name] = nil
+		session[:current_user] = nil
 		redirect_to(:action => :login)
 	end
 end

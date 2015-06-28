@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
     	t.column :first_name,:string
     	t.column :last_name,:string
-    	t.column :login,:string
+    	t.column :login,:string, :primary => true
     	t.column :email,:string
     	t.column :salt,:stringe
     	t.column :password_digest, :string
