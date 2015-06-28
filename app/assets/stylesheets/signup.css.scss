@@ -1,0 +1,74 @@
+// Place all the styles related to the signup controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.signup-box {
+	margin: 50px auto;
+	font-family: "Lato", sans-serif;
+	width: 400px;
+	border: none;
+	background: #ffffff;
+	padding: 40px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.centered {
+	text-align: center;
+}
+
+.input-box {
+	outline: none;
+	border: none;
+	border-bottom: 1px solid gray;
+	border-right: 1px solid white;
+	padding: 3px 6px;
+	font-size: 16px;
+	width: 97%;
+	margin: 0 0 30px 0;
+}
+
+.input-box:focus {
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+}
+
+.half {
+	width: 45%;
+	float: left;
+}
+
+.scoot-left {
+	margin-left: 3%;
+}
+
+.submit-button {
+	width: 200px;
+	height: 50px;
+	background: #3A6EC2;
+	border: none;
+	outline: 0;
+	margin: 20px 0;
+	font-size: 18px;
+	font-family: "Lato", sans-serif;
+	color: white;
+}
+
+.submit-button:hover {
+	background-color: #284B82;
+}
+
+.top-gap {
+	padding-top: 20px;
+}
+
+<<<<<<< HEAD
+.notice {
+	height: 50px;
+	color: #0033CC;
+	font-size: 14px;
+}
+=======
+.check_box {
+	font-size : 14px;
+}
+>>>>>>> a3b657c50d1c1a9af39e6376f9902f1658a41007
