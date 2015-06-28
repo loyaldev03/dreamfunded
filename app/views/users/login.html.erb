@@ -13,20 +13,19 @@
 				<br>
 				<%= password_field_tag(:password, nil, :class => "passbox", :placeholder => "Password") %>
 				<br>
+					<div class = "notice centered">
+						<%= flash[:notice] if flash[:notice] %>
+						<%= @error_message %>
+					</div>
 				<div class= "centered">
 					<%= submit_tag("Login", :class => "login-button") %>
 				</div>
 			<% end %>
 		</div>
 
-		<div class = "notice centered">
-			<%= flash[:notice] if flash[:notice] %>
-			<%= @error_message %>
-		</div>
-
 		<div class= "centered">
 			<form action="/users/new">
-		   		<input type="submit" value="Sign up here!" class= "signup">
+		   		<input type="submit" value="Sign up here" class= "signup">
 			</form>
 		</div>
 	</div>

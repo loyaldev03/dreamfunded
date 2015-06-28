@@ -1,0 +1,105 @@
+/////////-------------- MENU ------------------//////////
+@import "colors";
+
+
+.menu-wrap {
+	background-color: white;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.25), 0 2px 4px rgba(0,0,0,0.22);
+	position: fixed;
+	top: 0;
+	border: none;
+	outline: 0;
+}
+
+.main-menu {
+	display: inline;
+	clear: both;
+}
+
+a {
+	text-decoration: none;
+}
+
+.white a, .white {
+	color: white;
+}
+
+.menu {
+	margin: 0 auto;
+}
+
+.menu li {
+	margin: 0;
+	list-style: none;
+}
+
+.menu > ul > li {
+	display: inline-block;
+	position: relative;
+	font-size: 18px;
+	padding: 10px 10px;
+	float: right;
+}
+
+.menu > ul > li:hover {
+	background-color: $gray;
+}
+
+.sub-menu {
+	width: 140%;
+	padding: 0;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	display: none;
+	opacity: 0;
+	transition: opacity linear 0.15s;
+	background: $gray;
+}
+
+.sub-menu li {
+	padding: 10px 10px;
+}
+
+.sub-menu li:hover {
+	background: $darkgray;
+}
+
+.menu li:hover .sub-menu {
+	display: block;
+	opacity: 1;
+}
+
+button {
+	outline: 0;
+	border: none;
+	background: transparent;
+	font-size: 18px;
+	color: white;
+}
+
+.main-menu button {
+	color: $darkblue;
+}
+
+.menu button {
+	font-size: 16px;
+}
+
+.arrow {
+	font-size: 10px;
+	line-height: 0%;
+}
+
+.logo {
+	background: transparent url("DreamFunded Logo.png") no-repeat top left;
+	background-size: contain;
+	height: 30px;
+	width: 180px;
+	position: relative;
+}
+
+#left {
+	margin-left: 40px;
+	float: left;
+}

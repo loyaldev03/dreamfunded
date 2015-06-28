@@ -29,15 +29,16 @@
             <p>A questionnaire will be sent to your email shortly to determine your account type.</p>
          </div>
 
+         <div class = "notice centered">
+            <%= flash[:notice] if flash[:notice] %>
+            <%= @error_message %>
+         </div>
+
          <div class= "centered">
             <%= submit_tag("Submit", :class => "submit-button centered") %>
          </div>
 
       <% end %>
-       <div class = "notice">
-       	<%= flash[:notice] if flash[:notice] %>
-      	<%= @error_message %>
-       </div>
 
     </div>
 
