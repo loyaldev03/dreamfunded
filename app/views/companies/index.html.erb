@@ -1,9 +1,10 @@
-<h1> Companies </h1>
+<h1> Invest on Selected Startups </h1>
 
 <% if @companies != nil %> 
 	<% @companies.each do |company| %>
-		<p> <%= company.name %> </p>
-		<p> by <%= company.user_id %> </p>
+		<%= image_tag "#{company.image_file_name}" %>
+		<p><b> Description: </b></p>
 		<p> <%= company.description %> </p>
+		<button id = <%="#{company.name}_invest" %>> Invest on <%= company.name %> </button>
 	<% end %>
 <% end %>
