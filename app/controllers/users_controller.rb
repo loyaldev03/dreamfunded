@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 		record.password_confirmation = params[:password_confirmation]
 		if record.valid?
 			record.save
-			flash[:notice] = "Registration successful"
+			flash[:notice] = "Registration successful."
 			redirect_to(:action => :login)
 		else
 			flash[:notice] = "Validation failed."
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 	def post_login
 		login_user = User.find_by(login: params[:username])
 		if login_user == nil
-			flash[:notice] = "This user ID does not exist" 
+			flash[:notice] = "This user ID does not exist." 
 			redirect_to(:action => :login)
 		else
 			password = params[:password]
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
 				session[:current_user_name] = login_user.first_name 
 				redirect_to url_for(:controller => 'home', :action => 'index')
 			else
-				flash[:notice] = "Wrong password. Please try again"
+				flash[:notice] = "Wrong password. Please try again."
 				redirect_to(:action => :login)
 			end
 		end
