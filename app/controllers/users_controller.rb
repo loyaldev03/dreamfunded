@@ -32,7 +32,6 @@ class UsersController < ApplicationController
 			end
 			render(:action => :new)
 		end
-
 	end	
 
 	def post_login
