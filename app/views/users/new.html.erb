@@ -1,6 +1,7 @@
 <html>
 <head>
-   <%= stylesheet_link_tag    'signup', media: 'all' %>
+    <%= stylesheet_link_tag    'signup', media: 'all' %>
+    <%= javascript_include_tag    'signup' %>
    <title>DreamFunded | Sign Up</title>
 </head>
 
@@ -19,15 +20,15 @@
          <%= password_field_tag(:password, nil, :placeholder => "Enter Password", :class => "input-box half") %>
          <%= password_field_tag(:password_confirmation, nil, :placeholder => "Confirm Password", :class => "input-box half scoot-left") %><br>
 
-         <h4> Ceritfy yourself as an investor </h4>
+         <h4> Certify yourself as an investor </h4>
 
          <div class = "check_box">
-           <input type="checkbox" name="net_worth" > My net worth is over $1 million, excluding my home.<br>
-           <input type="checkbox" name="income" > My income was $200k+ for the past two years.<br>
-           <input type="checkbox" name="investor" > I invest from an accredited business, family office or VC.<br>
-           <input type="checkbox" name="reg" > I am not accredited, but will invest under Reg A+.<br>
+           <input type="checkbox" name="net_worth" id="box1" onclick = "onOff()"> My net worth is over $1 million, excluding my home.<br>
+           <input type="checkbox" name="income" id="box2" onclick = "onOff()"> My income was $200k+ for the past two years.<br>
+           <input type="checkbox" name="investor" id="box3" onclick = "onOff()"> I invest from an accredited business, family office or VC.<br>
+           <input type="checkbox" name="reg" id="box4" onclick = "onOff()"> I am not accredited, but will invest under Reg A+.<br>
         </div>
-        
+
          <div class= "centered">
             <p>A questionnaire will be sent to your email shortly to determine your account type.</p>
          </div>
@@ -38,7 +39,7 @@
          </div>
 
          <div class= "centered">
-            <%= submit_tag("Submit", :class => "submit-button centered") %>
+            <%= submit_tag("Submit", :id => "submit-button", :disabled => true) %>
          </div>
 
       <% end %>

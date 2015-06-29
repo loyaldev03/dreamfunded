@@ -19,4 +19,5 @@ Rails.application.config.assets.precompile += %w( companies-new.css )
 
 # Javascripts
 Rails.application.config.assets.precompile += %w( links.js )
+Rails.application.config.assets.precompile += %w( signup.js )
 

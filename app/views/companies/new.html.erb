@@ -9,10 +9,6 @@
 	<div class= "signup-box register-wrap">
 		<h2 class= "centered"> Create Your Company's Profile </h2>
 
-		<div class = "notice centered">
-			<%= flash[:file_uploaded] if flash[:file_uploaded] %>
-		</div>
-
 		<%= form_tag '/companies/create', multipart: true do %>
 
 			<%= text_field_tag(:name, nil, :placeholder => "Name of Your Company", :class => "input-box") %><br>
@@ -24,7 +20,13 @@
 				<%= text_area(:description, nil, :placeholder => "Company Description and Details", :class => "description-box") %>
 			</div>
 
-			<%= submit_tag("Register", :class => "centered submit-button") %>
+			<div class = "notice centered">
+				<%= flash[:file_uploaded] if flash[:file_uploaded] %>
+			</div>
+			
+			<div class= "centered">
+				<%= submit_tag("Register", :id => "submit-button") %>
+			</div>
 		<% end %>
 	</div>
 </body>
