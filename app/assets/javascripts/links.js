@@ -1,3 +1,3 @@
 function signUp() {
-	window.location = "/user/new";
+	window.location = "/users/new";
 }

@@ -1,10 +1,12 @@
 <html>
 	<head>
-		<link rel= "stylesheet" href= "../assets/stylesheets/home.css.scss">
-		<link rel= "stylesheet" href= "../assets/stylesheets/menu.css.scss">
+		<%= stylesheet_link_tag    'home', media: 'all' %>
+		<%= stylesheet_link_tag    'menu', media: 'all' %>
+		<%= javascript_include_tag		'links' %>
+
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ek+Mukta">
 
-		<script type= "text/javascript" src= "../assets/javascripts/links.js"></script>
+		<!--<script type= "text/javascript" src= "assets/javascripts/links.js"></script>-->
 
 		<title>DreamFunded | Home</title>
 	</head>
@@ -13,7 +15,7 @@
 		<div class= "container fullWidth">
 			<div class= "menu-wrap fullWidth"> <nav class= "menu fullWidth">
 				<ul class= "main-menu white">
-					<li><button onclick= "signin()">Login / Sign Up</button></li>
+					<li><button onclick= "signUp()">Login / Sign Up</button></li>
 					<li><button onclick= "about()">About Us <span class="arrow">&#9660;</span></button>
 						<ul class= "sub-menu"> 
 							<li><button onclick= "team()">Our Team</button></li>
