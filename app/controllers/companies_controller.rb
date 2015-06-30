@@ -18,7 +18,7 @@ class CompaniesController < ApplicationController
 			File.open(path, "wb") { |f| f.write(uploaded_file.read) }
 			@user_id = session[:current_user]
 			@name = params[:name]
-			@description = params[:description]
+			@description = params[:description][0]
 			flash[:file_upload] = "Image upload was successful"
 			uploaded = Companies.new(:user_id => @user_id, :name => @name, :description => @description, :image_file_name => @file_name)
 			uploaded.save

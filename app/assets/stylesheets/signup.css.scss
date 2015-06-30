@@ -1,6 +1,7 @@
 // Place all the styles related to the signup controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'colors';
 
 .signup-box {
 	margin: 50px auto;
@@ -41,10 +42,10 @@
 	margin-left: 3%;
 }
 
-.submit-button {
+#submit-button {
 	width: 200px;
 	height: 50px;
-	background: #3A6EC2;
+	background: $buttonlight;
 	border: none;
 	outline: 0;
 	margin: 20px 0;
@@ -53,8 +54,12 @@
 	color: white;
 }
 
-.submit-button:hover {
-	background-color: #284B82;
+#submit-button:hover {
+	background-color: $buttondark;
+}
+
+#submit-button:disabled {
+	background-color: $buttongray; 
 }
 
 .top-gap {
@@ -66,6 +71,7 @@
 	color: #0033CC;
 	font-size: 14px;
 }
+
 .check_box {
-	font-size : 14px;
+	font-size : 15px;
 }

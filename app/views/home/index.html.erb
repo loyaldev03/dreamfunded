@@ -1,10 +1,10 @@
 <html>
 	<head>
-		<link rel= "stylesheet" href= "../assets/stylesheets/home.css.scss">
-		<link rel= "stylesheet" href= "../assets/stylesheets/menu.css.scss">
-		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ek+Mukta">
+		<%= stylesheet_link_tag    'home', media: 'all' %>
+		<%= stylesheet_link_tag    'menu', media: 'all' %>
+		<%= javascript_include_tag		'links' %>
 
-		<script type= "text/javascript" src= "../assets/javascripts/links.js"></script>
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ek+Mukta">
 
 		<title>DreamFunded | Home</title>
 	</head>
@@ -13,7 +13,14 @@
 		<div class= "container fullWidth">
 			<div class= "menu-wrap fullWidth"> <nav class= "menu fullWidth">
 				<ul class= "main-menu white">
-					<li><button onclick= "signin()">Login / Sign Up</button></li>
+
+					<% if @user == nil %>
+						<li><button onclick= "signIn()">Login / Sign Up</button></li>
+					<% else %>
+						<li><button onclick="profile()"><%= @user.first_name %></button></li> 
+					<% end %>
+
+
 					<li><button onclick= "about()">About Us <span class="arrow">&#9660;</span></button>
 						<ul class= "sub-menu"> 
 							<li><button onclick= "team()">Our Team</button></li>
@@ -27,24 +34,24 @@
 					<li><button onclick= "news()">News</button></li>
 					<li><button onclick= "whyInv()">Why Invest</button></li>
 					<li><button onclick= "signUp()">Invest Now</button></li>
-					<li id= "left"><div class= "logo"></div></li>
+					<li id= "left"><buton onclick= "home()"><div class= "logo"></div></button></li>
 				</ul>
 			</nav></div>
 
 			<div class= "big-title white">
-				<h1 class= "remove-margin">Access to Pre-Screened Silicon Valley Startups</h1>
-				<h3 class= "remove-margin">Open an investor's account with us today. It's easy and FREE.</h3>
+				<h1 class= "remove-margin">Access to Vetted Startups & Proven Tech Companies</h1>
+				<div class= "top-space"><h3 class= "remove-margin">“A small investment today, may make a big impact on your future!”</h3></div>
 				<div class= "button"><button onclick= "signUp()">Get Started</button></div>
 			</div>
 
-			<div class= "section2">
+			<div class= "section2-wrap"><div class= "section2">
 				<div class= "section2-box">
 
 				</div>
 				<div class= "section2-box">
 
 				</div>
-				<div class= "section2-box">
+				<div class= "section2-box"></div>
 
 				</div>
 			</div>
@@ -53,18 +60,3 @@
 
  </html>
 
-
-
-
-
-
-
-
-
-
-
-
-<<<<<<< HEAD
-=======
- <a href = "/users/login"> Log in at dreamfunded </a>
->>>>>>> a3b657c50d1c1a9af39e6376f9902f1658a41007

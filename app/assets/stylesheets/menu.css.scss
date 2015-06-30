@@ -45,6 +45,11 @@ a {
 	background-color: $gray;
 }
 
+.menu > ul > li:hover, .menu li:hover, .sub-menu li:hover, button:hover {
+	cursor: hand;
+	cursor: pointer;
+}
+
 .sub-menu {
 	width: 140%;
 	padding: 0;
@@ -92,7 +97,7 @@ button {
 }
 
 .logo {
-	background: transparent url("DreamFunded Logo.png") no-repeat top left;
+	background: transparent url(asset-path("DreamFundedLogo.png")) no-repeat top left;
 	background-size: contain;
 	height: 30px;
 	width: 180px;
@@ -102,4 +107,8 @@ button {
 #left {
 	margin-left: 40px;
 	float: left;
+}
+
+#left:hover {
+	background: white;
 }

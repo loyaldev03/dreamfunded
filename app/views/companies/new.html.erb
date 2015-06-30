@@ -1,17 +1,33 @@
-<h1> Create Your Comapanies Profile </h1>
 
-<div class = "notice">
-	<%= flash[:file_uploaded] if flash[:file_uploaded] %>
-</div>
+<html>
+<head>
+		<%= stylesheet_link_tag    'companies-new', media: 'all' %>
+		<title>DreamFunded | Company Registration</title>
+</head>
 
-<%= form_tag '/companies/create', multipart: true do %>
-	<label for = "file">Company Image to Upload</label><%= file_field_tag "file" %>
-	<%= label_tag(:name, "Name of the startup") %>
-	<%= text_field_tag(:name) %>
+<body>
+	<div class= "signup-box register-wrap">
+		<h2 class= "centered"> Create Your Company's Profile </h2>
 
-	<%= label_tag(:description, "Description") %>
-	<%= text_field_tag(:description) %>
+		<%= form_tag '/companies/create', multipart: true do %>
 
-	<%= submit_tag %>
-<% end %>
+			<%= text_field_tag(:name, nil, :placeholder => "Name of Your Company", :class => "input-box") %><br>
 
+			<label for = "file">Upload Company Image: </label>
+			<%= file_field_tag "file" %><br>
+
+			<div class= "description-wrap">
+				<%= text_area(:description, nil, :placeholder => "Company Description and Details", :class => "description-box") %>
+			</div>
+
+			<div class = "notice centered">
+				<%= flash[:file_uploaded] if flash[:file_uploaded] %>
+			</div>
+			
+			<div class= "centered">
+				<%= submit_tag("Register", :id => "submit-button") %>
+			</div>
+		<% end %>
+	</div>
+</body>
+</html>
