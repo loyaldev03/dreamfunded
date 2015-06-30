@@ -17,7 +17,9 @@ class UsersController < ApplicationController
 		@last_name = params[:last_name]
 		@password = params[:password]
 		@email = params[:email]
-		record = User.new(:login=> @login, :first_name => @first_name, :last_name => @last_name, :email => @email)
+		#Change to enum / class later
+		@authority = 1
+		record = User.new(:login=> @login, :first_name => @first_name, :last_name => @last_name, :email => @email, :authority => @authority)
 		record.password = @password
 		record.password_confirmation = params[:password_confirmation]
 		if record.valid?

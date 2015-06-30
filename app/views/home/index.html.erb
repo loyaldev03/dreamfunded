@@ -13,7 +13,14 @@
 		<div class= "container fullWidth">
 			<div class= "menu-wrap fullWidth"> <nav class= "menu fullWidth">
 				<ul class= "main-menu white">
-					<li><button onclick= "signIn()">Login / Sign Up</button></li>
+
+					<% if @user == nil %>
+						<li><button onclick= "signIn()">Login / Sign Up</button></li>
+					<% else %>
+						<li><button onclick="profile()"><%= @user.first_name %></button></li> 
+					<% end %>
+
+
 					<li><button onclick= "about()">About Us <span class="arrow">&#9660;</span></button>
 						<ul class= "sub-menu"> 
 							<li><button onclick= "team()">Our Team</button></li>
@@ -53,18 +60,3 @@
 
  </html>
 
-
-
-
-
-
-
-
-
-
-
-
-<<<<<<< HEAD
-=======
- <a href = "/users/login"> Log in at dreamfunded </a>
->>>>>>> a3b657c50d1c1a9af39e6376f9902f1658a41007
