@@ -1,10 +1,31 @@
-<h1> Invest on Selected Startups </h1>
+<html>
+<head>
+	<%= stylesheet_link_tag		"companies", media: 'all' %>
+	<title>DreamFunded | Invest</title>
+</head>
 
-<% if @companies != nil %> 
-	<% @companies.each do |company| %>
-		<%= image_tag "#{company.image_file_name}" %>
-		<p><b> Description: </b></p>
-		<p> <%= company.description %> </p>
-		<button id = <%="#{company.name}_invest" %>> Invest on <%= company.name %> </button>
-	<% end %>
-<% end %>
+</body>
+	<div class= "wrap">
+
+		<div class= "header"><h1 class= "centered"> Invest on Selected Startups </h1></div>
+
+		<% if @companies != nil %> 
+			<div class= "companies-container">
+				<% @companies.each do |company| %>
+					<div class= "company-container">
+						<div class= "company-image">
+							<%= image_tag "#{company.image_file_name}", :class => "image" %>
+						</div>
+						<div class= "company-description">
+							<div class= "text"><p> <%= company.description %> </p></div>
+							<div class= "button-wrap"><button class= "company-button" id = <%="#{company.name}_invest" %>> Invest in <%= company.name %> </button></div>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+
+</body>
+
+</html>
