@@ -1,3 +1,7 @@
+function signOut() {
+	window.location = "/users/signout"
+}
+
 function signUp() {
 	window.location = "/users/new";
 }

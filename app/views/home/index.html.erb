@@ -17,7 +17,8 @@
 					<% if @user == nil %>
 						<li><button onclick= "signIn()">Login / Sign Up</button></li>
 					<% else %>
-						<li><button onclick="profile()"><%= @user.first_name %></button></li> 
+						<li><button onclick= "signOut()" >Sign Out</button></li>
+						<li><button onclick= "profile()" >Profile</button></li> 
 					<% end %>
 
 

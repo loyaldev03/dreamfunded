@@ -54,8 +54,10 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def log_out
+	# Signs out and redirects to the homepage
+	def signout
 		session[:current_user] = nil
-		redirect_to(:action => :login)
+		redirect_to :controller => 'home'
 	end
+
 end
