@@ -2,8 +2,20 @@
 <head>
 	<title>DreamFunded | Adding a new team member</title>
 </head>
+
 <body>
-	
+	<h2>Add a new team member</h2>
+
+	<%= form_tag("addmember", method:"get", multipart: true) do%>
+		<%= text_field_tag(:full_name, nil, :placeholder => "Full Name") %>
+		<label for = "file">Upload Portrait: </label>
+		<%= file_field_tag "file" %>
+		<%= text_field_tag(:description, nil, :placeholder => "Short Summary") %>
+		<%= text_field_tag(:full_bio, nil, :placeholder => "Full Bio") %>
+
+		<%= submit_tag("Add") %>
+
+	<% end %>
 </body>
 
 </html>
