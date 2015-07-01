@@ -1,3 +1,64 @@
 // Place all the styles related to the companies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'colors';
+
+.wrap {
+	margin: 50px auto;
+	font-family: "Calibri";
+}
+
+.header {
+	background: white;
+}
+
+.companies-container {
+	width: 85%;
+	margin: 0 auto;
+}
+
+.company-container {
+	width: 200px;
+	height: 330px;
+	padding: 5px 10px;
+	margin: 15px;
+	float: left;
+	background: white;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
+}
+
+.company-image {
+	width: 180px;
+	height: 180px;
+	padding: 10px;
+	vertical-align: middle;
+	display: table-cell;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
+}
+
+.image {
+	max-width: 170px;
+	max-height: 170px;
+}
+.company-description {
+	margin: 15px 5px;
+	height: 100px;
+}
+
+.text {
+	height: 100px;
+	overflow: auto;
+}
+
+.company-button {
+	background: $darkblue;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
+	padding: 10px;
+	font-size: 15px;
+	width: 100%;
+}
+
+.button-wrap {
+	text-align: center;
+}

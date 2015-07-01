@@ -40,6 +40,9 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    docusign_rest (0.1.1)
+      json
+      multipart-post (>= 1.2)
     erubis (2.7.0)
     execjs (2.5.2)
     hike (1.2.3)
@@ -56,6 +59,7 @@ GEM
     mime-types (2.6.1)
     minitest (5.7.0)
     multi_json (1.11.1)
+    multipart-post (2.0.0)
     rack (1.5.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -114,6 +118,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-session_store
   coffee-rails (~> 4.0.0)
+  docusign_rest
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.1.7)
