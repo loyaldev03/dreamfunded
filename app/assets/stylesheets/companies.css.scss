@@ -6,7 +6,7 @@
 
 .wrap {
 	font-family: "Calibri";
-	margin: 0 auto;
+	width: 100%;
 }
 
 .header {
@@ -14,34 +14,44 @@
 }
 
 .companies-container {
-	border: 1px solid black;
-	display: table-cell;
-	padding: 20px;
+	display: table;
+	width: 85%;
+	margin: 0 auto;
+	padding-bottom: 20px;
 }
 
 .company-container {
+	min-width: 200px;
 	width: 200px;
 	height: 430px;
 	padding: 5px 10px;
-	margin: 2% 1%;
+	margin: 20px 1%;
 	float: left;
 	background: white;
 	box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
+	position: relative;
 }
 
 .company-image {
+	position: relative;
 	width: 180px;
 	height: 180px;
 	padding: 10px;
 	vertical-align: middle;
 	display: table-cell;
 	box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
+	margin: 0 auto;
+}
+
+.image-wrap {
+	text-align: center;
 }
 
 .image {
 	max-width: 170px;
 	max-height: 170px;
 }
+
 .company-description {
 	margin: 15px 5px;
 	height: 200px;

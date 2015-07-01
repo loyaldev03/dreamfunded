@@ -14,9 +14,9 @@
 		<div class= "companies-container">
 			<% @companies.each do |company| %>
 				<div class= "company-container">
-					<div class= "company-image">
+					<div class= "company-image"><div class= "image-wrap">
 						<%= image_tag "#{company.image_file_name}", :class => "image" %>
-					</div>
+					</div></div>
 					<div class= "company-description">
 						<div class= "text"><p> <%= company.description %> </p></div>
 						<div class= "button-wrap"><button class= "company-button" id = <%="#{company.name}_invest" %>> Invest in <%= company.name %> </button></div>
