@@ -15,32 +15,30 @@
 
 .companies-container {
 	display: table;
-	width: 85%;
+	width: 80%;
 	margin: 0 auto;
 	padding-bottom: 20px;
 }
 
 .company-container {
-	min-width: 200px;
-	width: 200px;
+	display: table-cell;
+	width: 180px;
 	height: 430px;
-	padding: 5px 10px;
+	padding: 10px 10px;
 	margin: 20px 1%;
 	float: left;
 	background: white;
 	box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
-	position: relative;
 }
 
 .company-image {
-	position: relative;
-	width: 180px;
-	height: 180px;
+	width: 170px;
+	height: 170px;
 	padding: 10px;
 	vertical-align: middle;
 	display: table-cell;
 	box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
-	margin: 0 auto;
+	margin: 0 20px;
 }
 
 .image-wrap {
@@ -48,8 +46,8 @@
 }
 
 .image {
-	max-width: 170px;
-	max-height: 170px;
+	max-width: 150px;
+	max-height: 150px;
 }
 
 .company-description {
@@ -58,7 +56,7 @@
 }
 
 .text {
-	height: 190px;
+	height: 195px;
 	overflow: auto;
 	border-bottom: 10px solid white;
 }

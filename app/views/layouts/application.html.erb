@@ -1,9 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dreamfunded</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+	  <title>Dreamfunded</title>
+	  <%= stylesheet_link_tag    'application', media: 'all' %>
+	  <%= stylesheet_link_tag		"companies", media: 'all' %>
+	  <%= javascript_include_tag		'links' %>
+	 
+	  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ek+Mukta">
   <%= csrf_meta_tags %>
+
+  	<div class= "menu-wrap fullWidth"> <nav class= "menu fullWidth">
+		<ul class= "main-menu white">
+
+			<% if @user == nil %>
+				<li><button onclick= "signIn()">Login / Sign Up</button></li>
+			<% else %>
+				<li><button onclick= "signOut()" >Sign Out</button></li>
+				<li><button onclick= "profile()" >Profile</button></li> 
+			<% end %>
+
+
+			<li><button onclick= "about()">About Us <span class="arrow">&#9660;</span></button>
+				<ul class= "sub-menu"> 
+					<li><button onclick= "team()">Our Team</button></li>
+					<li><button onclick= "faq()">FAQ</button></li>
+					<li><button onclick= "contact()">Contact Us</button></li>
+				</ul>
+			</li>
+
+			<li><button onclick= "funding()">Get Funded</button></li>
+			<li><button onclick= "exchange()">Exchange</button></li>
+			<li><button onclick= "news()">News</button></li>
+			<li><button onclick= "whyInv()">Why Invest</button></li>
+
+			<% if @user != nil && @user.authority >= @Authority[:Accredited] %>
+				<li><button onclick= "invest()">Invest Now</button></li>
+			<% elsif @user == nil %>
+				<li><button onclick= "signUp()">Invest Now</button></li>
+			<% end %>
+
+			<li id= "left"><buton onclick= "home()"><div class= "logo"></div></button></li>
+		</ul>
+	</nav></div>
+
 </head>
 <body>
 
