@@ -34,7 +34,13 @@
 					<li><button onclick= "exchange()">Exchange</button></li>
 					<li><button onclick= "news()">News</button></li>
 					<li><button onclick= "whyInv()">Why Invest</button></li>
-					<li><button onclick= "signUp()">Invest Now</button></li>
+
+					<% if @user != nil && @user.authority < @Authority[:Accredited] %>
+						<li><button onclick= "invest()">Invest Now</button></li>
+					<% elsif @user == nil %>
+						<li><button onclick= "signUp()">Invest Now</button></li>
+					<% end %>
+
 					<li id= "left"><buton onclick= "home()"><div class= "logo"></div></button></li>
 				</ul>
 			</nav></div>

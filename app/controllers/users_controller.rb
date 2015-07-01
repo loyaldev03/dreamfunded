@@ -17,8 +17,14 @@ class UsersController < ApplicationController
 		@last_name = params[:last_name]
 		@password = params[:password]
 		@email = params[:email]
+
 		#Change to enum / class later
-		@authority = 1
+		if params[:reg] == nil
+			@authority = User.Authority[:Basic]
+		else
+			@authority = User.Authority[:Accredited]
+		end
+
 		record = User.new(:login=> @login, :first_name => @first_name, :last_name => @last_name, :email => @email, :authority => @authority)
 		record.password = @password
 		record.password_confirmation = params[:password_confirmation]
@@ -45,7 +51,7 @@ class UsersController < ApplicationController
 			password = params[:password]
 			
 			if(login_user.password_valid?(password))
-				session[:current_user] = login_user.login 
+				session[:current_user] = login_user 
 				redirect_to url_for(:controller => 'home', :action => 'index')
 			else
 				flash[:notice] = "Wrong password. Please try again."

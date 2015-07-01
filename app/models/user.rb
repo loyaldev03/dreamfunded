@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	has_many :companies
+	has_many :company
 	#Getter
 	validates :first_name, presence:true
 	validates :last_name, presence:true
@@ -26,4 +26,14 @@ class User < ActiveRecord::Base
 		result = pass + salt.to_s
 		self.password_digest = Digest::SHA1.hexdigest(result)
 	end
+
+	def self.Authority
+		{
+			:Basic => 1, 
+			:Accredited => 2,
+			:Founder => 3,
+			:Admin => 4
+		}
+	end
+
 end

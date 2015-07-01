@@ -1,3 +1,7 @@
+function invest() {
+	window.location = "/companies"
+}
+
 function signOut() {
 	window.location = "/users/signout"
 }
