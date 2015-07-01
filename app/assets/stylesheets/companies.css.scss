@@ -5,8 +5,8 @@
 @import 'colors';
 
 .wrap {
-	margin: 50px auto;
 	font-family: "Calibri";
+	margin: 0 auto;
 }
 
 .header {
@@ -14,15 +14,16 @@
 }
 
 .companies-container {
-	width: 85%;
-	margin: 0 auto;
+	border: 1px solid black;
+	display: table-cell;
+	padding: 20px;
 }
 
 .company-container {
 	width: 200px;
-	height: 330px;
+	height: 430px;
 	padding: 5px 10px;
-	margin: 15px;
+	margin: 2% 1%;
 	float: left;
 	background: white;
 	box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
@@ -43,12 +44,13 @@
 }
 .company-description {
 	margin: 15px 5px;
-	height: 100px;
+	height: 200px;
 }
 
 .text {
-	height: 100px;
+	height: 190px;
 	overflow: auto;
+	border-bottom: 10px solid white;
 }
 
 .company-button {
