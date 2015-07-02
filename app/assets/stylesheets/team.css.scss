@@ -1,21 +1,17 @@
 //for team.html.erb
-
 .centered {
-	text-align:center;
+	text-align: center;
 }
 
-.header{
-	color:black;
-	font-size:250%;
-}
 
-.header-contents{
-	color:black;
-	font-size:120%;
+.header-contents {
+	font-size: 18px;
 }
 
 .header-container{
-	background-color:white;
+	background-color: white;
+	padding-bottom: 1px;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
 }
 
 .single-bio{

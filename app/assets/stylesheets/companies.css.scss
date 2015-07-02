@@ -10,21 +10,25 @@
 }
 
 .header {
-	background: white;
+	background: #0D87B3;
+	padding: 10px;
+	color: white;
+	text-align: center;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
 }
 
 .companies-container {
 	display: table;
-	width: 80%;
+	width: 85%;
 	margin: 0 auto;
 	padding-bottom: 20px;
 }
 
 .company-container {
 	display: table-cell;
-	width: 180px;
+	width: 200px;
 	height: 430px;
-	padding: 10px 10px;
+	padding: 30px 10px;
 	margin: 20px 1%;
 	float: left;
 	background: white;
@@ -32,8 +36,8 @@
 }
 
 .company-image {
-	width: 170px;
-	height: 170px;
+	width: 190px;
+	height: 150px;
 	padding: 10px;
 	vertical-align: middle;
 	display: table-cell;
@@ -47,7 +51,7 @@
 
 .image {
 	max-width: 150px;
-	max-height: 150px;
+	max-height: 130px;
 }
 
 .company-description {
@@ -56,7 +60,7 @@
 }
 
 .text {
-	height: 195px;
+	height: 205px;
 	overflow: auto;
 	border-bottom: 10px solid white;
 }

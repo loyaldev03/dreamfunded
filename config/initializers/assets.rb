@@ -13,6 +13,8 @@ Rails.application.config.assets.precompile += %w( home.css )
 Rails.application.config.assets.precompile += %w( menu.css )
 Rails.application.config.assets.precompile += %w( signup.css )
 Rails.application.config.assets.precompile += %w( login.css )
+Rails.application.config.assets.precompile += %w( team.css )
+Rails.application.config.assets.precompile += %w( why.css )
 #---- companies
 Rails.application.config.assets.precompile += %w( companies-new.css )
 Rails.application.config.assets.precompile += %w( companies.css )

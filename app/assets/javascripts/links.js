@@ -39,7 +39,7 @@ function news() {
 }
 
 function whyInv() {
-	window.location = "/why-Invest";
+	window.location = "/home/why";
 }
 
 function signIn() {

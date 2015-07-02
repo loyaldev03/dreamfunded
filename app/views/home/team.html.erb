@@ -1,13 +1,14 @@
 <html>
 <head>
-	<link rel= "stylesheet" href= "../../assets/stylesheets/team.css.scss">
+	<%= stylesheet_link_tag		'team', media: 'all' %>
 	<title>DreamFunded | Our Team</title>
 </head>
 
 <body>
+	<div class= "wrapper">
 	<div class="header-container">
-		<h1 class= "header centered">Our Team</h1>
-		<p class= "header-contents">DreamFunded is a company built by angel investors for investors. We strive to cultivate long lasting relationships with startups, investors, and partners.</p>
+		<div class= "header centered"><h1>Our Team</h1></div>
+		<p class= "header-contents centered">DreamFunded is a company built by angel investors for investors. We strive to cultivate long lasting relationships with startups, investors, and partners.</p>
 	</div>
 	<% if @teams != nil %>
 		<% teams.each do |t| %>
@@ -17,6 +18,7 @@
 			<button id = <%="#{t.full_name}_fullbio" %>> Full Bio </button>
 		<% end %>
 	<% end %>
+</div>
 </body>
 
 </html>
