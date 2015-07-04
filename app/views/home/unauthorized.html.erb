@@ -1,4 +1,33 @@
-<div class= "wrapper">
-	<h1> Sorry You are not authorized to view this page </h1>
-	<a href = "/home">Go Back to Homepage </a>
-</div>
+<head>
+	<%= stylesheet_link_tag		'unauthorized', media: 'all'%>
+	
+	<title>DreamFunded | Authorization Error</title>
+</head>
+
+<body>
+
+	<div class= "wrapper centered">
+		<div class= "header">
+			<h1>Authorization Error</h1>
+		</div>
+		<div class= "signin-box error">
+			<h2 class= "centered"> Sorry, you are not authorized to view this page </h2>
+			<br>
+			<p class= "left">This might be for one of the following reasons:</p>
+			<ul class= "left">
+				<li>
+					You are not an unacreddited investor waiting for access.
+				</li>
+
+				<li>
+					This is an administrator-only page.
+				</li>
+
+			</ul>
+			<br>
+			<p>If you believe there is an error, please contact us.</p>
+			<button class= "login-button" onclick= "home()">Go Back to Homepage</button>
+		</div>
+	</div>
+
+</body>

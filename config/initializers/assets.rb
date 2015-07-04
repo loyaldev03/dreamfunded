@@ -18,6 +18,7 @@ Rails.application.config.assets.precompile += %w( why.css )
 #---- companies
 Rails.application.config.assets.precompile += %w( companies-new.css )
 Rails.application.config.assets.precompile += %w( companies.css )
+Rails.application.config.assets.precompile += %w( unauthorized.css )
 
 
 
