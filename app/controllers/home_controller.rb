@@ -4,7 +4,11 @@ class HomeController < ApplicationController
 		@Authority = User.Authority
 	end
 
-	def addmember
+	def team_add
+
+	end
+
+	def add
 		if params[:file] != nil
 			uploaded_file = params[:file]
 			@file_name = uploaded_file.original_filename
@@ -23,8 +27,6 @@ class HomeController < ApplicationController
 			flash[:file_uploaded] = "Image is not valid"
 			redirect_to "/home/team_add"
 		end
-
-
 	end
 
 	def about

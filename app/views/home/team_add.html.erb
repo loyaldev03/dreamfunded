@@ -4,18 +4,31 @@
 </head>
 
 <body><div class= "wrapper">
-	<h2>Add a new team member</h2>
+	<%= form_for :add do |f| %>
+	<p>
+    <%= f.label :"Full Name" %><br>
+    <%= f.text_field :full_name %>
+    </p>
 
-	<%= form_tag("addmember", method:"get", multipart: true) do%>
-		<%= text_field_tag(:full_name, nil, :placeholder => "Full Name") %>
-		<label for = "file">Upload Portrait: </label>
-		<%= file_field_tag "file" %>
-		<%= text_field_tag(:description, nil, :placeholder => "Short Summary") %>
-		<%= text_field_tag(:full_bio, nil, :placeholder => "Full Bio") %>
+	<label for = "file">Upload Portrait: </label>
+	<%= file_field_tag "file" %>
 
-		<%= submit_tag("Add") %>
+    <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+    </p>
 
-	<% end %>
+    <p>
+    <%= f.label :"Full Bio" %><br>
+    <%= f.text_area :fullbio %>
+    </p>
+
+    <p>
+    <%= f.submit %>
+    </p>
+
+    <% end %>
+
 </div>
 </body>
 
