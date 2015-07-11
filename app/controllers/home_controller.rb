@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
 	def index
-		@user = session[:current_user]
 		@Authority = User.Authority
 	end
 
