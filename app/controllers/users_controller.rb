@@ -11,6 +11,12 @@ class UsersController < ApplicationController
 
 	end
 
+	def profile
+		@current_user = session[:current_user]
+		@users = User.all()
+		@Authority = User.Authority
+	end
+
 	def create
 		@login = params[:login]
 		@first_name = params[:first_name]
@@ -20,9 +26,9 @@ class UsersController < ApplicationController
 
 		#Change to enum / class later
 		if params[:reg] == nil
-			@authority = User.Authority[:Basic]
-		else
 			@authority = User.Authority[:Accredited]
+		else
+			@authority = User.Authority[:Basic]
 		end
 
 		record = User.new(:login=> @login, :first_name => @first_name, :last_name => @last_name, :email => @email, :authority => @authority)

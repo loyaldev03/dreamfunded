@@ -1,0 +1,28 @@
+// Place all the styles related to the companies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'colors';
+
+.wrap {
+	font-family: "Calibri";
+	width: 100%;
+}
+
+.header {
+	background: #0D87B3;
+	padding: 10px;
+	color: white;
+	text-align: center;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
+}
+
+.text {
+	height: 205px;
+	overflow: auto;
+	border-bottom: 10px solid white;
+}
+
+.button-wrap {
+	text-align: center;
+}

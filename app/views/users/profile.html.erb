@@ -1,0 +1,33 @@
+<html>
+	<head>
+	    <%= stylesheet_link_tag    'signup', media: 'all' %>
+	    <%= javascript_include_tag    'signup' %>
+	   <title>DreamFunded | Sign Up</title>
+	</head>
+	<body>
+		<div class= "wrapper">
+			<div class= "header"><h1 class= "centered"> Profile </h1></div>
+			<h3> Hello <%= @current_user.first_name %> </h3>
+			<% if @current_user.authority == @Authority[:Admin] %>
+				<table id="user_table">
+				 <tr>
+				 	<th>UserID</th>
+				   	<th>Firstname</th>
+				   	<th>Lastname</th> 
+				   	<th>E-mail</th>
+				   	<th>Authority</th>
+				 </tr>
+				  	<% @users.each do |user| %>
+				  		<tr>
+							<td><%= user.login %></td>
+							<td><%= user.first_name %></td>
+							<td><%= user.last_name %></td>
+							<td><%= user.email %></td>
+							<td><%= user.authority %></td>
+						</tr>
+					<% end %>
+				</table>
+			<% end %>
+		</div>
+	</body>
+</html>
