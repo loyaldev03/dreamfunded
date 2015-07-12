@@ -11,10 +11,34 @@ class UsersController < ApplicationController
 
 	end
 
+	# Controller for profile page
 	def profile
+		if session[:current_user] == nil
+			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
+		end
 		@current_user = session[:current_user]
-		@users = User.all()
 		@Authority = User.Authority
+		@users = User.all
+	end
+
+	#Promotes a user
+	def promote
+		user_login = params[:user]
+		@user = User.find_by_login(user_login)
+		if @user.authority != 4
+			@user.update_column(:authority, @user.authority+1)
+		end
+		redirect_to(:action => :profile)
+	end
+
+	#Demotes a user
+	def demote
+		user_login = params[:user]
+		@user = User.find_by_login(user_login)
+		if @user.authority != 1
+			@user.update_column(:authority, @user.authority-1)
+		end
+		redirect_to(:action => :profile)
 	end
 
 	def create
