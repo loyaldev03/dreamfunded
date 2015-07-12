@@ -3,33 +3,34 @@
 	<title>DreamFunded | Adding a new team member</title>
 </head>
 
-<body><div class= "wrapper">
-	<%= form_for :add do |f| %>
-	<p>
-    <%= f.label :"Full Name" %><br>
-    <%= f.text_field :full_name %>
-    </p>
+<body><div>
+    <div>
+        <h2> Enter the profile of the new member. </h2>
 
-	<label for = "file">Upload Portrait: </label>
-	<%= file_field_tag "file" %>
+        <%= form_tag '/home/create', multipart: true do %>
 
-    <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-    </p>
+            <%= text_field_tag(:name, nil, :placeholder => "Name") %><br>
 
-    <p>
-    <%= f.label :"Full Bio" %><br>
-    <%= f.text_area :fullbio %>
-    </p>
+            <label for = "file">Upload Personal Image: </label>
+            <%= file_field_tag "file" %><br>
 
-    <p>
-    <%= f.submit %>
-    </p>
+            <div>
+                <%= text_area(:summary, nil, :placeholder => "Summary of the Biography") %>
+            </div>
 
-    <% end %>
+            <div>
+                <%= text_area(:fullbio, nil, :placeholder => "Full Biography") %>
+            </div>
 
+            <div>
+                <%= flash[:file_uploaded] if flash[:file_uploaded] %>
+            </div>
+            
+            <div>
+                <%= submit_tag("Register", :id => "submit-button") %>
+            </div>
+        <% end %>
+    </div>
 </div>
 </body>
-
 </html>

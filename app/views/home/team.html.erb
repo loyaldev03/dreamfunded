@@ -10,15 +10,16 @@
 		<div class= "header centered"><h1>Our Team</h1></div>
 		<p class= "header-contents centered">DreamFunded is a company built by angel investors for investors. We strive to cultivate long lasting relationships with startups, investors, and partners.</p>
 	</div>
-	<% if @teams != nil %>
-		<% teams.each do |t| %>
-			<%= image_tag "#{t.image_name}" %>
-			<p> <%= t.full_name %> </p>
-			<p> <%= t.description %> </p>
-			<button id = <%="#{t.full_name}_fullbio" %>> Full Bio </button>
+
+	<% if @teams != nil %> 
+		<% @teams.each do |team| %>
+			<%= image_tag "#{team.file_name}" %>
+			<p> <%= team.summary %> </p>
+			<p> <%= team.fullbio %> </p>
 		<% end %>
 	<% end %>
-</div>
+
+
 </body>
 
 </html>

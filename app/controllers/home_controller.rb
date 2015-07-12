@@ -3,24 +3,21 @@ class HomeController < ApplicationController
 		@Authority = User.Authority
 	end
 
-	def team_add
-
-	end
-
-	def add
+	def create
 		if params[:file] != nil
 			uploaded_file = params[:file]
 			@file_name = uploaded_file.original_filename
 			directory = "app/assets/images/"
 			path = File.join(directory, @file_name)
-			File.open(path, "wb") { |f| f.write(uploaded_file.read)}
+			File.open(path, "wb") { |f| f.write(uploaded_file.read) }
+			flash[:file_upload] = "Image upload was successful"
 
-			@full_name = param[:full_name]
-			@description = param[:description]
-			@full_bio = param[:full_bio]
-			flash[:file_uploaded] = "Image uploaded"
-			profile = Team.new(:full_name => @full_name, :image_name => @file_name, :description => @description, :full_bio => @full_bio)
-			profile.save
+			@name = params[:name]
+			@summary = params[:summary][0]
+			@fullbio = params[:fullbio][0]
+			
+			uploaded = Team.new(:name => @name, :file_name => @file_name, :summary => @summary, :fullbio=>@fullbio)
+			uploaded.save
 			redirect_to "/home/team"
 		else
 			flash[:file_uploaded] = "Image is not valid"
@@ -33,7 +30,7 @@ class HomeController < ApplicationController
 	end
 
 	def team
-		
+		@teams = Team.all
 	end
 
 	def unauthorized
