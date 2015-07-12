@@ -15,15 +15,15 @@
             <%= file_field_tag "file" %><br>
 
             <div>
+                <%= flash[:file_uploaded] if flash[:file_uploaded] %>
+            </div>
+
+            <div>
                 <%= text_area(:summary, nil, :placeholder => "Summary of the Biography") %>
             </div>
 
             <div>
                 <%= text_area(:fullbio, nil, :placeholder => "Full Biography") %>
-            </div>
-
-            <div>
-                <%= flash[:file_uploaded] if flash[:file_uploaded] %>
             </div>
             
             <div>

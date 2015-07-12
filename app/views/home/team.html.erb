@@ -15,7 +15,10 @@
 		<% @teams.each do |team| %>
 			<%= image_tag "#{team.file_name}" %>
 			<p> <%= team.summary %> </p>
-			<p> <%= team.fullbio %> </p>
+			<%= form_tag("fullbio", method:get) do %>
+				<div>
+					<%= submit_tag("Full Bio", :id => "#{team.name}") %>
+				</div>
 		<% end %>
 	<% end %>
 

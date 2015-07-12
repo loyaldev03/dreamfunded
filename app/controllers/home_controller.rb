@@ -33,6 +33,10 @@ class HomeController < ApplicationController
 		@teams = Team.all
 	end
 
+	def fullbio
+		
+	end
+
 	def unauthorized
 
 	end
