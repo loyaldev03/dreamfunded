@@ -33,8 +33,18 @@ class HomeController < ApplicationController
 		@teams = Team.all
 	end
 
-	def fullbio
-		
+	def clicked
+
+	end
+
+	def fullbio(name)
+		@team = Team.find_by(name: 'name')
+		@name = team.name
+		@fullbio = team.fullbio
+		@file_name = team.file_name
+		directory = "app/assets/images/"
+		path = File.join(directory, @file_name)
+		File.open(path, "wb") { |f| f.write(uploaded_file.read)}
 	end
 
 	def unauthorized
