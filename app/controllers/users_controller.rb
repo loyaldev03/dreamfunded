@@ -11,6 +11,36 @@ class UsersController < ApplicationController
 
 	end
 
+	# Controller for profile page
+	def profile
+		if session[:current_user] == nil
+			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
+		end
+		@current_user = session[:current_user]
+		@Authority = User.Authority
+		@users = User.all
+	end
+
+	#Promotes a user
+	def promote
+		user_login = params[:user]
+		@user = User.find_by_login(user_login)
+		if @user.authority != 4
+			@user.update_column(:authority, @user.authority+1)
+		end
+		redirect_to(:action => :profile)
+	end
+
+	#Demotes a user
+	def demote
+		user_login = params[:user]
+		@user = User.find_by_login(user_login)
+		if @user.authority != 1
+			@user.update_column(:authority, @user.authority-1)
+		end
+		redirect_to(:action => :profile)
+	end
+
 	def create
 		@login = params[:login]
 		@first_name = params[:first_name]
@@ -20,9 +50,9 @@ class UsersController < ApplicationController
 
 		#Change to enum / class later
 		if params[:reg] == nil
-			@authority = User.Authority[:Basic]
-		else
 			@authority = User.Authority[:Accredited]
+		else
+			@authority = User.Authority[:Basic]
 		end
 
 		record = User.new(:login=> @login, :first_name => @first_name, :last_name => @last_name, :email => @email, :authority => @authority)

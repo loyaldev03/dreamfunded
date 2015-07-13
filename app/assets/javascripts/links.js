@@ -2,6 +2,10 @@ function invest() {
 	window.location = "/companies"
 }
 
+function profile() {
+	window.location = "/users/profile"
+}
+
 function signOut() {
 	window.location = "/users/signout"
 }
