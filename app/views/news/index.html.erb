@@ -1,0 +1,22 @@
+<div class= "wrapper">
+	<div class= "header"><h1 class= "centered">Recent News<h1></div>
+
+	<div class= "wrap">
+		<% if @news != nil %>
+			<div class= "news-container">
+				<% @news.each do |news| %>
+					<div class= "news-single-container">
+						<div class= "news-image">
+							<%= image_tag "#{news.image_filename}", :class => "image" %>
+						</div>
+
+						<div class= "news-title">
+							<div class= "title-container"> <%= news.news_title %> </div>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+
+</div>
