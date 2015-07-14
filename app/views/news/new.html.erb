@@ -1,2 +1,36 @@
-<h1>News#new</h1>
-<p>Find me in app/views/news/new.html.erb</p>
+<html>
+
+
+<head>
+	<title>DreamFunded | News Creation</title>
+</head>
+
+<body><div class= "wrapper">
+	<div class= "signup-box register-wrap">
+		<h2 class= "centered"> Create a new article </h2>
+
+		<%= form_tag '/news/create', multipart: true do %>
+
+			<%= text_field_tag(:title, nil, :placeholder => "Name of Your Article", :class => "input-box") %><br>
+
+			<label for = "file">Upload Article Image: </label>
+			<%= file_field_tag "file" %><br>
+
+			<div class= "description-wrap">
+				<%= text_area(:content, nil, :placeholder => "Article Content", :class => "description-box") %>
+			</div>
+
+			<div class = "notice centered">
+				<%= flash[:file_uploaded] if flash[:file_uploaded] %>
+			</div>
+			
+			<div class= "centered">
+				<%= submit_tag("Publish", :id => "submit-button") %>
+			</div>
+		<% end %>
+	</div>
+</div>
+
+</body>
+
+</html>

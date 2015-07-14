@@ -20,10 +20,10 @@ class NewsController < ApplicationController
   def create #needs to add a date/time variable
   	if params[:file] != nil
   		uploaded_file = params[:file]
-  		@file_name = uploadeded_file.original_filename
+  		@file_name = uploaded_file.original_filename
   		directory = "app/assets/images" #need more folders later
   		path = File.join(directory, @file_name)
-  		File.open(path, "wb") { |f| f.write(uploadeded_file.read) }
+  		File.open(path, "wb") { |f| f.write(uploaded_file.read) }
 
   		@news_title = params[:title]
   		@content = params[:content][0]
