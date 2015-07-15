@@ -61,6 +61,7 @@ a {
 	opacity: 0;
 	transition: opacity linear 0.15s;
 	background: $gray;
+	box-shadow: 0 6px 8px rgba(0,0,0,0.20);
 }
 
 .sub-menu li {
