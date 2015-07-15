@@ -15,8 +15,8 @@ Rails.application.config.assets.precompile += %w( signup.css )
 Rails.application.config.assets.precompile += %w( login.css )
 Rails.application.config.assets.precompile += %w( team.css )
 Rails.application.config.assets.precompile += %w( why.css )
+Rails.application.config.assets.precompile += %w( news.css )
 #---- companies
-Rails.application.config.assets.precompile += %w( companies-new.css )
 Rails.application.config.assets.precompile += %w( companies.css )
 Rails.application.config.assets.precompile += %w( unauthorized.css )
 

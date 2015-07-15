@@ -3,10 +3,11 @@
 
 <head>
 	<title>DreamFunded | News Creation</title>
+	<%= stylesheet_link_tag "news", media: 'all' %>
 </head>
 
 <body><div class= "wrapper">
-	<div class= "signup-box register-wrap">
+	<div class= "signup-box creation-wrap">
 		<h2 class= "centered"> Create a new article </h2>
 
 		<%= form_tag '/news/create', multipart: true do %>

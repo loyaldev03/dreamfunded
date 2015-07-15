@@ -1,24 +1,37 @@
-<div class= "wrapper">
-	<div class= "header"><h1 class= "centered">Recent News<h1></div>
+<html>
 
-	<div class= "wrap">
-		<% if @news != nil %>
-			<div class= "news-container">
-				<% @news.each do |article| %>
-					<div class= "news-single-container">
-						<div class= "news-image">
-							<%= image_tag "#{article.image_filename}", :class => "article-image" %>
-						</div>
+<head>
+	<title>DreamFunded | News </title>
+	<%= stylesheet_link_tag "news", media: 'all' %>
+</head>
 
-						<div class= "news-title">
-							<div class= "title-container"> <%= article.title %> </div>
-							<div content= "content-container"> <%= article.content %></div>
-							<div class= "button"><button class= "article-button">Read More</button></div>
+<body>
+
+	<div class= "wrapper">
+		<div class= "header"><h1 class= "centered">Recent News<h1></div>
+
+		<div class= "wrap">
+			<% if @news != nil %>
+				<div class= "news-container">
+					<% @news.each do |article| %>
+						<div class= "news-single-container">
+							<div class= "news-image">
+								<%= image_tag "#{article.image_filename}", :class => "article-image" %>
+							</div>
+
+							<div class= "news">
+								<div class= "title-container"> <%= article.title %> </div>
+								<div class= "content-container"> <%= article.content %></div>
+								<div class= "button smaller"><button class= "article-button">Read More</button></div>
+							</div>
 						</div>
-					</div>
-				<% end %>
-			</div>
-		<% end %>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+
 	</div>
 
-</div>
+</body>
+
+</html>
