@@ -1,6 +1,9 @@
 // Place all the styles related to the news controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "colors";
+
+
 .creation-wrap {
 	width: 550px;
 }
@@ -16,15 +19,13 @@
 
 .news-image {
 	float: left;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
 }
 
 .article-image {
 	width: 250px;
 	height: 250px;
 	float: left;
-	-ms-transform: rotate(90deg); /* IE 9 */
-    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
-    transform: rotate(90deg);
 }
 
 .news {
@@ -35,18 +36,19 @@
 }
 
 .smaller {
-	margin: 10px;
-	width: 110px;
+	margin: 20px 0;
+	width: 130px;
 }
 
 .title-container {
-	font-size: 35px;
+	font-size: 30px;
+	color: $darkblue;
 	border-bottom: 1px solid gray;
 }
 
 .content-container {
-	margin: 10px;
-	height: 100px;
-	overflow: auto;
+	margin: 10px 30px;
+	height: 90px;
+	overflow: hidden;
 	font-size: 18px;
 }
