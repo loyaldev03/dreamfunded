@@ -40,10 +40,8 @@ ActiveRecord::Schema.define(version: 20150709224419) do
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
 
   create_table "teams", force: true do |t|
-    t.string "full_name"
-    t.string "image_name"
-    t.string "description"
-    t.string "full_bio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 # Could not dump table "users" because of following NoMethodError
