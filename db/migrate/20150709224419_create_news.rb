@@ -4,6 +4,7 @@ class CreateNews < ActiveRecord::Migration
     	t.column :title, :string
     	t.column :image_filename, :string
     	t.column :content, :string
+    	t.column :source, :string
       	t.timestamps #uh how does this work.
     end
   end

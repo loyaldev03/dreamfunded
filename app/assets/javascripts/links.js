@@ -15,7 +15,7 @@ function signUp() {
 }
 
 function about() {
-	window.location = "/about";
+	window.location = "/home/about";
 }
 
 function team() {

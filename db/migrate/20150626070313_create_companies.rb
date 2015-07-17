@@ -6,6 +6,7 @@ class CreateCompanies < ActiveRecord::Migration
     	t.column :description,:string
     	t.column :image_file_name, :string
     	t.column :invested_amount, :integer
+    	t.timestamps
     end
   end
 end

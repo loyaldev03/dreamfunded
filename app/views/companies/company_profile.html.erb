@@ -1,15 +1,26 @@
 <html>
 
 	<head>
-		<title>DreamFunded | @company.name </title>
+		<title>DreamFunded | <%= @company.name %> </title>
 	</head>
 
 	<body>
-		<div class= "word-content"><div class="text-content">
-			<h2 class= "center darkblue title"><%= @company.name %></h2>
-			<%= @company.description %>
-			<%= @company.invested_amount %>
-			<%= image_tag "#{@company.image_file_name}", :class => "" %>
+		<div class= "word-content"><div class="text-content stretch">
+			<div class= "topbar">
+				<a href= "/companies" class= "darkblue">&#8617; Back</a>
+			</div>
+			<div class= "company-title indent">
+				<h2 class= "darkblue small-margin"><%= @company.name %></h2>
+				<p class= "posted no-margin darkblue">&#8640; Posted <%= @company.created_at.strftime("%d %b. %Y") %></p>
+			</div>
+			<div class= "stats-container">
+				<div class= "profile-image-wrap"> <%= image_tag "companies/#{@company.image_file_name}", :class => "stats-image" %></div>
+				<div class= "numbers">
+					<%= @company.invested_amount %>
+				</div>
+				<%= button_to "Invest in #{@company.name}", nil, :class => "company-button profile-button" %>
+			</div>
+			<div class= "description-container"><p><%= @company.description %></p></div>
 		</div></div>
 	</body>
 

@@ -3,7 +3,6 @@
 
 <head>
 	<title>DreamFunded | News Creation</title>
-	<%= stylesheet_link_tag "news", media: 'all' %>
 </head>
 
 <body><div class= "wrapper">
@@ -21,6 +20,10 @@
 				<%= text_area(:content, nil, :placeholder => "Article Content", :class => "description-box") %>
 			</div>
 
+			<div class= "description-wrap">
+				<%= text_area(:source, nil, :placeholder => "Source", :class => "description-box source") %>
+			</div>
+			
 			<div class = "notice centered">
 				<%= flash[:file_uploaded] if flash[:file_uploaded] %>
 			</div>

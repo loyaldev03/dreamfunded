@@ -2,7 +2,6 @@
 
 <head>
 	<title>DreamFunded | News </title>
-	<%= stylesheet_link_tag "news", media: 'all' %>
 </head>
 
 <body>
@@ -16,14 +15,13 @@
 					<% @news.reverse_each do |article| %>
 						<div class= "news-single-container">
 							<div class= "news-image">
-								<%= image_tag "#{article.image_filename}", :class => "article-image" %>
-
+								<%= link_to image_tag("news/#{article.image_filename}", :class => "article-image"), {:action => 'full', :id => article.id } %>
 							</div>
 
 							<div class= "news">
 								<div class= "title-container"> <%= article.title %> </div>
 								<div class= "content-container"> <%= article.content %></div>
-								<%= button_to "Read More >", {:action => 'full', :id => article.id }, {:class=>'article-button'} %>
+								<%= button_to "Read More >", {:action => 'full', :id => article.id }, {:class =>'article-button'} %>
 							</div>
 						</div>
 					<% end %>

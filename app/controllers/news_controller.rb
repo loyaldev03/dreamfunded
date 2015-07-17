@@ -17,18 +17,19 @@ class NewsController < ApplicationController
 	end
   end
 
-  def create #needs to add a date/time variable
+  def create
   	if params[:file] != nil
   		uploaded_file = params[:file]
   		@file_name = uploaded_file.original_filename
-  		directory = "app/assets/images" #need more folders later
+  		directory = "app/assets/images/news"
   		path = File.join(directory, @file_name)
   		File.open(path, "wb") { |f| f.write(uploaded_file.read) }
 
   		@news_title = params[:title]
   		@content = params[:content][0]
+      @source = params[:source][0]
   		flash[:file_upload] = "Image upload successful"
-  		uploaded = News.new(:title => @news_title, :image_filename => @file_name, :content => @content)
+  		uploaded = New.new(:title => @news_title, :image_filename => @file_name, :content => @content, :source => @source)
   		uploaded.save
   		redirect_to "/news"
   	else
