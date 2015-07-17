@@ -19,7 +19,7 @@
 					</div></div>
 					<div class= "company-description">
 						<div class= "text"><p> <%= company.description %> </p></div>
-						<div class= "button-wrap"><button class= "company-button" id = <%="#{company.name}_invest" %>> Invest in <%= company.name %> </button></div>
+						<div class= "button-wrap"><%= button_to "Invest in '#{company.name}", {:action => 'company_profile', :id => company.id }, {:class => 'company-button'} %></div>
 					</div>
 				</div>
 			<% end %>

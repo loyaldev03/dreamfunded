@@ -70,6 +70,13 @@
 	padding: 10px;
 	font-size: 15px;
 	width: 100%;
+	border: none;
+	color: white;
+	cursor: pointer;
+}
+
+.company-button:focus {
+	outline: 0;
 }
 
 .button-wrap {

@@ -1,0 +1,16 @@
+<html>
+
+	<head>
+		<title>DreamFunded | @company.name </title>
+	</head>
+
+	<body>
+		<div class= "word-content"><div class="text-content">
+			<h2 class= "center darkblue title"><%= @company.name %></h2>
+			<%= @company.description %>
+			<%= @company.invested_amount %>
+			<%= image_tag "#{@company.image_file_name}", :class => "" %>
+		</div></div>
+	</body>
+
+</html>

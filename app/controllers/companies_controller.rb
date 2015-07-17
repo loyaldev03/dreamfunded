@@ -30,4 +30,13 @@ class CompaniesController < ApplicationController
 			redirect_to "/companies/new"
 		end
 	end
+
+	def company_profile
+		if params[:id] != nil
+			@company = Company.find(params[:id])
+			render "/companies/company_profile"
+		else
+			redirect_to "/companies"
+		end
+	end
 end
