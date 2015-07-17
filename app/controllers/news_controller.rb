@@ -2,7 +2,7 @@ class NewsController < ApplicationController
 
 #default page with news listed by most recent
   def index
-  	@news = News.all
+  	@news = New.all
   end
 
   #to be a list much like index but with more control functionalities
@@ -35,6 +35,15 @@ class NewsController < ApplicationController
   		flash[:file_uploaded] = "Image is not valid"
   		redirect_to "/news/new"
   	end
+  end
+
+  def full
+    if params[:id] != nil
+      @article = New.find(params[:id])
+      render "/news/full"
+    else
+      redirect_to "/news"
+    end
   end
 
 end
