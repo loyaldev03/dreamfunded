@@ -1,0 +1,14 @@
+<html>
+	<head>
+		<title>DreamFunded | @article.title</title>
+	</head>
+
+	<body>
+		<div class= "word-content"><div class="text-content">
+			<h2 class= "center darkblue title"><%= @article.title %></h2>
+			<%= @article.content %>
+			<%= image_tag "#{@article.image_filename}", :class => "" %>
+		</div></div>
+	</body>
+
+</html>

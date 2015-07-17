@@ -14,12 +14,10 @@
 	margin: 30px auto;
 	padding: 30px;
 	background: white;
-	box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
 }
 
 .news-image {
 	float: left;
-	box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
 }
 
 .article-image {
@@ -51,4 +49,34 @@
 	height: 90px;
 	overflow: hidden;
 	font-size: 18px;
+}
+
+.point {
+	font-size: 20px;
+}
+
+.article-button {
+	margin-top: 10px;
+	color: white;
+	border: none;
+	padding: 10px 50px;
+	background: $darkblue;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.article-button:focus {
+	outline: none;
+}
+
+.center {
+	text-align: center;
+}
+
+.darkblue {
+	color: $darkblue;
+}
+
+.title {
+	font-size: 36px;
 }
