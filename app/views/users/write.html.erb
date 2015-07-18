@@ -1,3 +1,4 @@
+<html>
 <head>
 	<title>DreamFunded | Write</title>
 </head>
@@ -7,11 +8,45 @@
 		<div class= "header"><h1 class= "centered">Administration Panel</h1></div>
 
 		<div class= "word-content"><div class= "text-content">
-			<%= button_to "Write a News Article", '/news/new', :method => 'get', :id => 'button' %>
-			<%= button_to "Add a new Member", '/home/team_add', :method => 'get', :id => 'button' %>
-			<%= button_to "Add a new Startup", '/companies/new', :method => 'get', :id => 'button' %>
-
+			<%= button_to "Write a News Article", '/news/new', :method => 'get', :id => 'user-button' %>
+			<%= button_to "Add a new Member", '/home/team_add', :method => 'get', :id => 'user-button' %>
+			<%= button_to "Add a new Startup", '/companies/new', :method => 'get', :id => 'user-button' %>
+				<% if @current_user.authority == @Authority[:Admin] %>
+					<table id="user-table">
+					 <tr>
+					 	<th>UserID</th>
+					   	<th>Firstname</th>
+					   	<th>Lastname</th> 
+					   	<th>E-mail</th>
+					   	<th>Authority</th>
+					   	<th>Promote</th>
+					   	<th>Demote</th>
+					 </tr>
+					  	<% @users.each do |user| %>
+					  		<tr>
+								<td><%= user.login %></td>
+								<td><%= user.first_name %></td>
+								<td><%= user.last_name %></td>
+								<td><%= user.email %></td>
+								<td><%= user.authority %></td>
+								<td>
+									<%= form_tag("/users/promote", method: "post") do %>
+										<%= hidden_field_tag(:user, user.login) %>
+										<%= submit_tag("Promote") %>
+									<% end %>
+								</td>
+								<td>
+									<%= form_tag("/users/demote", method: "post") do %>
+										<%= hidden_field_tag(:user, user.login) %>
+										<%= submit_tag("Demote") %>
+									<% end %>
+								</td>
+							</tr>
+						<% end %>
+					</table>
+				<% end %>
 		</div></div>
 	</div>
 
 </body>
+</html>

@@ -3,9 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "colors";
 
-#button {
-	width: 25%;
-	margin: 10%;
+#user-button {
+	width: 21%;
+	margin: 6%;
 	padding: 15px;
 	background: $darkblue;
 	font-size: 18px;
@@ -15,11 +15,27 @@
 	float: left;
 }
 
-#button:hover {
+#user-button:hover {
 	background: $lightblue;
 }
 
-#button:focus {
+#user-button:focus {
 	outline: 0;
 	border: none;
+}
+
+#user-table {
+	text-align: center;
+	float: center;
+	margin: 0 auto;
+}
+
+#user-table th {
+	color: $darkblue;
+}
+
+#user-table td {
+  border-right: solid 1px $darkblue; 
+  border-left: solid 1px $darkblue;
+  padding: 10px 30px;
 }

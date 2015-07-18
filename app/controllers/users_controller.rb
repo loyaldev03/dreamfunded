@@ -15,6 +15,9 @@ class UsersController < ApplicationController
 		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Admin]
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
 		end
+		@current_user = session[:current_user]
+		@Authority = User.Authority
+		@users = User.all
 	end
 
 	# Controller for profile page
@@ -23,8 +26,6 @@ class UsersController < ApplicationController
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
 		end
 		@current_user = session[:current_user]
-		@Authority = User.Authority
-		@users = User.all
 	end
 
 	#Promotes a user

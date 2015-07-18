@@ -14,8 +14,17 @@
 					<% if user_session == nil %>
 						<li><button onclick= "signIn()">Login / Sign Up</button></li>
 					<% else %>
-						<li><button onclick= "signOut()" >Sign Out</button></li>
-						<li><button onclick= "profile()" >Profile</button></li> 
+						<li><button onclick= "profile()" >My Account <span class="arrow">&#9660;</span></button>
+							<ul class= "sub-menu"> 
+								<li><button onclick= "portfolio()">Portfolio</button></li>
+								<% if user_session.authority != authority[:Admin] %>
+									<li><button onclick= "signOut()" >Sign Out</button></li>
+								<% else %>
+									<li><button onclick= "admin()">Admin Panel</button></li>
+									<li><button onclick= "signOut()" >Sign Out</button></li>
+								<% end %>
+							</ul>
+						</li> 
 					<% end %>
 
 					<li><button onclick= "about()">About Us <span class="arrow">&#9660;</span></button>

@@ -51,5 +51,13 @@ function signIn() {
 }
 
 function home() {
-	window.location = "/home"
+	window.location = "/home";
+}
+
+function portfolio() {
+	window.location = "/users/portfolio";
+}
+
+function admin() {
+	window.location = "/users/write";
 }

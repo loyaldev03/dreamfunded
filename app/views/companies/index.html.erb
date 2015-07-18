@@ -17,7 +17,7 @@
 						<%= link_to image_tag("companies/#{company.image_file_name}", :class => "image"), {:action => 'company_profile', :id => company.id} %>
 					</div></div>
 					<div class= "company-description">
-						<div class= "text"><p> <%= company.description %> </p></div>
+						<div class= "text"><p> <%= nl2br(h(company.description)).html_safe %> </p></div>
 						<div class= "button-wrap"><%= button_to "Invest in #{company.name}", {:action => 'company_profile', :id => company.id }, {:class => 'company-button'} %></div>
 					</div>
 				</div>

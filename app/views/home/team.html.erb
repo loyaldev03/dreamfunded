@@ -14,13 +14,11 @@
 	<% if @teams != nil %> 
 		<% @teams.each do |team| %>
 			<%= image_tag "#{team.file_name}" %>
+			<p> <%= team.name %> </p>
 			<p> <%= team.summary %> </p>
 			<div>
-				<%= form_tag("/home/clicked", method: "post") do %>
-					<%= hidden_field_tag(:name, team.name) %>
-					<%= link_to "fullbio", :method => 'fullbio(@name)' %>
-					<%= submit_tag("Full Bio") %>
-				<% end %>
+				<%= link_to "Full Bio", :controller => :home, :action => :team, :id => team.name %>
+
 			</div>
 		<% end %>
 	<% end %>
