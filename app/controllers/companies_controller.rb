@@ -15,7 +15,7 @@ class CompaniesController < ApplicationController
 		if params[:file] != nil
 			uploaded_file = params[:file]
 			@file_name = uploaded_file.original_filename
-			directory = "app/assets/images/"
+			directory = "app/assets/images/companies/"
 			path = File.join(directory, @file_name)
 			File.open(path, "wb") { |f| f.write(uploaded_file.read) }
 			@user_id = session[:current_user].login
@@ -28,6 +28,15 @@ class CompaniesController < ApplicationController
 		else
 			flash[:file_uploaded] = "Image is not valid"
 			redirect_to "/companies/new"
+		end
+	end
+
+	def company_profile
+		if params[:id] != nil
+			@company = Company.find(params[:id])
+			render "/companies/company_profile"
+		else
+			redirect_to "/companies"
 		end
 	end
 end

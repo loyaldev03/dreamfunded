@@ -1,6 +1,5 @@
 <html>
 <head>
-	<%= stylesheet_link_tag		"companies", media: 'all' %>
 	<title>DreamFunded | Invest</title>
 </head>
 
@@ -15,11 +14,11 @@
 			<% @companies.each do |company| %>
 				<div class= "company-container">
 					<div class= "company-image"><div class= "image-wrap">
-						<%= image_tag "#{company.image_file_name}", :class => "image" %>
+						<%= link_to image_tag("companies/#{company.image_file_name}", :class => "image"), {:action => 'company_profile', :id => company.id} %>
 					</div></div>
 					<div class= "company-description">
-						<div class= "text"><p> <%= company.description %> </p></div>
-						<div class= "button-wrap"><button class= "company-button" id = <%="#{company.name}_invest" %>> Invest in <%= company.name %> </button></div>
+						<div class= "text"><p> <%= nl2br(h(company.description)).html_safe %> </p></div>
+						<div class= "button-wrap"><%= button_to "Invest in #{company.name}", {:action => 'company_profile', :id => company.id }, {:class => 'company-button'} %></div>
 					</div>
 				</div>
 			<% end %>

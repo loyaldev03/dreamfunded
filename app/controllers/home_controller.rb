@@ -47,6 +47,10 @@ class HomeController < ApplicationController
 		File.open(path, "wb") { |f| f.write(uploaded_file.read)}
 	end
 
+	def get_started
+		redirect_to "/users/new"
+	end
+
 	def unauthorized
 
 	end

@@ -1,11 +1,5 @@
 <html>
 	<head>
-		<%= stylesheet_link_tag    'home', media: 'all' %>
-		<%= stylesheet_link_tag    'menu', media: 'all' %>
-		<%= javascript_include_tag		'links' %>
-
-		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ek+Mukta">
-
 		<title>DreamFunded | Home</title>
 	</head>
 
@@ -14,8 +8,8 @@
 
 			<div class= "big-title white">
 				<h1 class= "remove-margin">Access to Vetted Startups & Proven Tech Companies</h1>
-				<div class= "top-space"><h3 class= "remove-margin">“A small investment today, may make a big impact on your future!”</h3></div>
-				<div class= "button"><button onclick= "signUp()">Get Started</button></div>
+				<div class= "top-space"><h3 class= "remove-margin">A small investment today might make a big impact on your future tomorrow.</h3></div>
+				<div class= "centered button-box"><%= button_to "Get Started", {:action => 'get_started'}, {:id => 'button'} %></div>
 			</div>
 
 			<div class= "section2-wrap"><div class= "section2">

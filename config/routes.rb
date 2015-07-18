@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'news/new'
+
+  get 'news/index'
+
+  get 'news/manage'
+
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

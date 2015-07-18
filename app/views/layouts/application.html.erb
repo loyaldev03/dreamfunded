@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	  <title>Dreamfunded</title>
 	  <%= stylesheet_link_tag    'application', media: 'all' %>
-	  <%= stylesheet_link_tag		"companies", media: 'all' %>
+	  <%= stylesheet_link_tag		"menu", media: 'all' %>
 	  <%= javascript_include_tag		'links' %>
-	 
-	  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ek+Mukta">
   <%= csrf_meta_tags %>
 
   			<div class= "menu-wrap fullWidth"> <nav class= "menu fullWidth">
@@ -37,8 +34,8 @@
 					<% elsif user_session == nil %>
 						<li><button onclick= "signUp()">Invest Now</button></li>
 					<% end %>
-
-					<li id= "left"><buton onclick= "home()"><div class= "logo"></div></button></li>
+					<li><button onclick= "home()">Home</button></li>
+					<li id= "left"><button onclick= "home()" id= "nopadding"><div class= "logo"></div></button></li>
 				</ul>
 			</nav></div>
 

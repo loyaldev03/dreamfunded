@@ -5,12 +5,6 @@
 
 @import "colors";
 
-body {
-	margin: 0;
-	padding: 0;
-	font-family: 'Ek Mukta';
-	background: $gray;
-}
 
 .container {
 	max-width: 100%;
@@ -30,7 +24,7 @@ body {
 ////////------------- Front ----------------//////////
 
 .big-title {
-	margin: 20% auto;
+	margin: 20% auto 10% auto;
 	width: 80%;
 	text-align: center;
 }
@@ -46,16 +40,22 @@ h3 {
 	font-family: "Open Sans", arial, sans-serif;
 }
 
-.button {
-	width: 20%;
-	margin: 10% auto;
-	padding: 10px 30px;
-	background: $darkblue;
-	font-size: 20px;
-	box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 4px 8px rgba(0,0,0,0.22);
+.button-box {
+	position: relative;
 }
 
-.button:hover {
+#button {
+	width: 25%;
+	margin: 10% auto;
+	padding: 15px;
+	background: $darkblue;
+	font-size: 18px;
+	border: none;
+	color: white;
+	cursor: pointer;
+}
+
+#button:hover {
 	background: $lightblue;
 }
 

@@ -1,0 +1,34 @@
+<html>
+
+<head>
+	<title>DreamFunded | News </title>
+</head>
+
+<body>
+
+	<div class= "wrapper">
+		<div class= "header"><h1 class= "centered">DreamFunded News<h1></div>
+
+		<div class= "wrap">
+			<% if @news != nil %>
+				<div class= "news-container">
+					<% @news.reverse_each do |article| %>
+						<div class= "news-single-container">
+							<div class= "news-image">
+								<%= link_to image_tag("news/#{article.image_filename}", :class => "article-image"), {:action => 'full', :id => article.id } %>
+							</div>
+
+							<div class= "news">
+								<div class= "title-container"> <%= article.title %> </div>
+								<div class= "content-container"> <%= nl2br(h(article.content)).html_safe %></div>
+								<%= button_to "Read More >", {:action => 'full', :id => article.id }, {:class =>'article-button'} %>
+							</div>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+
+	</div>
+
+</body>
