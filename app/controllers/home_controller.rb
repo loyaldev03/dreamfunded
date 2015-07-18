@@ -37,7 +37,7 @@ class HomeController < ApplicationController
 
 	end
 
-	def fullbio(name)
+	def team(name)
 		@team = Team.find_by(name: 'name')
 		@name = team.name
 		@fullbio = team.fullbio
