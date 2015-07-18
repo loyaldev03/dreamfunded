@@ -18,12 +18,22 @@
 
 .news-image {
 	float: left;
+	width: 250px;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
 }
 
 .article-image {
-	width: 250px;
-	height: 250px;
 	float: left;
+	position:absolute;
+    left: -100%;
+    right: -100%;
+    top: -100%;
+    bottom: -100%;
+    margin: auto; 
+    min-height: 100%;
+    min-width: 100%;
 }
 
 .news {
@@ -42,6 +52,8 @@
 	font-size: 30px;
 	color: $darkblue;
 	border-bottom: 1px solid gray;
+	overflow: hidden;
+	height: 40px;
 }
 
 .content-container {
@@ -78,5 +90,37 @@
 }
 
 .title {
-	font-size: 36px;
+	font-size: 30px;
+}
+
+.topbar {
+	width: 100%;
+	border-bottom: 1px solid gray;
+	height: 30px;
+}
+
+.full-image {
+	max-width: 550px;
+	max-height: 550px;
+	float: left;
+	margin: 0 40px 40px 0;
+}
+
+.article {
+	font-size: 17px;
+	line-height: 150%;
+}
+
+.description-box {
+	width: 95%;
+	height: 200px;
+	margin: 2%;
+	border: none;
+	outline: 0;
+	font-size: 16px;
+}
+
+.source {
+	margin: 10px;
+	height: 15px;
 }

@@ -11,6 +11,12 @@ class UsersController < ApplicationController
 
 	end
 
+	def write
+		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Admin]
+			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
+		end
+	end
+
 	# Controller for profile page
 	def profile
 		if session[:current_user] == nil

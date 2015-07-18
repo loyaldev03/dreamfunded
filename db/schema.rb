@@ -14,17 +14,20 @@
 ActiveRecord::Schema.define(version: 20150709224419) do
 
   create_table "companies", force: true do |t|
-    t.string  "user_id"
-    t.string  "name"
-    t.string  "description"
-    t.string  "image_file_name"
-    t.integer "invested_amount"
+    t.string   "user_id"
+    t.string   "name"
+    t.string   "description"
+    t.string   "image_file_name"
+    t.integer  "invested_amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "news", force: true do |t|
     t.string   "title"
     t.string   "image_filename"
     t.string   "content"
+    t.string   "source"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -40,6 +43,10 @@ ActiveRecord::Schema.define(version: 20150709224419) do
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
 
   create_table "teams", force: true do |t|
+    t.string "name"
+    t.string "file_name"
+    t.string "summary"
+    t.string "fullbio"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

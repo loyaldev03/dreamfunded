@@ -4,7 +4,7 @@
 
 .menu-wrap {
 	background-color: white;
-	box-shadow: 0 2px 4px rgba(0,0,0,0.25), 0 2px 4px rgba(0,0,0,0.22);
+	box-shadow: 0 2px 4px rgba(9, 94, 125, 0.20), 0 2px 4px rgba(9, 94, 125, 0.22);
 	position: fixed;
 	top: 0;
 	border: none;
@@ -61,7 +61,7 @@ a {
 	opacity: 0;
 	transition: opacity linear 0.15s;
 	background: $gray;
-	box-shadow: 0 6px 8px rgba(0,0,0,0.20);
+	box-shadow: 0 6px 8px rgba(9, 94, 125,0.20);
 }
 
 .sub-menu li {
@@ -104,8 +104,8 @@ button {
 	height: 30px;
 	width: 180px;
 	position: relative;
-	border-top: 10px solid white;
-	border-bottom: 12px solid white;
+	border-top: 10px solid transparent;
+	border-bottom: 12px solid transparent;
 }
 
 #nopadding {

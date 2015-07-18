@@ -25,6 +25,46 @@
 body {
 	margin: 0;
 	padding: 0;
-	font-family: 'Ek Mukta';
+	font-family: 'Calibri';
 	background: #ECECEC;
+}
+
+p {
+	font-size: 16px;
+	line-height: 130%;
+}
+.centered{
+	text-align:center;
+}
+
+.header-container{
+	background-color:white;
+	z-index: 300;
+}
+
+.header {
+	background: #0D87B3;
+	padding: 10px;
+	color: white;
+	text-align: center;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
+	position: relative;
+}
+
+.word-content {
+	margin: 0 auto;
+	width: 80%;
+	background: white;
+	padding: 20px;
+	padding-bottom: 150px;
+	margin-bottom: 100px;
+	min-height: 400px;
+}
+
+.text-content {
+	margin: 70px;
+}
+
+.indent {
+	text-indent: 50px;
 }

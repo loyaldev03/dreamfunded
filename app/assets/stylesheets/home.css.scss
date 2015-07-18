@@ -24,7 +24,7 @@
 ////////------------- Front ----------------//////////
 
 .big-title {
-	margin: 20% auto;
+	margin: 20% auto 10% auto;
 	width: 80%;
 	text-align: center;
 }
@@ -40,15 +40,18 @@ h3 {
 	font-family: "Open Sans", arial, sans-serif;
 }
 
-.button {
-	width: 20%;
+#button {
+	width: 25%;
 	margin: 10% auto;
-	padding: 10px 30px;
+	padding: 15px;
 	background: $darkblue;
-	font-size: 20px;
+	font-size: 18px;
+	border: none;
+	color: white;
+	cursor: pointer;
 }
 
-.button:hover {
+#button:hover {
 	background: $lightblue;
 }
 

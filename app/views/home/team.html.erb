@@ -18,7 +18,7 @@
 			<div>
 				<%= form_tag("/home/clicked", method: "post") do %>
 					<%= hidden_field_tag(:name, team.name) %>
-					<%= link_to "fullbio", :method => :fullbio(@name) %>
+					<%= link_to "fullbio", :method => 'fullbio(@name)' %>
 					<%= submit_tag("Full Bio") %>
 				<% end %>
 			</div>

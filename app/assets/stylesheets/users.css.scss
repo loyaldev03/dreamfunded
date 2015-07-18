@@ -1,3 +1,25 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "colors";
+
+#button {
+	width: 25%;
+	margin: 10%;
+	padding: 15px;
+	background: $darkblue;
+	font-size: 18px;
+	border: none;
+	color: white;
+	cursor: pointer;
+	float: left;
+}
+
+#button:hover {
+	background: $lightblue;
+}
+
+#button:focus {
+	outline: 0;
+	border: none;
+}
