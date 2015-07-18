@@ -20,7 +20,7 @@
 				</div>
 				<%= button_to "Invest in #{@company.name}", nil, :class => "company-button profile-button" %>
 			</div>
-			<div class= "description-container"><p><%= @company.description %></p></div>
+			<div class= "description-container"><p><%= nl2br(h(@company.description)).html_safe %></p></div>
 		</div></div>
 	</body>
 

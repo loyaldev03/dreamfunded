@@ -20,7 +20,7 @@
 
 							<div class= "news">
 								<div class= "title-container"> <%= article.title %> </div>
-								<div class= "content-container"> <%= article.content %></div>
+								<div class= "content-container"> <%= nl2br(h(article.content)).html_safe %></div>
 								<%= button_to "Read More >", {:action => 'full', :id => article.id }, {:class =>'article-button'} %>
 							</div>
 						</div>

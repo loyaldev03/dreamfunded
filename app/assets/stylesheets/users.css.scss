@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "colors";
 
-#button {
+#user-button {
 	width: 25%;
 	margin: 10%;
 	padding: 15px;
@@ -15,11 +15,11 @@
 	float: left;
 }
 
-#button:hover {
+#user-button:hover {
 	background: $lightblue;
 }
 
-#button:focus {
+#user-button:focus {
 	outline: 0;
 	border: none;
 }
