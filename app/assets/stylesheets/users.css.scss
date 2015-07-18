@@ -4,8 +4,8 @@
 @import "colors";
 
 #user-button {
-	width: 25%;
-	margin: 10%;
+	width: 21%;
+	margin: 6%;
 	padding: 15px;
 	background: $darkblue;
 	font-size: 18px;
@@ -22,4 +22,20 @@
 #user-button:focus {
 	outline: 0;
 	border: none;
+}
+
+#user-table {
+	text-align: center;
+	float: center;
+	margin: 0 auto;
+}
+
+#user-table th {
+	color: $darkblue;
+}
+
+#user-table td {
+  border-right: solid 1px $darkblue; 
+  border-left: solid 1px $darkblue;
+  padding: 10px 30px;
 }
