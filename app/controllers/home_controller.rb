@@ -33,19 +33,11 @@ class HomeController < ApplicationController
 		@teams = Team.all
 	end
 
-	def clicked
-
+	def fullbio
+		@id = params[:id]
+		@team = Team.find(@id)
 	end
 
-	def team(name)
-		@team = Team.find_by(name: 'name')
-		@name = team.name
-		@fullbio = team.fullbio
-		@file_name = team.file_name
-		directory = "app/assets/images/"
-		path = File.join(directory, @file_name)
-		File.open(path, "wb") { |f| f.write(uploaded_file.read)}
-	end
 
 	def get_started
 		redirect_to "/users/new"
