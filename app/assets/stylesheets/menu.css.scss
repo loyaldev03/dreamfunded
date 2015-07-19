@@ -52,11 +52,11 @@ a {
 }
 
 .sub-menu {
-	width: 140%;
+	width: 130%;
 	padding: 0;
 	position: absolute;
 	top: 100%;
-	left: 0;
+	right: 0;
 	display: none;
 	opacity: 0;
 	transition: opacity linear 0.15s;

@@ -5,15 +5,14 @@
 </head>
 
 <body><div class= "wrapper">
-	<div class= "signup-box register-wrap">
+	<div class= "box register-wrap">
 		<h2 class= "centered"> Create Your Company's Profile </h2>
 
 		<%= form_tag '/companies/create', multipart: true do %>
 
 			<%= text_field_tag(:name, nil, :placeholder => "Name of Your Company", :class => "input-box") %><br>
 
-			<label for = "file">Upload Company Image: </label>
-			<%= file_field_tag "file" %><br>
+			<label for = "file">Upload Company Image: </label> <%= file_field_tag "file" %><br>
 
 			<div class= "description-wrap">
 				<%= text_area(:description, nil, :placeholder => "Company Description and Details", :class => "description-box") %>

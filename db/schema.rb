@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 20150709224419) do
     t.string "file_name"
     t.string "summary"
     t.string "fullbio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 # Could not dump table "users" because of following NoMethodError
