@@ -17,7 +17,7 @@
 			<p> <%= team.name %> </p>
 			<p> <%= team.summary %> </p>
 			<div>
-				<%= link_to "Full Bio", :controller => :home, :action => :team, :id => team.name %>
+				<%= link_to "Full Bio", :controller => :home, :action => :fullbio, :id => team.id %>
 
 			</div>
 		<% end %>

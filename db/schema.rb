@@ -14,13 +14,11 @@
 ActiveRecord::Schema.define(version: 20150709224419) do
 
   create_table "companies", force: true do |t|
-    t.string   "user_id"
-    t.string   "name"
-    t.string   "description"
-    t.string   "image_file_name"
-    t.integer  "invested_amount"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string  "user_id"
+    t.string  "name"
+    t.string  "description"
+    t.string  "image_file_name"
+    t.integer "invested_amount"
   end
 
   create_table "news", force: true do |t|
@@ -47,6 +45,8 @@ ActiveRecord::Schema.define(version: 20150709224419) do
     t.string "file_name"
     t.string "summary"
     t.string "fullbio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 # Could not dump table "users" because of following NoMethodError

@@ -1,10 +1,19 @@
+
+
+
+
 <html>
-<head>
-	<title>DreamFunded | Our Team</title>
-</head>
-<body>
-	<%= image_tag "#{team.file_name}" %>
-	<p> <%= team.summary %> </p>
-	<p> <%= team.fullbio %> </p>
-</body>
-</html>
+	<head>
+		<title>DreamFunded | Our Team</title>
+	</head>
+
+	<body><div class= "wrapper">
+		<% file_name = @team.file_name %>
+		<%= image_tag "#{file_name}" %>
+		<p> <%= @team.name %> </p>
+		<p> <%= @team.fullbio %> </p>
+	</div>
+	</body>
+
+ </html>
+

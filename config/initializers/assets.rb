@@ -25,4 +25,5 @@ Rails.application.config.assets.precompile += %w( unauthorized.css )
 # Javascripts
 Rails.application.config.assets.precompile += %w( links.js )
 Rails.application.config.assets.precompile += %w( signup.js )
-
+Rails.application.config.assets.precompile += %w( docusign.js )
+Rails.application.config.assets.precompile += %w( jquery-1.4.2.min.js )
