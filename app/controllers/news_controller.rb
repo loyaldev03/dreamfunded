@@ -47,4 +47,15 @@ class NewsController < ApplicationController
     end
   end
 
+  def remove_new
+    if params[:id] != nil
+        @article = New.find(params[:id])
+        if (@article != nil) 
+          @article.destroy
+        end
+      end
+      
+      redirect_to "/news"
+    end
+
 end

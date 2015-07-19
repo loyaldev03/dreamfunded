@@ -1,6 +1,9 @@
 class CompaniesController < ApplicationController
 	#Default site that shows all startups
 	def index
+		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Basic]
+			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
+		end
 		@companies = Company.all
 	end
 	
@@ -39,4 +42,15 @@ class CompaniesController < ApplicationController
 			redirect_to "/companies"
 		end
 	end
+
+	def remove_company
+		if params[:id] != nil
+	    	@company = Company.find(params[:id])
+	    	if (@company != nil) 
+	    		@company.destroy
+	    	end
+	    end
+    	
+    	redirect_to "/companies"
+    end
 end
