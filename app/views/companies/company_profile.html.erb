@@ -10,17 +10,39 @@
 				<a href= "/companies" class= "darkblue">&#8617; Back</a>
 			</div>
 			<div class= "company-title indent">
-				<h2 class= "darkblue small-margin"><%= @company.name %></h2>
-				<p class= "posted no-margin darkblue">&#8640; Posted <%= @company.created_at.strftime("%d %b. %Y") %></p>
+				<h2 class= "darkblue small-margin"><%= link_to @company.name, @company.website_link %></h2>
 			</div>
 			<div class= "stats-container">
-				<div class= "profile-image-wrap"> <%= image_tag "companies/#{@company.image_file_name}", :class => "stats-image" %></div>
-				<div class= "numbers">
-					<%= @company.invested_amount %>
-				</div>
+				<div class= "profile-image-wrap"> <%= link_to image_tag("companies/#{@company.image_file_name}", :class => "stats-image"), @company.website_link %></div>
+				<div class= "numbers"><div class= "numbers-content">
+					<p class= "twenty"><span class= "darkblue"> Status: </span> <%= @company.get_status %> </p>
+					<hr>
+					<p class= "twenty"><span class= "darkblue">Progress: </span>$<%= number_with_delimiter(@company.invested_amount, :delimiter => ',') %> of $<%= number_with_delimiter(@company.goal_amount, :delimiter => ',') %></p>
+					<div class="meter orange">
+						<% if @progress == 0 %>
+							<span class= "front" style="width: 5%"></span>
+						<% else %>
+					 		<span style="width: #{@progress}%"></span>
+					 	<% end %>
+					</div>
+					<hr>
+					<p class= "twenty"><span class= "darkblue">Days Left: </span></p>
+
+				</div></div>
 				<%= button_to "Invest in #{@company.name}", nil, :class => "company-button profile-button" %>
 			</div>
-			<div class= "description-container"><p><%= nl2br(h(@company.description)).html_safe %></p></div>
+
+			<div class= "description-container">
+				<div class= "video-box">
+					<% if @company.video_link %>
+						<iframe width="600" height="400" src= <%= @company.video_link %> frameborder="1" allowfullscreen class= "indent"></iframe>
+					<% end %>
+				</div>
+				<br><br><br><br>
+				<h2 class= "darkblue twentyf">Overview</h2>
+				<hr>
+				<p class= "sides"><%= nl2br(h(@company.description)).html_safe %></p>
+			</div>
 		</div></div>
 	</body>
 

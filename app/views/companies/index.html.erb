@@ -20,9 +20,21 @@
 						<%= link_to image_tag("companies/#{company.image_file_name}", :class => "image"), {:action => 'company_profile', :id => company.id} %>
 					</div></div>
 					<div class= "company-description">
-						<div class= "text"><p> <%= nl2br(h(company.description)).html_safe %> </p></div>
-						<div class= "button-wrap"><%= button_to "Invest in #{company.name}", {:action => 'company_profile', :id => company.id }, {:class => 'company-button'} %></div>
+						<p class= "twenty normal"><span class= "darkblue"> Status: </span> <%= company.get_status %></p>
+						<hr>
+						<p class= "twenty normal"><span class= "darkblue">Progress: </span>$<%= number_with_delimiter(company.invested_amount, :delimiter => ',') %> of $<%= number_with_delimiter(company.goal_amount, :delimiter => ',') %></p>
+						<div class="meter orange">
+							<% @progress = company.invested_amount / company.goal_amount rescue 0 %>
+							<% if company.invested_amount == 0 %>
+								<span class= "front" style="width: 5%"></span>
+							<% else %>
+									<span style="width: #{@progress}%"></span>
+							<% end %>
+						</div>
+						<hr>
+						<p class= "twenty normal"><span class= "darkblue">Days Left: </span></p>
 					</div>
+						<div class= "button-wrap"><%= button_to "Invest in #{company.name}", {:action => 'company_profile', :id => company.id }, {:class => 'company-button twenty'} %></div>
 				</div>
 			<% end %>
 		</div>

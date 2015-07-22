@@ -56,10 +56,15 @@ h3 {
 	border: none;
 	color: white;
 	cursor: pointer;
+	outline: none;
 }
 
 #button:hover {
 	background: $lightblue;
+}
+
+#button:active {
+	outline: none;
 }
 
 .remove-margin {
