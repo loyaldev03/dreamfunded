@@ -40,7 +40,11 @@ class HomeController < ApplicationController
 
 
 	def get_started
-		redirect_to "/users/new"
+		if session[:current_user] == nil 
+			redirect_to "/users/new"
+		else
+			redirect_to "/companies"
+		end
 	end
 
 	def unauthorized

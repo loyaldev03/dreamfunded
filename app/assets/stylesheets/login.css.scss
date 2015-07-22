@@ -5,10 +5,10 @@
 .signin-box {
 	margin: 100px auto;
 	font-family: "Lato", sans-serif;
-	width: 300px;
+	width: 500px;
 	border: none;
 	background: #ffffff;
-	padding: 40px;
+	padding: 10px 40px 40px 40px;
 }
 
 .userbox, .passbox {
@@ -19,7 +19,7 @@
 	padding: 3px 6px;
 	font-size: 16px;
 	width: 100%;
-	margin: 15px 0;
+	margin: 15px auto;
 }
 
 .userbox:focus, .passbox:focus {
@@ -44,10 +44,6 @@
 	background-color: $buttondark;
 }
 
-.centered {
-	text-align: center;
-}
-
 .signup {
 	outline: 0;
 	border: none;
@@ -63,4 +59,27 @@
 	color: #0033CC;
 	margin-top: 10px;
 	font-size: 14px;
+}
+
+.tab {
+	width: 49%;
+	float: left;
+	position: relative;
+	display: table-cell;
+	padding-bottom: 10px;
+}
+
+.row {
+	position: relative;
+	display: table;
+	padding: 20px 0;
+	width: 100%;
+}
+
+.right-line {
+	border-right: 1px solid #CCCCCC;
+}
+
+.login-container {
+	margin-top: 20px;
 }

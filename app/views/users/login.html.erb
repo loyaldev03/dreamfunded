@@ -3,9 +3,18 @@
 	<title>DreamFunded | Log In</title>
 </head>
 
-<body><div class= "wrapper">
-	<div class= "signin-box centered">
-		<h2 class= "centered">Sign In</h2>
+<body>
+	<div class= "wrapper"><div class= "box signin-box centered">
+
+		<div class="row">
+			<div class="tab right-line darkblue active">
+				<h2 class= "no-margin centered"><a href="/users/login" id="login-form-link">Login</a></h2>
+			</div>
+			<div class="tab darkblue nodec">
+				<h2 class= "no-margin centered"><a href="/users/new" id="register-form-link">Sign Up</a></h2>
+			</div>
+		</div>
+
 		<div class= "login-container">
 			<%= form_tag("post_login", method: "get") do %>
 				<%= text_field_tag(:username, nil, :class =>"userbox", :placeholder => "Username") %>

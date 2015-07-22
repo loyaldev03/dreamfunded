@@ -8,33 +8,35 @@
 	<div class= "box register-wrap">
 		<h2 class= "centered"> Create Your Company's Profile </h2>
 
-		<%= form_tag '/companies/create', multipart: true do %>
+		<div class= "register-content">
+			<%= form_tag '/companies/create', multipart: true do %>
 
-			<%= text_field_tag(:name, nil, :placeholder => "Name of Your Company", :class => "input-box") %><br>
-			<%= number_field_tag(:amount, nil, :placeholder => "Amount Currently Invested", :class => "input-box half") %> 
-			<div class= "filler"></div>
-			<%= number_field_tag(:goal, nil, :placeholder => "Target Investment Amount", :min => 0, :step => 1000, :class => "input-box half scoot-left") %><br>
-			<%= text_field_tag(:url, nil, :placeholder => "Company Website URL", :class => "input-box") %><br>
-			<%= text_field_tag(:video, nil, :placeholder => "Company Video Link", :class => "input-box") %><br>
-			<label for = "status">Status:</label> <select name="status">
-			  <option value="1" selected="selected">Coming Soon</option>
-			  <option value="2">Active</option>
-			  <option value="3">Funded</option>
-			</select><br><br>
+				<%= text_field_tag(:name, nil, :placeholder => "Name of Your Company", :class => "input-box") %><br>
+				<%= number_field_tag(:amount, nil, :placeholder => "Amount Currently Invested", :class => "input-box half") %> 
+				<div class= "filler"></div>
+				<%= number_field_tag(:goal, nil, :placeholder => "Target Investment Amount", :min => 0, :step => 1000, :class => "input-box half scoot-left") %><br>
+				<%= text_field_tag(:url, nil, :placeholder => "Company Website URL", :class => "input-box") %><br>
+				<%= text_field_tag(:video, nil, :placeholder => "Company Video Link", :class => "input-box") %><br>
+				<label for = "status">Status:</label> <select name="status">
+				  <option value="1" selected="selected">Coming Soon</option>
+				  <option value="2">Active</option>
+				  <option value="3">Funded</option>
+				</select><br><br>
 
-			<label for = "file">Upload Company Logo: </label> <%= file_field_tag "file" %><br>
-			<div class= "description-wrap">
-				<%= text_area(:description, nil, :placeholder => "Company Description and Details", :class => "description-box") %>
-			</div>
+				<label for = "file">Upload Company Logo: </label> <%= file_field_tag "file" %><br>
+				<div class= "description-wrap">
+					<%= text_area(:description, nil, :placeholder => "Company Description and Details", :class => "description-box") %>
+				</div>
 
-			<div class = "notice centered">
-				<%= flash[:message] if flash[:message] %>
-			</div>
-			
-			<div class= "centered">
-				<%= submit_tag("Submit", :id => "submit-button") %>
-			</div>
-		<% end %>
+				<div class = "notice centered">
+					<%= flash[:message] if flash[:message] %>
+				</div>
+				
+				<div class= "centered">
+					<%= submit_tag("Submit", :id => "submit-button") %>
+				</div>
+			<% end %>
+		</div>
 	</div>
 </div>
 </body>

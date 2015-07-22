@@ -105,3 +105,15 @@ hr {
 .normal {
 	line-height: 50%;
 }
+
+.no-margin {
+	margin: 0;
+}
+
+.active {
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.nodec {
+	text-decoration: none;
+}
