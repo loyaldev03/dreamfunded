@@ -11,14 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709224419) do
+ActiveRecord::Schema.define(version: 20150720194555) do
 
   create_table "companies", force: true do |t|
-    t.string  "user_id"
-    t.string  "name"
-    t.string  "description"
-    t.string  "image_file_name"
-    t.integer "invested_amount"
+    t.string   "user_id"
+    t.string   "name"
+    t.string   "description"
+    t.string   "image_file_name"
+    t.integer  "invested_amount"
+    t.string   "website_link"
+    t.string   "video_link"
+    t.integer  "goal_amount"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "founders", force: true do |t|
+    t.string   "name"
+    t.string   "image_address"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "news", force: true do |t|
@@ -26,6 +40,13 @@ ActiveRecord::Schema.define(version: 20150709224419) do
     t.string   "image_filename"
     t.string   "content"
     t.string   "source"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sections", force: true do |t|
+    t.string   "title"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,8 +66,6 @@ ActiveRecord::Schema.define(version: 20150709224419) do
     t.string "file_name"
     t.string "summary"
     t.string "fullbio"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
 # Could not dump table "users" because of following NoMethodError
