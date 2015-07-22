@@ -27,6 +27,10 @@
 	position: relative;
 }
 
+.register-content {
+	margin-top: 40px;
+}
+
 .company-image {
 	height: 200px;
 	width: 290px;
@@ -234,4 +238,13 @@
 	height: 400px;
 	width: 600px;
 	float: center;
+}
+
+.section {
+	border: 1px solid black;
+	margin: 20px 0;
+}
+
+.active {
+
 }
