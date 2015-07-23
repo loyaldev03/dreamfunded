@@ -111,9 +111,8 @@ hr {
 }
 
 .active {
-	border-bottom: 1px solid #CCCCCC;
 }
 
 .nodec {
-	text-decoration: none;
+	border-bottom: 1px solid #CCCCCC;
 }

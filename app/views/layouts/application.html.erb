@@ -34,8 +34,9 @@
 							<li><button onclick= "contact()">Contact Us</button></li>
 						</ul>
 					</li>
-
-					<li><button onclick= "funding()">Get Funded</button></li>
+					<% if user_session != nil && user_session.authority > 2 %>
+						<li><button onclick= "funding()">Get Funded</button></li>
+					<% end %>
 					<li><button onclick= "exchange()">Exchange</button></li>
 					<li><button onclick= "news()">News</button></li>
 					<li><button onclick= "whyInv()">Why Invest</button></li>

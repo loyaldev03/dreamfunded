@@ -86,15 +86,70 @@ h3 {
 }
 
 
+////---------------- Team -------------------- ////////
 
 
+.header-contents {
+	padding: 10px;
+}
 
+.team {
+	margin: 30px auto;
+	width: 1200px;
+	padding: 20px;
+	position: relative;
+}
 
+.team-wrap {
+	position: relative;
+	height: 250px;
+	margin-bottom: 80px;
+}
 
+.team-picture {
+	height: 250px;
+	border-radius: 50%;
+}
 
+.team-pic-wrap {
+	float: left;
+}
 
+.white-box {
+	background: white;
+	height: 200px;
+	width: 849px;
+	padding: 25px;
+	margin-left: 50px;
+	vertical-align: middle;
+	float: left;
+	position: relative;
+}
 
+.summary {
+	height: 90px;
+	padding: 10px;
+	overflow: hidden;
+	margin-left: 30px;
+}
 
+.team-button {
+	border: none;
+	outline: 0;
+	color: white;
+	padding: 10px 40px;
+	background-color: $darkblue;
+	margin: 15px 0;
+	cursor: pointer;
+}
+
+.name {
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.indentt {
+	text-indent: 25px;
+}
 
 
 

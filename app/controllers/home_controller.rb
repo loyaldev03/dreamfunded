@@ -50,5 +50,16 @@ class HomeController < ApplicationController
 	def unauthorized
 
 	end
+
+	def remove_team
+	    if params[:id] != nil
+	        @team = Team.find(params[:id])
+	        if (@team != nil) 
+	          @team.destroy
+	        end
+	      end
+	      
+	      redirect_to "/home/team"
+    end
 	
 end

@@ -3,34 +3,32 @@
 	<title>DreamFunded | Adding a new team member</title>
 </head>
 
-<body><div>
-    <div>
-        <h2> Enter the profile of the new member. </h2>
+<body>
+        <div class= "wrapper"><div class= "box signin-box">
+            <h2 class= "centered"> Add a new Team Member </h2>
+            <%= form_tag '/home/create', multipart: true do %>
 
-        <%= form_tag '/home/create', multipart: true do %>
+                <%= text_field_tag(:name, nil, :placeholder => "Name", :class => "input-box") %><br>
 
-            <%= text_field_tag(:name, nil, :placeholder => "Name") %><br>
+                <label for = "file">Upload Personal Image: </label>
+                <%= file_field_tag "file" %><br>
 
-            <label for = "file">Upload Personal Image: </label>
-            <%= file_field_tag "file" %><br>
+                <div>
+                    <%= flash[:file_uploaded] if flash[:file_uploaded] %>
+                </div>
 
-            <div>
-                <%= flash[:file_uploaded] if flash[:file_uploaded] %>
-            </div>
+                <div class= "description-wrap">
+                    <%= text_area(:summary, nil, :placeholder => "Summary of the Biography", :class => "description-box") %>
+                </div>
 
-            <div>
-                <%= text_area(:summary, nil, :placeholder => "Summary of the Biography") %>
-            </div>
-
-            <div>
-                <%= text_area(:fullbio, nil, :placeholder => "Full Biography") %>
-            </div>
-            
-            <div>
-                <%= submit_tag("Register", :id => "submit-button") %>
-            </div>
-        <% end %>
-    </div>
-</div>
+                <div class= "description-wrap">
+                    <%= text_area(:fullbio, nil, :placeholder => "Full Biography", :class => "description-box") %>
+                </div>
+                
+                <div class= "centered">
+                    <%= submit_tag("Register", :id => "submit-button") %>
+                </div>
+            <% end %>
+    </div></div>
 </body>
 </html>

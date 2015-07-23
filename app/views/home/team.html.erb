@@ -1,28 +1,35 @@
 <html>
 <head>
-	<%= stylesheet_link_tag		'team', media: 'all' %>
 	<title>DreamFunded | Our Team</title>
 </head>
 
 <body>
 	<div class= "wrapper">
-	<div class="header-container">
+	<div class="header-container shadow">
 		<div class= "header centered"><h1>Our Team</h1></div>
-		<p class= "header-contents centered">DreamFunded is a company built by angel investors for investors. We strive to cultivate long lasting relationships with startups, investors, and partners.</p>
 	</div>
 
-	<% if @teams != nil %> 
-		<% @teams.each do |team| %>
-			<%= image_tag "#{team.file_name}" %>
-			<p> <%= team.name %> </p>
-			<p> <%= team.summary %> </p>
-			<div>
-				<%= link_to "Full Bio", :controller => :home, :action => :fullbio, :id => team.id %>
-
-			</div>
+	<div class= "team">
+		<% if @teams != nil %> 
+			<% @teams.each do |team| %>
+				<div class= "team-wrap">
+					<div class= "team-pic-wrap">
+						<%= image_tag "#{team.file_name}", :class => "team-picture" %>
+					</div>
+					<div class= "white-box">
+						<% if user_session != nil && user_session.authority == authority[:Admin] %>
+							<%= button_to "X", {action: 'remove_team', id: team.id} , {:class => 'remove-button'} %>
+						<% end %>
+						<div class="name indentt"><p class= "darkblue twentyf no-margin"> <%= team.name %> </p></div>
+						<div class= "summary">
+							<p class= "no-margin"> <%= team.summary %> </p>
+						</div>
+						<div><%= button_to "Full Biography", {:controller => :home, :action => :fullbio, :id => team.id}, {:class => "team-button twenty"} %></div>
+					</div>
+				</div>
+			<% end %>
 		<% end %>
-	<% end %>
-
+	</div>
 
 </body>
 
