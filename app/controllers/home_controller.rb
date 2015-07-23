@@ -34,6 +34,7 @@ class HomeController < ApplicationController
 	end
 
 	def fullbio
+		@teams = Team.all
 		@id = params[:id]
 		@team = Team.find(@id)
 	end

@@ -6,12 +6,41 @@
 	<head>
 		<title>DreamFunded | Our Team</title>
 	</head>
+	<style>
+	.all_team {
+		float: left;
+		width: 200px;
+    	margin: 10px;
+	}
+	.portrait_left {
+		width: 100px;
+		height: 100px;
+	}
+	.full_bio {
+		position: relative;
+		margin-left: 250px;
+	}
+	.portrait_main {
+		width: 200px;
+		height: 200px;
+	}
+	</style>
 
 	<body><div class= "wrapper">
-		<% file_name = @team.file_name %>
-		<%= image_tag "#{file_name}" %>
-		<p> <%= @team.name %> </p>
-		<p> <%= @team.fullbio %> </p>
+		<div class="all_team">
+			<% if @teams != nil %>
+				<% @teams.each do |team| %>
+					<% file_name = team.file_name %>
+					<%= link_to image_tag("#{file_name}", :class => "portrait_left"), {:controller => :home, :action => :fullbio, :id => team.id} %>
+				<% end %>
+			<% end %>
+		</div>
+		<div class="full_bio">
+			<% file_name = @team.file_name %>
+			<%= image_tag "#{file_name}", :class => "portrait_main" %>
+			<p> <%= @team.name %> </p>
+			<p> <%= @team.fullbio %> </p>
+		</div>
 	</div>
 	</body>
 
