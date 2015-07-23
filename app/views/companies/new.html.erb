@@ -15,6 +15,10 @@
 				<%= number_field_tag(:amount, nil, :placeholder => "Amount Currently Invested", :class => "input-box half") %> 
 				<div class= "filler"></div>
 				<%= number_field_tag(:goal, nil, :placeholder => "Target Investment Amount", :min => 0, :step => 1000, :class => "input-box half scoot-left") %><br>
+				<%= text_field_tag(:CEO, nil, :placeholder => "Name of your CEO", :class => "input-box") %><br>
+
+				<%= text_field_tag(:CEO_number, nil, :placeholder => "Phone Number of your CEO", :class => "input-box") %><br>
+
 				<%= text_field_tag(:url, nil, :placeholder => "Company Website URL", :class => "input-box") %><br>
 				<%= text_field_tag(:video, nil, :placeholder => "Company Video Link", :class => "input-box") %><br>
 				<label for = "status">Status:</label> <select name="status">

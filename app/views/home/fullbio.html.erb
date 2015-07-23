@@ -1,18 +1,26 @@
 
-
-
-
 <html>
 	<head>
-		<title>DreamFunded | Our Team</title>
+		<title>DreamFunded | <%= @team.name %></title>
 	</head>
 
-	<body><div class= "wrapper">
-		<% file_name = @team.file_name %>
-		<%= image_tag "#{file_name}" %>
-		<p> <%= @team.name %> </p>
-		<p> <%= @team.fullbio %> </p>
-	</div>
+	<body>
+		<div class= "wrapper">
+			<div class="header-container shadow">
+				<div class= "header centered"><h1>Team Biography</h1></div>
+			</div>
+
+			<div class= "team"><div class= "team-wrap">
+				<% file_name = @team.file_name %>
+				<div class= "team-pic-wrap"> <%= image_tag "#{file_name}", :class => "team-picture" %> </div>
+				<div class= "white-box long">
+					<div class="name indentt"><p class= "darkblue twentyf no-margin"> <%= @team.name %> </p></div>
+					<div class= "summary long scroll">
+						<p class= "no-margin twenty"> <%= @team.summary %> </p>
+					</div>
+				</div>
+			</div></div>
+		</div>
 	</body>
 
  </html>

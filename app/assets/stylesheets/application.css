@@ -116,3 +116,7 @@ hr {
 .nodec {
 	border-bottom: 1px solid #CCCCCC;
 }
+
+.scroll {
+	overflow: auto;
+}

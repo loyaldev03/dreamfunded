@@ -10,7 +10,7 @@
 				<a href= "/companies" class= "darkblue">&#8617; Back</a>
 			</div>
 			<div class= "company-title indent">
-				<h2 class= "darkblue small-margin"><%= link_to @company.name, @company.website_link %></h2>
+				<h2 class= "darkblue no-margin"><%= link_to @company.name, @company.website_link %></h2>
 			</div>
 			<div class= "stats-container">
 				<div class= "profile-image-wrap"> <%= link_to image_tag("companies/#{@company.image_file_name}", :class => "stats-image"), @company.website_link %></div>
@@ -35,7 +35,7 @@
 			<div class= "description-container">
 				<div class= "video-box">
 					<% if @company.video_link %>
-						<iframe width="600" height="400" src= <%= @company.video_link %> frameborder="1" allowfullscreen class= "indent"></iframe>
+						<iframe width="650" height="450" src= <%= @company.video_link %> frameborder="1" allowfullscreen class= "indent"></iframe>
 					<% end %>
 				</div>
 				<br><br><br><br>

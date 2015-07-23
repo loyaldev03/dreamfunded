@@ -30,6 +30,8 @@ class CompaniesController < ApplicationController
 			@invested = 0
 			@weblink = ""
 			@videolink = ""
+			@ceo = params[:CEO]
+			@number = params[:CEO_number]
 
 			if params[:amount]
 				@invested = params[:amount]
@@ -44,7 +46,8 @@ class CompaniesController < ApplicationController
 			end
 
 			uploaded = Company.new(:user_id => @user_id, :name => @name, :description => @description, :image_file_name => @file_name,
-				:goal_amount => @goal, :status => @status, :invested_amount => @invested, :website_link => @weblink, :video_link => @videolink)
+				:goal_amount => @goal, :status => @status, :invested_amount => @invested, :website_link => @weblink, :video_link => @videolink, 
+				:CEO => @ceo, :CEO_number => @number)
 			
 			if uploaded.valid?
 				uploaded.save

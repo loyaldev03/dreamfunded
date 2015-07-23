@@ -10,6 +10,10 @@ class CreateCompanies < ActiveRecord::Migration
         t.column :video_link, :string
         t.column :goal_amount, :integer
         t.column :status, :integer
+        
+        t.column :CEO, :string
+        t.column :CEO_number, :string
+
     	t.timestamps
     end
   end
