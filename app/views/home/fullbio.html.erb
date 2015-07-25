@@ -1,10 +1,64 @@
+
 <html>
-<head>
-	<title>DreamFunded | Our Team</title>
-</head>
-<body>
-	<%= image_tag "#{team.file_name}" %>
-	<p> <%= team.summary %> </p>
-	<p> <%= team.fullbio %> </p>
-</body>
-</html>
+	<head>
+		<title>DreamFunded | <%= @team.name %></title>
+	</head>
+	<style>
+	.all_team {
+		float: left;
+		width: 200px;
+    	margin: 10px;
+	}
+	.portrait_left {
+		width: 100px;
+		height: 100px;
+	}
+	.full_bio {
+		position: relative;
+		margin-left: 250px;
+	}
+	.portrait_main {
+		width: 200px;
+		height: 200px;
+	}
+	</style>
+
+	<body>
+		<div class= "wrapper">
+			<div class="header-container shadow">
+				<div class= "header centered"><h1>Team Biography</h1></div>
+			</div>
+
+			<div class= "team"><div class= "team-wrap">
+				<% file_name = @team.file_name %>
+				<div class= "team-pic-wrap"> <%= image_tag "#{file_name}", :class => "team-picture" %> </div>
+				<div class= "white-box long">
+					<div class="name indentt"><p class= "darkblue twentyf no-margin"> <%= @team.name %> </p></div>
+					<div class= "summary long scroll">
+						<p class= "no-margin twenty"> <%= @team.summary %> </p>
+					</div>
+				</div>
+			</div></div>
+		</div>
+
+	<body><div class= "wrapper">
+		<div class="all_team">
+			<% if @teams != nil %>
+				<% @teams.each do |team| %>
+					<% file_name = team.file_name %>
+					<%= link_to image_tag("#{file_name}", :class => "portrait_left"), {:controller => :home, :action => :fullbio, :id => team.id} %>
+				<% end %>
+			<% end %>
+		</div>
+		<div class="full_bio">
+			<% file_name = @team.file_name %>
+			<%= image_tag "#{file_name}", :class => "portrait_main" %>
+			<p> <%= @team.name %> </p>
+			<p> <%= @team.fullbio %> </p>
+		</div>
+	</div>
+
+	</body>
+
+ </html>
+

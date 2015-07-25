@@ -5,6 +5,9 @@
 
 @import "colors";
 
+.subtitle {
+	font-size: 30px;
+}
 
 .container {
 	max-width: 100%;
@@ -45,18 +48,23 @@ h3 {
 }
 
 #button {
-	width: 25%;
+	width: 30%;
 	margin: 10% auto;
-	padding: 15px;
+	padding: 17px;
 	background: $darkblue;
-	font-size: 18px;
+	font-size: 20px;
 	border: none;
 	color: white;
 	cursor: pointer;
+	outline: none;
 }
 
 #button:hover {
 	background: $lightblue;
+}
+
+#button:active {
+	outline: none;
 }
 
 .remove-margin {
@@ -78,16 +86,73 @@ h3 {
 }
 
 
+////---------------- Team -------------------- ////////
 
 
+.header-contents {
+	padding: 10px;
+}
 
+.team {
+	margin: 30px auto;
+	width: 1200px;
+	padding: 20px;
+	position: relative;
+}
 
+.team-wrap {
+	position: relative;
+	height: 250px;
+	margin-bottom: 80px;
+}
 
+.team-picture {
+	height: 250px;
+	border-radius: 50%;
+}
 
+.team-pic-wrap {
+	float: left;
+}
 
+.white-box {
+	background: white;
+	height: 200px;
+	width: 849px;
+	padding: 25px;
+	margin-left: 300px;
+	vertical-align: middle;
+	position: relative;
+}
 
+.summary {
+	height: 90px;
+	padding: 10px;
+	overflow: hidden;
+	margin-left: 30px;
+}
 
+.team-button {
+	border: none;
+	outline: 0;
+	color: white;
+	padding: 10px 40px;
+	background-color: $darkblue;
+	margin: 15px 0;
+	cursor: pointer;
+}
 
+.name {
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.indentt {
+	text-indent: 25px;
+}
+
+.long {
+	height: 400px;
+}
 
 
 

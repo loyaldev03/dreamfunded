@@ -4,19 +4,15 @@
 @import 'colors';
 
 .box {
-	margin: 70px auto;
+	margin: 100px auto;
 	font-family: "Lato", sans-serif;
 	border: none;
 	background: #ffffff;
-	padding: 40px;
+	padding: 20px 40px 40px 40px;
 }
 
 .signup-size {
-	width: 400px;
-}
-
-.centered {
-	text-align: center;
+	width: 500px;
 }
 
 .input-box {
@@ -50,7 +46,7 @@
 	background: $buttonlight;
 	border: none;
 	outline: 0;
-	margin: 20px 0;
+	margin: 20px auto;
 	font-size: 18px;
 	font-family: "Lato", sans-serif;
 	color: white;
@@ -76,4 +72,23 @@
 
 .check_box {
 	font-size : 15px;
+}
+
+.tab {
+	width: 49%;
+	float: left;
+	position: relative;
+	display: table-cell;
+	padding-bottom: 10px;
+}
+
+.row {
+	position: relative;
+	display: table;
+	padding: 20px 0;
+	width: 100%;
+}
+
+.right-line {
+	border-right: 1px solid #CCCCCC;
 }

@@ -13,9 +13,6 @@
  *= require_tree .
  *= require_self
  */
-
- @import "colors";
-
 .wrapper {
 	margin: 0;
 	margin-top: 50px;
@@ -32,6 +29,11 @@ body {
 p {
 	font-size: 16px;
 	line-height: 130%;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid #CCCCCC;
 }
 .centered{
 	text-align:center;
@@ -56,7 +58,7 @@ p {
 	width: 80%;
 	background: white;
 	padding: 20px;
-	padding-bottom: 150px;
+	padding-bottom: 100px;
 	margin-bottom: 100px;
 	min-height: 400px;
 }
@@ -65,6 +67,56 @@ p {
 	margin: 70px;
 }
 
+.sides {
+	margin: 20px 50px;
+}
+
 .indent {
 	text-indent: 50px;
+}
+
+.darkblue {
+	color: #0D87B3;
+}
+
+.darkblue a {
+	color: #0D87B3;
+}
+
+.remove-button {
+	cursor: pointer;
+	float: right;
+	outline: 0;
+	border: none;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	background: transparent;
+}
+
+.twenty {
+	font-size: 20px;
+}
+
+.twentyf {
+	font-size: 25px;
+}
+
+.normal {
+	line-height: 50%;
+}
+
+.no-margin {
+	margin: 0;
+}
+
+.active {
+}
+
+.nodec {
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.scroll {
+	overflow: auto;
 }
