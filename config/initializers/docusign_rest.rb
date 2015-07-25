@@ -9,6 +9,6 @@ DocusignRest.configure do |config|
   config.password       = 'h@67$27S'
   config.integrator_key = 'SFAN-21897a26-9108-43d1-b9b6-501d5b76e46a'
   config.account_id     = '341201'
-  #config.endpoint       = 'https://www.docusign.net/restapi'
-  #config.api_version    = 'v2'
+  config.endpoint       = 'https://www.docusign.net/restapi'
+  config.api_version    = 'v2'
 end
