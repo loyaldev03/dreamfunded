@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'payment/index'
+
   get 'news/new'
 
   get 'news/index'
