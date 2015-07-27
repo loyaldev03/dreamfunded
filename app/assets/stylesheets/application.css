@@ -22,7 +22,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	font-family: 'Calibri';
+	font-family: 'Myriad Pro';
 	background: #ECECEC;
 }
 
@@ -92,6 +92,19 @@ hr {
 	right: 10px;
 	top: 10px;
 	background: transparent;
+	color: red;
+}
+
+.approve-button {
+	cursor: pointer;
+	float: left;
+	outline: 0;
+	border: none;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	background: transparent;
+	color: green;
 }
 
 .twenty {

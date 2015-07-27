@@ -1,9 +1,12 @@
 class CreateFounders < ActiveRecord::Migration
   def change
     create_table :founders do |t|
-      t.string :name
-      t.string :image_address
-      t.text :content
+      t.column :name, :string
+      t.column :position, :string
+      t.column :image_address, :string
+      t.column :content, :string
+
+      t.column :company_id, :integer
 
       t.timestamps
     end

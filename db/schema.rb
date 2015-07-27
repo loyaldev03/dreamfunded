@@ -14,17 +14,28 @@
 ActiveRecord::Schema.define(version: 20150720194555) do
 
   create_table "companies", force: true do |t|
-    t.string  "user_id"
-    t.string  "name"
-    t.string  "description"
-    t.string  "image_file_name"
-    t.integer "invested_amount"
+    t.string   "user_id"
+    t.string   "name"
+    t.string   "description"
+    t.string   "image_file_name"
+    t.integer  "invested_amount"
+    t.string   "website_link"
+    t.string   "video_link"
+    t.integer  "goal_amount"
+    t.integer  "status"
+    t.string   "CEO"
+    t.string   "CEO_number"
+    t.integer  "display"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "founders", force: true do |t|
     t.string   "name"
+    t.string   "position"
     t.string   "image_address"
-    t.text     "content"
+    t.string   "content"
+    t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

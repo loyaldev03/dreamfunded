@@ -1,0 +1,42 @@
+<html>
+
+	<head>
+		<title>DreamFunded | Add A Team</title>
+	</head>
+
+	<body>
+		<div class= "wrapper">
+			<div class="header-container shadow">
+				<div class= "header centered"><h1>Add Your Team Member</h1></div>
+			</div>
+
+			<div class= "box team-wrapper">
+				<h2 class= "centered"> Add Team Member Information </h2>
+				<div class= "register-content">
+					<%= form_tag '/companies/make_team', multipart: true do %>
+						<div class= "member-section">
+							<h4>Team Member:</h4>
+								<%= text_field_tag(:name1, nil, :placeholder => "Name", :class => "input-box") %>
+								<%= text_field_tag(:position, nil, :placeholder => "Position", :class => "input-box") %>
+								<label for = "file1">Upload Team Member Photo: </label> <%= file_field_tag "file1" %><br>
+								<div class= "description-wrap">
+									<%= text_area(:content1, nil, :placeholder => "Company Description and Details", :class => "description-box") %>
+								</div>
+						</div>
+
+						<div class = "notice centered">
+			              <%= flash[:notice] if flash[:notice] %>
+			              <%= @error_message2 %>
+			           </div>
+
+						<div class= "centered">
+							<%= submit_tag("Submit", :id => "submit-button") %>
+						</div>
+					<% end %>
+				</div>
+			</div>
+
+		</div>
+	</body>
+
+</html>
