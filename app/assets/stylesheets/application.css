@@ -111,6 +111,10 @@ hr {
 	font-size: 20px;
 }
 
+.eighteen {
+	font-size: 18px;
+}
+
 .twentyf {
 	font-size: 25px;
 }
@@ -132,4 +136,8 @@ hr {
 
 .scroll {
 	overflow: auto;
+}
+
+.hide {
+	display: none
 }

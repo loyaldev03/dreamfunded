@@ -61,7 +61,7 @@
 					<% end %>
 				</div>
 				<br><br><br><br>
-				<h2 class= "darkblue twentyf indent">Overview</h2>
+				<h2 class= "darkblue twentyf indent">Highlight</h2>
 					<hr>
 					<p><%= nl2br(h(@company.description)).html_safe %></p>
 
@@ -82,9 +82,56 @@
 							<% end %>
 						</div>
 					<% end %>
+				<% if @section != nil %>
+					<% if @section.overview != nil %>
+						<h2 class= "darkblue twentyf indent">Overview</h2>
+						<hr>
+						<p><%= nl2br(h(@section.overview)).html_safe %></p>
+					<% end %>
 
-				<h2 class= "darkblue twentyf indent">Highlight</h2>
-				<hr>
+					<% if @section.target_market != nil %>
+						<h2 class= "darkblue twentyf indent">Target Market</h2>
+						<hr>
+						<p><%= nl2br(h(@section.target_market)).html_safe %></p>
+					<% end %>
+
+					<% if @section.current_investor_details != nil %>
+						<h2 class= "darkblue twentyf indent">OCurrent Investor Details</h2>
+						<hr>
+						<p><%= nl2br(h(@section.current_investor_details)).html_safe %></p>
+					<% end %>
+
+					<% if @section.detailed_metrics != nil %>
+						<h2 class= "darkblue twentyf indent">Detailed Metrics</h2>
+						<hr>
+						<p><%= nl2br(h(@section.detailed_metrics)).html_safe %></p>
+					<% end %>
+
+					<% if @section.customer_testimonials != nil %>
+						<h2 class= "darkblue twentyf indent">Customer Testimonials</h2>
+						<hr>
+						<p><%= nl2br(h(@section.customer_testimonials)).html_safe %></p>
+					<% end %>
+
+					<% if @section.competitive_landscape != nil %>
+						<h2 class= "darkblue twentyf indent">Competitive Landscape</h2>
+						<hr>
+						<p><%= nl2br(h(@section.competitive_landscape)).html_safe %></p>
+					<% end %>
+
+					<% if @section.planned_use_of_funds != nil %>
+						<h2 class= "darkblue twentyf indent">Planned Use of Funds</h2>
+						<hr>
+						<p><%= nl2br(h(@section.planned_use_of_funds)).html_safe %></p>
+					<% end %>
+
+					<% if @section.pitch_deck != nil %>
+						<h2 class= "darkblue twentyf indent">Pitch Deck</h2>
+						<hr>
+						<p><%= nl2br(h(@section.pitch_deck)).html_safe %></p>
+					<% end %>
+
+				<% end %>
 			</div>
 		</div></div>
 	</body>

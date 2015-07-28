@@ -25,7 +25,7 @@
 				<div class= "white-box long">
 					<div class="name indent"><p class= "darkblue twentyf small-margin"> <%= @team.name %> </p></div>
 					<div class= "summary long scroll">
-						<p class= "small-margin twenty"> <%= @team.fullbio %> </p>
+						<p class= "small-margin eighteen"> <%= nl2br(h(@team.fullbio)).html_safe %> </p>
 					</div>
 				</div>
 			</div></div>
