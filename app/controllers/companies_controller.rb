@@ -70,9 +70,14 @@ class CompaniesController < ApplicationController
 	def edit
 		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Founder]
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
-		end
-		if params[:id]
-			redirect_to url_for(:controller => 'companies', :action => 'make_team', :id => params[:id])
+		else
+			@companies = Company.all
+			if params[:id] != nil && params[:desired_action] == "1"
+				redirect_to url_for(:controller => 'companies', :action => 'make_team', :id => params[:id])
+
+			elsif params[:id] != nil && params[:desired_action] == "2"
+				redirect_to url_for(:controller => 'companies', :action => 'make_profile', :id => params[:id])
+			end
 		end
 	end
 
@@ -120,12 +125,39 @@ class CompaniesController < ApplicationController
 		end
 	end
 
+	def make_profile
+		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Founder]
+			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
+		end
+
+		@my_company = Company.find_by(params[:id])
+
+		if @my_company == nil
+			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
+		else
+			section = Section.new(:company_id => params[:company_id], :overview => params[:overview], :target_market => params[:target_market], :current_investor_details => params[:current_investor_details], :detailed_metrics => params[:detailed_metrics], :customer_testimonials => params[:customer_testimonials], :competitive_landscape => params[:competitive_landscape], :planned_use_of_funds => params[:planned_use_of_funds], :pitch_deck => params[:pitch_deck])
+			if section.valid?
+				section.save
+				redirect_to "/companies"
+			else
+				@error_message3 = ""
+				section.errors.full_messages.each do |error|
+					@error_message3 = @error_message3 + error + ". "
+				end
+
+				flash[:problem] = @error_message3
+				redirect_to "/companies/make_profile"
+			end
+		end
+	end
+
 	def company_profile
 		if params[:id] != nil
 			@company = Company.find(params[:id])
 			@progress = @company.invested_amount / @company.goal_amount rescue 0
 
 			@members = Founder.where(:company_id => @comp_id).all
+			@section = Section.where(:company_id => params[:id])
 
 			render "/companies/company_profile"
 		else
@@ -147,7 +179,7 @@ class CompaniesController < ApplicationController
     def remove_founder
 		if params[:id] != nil
 	    	@founder = Founder.find(params[:id])
-	    	if (@founder!= nil) 
+	    	if @founder!= nil
 	    		@founder.destroy
 	    	end
 	    end
@@ -158,7 +190,7 @@ class CompaniesController < ApplicationController
     def approve_company
 		if params[:id] != nil
 	    	@company = Company.find(params[:id])
-	    	if (@company != nil) 
+	    	if @company != nil 
 	    		@company.update_column :display, 1
 	    	end
 	    end
