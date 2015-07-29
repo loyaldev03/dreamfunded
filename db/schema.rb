@@ -13,12 +13,23 @@
 
 ActiveRecord::Schema.define(version: 20150720194555) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "companies", force: true do |t|
-    t.string  "user_id"
-    t.string  "name"
-    t.string  "description"
-    t.string  "image_file_name"
-    t.integer "invested_amount"
+    t.string   "user_id"
+    t.string   "name"
+    t.string   "description"
+    t.string   "image_file_name"
+    t.integer  "invested_amount"
+    t.string   "website_link"
+    t.string   "video_link"
+    t.integer  "goal_amount"
+    t.integer  "status"
+    t.string   "CEO"
+    t.string   "CEO_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "founders", force: true do |t|
@@ -52,8 +63,8 @@ ActiveRecord::Schema.define(version: 20150720194555) do
     t.datetime "updated_at"
   end
 
-  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true
-  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
+  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
+  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
 
   create_table "teams", force: true do |t|
     t.string "name"
@@ -62,7 +73,14 @@ ActiveRecord::Schema.define(version: 20150720194555) do
     t.string "fullbio"
   end
 
-# Could not dump table "users" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "users", force: true do |t|
+    t.string  "first_name"
+    t.string  "last_name"
+    t.string  "login"
+    t.string  "email"
+    t.integer "authority"
+    t.string  "salt"
+    t.string  "password_digest"
+  end
 
 end
