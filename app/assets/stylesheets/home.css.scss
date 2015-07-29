@@ -103,7 +103,7 @@ h3 {
 .team-wrap {
 	position: relative;
 	height: 250px;
-	margin-bottom: 80px;
+
 }
 
 .team-picture {
@@ -118,7 +118,7 @@ h3 {
 .white-box {
 	background: white;
 	height: 200px;
-	width: 849px;
+	width: 800px;
 	padding: 25px;
 	margin-left: 300px;
 	vertical-align: middle;
@@ -129,7 +129,6 @@ h3 {
 	height: 90px;
 	padding: 10px;
 	overflow: hidden;
-	margin-left: 30px;
 }
 
 .team-button {
@@ -154,6 +153,22 @@ h3 {
 	height: 400px;
 }
 
+.all_team {
+	float: left;
+	width: 150px;
+	margin: 10px;
+	height: 600px;
+	overflow: scroll;
+}
+.portrait_left {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+}
+
+.full-bio-team {
+	margin: 30px 1% 30px 14%;
+}
 
 
 

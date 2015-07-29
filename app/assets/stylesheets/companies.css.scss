@@ -9,6 +9,10 @@
 	width: 100%;
 }
 
+.gray {
+	color: $lightgray;
+}
+
 .companies-container {
 	display: table;
 	width: 1000px;
@@ -50,6 +54,13 @@
 	max-height: 180px;
 }
 
+.image-gray {
+	filter: grayscale(100%);
+	 -webkit-filter: grayscale(100%);
+	max-width: 180px;
+	max-height: 180px;
+}
+
 .company-description {
 	margin: 5px;
 	height: 200px;
@@ -69,6 +80,11 @@
 	border: none;
 	color: white;
 	cursor: pointer;
+}
+
+.company-button:disabled {
+	background: gray;
+	cursor: default;
 }
 
 .company-button:focus {
@@ -194,6 +210,10 @@
 	float: right;
 }
 
+.right-align {
+	text-align: right;
+}
+
 .spaced {
 	margin-right: 20px;
 }
@@ -237,7 +257,7 @@
 .video-box {
 	height: 400px;
 	width: 600px;
-	float: center;
+	margin-top: -30px;
 }
 
 .section {
@@ -245,6 +265,42 @@
 	margin: 20px 0;
 }
 
-.active {
+.team-band div {
+	display: inline-block;
+}
 
+.team-box {
+	width: 45%;
+	height: 200px;
+	overflow: hidden;
+	margin: 1% 2% 0 2%;
+	position: relative;
+}
+
+.team-pic {
+	float: left;
+	margin: 0 20px 10px 0;
+
+}
+
+.right-align {
+	text-align: right;
+}
+
+.left-column {
+	width: 45%;
+	float: left;
+	margin: 0 2%;
+	height: 148px;
+}
+
+.right-column {
+	width: 45%;
+	float: left;
+	margin: 0 2%;
+	height: 148px;
+}
+
+.profile-wrap {
+	width: 800px;
 }

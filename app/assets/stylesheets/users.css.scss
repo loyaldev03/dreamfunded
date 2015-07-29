@@ -4,8 +4,8 @@
 @import "colors";
 
 #user-button {
-	width: 21%;
-	margin: 6%;
+	width: 40%;
+	margin: 5%;
 	padding: 15px;
 	background: $darkblue;
 	font-size: 18px;
@@ -38,4 +38,9 @@
   border-right: solid 1px $darkblue; 
   border-left: solid 1px $darkblue;
   padding: 10px 30px;
+}
+
+.team-wrapper {
+	width: 500px;
+	margin: 50px auto;
 }

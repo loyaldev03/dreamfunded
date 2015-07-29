@@ -12,29 +12,93 @@
 	<% if @companies != nil %> 
 		<div class= "companies-container">
 			<% @companies.each do |company| %>
-				<div class= "company-container">
-					<% if user_session != nil && user_session.authority == authority[:Admin] %>
-						<%= button_to "X", {action: 'remove_company', id: company.id} , {:class => 'remove-button'} %>
-					<% end %>
-					<div class= "company-image"><div class= "image-wrap">
-						<%= link_to image_tag("companies/#{company.image_file_name}", :class => "image"), {:action => 'company_profile', :id => company.id} %>
-					</div></div>
-					<div class= "company-description">
-						<p class= "twenty normal"><span class= "darkblue"> Status: </span> <%= company.get_status %></p>
-						<p class= "twenty normal"><span class= "darkblue">Progress: </span>$<%= number_with_delimiter(company.invested_amount, :delimiter => ',') %> of $<%= number_with_delimiter(company.goal_amount, :delimiter => ',') %></p>
-						<div class="meter orange">
-							<% @progress = company.invested_amount / company.goal_amount rescue 0 %>
-							<% if company.invested_amount == 0 %>
-								<span class= "front" style="width: 5%"></span>
-							<% else %>
-									<span style="width: #{@progress}%"></span>
-							<% end %>
+				<% if company.display != 0 %>
+					<div class= "company-container">
+						<% if user_session != nil && user_session.authority == authority[:Admin] %>
+							<%= button_to "X", {action: 'remove_company', id: company.id} , {:class => 'remove-button'} %>
+						<% end %>
+						<div class= "company-image"><div class= "image-wrap">
+							<%= link_to image_tag("companies/#{company.image_file_name}", :class => "image"), {:action => 'company_profile', :id => company.id} %>
+						</div></div>
+						<div class= "company-description">
+							<div class="meter orange">
+								<% @progress = 100 * (company.invested_amount.to_f / company.goal_amount) %>
+								<% if @progress == 0 %>
+									<span class= "front" style= "width: 5px"></span>
+								<% else %>
+										<span style= 'width: <%= @progress %>%'></span>
+								<% end %>
+							</div>
+							<br>
+							<div class= "left-column">
+								<div>
+									<p class= "twentyf no-margin center"> <%= company.get_status %> <span class= "darkblue twenty"><br> Status </span> </p>
+								</div>
+								<hr>
+								<div>
+									<p class= "twentyf no-margin center">$<%= number_with_delimiter(company.invested_amount, :delimiter => ',') %><br><span class= "darkblue twenty">Invested </span> </p> 
+								</div>
+							</div>
+							<div class= "right-column">
+								<div>
+									<p class= "twentyf no-margin center">6<br><span class= "darkblue twenty">Days Left</span></p>
+								</div>
+								<hr>
+								<div>
+									<p class= "twentyf no-margin center"><%= "%.2f" % @progress %>%<br><span class= "darkblue twenty">Funded<span></p>
+								</div>
+							</div>
 						</div>
-						<p class= "twenty normal"><span class= "darkblue">Days Left: </span></p>
+							<div class= "button-wrap"><%= button_to "Learn More", {:action => 'company_profile', :id => company.id }, {:class => 'company-button twenty'} %>
+							</div>
 					</div>
-						<div class= "button-wrap"><%= button_to "Invest in #{company.name}", {:action => 'company_profile', :id => company.id }, {:class => 'company-button twenty'} %>
+				<% elsif user_session.authority == authority[:Admin] %>
+					<div class= "company-container gray">
+						<% if user_session.authority == authority[:Admin] %>
+							<%= button_to "&#10004;".html_safe, {action: 'approve_company', id: company.id} , {:class => 'approve-button'} %>
+						<% end %>
+
+						<% if user_session != nil && user_session.authority == authority[:Admin] %>
+							<%= button_to "X", {action: 'remove_company', id: company.id} , {:class => 'remove-button'} %>
+						<% end %>
+
+						<div class= "company-image"><div class= "image-wrap">
+							<%= link_to image_tag("companies/#{company.image_file_name}", :class => "image-gray"), {:action => 'company_profile', :id => company.id} %>
+						</div></div>
+						<div class= "company-description">
+							<div class="meter orange">
+								<% @progress = 100 * (company.invested_amount.to_f / company.goal_amount) %>
+								<% if @progress == 0 %>
+									<span class= "front" style= "width: 5px"></span>
+								<% else %>
+										<span style= 'width: <%= @progress %>%'></span>
+								<% end %>
+							</div>
+							<br>
+							<div class= "left-column">
+								<div>
+									<p class= "twentyf no-margin center"> <%= company.get_status %> <span class= "darkblue twenty"><br> Status </span> </p>
+								</div>
+								<hr>
+								<div>
+									<p class= "twentyf no-margin center">$<%= number_with_delimiter(company.invested_amount, :delimiter => ',') %><br><span class= "darkblue twenty">Invested </span> </p> 
+								</div>
+							</div>
+							<div class= "right-column">
+								<div>
+									<p class= "twentyf no-margin center">6<br><span class= "darkblue twenty">Days Left</span></p>
+								</div>
+								<hr>
+								<div>
+									<p class= "twentyf no-margin center"><%= "%.2f" % @progress %>%<br><span class= "darkblue twenty">Funded<span></p>
+								</div>
+							</div>
 						</div>
-				</div>
+
+						<div class= "button-wrap"><%= button_to "Learn More", {:action => 'company_profile', :id => company.id }, {:class => 'company-button twenty'} %>
+						</div>
+					</div>
+				<% end %>
 			<% end %>
 		</div>
 	<% end %>

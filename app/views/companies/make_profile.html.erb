@@ -1,0 +1,60 @@
+<html>
+<head>
+	<title>DreamFunded | Make A Profile</title>
+</head>
+
+<body>
+	<div class= "wrapper">
+		<div class="header-container shadow">
+			<div class= "header centered"><h1>Profile A Company</h1></div>
+		</div>
+
+		<div class= "box profile-wrap">
+			<h2 class= "centered"> Fill out Profile Content </h2>
+			<%= form_tag '/companies/make_profile', multipart: true do %>
+				<h4>Overview</h4>
+				<div class= "description-wrap">
+					<%= text_area(:overview, nil, :placeholder => "Company Overview", :class => "description-box") %>
+				</div>
+				<h4>Target Market</h4>
+				<div class= "description-wrap">
+					<%= text_area(:target_market, nil, :placeholder => "Target Market", :class => "description-box") %>
+				</div>
+				<h4>Current Investor Details</h4>
+				<div class= "description-wrap">
+					<%= text_area(:current_investor_details, nil, :placeholder => "Current Investor Details", :class => "description-box") %>
+				</div>
+				<h4>Detailed Metrics</h4>
+				<div class= "description-wrap">
+					<%= text_area(:detailed_metrics, nil, :placeholder => "Detailed Metrics", :class => "description-box") %>
+				</div>
+				<h4>Customer Testimonials</h4>
+				<div class= "description-wrap">
+					<%= text_area(:customer_testimonials, nil, :placeholder => "Customer Testimonials", :class => "description-box") %>
+				</div>
+				<h4>Competitive Landscape</h4>
+				<div class= "description-wrap">
+					<%= text_area(:competitive_landscape, nil, :placeholder => "Competitive Landscape", :class => "description-box") %>
+				</div>
+				<h4>Planned Use of Funds</h4>
+				<div class= "description-wrap">
+					<%= text_area(:planned_use_of_funds, nil, :placeholder => "Planned Use of Funds", :class => "description-box") %>
+				</div>
+				<h4>Pitch Deck</h4>
+				<%= text_field_tag(:pitch_deck, nil, :placeholder => "Pitch Deck Video Link", :class => "input-box") %>
+
+				<div class = "notice centered">
+	              <%= flash[:problem] if flash[:problem] %>
+	              <%= @error_message3 %>
+	           </div>
+
+				<div class= "centered">
+					<%= submit_tag("Submit", :id => "submit-button") %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</body>
+
+
+</html>

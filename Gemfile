@@ -30,6 +30,8 @@ gem 'spring',        group: :development
 
 # Adds async gem
 gem 'async-rails'
+#multiple upload
+gem 'carrierwave'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

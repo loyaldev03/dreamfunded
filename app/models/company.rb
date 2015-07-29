@@ -2,7 +2,9 @@ class Company < ActiveRecord::Base
 	belongs_to :user
 
 	has_many :section
-	has_many :founder
+	
+	has_many :founders
+	has_many :snapshots
 
 	validates :user_id, presence:true
 	validates :name, presence:true

@@ -1,0 +1,31 @@
+<html>
+
+	<head>
+		<title>DreamFunded | Select Team</title>
+	</head>
+
+	<body>
+		<div class= "wrapper"><div class= "box register-wrap">
+			<h2 class= "centered"> Select a Company </h2>
+
+			<%= form_tag '/companies/edit', multipart: true do %>
+				
+				<%= number_field_tag(:id, nil, :placeholder => "Company's ID", :class => "input-box") %>
+				
+				<label for = "action"> Action: </label> 
+
+				<select name="desired_action">
+				  <option value="1" selected="selected"> Add a Founder </option>
+				  <option value="2"> Profile this Company </option>
+				</select><br><br>
+
+				<div class= "centered">
+					<%= submit_tag("Submit", :id => "submit-button") %>
+				</div>
+			<% end %>
+
+			
+		</div></div>
+	</body>
+
+</html>
