@@ -10,7 +10,7 @@
 
 	<%= form_tag '/payment/input', multipart: true do %>
 		<p>Card Number</p>
-		<%= text_field_tag(:cardnumber, nil, :placeholder => "Card Number") %>
+		<%= text_field_tag(:card_number, nil, :placeholder => "Card Number") %>
 		<p>Expiration Dates</p>
 		<%= text_field_tag(:month, nil, :placeholder => "Month") %>
 		<%= text_field_tag(:year, nil, :placeholder => "Year") %>
