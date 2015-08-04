@@ -11,10 +11,8 @@
 
 .container {
 	max-width: 100%;
-	height: 3000px;
-	background: $gray url(asset-path("skylinedark comp.png")) no-repeat top left;
-	background-size: contain;
-	position: absolute;
+	height: 2000px;
+	position: relative;
 }
 
 .fullWidth {
@@ -25,10 +23,16 @@
 }
 
 ////////------------- Front ----------------//////////
+.top {
+	height: 770px;
+	width: 100%;
+	overflow: hidden;
+}
 
 .big-title {
-	margin: 20% auto 10% auto;
-	width: 80%;
+	top: 270px;
+	position: absolute;
+	width: 100%;
 	text-align: center;
 }
 
@@ -45,6 +49,15 @@ h3 {
 
 .button-box {
 	position: relative;
+}
+
+.sky {
+    max-width: 100%;
+    max-height: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
 }
 
 #button {
@@ -79,10 +92,61 @@ h3 {
 ////---------------- Section 2 -------------------- ////////
 
 .section2 {
-	margin: 20px auto;
-	border: 2px solid black;
-	width: 85%;
+	margin: 50px auto;
+	width: 90%;
 	height: 600px;
+}
+
+.section2-box {
+	//border: 1px solid gray;
+	// background: -webkit-linear-gradient(bottom, white, $lightgray); /* For Safari 5.1 to 6.0 */
+	// background: -o-linear-gradient(top, white, $lightgray);  For Opera 11.1 to 12.0 
+	// background: -moz-linear-gradient(top, white, $lightgray); /* For Firefox 3.6 to 15 */
+	// background: linear-gradient(to top, white, $lightgray); /* Standard syntax */
+	background: white;
+	width: 29%;
+	height: 550px;
+	float: left;
+	margin: 0 2%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.section2-box:hover {
+	//border: 1px solid $darkblue;
+}
+
+.section2-content {
+	padding: 30px;
+}
+
+.outer {
+	margin: 0 auto;
+	display: table;
+	margin-top: 30px;
+}
+
+.middle {
+	margin-top: 50px;
+}
+
+.image2 {
+	max-width: 180px;
+	max-height: 180px;
+}
+
+.seventeen {
+	font-size: 18px;
+}
+
+.bigger {
+	font-size: 2em;
+}
+
+.box-text {
+	height: 130px;
+	color: gray;
 }
 
 
@@ -170,6 +234,10 @@ h3 {
 	margin: 30px 1% 30px 14%;
 }
 
+.unbold {
+	 font-weight: normal;
+	 text-decoration: underline;
+}
 
 
 

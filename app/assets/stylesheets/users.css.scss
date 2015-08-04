@@ -34,6 +34,11 @@
 	color: $darkblue;
 }
 
+#user-table th {
+	border-bottom: 1px solid $darkblue;
+	padding-bottom: 10px;
+}
+
 #user-table td {
   border-right: solid 1px $darkblue; 
   border-left: solid 1px $darkblue;

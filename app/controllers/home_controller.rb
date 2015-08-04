@@ -29,6 +29,10 @@ class HomeController < ApplicationController
 
 	end
 
+	def home
+		redirect_to "/home"
+	end
+
 	def team
 		@teams = Team.all
 	end

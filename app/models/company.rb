@@ -2,7 +2,6 @@ class Company < ActiveRecord::Base
 	belongs_to :user
 
 	has_many :section
-	
 	has_many :founders
 	has_many :snapshots
 

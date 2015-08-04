@@ -10,7 +10,6 @@
 
 		<div class= "register-content">
 			<%= form_tag '/companies/create', multipart: true do %>
-
 				<%= text_field_tag(:name, nil, :placeholder => "Name of Your Company", :class => "input-box") %><br>
 				<%= number_field_tag(:amount, nil, :placeholder => "Amount Currently Invested", :class => "input-box half") %> 
 				<div class= "filler"></div>
@@ -21,11 +20,12 @@
 
 				<%= text_field_tag(:url, nil, :placeholder => "Company Website URL", :class => "input-box") %><br>
 				<%= text_field_tag(:video, nil, :placeholder => "Company Video Link", :class => "input-box") %><br>
-				<label for = "status">Status:</label> <select name="status">
-				  <option value="1" selected="selected">Coming Soon</option>
-				  <option value="2">Active</option>
-				  <option value="3">Funded</option>
-				</select><br><br>
+
+				<label for = "status">Status:</label> 
+				<select name= "status">
+					<%= options_for_select({"Coming Soon" => "1", "Active" => "2", "Funded" => "3"}, "2") %>
+				</select>
+				<br><br>
 
 				<label for = "file">Upload Company Logo: </label> <%= file_field_tag "file" %><br>
 				<div class= "description-wrap">
