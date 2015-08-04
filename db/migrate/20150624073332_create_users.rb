@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration
     	t.column :login,:string, :primary => true
     	t.column :email,:string
         t.column :authority, :integer
-    	t.column :salt,:stringe
+    	t.column :salt,:string
     	t.column :password_digest, :string
     end
   end
