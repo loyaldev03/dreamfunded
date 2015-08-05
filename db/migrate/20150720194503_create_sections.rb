@@ -2,7 +2,6 @@ class CreateSections < ActiveRecord::Migration
   def change
     create_table :sections do |t|
       t.column :company_id, :integer
-
       t.column :overview, :string
       t.column :target_market, :string
       t.column :current_investor_details, :string
@@ -16,7 +15,3 @@ class CreateSections < ActiveRecord::Migration
     end
   end
 end
-
-News and press
-
-Product screenshots

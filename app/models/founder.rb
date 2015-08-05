@@ -5,4 +5,6 @@ class Founder < ActiveRecord::Base
 	validates :position, presence:true
 	validates :image_address, presence:true
 	validates :content, presence:true
+	validates :company_id, presence:true
+	
 end

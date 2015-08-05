@@ -68,16 +68,25 @@ class CompaniesController < ApplicationController
 	end
 
 	def edit
+		@companies = Company.all
 		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Founder]
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
-		else
-			@companies = Company.all
-			if params[:id] != nil && params[:desired_action] == "1"
-				redirect_to url_for(:controller => 'companies', :action => 'make_team', :id => params[:id])
+		end
+	end
 
-			elsif params[:id] != nil && params[:desired_action] == "2"
-				redirect_to url_for(:controller => 'companies', :action => 'make_profile', :id => params[:id])
-			end
+	def action
+		@my_company = Company.find_by(id: params[:id])
+
+		if @my_company == nil
+			@message = ""
+			@message = "No company with that ID exists. Please create the company first."
+			flash[:fail] = @message
+			redirect_to url_for(:controller => 'companies', :action => 'edit')
+		elsif params[:id] != nil && params[:desired_action] == "1"
+			redirect_to url_for(:controller => 'companies', :action => 'make_team', :id => params[:id])
+
+		elsif params[:id] != nil && params[:desired_action] == "2"
+			redirect_to url_for(:controller => 'companies', :action => 'make_profile', :id => params[:id])
 		end
 	end
 
@@ -85,43 +94,41 @@ class CompaniesController < ApplicationController
 		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Founder]
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
 		end
+	end
 
-		@my_company = Company.find_by(params[:id])
+	def add_team_member
+		@id = params[:id]
+		if params[:file1] != nil
+			uploaded_file = params[:file1]
 
-		if @my_company == nil
-			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
-		else
-			if params[:file1] != nil
-				uploaded_file = params[:file1]
+			@file_name = uploaded_file.original_filename
 
-				@file_name = uploaded_file.original_filename
+			directory = "app/assets/images/companies/"
+			path = File.join(directory, @file_name)
 
-				directory = "app/assets/images/companies/"
-				path = File.join(directory, @file_name)
+			File.open(path, "wb") { |f| f.write(uploaded_file.read) }
 
-				File.open(path, "wb") { |f| f.write(uploaded_file.read) }
+			@name = params[:name1]
+			@content = params[:content1][0]
+			@position = params[:position]
+			@comp_id = params[:id]
+			founder1 = Founder.new(:name => @name, :position => @position, :image_address => @file_name, :content => @content, :company_id => @comp_id)
 
-				@name = params[:name1]
-				@content = params[:content1][0]
-				@position = params[:position]
-				@comp_id = params[:id]
-				founder1 = Founder.new(:name => @name, :position => @position, :image_address => @file_name, :content => @content, :company_id => @comp_id)
-
-				if founder1.valid?
-					founder1.save
-					redirect_to "/companies"
-				else
-					@error_message2 = ""
-					founder1.errors.full_messages.each do |error|
-						@error_message2 = @error_message2 + error + ". "
-					end
-
-					flash[:notice] = @error_message2
-					redirect_to "/companies/make_team"
-				end
+			if founder1.valid?
+				founder1.save
+				redirect_to "/companies"
 			else
-				flash[:message] = "Image is not valid"
+				@error_message2 = ""
+				founder1.errors.full_messages.each do |error|
+					@error_message2 = @error_message2 + error + ". "
+				end
+
+				flash[:notice] = @error_message2
+				redirect_to "/companies/make_team"
 			end
+		else
+			flash[:notice] = "Image is not valid"
+			redirect_to "/companies/make_team"
 		end
 	end
 
@@ -129,25 +136,31 @@ class CompaniesController < ApplicationController
 		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Founder]
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
 		end
+	end
 
-		@my_company = Company.find_by(params[:id])
+	def submit_profile
+		@id = params[:id]
+		@overview = params[:overview][0]
+		@tm = params[:target_market][0]
+		@cid = params[:current_investor_details][0]
+		@dm = params[:detailed_metrics][0]
+		@ct = params[:customer_testimonials][0]
+		@cl = params[:competitive_landscape][0]
+		@use = params[:planned_use_of_funds][0]
+		@pitch = params[:pitch_deck][0]
 
-		if @my_company == nil
-			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
+		section = Section.new(:id => @id, :overview => @overview, :target_market => @tm, :current_investor_details => @cid, :detailed_metrics => @dm, :customer_testimonials => @ct, :competitive_landscape => @cl, :planned_use_of_funds => @use, :pitch_deck => @pitch)
+		
+		if section.valid?
+			section.save!
+			redirect_to "/companies"
 		else
-			section = Section.new(:company_id => params[:company_id], :overview => params[:overview], :target_market => params[:target_market], :current_investor_details => params[:current_investor_details], :detailed_metrics => params[:detailed_metrics], :customer_testimonials => params[:customer_testimonials], :competitive_landscape => params[:competitive_landscape], :planned_use_of_funds => params[:planned_use_of_funds], :pitch_deck => params[:pitch_deck])
-			if section.valid?
-				section.save
-				redirect_to "/companies"
-			else
-				@error_message3 = ""
-				section.errors.full_messages.each do |error|
-					@error_message3 = @error_message3 + error + ". "
-				end
-
-				flash[:problem] = @error_message3
-				redirect_to "/companies/make_profile"
+			@error_message3 = ""
+			section.errors.full_messages.each do |error|
+				@error_message3 = @error_message3 + error + ". "
 			end
+			flash[:problem] = @error_message3
+			redirect_to "/companies/make_profile"
 		end
 	end
 
@@ -156,10 +169,8 @@ class CompaniesController < ApplicationController
 			@company = Company.find(params[:id])
 			@progress = @company.invested_amount / @company.goal_amount rescue 0
 
-			@members = Founder.where(:company_id => @comp_id).all
-			@section = Section.where(:company_id => params[:id])
-
-			render "/companies/company_profile"
+			@members = Founder.where(company_id: params[:id])
+			@section = Section.find_by(id: params[:id])
 		else
 			redirect_to "/companies"
 		end

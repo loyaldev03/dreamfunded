@@ -6,18 +6,29 @@
 
 	<body>
 		<div class= "wrapper"><div class= "box register-wrap">
-			<h2 class= "centered"> Select a Company </h2>
+			<h2 class= "centered"> Select a Company and an Action</h2>
 
-			<%= form_tag '/companies/edit', multipart: true do %>
+			<%= form_tag '/companies/action', multipart: true do %>
 				
-				<%= number_field_tag(:id, nil, :placeholder => "Company's ID", :class => "input-box") %>
-				
-				<label for = "action"> Action: </label> 
+				<br><br>
+				<label for = "select"> Company: </label>
 
-				<select name="desired_action">
-				  <option value="1" selected="selected"> Add a Founder </option>
-				  <option value="2"> Profile this Company </option>
-				</select><br><br>
+				<%= select_tag("id", options_from_collection_for_select(@companies, "id", "name"), {prompt: 'Select a Company'}) %>
+				<div class= "right">
+					<label for = "action"> Action: </label> 
+
+					<select name="desired_action">
+						<option value="default" selected="selected">Select an Action</option>
+						<option value="1"> Add a Founder </option>
+						<option value="2"> Profile this Company </option>
+					</select><br><br>
+				</div>
+				<br><br>
+
+				<div class= "notice centered">
+					<%= flash[:fail] if flash[:fail] %>
+					<%= @message %>
+				</div>
 
 				<div class= "centered">
 					<%= submit_tag("Submit", :id => "submit-button") %>

@@ -17,13 +17,18 @@
 	margin: 0;
 	margin-top: 50px;
 	padding: 0;
+	min-height: 1000px;
 }
 
 body {
 	margin: 0;
 	padding: 0;
-	font-family: 'Myriad Pro';
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	background: #ECECEC;
+}
+
+#whiteback {
+	background: white;
 }
 
 p {
@@ -115,6 +120,10 @@ hr {
 	font-size: 18px;
 }
 
+.fifteen {
+	font-size: 15px;
+}
+
 .twentyf {
 	font-size: 25px;
 }
@@ -140,4 +149,86 @@ hr {
 
 .hide {
 	display: none
+}
+
+/******************************************************** Footer **********************************************/
+
+.footer {
+	position: relative;
+}
+
+.foot-bar {
+	background: white;
+	height: 150px;
+}
+
+.footer-content {
+	padding: 30px 50px;
+}
+
+.foot-text {
+	color: gray;
+	font-size: 14px;
+}
+
+.spaced {
+	padding: 0 30px;
+	color: #0D87B3;
+}
+
+.gap {
+	margin: 0 64px;
+}
+
+.spaced:hover {
+	text-decoration: underline;
+}
+
+.border {
+	border-right: 2px solid gray;
+}
+
+.foot-wrap {
+	height: 150px;
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.image3 {
+	max-width: 150px;
+	max-height: 150px;
+	display: table-cell;
+	vertical-align: middle;
+	position: absolute;
+	margin: 0 25px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.image3-box {
+	width: 200px;
+	height: 150px;
+	float: right;
+	padding: 0;
+	position: relative;
+}
+
+.image4 {
+	max-width: 35px;
+	max-height: 35px;
+	margin: 0 7px;
+	display: table-cell;
+	vertical-align: middle;
+	position: relative;
+	top: 50%;
+	float: left;
+	transform: translateY(-50%);
+}
+
+.image4-box {
+	width: 200px;
+	height: 150px;
+	float: right;
+	padding: 0;
+	position: relative;
 }

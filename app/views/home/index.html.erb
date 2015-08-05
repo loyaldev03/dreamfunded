@@ -3,28 +3,51 @@
 		<title>DreamFunded | Home</title>
 	</head>
 
-	<body><div class= "wrapper">
-		<div class= "container fullWidth">
+	<body>
+			<div class= "container">
+				<div class= "top">
+					<%= image_tag("skylinedark comp.png", :class => "sky") %>
+					<div class= "big-title white">
+						<h1 class= "remove-margin">Access to Vetted Startups & Proven Tech Companies</h1>
+						<div class= "top-space"><h3 class= "remove-margin">A small investment today might make a big impact on your future tomorrow.</h3></div>
+						<div class= "centered button-box twenty">
+							<%= button_to "Get Started", {:action => 'get_started'}, {:id => 'button'} %>
+						</div>
+					</div>
+				</div>
+				
+				<br><br><br>
+				<h2 class= "centered darkblue">A Selection of Highly Vetted Start-ups and Tech Companies</h2>
 
-			<div class= "big-title white">
-				<h1 class= "remove-margin">Access to Vetted Startups & Proven Tech Companies</h1>
-				<div class= "top-space"><h3 class= "remove-margin">A small investment today might make a big impact on your future tomorrow.</h3></div>
-				<div class= "centered button-box twenty"><%= button_to "Get Started", {:action => 'get_started'}, {:id => 'button'} %></div>
+				<div class= "section2-wrap"><div class= "section2">
+				<div class= "section2-box"><div class= "section2-content">
+					<div class= "outer"><%= image_tag("static/lock.png", :class => "image2") %></div>
+					<br><br><br>
+					<h2 class= "centered darkblue">Quick Liquidity</h2>
+					<div class= "box-text"><p class= "seventeen">Quick liquidity for shareholders, early investors and tech employees.</p></div>
+					
+					<%= link_to "Learn More >", {:action => 'home'}, {:class => 'darkblue seventeen'} %>
+				</div></div>
+
+				<div class= "section2-box"><div class= "section2-content">
+					<div class= "outer middle"><%= image_tag("static/glass.png", :class => "image2") %></div>
+					<br><br>
+					<h2 class= "centered darkblue">Vetted Investments</h2>
+					<div class= "box-text"><p class= "seventeen">We act as an investment filter in order to provide you a vetted selection of promising startups and proven tech companies.</p></div>
+					<%= link_to "Learn More >", {:action => 'home'}, {:class => 'darkblue seventeen'} %>
+				</div></div>
+
+				<div class= "section2-box"><div class= "section2-content">
+					<div class= "outer"><%= image_tag("static/wheel.png", :class => "image2") %></div>
+					<br><br><br>
+					<h2 class= "centered darkblue">Low Minimums</h2>
+					<div class= "box-text"><p class= "seventeen">Members can invest as little as $1,000 allowing for a diversified portfolio.</p></div>
+					
+					<%= link_to "Learn More >", {:action => 'home'}, {:class => 'darkblue seventeen'} %>
+				</div></div>
 			</div>
 
-			<div class= "section2-wrap"><div class= "section2">
-				<div class= "section2-box">
-
-				</div>
-				<div class= "section2-box">
-
-				</div>
-				<div class= "section2-box"></div>
-
-				</div>
 			</div>
-		</div>
-	</div>
 	</body>
 
  </html>

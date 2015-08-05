@@ -53,8 +53,15 @@ ActiveRecord::Schema.define(version: 20150720194555) do
   end
 
   create_table "sections", force: true do |t|
-    t.string   "title"
-    t.text     "content"
+    t.integer  "company_id"
+    t.string   "overview"
+    t.string   "target_market"
+    t.string   "current_investor_details"
+    t.string   "detailed_metrics"
+    t.string   "customer_testimonials"
+    t.string   "competitive_landscape"
+    t.string   "planned_use_of_funds"
+    t.string   "pitch_deck"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
