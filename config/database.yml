@@ -3,13 +3,15 @@ development:
   encoding: unicode
   database: myapp_dev
   pool: 5
-  username: Simon
+  username: Youdong
   password:
+  host: localhost
 
 test:
   adapter: postgresql
   encoding: unicode
   database: myapp_test
   pool: 5
-  username: Simon
+  username: Youdong
   password:
+  host: localhost

@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
 	def index
 		@Authority = User.Authority
+		@news = New.all
+		@news_one = @news.first
+		@news_two = @news.second
+		@news_three = @news.third
 	end
 
 	def create

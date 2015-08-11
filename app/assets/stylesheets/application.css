@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap";
+ 
 .wrapper {
 	margin: 0;
 	margin-top: 50px;
@@ -136,6 +139,10 @@ hr {
 	margin: 0;
 }
 
+.yes-margin {
+	margin: 40px;
+}
+
 .active {
 }
 
@@ -232,3 +239,15 @@ hr {
 	padding: 0;
 	position: relative;
 }
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+
+.pagination li {
+	display: inline;
+	margin: 0 10px;
+}
+

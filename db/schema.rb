@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20150720194555) do
     t.string   "CEO"
     t.string   "CEO_number"
     t.integer  "display"
+    t.integer  "days_left"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

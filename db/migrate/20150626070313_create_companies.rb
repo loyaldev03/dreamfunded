@@ -14,6 +14,7 @@ class CreateCompanies < ActiveRecord::Migration
         t.column :CEO, :string
         t.column :CEO_number, :string
         t.column :display, :integer
+        t.column :days_left, :integer
 
     	t.timestamps
     end

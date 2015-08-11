@@ -12,7 +12,7 @@
 		<div class= "wrap">
 			<% if @news != nil %>
 				<div class= "news-container">
-					<% @news.reverse_each do |article| %>
+					<% @news.each do |article| %>
 						<div class= "news-single-container">
 							<% if user_session != nil && user_session.authority == authority[:Admin] %>
 								<%= button_to "X", {action: 'remove_new', id: article.id} , {:class => 'remove-button'} %>
@@ -28,6 +28,10 @@
 							</div>
 						</div>
 					<% end %>
+
+					<div id="infinite-scrolling" class= "centered yes-margin">
+					  <%= will_paginate %>
+					</div>
 				</div>
 			<% end %>
 		</div>

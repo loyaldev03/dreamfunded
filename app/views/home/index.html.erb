@@ -4,27 +4,47 @@
 	</head>
 
 	<body>
-			<div class= "container">
-				<div class= "top">
-					<%= image_tag("skylinedark comp.png", :class => "sky") %>
-					<div class= "big-title white">
-						<h1 class= "remove-margin">Access to Vetted Startups & Proven Tech Companies</h1>
-						<div class= "top-space"><h3 class= "remove-margin">A small investment today might make a big impact on your future tomorrow.</h3></div>
-						<div class= "centered button-box twenty">
-							<%= button_to "Get Started", {:action => 'get_started'}, {:id => 'button'} %>
+		<div class= "container">
+			<div class= "top">
+				<%= image_tag("skylinedark comp.png", :class => "sky") %>
+				<div class= "big-title white">
+					<h1 class= "remove-margin">Access to Vetted Startups & Proven Tech Companies</h1>
+					<div class= "top-space"><h3 class= "remove-margin">A small investment today might make a big impact on your future tomorrow.</h3></div>
+					<div class= "centered button-box twenty">
+						<%= button_to "Get Started", {:action => 'get_started'}, {:id => 'button'} %>
+					</div>
+				</div>
+
+				<div class= "story fullWidth">
+					<div class= "story-cont">
+						<div class= "one-story">
+							<%= @news_one.title %>
+						</div>
+						
+						<div class= "one-story">
+							<%= @news_two.title %>
+						</div>
+						
+						<div class= "one-story">
+							<%= @news_three.title %>
 						</div>
 					</div>
 				</div>
-				
-				<br><br><br>
-				<h2 class= "centered darkblue">A Selection of Highly Vetted Start-ups and Tech Companies</h2>
+			</div>
 
-				<div class= "section2-wrap"><div class= "section2">
+			
+			<br><br><br>
+
+			<h2 class= "centered darkblue">A Selection of Highly Vetted Start-ups and Tech Companies</h2>
+			
+			<div class= "section2-wrap"><div class= "section2">
 				<div class= "section2-box"><div class= "section2-content">
 					<div class= "outer"><%= image_tag("static/lock.png", :class => "image2") %></div>
 					<br><br><br>
 					<h2 class= "centered darkblue">Quick Liquidity</h2>
-					<div class= "box-text"><p class= "seventeen">Quick liquidity for shareholders, early investors and tech employees.</p></div>
+					<div class= "box-text">
+						<p class= "seventeen">Quick liquidity for shareholders, early investors and tech employees.</p>
+					</div>
 					
 					<%= link_to "Learn More >", {:action => 'home'}, {:class => 'darkblue seventeen'} %>
 				</div></div>
@@ -33,7 +53,9 @@
 					<div class= "outer middle"><%= image_tag("static/glass.png", :class => "image2") %></div>
 					<br><br>
 					<h2 class= "centered darkblue">Vetted Investments</h2>
-					<div class= "box-text"><p class= "seventeen">We act as an investment filter in order to provide you a vetted selection of promising startups and proven tech companies.</p></div>
+					<div class= "box-text">
+						<p class= "seventeen">We act as an investment filter in order to provide you a vetted selection of promising startups and proven tech companies.</p>
+					</div>
 					<%= link_to "Learn More >", {:action => 'home'}, {:class => 'darkblue seventeen'} %>
 				</div></div>
 
@@ -41,13 +63,36 @@
 					<div class= "outer"><%= image_tag("static/wheel.png", :class => "image2") %></div>
 					<br><br><br>
 					<h2 class= "centered darkblue">Low Minimums</h2>
-					<div class= "box-text"><p class= "seventeen">Members can invest as little as $1,000 allowing for a diversified portfolio.</p></div>
+					<div class= "box-text">
+						<p class= "seventeen">Members can invest as little as $1,000 allowing for a diversified portfolio.</p>
+					</div>
 					
 					<%= link_to "Learn More >", {:action => 'home'}, {:class => 'darkblue seventeen'} %>
 				</div></div>
+			</div></div>
+
+			<div class= "logos fullWidth">
+				<h2 class= "centered darkblue">Mentioned In</h2>
+				<div class= "logos-container">
+					<div class= "row1">
+						<%= link_to image_tag("static/Forbes.jpg"), "http://www.forbes.com/sites/mnewlands/2015/07/10/how-to-get-introduced-to-investors/" %>
+						<%= link_to image_tag("static/inc.png"), "http://www.inc.com/john-rampton/7-funding-options-for-accelerating-startup-growth.html"  %>
+						<%= link_to image_tag("static/tech.png"), "http://techcrunch.com/2014/03/18/backed-by-boost-vc-and-tim-draper-globevestor-helps-startups-in-emerging-markets-get-funded-online/"  %>
+						<%= link_to image_tag("static/fox.jpg"), "http://www.foxnews.com/us/2015/05/19/25-businesses-that-make-life-simpler-for-other-businesses/"  %>
+					</div>
+
+					<div class= "row2">
+						<%= link_to image_tag("static/entrepreneur.png"), "http://blogs.wsj.com/accelerators/2014/08/15/weekend-read-part-1-creating-better-entrepreneurs-with-a-building-mindset/" %>
+						<%= link_to image_tag("static/wallstreet.png"), "http://www.entrepreneur.com/article/246273" %>
+					</div>
+				</div>
 			</div>
 
+			<div class= "centered twenty">
+				<%= button_to "Get Started", {:action => 'get_started'}, {:id => 'button'} %>
 			</div>
+			
+		</div>
 	</body>
 
  </html>

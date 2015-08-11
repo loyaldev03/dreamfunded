@@ -48,7 +48,7 @@ class CompaniesController < ApplicationController
 
 			uploaded = Company.new(:user_id => @user_id, :name => @name, :description => @description, :image_file_name => @file_name,
 				:goal_amount => @goal, :status => @status, :invested_amount => @invested, :website_link => @weblink, :video_link => @videolink, 
-				:CEO => @ceo, :CEO_number => @number, :display => @display)
+				:CEO => @ceo, :CEO_number => @number, :display => @display, :days_left => 10)
 
 			if uploaded.valid?
 				uploaded.save
@@ -166,6 +166,7 @@ class CompaniesController < ApplicationController
 
 	def company_profile
 		if params[:id] != nil
+			@id = params[:id]
 			@company = Company.find(params[:id])
 			@progress = @company.invested_amount / @company.goal_amount rescue 0
 
@@ -175,6 +176,21 @@ class CompaniesController < ApplicationController
 			redirect_to "/companies"
 		end
 	end
+
+	def edit_profile
+		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Admin]
+			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
+		end
+		@company = Company.find(params[:id])
+	end
+
+	def update
+	    respond_to do |format|
+	      if @company.update(company_params)
+	        redirect_to :controller => 'companies', :action => 'company_profile', :id => params[:id]
+	      end
+	    end
+	  end
 
 	def remove_company
 		if params[:id] != nil
