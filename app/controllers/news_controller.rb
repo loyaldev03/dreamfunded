@@ -2,7 +2,7 @@ class NewsController < ApplicationController
 
 #default page with news listed by most recent
   def index
-  	@news = New.paginate(page: params[:page], per_page: 3).order('created_at DESC')
+  	@news = New.paginate(page: params[:page], per_page: 5).order('created_at DESC')
     respond_to do |format|
       format.html
       format.js

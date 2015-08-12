@@ -27,6 +27,10 @@
 	background-color: white;
 }
 
+.space-keeper {
+	min-height: 600px;
+}
+
 .big-title {
 	top: 270px;
 	position: absolute;
@@ -92,7 +96,7 @@ h3 {
 .section2 {
 	margin: 50px auto;
 	width: 90%;
-	height: 600px;
+	height: 550px;
 }
 
 .section2-box {
@@ -103,7 +107,7 @@ h3 {
 	// background: linear-gradient(to top, white, $lightgray); /* Standard syntax */
 	background: white;
 	width: 29%;
-	height: 550px;
+	height: 500px;
 	float: left;
 	margin: 0 2%;
 	box-sizing: border-box;
@@ -266,15 +270,20 @@ h3 {
 
 ////---------------- Story -------------------- ////////
 
-.story {
-	height: 500px;
+.story-img {
+	text-align: center;
+	height: 350px;
+	overflow: hidden;
 }
 
 .story-cont {
-	height: 400px;
-	margin: 50px auto;
-	width: 80%;
+	margin: 0 auto;
+	width: 85%;
 	position: relative;
+}
+
+.story {
+	padding-bottom: 70px;
 }
 
 .one-story {
@@ -284,4 +293,37 @@ h3 {
 	display: inline-block;
 }
 
+.image5 {
+	height: 350px;
+}
 
+.spacer {
+	height: 50px;
+}
+
+.black-box {
+	height: 80px;
+	background-color: rgba(0, 0, 0, .8);
+	color: white;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	overflow: hidden;
+}
+
+.black-box-content {
+	margin: 30px;
+	position: relative;
+}
+
+#one {
+	display: block;
+}
+
+#two {
+	display: none;
+}
+
+#three {
+	display: none;
+}
