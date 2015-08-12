@@ -185,12 +185,19 @@ class CompaniesController < ApplicationController
 	end
 
 	def update
-	    respond_to do |format|
-	      if @company.update(company_params)
-	        redirect_to :controller => 'companies', :action => 'company_profile', :id => params[:id]
-	      end
-	    end
-	  end
+		updated = Company.new(:name => params[:name], :website_link => params[:website_link], :invested_amount => params[:invested_amount], :days_left => params[:days_left])
+		if updated.valid?
+			updated.save!
+			redirect_to :controller => 'companies', :action => 'company_profile', :id => params[:id]
+		else
+			@error_update = ""
+			updated.errors.full_messages.each do |error|
+				@error_update = @error_update + error + ". "
+			end
+			flash[:problem_update] = @error_update
+			redirect_to :controller => 'companies', :action => 'edit_profile', :id => params[:id]
+		end
+	end
 
 	def remove_company
 		if params[:id] != nil

@@ -17,7 +17,7 @@
 					<%= form_tag '/companies/add_team_member', multipart: true do %>
 						<div class= "member-section">
 							<h4>Team Member:</h4>
-								<%= number_field_tag(:id, nil, :placeholder => "Company's ID", :class => "input-box") %>
+								<%= select_tag("id", options_from_collection_for_select(@companies, "id", "name"), {prompt: 'Comfirm your Company Selection'}) %>
 								<%= text_field_tag(:name1, nil, :placeholder => "Name", :class => "input-box") %>
 								<%= text_field_tag(:position, nil, :placeholder => "Position", :class => "input-box") %>
 								<label for = "file1">Upload Team Member Photo: </label> <%= file_field_tag "file1" %><br>

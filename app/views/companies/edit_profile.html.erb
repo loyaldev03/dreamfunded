@@ -6,7 +6,7 @@
 
 	<body>
 		<div class= "word-content"><div class="text-content stretch">
-			<%= form_for(@company) do |f| %>
+			<%= form_for (@company) do |f| %>
 				<% if @company.errors.any? %>
 					<h2><%= pluralize(@user.errors.count, "error") %> prohibited this company from being saved: </h2>
 
@@ -63,11 +63,8 @@
 					</div>
 
 				</div></div>
-				<% if @company.status == 2 && @company.display != 0 %>
-					<%= button_to "Invest in #{@company.name}", nil, :class => "company-button profile-button" %>
-				<% else %>
-					<%= button_to "Invest in #{@company.name}", nil, :class => "company-button profile-button", :disabled => true %>
-				<% end %>
+
+				<div class= "fake-button"> Invest </div>
 			</div>
 
 			<div class= "description-container">
@@ -100,7 +97,8 @@
 								</div>
 							<% end %>
 						</div>
-					<% end %>
+				<% end %>
+
 				<% if @section != nil %>
 					<% if @section.overview && @section.overview != "" %>
 						<br>
@@ -152,8 +150,12 @@
 					<% end %>
 				<% end %>
 			</div>
-			<%= f.submit "update", :id => 'button' %>
-			<% end %>
+			<div class = "notice centered">
+              <%= flash[:problem_update] if flash[:problem_update] %>
+              <%= @error_update %>
+           </div>
+           <%= f.submit "Update", :id => 'button' %>
+		<% end %>
 		</div></div>
 	</body>
 

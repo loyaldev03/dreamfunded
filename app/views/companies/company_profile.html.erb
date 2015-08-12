@@ -8,7 +8,9 @@
 		<div class= "word-content"><div class="text-content stretch">
 			<div class= "topbar">
 				<a href= "/companies" class= "darkblue">&#8617; Back</a>
-				<%= link_to 'Edit', {:controller => 'companies', :action => 'edit_profile', :id => @id }, {:class => 'right'} %> 
+				<% if user_session != nil && user_session.authority == authority[:Admin] %>
+					<%= link_to 'Edit', {:controller => 'companies', :action => 'edit_profile', :id => @id }, {:class => 'right'} %>
+				<% end %> 
 			</div>
 			<div class= "company-title indent">
 				<h2 class= "darkblue small-margin">

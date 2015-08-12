@@ -12,7 +12,8 @@
 		<div class= "box profile-wrap">
 			<h2 class= "centered"> Fill out Profile Content </h2>
 			<%= form_tag '/companies/submit_profile', multipart: true do %>
-				<%= number_field_tag(:id, nil, :placeholder => "Company's ID", :class => "input-box") %>
+				
+				<%= select_tag("id", options_from_collection_for_select(@companies, "id", "name"), {prompt: 'Comfirm your Company Selection'}) %>
 				
 				<h4>Overview</h4>
 				<div class= "description-wrap">
