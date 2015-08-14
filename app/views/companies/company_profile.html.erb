@@ -24,6 +24,8 @@
 						<% @progress = 100 * (@company.invested_amount.to_f / @company.goal_amount) %>
 						<% if @progress == 0 %>
 							<span class= "front" style="width: 5px"></span>
+						<% elsif @progress > 100 %>
+							<span style= 'width: 100%'></span>
 						<% else %>
 					 		<span style='width: <%= @progress %>%'></span>
 					 	<% end %>

@@ -81,6 +81,25 @@ h3 {
 	outline: none;
 }
 
+#push {
+	padding: 17px;
+	width: 40%;
+	background: $darkblue;
+	font-size: 20px;
+	border: none;
+	color: white;
+	cursor: pointer;
+	outline: none;
+}
+
+#push:hover {
+	background: $lightblue;
+}
+
+#push:active {
+	outline: none;
+}
+
 .remove-margin {
 	margin-top: 0;
 	margin-bottom: 0;
