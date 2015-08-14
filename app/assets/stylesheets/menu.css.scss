@@ -53,6 +53,7 @@ a {
 
 .sub-menu {
 	width: 130%;
+	min-width: 170px;
 	padding: 0;
 	position: absolute;
 	top: 100%;
@@ -64,7 +65,9 @@ a {
 	box-shadow: 0 6px 8px rgba(9, 94, 125,0.20);
 }
 
-.sub-menu li {
+.sub-menu button {
+	min-width: 170px;
+	text-align: left;
 }
 
 .sub-menu li:hover {

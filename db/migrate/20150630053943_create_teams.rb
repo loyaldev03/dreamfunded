@@ -3,8 +3,8 @@ class CreateTeams < ActiveRecord::Migration
     create_table :teams do |t|
     	t.column :name, :string
     	t.column :file_name, :string
-    	t.column :summary, :string
-    	t.column :fullbio, :string
+    	t.column :summary, :text
+    	t.column :fullbio, :text
     end
   end
 end

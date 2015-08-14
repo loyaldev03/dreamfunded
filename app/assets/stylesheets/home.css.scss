@@ -274,6 +274,7 @@ h3 {
 	text-align: center;
 	height: 350px;
 	overflow: hidden;
+	background-color: black;
 }
 
 .story-cont {
@@ -291,11 +292,15 @@ h3 {
 	margin: 0;
 	height: inherit;
 	display: inline-block;
+	overflow: hidden;
 }
 
-.image5 {
-	height: 350px;
+.story-img img.wide {
+    height: 100%;
 }
+.story-img img.tall {
+    width: 100%;
+}​
 
 .spacer {
 	height: 50px;

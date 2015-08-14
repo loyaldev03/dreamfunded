@@ -3,7 +3,7 @@ class CreateCompanies < ActiveRecord::Migration
     create_table :companies do |t|
     	t.column :user_id,:string
     	t.column :name,:string
-    	t.column :description,:string
+    	t.column :description,:text
     	t.column :image_file_name, :string
     	t.column :invested_amount, :integer
         t.column :website_link, :string

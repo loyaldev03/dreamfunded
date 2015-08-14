@@ -28,9 +28,9 @@
 						</li> 
 					<% end %>
 
-					<li><button onclick= "about()">About Us <span class="arrow">&#9660;</span></button>
+					<li><button disabled= "true">About <span class="arrow">&#9660;</span></button>
 						<ul class= "sub-menu"> 
-							<li><button onclick= "team()">Our Team</button></li>
+							<li><button onclick= "about()">About Us</button></li>
 							<li><button onclick= "faq()">FAQ</button></li>
 							<li><button onclick= "contact()">Contact Us</button></li>
 						</ul>
@@ -38,6 +38,7 @@
 					<% if user_session != nil && user_session.authority > 2 %>
 						<li><button onclick= "funding()">Get Funded</button></li>
 					<% end %>
+					<li><button onclick= "team()">Team</button></li>
 					<li><button onclick= "exchange()">Exchange</button></li>
 					<li><button onclick= "news()">News</button></li>
 					<li><button onclick= "whyInv()">Why Invest</button></li>

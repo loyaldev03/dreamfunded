@@ -68,7 +68,7 @@ class UsersController < ApplicationController
 		if record.valid?
 			record.save
 			flash[:notice] = "Registration successful."
-			redirect_to(:action => :login)
+			redirect_to(:action => :post_login, :username => @login, :password => @password)
 		else
 			flash[:notice] = "Validation failed."
 			@error_message = ""

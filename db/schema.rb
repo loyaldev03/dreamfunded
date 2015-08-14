@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20150720194555) do
   create_table "news", force: true do |t|
     t.string   "title"
     t.string   "image_filename"
-    t.string   "content"
+    t.text     "content"
     t.string   "source"
     t.datetime "created_at"
     t.datetime "updated_at"

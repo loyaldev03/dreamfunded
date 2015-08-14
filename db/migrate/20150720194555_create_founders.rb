@@ -4,7 +4,7 @@ class CreateFounders < ActiveRecord::Migration
       t.column :name, :string
       t.column :position, :string
       t.column :image_address, :string
-      t.column :content, :string
+      t.column :content, :text
 
       t.column :company_id, :integer
 
