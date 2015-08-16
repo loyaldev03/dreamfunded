@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150720194555) do
   create_table "companies", force: true do |t|
     t.string   "user_id"
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.string   "image_file_name"
     t.integer  "invested_amount"
     t.string   "website_link"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150720194555) do
     t.string   "name"
     t.string   "position"
     t.string   "image_address"
-    t.string   "content"
+    t.text     "content"
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -55,14 +55,14 @@ ActiveRecord::Schema.define(version: 20150720194555) do
 
   create_table "sections", force: true do |t|
     t.integer  "company_id"
-    t.string   "overview"
-    t.string   "target_market"
-    t.string   "current_investor_details"
-    t.string   "detailed_metrics"
-    t.string   "customer_testimonials"
-    t.string   "competitive_landscape"
-    t.string   "planned_use_of_funds"
-    t.string   "pitch_deck"
+    t.text     "overview"
+    t.text     "target_market"
+    t.text     "current_investor_details"
+    t.text     "detailed_metrics"
+    t.text     "customer_testimonials"
+    t.text     "competitive_landscape"
+    t.text     "planned_use_of_funds"
+    t.text     "pitch_deck"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -80,8 +80,8 @@ ActiveRecord::Schema.define(version: 20150720194555) do
   create_table "teams", force: true do |t|
     t.string "name"
     t.string "file_name"
-    t.string "summary"
-    t.string "fullbio"
+    t.text   "summary"
+    t.text   "fullbio"
   end
 
   create_table "users", force: true do |t|
