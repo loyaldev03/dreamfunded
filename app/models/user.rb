@@ -17,11 +17,11 @@ class User < ActiveRecord::Base
 
 	def password
 		return @password
-	end 
+	end
 
 	def password=(pass)
 		@password = pass
-		salt = rand(100)
+		salt = rand
 		self.salt = salt
 		result = pass + salt.to_s
 		self.password_digest = Digest::SHA1.hexdigest(result)
@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 
 	def self.Authority
 		{
-			:Basic => 1, 
+			:Basic => 1,
 			:Accredited => 2,
 			:Founder => 3,
 			:Admin => 4
