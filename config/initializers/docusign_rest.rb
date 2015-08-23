@@ -8,7 +8,7 @@ DocusignRest.configure do |config|
   config.username       = 'Manny@sfangel.co'
   config.password       = 'h@67$27S'
   config.integrator_key = 'SFAN-21897a26-9108-43d1-b9b6-501d5b76e46a'
-  config.account_id     = '341201'
+  config.account_id     = '51a57fea-0e38-4bfa-ad58-610218f4bd26'
   config.endpoint       = 'https://www.docusign.net/restapi'
   config.api_version    = 'v2'
 end
