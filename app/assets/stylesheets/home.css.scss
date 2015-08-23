@@ -10,7 +10,7 @@
 }
 
 .container {
-	max-width: 100%;
+	max-width: 100% !important;
 	position: relative;
 }
 
@@ -54,7 +54,7 @@ h3 {
 }
 
 .sky {
-    max-width: 100%;
+    width: 100%;
     bottom: 0;
     left: 0;
     right: 0;

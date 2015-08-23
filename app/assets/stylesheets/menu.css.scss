@@ -93,7 +93,8 @@ button {
 
 .menu button {
 	font-size: 16px;
-	padding: 17px;
+	padding: 0 17px;
+	height: 52px;
 }
 
 
@@ -105,7 +106,7 @@ button {
 .logo {
 	background: transparent url(asset-path("DreamFundedLogo.png")) no-repeat top left;
 	background-size: contain;
-	height: 30px;
+	height: inherit;
 	width: 180px;
 	position: relative;
 	border-top: 10px solid transparent;
