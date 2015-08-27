@@ -51,7 +51,7 @@ class DocusignController < ApplicationController
         }
       ],
       files: [
-        {path: '/Users/helder/Desktop/code/docusign_rest/test.pdf', name: 'test.pdf'}
+        {path: '/Users/MinKim/Dreamfunded/dreamfunded/app/assets/doc/test.pdf', name: 'test.pdf'}
       ],
       status: 'sent'
     )
