@@ -14,14 +14,14 @@
 				<% if @teams != nil %>
 					<% @teams.each do |team| %>
 						<% file_name = team.file_name %>
-						<%= link_to image_tag("#{file_name}", :class => "portrait_left"), {:controller => :home, :action => :fullbio, :id => team.id} %>
+						<%= link_to image_tag("team/#{file_name}", :class => "portrait_left"), {:controller => :home, :action => :fullbio, :id => team.id} %>
 					<% end %>
 				<% end %>
 			</div>
 
 			<div class= "team full-bio-team"><div class= "team-wrap">
 				<% file_name = @team.file_name %>
-				<div class= "team-pic-wrap"> <%= image_tag "#{file_name}", :class => "team-picture" %> </div>
+				<div class= "team-pic-wrap"> <%= link_to image_tag("team/#{file_name}", :class => "team-picture") %> </div>
 				<div class= "white-box long">
 					<div class="name indent"><p class= "darkblue twentyf small-margin"> <%= @team.name %> </p></div>
 					<div class= "summary long scroll">
