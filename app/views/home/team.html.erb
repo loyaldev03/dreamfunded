@@ -14,7 +14,7 @@
 			<% @teams.each do |team| %>
 				<div class= "team-wrap">
 					<div class= "team-pic-wrap">
-						<%= link_to image_tag ("team/#{team.file_name}"), :class => "team-picture" %>
+						<%= image_tag "#{team.file_name}", :class => "team-picture" %>
 					</div>
 					<div class= "white-box">
 						<% if user_session != nil && user_session.authority == authority[:Admin] %>
