@@ -33,6 +33,8 @@ gem 'async-rails'
 #multiple upload
 gem 'carrierwave'
 
+gem 'rails_12factor'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -47,7 +49,6 @@ gem 'carrierwave'
 
 #Enable ActiveRecord session store
 gem 'activerecord-session_store'
-gem 'rails_12factor', group: :production
 
 
 gem 'will_paginate', '~> 3.0.5'

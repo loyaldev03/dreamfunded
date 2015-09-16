@@ -7,53 +7,21 @@ class DocusignController < ApplicationController
   # @envelope_response = client.create_envelope_from_template
   def embedded_signing
     client = DocusignRest::Client.new
-    @id = client.get_account_id
-
-    @document_envelope_response = client.create_envelope_from_document(
+    @envelope_response = client.create_envelope_from_template(
+      status: 'sent',
       email: {
-        subject: "test email subject",
-        body: "this is the email body and it's large!"
+        subject: "The test email subject envelope",
+        body: "Envelope body content here"
       },
-      # If embedded is set to true  in the signers array below, emails
-      # don't go out to the signers and you can embed the signature page in an
-      # iFrame by using the client.get_recipient_view method
+      template_id: "22F408A5-1A62-4B4F-BF3C-0F9B41C7F522",
       signers: [
         {
           embedded: true,
-          name: 'Helder Suzuki',
-          email: 'heldersuzuki@gmail.com',
-          role_name: 'Issuer',
-          # sign_here_tabs: [
-          #   {
-          #     anchor_string: 'sign_here_1',
-          #     anchor_x_offset: '140',
-          #     anchor_y_offset: '8'
-          #   }
-          # ]
+          name: 'Min Kim',
+          email: 'tomas0706@naver.com',
+          role_name: 'Investor'
         },
-        {
-          embedded: true,
-          name: 'Test Girl',
-          email: 'someone+else@gmail.com',
-          role_name: 'Attorney',
-          # sign_here_tabs: [
-          #   {
-          #     anchor_string: 'sign_here_2',
-          #     anchor_x_offset: '140',
-          #     anchor_y_offset: '8'
-          #   },
-          #   {
-          #     anchor_string: 'sign_here_3',
-          #     anchor_x_offset: '140',
-          #     anchor_y_offset: '8'
-          #   }
-          # ]
-        }
-      ],
-      files: [
-        {path: '/Users/MinKim/Dreamfunded/dreamfunded/app/assets/doc/test.pdf', name: 'test.pdf'}
-      ],
-      status: 'sent'
+      ]
     )
 
     # Public returns the URL for embedded signing
@@ -68,9 +36,9 @@ class DocusignController < ApplicationController
     #
     # Returns the URL string for embedded signing (can be put in an iFrame)
     @recipient_view = client.get_recipient_view(
-      envelope_id: @document_envelope_response['envelopeId'],
-      name: 'Helder Suzuki',
-      email: 'heldersuzuki@gmail.com',
+      envelope_id: @envelope_response['envelopeId'],
+      name: 'Min Kim',
+      email: 'tomas0706@naver.com',
       return_url: 'https://www.dreamfunded.vc',
     )
   end
