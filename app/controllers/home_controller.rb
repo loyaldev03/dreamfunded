@@ -13,7 +13,7 @@ class HomeController < ApplicationController
 		if params[:file] != nil
 			uploaded_file = params[:file]
 			@file_name = uploaded_file.original_filename
-			directory = "app/assets/images/team"
+			directory = "app/assets/images/team/"
 			path = File.join(directory, @file_name)
 			File.open(path, "wb") { |f| f.write(uploaded_file.read) }
 			flash[:file_upload] = "Image upload was successful"
