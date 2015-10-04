@@ -8,7 +8,7 @@
 			<div class= "top">
 				<div class= "space-keeper"><%= image_tag("skylinedark comp.png", :class => "sky") %></div>
 				<div class= "big-title white">
-					<h1 class= "remove-margin">Access to Vetted Startups & Proven Tech Companies</h1>
+					<h1 class= "remove-margin pull-right">Access to Vetted Startups & Proven Tech Companies</h1>
 					<div class= "top-space"><h3 class= "remove-margin">A small investment today might make a big impact on your future tomorrow.</h3></div>
 					<div class= "centered button-box twenty">
 						<%= button_to "Get Started", {:action => 'get_started'}, {:id => 'button'} %>
@@ -22,12 +22,12 @@
 							<div class= "story-img" onmouseover="document.getElementById('one').style.display = 'block'; document.getElementById('two').style.display = 'none'; document.getElementById('three').style.display = 'none';"><%= link_to (image_tag "news/#{@news_one.image_filename}", :class => "image5"), {:controller => 'news', :action => 'full', :id => @news_one.id} %>
 							</div>
 						</div>
-						
+
 						<div class= "one-story" onmouseover="document.getElementById('two').style.display = 'block'; document.getElementById('one').style.display = 'none'; document.getElementById('three').style.display = 'none';">
 							<div class= "story-img"><%= link_to (image_tag "news/#{@news_two.image_filename}", :class => "image5"), {:controller => 'news', :action => 'full', :id => @news_two.id} %>
 							</div>
 						</div>
-						
+
 						<div class= "one-story" onmouseover="document.getElementById('two').style.display = 'none'; document.getElementById('one').style.display = 'none'; document.getElementById('three').style.display = 'block';">
 							<div class= "story-img"><%= link_to (image_tag "news/#{@news_three.image_filename}", :class => "image5"), {:controller => 'news', :action => 'full', :id => @news_three.id} %>
 							</div>
@@ -50,11 +50,11 @@
 				<% end %>
 			</div>
 
-			
+
 			<br>
 
 			<h2 class= "centered darkblue">A Selection of Highly Vetted Start-ups and Tech Companies</h2>
-			
+
 			<div class= "section2-wrap"><div class= "section2">
 				<div class= "section2-box"><div class= "section2-content">
 					<div class= "outer"><%= image_tag("static/lock.png", :class => "image2") %></div>
@@ -104,7 +104,7 @@
 			<div class= "centered twenty">
 				<%= button_to "Get Started", {:action => 'get_started'}, {:id => 'button'} %>
 			</div>
-			
+
 		</div>
 	</body>
 
