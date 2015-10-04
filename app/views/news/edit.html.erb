@@ -1,0 +1,28 @@
+<div class= "wrapper">
+  <div class= "box creation-wrap">
+    <h2 class= "centered"> Create a new article </h2>
+
+    <%= form_for @article , multipart: true do |f| %>
+
+      <%= f.text_field :title,  :placeholder => "Name of Your Article", :class => "input-box"%><br>
+      <div class= "description-wrap">
+        <%= f.text_area(:content, :placeholder => "Article Content", :class => "description-box") %>
+      </div>
+
+      <div class= "description-wrap">
+        <%= f.text_area(:source, :placeholder => "Source", :class => "description-box source") %>
+      </div>
+
+      <div class = "notice centered">
+        <%= flash[:file_uploaded] if flash[:file_uploaded] %>
+      </div>
+
+      <label for = "file">Upload Article Image: </label>
+      <%= f.file_field "file" %><br>
+      <%= image_tag "news/#{@article.image_filename}" %>
+      <div class= "centered">
+        <%= submit_tag("Publish", :id => "submit-button") %>
+      </div>
+    <% end %>
+  </div>
+</div>
