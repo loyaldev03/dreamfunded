@@ -46,7 +46,7 @@
 							<hr>
 							<br>
 							<div>
-								<p class= "twenty no-margin center"><%= f.number_field :invested_amount, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Invested </span> </p> 
+								<p class= "twenty no-margin center"><%= f.number_field :invested_amount, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Invested </span> </p>
 							</div>
 						</div>
 						<div class= "right-column">
@@ -69,11 +69,11 @@
 
 			<div class= "description-container">
 				<div class= "video-box">
-					<% if @company.video_link != "" %>
-						<iframe width="650" height="450" src= <%= @company.video_link %> frameborder="0" allowfullscreen class= "indent"></iframe>
-					<% else %>
+					<%# if @company.video_link != "" %>
+						<!-- <iframe width="650" height="450" src= <%#= @company.video_link %> frameborder="0" allowfullscreen class= "indent"></iframe> -->
+					<%# else %>
 						<%= image_tag("companies/#{@company.image_file_name}")%>
-					<% end %>
+					<%# end %>
 				</div>
 				<br><br><br><br>
 				<h2 class= "darkblue twentyf indent">Highlight</h2>

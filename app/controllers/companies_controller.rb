@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
 		end
 		@companies = Company.all
 	end
-	
+
 	def new
 		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Founder]
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
@@ -47,7 +47,7 @@ class CompaniesController < ApplicationController
 			end
 
 			uploaded = Company.new(:user_id => @user_id, :name => @name, :description => @description, :image_file_name => @file_name,
-				:goal_amount => @goal, :status => @status, :invested_amount => @invested, :website_link => @weblink, :video_link => @videolink, 
+				:goal_amount => @goal, :status => @status, :invested_amount => @invested, :website_link => @weblink, :video_link => @videolink,
 				:CEO => @ceo, :CEO_number => @number, :display => @display, :days_left => 10)
 
 			if uploaded.valid?
@@ -91,6 +91,7 @@ class CompaniesController < ApplicationController
 	end
 
 	def make_team
+		@companies = Company.all
 		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Founder]
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
 		end
@@ -133,6 +134,7 @@ class CompaniesController < ApplicationController
 	end
 
 	def make_profile
+		@companies = Company.all
 		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Founder]
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
 		end
@@ -150,7 +152,7 @@ class CompaniesController < ApplicationController
 		@pitch = params[:pitch_deck][0]
 
 		section = Section.new(:id => @id, :overview => @overview, :target_market => @tm, :current_investor_details => @cid, :detailed_metrics => @dm, :customer_testimonials => @ct, :competitive_landscape => @cl, :planned_use_of_funds => @use, :pitch_deck => @pitch)
-		
+
 		if section.valid?
 			section.save!
 			redirect_to "/companies"
@@ -202,11 +204,11 @@ class CompaniesController < ApplicationController
 	def remove_company
 		if params[:id] != nil
 	    	@company = Company.find(params[:id])
-	    	if (@company != nil) 
+	    	if (@company != nil)
 	    		@company.destroy
 	    	end
 	    end
-    	
+
     	redirect_to "/companies"
     end
 
@@ -224,11 +226,11 @@ class CompaniesController < ApplicationController
     def approve_company
 		if params[:id] != nil
 	    	@company = Company.find(params[:id])
-	    	if @company != nil 
+	    	if @company != nil
 	    		@company.update_column :display, 1
 	    	end
 	    end
-    	
+
     	redirect_to "/companies"
     end
 end
