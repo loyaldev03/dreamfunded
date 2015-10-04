@@ -9,16 +9,16 @@
 			<h2 class= "centered"> Select a Company and an Action</h2>
 
 			<%= form_tag '/companies/action', multipart: true do %>
-				
-				<br><br>
-				<label for = "select"> Company: </label>
 
-				<%= select_tag("id", options_from_collection_for_select(@companies, "id", "name"), {prompt: 'Select a Company'}) %>
+				<br><br>
+				<label for = "select">Select Company: </label>
+
+				<%= select_tag("id", options_from_collection_for_select(@companies, "id", "name")) %>
 				<div class= "right">
-					<label for = "action"> Action: </label> 
+					<label for = "action">Select Action: </label>
 
 					<select name="desired_action">
-						<option value="default" selected="selected">Select an Action</option>
+
 						<option value="1"> Add a Founder </option>
 						<option value="2"> Profile this Company </option>
 					</select><br><br>
@@ -35,7 +35,7 @@
 				</div>
 			<% end %>
 
-			
+
 		</div></div>
 	</body>
 
