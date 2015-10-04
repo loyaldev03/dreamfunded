@@ -9,7 +9,7 @@
 
 	<div class= "wrap">
 
-	<% if @companies != nil %> 
+	<% if @companies != nil %>
 		<div class= "companies-container">
 			<% @companies.each do |company| %>
 				<% if company.display != 0 %>
@@ -39,7 +39,7 @@
 								<br>
 								<hr>
 								<div>
-									<p class= "twenty no-margin center">$<%= number_with_delimiter(company.invested_amount, :delimiter => ',') %><br><span class= "darkblue twenty">Invested </span> </p> 
+									<p class= "twenty no-margin center">$<%= number_with_delimiter(company.invested_amount, :delimiter => ',') %><br><span class= "darkblue twenty">Invested </span> </p>
 								</div>
 							</div>
 							<div class= "right-column">
@@ -86,7 +86,7 @@
 								<br>
 								<hr>
 								<div>
-									<p class= "twenty no-margin center">$<%= number_with_delimiter(company.invested_amount, :delimiter => ',') %><br><span class= "darkblue twenty">Invested </span> </p> 
+									<p class= "twenty no-margin center">$<%= number_with_delimiter(company.invested_amount, :delimiter => ',') %><br><span class= "darkblue twenty">Invested </span> </p>
 								</div>
 							</div>
 							<div class= "right-column">
