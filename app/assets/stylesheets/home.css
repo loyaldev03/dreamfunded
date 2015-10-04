@@ -1,0 +1,353 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// Styling for index.html.erb
+
+@import "colors";
+
+.subtitle {
+	font-size: 30px;
+}
+
+.container {
+	max-width: 100% !important;
+	position: relative;
+}
+
+.fullWidth {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: initial;
+}
+
+////////------------- Front ----------------//////////
+
+.top {
+	background-color: white;
+}
+
+.space-keeper {
+	min-height: 600px;
+}
+
+.big-title {
+	top: 270px;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+}
+
+h1 {
+	font-size: 40px;
+	font-family: "Open Sans", arial, sans-serif;
+}
+
+h3 {
+	font-size: 20px;
+	font-weight: 300;
+	font-family: "Open Sans", arial, sans-serif;
+}
+
+.button-box {
+	position: relative;
+}
+
+.sky {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+#button {
+	width: 30%;
+	margin: 7% auto;
+	padding: 17px;
+	background: $darkblue;
+	font-size: 20px;
+	border: none;
+	color: white;
+	cursor: pointer;
+	outline: none;
+}
+
+#button:hover {
+	background: $lightblue;
+}
+
+#button:active {
+	outline: none;
+}
+
+#push {
+	padding: 17px;
+	width: 40%;
+	background: $darkblue;
+	font-size: 20px;
+	border: none;
+	color: white;
+	cursor: pointer;
+	outline: none;
+}
+
+#push:hover {
+	background: $lightblue;
+}
+
+#push:active {
+	outline: none;
+}
+
+.remove-margin {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.top-space {
+	margin-top: 30px;
+}
+
+////---------------- Section 2 -------------------- ////////
+
+
+.section2 {
+	margin: 50px auto;
+	width: 90%;
+	height: 550px;
+}
+
+.section2-box {
+	//border: 1px solid gray;
+	// background: -webkit-linear-gradient(bottom, white, $lightgray); /* For Safari 5.1 to 6.0 */
+	// background: -o-linear-gradient(top, white, $lightgray);  For Opera 11.1 to 12.0
+	// background: -moz-linear-gradient(top, white, $lightgray); /* For Firefox 3.6 to 15 */
+	// background: linear-gradient(to top, white, $lightgray); /* Standard syntax */
+	background: white;
+	width: 29%;
+	height: 500px;
+	float: left;
+	margin: 0 2%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.section2-box:hover {
+	//border: 1px solid $darkblue;
+}
+
+.section2-content {
+	padding: 30px;
+}
+
+.outer {
+	margin: 0 auto;
+	display: table;
+	margin-top: 30px;
+}
+
+.middle {
+	margin-top: 50px;
+}
+
+.image2 {
+	max-width: 180px;
+	max-height: 180px;
+}
+
+.seventeen {
+	font-size: 18px;
+}
+
+.bigger {
+	font-size: 2em;
+}
+
+.box-text {
+	height: 130px;
+	color: gray;
+}
+
+
+////---------------- Team -------------------- ////////
+
+
+.header-contents {
+	padding: 10px;
+}
+
+.team {
+	margin: 30px auto;
+	width: 1200px;
+	padding: 20px;
+	position: relative;
+}
+
+.team-wrap {
+	position: relative;
+	height: 250px;
+
+}
+
+.team-picture {
+	height: 250px;
+	border-radius: 50%;
+}
+
+.team-pic-wrap {
+	float: left;
+}
+
+.white-box {
+	background: white;
+	height: 200px;
+	width: 800px;
+	padding: 25px;
+	margin-left: 300px;
+	vertical-align: middle;
+	position: relative;
+}
+
+.summary {
+	height: 90px;
+	padding: 10px;
+	overflow: hidden;
+}
+
+.team-button {
+	border: none;
+	outline: 0;
+	color: white;
+	padding: 10px 40px;
+	background-color: $darkblue;
+	margin: 15px 0;
+	cursor: pointer;
+}
+
+.name {
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.indentt {
+	text-indent: 25px;
+}
+
+.long {
+	height: 400px;
+}
+
+.all_team {
+	float: left;
+	width: 150px;
+	margin: 10px;
+	height: 600px;
+	overflow: scroll;
+}
+.portrait_left {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+}
+
+.full-bio-team {
+	margin: 30px 1% 30px 14%;
+}
+
+.unbold {
+	 font-weight: normal;
+	 text-decoration: underline;
+}
+
+
+////---------------- Logos -------------------- ////////
+
+.logos {
+	background-color: white;
+	height: 420px;
+	padding: 30px 0;
+}
+
+.logos-container {
+	margin: 0 auto;
+	width: 1200px;
+}
+
+.row1 img {
+	width: 150px;
+	height: 150px;
+	margin: 10px 70px;
+}
+
+.row2 img {
+	max-height: 100px;
+	max-width: 450px;
+	margin: 20px 70px;
+}
+
+
+////---------------- Story -------------------- ////////
+
+.story-img {
+	text-align: center;
+	height: 350px;
+	overflow: hidden;
+	background-color: black;
+}
+
+.story-cont {
+	margin: 0 auto;
+	width: 85%;
+	position: relative;
+}
+
+.story {
+	padding-bottom: 70px;
+}
+
+.one-story {
+	width: 33%;
+	margin: 0;
+	height: inherit;
+	display: inline-block;
+	overflow: hidden;
+}
+
+.story-img img.wide {
+    height: 100%;
+}
+.story-img img.tall {
+    width: 100%;
+}​
+
+.spacer {
+	height: 50px;
+}
+
+.black-box {
+	height: 80px;
+	background-color: rgba(0, 0, 0, .8);
+	color: white;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	overflow: hidden;
+}
+
+.black-box-content {
+	margin: 30px;
+	position: relative;
+}
+
+#one {
+	display: block;
+}
+
+#two {
+	display: none;
+}
+
+#three {
+	display: none;
+}
