@@ -8,16 +8,16 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 #CSS
-
-Rails.application.config.assets.precompile += %w( home.css )
-Rails.application.config.assets.precompile += %w( menu.css )
-Rails.application.config.assets.precompile += %w( signup.css )
-Rails.application.config.assets.precompile += %w( login.css )
+Rails.application.config.assets.precompile += %w( application.css )
+Rails.application.config.assets.precompile += %w( home.css.scss )
+Rails.application.config.assets.precompile += %w( menu.css.scss )
+Rails.application.config.assets.precompile += %w( signup.css.scss )
+Rails.application.config.assets.precompile += %w( login.css.scss )
 Rails.application.config.assets.precompile += %w( team.css )
-Rails.application.config.assets.precompile += %w( why.css )
-Rails.application.config.assets.precompile += %w( news.css )
+Rails.application.config.assets.precompile += %w( why.css.scss )
+Rails.application.config.assets.precompile += %w( news.css.scss )
 #---- companies
-Rails.application.config.assets.precompile += %w( companies.css )
+Rails.application.config.assets.precompile += %w( companies.css.scss )
 Rails.application.config.assets.precompile += %w( unauthorized.css )
 
 
