@@ -27,7 +27,7 @@ function faq() {
 }
 
 function contact() {
-	window.location = "/home/contact";
+	window.location = "https://dreamfunded.com/contact/";
 }
 
 function funding() {
