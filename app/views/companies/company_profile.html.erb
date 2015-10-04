@@ -21,7 +21,7 @@
 				<div class= "profile-image-wrap"> <%= link_to image_tag("companies/#{@company.image_file_name}", :class => "stats-image"), @company.website_link %></div>
 				<div class= "numbers"><div class= "numbers-content">
 					<div class="meter orange">
-						<% @progress = 100 * (@company.invested_amount.to_f / @company.goal_amount) %>
+						<% @progress = (@company.invested_amount.to_f / @company.goal_amount) %>
 						<% if @progress == 0 %>
 							<span class= "front" style="width: 5px"></span>
 						<% elsif @progress > 100 %>
