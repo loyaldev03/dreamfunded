@@ -10,7 +10,7 @@
 				<a href= "/companies" class= "darkblue">&#8617; Back</a>
 				<% if user_session != nil && user_session.authority == authority[:Admin] %>
 					<%= link_to 'Edit', {:controller => 'companies', :action => 'edit_profile', :id => @id }, {:class => 'right'} %>
-				<% end %> 
+				<% end %>
 			</div>
 			<div class= "company-title indent">
 				<h2 class= "darkblue small-margin">
@@ -39,7 +39,7 @@
 							<hr>
 							<br>
 							<div>
-								<p class= "twenty no-margin center">$<%= number_with_delimiter(@company.invested_amount, :delimiter => ',') %><br><span class= "darkblue twenty">Invested </span> </p> 
+								<p class= "twenty no-margin center">$<%= number_with_delimiter(@company.invested_amount, :delimiter => ',') %><br><span class= "darkblue twenty">Invested </span> </p>
 							</div>
 						</div>
 						<div class= "right-column">
@@ -65,11 +65,12 @@
 
 			<div class= "description-container">
 				<div class= "video-box">
-					<% if @company.video_link != "" %>
-						<iframe width="650" height="450" src= <%= @company.video_link %> frameborder="0" allowfullscreen class= "indent"></iframe>
-					<% else %>
+					<!-- COMMENTED OUT THIS PART OF CODE FOR NOW CUZ IT WAS BRAKING PAGE -->
+					<%# if @company.video_link == "" %>
+						<!-- <iframe width="650" height="450" src= <%#= @company.video_link %> frameborder="0" allowfullscreen class= "indent"></iframe> -->
+					<%# else %>
 						<%= image_tag("companies/#{@company.image_file_name}")%>
-					<% end %>
+					<%# end %>
 				</div>
 				<br><br><br><br>
 				<h2 class= "darkblue twentyf indent">Highlight</h2>
