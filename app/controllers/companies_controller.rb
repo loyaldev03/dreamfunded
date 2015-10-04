@@ -187,13 +187,12 @@ class CompaniesController < ApplicationController
 	end
 
 	def update
-		updated = Company.new(:name => params[:name], :website_link => params[:website_link], :invested_amount => params[:invested_amount], :days_left => params[:days_left])
-		if updated.valid?
-			updated.save!
+		@company = Company.find(params[:id])
+		if @company.update(company_params)
 			redirect_to :controller => 'companies', :action => 'company_profile', :id => params[:id]
 		else
 			@error_update = ""
-			updated.errors.full_messages.each do |error|
+			@company.errors.full_messages.each do |error|
 				@error_update = @error_update + error + ". "
 			end
 			flash[:problem_update] = @error_update
@@ -232,5 +231,10 @@ class CompaniesController < ApplicationController
 	    end
 
     	redirect_to "/companies"
+    end
+
+   private
+   def company_params
+      params.require(:company).permit(:user_id, :name, :description, :image_file_name, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at)
     end
 end
