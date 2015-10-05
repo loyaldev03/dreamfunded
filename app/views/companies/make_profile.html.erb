@@ -10,11 +10,12 @@
 		</div>
 
 		<div class= "box profile-wrap">
-			<h2 class= "centered"> Fill out Profile Content </h2>
-			<%= form_tag '/companies/submit_profile', multipart: true do %>
-				
-				<%= select_tag("id", options_from_collection_for_select(@companies, "id", "name"), {prompt: 'Comfirm your Company Selection'}) %>
-				
+			<h2 class= "centered"> Fill out Profile Content for <%= @company.name%></h2>
+			<%= form_tag  '/companies/submit_profile', multipart: true do %>
+				<%= hidden_field_tag "id", @company.id %>
+
+				<%#s= select_tag("id", options_from_collection_for_select(@companies, "id", "name")) %>
+
 				<h4>Overview</h4>
 				<div class= "description-wrap">
 					<%= text_area(:overview, nil, :placeholder => "Company Overview", :class => "description-box") %>

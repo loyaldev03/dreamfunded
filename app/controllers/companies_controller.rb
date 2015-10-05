@@ -52,6 +52,8 @@ class CompaniesController < ApplicationController
 
 			if uploaded.valid?
 				uploaded.save
+				section = Section.new
+				uploaded.sections << section
 				redirect_to "/companies"
 			else
 				@error_message = ""
@@ -134,6 +136,7 @@ class CompaniesController < ApplicationController
 	end
 
 	def make_profile
+		@company = Company.find(params[:id])
 		@companies = Company.all
 		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Founder]
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
@@ -141,7 +144,9 @@ class CompaniesController < ApplicationController
 	end
 
 	def submit_profile
-		@id = params[:id]
+		@company = Company.find(params[:id])
+		@section = @company.sections.first
+
 		@overview = params[:overview][0]
 		@tm = params[:target_market][0]
 		@cid = params[:current_investor_details][0]
@@ -151,10 +156,7 @@ class CompaniesController < ApplicationController
 		@use = params[:planned_use_of_funds][0]
 		@pitch = params[:pitch_deck][0]
 
-		section = Section.new(:id => @id, :overview => @overview, :target_market => @tm, :current_investor_details => @cid, :detailed_metrics => @dm, :customer_testimonials => @ct, :competitive_landscape => @cl, :planned_use_of_funds => @use, :pitch_deck => @pitch)
-
-		if section.valid?
-			section.save!
+		if @section.update(:overview => @overview, :target_market => @tm, :current_investor_details => @cid, :detailed_metrics => @dm, :customer_testimonials => @ct, :competitive_landscape => @cl, :planned_use_of_funds => @use, :pitch_deck => @pitch)
 			redirect_to "/companies"
 		else
 			@error_message3 = ""
@@ -234,6 +236,9 @@ class CompaniesController < ApplicationController
     end
 
    private
+   def section_params
+   	params.require(:section).permit(:company_id, :overview, :target_market, :current_investor_details, :detailed_metrics, :customer_testimonials, :competitive_landscape, :planned_use_of_funds, :pitch_deck, :created_at, :updated_at)
+   end
    def company_params
       params.require(:company).permit(:user_id, :name, :description, :image_file_name, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at)
     end

@@ -3,7 +3,7 @@ class Company < ActiveRecord::Base
 
 	has_many :section
 	has_many :founders
-	has_many :snapshots
+	has_many :sections
 
 	validates :user_id, presence:true
 	validates :name, presence:true
@@ -16,13 +16,13 @@ class Company < ActiveRecord::Base
 
 	def self.Status
 		{
-			:Coming_Soon => 1, 
+			:Coming_Soon => 1,
 			:Active => 2,
 			:Funded => 3,
 		}
 	end
 
-	def get_status 
+	def get_status
 		if self.status == 1
 			"Coming Soon"
 		elsif self.status == 2
