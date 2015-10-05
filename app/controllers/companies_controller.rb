@@ -175,7 +175,7 @@ class CompaniesController < ApplicationController
 			@progress = @company.invested_amount / @company.goal_amount rescue 0
 
 			@members = Founder.where(company_id: params[:id])
-			@section = Section.find_by(id: params[:id])
+			@section = @company.sections.first
 		else
 			redirect_to "/companies"
 		end
