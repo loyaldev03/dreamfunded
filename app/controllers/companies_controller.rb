@@ -94,6 +94,7 @@ class CompaniesController < ApplicationController
 	end
 
 	def make_team
+		@founder = Founder.new
 		@companies = Company.all
 		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Founder]
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
@@ -101,39 +102,40 @@ class CompaniesController < ApplicationController
 	end
 
 	def add_team_member
-		@id = params[:id]
-		if params[:file1] != nil
-			uploaded_file = params[:file1]
+		# @id = params[:id]
+		# if params[:file1] != nil
+		# 	uploaded_file = params[:file1]
 
-			@file_name = uploaded_file.original_filename
+		# 	@file_name = uploaded_file.original_filename
 
-			directory = "app/assets/images/companies/"
-			path = File.join(directory, @file_name)
+		# 	directory = "app/assets/images/companies/"
+		# 	path = File.join(directory, @file_name)
 
-			File.open(path, "wb") { |f| f.write(uploaded_file.read) }
+		# 	File.open(path, "wb") { |f| f.write(uploaded_file.read) }
 
-			@name = params[:name1]
-			@content = params[:content1][0]
-			@position = params[:position]
-			@comp_id = params[:id]
-			founder1 = Founder.new(:name => @name, :position => @position, :image_address => @file_name, :content => @content, :company_id => @comp_id)
+		# 	@name = params[:name1]
+		# 	@content = params[:content1][0]
+		# 	@position = params[:position]
+		# 	@comp_id = params[:id]
+		# 	founder1 = Founder.new(:name => @name, :position => @position, :image_address => @file_name, :content => @content, :company_id => @comp_id)
 
-			if founder1.valid?
-				founder1.save
+		# 	if founder1.valid?
+		# 		founder1.save
+		# 		redirect_to "/companies"
+		# 	else
+		# 		@error_message2 = ""
+		# 		founder1.errors.full_messages.each do |error|
+		# 			@error_message2 = @error_message2 + error + ". "
+		# 		end
+
+		# 		flash[:notice] = @error_message2
+			@founder = Founder.new(founder_params)
+			if @founder.save
 				redirect_to "/companies"
 			else
-				@error_message2 = ""
-				founder1.errors.full_messages.each do |error|
-					@error_message2 = @error_message2 + error + ". "
-				end
-
-				flash[:notice] = @error_message2
+				flash[:notice] = "Image is not valid"
 				redirect_to "/companies/make_team"
 			end
-		else
-			flash[:notice] = "Image is not valid"
-			redirect_to "/companies/make_team"
-		end
 	end
 
 	def make_profile
@@ -175,7 +177,7 @@ class CompaniesController < ApplicationController
 			@company = Company.find(params[:id])
 			@progress = @company.invested_amount / @company.goal_amount rescue 0
 
-			@members = Founder.where(company_id: params[:id])
+			@members = @company.founders
 			@section = @company.sections.first
 		else
 			redirect_to "/companies"
@@ -243,4 +245,7 @@ class CompaniesController < ApplicationController
    def company_params
       params.require(:company).permit(:image, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at)
     end
+    def founder_params
+       params.require(:founder).permit(:image, :name, :position, :content, :company_id, :created_at, :updated_at)
+     end
 end

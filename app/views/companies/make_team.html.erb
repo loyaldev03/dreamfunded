@@ -14,15 +14,15 @@
 				<h2 class= "centered"> Add Team Member Information </h2>
 				<div class= "register-content">
 
-					<%= form_tag '/companies/add_team_member', multipart: true do %>
+					<%= form_for @founder, :url => url_for(:controller => 'companies_controller', :action => 'add_team_member'), multipart: true do |f|%>
 						<div class= "member-section">
 							<h4>Team Member:</h4>
-								<%= select_tag("id", options_from_collection_for_select(@companies, "id", "name")) %>
-								<%= text_field_tag(:name1, nil, :placeholder => "Name", :class => "input-box") %>
-								<%= text_field_tag(:position, nil, :placeholder => "Position", :class => "input-box") %>
-								<label for = "file1">Upload Team Member Photo: </label> <%= file_field_tag "file1" %><br>
+								<%= f.select(:company_id, options_from_collection_for_select(@companies, "id", "name")) %>
+								<%= f.text_field(:name, :placeholder => "Name", :class => "input-box") %>
+								<%= f.text_field(:position, :placeholder => "Position", :class => "input-box") %>
+								<label for = "file1">Upload Team Member Photo: </label> <%= f.file_field "image" %><br>
 								<div class= "description-wrap">
-									<%= text_area(:content1, nil, :placeholder => "Team Member Biography", :class => "description-box") %>
+									<%= f.text_area(:content, :placeholder => "Team Member Biography", :class => "description-box") %>
 								</div>
 						</div>
 
@@ -32,7 +32,7 @@
 			           	</div>
 
 						<div class= "centered">
-							<%= submit_tag("Submit", :id => "submit-button") %>
+							<%= f.submit("Submit", :id => "submit-button") %>
 						</div>
 					<% end %>
 				</div>

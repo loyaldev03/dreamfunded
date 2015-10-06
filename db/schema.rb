@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005231614) do
+ActiveRecord::Schema.define(version: 20151006020300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,10 @@ ActiveRecord::Schema.define(version: 20151005231614) do
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "news", force: true do |t|
@@ -81,10 +85,14 @@ ActiveRecord::Schema.define(version: 20151005231614) do
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
 
   create_table "teams", force: true do |t|
-    t.string "name"
-    t.string "file_name"
-    t.text   "summary"
-    t.text   "fullbio"
+    t.string   "name"
+    t.string   "file_name"
+    t.text     "summary"
+    t.text     "fullbio"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "users", force: true do |t|

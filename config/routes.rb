@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   get 'new/full/:id', to: "news#full", as: :full_article
+  post 'home_controller/create', to: "home#create"
+  post 'companies_controller/add_team_member', to: "companies#add_team_member"
 
   resources :companies
   resources :news
@@ -68,6 +70,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-get ':controller(/:action(/:id))'
-post ':controller(/:action(/:id))'
+  get ':controller(/:action(/:id))'
+  post ':controller(/:action(/:id))'
 end

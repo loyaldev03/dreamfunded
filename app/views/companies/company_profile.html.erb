@@ -18,7 +18,7 @@
 				</h2>
 			</div>
 			<div class= "stats-container">
-				<div class= "profile-image-wrap"> <%= link_to image_tag("companies/#{@company.image_file_name}", :class => "stats-image"), @company.website_link %></div>
+				<div class= "profile-image-wrap"> <%= link_to image_tag( @company.image.url, :class => "stats-image"), @company.website_link %></div>
 				<div class= "numbers"><div class= "numbers-content">
 					<div class="meter orange">
 						<% @progress = (@company.invested_amount.to_f / @company.goal_amount) %>
@@ -70,7 +70,7 @@
 					<%# if @company.video_link == "" %>
 						<!-- <iframe width="650" height="450" src= <%#= @company.video_link %> frameborder="0" allowfullscreen class= "indent"></iframe> -->
 					<%# else %>
-						<%= image_tag("companies/#{@company.image_file_name}")%>
+						<%= image_tag( @company.image.url)%>
 					<%# end %>
 				</div>
 				<br><br><br><br>
@@ -88,7 +88,7 @@
 									<% if user_session != nil && user_session.authority == authority[:Admin] %>
 										<%= button_to "X", { action: 'remove_founder', id: member.id} , {:class => 'remove-button'} %>
 									<% end %>
-									<%= image_tag("companies/#{member.image_address}", :class => "image team-pic") %>
+									<%= image_tag( member.image.url, :class => "image team-pic") %>
 									<h2 class= "twenty no-margin"><%= member.name %></h2>
 									<br>
 									<p class= "fifteen no-margin"><%= nl2br(h(member.content)).html_safe %></p>
