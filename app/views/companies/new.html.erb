@@ -9,33 +9,34 @@
 		<h2 class= "centered"> Create Your Company's Profile </h2>
 
 		<div class= "register-content">
-			<%= form_tag '/companies/create', multipart: true do %>
-				<%= text_field_tag(:name, nil, :placeholder => "Name of Your Company", :class => "input-box") %><br>
-				<%= number_field_tag(:amount, nil, :placeholder => "Amount Currently Invested", :class => "input-box half") %> 
+			<%= form_for @company, multipart: true do |f| %>
+				<%= f.hidden_field :user_id, value: session[:current_user].id %>
+				<%= f.text_field(:name, :placeholder => "Name of Your Company", :class => "input-box") %><br>
+				<%= f.number_field(:invested_amount, :placeholder => "Amount Currently Invested", :class => "input-box half") %>
 				<div class= "filler"></div>
-				<%= number_field_tag(:goal, nil, :placeholder => "Target Investment Amount", :min => 0, :step => 1000, :class => "input-box half scoot-left") %><br>
-				<%= text_field_tag(:CEO, nil, :placeholder => "Name of your CEO", :class => "input-box") %><br>
+				<%= f.number_field(:goal_amount, :placeholder => "Target Investment Amount", :min => 0, :step => 1000, :class => "input-box half scoot-left") %><br>
+				<%= f.text_field(:CEO, :placeholder => "Name of your CEO", :class => "input-box") %><br>
 
-				<%= text_field_tag(:CEO_number, nil, :placeholder => "Phone Number of your CEO", :class => "input-box") %><br>
+				<%= f.text_field(:CEO_number, :placeholder => "Phone Number of your CEO", :class => "input-box") %><br>
 
-				<%= text_field_tag(:url, nil, :placeholder => "Company Website URL", :class => "input-box") %><br>
-				<%= text_field_tag(:video, nil, :placeholder => "Company Video Link", :class => "input-box") %><br>
+				<%= f.text_field(:website_link, :placeholder => "Company Website URL", :class => "input-box") %><br>
+				<%= f.text_field(:video_link, :placeholder => "Company Video Link", :class => "input-box") %><br>
 
-				<label for = "status">Status:</label> 
-				<select name= "status">
-					<%= options_for_select({"Coming Soon" => "1", "Active" => "2", "Funded" => "3"}, "2") %>
-				</select>
+				<label for = "status">Status:</label>
+
+					<%= f.select(:status, [["Coming Soon", "1"],["Active", "2"],["Funded", "3"]], :selected => '2') %>
+
 				<br><br>
 
-				<label for = "file">Upload Company Logo: </label> <%= file_field_tag "file" %><br>
+				<label for = "file">Upload Company Logo: </label> <%= f.file_field "image" %><br>
 				<div class= "description-wrap">
-					<%= text_area(:description, nil, :placeholder => "Company Description and Details", :class => "description-box") %>
+					<%= f.text_area(:description, :placeholder => "Company Description and Details", :class => "description-box") %>
 				</div>
 
 				<div class = "notice centered">
 					<%= flash[:message] if flash[:message] %>
 				</div>
-				
+
 				<div class= "centered">
 					<%= submit_tag("Submit for Approval", :id => "submit-button") %>
 				</div>

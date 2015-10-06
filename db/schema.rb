@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916084246) do
+ActiveRecord::Schema.define(version: 20151005231614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20150916084246) do
     t.string   "user_id"
     t.string   "name"
     t.text     "description"
-    t.string   "image_file_name"
     t.integer  "invested_amount"
     t.string   "website_link"
     t.string   "video_link"
@@ -32,6 +31,10 @@ ActiveRecord::Schema.define(version: 20150916084246) do
     t.integer  "days_left"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "founders", force: true do |t|

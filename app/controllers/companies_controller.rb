@@ -8,6 +8,7 @@ class CompaniesController < ApplicationController
 	end
 
 	def new
+		@company = Company.new
 		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Founder]
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
 		end
@@ -15,58 +16,58 @@ class CompaniesController < ApplicationController
 
 	#Creates a new startup profile (Need to implement session for later)
 	def create
-		if params[:file] != nil
-			uploaded_file = params[:file]
-			@file_name = uploaded_file.original_filename
-			directory = "app/assets/images/companies/"
-			path = File.join(directory, @file_name)
-			File.open(path, "wb") { |f| f.write(uploaded_file.read) }
+		# if params[:file] != nil
+			# uploaded_file = params[:file]
+			# @file_name = uploaded_file.original_filename
+			# directory = "app/assets/images/companies/"
+			# path = File.join(directory, @file_name)
+			# File.open(path, "wb") { |f| f.write(uploaded_file.read) }
 
-			@user_id = session[:current_user].login
-			@name = params[:name]
-			@description = params[:description][0]
-			@goal = params[:goal]
-			@status = params[:status]
-			@invested = 0
-			@weblink = ""
-			@videolink = ""
-			@ceo = params[:CEO]
-			@number = params[:CEO_number]
-			@display = 0
+			# @user_id = session[:current_user].login
+			# @name = params[:name]
+			# @description = params[:description][0]
+			# @goal = params[:goal]
+			# @status = params[:status]
+			# @invested = 0
+			# @weblink = ""
+			# @videolink = ""
+			# @ceo = params[:CEO]
+			# @number = params[:CEO_number]
+			# @display = 0
+			# image = params[:image]
 
-			if params[:amount]
-				@invested = params[:amount]
-			end
+			# if params[:amount]
+			# 	@invested = params[:amount]
+			# end
 
-			if params[:url]
-				@weblink = params[:url]
-			end
+			# if params[:url]
+			# 	@weblink = params[:url]
+			# end
 
-			if params[:video]
-				@videolink = params[:video]
-			end
+			# if params[:video]
+			# 	@videolink = params[:video]
+			# end
+			@company = Company.new(company_params)
+			# uploaded = Company.new(:user_id => @user_id, :name => @name, :description => @description,
+			# 	:goal_amount => @goal, :status => @status, :invested_amount => @invested, :website_link => @weblink, :video_link => @videolink,
+			# 	:CEO => @ceo, :CEO_number => @number, :display => @display, :days_left => 10, )
 
-			uploaded = Company.new(:user_id => @user_id, :name => @name, :description => @description, :image_file_name => @file_name,
-				:goal_amount => @goal, :status => @status, :invested_amount => @invested, :website_link => @weblink, :video_link => @videolink,
-				:CEO => @ceo, :CEO_number => @number, :display => @display, :days_left => 10)
-
-			if uploaded.valid?
-				uploaded.save
+			if @company.save
 				section = Section.new
-				uploaded.sections << section
+				@company.sections << section
 				redirect_to "/companies"
 			else
 				@error_message = ""
-				uploaded.errors.full_messages.each do |error|
+				@company.errors.full_messages.each do |error|
 					@error_message = @error_message + error + ". "
 				end
 				flash[:message] = @error_message
 				redirect_to "/companies/new"
 			end
-		else
-			flash[:message] = "Image is not valid"
-			redirect_to "/companies/new"
-		end
+		# else
+		# 	flash[:message] = "Image is not valid"
+		# 	redirect_to "/companies/new"
+		# end
 	end
 
 	def edit
@@ -240,6 +241,6 @@ class CompaniesController < ApplicationController
    	params.require(:section).permit(:company_id, :overview, :target_market, :current_investor_details, :detailed_metrics, :customer_testimonials, :competitive_landscape, :planned_use_of_funds, :pitch_deck, :created_at, :updated_at)
    end
    def company_params
-      params.require(:company).permit(:user_id, :name, :description, :image_file_name, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at)
+      params.require(:company).permit(:image, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at)
     end
 end
