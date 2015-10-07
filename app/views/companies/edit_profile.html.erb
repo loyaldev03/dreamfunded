@@ -78,7 +78,7 @@
 				<br><br><br><br>
 				<h2 class= "darkblue twentyf indent">Highlight</h2>
 					<hr>
-					<p class= "fifteen"><%= nl2br(h(@company.description)).html_safe %></p>
+					<p class= "fifteen"><%= f.text_field :description, :class => 'twenty input-box no-margin ' %></p>
 
 				<% if @members != nil && !@members.empty? %>
 					<br>
