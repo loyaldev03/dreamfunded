@@ -30,7 +30,7 @@
 				<div class= "profile-image-wrap"> <%= link_to image_tag(@company.image.url, :class => "stats-image"), @company.website_link %></div>
 				<div class= "numbers"><div class= "numbers-content">
 					<div class="meter orange">
-						<% @progress = (@company.invested_amount.to_f / @company.goal_amount) %>
+						<% @progress = ((@company.invested_amount.to_f / @company.goal_amount.to_f).to_f) *100 %>
 						<% if @progress == 0 %>
 							<span class= "front" style="width: 5px"></span>
 						<% else %>
@@ -38,28 +38,25 @@
 					 	<% end %>
 					</div><br>
 					<div class= 'statistics'>
-						<div class= "left-column">
+						<div class= "">
 							<div>
-								<p class= "twenty no-margin center"> <%= @company.get_status %> <span class= "darkblue twenty"><br> Status </span> </p>
+								<p class= "twenty no-margin center"><span class= "darkblue twenty">Status: </span> <%= @company.get_status %></p>
 							</div>
-							<br>
-							<hr>
-							<br>
+
 							<div>
 								<p class= "twenty no-margin center"><%= f.number_field :invested_amount, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Invested </span> </p>
 							</div>
-						</div>
-						<div class= "right-column">
 							<div>
-								<p class= "twenty no-margin center"><%= f.number_field :days_left, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Days Left</span></p>
+								<p class= "twenty no-margin center"><%= f.number_field :goal_amount, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Goal Amount </span> </p>
 							</div>
-							<br>
-							<hr>
-							<br>
+						</div>
+						<div>
+							<p class= "twenty no-margin center"><%= f.number_field :days_left, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Days Left</span></p>
+						</div>
+
 							<div>
 								<p class= "twenty no-margin center"><%= "%.1f" % @progress %>%<br><span class= "darkblue twenty">Funded<span></p>
 							</div>
-						</div>
 					</div>
 
 				</div></div>
