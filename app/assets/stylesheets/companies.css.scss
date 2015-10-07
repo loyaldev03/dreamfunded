@@ -291,9 +291,15 @@
 		height: 300px;
 	}
 }
-
 /*# Huge*/
-@media  screen and (min-width: 1280px){
+@media  screen and (min-width: 1199px){
+	.youtube-video{
+		width: 500px;
+		height: 400px;
+	}
+}
+/*# Huge*/
+@media  screen and (min-width: 1400px){
 	.youtube-video{
 		width: 600px;
 		height: 450px;
