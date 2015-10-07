@@ -16,7 +16,7 @@
 						<li><button onclick= "signIn()">Login</button></li>
 					<% else %>
 						<li><button onclick= "profile()" >My Account <span class="arrow">&#9660;</span></button>
-							<ul class= "sub-menu"> 
+							<ul class= "sub-menu">
 								<li><button onclick= "portfolio()">Portfolio</button></li>
 								<% if user_session.authority != authority[:Admin] %>
 									<li><button onclick= "signOut()" >Sign Out</button></li>
@@ -25,19 +25,19 @@
 									<li><button onclick= "signOut()" >Sign Out</button></li>
 								<% end %>
 							</ul>
-						</li> 
+						</li>
 					<% end %>
 
 					<li><button disabled= "true">About <span class="arrow">&#9660;</span></button>
-						<ul class= "sub-menu"> 
+						<ul class= "sub-menu">
 							<li><button onclick= "about()">About Us</button></li>
 							<li><button onclick= "faq()">FAQ</button></li>
 							<li><button onclick= "contact()">Contact Us</button></li>
 						</ul>
 					</li>
-					<% if user_session != nil && user_session.authority > 2 %>
-						<li><button onclick= "funding()">Get Funded</button></li>
-					<% end %>
+					<%# if user_session != nil && user_session.authority > 2 %>
+						<!-- <li><button onclick= "funding()">Get Funded</button></li> -->
+					<%# end %>
 					<li><button onclick= "team()">Team</button></li>
 					<li><button onclick= "exchange()">Exchange</button></li>
 					<li><button onclick= "news()">News</button></li>
