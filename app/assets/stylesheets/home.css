@@ -274,7 +274,9 @@ h3 {
 	margin: 0 auto;
 	width: 1200px;
 }
-
+.padding-top-100{
+	padding-top: 100px;
+}
 .row1 img {
 	width: 150px;
 	height: 150px;
