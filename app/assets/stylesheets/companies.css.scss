@@ -264,10 +264,42 @@
 	width: 600px;
 	margin-top: -30px;
 }
-.youtube-video{
+/*.youtube-video{
 	width: 100%;
 	height: 400px;
+}*/
+/*youtube-video different screene*/
+@media  screen and (min-width: 480px){
+	.youtube-video{
+		width: 250px;
+		height: 175px;
+	}
 }
+
+/*# Tablet*/
+@media  screen and (min-width: 768px){
+	.youtube-video{
+		width: 300px;
+		height: 200px;
+	}
+}
+
+/*# Desktop*/
+@media  screen and (min-width: 992px){
+	.youtube-video{
+		width: 400px;
+		height: 300px;
+	}
+}
+
+/*# Huge*/
+@media  screen and (min-width: 1280px){
+	.youtube-video{
+		width: 600px;
+		height: 450px;
+	}
+}
+
 .image-max-width{
   max-width: 600px;
 }

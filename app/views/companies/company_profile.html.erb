@@ -65,7 +65,7 @@
 				<div class= "video-box">
 					<!-- COMMENTED OUT THIS PART OF CODE FOR NOW CUZ IT WAS BRAKING PAGE -->
 					<% if @company.video_link %>
-						<iframe width="600" height="450" class='youtube-video' src= <%= @company.video_link %> frameborder="0" allowfullscreen ></iframe>
+						<iframe  class='youtube-video' src= <%= @company.video_link %> frameborder="0" allowfullscreen ></iframe>
 						<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/VQJJJGNeM-s" frameborder="0" allowfullscreen></iframe> -->
 					<% else %>
 						<%= image_tag( @company.image.url, class: 'image-max-width')%>
