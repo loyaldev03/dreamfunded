@@ -33,6 +33,9 @@
 					<div class= 'statistics'>
 						<div class= "">
 							<div>
+								<p class= "twenty no-margin center"><span class= "darkblue twenty">Document: </span> <%= link_to "document", @company.document.url, target: "_blank" %></p>
+							</div>
+							<div>
 								<p class= "twenty no-margin center"><span class= "darkblue twenty">Status: </span> <%= @company.get_status %></p>
 							</div>
 
