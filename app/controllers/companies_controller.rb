@@ -243,7 +243,7 @@ class CompaniesController < ApplicationController
    	params.require(:section).permit(:company_id, :overview, :target_market, :current_investor_details, :detailed_metrics, :customer_testimonials, :competitive_landscape, :planned_use_of_funds, :pitch_deck, :created_at, :updated_at)
    end
    def company_params
-      params.require(:company).permit(:image, :document, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at)
+      params.require(:company).permit(:image, :document, :docusign_url, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at)
     end
     def founder_params
        params.require(:founder).permit(:image, :name, :position, :content, :company_id, :created_at, :updated_at)
