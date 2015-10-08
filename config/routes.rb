@@ -13,6 +13,12 @@ Rails.application.routes.draw do
   post 'home_controller/create', to: "home#create"
   post 'companies_controller/add_team_member', to: "companies#add_team_member"
 
+  get '/change_password', to: "users#change_password", as: :change_password
+  post '/post_change_password', to: "users#post_change_password", as: :post_change_password
+
+  get '/new_password', to: "users#new_password", as: :new_password
+  post '/reset_password', to: "users#reset_password", as: :reset_password
+
   resources :companies
   resources :news
 

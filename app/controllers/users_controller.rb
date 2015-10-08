@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
 	def login
 
-	end 
+	end
 
 	def new
 
@@ -77,18 +77,18 @@ class UsersController < ApplicationController
 			end
 			render(:action => :new)
 		end
-	end	
+	end
 
 	def post_login
 		login_user = User.find_by(login: params[:username])
 		if login_user == nil
-			flash[:notice] = "This user ID does not exist." 
+			flash[:notice] = "This user ID does not exist."
 			redirect_to(:action => :login)
 		else
 			password = params[:password]
-			
+
 			if(login_user.password_valid?(password))
-				session[:current_user] = login_user 
+				session[:current_user] = login_user
 				redirect_to url_for(:controller => 'home', :action => 'index')
 			else
 				flash[:notice] = "Wrong password. Please try again."
@@ -101,6 +101,41 @@ class UsersController < ApplicationController
 	def signout
 		session[:current_user] = nil
 		redirect_to :controller => 'home'
+	end
+
+	def change_password
+	end
+
+	def post_change_password
+		user = User.find_by(email: params[:email])
+		if user
+			ContactMailer.reset_email(user).deliver
+			flash[:notice] = "You will receive an email with instructions on how to reset your password in a few minutes."
+			redirect_to(:action => :login)
+		else
+			flash[:notice] = "Email not found"
+			redirect_to(:action => :change_password)
+		end
+	end
+
+	def new_password
+		@user = User.find_by(email: params[:reset_password_email])
+	end
+
+	def reset_password
+		@user = User.find_by(email: params[:email])
+		password = params[:password]
+		password_confirmation = params[:password_confirmation]
+		if @user.update(password: password, password_confirmation: password_confirmation)
+			session[:current_user] = @user
+			redirect_to url_for(:controller => 'home', :action => 'index')
+		else
+			@error_message = ""
+			@user.errors.full_messages.each do |error|
+				@error_message = @error_message + error + ". "
+			end
+			render :new_password, locals: {user: @user}
+		end
 	end
 
 end
