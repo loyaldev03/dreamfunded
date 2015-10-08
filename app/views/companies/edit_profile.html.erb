@@ -74,7 +74,7 @@
 					<%# if @company.video_link != "" %>
 						<!-- <iframe width="650" height="450" src= <%#= @company.video_link %> frameborder="0" allowfullscreen class= "indent"></iframe> -->
 					<%# else %>
-						<%= image_tag(@company.image.url)%>
+						<%= image_tag(@company.image.url, class: "max-width-image")%>
 					<%# end %>
 				</div>
 				<br><br><br><br>
