@@ -62,7 +62,9 @@
 				</div></div>
 				<% if @company.status == 2 && @company.display != 0 %>
 					<%= link_to "Invest in #{@company.name}", @company.docusign_url, :class => "company-button profile-button", target: "_blank" %>
-					<%#= mail_to "manny@dreamfunded.com", "Invest in #{@company.name}", subject: "I want to invest in #{@company.name}", :class => "company-button profile-button mail-to-button" %>
+				<% elsif @company.status == 1 %>
+					<%= mail_to "manny@dreamfunded.com", "Join the waitlist", subject: "I want to invest in #{@company.name}", :class => "company-button profile-button mail-to-button" %>
+
 				<% else %>
 					<%= button_to "Invest in #{@company.name}", nil, :class => "company-button profile-button", :disabled => true %>
 				<% end %>
