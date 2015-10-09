@@ -56,7 +56,7 @@ class HomeController < ApplicationController
 
 
 	def get_started
-		if session[:current_user] == nil
+		if session[:current_user] == nil || session[:current_user].try(:authority) < 2
 			redirect_to "/users/new"
 		else
 			redirect_to "/companies"
