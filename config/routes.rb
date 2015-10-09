@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :documents
+
   get 'payment/index'
 
   get 'news/new'
@@ -18,6 +20,8 @@ Rails.application.routes.draw do
 
   get '/new_password', to: "users#new_password", as: :new_password
   post '/reset_password', to: "users#reset_password", as: :reset_password
+
+  get '/epay', to: "companies#epay", as: :epay
 
   resources :companies
   resources :news

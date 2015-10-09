@@ -238,6 +238,12 @@ class CompaniesController < ApplicationController
     	redirect_to "/companies"
     end
 
+    def epay
+    	if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Basic]
+				redirect_to url_for(:controller => 'home', :action => 'unauthorized')
+			end
+    end
+
    private
    def section_params
    	params.require(:section).permit(:company_id, :overview, :target_market, :current_investor_details, :detailed_metrics, :customer_testimonials, :competitive_landscape, :planned_use_of_funds, :pitch_deck, :created_at, :updated_at)

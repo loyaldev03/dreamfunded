@@ -3,7 +3,7 @@ class Company < ActiveRecord::Base
 
 	has_many :sections
 	has_many :founders
-
+	has_many :documents
 
 	has_attached_file :image,
 	  :styles =>{

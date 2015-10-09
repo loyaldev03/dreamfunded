@@ -84,7 +84,7 @@
 				<br><br><br><br>
 				<h2 class= "darkblue twentyf indent">Highlight</h2>
 					<hr>
-					<p class= "fifteen"><%= f.text_area :description, :class => 'twenty input-box no-margin ' %></p>
+					<p class= "fifteen"><%= f.text_area :description, rows: 10, :class => 'twenty input-box no-margin ' %></p>
 
 				<% if @members != nil && !@members.empty? %>
 					<br>
