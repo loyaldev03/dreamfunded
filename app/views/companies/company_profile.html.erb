@@ -81,7 +81,7 @@
 				<h2 class= "darkblue twentyf indent">Highlight</h2>
 					<hr>
 					<p class= "fifteen"><%= nl2br(h(@company.description)).html_safe %></p>
-				<% if @company.status == 2 %>
+				<% if @company.status == 2 || @company.status == 1 %>
 					<% if @members != nil && !@members.empty? %>
 						<br>
 						<h2 class= "darkblue twentyf indent">Team</h2>
