@@ -70,7 +70,6 @@
 
 			<div class= "description-container">
 				<div class= "video-box">
-					<!-- COMMENTED OUT THIS PART OF CODE FOR NOW CUZ IT WAS BRAKING PAGE -->
 					<% if @company.video_link %>
 						<iframe  class='youtube-video' src= <%= @company.video_link %> frameborder="0" allowfullscreen ></iframe>
 						<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/VQJJJGNeM-s" frameborder="0" allowfullscreen></iframe> -->
@@ -82,73 +81,74 @@
 				<h2 class= "darkblue twentyf indent">Highlight</h2>
 					<hr>
 					<p class= "fifteen"><%= nl2br(h(@company.description)).html_safe %></p>
-
-				<% if @members != nil && !@members.empty? %>
-					<br>
-					<h2 class= "darkblue twentyf indent">Team</h2>
-						<hr>
-						<div class= "team-band">
-							<% @members.each do |member| %>
-								<div class= "team-box">
-									<% if user_session != nil && user_session.authority == authority[:Admin] %>
-										<%= button_to "X", { action: 'remove_founder', id: member.id} , {:class => 'remove-button'} %>
-									<% end %>
-									<%= image_tag( member.image.url, :class => "image team-pic") %>
-									<h2 class= "twenty no-margin"><%= member.name %></h2>
-									<br>
-									<p class= "fifteen no-margin"><%= nl2br(h(member.content)).html_safe %></p>
-								</div>
-							<% end %>
-						</div>
-					<% end %>
-				<% if @section != nil %>
-					<% if @section.overview && @section.overview != "" %>
+				<% if @company.status == 2 %>
+					<% if @members != nil && !@members.empty? %>
 						<br>
-						<h2 class= "darkblue twentyf indent">Overview</h2>
-						<hr>
-						<p><%= nl2br(h(@section.overview)).html_safe %></p>
+						<h2 class= "darkblue twentyf indent">Team</h2>
+							<hr>
+							<div class= "team-band">
+								<% @members.each do |member| %>
+									<div class= "team-box">
+										<% if user_session != nil && user_session.authority == authority[:Admin] %>
+											<%= button_to "X", { action: 'remove_founder', id: member.id} , {:class => 'remove-button'} %>
+										<% end %>
+										<%= image_tag( member.image.url, :class => "image team-pic") %>
+										<h2 class= "twenty no-margin"><%= member.name %></h2>
+										<br>
+										<p class= "fifteen no-margin"><%= nl2br(h(member.content)).html_safe %></p>
+									</div>
+								<% end %>
+							</div>
 					<% end %>
+					<% if @section != nil %>
+						<% if @section.overview && @section.overview != "" %>
+							<br>
+							<h2 class= "darkblue twentyf indent">Overview</h2>
+							<hr>
+							<p><%= nl2br(h(@section.overview)).html_safe %></p>
+						<% end %>
 
-					<% if @section.target_market && @section.target_market != "" %>
-						<h2 class= "darkblue twentyf indent">Target Market</h2>
-						<hr>
-						<p><%= nl2br(h(@section.target_market)).html_safe %></p>
-					<% end %>
+						<% if @section.target_market && @section.target_market != "" %>
+							<h2 class= "darkblue twentyf indent">Target Market</h2>
+							<hr>
+							<p><%= nl2br(h(@section.target_market)).html_safe %></p>
+						<% end %>
 
-					<% if @section.current_investor_details && @section.current_investor_details != "" %>
-						<h2 class= "darkblue twentyf indent">Current Investor Details</h2>
-						<hr>
-						<p><%= nl2br(h(@section.current_investor_details)).html_safe %></p>
-					<% end %>
+						<% if @section.current_investor_details && @section.current_investor_details != "" %>
+							<h2 class= "darkblue twentyf indent">Current Investor Details</h2>
+							<hr>
+							<p><%= nl2br(h(@section.current_investor_details)).html_safe %></p>
+						<% end %>
 
-					<% if @section.detailed_metrics && @section.detailed_metrics != "" %>
-						<h2 class= "darkblue twentyf indent">Detailed Metrics</h2>
-						<hr>
-						<p><%= nl2br(h(@section.detailed_metrics)).html_safe %></p>
-					<% end %>
+						<% if @section.detailed_metrics && @section.detailed_metrics != "" %>
+							<h2 class= "darkblue twentyf indent">Detailed Metrics</h2>
+							<hr>
+							<p><%= nl2br(h(@section.detailed_metrics)).html_safe %></p>
+						<% end %>
 
-					<% if @section.customer_testimonials && @section.customer_testimonials != "" %>
-						<h2 class= "darkblue twentyf indent">Customer Testimonials</h2>
-						<hr>
-						<p><%= nl2br(h(@section.customer_testimonials)).html_safe %></p>
-					<% end %>
+						<% if @section.customer_testimonials && @section.customer_testimonials != "" %>
+							<h2 class= "darkblue twentyf indent">Customer Testimonials</h2>
+							<hr>
+							<p><%= nl2br(h(@section.customer_testimonials)).html_safe %></p>
+						<% end %>
 
-					<% if @section.competitive_landscape && @section.competitive_landscape != "" %>
-						<h2 class= "darkblue twentyf indent">Competitive Landscape</h2>
-						<hr>
-						<p><%= nl2br(h(@section.competitive_landscape)).html_safe %></p>
-					<% end %>
+						<% if @section.competitive_landscape && @section.competitive_landscape != "" %>
+							<h2 class= "darkblue twentyf indent">Competitive Landscape</h2>
+							<hr>
+							<p><%= nl2br(h(@section.competitive_landscape)).html_safe %></p>
+						<% end %>
 
-					<% if @section.planned_use_of_funds && @section.planned_use_of_funds != "" %>
-						<h2 class= "darkblue twentyf indent">Planned Use of Funds</h2>
-						<hr>
-						<p><%= nl2br(h(@section.planned_use_of_funds)).html_safe %></p>
-					<% end %>
+						<% if @section.planned_use_of_funds && @section.planned_use_of_funds != "" %>
+							<h2 class= "darkblue twentyf indent">Planned Use of Funds</h2>
+							<hr>
+							<p><%= nl2br(h(@section.planned_use_of_funds)).html_safe %></p>
+						<% end %>
 
-					<% if @section.pitch_deck && @section.pitch_deck != nil %>
-						<h2 class= "darkblue twentyf indent">Pitch Deck</h2>
-						<hr>
-						<p><%= nl2br(h(@section.pitch_deck)).html_safe %></p>
+						<% if @section.pitch_deck && @section.pitch_deck != nil %>
+							<h2 class= "darkblue twentyf indent">Pitch Deck</h2>
+							<hr>
+							<p><%= nl2br(h(@section.pitch_deck)).html_safe %></p>
+						<% end %>
 					<% end %>
 				<% end %>
 			</div>
