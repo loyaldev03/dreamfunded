@@ -29,7 +29,7 @@
 			<div class= "stats-container">
 				<div class= "profile-image-wrap"> <%= link_to image_tag(@company.image.url, :class => "stats-image"), @company.website_link %></div>
 				<div class='center'><span class= "darkblue twenty">Change Image: </span><%= f.file_field "image" %></br></br></div>
-				<div class='center'><span class= "darkblue twenty">Upload Docs: </span><%= f.file_field "document" %></br></br></div>
+				<div class='center'><span class= "darkblue twenty"><%= link_to "Upload Docs", new_document_path %> </span></br></br></div>
 				<div class= "numbers"><div class= "numbers-content">
 					<div class="meter orange">
 						<% @progress = ((@company.invested_amount.to_f / @company.goal_amount.to_f).to_f) *100 %>

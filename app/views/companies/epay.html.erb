@@ -1,12 +1,26 @@
-<div class= "word-content">
-  <form action="https://www.usaepay.com/interface/epayform/">
-    <input type="hidden" name="UMkey" value="sK43Fvx2cVBez9wZ2J15A8Y4r7c2FXW5">
-    <input type="hidden" name="UMcommand" value="sale">
-    <input type="text" name="UMamount" value="[amount]">
-    <input type="hidden" name="UMinvoice" value="DreamFunded Member Investment">
-    <input type="hidden" name="UMdescription" value="DreamFunded Description">
+  <div class= "wrapper"><div class= "box signin-box centered">
 
-    <input type="hidden" name="UMhash" value="[hash]">
-    <input type="submit" value="Continue to Payment Form">
-  </form>
+    <div class="row">
+      <div class=" darkblue active">
+        <h2 class= "no-margin centered"><span  id="login-form-link">Enter Invest Amount</span></h2>
+      </div>
+    </div>
+
+    <div class= "login-container">
+      <form action="https://www.usaepay.com/interface/epayform/">
+        <input type="hidden" name="UMkey" value="sK43Fvx2cVBez9wZ2J15A8Y4r7c2FXW5">
+        <input type="hidden" name="UMcommand" value="sale">
+        <input type="text" name="UMamount" value="", placeholder="Amount" class="userbox" >
+        <input type="hidden" name="UMinvoice" value="DreamFunded Member Investment">
+        <input type="hidden" name="UMdescription" value="DreamFunded Description">
+
+        <input type="hidden" name="UMhash" value="[hash]">
+        <div class= "centered">
+          <input type="submit" value="Continue to Invest" class="login-button">
+        </div>
+      </form>
+    </div>
+
+
+  </div>
 </div>
