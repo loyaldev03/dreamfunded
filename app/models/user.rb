@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 	validates_uniqueness_of :login
 	validates_uniqueness_of :email
 	validates :password, length: { in: 6..20 }
-	validates :password, confirmation: true
+	#validates :password, confirmation: true
 
 	def password_valid?(pass)
 		pass_db = self.password_digest

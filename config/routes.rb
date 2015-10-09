@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   post '/reset_password', to: "users#reset_password", as: :reset_password
 
   get '/epay', to: "companies#epay", as: :epay
-  get 'users/verify/:email', to: 'users#verify', as: 'user_verify'
+  post '/users/verify', to: 'users#verify', as: 'user_verify'
 
   resources :companies
   resources :news

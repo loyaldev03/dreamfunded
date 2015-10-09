@@ -141,7 +141,8 @@ class UsersController < ApplicationController
 
 	def verify
 		user = User.find_by(email: params[:email])
-		user.update(confirmed: true)
+		user.confirmed = true
+		user.save(:validate => false)
 		redirect_to root_path
 	end
 
