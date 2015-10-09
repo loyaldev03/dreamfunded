@@ -30,6 +30,14 @@
 				<div class= "profile-image-wrap"> <%= link_to image_tag(@company.image.url, :class => "stats-image"), @company.website_link %></div>
 				<div class='center'><span class= "darkblue twenty">Change Image: </span><%= f.file_field "image" %></br></br></div>
 				<div class='center'><span class= "darkblue twenty"><%= link_to "Upload Docs", new_document_path(:company_id => @company.id) %> </span></br></br></div>
+
+				<div class='center'>
+					<span class= "darkblue twenty">Documents: </span>
+					<% @company.documents.each do |doc|%>
+						<p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to doc.file_file_name, doc.file.url, target: "_blank", class: 'document-url' %><br><%= link_to 'Destroy', doc, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+					<% end %>
+				</div><br>
+
 				<div class= "numbers"><div class= "numbers-content">
 					<div class="meter orange">
 						<% @progress = ((@company.invested_amount.to_f / @company.goal_amount.to_f).to_f) *100 %>

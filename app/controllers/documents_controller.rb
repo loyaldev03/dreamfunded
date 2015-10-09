@@ -1,6 +1,6 @@
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy]
-
+  before_action :authorize
   # GET /documents
   # GET /documents.json
   def index
@@ -58,7 +58,7 @@ class DocumentsController < ApplicationController
   def destroy
     @document.destroy
     respond_to do |format|
-      format.html { redirect_to documents_url, notice: 'Document was successfully destroyed.' }
+      format.html { redirect_to companies_url, notice: 'Document was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -67,6 +67,12 @@ class DocumentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_document
       @document = Document.find(params[:id])
+    end
+
+    def authorize
+      if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Admin]
+        redirect_to url_for(:controller => 'home', :action => 'unauthorized')
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
