@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :documents
 
+
   get 'payment/index'
 
   get 'news/new'

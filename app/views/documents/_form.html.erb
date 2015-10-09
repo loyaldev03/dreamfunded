@@ -1,4 +1,5 @@
-<%= form_for(@document) do |f| %>
+<%= form_for @document, multipart: true do |f| %>
+  <%= f.hidden_field :company_id, value: @company.id %>
   <% if @document.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@document.errors.count, "error") %> prohibited this document from being saved:</h2>
@@ -11,7 +12,14 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label "Document Name" %><br>
+    <%= f.text_field :name %>
+  </div>
+  <%= f.label :file %><br>
+  <%= f.file_field :file %>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Upload", :id => "submit-button" %>
   </div>
 <% end %>

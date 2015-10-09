@@ -14,6 +14,7 @@ class DocumentsController < ApplicationController
 
   # GET /documents/new
   def new
+    @company = Company.find(params[:company_id])
     @document = Document.new
   end
 
@@ -25,10 +26,11 @@ class DocumentsController < ApplicationController
   # POST /documents.json
   def create
     @document = Document.new(document_params)
-
+    @company = Company.find(params[:document][:company_id])
     respond_to do |format|
       if @document.save
-        format.html { redirect_to @document, notice: 'Document was successfully created.' }
+        @company.documents << @document
+        format.html { redirect_to "/companies", notice: 'Document was successfully created.' }
         format.json { render :show, status: :created, location: @document }
       else
         format.html { render :new }
@@ -69,6 +71,6 @@ class DocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
-      params[:document]
+      params.require(:document).permit(:file, :name, :company_id, :created_at, :updated_at)
     end
 end

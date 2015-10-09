@@ -32,9 +32,7 @@
 					</div><br>
 					<div class= 'statistics'>
 						<div class= "">
-							<div>
-								<p class= "twenty no-margin center"><span class= "darkblue twenty">Document: </span> <%= link_to "document", @company.document.url, target: "_blank" %></p>
-							</div>
+
 							<div>
 								<p class= "twenty no-margin center"><span class= "darkblue twenty">Status: </span> <%= @company.get_status %></p>
 							</div>
@@ -52,6 +50,13 @@
 
 							<div>
 								<p class= "twenty no-margin center"><%= "%.1f" % @progress %>%<br><span class= "darkblue twenty">Funded<span></p>
+							</div>
+
+							<div>
+								<span class= "darkblue twenty">Documents: </span>
+								<% @company.documents.each do |doc|%>
+									<p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to doc.file_file_name, doc.file.url, target: "_blank", class: 'document-url' %></p>
+								<% end %>
 							</div>
 					</div>
 
