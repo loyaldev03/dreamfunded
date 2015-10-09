@@ -95,7 +95,7 @@
 											<%= button_to "X", { action: 'remove_founder', id: member.id} , {:class => 'remove-button'} %>
 										<% end %>
 										<%= image_tag( member.image.url, :class => "image team-pic") %>
-										<h2 class= "twenty no-margin"><%= member.name %></h2>
+										<h2 class= "twenty no-margin"><%= member.name %>, <%= member.position %></h2>
 										<br>
 										<p class= "fifteen no-margin"><%= nl2br(h(member.content)).html_safe %></p>
 									</div>
