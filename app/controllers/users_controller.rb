@@ -67,6 +67,7 @@ class UsersController < ApplicationController
 		record.password_confirmation = params[:password_confirmation]
 		if record.valid?
 			record.save
+			ContactMailer.verify_email(record).deliver
 			flash[:notice] = "Registration successful."
 			redirect_to(:action => :post_login, :username => @login, :password => @password)
 		else
@@ -136,6 +137,12 @@ class UsersController < ApplicationController
 			end
 			render :new_password, locals: {user: @user}
 		end
+	end
+
+	def verify
+		user = User.find_by(email: params[:email])
+		user.update(confirmed: true)
+		redirect_to root_path
 	end
 
 end

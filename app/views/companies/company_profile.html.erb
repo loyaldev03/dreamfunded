@@ -32,22 +32,22 @@
 					</div><br>
 					<div class= 'statistics'>
 							<div>
-								<p class= "twenty no-margin center"><span class= "darkblue twenty">Status: </span> <%= @company.get_status %></p>
+								<p class= "twenty no-margin center"><span class= "darkblue twenty">Status: </span> <%= @company.get_status %><br><br></p>
 							</div>
 					<% if @company.status == 2 %>
 							<div>
-								<p class= "twenty no-margin center"><%= number_to_currency @company.invested_amount, precision: 0 %><br><span class= "darkblue twenty">Invested </span> </p>
+								<p class= "twenty no-margin center"><span class= "darkblue twenty">Invested: </span><%= number_to_currency @company.invested_amount, precision: 0 %><br><br> </p>
 							</div>
 							<div>
-								<p class= "twenty no-margin center"><%= number_to_currency @company.goal_amount, precision: 0 %><br><span class= "darkblue twenty">Goal Amount </span> </p>
+								<p class= "twenty no-margin center"><span class= "darkblue twenty">Goal Amount: </span> <%= number_to_currency @company.goal_amount, precision: 0 %><br><br></p>
 							</div>
 
 						<div>
-							<p class= "twenty no-margin center"><%= @company.days_left %><br><span class= "darkblue twenty">Days Left</span></p>
+							<p class= "twenty no-margin center"><span class= "darkblue twenty">Days Left: </span><%= @company.days_left %><br><br></p>
 						</div>
 
 							<div>
-								<p class= "twenty no-margin center"><%= "%.1f" % @progress %>%<br><span class= "darkblue twenty">Funded<span></p>
+								<p class= "twenty no-margin center"><span class= "darkblue twenty">Funded: </span><%= "%.1f" % @progress %>%<br><br></p>
 							</div>
 							<div>
 								<span class= "darkblue twenty">Documents: </span>

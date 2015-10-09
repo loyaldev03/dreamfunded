@@ -9,4 +9,9 @@ class ContactMailer < ActionMailer::Base
     @user = user
     mail(to: user.email, subject: "Reset Password Instructions")
   end
+
+  def verify_email(user)
+    @user = user
+    mail(to: user.email, subject: "Verify Email")
+  end
 end
