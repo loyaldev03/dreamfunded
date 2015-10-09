@@ -31,19 +31,17 @@
 					 	<% end %>
 					</div><br>
 					<div class= 'statistics'>
-						<div class= "">
-
 							<div>
 								<p class= "twenty no-margin center"><span class= "darkblue twenty">Status: </span> <%= @company.get_status %></p>
 							</div>
-
+					<% if @company.status == 2 %>
 							<div>
 								<p class= "twenty no-margin center"><%= number_to_currency @company.invested_amount, precision: 0 %><br><span class= "darkblue twenty">Invested </span> </p>
 							</div>
 							<div>
 								<p class= "twenty no-margin center"><%= number_to_currency @company.goal_amount, precision: 0 %><br><span class= "darkblue twenty">Goal Amount </span> </p>
 							</div>
-						</div>
+
 						<div>
 							<p class= "twenty no-margin center"><%= @company.days_left %><br><span class= "darkblue twenty">Days Left</span></p>
 						</div>
@@ -51,13 +49,14 @@
 							<div>
 								<p class= "twenty no-margin center"><%= "%.1f" % @progress %>%<br><span class= "darkblue twenty">Funded<span></p>
 							</div>
-
 							<div>
 								<span class= "darkblue twenty">Documents: </span>
 								<% @company.documents.each do |doc|%>
 									<p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to doc.file_file_name, doc.file.url, target: "_blank", class: 'document-url' %></p>
 								<% end %>
 							</div>
+
+					<% end %>
 					</div>
 
 				</div></div>

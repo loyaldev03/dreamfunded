@@ -42,7 +42,8 @@
 					<div class= 'statistics'>
 						<div class= "">
 							<div>
-								<p class= "twenty no-margin center"><span class= "darkblue twenty">Status: </span> <%= @company.get_status %></p>
+								<p class= "twenty no-margin center"><span class= "darkblue twenty">Status: </span> </p>
+								<%= f.select( :status, [["Active", 2],["Funded", 3],["Coming Soon", 1] ])  %>
 							</div>
 
 							<div>
