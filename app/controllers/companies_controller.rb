@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+	before_action :verify
+
 	#Default site that shows all startups
 	def index
 		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Basic]
@@ -245,13 +247,22 @@ class CompaniesController < ApplicationController
     end
 
    private
+   def verify
+   	user = session[:current_user]
+   	if user.confirmed == false
+   		redirect_to url_for(:controller => 'home', :action => 'unverified')
+   	end
+   end
+
    def section_params
    	params.require(:section).permit(:company_id, :overview, :target_market, :current_investor_details, :detailed_metrics, :customer_testimonials, :competitive_landscape, :planned_use_of_funds, :pitch_deck, :created_at, :updated_at)
    end
+
    def company_params
       params.require(:company).permit(:image, :document, :docusign_url, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at)
-    end
-    def founder_params
-       params.require(:founder).permit(:image, :name, :position, :content, :company_id, :created_at, :updated_at)
-     end
+   end
+
+   def founder_params
+   	params.require(:founder).permit(:image, :name, :position, :content, :company_id, :created_at, :updated_at)
+   end
 end

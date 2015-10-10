@@ -67,6 +67,10 @@ class HomeController < ApplicationController
 
 	end
 
+	def unverified
+
+	end
+
 	def remove_team
     if params[:id] != nil
       @team = Team.find(params[:id])
