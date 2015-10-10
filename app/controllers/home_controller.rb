@@ -84,7 +84,8 @@ class HomeController < ApplicationController
 		@phone = params[:phone]
 		@message = params[:message].first
 		ContactMailer.contact_us_email(@name, @email, @phone, @message).deliver
-		render json: nil, status: :ok
+		flash[:notice] = 'Thank you'
+		redirect_to '/contact'
 	end
 
 	def remove_team

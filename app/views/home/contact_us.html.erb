@@ -3,11 +3,28 @@
   <div class="row">
     <div class=" darkblue active">
       <h2 class= "no-margin centered"><a  id="login-form-link">Contact DreamFunded</a></h2>
+      <br>
+      <div>
+        DreamFunded, Inc.</div>
+      <div>
+        505 Montgomery Street</div>
+      <div>
+        11th Floor, Suite 1200
+      </div>
+      <div>
+        San Francisco, CA 94111
+      </div>
+      <div>
+        (415) 349-3832
+      </div>
+      <div>
+       info@dreamfunded.com
+      </div>
     </div>
   </div>
 
   <div class= "login-container">
-    <%= form_tag('contact_us', :method => :post, :remote => true, :id => "contact_us") do %>
+    <%= form_tag('contact_us', :method => :post, :id => "contact_us") do %>
       <%= text_field_tag(:name, nil, :class =>"userbox", :placeholder => "Name", :required => true) %>
       <%= text_field_tag(:email, nil, :class =>"userbox", :placeholder => "Email", :required => true) %>
       <%= text_field_tag(:phone, nil, :class =>"userbox", :placeholder => "Phone") %>
@@ -15,7 +32,7 @@
       <br>
 
         <div class = "notice centered">
-          <%= flash[:notice] if flash[:notice] %>
+          <h2 class='darkblue' ><%= flash[:notice] if flash[:notice] %></h2>
           <%= @error_message %>
         </div>
       <div class= "centered">
@@ -25,31 +42,3 @@
   </div>
 
 </div>
-<script>
-$(document).ready(function () {
-
-  $('#contact_us').submit(function(e) {
-    e.preventDefault();
-    var email_value = $("#email").val();
-       if (email_value === "" ) {
-           $('#email').html("Email can not be blank");
-       }
-    $.ajax({
-      url: "/contact_us",
-      method: 'POST',
-      data: $(this).serialize(),
-      success: function(data) {
-        $(this).append("<center><h2 margin-top: 25px class='darkblue' >Thank you</h2></center>");
-        $(this).each(function(){
-            this.reset();
-        });
-      }.bind(this),
-      error: function(xhr, status, err) {
-
-      }.bind(this)
-    });
-  });
-
-});
-
-</script>

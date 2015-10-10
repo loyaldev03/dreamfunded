@@ -21,6 +21,6 @@ class ContactMailer < ActionMailer::Base
     @phone = phone
     @message = message
     #mail(to: "info@dreamfunded.com", subject: 'Guest Contacted From DreamFunded website')
-    mail(to: "alexandr.larionov88@gmail.com", subject: 'Guest Contacted From DreamFunded website')
+     mail(to: "alexandr.larionov88@gmail.com", subject: 'Guest Contacted From DreamFunded website')
   end
 end
