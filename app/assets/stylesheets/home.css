@@ -13,6 +13,9 @@
 	max-width: 100% !important;
 	position: relative;
 }
+.cover-image{
+	width: 100%;
+}
 
 .fullWidth {
 	width: 100%;
