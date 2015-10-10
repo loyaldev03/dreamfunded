@@ -26,8 +26,8 @@
 
 </div>
 <script>
-var ready;
-ready = function() {
+$(document).ready(function () {
+
   $('#contact_us').submit(function(e) {
     e.preventDefault();
     var email_value = $("#email").val();
@@ -49,10 +49,7 @@ ready = function() {
       }.bind(this)
     });
   });
-};
 
-$(document).ready(ready);
-$(document).on('page:load', ready);
-
+});
 
 </script>
