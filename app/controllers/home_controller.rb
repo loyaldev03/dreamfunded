@@ -72,6 +72,9 @@ class HomeController < ApplicationController
 	def faq
 	end
 
+	def legal
+	end
+
 	def remove_team
     if params[:id] != nil
       @team = Team.find(params[:id])

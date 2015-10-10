@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   post '/users/verify', to: 'users#verify', as: 'user_verify'
 
   get 'homes/faq', to: "home#faq", as: :faq
+  get '/legal', to: "home#legal", as: :legal
 
   resources :companies
   resources :news
