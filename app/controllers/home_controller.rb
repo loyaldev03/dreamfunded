@@ -75,6 +75,18 @@ class HomeController < ApplicationController
 	def legal
 	end
 
+	def contact_us
+	end
+
+	def contact_us_send_email
+		@name = params[:name]
+		@email = params[:email]
+		@phone = params[:phone]
+		@message = params[:message].first
+		ContactMailer.contact_us_email(@name, @email, @phone, @message).deliver
+		render json: nil, status: :ok
+	end
+
 	def remove_team
     if params[:id] != nil
       @team = Team.find(params[:id])

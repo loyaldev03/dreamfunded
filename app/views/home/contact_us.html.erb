@@ -1,0 +1,50 @@
+<div class= "wrapper"><div class= "box signin-box centered">
+
+  <div class="row">
+    <div class=" darkblue active">
+      <h2 class= "no-margin centered"><a  id="login-form-link">Contact DreamFunded</a></h2>
+    </div>
+  </div>
+
+  <div class= "login-container">
+    <%= form_tag('contact_us', :method => :post, :remote => true, :id => "contact_us") do %>
+      <%= text_field_tag(:name, nil, :class =>"userbox", :placeholder => "Name", :required => true) %>
+      <%= text_field_tag(:email, nil, :class =>"userbox", :placeholder => "Email", :required => true) %>
+      <%= text_field_tag(:phone, nil, :class =>"userbox", :placeholder => "Phone") %>
+      <%= text_area(:message, nil, rows: 4, :class =>"userbox", :placeholder => "Type Your Message", :required => true) %>
+      <br>
+
+        <div class = "notice centered">
+          <%= flash[:notice] if flash[:notice] %>
+          <%= @error_message %>
+        </div>
+      <div class= "centered">
+        <%= submit_tag("Send", :class => "login-button") %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+<script>
+  $('#contact_us').submit(function(e) {
+    e.preventDefault();
+    var email_value = $("#email").val();
+       if (email_value === "" ) {
+           $('#email').html("Email can not be blank");
+       }
+    $.ajax({
+      url: "/contact_us",
+      method: 'POST',
+      data: $(this).serialize(),
+      success: function(data) {
+        $(this).append("<center><h2 margin-top: 25px class='darkblue' >Thank you</h2></center>");
+        $(this).each(function(){
+            this.reset();
+        });
+      }.bind(this),
+      error: function(xhr, status, err) {
+
+      }.bind(this)
+    });
+  });
+</script>

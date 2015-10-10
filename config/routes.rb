@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   get 'homes/faq', to: "home#faq", as: :faq
   get '/legal', to: "home#legal", as: :legal
+  get '/contact', to: 'home#contact_us'
+  post '/contact_us', to: 'home#contact_us_send_email'
 
   resources :companies
   resources :news
