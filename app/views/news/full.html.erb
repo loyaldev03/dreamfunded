@@ -14,7 +14,7 @@
 			<div class= "page">
 				<div class= "art-text">
 					<h2 class= "center darkblue title"><%= @article.title %></h2>
-					<%= image_tag "news/#{@article.image_filename}", :class => "full-image" %>
+					<%= image_tag @article.image.url, :class => "full-image" %>
 					<p class= "article"><%= nl2br(h(@article.content)).html_safe %></p>
 				</div>
 				<br><br><br>
