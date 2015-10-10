@@ -5,9 +5,7 @@ Rails.application.routes.draw do
 
   get 'payment/index'
 
-  get 'news/new'
 
-  get 'news/index'
 
   get 'news/manage'
 
@@ -25,6 +23,8 @@ Rails.application.routes.draw do
 
   get '/epay', to: "companies#epay", as: :epay
   post '/users/verify', to: 'users#verify', as: 'user_verify'
+
+  get 'homes/faq', to: "home#faq", as: :faq
 
   resources :companies
   resources :news

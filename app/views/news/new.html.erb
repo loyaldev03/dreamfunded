@@ -9,27 +9,27 @@
 	<div class= "box creation-wrap">
 		<h2 class= "centered"> Create a new article </h2>
 
-		<%= form_tag '/news/create', multipart: true do %>
+		<%= form_for New.new, multipart: true do |f|%>
 
-			<%= text_field_tag(:title, nil, :placeholder => "Name of Your Article", :class => "input-box") %><br>
+			<%= f.text_field(:title, nil, :placeholder => "Name of Your Article", :class => "input-box") %><br>
 
 			<label for = "file">Upload Article Image: </label>
-			<%= file_field_tag "file" %><br>
+			<%= f.file_field "file" %><br>
 
 			<div class= "description-wrap">
-				<%= text_area(:content, nil, :placeholder => "Article Content", :class => "description-box") %>
+				<%= f.text_area(:content, :placeholder => "Article Content", :class => "description-box") %>
 			</div>
 
 			<div class= "description-wrap">
-				<%= text_area(:source, nil, :placeholder => "Source", :class => "description-box source") %>
+				<%= f.text_area(:source, :placeholder => "Source", :class => "description-box source") %>
 			</div>
-			
+
 			<div class = "notice centered">
 				<%= flash[:file_uploaded] if flash[:file_uploaded] %>
 			</div>
-			
+
 			<div class= "centered">
-				<%= submit_tag("Publish", :id => "submit-button") %>
+				<%= f.submit("Publish", :id => "submit-button") %>
 			</div>
 		<% end %>
 	</div>

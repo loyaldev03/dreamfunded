@@ -19,27 +19,31 @@ class NewsController < ApplicationController
 	if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Founder]
 		redirect_to url_for(:controller => 'home', :action => 'unauthorized')
 	end
+   @news = New.new
   end
 
   def create
   	if params[:file] != nil
-  		uploaded_file = params[:file]
-  		@file_name = uploaded_file.original_filename
-  		directory = "app/assets/images/news"
-  		path = File.join(directory, @file_name)
-  		File.open(path, "wb") { |f| f.write(uploaded_file.read) }
+  		# uploaded_file = params[:file]
+  		# @file_name = uploaded_file.original_filename
+  		# directory = "app/assets/images/news"
+  		# path = File.join(directory, @file_name)
+  		# File.open(path, "wb") { |f| f.write(uploaded_file.read) }
 
   		@news_title = params[:title]
   		@content = params[:content][0]
       @source = params[:source][0]
   		flash[:file_upload] = "Image upload successful"
-  		uploaded = New.new(:title => @news_title, :image_filename => @file_name, :content => @content, :source => @source)
+  		uploaded = New.new(news_params)
   		uploaded.save
   		redirect_to "/news"
   	else
   		flash[:file_uploaded] = "Image is not valid"
   		redirect_to "/news/new"
   	end
+  end
+
+  def show
   end
 
   def edit

@@ -64,11 +64,12 @@ class HomeController < ApplicationController
 	end
 
 	def unauthorized
-
 	end
 
 	def unverified
+	end
 
+	def faq
 	end
 
 	def remove_team
