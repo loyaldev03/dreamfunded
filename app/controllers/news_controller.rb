@@ -32,7 +32,7 @@ class NewsController < ApplicationController
         @error_message = @error_message + error + ". "
       end
       flash[:message] = @error_message
-      redirect_to "/companies/new"
+      redirect_to "/news/new"
     end
   end
 

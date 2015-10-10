@@ -27,6 +27,9 @@
 			<div class = "notice centered">
 				<%= flash[:file_uploaded] if flash[:file_uploaded] %>
 			</div>
+			<div class = "notice centered">
+				<%= flash[:message] if flash[:message] %>
+			</div>
 
 			<div class= "centered">
 				<%= f.submit("Publish", :id => "submit-button") %>
