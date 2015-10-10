@@ -1,5 +1,5 @@
 class ContactMailer < ActionMailer::Base
-  default from: "no-reply@dreamfunded.com"
+  default from: "info@dreamfunded.com"
 
   def welcome_email(user)
 
@@ -20,7 +20,7 @@ class ContactMailer < ActionMailer::Base
     @email= email
     @phone = phone
     @message = message
-    mail(to: "manny@dreamfunded.com", subject: 'Guest Contacted From DreamFunded website')
+    mail(to: "info@dreamfunded.com", subject: 'Guest Contacted From DreamFunded website')
     # mail(to: "alexandr.larionov88@gmail.com", subject: 'Guest Contacted From DreamFunded website')
   end
 end
