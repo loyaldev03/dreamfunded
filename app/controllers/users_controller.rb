@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 		@current_user = session[:current_user]
 		@Authority = User.Authority
 		@users = User.all
+		@new = News.new
 	end
 
 	# Controller for profile page

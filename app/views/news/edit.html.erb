@@ -1,6 +1,6 @@
 <div class= "wrapper">
   <div class= "box creation-wrap">
-    <h2 class= "centered"> Create a new article </h2>
+    <h2 class= "centered"> Edit article </h2>
 
     <%= form_for @article , multipart: true do |f| %>
 
@@ -17,9 +17,9 @@
         <%= flash[:file_uploaded] if flash[:file_uploaded] %>
       </div>
 
-      <label for = "file">Upload Article Image: </label>
-      <%= f.file_field "file" %><br>
-      <%= image_tag "news/#{@article.image_filename}" %>
+      <label for = "image">Upload Article Image: </label>
+      <%= f.file_field "image" %><br>
+      <%= image_tag @article.image.url, class: 'full-image' %>
       <div class= "centered">
         <%= submit_tag("Publish", :id => "submit-button") %>
       </div>
