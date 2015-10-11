@@ -13,7 +13,7 @@ class ContactMailer < ActionMailer::Base
 
   def verify_email(user)
     @user = user
-    mail(to: user.email, subject: "Verify Email")
+    mail(to: @user.email, subject: "Verify Email")
   end
 
   def contact_us_email(name, email, phone, message)
