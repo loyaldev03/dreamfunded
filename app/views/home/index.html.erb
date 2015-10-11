@@ -3,7 +3,7 @@
 			<div class= "top">
 				<div class= "space-keeper"><%= image_tag("skylinedark comp.png", :class => "sky") %></div>
 				<div class= "big-title white ">
-					<h1 class= "remove-margin">Access to Vetted Startups & Proven Tech Companies</h1>
+					<h1 class= "remove-margin">Access to Proven Tech Companies</h1>
 					<div class= "top-space"><h3 class= "remove-margin">A small investment today might make a big impact on your future tomorrow.</h3></div>
 					<div class= "centered button-box">
 						<%= link_to "Invest Now", {:action => 'get_started'}, {:class => 'invest-button invest-now-button'} %>
@@ -52,14 +52,19 @@
 			<h2 class= "centered darkblue">A Selection of Highly Vetted Startups and Tech Companies</h2>
 			<br>
 			<div class= "section2-wrap"><div class= "section2">
-				<div class= "section2-box"><div class= "section2-content">
-					<div class= "outer"><%= image_tag("static/lock.png", :class => "image2") %></div>
-					<br><br><br>
-					<h2 class= "centered darkblue">Quick Liquidity</h2>
-					<div class= "box-text">
-						<p class= "seventeen centered">Quick liquidity for shareholders, early investors and tech employees.</p>
-					</div>
-				</div></div>
+
+				<div class= "section2-box">
+					<a href='/liquidate'>
+						<div class= "section2-content">
+							<div class= "outer"><%= image_tag("static/lock.png", :class => "image2") %></div>
+							<br><br><br>
+							<h2 class= "centered darkblue">Quick Liquidity</h2>
+							<div class= "box-text">
+								<p class= "seventeen centered">Quick liquidity for shareholders, early investors and tech employees.</p>
+							</div>
+						</div>
+					</a>
+				</div>
 
 				<div class= "section2-box"><div class= "section2-content">
 					<div class= "outer middle"><%= image_tag("static/glass.png", :class => "image2") %></div>

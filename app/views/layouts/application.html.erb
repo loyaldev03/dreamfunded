@@ -24,7 +24,7 @@
 					<% if user_session == nil %>
 						<li><button onclick= "signIn()">Login</button></li>
 					<% else %>
-						<li><button onclick= "profile()" >My Account <span class="arrow">&#9660;</span></button>
+						<li><button onclick= "profile()" >Welcome <%= user_session.first_name.capitalize%> <span class="arrow">&#9660;</span></button>
 							<ul class= "sub-menu">
 								<li><button onclick= "portfolio()">Portfolio</button></li>
 								<% if user_session.authority != authority[:Admin] %>

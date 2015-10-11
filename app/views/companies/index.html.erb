@@ -23,8 +23,10 @@
 						<div class= "company-description">
 							<div class="meter orange">
 								<% @progress = 100 * (company.invested_amount.to_f / company.goal_amount) %>
+								<% @progress = 0 if company.get_status == 'Coming Soon' %>
+
 								<% if @progress == 0 %>
-									<span class= "front" style= "width: 5px"></span>
+									<span class= "front" style= "width: 0px"></span>
 								<% elsif @progress > 100 %>
 									<span style= 'width: 100%'></span>
 								<% else %>
@@ -111,6 +113,9 @@
 	<% end %>
 	</div>
 </div>
+<script>
+	$('.foot-text.darkblue').hide()
+</script>
 </body>
 
 </html>
