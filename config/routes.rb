@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   get '/contact', to: 'home#contact_us'
   post '/contact_us', to: 'home#contact_us_send_email'
 
+  get '/home/edit_member/:id', to: "home#team_member_edit", as: :edit_member
+  patch '/home/edit_member', to: 'home#team_member_update', as: 'update_member'
+
   resources :companies
   resources :news
 
