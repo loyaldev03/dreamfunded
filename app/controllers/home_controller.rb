@@ -96,14 +96,16 @@ class HomeController < ApplicationController
 	end
 
 	def liquidate_form
-		p 'H E R E'
 		@name = params[:name]
 		@email = params[:email]
 		@phone = params[:phone]
 		@message = params[:message].first
-		ContactMailer.liquidate_email(@name, @email, @phone, @message).deliver
-		flash[:notice] = 'Thank you'
-		redirect_to '/liquidate'
+		#ContactMailer.liquidate_email(@name, @email, @phone, @message).deliver
+		flash[:name] = @name
+		redirect_to '/liquidate_after'
+	end
+
+	def liquidate_after
 	end
 
 	def remove_team

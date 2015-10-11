@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
   get '/liquidate', to: 'home#liquidate'
   post '/liquidate_form', to: 'home#liquidate_form'
+  get '/liquidate_after', to: 'home#liquidate_after'
 
   get '/home/edit_member/:id', to: "home#team_member_edit", as: :edit_member
   patch '/home/edit_member', to: 'home#team_member_update', as: 'update_member'

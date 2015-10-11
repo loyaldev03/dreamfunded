@@ -112,7 +112,7 @@ class UsersController < ApplicationController
 		user = User.find_by(email: params[:email])
 		if user
 			ContactMailer.reset_email(user).deliver
-			flash[:notice] = "You will receive an email with instructions on how to reset your password in a few minutes."
+			flash[:notice] = "You will receive an email with instructions on how to reset your password."
 			redirect_to(:action => :login)
 		else
 			flash[:notice] = "Email not found"
