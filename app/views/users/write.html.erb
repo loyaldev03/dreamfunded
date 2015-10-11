@@ -32,13 +32,13 @@
 								<td><%= user.authority %></td>
 								<td>
 									<%= form_tag("/users/promote", method: "post") do %>
-										<%= hidden_field_tag(:user, user.login) %>
+										<%= hidden_field_tag(:user, user.email) %>
 										<%= submit_tag("Promote") %>
 									<% end %>
 								</td>
 								<td>
 									<%= form_tag("/users/demote", method: "post") do %>
-										<%= hidden_field_tag(:user, user.login) %>
+										<%= hidden_field_tag(:user, user.email) %>
 										<%= submit_tag("Demote") %>
 									<% end %>
 								</td>

@@ -32,25 +32,25 @@ class UsersController < ApplicationController
 	#Promotes a user
 	def promote
 		user_login = params[:user]
-		@user = User.find_by_login(user_login)
+		@user = User.find_by(email: user_login)
 		if @user.authority != 4
 			@user.update_column(:authority, @user.authority+1)
 		end
-		redirect_to(:action => :profile)
+		redirect_to(:action => :write)
 	end
 
 	#Demotes a user
 	def demote
 		user_login = params[:user]
-		@user = User.find_by_login(user_login)
+		@user = User.find_by(email: user_login)
 		if @user.authority != 1
 			@user.update_column(:authority, @user.authority-1)
 		end
-		redirect_to(:action => :profile)
+		redirect_to(:action => :write)
 	end
 
 	def create
-		@login = params[:login]
+		#@login = params[:login]
 		@first_name = params[:first_name]
 		@last_name = params[:last_name]
 		@password = params[:password]
@@ -63,14 +63,14 @@ class UsersController < ApplicationController
 			@authority = User.Authority[:Basic]
 		end
 
-		record = User.new(:login=> @login, :first_name => @first_name, :last_name => @last_name, :email => @email, :authority => @authority)
+		record = User.new(:first_name => @first_name, :last_name => @last_name, :email => @email, :authority => @authority)
 		record.password = @password
 		record.password_confirmation = params[:password_confirmation]
 		if record.valid?
 			record.save
 			ContactMailer.verify_email(record).deliver
 			flash[:notice] = "Registration successful."
-			redirect_to(:action => :post_login, :username => @login, :password => @password)
+			redirect_to(:action => :post_login, :email => @email, :password => @password)
 		else
 			flash[:notice] = "Validation failed."
 			@error_message = ""
@@ -82,7 +82,7 @@ class UsersController < ApplicationController
 	end
 
 	def post_login
-		login_user = User.find_by(login: params[:username])
+		login_user = User.find_by(email: params[:email])
 		if login_user == nil
 			flash[:notice] = "This user ID does not exist."
 			redirect_to(:action => :login)
