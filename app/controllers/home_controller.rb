@@ -25,6 +25,9 @@ class HomeController < ApplicationController
 	def about
 	end
 
+	def exchange
+	end
+
 	def home
 		redirect_to "/home"
 	end
