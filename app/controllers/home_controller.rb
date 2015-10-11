@@ -100,7 +100,7 @@ class HomeController < ApplicationController
 		@email = params[:email]
 		@phone = params[:phone]
 		@message = params[:message].first
-		#ContactMailer.liquidate_email(@name, @email, @phone, @message).deliver
+		ContactMailer.liquidate_email(@name, @email, @phone, @message).deliver
 		flash[:name] = @name
 		redirect_to '/liquidate_after'
 	end
