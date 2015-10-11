@@ -7,8 +7,9 @@
         <div class= "wrapper"><div class= "box signin-box">
             <h2 class= "centered"> Add a new Team Member </h2>
             <%= form_for @team, :url => url_for(:controller => 'home_controller', :action => 'create'), multipart: true do |f| %>
-
                 <%= f.text_field(:name, :placeholder => "Name", :class => "input-box") %><br>
+
+                <%= f.text_field(:title, :placeholder => "Title", :class => "input-box") %><br>
 
                 <label for = "file">Upload Personal Image: </label>
                 <%= f.file_field "image" %><br>

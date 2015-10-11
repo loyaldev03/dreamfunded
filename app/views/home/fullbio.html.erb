@@ -1,37 +1,14 @@
+		<div class= "word-content"><div class="text-content">
+			<div class= "topbar">
+				<a href= "/home/team" class= "darkblue">&#8617; Back</a>
 
-<html>
-	<head>
-		<title>DreamFunded | <%= @team.name %></title>
-	</head>
-
-	<body>
-		<div class= "wrapper">
-			<div class="header-container shadow">
-				<div class= "header centered"><h1>Team Biography</h1></div>
 			</div>
-
-			<div class="all_team">
-				<% if @teams != nil %>
-					<% @teams.each do |team| %>
-						<% file_name = team.file_name %>
-						<%= link_to image_tag(team.image.url, :class => "portrait_left"), {:controller => :home, :action => :fullbio, :id => team.id} %>
-					<% end %>
-				<% end %>
-			</div>
-
-			<div class= "team full-bio-team"><div class= "team-wrap">
-				<% file_name = @team.file_name %>
-				<div class= "team-pic-wrap"> <%#= link_to image_tag("team/#{file_name}", :class => "team-picture") %> </div>
-				<div class= "white-box long">
-					<div class="name indent"><p class= "darkblue twentyf small-margin"> <%= @team.name %> </p></div>
-					<div class= "summary long scroll">
-						<p class= "small-margin eighteen"> <%= nl2br(h(@team.fullbio)).html_safe %> </p>
-					</div>
+			<div class= "page">
+				<div class= "art-text">
+					<h2 class= "center darkblue title"><%= @team_member.name %>, <%= @team_member.title %></h2>
+					<%= image_tag @team_member.image.url, :class => "full-photo" %>
+					<p class= "article"><%= nl2br(h(@team_member.fullbio)).html_safe %></p>
 				</div>
-			</div></div>
-		</div>
 
-	</body>
-
- </html>
-
+			</div>
+		</div></div>

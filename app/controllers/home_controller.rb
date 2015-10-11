@@ -51,7 +51,7 @@ class HomeController < ApplicationController
 	def fullbio
 		@teams = Team.all
 		@id = params[:id]
-		@team = Team.find(@id)
+		@team_member = Team.find(@id)
 	end
 
 
@@ -99,7 +99,7 @@ class HomeController < ApplicationController
    end
    private
    def team_params
-      params.require(:team).permit(:image, :name, :image, :summary, :fullbio )
+      params.require(:team).permit(:image, :name, :title, :summary, :fullbio )
    end
 
 end

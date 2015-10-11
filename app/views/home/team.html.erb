@@ -21,7 +21,7 @@
 						<% if user_session != nil && user_session.authority == authority[:Admin] %>
 							<%= button_to "X", {action: 'remove_team', id: team.id} , {:class => 'remove-button'} %>
 						<% end %>
-						<div class="name indentt"><p class= "darkblue twentyf no-margin"> <%= team.name %> </p></div>
+						<div class="name indentt"><p class= "darkblue twentyf no-margin"> <%= team.name %>, <%= team.title %></p></div>
 						<div class= "summary">
 							<p class= "no-margin"> <%= team.summary %> </p>
 						</div>
