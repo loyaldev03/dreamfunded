@@ -24,4 +24,13 @@ class ContactMailer < ActionMailer::Base
     mail(to: "info@dreamfunded.com", subject: 'Guest Contacted From DreamFunded website')
     # mail(to: "alexandr.larionov88@gmail.com", subject: 'Guest Contacted From DreamFunded website')
   end
+
+  def liquidate_email(name, email, phone, message)
+    @name = name
+    @email= email
+    @phone = phone
+    @message = message
+    mail(to: "info@dreamfunded.com", subject: 'Request to liquidate shares')
+    # mail(to: "alexandr.larionov88@gmail.com", subject: 'Request to liquidate shares')
+  end
 end

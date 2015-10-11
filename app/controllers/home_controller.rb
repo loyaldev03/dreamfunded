@@ -92,6 +92,20 @@ class HomeController < ApplicationController
 		redirect_to '/contact'
 	end
 
+	def liquidate
+	end
+
+	def liquidate_form
+		p 'H E R E'
+		@name = params[:name]
+		@email = params[:email]
+		@phone = params[:phone]
+		@message = params[:message].first
+		ContactMailer.liquidate_email(@name, @email, @phone, @message).deliver
+		flash[:notice] = 'Thank you'
+		redirect_to '/liquidate'
+	end
+
 	def remove_team
     if params[:id] != nil
       @team = Team.find(params[:id])

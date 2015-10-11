@@ -1,0 +1,36 @@
+<div class= "wrapper"><div class= "box signin-box centered">
+
+  <div class="row">
+    <div class=" darkblue active">
+      <h2 class= "no-margin centered"><a  id="login-form-link">Liquidate Now</a></h2>
+      <br>
+      <div class='liquidate-info'>
+        With confirmation on next steps from the company, we will form a Fund (LLC) to start receiving wires from our investors. We can usually close (i.e., money hits your account) in 7-10 business days from receiving company approval on the transaction.</div><br>
+      <div class='liquidate-info'>
+        <span class='bold-text'>W-9 OR W-8 FORM</span> Upon completion of the wire transfer, you will be asked to fill out a W-9 or W-8 form .
+      </div><br>
+      <div class='liquidate-info'>
+        We’ll send you a fully executed set of documents for your records. You’ll also be able to view these documents within your account within DreamFunded website.
+      </div>
+    </div>
+  </div>
+
+  <div class= "login-container">
+    <%= form_tag('liquidate_form', :method => :post, :id => "liquidate_form") do %>
+      <%= text_field_tag(:name, nil, :class =>"userbox", :placeholder => "Name", :required => true) %>
+      <%= text_field_tag(:email, nil, :class =>"userbox", :placeholder => "Email", :required => true) %>
+      <%= text_field_tag(:phone, nil, :class =>"userbox", :placeholder => "Phone") %>
+      <%= text_area(:message, nil, rows: 5, :class =>"userbox", :placeholder => "Comment", :required => true) %>
+      <br>
+
+        <div class = "notice centered">
+          <h2 class='darkblue' ><%= flash[:notice] if flash[:notice] %></h2>
+          <%= @error_message %>
+        </div>
+      <div class= "centered">
+        <%= submit_tag("Send", :class => "login-button") %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
