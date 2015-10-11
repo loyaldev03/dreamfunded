@@ -65,9 +65,10 @@ h3 {
     top: 0;
 }
 
-#button {
+.invest-button {
 	width: 20%;
 	margin: 7% auto;
+	display: inline-block;
 	padding: 17px;
 	background: #0d87b3;
 	font-size: 20px;
@@ -76,12 +77,19 @@ h3 {
 	cursor: pointer;
 	outline: none;
 }
+.invest-now-button{
+	margin-left: 25px;
+}
+.liquidate-now-button{
+	margin-left: 25px;
+}
 
-#button:hover {
+
+.invest-button:hover {
 	background: #0B6E91;
 }
 
-#button:active {
+.invest-button:active {
 	outline: none;
 }
 
@@ -379,7 +387,7 @@ and (max-device-width : 568px) {
 	.big-title{
 
 	}
-	#button{
+	.invest-button{
 		width: auto;
 	}
 	.logos-container{

@@ -5,8 +5,9 @@
 				<div class= "big-title white ">
 					<h1 class= "remove-margin">Access to Vetted Startups & Proven Tech Companies</h1>
 					<div class= "top-space"><h3 class= "remove-margin">A small investment today might make a big impact on your future tomorrow.</h3></div>
-					<div class= "centered button-box twenty">
-						<%= button_to "Get Started", {:action => 'get_started'}, {:id => 'button'} %>
+					<div class= "centered button-box">
+						<%= link_to "Invest Now", {:action => 'get_started'}, {:class => 'invest-button invest-now-button'} %>
+						<%= link_to "Liquidate Now", {:action => 'get_started'}, {:class => 'invest-button liquidate-now-button'} %>
 					</div>
 				</div>
 				<!-- FALSE FOR NOW. UNTIL FIND OUT TO DO WITH THIS -->
