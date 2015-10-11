@@ -381,4 +381,7 @@ and (max-device-width : 568px) {
 	#button{
 		width: auto;
 	}
+	.logos-container{
+		width: 100% !important;
+	}
 }
