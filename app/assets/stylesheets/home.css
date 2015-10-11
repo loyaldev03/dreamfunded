@@ -365,7 +365,20 @@ h3 {
 @media only screen
 and (min-width : 320px)
 and (max-width : 568px) {
-	.main-menu{
-			display: none !important;
-		}
+	.main-menu li{
+		visibility: hidden;
+	}
+	#mobile-menu{
+		float: right !important;
+		visibility: visible !important;
+	}
+	#mobile-menu li{
+		visibility: visible;
+	}
+	.big-title{
+		color: #0D87B3 !important;
+	}
+	#button{
+		width: auto;
+	}
 }

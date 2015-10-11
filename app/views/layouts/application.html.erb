@@ -11,7 +11,17 @@
 
   			<div class= "menu-wrap fullWidth"> <nav class= "menu fullWidth">
 				<ul class= "main-menu white">
-
+					<li id='mobile-menu'><button >Mobile Menu<span class="arrow">&#9660;</span></button>
+						<ul class='sub-menu white'>
+							<li><button onclick= "invest()">Invest Now</button></li>
+							<li><button onclick= "whyInv()">Why Invest</button></li>
+							<li><button onclick= "news()">News</button></li>
+							<li><button onclick= "team()">Team</button></li>
+							<li><button onclick= "about()">About Us</button></li>
+							<li><button onclick= "faq()">FAQ</button></li>
+							<li><button onclick= "contact()">Contact Us</button></li>
+						</ul>
+					</li>
 					<% if user_session == nil %>
 						<li><button onclick= "signIn()">Login</button></li>
 					<% else %>
@@ -50,7 +60,9 @@
 					<% end %>
 					<li><button onclick= "home()">Home</button></li>
 					<li id= "left"><button onclick= "home()" id= "nopadding"><div class= "logo"></div></button></li>
+
 				</ul>
+
 			</nav></div>
 
 </head>
