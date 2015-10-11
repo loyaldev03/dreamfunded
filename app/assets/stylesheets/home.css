@@ -196,8 +196,9 @@ h3 {
 }
 
 .team-picture {
-	height: 200px;
+	height: 195px;
 	border-radius: 50%;
+	margin-top: 25px;
 }
 
 .team-pic-wrap {
