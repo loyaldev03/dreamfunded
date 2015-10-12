@@ -138,7 +138,7 @@ h3 {
 	// background: linear-gradient(to top, white, #ECECEC); /* Standard syntax */
 	background: white;
 	width: 29%;
-	height: 500px;
+	height: 440px;
 	float: left;
 	margin: 0 2%;
 	box-sizing: border-box;
@@ -152,6 +152,7 @@ h3 {
 
 .section2-content {
 	padding: 30px;
+	padding-top: 12px;
 }
 
 .outer {
@@ -386,6 +387,12 @@ and (max-device-width : 568px) {
 	}
 	.big-title{
 
+	}
+	.row2 {
+		display: none;
+	}
+	.row1 {
+		display: none;
 	}
 	.invest-button{
 		width: auto;
