@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151006020300) do
+ActiveRecord::Schema.define(version: 20151012004627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20151006020300) do
   create_table "companies", force: true do |t|
     t.string   "user_id"
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.integer  "invested_amount"
     t.string   "website_link"
     t.string   "video_link"
@@ -35,13 +35,30 @@ ActiveRecord::Schema.define(version: 20151006020300) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
+    t.text     "docusign_url"
+    t.integer  "position",              default: 0
+  end
+
+  create_table "documents", force: true do |t|
+    t.integer  "company_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
   end
 
   create_table "founders", force: true do |t|
     t.string   "name"
     t.string   "position"
     t.string   "image_address"
-    t.string   "content"
+    t.text     "content"
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -52,24 +69,28 @@ ActiveRecord::Schema.define(version: 20151006020300) do
   end
 
   create_table "news", force: true do |t|
-    t.string   "title"
+    t.text     "title"
     t.string   "image_filename"
     t.text     "content"
-    t.string   "source"
+    t.text     "source"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "sections", force: true do |t|
     t.integer  "company_id"
-    t.string   "overview"
-    t.string   "target_market"
-    t.string   "current_investor_details"
-    t.string   "detailed_metrics"
-    t.string   "customer_testimonials"
-    t.string   "competitive_landscape"
-    t.string   "planned_use_of_funds"
-    t.string   "pitch_deck"
+    t.text     "overview"
+    t.text     "target_market"
+    t.text     "current_investor_details"
+    t.text     "detailed_metrics"
+    t.text     "customer_testimonials"
+    t.text     "competitive_landscape"
+    t.text     "planned_use_of_funds"
+    t.text     "pitch_deck"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -87,12 +108,13 @@ ActiveRecord::Schema.define(version: 20151006020300) do
   create_table "teams", force: true do |t|
     t.string   "name"
     t.string   "file_name"
-    t.string   "summary"
-    t.string   "fullbio"
+    t.text     "summary"
+    t.text     "fullbio"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "title"
   end
 
   create_table "users", force: true do |t|
@@ -103,6 +125,7 @@ ActiveRecord::Schema.define(version: 20151006020300) do
     t.integer "authority"
     t.string  "salt"
     t.string  "password_digest"
+    t.boolean "confirmed",       default: false
   end
 
 end

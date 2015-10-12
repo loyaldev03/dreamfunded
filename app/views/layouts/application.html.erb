@@ -5,18 +5,28 @@
 	  <%= stylesheet_link_tag		"menu", media: 'all' %>
 	  <%= javascript_include_tag		'links' %>
 	  <%= javascript_include_tag	'jquery-1.4.2.min.js', 'application' %>
+	  <%= favicon_link_tag 'favicon.ico' %>
 
 
   <%= csrf_meta_tags %>
 
   			<div class= "menu-wrap fullWidth"> <nav class= "menu fullWidth">
 				<ul class= "main-menu white">
-
+					<li id='mobile-menu'><button >Mobile Menu<span class="arrow">&#9660;</span></button>
+						<ul class='sub-menu white'>
+							<li><button onclick= "whyInv()">Why Invest</button></li>
+							<li><button onclick= "news()">News</button></li>
+							<li><button onclick= "team()">Team</button></li>
+							<li><button onclick= "about()">About Us</button></li>
+							<li><button onclick= "faq()">FAQ</button></li>
+							<li><button onclick= "contact()">Contact Us</button></li>
+						</ul>
+					</li>
 					<% if user_session == nil %>
 						<li><button onclick= "signIn()">Login</button></li>
 					<% else %>
-						<li><button onclick= "profile()" >My Account <span class="arrow">&#9660;</span></button>
-							<ul class= "sub-menu"> 
+						<li><button onclick= "profile()" >Welcome <%= user_session.first_name.capitalize%> <span class="arrow">&#9660;</span></button>
+							<ul class= "sub-menu">
 								<li><button onclick= "portfolio()">Portfolio</button></li>
 								<% if user_session.authority != authority[:Admin] %>
 									<li><button onclick= "signOut()" >Sign Out</button></li>
@@ -25,21 +35,22 @@
 									<li><button onclick= "signOut()" >Sign Out</button></li>
 								<% end %>
 							</ul>
-						</li> 
+						</li>
 					<% end %>
 
 					<li><button disabled= "true">About <span class="arrow">&#9660;</span></button>
-						<ul class= "sub-menu"> 
+						<ul class= "sub-menu">
 							<li><button onclick= "about()">About Us</button></li>
 							<li><button onclick= "faq()">FAQ</button></li>
+							<li><button onclick= "team()">Team</button></li>
 							<li><button onclick= "contact()">Contact Us</button></li>
 						</ul>
 					</li>
-					<% if user_session != nil && user_session.authority > 2 %>
-						<li><button onclick= "funding()">Get Funded</button></li>
-					<% end %>
-					<li><button onclick= "team()">Team</button></li>
-					<li><button onclick= "exchange()">Exchange</button></li>
+					<%# if user_session != nil && user_session.authority > 2 %>
+						<!-- <li><button onclick= "funding()">Get Funded</button></li> -->
+					<%# end %>
+
+					<li><button onclick= "exchange()" >Exchange</button></li>
 					<li><button onclick= "news()">News</button></li>
 					<li><button onclick= "whyInv()">Why Invest</button></li>
 
@@ -50,7 +61,9 @@
 					<% end %>
 					<li><button onclick= "home()">Home</button></li>
 					<li id= "left"><button onclick= "home()" id= "nopadding"><div class= "logo"></div></button></li>
+
 				</ul>
+
 			</nav></div>
 
 </head>
@@ -59,25 +72,15 @@
 	<%= yield %>
 </div>
 <footer class= "footer fullWidth">
-	<div class= "foot-bar"><div class= "foot-wrap">
-		<div class= "image3-box gap"><%= link_to image_tag("static/logo.png", :class => 'image3'), "http://www.angelcapitalassociation.org/" %></div>
-		<div class= "image3-box gap"><%= link_to image_tag("static/DreamFunded-Logo-Vertical-lightblue.png", :class => 'image3'), "http://dreamfunded.com/" %></div>
-		<div class= "image4-box gap">
-			<%= link_to image_tag("static/facebook.png", :class => 'image4'), "https://www.facebook.com/dreamfundedcom" %>
-			<%= link_to image_tag("static/twitter.png", :class => 'image4'), "https://twitter.com/dreamfunded" %>
-			<%= link_to image_tag("static/linkedin.png", :class => 'image4'), "https://www.linkedin.com/company/dreamfunded-com" %>
-			<%= link_to image_tag("static/angel.png", :class => 'image4'), "https://angel.co/dreamfunded-1" %>
-		</div>
-	</div></div>
 	<div class= "footer-content">
 
-	<div class= "left">
-		<p class= "indent foot-text"> COPYRIGHT © <%= Time.now.year %> DREAMFUNDED </p>
-	</div>
+
+		<a class= "indent foot-text"> COPYRIGHT © <%= Time.now.year %> DREAMFUNDED </a>
+
 
 	<div class= "right table">
 		<%= link_to "Contact", "/contact", :class => "spaced border" %>
-		<%= link_to "Frequently Asked Questions", "/faq", :class => "spaced border" %>
+		<%= link_to "Frequently Asked Questions", faq_path, :class => "spaced border" %>
 		<%= link_to "Legal Information", "/legal", :class => "spaced" %>
 	</div>
 	<br>

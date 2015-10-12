@@ -17,6 +17,7 @@ Rails.application.config.assets.precompile += %w( team.css )
 Rails.application.config.assets.precompile += %w( why.css.scss )
 Rails.application.config.assets.precompile += %w( news.css.scss )
 Rails.application.config.assets.precompile += %w( menu.css )
+Rails.application.config.assets.precompile += %w( contact_us.css.scss )
 #---- companies
 Rails.application.config.assets.precompile += %w( companies.css.scss )
 Rails.application.config.assets.precompile += %w( unauthorized.css )

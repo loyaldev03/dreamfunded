@@ -10,7 +10,7 @@ class Team < ActiveRecord::Base
       },
     :storage => :s3,
     :bucket => 'dreamfunded',
-    :path => "companies/:filename",
+    :path => "team/:filename",
     :url =>':s3_domain_url',
     :s3_credentials => {
       :access_key_id => "AKIAJWDE6UJS56MXQYPQ",

@@ -5,7 +5,7 @@ Rails.application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.assets.initialize_on_precompile = false
-  
+
   config.cache_classes = false
 
   # Do not eager load code on boot.
@@ -33,6 +33,21 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { host: 'www.dreamfunded.com'}
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :user_name => 'DreamFunded',
+    :password => 'agyu@7dS',
+    :domain => "dreamfunded.vc",
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
+
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

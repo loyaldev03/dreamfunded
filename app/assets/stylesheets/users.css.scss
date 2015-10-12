@@ -40,7 +40,7 @@
 }
 
 #user-table td {
-  border-right: solid 1px $darkblue; 
+  border-right: solid 1px $darkblue;
   border-left: solid 1px $darkblue;
   padding: 10px 30px;
 }
@@ -48,4 +48,11 @@
 .team-wrapper {
 	width: 500px;
 	margin: 50px auto;
+}
+.password-six-chars{
+	font-size: 14px;
+	font-style: italic;
+}
+.little-margin{
+	margin-bottom: 10px;
 }

@@ -27,10 +27,20 @@
 				</h2>
 			</div>
 			<div class= "stats-container">
-				<div class= "profile-image-wrap"> <%= link_to image_tag("companies/#{@company.image_file_name}", :class => "stats-image"), @company.website_link %></div>
+				<div class= "profile-image-wrap"> <%= link_to image_tag(@company.image.url, :class => "stats-image"), @company.website_link %></div>
+				<div class='center'><span class= "darkblue twenty">Change Image: </span><%= f.file_field "image" %></br></br></div>
+				<div class='center'><span class= "darkblue twenty"><%= link_to "Upload Docs", new_document_path(:company_id => @company.id) %> </span></br></br></div>
+
+				<div class='center'>
+					<span class= "darkblue twenty">Documents: </span>
+					<% @company.documents.each do |doc|%>
+						<p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to doc.file_file_name, doc.file.url, target: "_blank", class: 'document-url' %><br><%= link_to 'Destroy', doc, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+					<% end %>
+				</div><br>
+
 				<div class= "numbers"><div class= "numbers-content">
 					<div class="meter orange">
-						<% @progress = (@company.invested_amount.to_f / @company.goal_amount) %>
+						<% @progress = ((@company.invested_amount.to_f / @company.goal_amount.to_f).to_f) *100 %>
 						<% if @progress == 0 %>
 							<span class= "front" style="width: 5px"></span>
 						<% else %>
@@ -38,28 +48,36 @@
 					 	<% end %>
 					</div><br>
 					<div class= 'statistics'>
-						<div class= "left-column">
+						<div class= "">
 							<div>
-								<p class= "twenty no-margin center"> <%= @company.get_status %> <span class= "darkblue twenty"><br> Status </span> </p>
+								<p class= "twenty no-margin center"><span class= "darkblue twenty">Status: </span> </p>
+								<%= f.select( :status, [["Active", 2],["Funded", 3],["Coming Soon", 1] ])  %>
 							</div>
-							<br>
-							<hr>
-							<br>
+
 							<div>
 								<p class= "twenty no-margin center"><%= f.number_field :invested_amount, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Invested </span> </p>
 							</div>
-						</div>
-						<div class= "right-column">
 							<div>
-								<p class= "twenty no-margin center"><%= f.number_field :days_left, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Days Left</span></p>
+								<p class= "twenty no-margin center"><%= f.number_field :goal_amount, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Goal Amount </span> </p>
 							</div>
-							<br>
-							<hr>
-							<br>
+						</div>
+						<div>
+							<p class= "twenty no-margin center"><%= f.number_field :days_left, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Days Left</span></p>
+						</div>
+						<div>
+							<p class= "twenty no-margin center"><%= f.number_field :position, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Position</span></p>
+						</div>
+						<div>
+							<p class= "twenty no-margin center"><%= f.text_field :video_link, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Video Link</span></p>
+						</div>
+
+						<div>
+							<p class= "twenty no-margin center"><%= f.text_field :docusign_url, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">DocuSign Link</span></p>
+						</div>
+
 							<div>
 								<p class= "twenty no-margin center"><%= "%.1f" % @progress %>%<br><span class= "darkblue twenty">Funded<span></p>
 							</div>
-						</div>
 					</div>
 
 				</div></div>
@@ -72,13 +90,13 @@
 					<%# if @company.video_link != "" %>
 						<!-- <iframe width="650" height="450" src= <%#= @company.video_link %> frameborder="0" allowfullscreen class= "indent"></iframe> -->
 					<%# else %>
-						<%= image_tag("companies/#{@company.image_file_name}")%>
+						<%= image_tag(@company.image.url, class: "max-width-image")%>
 					<%# end %>
 				</div>
 				<br><br><br><br>
 				<h2 class= "darkblue twentyf indent">Highlight</h2>
 					<hr>
-					<p class= "fifteen"><%= nl2br(h(@company.description)).html_safe %></p>
+					<p class= "fifteen"><%= f.text_area :description, rows: 10, :class => 'twenty input-box no-margin ' %></p>
 
 				<% if @members != nil && !@members.empty? %>
 					<br>
@@ -154,7 +172,7 @@
               <%= flash[:problem_update] if flash[:problem_update] %>
               <%= @error_update %>
            </div>
-           <%= f.submit "Update", :id => 'button' %>
+           <%= f.submit "Update", :class => 'invest-button' %>
 		<% end %>
 		</div></div>
 	</body>

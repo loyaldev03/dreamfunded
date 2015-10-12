@@ -17,7 +17,7 @@
 
 		<div class= "login-container">
 			<%= form_tag("post_login", method: "get") do %>
-				<%= text_field_tag(:username, nil, :class =>"userbox", :placeholder => "Username") %>
+				<%= text_field_tag(:email, nil, :class =>"userbox", :placeholder => "Email") %>
 				<br>
 				<%= password_field_tag(:password, nil, :class => "passbox", :placeholder => "Password") %>
 				<br>
@@ -35,6 +35,9 @@
 			<form action="/users/new">
 		   		<input type="submit" value="Sign up here" class= "signup">
 			</form>
+		</div>
+		<div class= "centered">
+			<%= link_to "Change Password", change_password_path %>
 		</div>
 	</div>
 </div>

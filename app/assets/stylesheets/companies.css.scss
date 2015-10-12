@@ -13,6 +13,10 @@
 	color: $lightgray;
 }
 
+.document-url{
+	color: grey;
+}
+
 .companies-container {
 	display: table;
 	width: 1000px;
@@ -23,7 +27,7 @@
 .company-container {
 	display: table-cell;
 	width: 270px;
-	height: 480px;
+/*	height: 480px;*/
 	padding: 20px;
 	margin: 20px 1%;
 	float: left;
@@ -148,7 +152,7 @@
 	width: 32%;
 	margin-left: 3%;
 	margin-bottom: 3%;
-	height: 530px;
+	/*height: 530px;*/
 	border: 1px solid rgba(0,0,0,.2);
     margin-top: 10px;
 }
@@ -185,7 +189,7 @@
 }
 
 .numbers {
-	height: 200px;
+	/*height: 200px;*/
 	width: 85%;
 	//border: 1px solid gray;
 	margin: 0 auto;
@@ -263,6 +267,58 @@
 	height: 400px;
 	width: 600px;
 	margin-top: -30px;
+}
+.max-width-image{
+	max-width: 600px;
+}
+.invest-amount{
+	text-align: center;
+	width: 50% !important;
+}
+/*.youtube-video{
+	width: 100%;
+	height: 400px;
+}*/
+/*youtube-video different screene*/
+@media  screen and (min-width: 480px){
+	.youtube-video{
+		width: 250px;
+		height: 175px;
+	}
+}
+
+/*# Tablet*/
+@media  screen and (min-width: 768px){
+	.youtube-video{
+		width: 300px;
+		height: 200px;
+	}
+}
+
+/*# Desktop*/
+@media  screen and (min-width: 992px){
+	.youtube-video{
+		width: 400px;
+		height: 300px;
+	}
+}
+/*# Huge*/
+@media  screen and (min-width: 1199px){
+	.youtube-video{
+		width: 500px;
+		height: 400px;
+	}
+}
+/*# Huge*/
+@media  screen and (min-width: 1400px){
+	.youtube-video{
+		width: 600px;
+		height: 450px;
+	}
+}
+
+.image-max-width{
+  max-width: 600px;
 }
 
 .section {

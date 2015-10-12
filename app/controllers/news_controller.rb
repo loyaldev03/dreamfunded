@@ -2,7 +2,7 @@ class NewsController < ApplicationController
 
 #default page with news listed by most recent
   def index
-  	@news = New.paginate(page: params[:page], per_page: 5).order('created_at DESC')
+  	@news = News.paginate(page: params[:page], per_page: 5).order('created_at DESC')
     respond_to do |format|
       format.html
       format.js
@@ -19,35 +19,29 @@ class NewsController < ApplicationController
 	if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Founder]
 		redirect_to url_for(:controller => 'home', :action => 'unauthorized')
 	end
+   @news = News.new
   end
 
   def create
-  	if params[:file] != nil
-  		uploaded_file = params[:file]
-  		@file_name = uploaded_file.original_filename
-  		directory = "app/assets/images/news"
-  		path = File.join(directory, @file_name)
-  		File.open(path, "wb") { |f| f.write(uploaded_file.read) }
-
-  		@news_title = params[:title]
-  		@content = params[:content][0]
-      @source = params[:source][0]
-  		flash[:file_upload] = "Image upload successful"
-  		uploaded = New.new(:title => @news_title, :image_filename => @file_name, :content => @content, :source => @source)
-  		uploaded.save
-  		redirect_to "/news"
-  	else
-  		flash[:file_uploaded] = "Image is not valid"
-  		redirect_to "/news/new"
-  	end
+    @news = News.new(news_params)
+    if @news.save
+      redirect_to "/news"
+    else
+      @error_message = ""
+      @news.errors.full_messages.each do |error|
+        @error_message = @error_message + error + ". "
+      end
+      flash[:message] = @error_message
+      redirect_to "/news/new"
+    end
   end
 
   def edit
-    @article = New.find(params[:id])
+    @article = News.find(params[:id])
   end
 
   def update
-    @article = New.find(params[:id])
+    @article = News.find(params[:id])
     if @article.update(news_params)
       redirect_to "/new/full/#{@article.id}"
     else
@@ -57,7 +51,7 @@ class NewsController < ApplicationController
 
   def full
     if params[:id] != nil
-      @article = New.find(params[:id])
+      @article = News.find(params[:id])
       render "/news/full"
     else
       redirect_to "/news"
@@ -66,7 +60,7 @@ class NewsController < ApplicationController
 
   def remove_new
     if params[:id] != nil
-        @article = New.find(params[:id])
+        @article = News.find(params[:id])
         if (@article != nil)
           @article.destroy
         end
@@ -76,7 +70,7 @@ class NewsController < ApplicationController
 
   private
   def news_params
-    params.require(:new).permit(:title, :image_filename, :content, :source, :created_at, :updated_at )
+    params.require(:news).permit(:title, :image, :content, :source, :created_at, :updated_at )
   end
 
 end

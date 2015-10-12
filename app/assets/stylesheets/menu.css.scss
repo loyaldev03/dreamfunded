@@ -17,6 +17,10 @@
 	display: inline;
 	clear: both;
 }
+#mobile-menu {
+	float: left;
+	visibility: hidden;
+}
 
 a {
 	text-decoration: none;

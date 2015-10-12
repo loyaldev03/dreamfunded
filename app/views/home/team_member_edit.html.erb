@@ -1,0 +1,32 @@
+<div class= "wrapper">
+  <div class= "box creation-wrap">
+    <h2 class= "centered"> Edit Member </h2>
+
+    <%= form_for @member, :url => url_for(:controller => 'home_controller', :action => 'team_member_edit'), multipart: true do |f| %>
+
+      <%= f.text_field :name,  :placeholder => "Name", :class => "input-box"%><br>
+      <%= f.text_field :title,  :placeholder => "Title", :class => "input-box"%><br>
+
+      <div class= "description-wrap">
+        <%= f.text_area(:fullbio, :placeholder => "Full Bio", :class => "description-box") %>
+      </div>
+
+      <div class= "description-wrap">
+        <%= f.text_area(:summary, :placeholder => "Summary", :class => "description-box source") %>
+      </div>
+
+
+
+      <div class = "notice centered">
+        <%= flash[:file_uploaded] if flash[:file_uploaded] %>
+      </div>
+
+      <label for = "image">Upload Article Image: </label>
+      <%= f.file_field "image" %><br>
+      <%= image_tag @member.image.url, class: 'full-image' %>
+      <div class= "centered">
+        <%= submit_tag("Publish", :id => "submit-button") %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -18,7 +18,7 @@
 								<%= button_to "X", {action: 'remove_new', id: article.id} , {:class => 'remove-button'} %>
 							<% end %>
 							<div class= "news-image">
-								<%= link_to image_tag("news/#{article.image_filename}", :class => "article-image"), {:action => 'full', :id => article.id } %>
+								<%= link_to image_tag(article.image.url, :class => "article-image"), {:action => 'full', :id => article.id } %>
 							</div>
 
 							<div class= "news">

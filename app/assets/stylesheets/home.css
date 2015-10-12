@@ -13,6 +13,9 @@
 	max-width: 100% !important;
 	position: relative;
 }
+.cover-image{
+	width: 100%;
+}
 
 .fullWidth {
 	width: 100%;
@@ -62,9 +65,10 @@ h3 {
     top: 0;
 }
 
-#button {
-	width: 30%;
+.invest-button {
+	width: 20%;
 	margin: 7% auto;
+	display: inline-block;
 	padding: 17px;
 	background: #0d87b3;
 	font-size: 20px;
@@ -73,12 +77,19 @@ h3 {
 	cursor: pointer;
 	outline: none;
 }
+.invest-now-button{
+	margin-left: 25px;
+}
+.liquidate-now-button{
+	margin-left: 25px;
+}
 
-#button:hover {
+
+.invest-button:hover {
 	background: #0B6E91;
 }
 
-#button:active {
+.invest-button:active {
 	outline: none;
 }
 
@@ -128,7 +139,7 @@ h3 {
 	// background: linear-gradient(to top, white, #ECECEC); /* Standard syntax */
 	background: white;
 	width: 29%;
-	height: 500px;
+	height: 440px;
 	float: left;
 	margin: 0 2%;
 	box-sizing: border-box;
@@ -142,6 +153,7 @@ h3 {
 
 .section2-content {
 	padding: 30px;
+	padding-top: 12px;
 }
 
 .outer {
@@ -194,8 +206,9 @@ h3 {
 }
 
 .team-picture {
-	height: 200px;
+	height: 195px;
 	border-radius: 50%;
+	margin-top: 25px;
 }
 
 .team-pic-wrap {
@@ -276,7 +289,12 @@ h3 {
 	width: 1200px;
 	position: relative;
 }
-
+.padding-top-100{
+	padding-top: 100px;
+}
+.padding-mentioned-in{
+	padding-top: 28px;
+}
 .row1 img {
 	width: 150px;
 	height: 150px;
@@ -353,4 +371,35 @@ h3 {
 
 #three {
 	display: none;
+}
+
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+	.main-menu li{
+		visibility: hidden;
+	}
+	#mobile-menu{
+		float: right !important;
+		visibility: visible !important;
+	}
+	#mobile-menu li{
+		visibility: visible;
+	}
+	.big-title{
+
+	}
+	.row2 {
+		display: none;
+	}
+	.row1 {
+		display: none;
+	}
+	.invest-button{
+		width: auto;
+	}
+	.logos-container{
+		width: 100% !important;
+	}
 }

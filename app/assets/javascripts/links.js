@@ -27,7 +27,7 @@ function faq() {
 }
 
 function contact() {
-	window.location = "https://dreamfunded.com/contact/";
+	window.location = "/contact";
 }
 
 function funding() {
@@ -35,7 +35,7 @@ function funding() {
 }
 
 function exchange() {
-	window.location = "http://exchange.dreamfunded.com/";
+	window.location = "home/exchange";
 }
 
 function news() {
@@ -60,4 +60,8 @@ function portfolio() {
 
 function admin() {
 	window.location = "/users/write";
+}
+
+function legal() {
+	window.location = "/home/legal";
 }

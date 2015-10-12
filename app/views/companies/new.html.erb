@@ -15,9 +15,10 @@
 				<%= f.number_field(:invested_amount, :placeholder => "Amount Currently Invested", :class => "input-box half") %>
 				<div class= "filler"></div>
 				<%= f.number_field(:goal_amount, :placeholder => "Target Investment Amount", :min => 0, :step => 1000, :class => "input-box half scoot-left") %><br>
-				<%= f.text_field(:CEO, :placeholder => "Name of your CEO", :class => "input-box") %><br>
+				<%= f.number_field(:days_left, :placeholder => "Days Left", :class => "input-box") %><br>
+				<%#= f.text_field(:CEO, :placeholder => "Name of your CEO", :class => "input-box") %><br>
 
-				<%= f.text_field(:CEO_number, :placeholder => "Phone Number of your CEO", :class => "input-box") %><br>
+				<%#= f.text_field(:CEO_number, :placeholder => "Phone Number of your CEO", :class => "input-box") %><br>
 
 				<%= f.text_field(:website_link, :placeholder => "Company Website URL", :class => "input-box") %><br>
 				<%= f.text_field(:video_link, :placeholder => "Company Video Link", :class => "input-box") %><br>
