@@ -155,6 +155,16 @@
 				<% end %>
 			</div>
 		</div></div>
+		<script>
+		$(document).on('ready', function(event) {
+		  // initialize persistent state
+			$('.foot-text.darkblue').hide();
+		});
+		$(document).on('ready page:load', function(event) {
+		  // apply non-idempotent transformations to the body
+		  $('.foot-text.darkblue').hide();
+		});
+		</script>
 	</body>
 
 </html>
