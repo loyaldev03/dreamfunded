@@ -55,6 +55,7 @@ h3 {
 
 .button-box {
 	position: relative;
+	margin: 50px;
 }
 
 .sky {
@@ -128,7 +129,6 @@ h3 {
 	margin: 50px auto;
 	width: 90%;
 	height: 550px;
-	padding: 30px 0;
 }
 
 .section2-box {
@@ -138,7 +138,7 @@ h3 {
 	// background: -moz-linear-gradient(top, white, #ECECEC); /* For Firefox 3.6 to 15 */
 	// background: linear-gradient(to top, white, #ECECEC); /* Standard syntax */
 	background: white;
-	width: 29%;
+	width: 25%;
 	height: 440px;
 	float: left;
 	margin: 0 2%;
