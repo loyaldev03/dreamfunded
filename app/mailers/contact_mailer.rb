@@ -35,8 +35,14 @@ class ContactMailer < ActionMailer::Base
   end
 
   def account_created(user)
-    @name = user.name
+    @name = user.last_name
     @email= user.email
     mail(to: "info@dreamfunded.com", subject: 'New Account Created')
+  end
+
+  def reset_password_request(user)
+    @name = user.last_name
+    @email= user.email
+    mail(to: "info@dreamfunded.com", subject: 'Password Reset Request')
   end
 end
