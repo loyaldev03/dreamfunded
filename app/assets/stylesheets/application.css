@@ -104,6 +104,17 @@ hr {
 	background: transparent;
 	color: red;
 }
+.company-position {
+	cursor: pointer;
+	float: left;
+	outline: 0;
+	border: none;
+	position: absolute;
+
+	top: 10px;
+	background: transparent;
+	color: red;
+}
 
 .approve-button {
 	cursor: pointer;

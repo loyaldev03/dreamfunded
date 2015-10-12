@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
 		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Basic]
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
 		end
-		@companies = Company.all
+		@companies = Company.all.order(:position)
 	end
 
 	def new
@@ -259,7 +259,7 @@ class CompaniesController < ApplicationController
    end
 
    def company_params
-      params.require(:company).permit(:image, :document, :docusign_url, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at)
+      params.require(:company).permit(:image, :document, :position, :docusign_url, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at)
    end
 
    def founder_params
