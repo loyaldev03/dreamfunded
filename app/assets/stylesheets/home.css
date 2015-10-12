@@ -79,7 +79,7 @@ h3 {
 	outline: none;
 }
 .invest-now-button{
-	margin-left: 25px;
+	margin-right: 25px;
 }
 .liquidate-now-button{
 	margin-left: 25px;
@@ -127,8 +127,12 @@ h3 {
 
 .section2 {
 	margin: 50px auto;
-	width: 90%;
 	height: 550px;
+}
+
+.boxes {
+	margin: 0 auto;
+	width: 95%;
 }
 
 .section2-box {
@@ -138,8 +142,8 @@ h3 {
 	// background: -moz-linear-gradient(top, white, #ECECEC); /* For Firefox 3.6 to 15 */
 	// background: linear-gradient(to top, white, #ECECEC); /* Standard syntax */
 	background: white;
-	width: 25%;
-	height: 440px;
+	width: 29%;
+	height: 460px;
 	float: left;
 	margin: 0 2%;
 	box-sizing: border-box;
@@ -172,7 +176,7 @@ h3 {
 }
 
 .seventeen {
-	font-size: 18px;
+	font-size: 17px;
 }
 
 .bigger {
@@ -288,6 +292,7 @@ h3 {
 	padding: 50px 0;
 	width: 1200px;
 	position: relative;
+	margin: 0 auto;
 }
 .padding-top-100{
 	padding-top: 100px;
