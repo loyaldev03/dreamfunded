@@ -22,27 +22,34 @@
 					   	<th>Authority</th>
 					   	<th>Promote</th>
 					   	<th>Demote</th>
+					   	<th>Delete</th>
 					 </tr>
 					  	<% @users.each do |user| %>
 					  		<tr>
-								<td><%= user.login %></td>
-								<td><%= user.first_name %></td>
-								<td><%= user.last_name %></td>
-								<td><%= user.email %></td>
-								<td><%= user.authority %></td>
-								<td>
-									<%= form_tag("/users/promote", method: "post") do %>
-										<%= hidden_field_tag(:user, user.email) %>
-										<%= submit_tag("Promote") %>
-									<% end %>
-								</td>
-								<td>
-									<%= form_tag("/users/demote", method: "post") do %>
-										<%= hidden_field_tag(:user, user.email) %>
-										<%= submit_tag("Demote") %>
-									<% end %>
-								</td>
-							</tr>
+									<td><%= user.login %></td>
+									<td><%= user.first_name %></td>
+									<td><%= user.last_name %></td>
+									<td><%= user.email %></td>
+									<td><%= user.authority %></td>
+									<td>
+										<%= form_tag("/users/promote", method: "post") do %>
+											<%= hidden_field_tag(:user, user.email) %>
+											<%= submit_tag("Promote") %>
+										<% end %>
+									</td>
+									<td>
+										<%= form_tag("/users/demote", method: "post") do %>
+											<%= hidden_field_tag(:user, user.email) %>
+											<%= submit_tag("Demote") %>
+										<% end %>
+									</td>
+									<td>
+										<%= form_tag("/users/delete", method: "post") do %>
+											<%= hidden_field_tag(:user, user.email) %>
+											<%= submit_tag("Delete") %>
+										<% end %>
+									</td>
+								</tr>
 						<% end %>
 					</table>
 				<% end %>

@@ -11,6 +11,9 @@ class UsersController < ApplicationController
 
 	end
 
+	def show
+	end
+
 	def write
 		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Admin]
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
@@ -46,6 +49,14 @@ class UsersController < ApplicationController
 		if @user.authority != 1
 			@user.update_column(:authority, @user.authority-1)
 		end
+		redirect_to(:action => :write)
+	end
+
+	#Delete a user
+	def delete
+		user_login = params[:user]
+		@user = User.find_by(email: user_login)
+		@user.destroy
 		redirect_to(:action => :write)
 	end
 
