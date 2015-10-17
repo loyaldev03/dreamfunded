@@ -231,6 +231,7 @@ h3 {
 }
 
 .team-button {
+	display: inline-block;
 	border: none;
 	outline: 0;
 	color: white;
