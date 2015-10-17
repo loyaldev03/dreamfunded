@@ -65,3 +65,4 @@ function admin() {
 function legal() {
 	window.location = "/home/legal";
 }
+;
