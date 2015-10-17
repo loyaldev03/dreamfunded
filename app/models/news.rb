@@ -1,6 +1,8 @@
 class News < ActiveRecord::Base
-	validates :title, presence:true
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 
+	validates :title, presence:true
 	validates :content, presence:true
 	validates :source, presence:true
 
@@ -26,5 +28,6 @@ class News < ActiveRecord::Base
   def next_post
      self.class.where("id < ?", id).last
   end
+
 
 end
