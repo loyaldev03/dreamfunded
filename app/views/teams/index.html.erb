@@ -14,7 +14,7 @@
       <% @teams.each do |team| %>
         <div class= "team-wrap">
           <div class= "team-pic-wrap">
-            <%= link_to image_tag( team.image.url, :class => "team-picture"), {:controller => :home, :action => :fullbio, :id => team.id} %>
+            <%= link_to image_tag( team.image.url, :class => "team-picture"), team_path(team) %>
 
           </div>
           <div class= "white-box">
