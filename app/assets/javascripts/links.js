@@ -19,7 +19,7 @@ function about() {
 }
 
 function team() {
-	window.location = "/home/team";
+	window.location = "/teams";
 }
 
 function faq() {

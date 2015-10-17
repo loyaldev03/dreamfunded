@@ -30,4 +30,5 @@ class News < ActiveRecord::Base
   end
 
 
+
 end

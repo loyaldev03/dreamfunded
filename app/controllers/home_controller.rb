@@ -38,16 +38,15 @@ class HomeController < ApplicationController
 
 	def fullbio
 		@teams = Team.all
-		@id = params[:id]
-		@team_member = Team.find(@id)
+		@team_member = Team.friendly.find(params[:id])
 	end
 
 	def team_member_edit
-		@member = Team.find(params[:id])
+		@member = Team.friendly.find(params[:id])
 	end
 
 	def team_member_update
-		@member = Team.find(params[:id])
+		@member = Team.friendly.find(params[:id])
 
 		if @member.update(team_params)
 			redirect_to :controller => 'home', :action => 'fullbio', :id => params[:id]

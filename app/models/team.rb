@@ -1,8 +1,11 @@
 class Team < ActiveRecord::Base
-	validates :name, presence:true
-	# validates :file_name, presence:true
-	validates :summary, presence:true
-	validates :fullbio, presence:true
+	extend FriendlyId
+  friendly_id :name, use: :slugged
+
+ #  validates :name, presence:true
+	# # validates :file_name, presence:true
+	# validates :summary, presence:true
+	# validates :fullbio, presence:true
 
 
   has_attached_file :image,

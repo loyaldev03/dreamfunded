@@ -47,7 +47,7 @@ class NewsController < ApplicationController
   def update
     @article = News.friendly.find(params[:id])
     if @article.update(news_params)
-      redirect_to "/new/full/#{@article.id}"
+      redirect_to @article
     else
       render :edit
     end
@@ -74,7 +74,7 @@ class NewsController < ApplicationController
 
   private
   def news_params
-    params.require(:news).permit(:title, :image, :content, :source, :created_at, :updated_at )
+    params.require(:news).permit(:title, :image, :content, :source, :slug, :created_at, :updated_at )
   end
 
 end
