@@ -19,7 +19,7 @@ function about() {
 }
 
 function team() {
-	window.location = "/team";
+	window.location = "/teams";
 }
 
 function faq() {
@@ -65,3 +65,4 @@ function admin() {
 function legal() {
 	window.location = "/home/legal";
 }
+;

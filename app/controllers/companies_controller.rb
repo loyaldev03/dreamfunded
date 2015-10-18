@@ -248,7 +248,7 @@ class CompaniesController < ApplicationController
 
    private
    def verify
-   	user = User.find(session[:current_user].id)
+   	user = User.find(session[:current_user])
    	if user.confirmed == false
    		redirect_to url_for(:controller => 'home', :action => 'unverified')
    	end

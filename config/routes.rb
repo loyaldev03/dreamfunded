@@ -38,6 +38,9 @@ Rails.application.routes.draw do
 
   resources :companies
   resources :news
+  #resources :teams
+  get '/team', to: "teams#index", as: :teams
+  get '/team/:id', to: "teams#show", as: :team
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

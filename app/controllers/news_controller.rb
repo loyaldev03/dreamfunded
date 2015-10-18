@@ -22,6 +22,10 @@ class NewsController < ApplicationController
    @news = News.new
   end
 
+  def show
+    @article =News.friendly.find(params[:id])
+  end
+
   def create
     @news = News.new(news_params)
     if @news.save
@@ -37,13 +41,13 @@ class NewsController < ApplicationController
   end
 
   def edit
-    @article = News.find(params[:id])
+    @article = News.friendly.find(params[:id])
   end
 
   def update
-    @article = News.find(params[:id])
+    @article = News.friendly.find(params[:id])
     if @article.update(news_params)
-      redirect_to "/new/full/#{@article.id}"
+      redirect_to @article
     else
       render :edit
     end
@@ -51,7 +55,7 @@ class NewsController < ApplicationController
 
   def full
     if params[:id] != nil
-      @article = News.find(params[:id])
+      @article = News.friendly.find(params[:id])
       render "/news/full"
     else
       redirect_to "/news"
@@ -60,7 +64,7 @@ class NewsController < ApplicationController
 
   def remove_new
     if params[:id] != nil
-        @article = News.find(params[:id])
+        @article = News.friendly.find(params[:id])
         if (@article != nil)
           @article.destroy
         end
@@ -70,7 +74,7 @@ class NewsController < ApplicationController
 
   private
   def news_params
-    params.require(:news).permit(:title, :image, :content, :source, :created_at, :updated_at )
+    params.require(:news).permit(:title, :image, :content, :source, :slug, :created_at, :updated_at )
   end
 
 end

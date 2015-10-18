@@ -18,13 +18,16 @@
 								<%= button_to "X", {action: 'remove_new', id: article.id} , {:class => 'remove-button'} %>
 							<% end %>
 							<div class= "news-image">
-								<%= link_to image_tag(article.image.url, :class => "article-image"), {:action => 'full', :id => article.id } %>
+								<%= link_to image_tag(article.image.url, :class => "article-image"), news_path(article) %>
 							</div>
 
 							<div class= "news">
 								<div class= "title-container"> <%= article.title %> </div>
 								<div class= "content-container"> <%= nl2br(h(article.content)).html_safe %></div>
-								<%= button_to "Read More >", full_article_path(article.id), method: :get, :class =>'article-button' %>
+								<div>
+									<%= link_to "Read More >", news_path(article), :class =>'article-button' %>
+								</div>
+
 							</div>
 						</div>
 					<% end %>
