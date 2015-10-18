@@ -1,8 +1,8 @@
 <div class= "wrapper"><div class= "box signin-box centered">
 
   <div class="row">
-    <div class=" darkblue active">
-      <h2 class= "no-margin centered"><a  id="login-form-link">Contact DreamFunded</a></h2>
+    <div class=" active">
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Contact DreamFunded</a></h2>
       <br>
       <div class='contact-us-info'>
         DreamFunded, Inc.</div>
@@ -27,7 +27,7 @@
       <%= text_field_tag(:name, nil, :class =>"userbox", :placeholder => "Name", :required => true) %>
       <%= text_field_tag(:email, nil, :class =>"userbox", :placeholder => "Email", :required => true) %>
       <%= text_field_tag(:phone, nil, :class =>"userbox", :placeholder => "Phone") %>
-      <%= text_area(:message, nil, rows: 4, :class =>"userbox", :placeholder => "Type Your Message", :required => true) %>
+      <%= text_area(:message, nil, rows: 4, :class =>"userbox expand", :placeholder => "Type Your Message", :required => true) %>
       <br>
 
         <div class = "notice centered">

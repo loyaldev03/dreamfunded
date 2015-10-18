@@ -1,10 +1,9 @@
 
 		<div class= "cover-image">
-			<div class= "top">
 				<div class= "space-keeper"><%= image_tag("skylinedark comp.png", :class => "sky") %></div>
 				<div class= "big-title white ">
 					<h1 class= "remove-margin">Access to Proven Tech Companies</h1>
-					<div class= "top-space"><h3 class= "remove-margin">A Small Investment Today Might Make a Big Impact on Your Future Tomorrow.</h3></div>
+					<div class= "top-space"><h3 class= "remove-margin">A small investment today might make a big impact on your future tomorrow.</h3></div>
 					<div class= "centered button-box">
 						<%= link_to "Invest Now", {:action => 'get_started'}, {:class => 'invest-button invest-now-button'} %>
 						<%= link_to "Liquidate Now", {:action => 'liquidate'}, {:class => 'invest-button liquidate-now-button'} %>
@@ -42,16 +41,13 @@
 						</div></div>
 
 
-					</div></div>
-				<% end %>
-			</div>
-
+					</div> </div>
+			<% end %>
 
 			<br>
-
 			<h2 class= "centered darkblue">A Selection of Highly Vetted Startups and Tech Companies</h2>
 			<br>
-			<div class= "section2-wrap"><div class= "section2">
+			<div class= "section2-wrap"><div class= "section2"><div class="boxes">
 
 				<div class= "section2-box">
 					<a href='/liquidate'>
@@ -65,6 +61,7 @@
 						</div>
 					</a>
 				</div>
+
 
 				<div class= "section2-box"><div class= "section2-content">
 					<div class= "outer middle"><%= image_tag("static/glass.png", :class => "image2") %></div>
@@ -83,12 +80,18 @@
 					<div class= "box-text">
 						<p class= "seventeen centered">Members can invest as little as $1,000 allowing for a diversified portfolio.</p>
 					</div>
-				</div></div>
+				</div>
+			</div>
 			</div></div>
 
 			<div class= "logos fullWidth">
+				<div class= "logo-title">
+					<h2 class= "centered transparent">DreamFunded</h2> 
+				</div>
 				<div class= "logos-container">
-				<!-- <h2 class= "centered darkblue">Mentioned In</h2> -->
+					<div class= "logo-title">
+						<h2 class= "centered darkblue">Mentioned In</h2> 
+					</div>
 					<div class= "row1">
 						<%= link_to image_tag("static/Forbes.jpg", class: "padding-top-100"), "http://www.forbes.com/sites/mnewlands/2015/07/10/how-to-get-introduced-to-investors/" %>
 						<%= link_to image_tag("static/inc.png"), "http://www.inc.com/john-rampton/7-funding-options-for-accelerating-startup-growth.html"  %>
@@ -101,7 +104,7 @@
 						<%= link_to image_tag("static/wallstreet.png"), "http://www.entrepreneur.com/article/246273" %>
 					</div>
 				</div>
-			</div>
+			</div> 
 
 			<div class= "centered button-box">
 				<%= link_to "Invest Now", {:action => 'get_started'}, {:class => 'invest-button invest-now-button'} %>

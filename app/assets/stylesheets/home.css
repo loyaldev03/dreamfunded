@@ -55,6 +55,7 @@ h3 {
 
 .button-box {
 	position: relative;
+	margin: 50px;
 }
 
 .sky {
@@ -78,7 +79,7 @@ h3 {
 	outline: none;
 }
 .invest-now-button{
-	margin-left: 25px;
+	margin-right: 25px;
 }
 .liquidate-now-button{
 	margin-left: 25px;
@@ -126,8 +127,12 @@ h3 {
 
 .section2 {
 	margin: 50px auto;
-	width: 90%;
 	height: 550px;
+}
+
+.boxes {
+	margin: 0 auto;
+	width: 95%;
 }
 
 .section2-box {
@@ -138,7 +143,7 @@ h3 {
 	// background: linear-gradient(to top, white, #ECECEC); /* Standard syntax */
 	background: white;
 	width: 29%;
-	height: 440px;
+	height: 460px;
 	float: left;
 	margin: 0 2%;
 	box-sizing: border-box;
@@ -171,7 +176,7 @@ h3 {
 }
 
 .seventeen {
-	font-size: 18px;
+	font-size: 17px;
 }
 
 .bigger {
@@ -201,7 +206,7 @@ h3 {
 .team-wrap {
 	position: relative;
 	height: 250px;
-
+	margin-bottom: 50px;
 }
 
 .team-picture {
@@ -281,19 +286,21 @@ h3 {
 .logos {
 	background-color: white;
 	height: 420px;
-	padding: 30px 0;
+	margin: 50px 0;
 }
 
 .logos-container {
-	margin: 0 auto;
 	width: 1200px;
+	position: relative;
+	margin: 0 auto;
 }
 .padding-top-100{
-	padding-top: 100px;
+	padding-top: 10px;
 }
 .padding-mentioned-in{
 	padding-top: 28px;
 }
+
 .row1 img {
 	width: 150px;
 	height: 150px;
@@ -401,4 +408,8 @@ and (max-device-width : 568px) {
 	.logos-container{
 		width: 100% !important;
 	}
+}
+
+.transparent {
+	color: transparent;
 }
