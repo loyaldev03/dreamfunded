@@ -1,0 +1,29 @@
+<div class= "wrapper">
+	<div class="header-container shadow">
+		<div class= "header centered"><h1>Payment</h1></div>
+	</div>
+
+  <div class= "box signin-box centered">
+
+
+	<%= form_tag( '/submit_payment', method: :post) do %>
+			<p>Name</p>
+		<%= text_field_tag(:name, nil, :placeholder => "Name") %>
+		<p>Account Number</p>
+		<%= text_field_tag(:account, nil, :placeholder => "Account Number") %>
+		<p>Routing Number</p>
+		<%= text_field_tag(:routing, nil, :placeholder => "Routing Number") %>
+		<p>Amount</p>
+		<%= text_field_tag(:amout, nil, :placeholder => "Amount") %>
+
+
+		<%= submit_tag "Proceed"%>
+	<% end %>
+	<p>
+		<%= flash[:message] %>
+	</p>
+
+	</div>
+
+	</div>
+</div>
