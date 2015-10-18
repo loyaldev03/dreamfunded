@@ -16,6 +16,8 @@
 						<div class= "news-single-container">
 							<% if user_session != nil && user_session.authority == authority[:Admin] %>
 								<%= button_to "X", {action: 'remove_new', id: article.id} , {:class => 'remove-button'} %>
+
+								<span class='company-position'><%= article.position %></span>
 							<% end %>
 							<div class= "news-image">
 								<%= link_to image_tag(article.image.url, :class => "article-image"), news_path(article) %>

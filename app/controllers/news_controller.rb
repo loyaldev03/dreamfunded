@@ -2,7 +2,7 @@ class NewsController < ApplicationController
 
 #default page with news listed by most recent
   def index
-  	@news = News.paginate(page: params[:page], per_page: 5).order('created_at DESC')
+  	@news = News.paginate(page: params[:page], per_page: 5).order(:position)
     respond_to do |format|
       format.html
       format.js
@@ -74,7 +74,7 @@ class NewsController < ApplicationController
 
   private
   def news_params
-    params.require(:news).permit(:title, :image, :content, :source, :slug, :created_at, :updated_at )
+    params.require(:news).permit(:title, :image, :content, :source, :slug, :created_at, :updated_at, :position )
   end
 
 end
