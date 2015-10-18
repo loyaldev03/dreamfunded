@@ -294,7 +294,7 @@ h3 {
 	margin: 0 auto;
 }
 .padding-top-100{
-	padding-top: 100px;
+	padding-top: 10px;
 }
 .padding-mentioned-in{
 	padding-top: 28px;
@@ -407,4 +407,8 @@ and (max-device-width : 568px) {
 	.logos-container{
 		width: 100% !important;
 	}
+}
+
+.transparent {
+	color: transparent;
 }

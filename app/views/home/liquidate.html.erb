@@ -3,9 +3,10 @@
   <div class="row">
     <div class="active">
       <h2 class= "no-margin centered darkblue"><a  id="login-form-link">Starting the Process</a></h2>
+      <hr>
       <br>
       <div class='liquidate-info'>
-        Fill in the form below to send your inquiry to a DreamFunded team member. All information will be kept confidential.</div><br>
+        Please fill in the form to send your request to a DreamFunded team member. All information will be kept confidential.</div><br>
     </div>
   </div>
 
@@ -14,7 +15,7 @@
       <%= text_field_tag(:name, nil, :class =>"userbox", :placeholder => "Name", :required => true) %>
       <%= text_field_tag(:email, nil, :class =>"userbox", :placeholder => "Email", :required => true) %>
       <%= text_field_tag(:phone, nil, :class =>"userbox", :placeholder => "Phone") %>
-      <%= text_area(:message, nil, rows: 5, :class =>"userbox", :placeholder => "Comment", :required => true) %>
+      <%= text_area(:message, nil, rows: 5, :class =>"userbox expand", :placeholder => "Comment", :required => true) %>
       <br>
 
         <div class = "notice centered">
