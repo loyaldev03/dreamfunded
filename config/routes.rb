@@ -4,11 +4,7 @@ Rails.application.routes.draw do
   match "/diversity-tech-angels-earn-wings/" => redirect("https://dreamfundedsf.wpengine.com/diversity-tech-angels-earn-wings/"), via: 'get'
 
   get 'payment/index'
-
-
-
   get 'news/manage'
-
   get 'welcome/index'
 
   get 'new/full/:id', to: "news#full", as: :full_article
@@ -46,11 +42,9 @@ Rails.application.routes.draw do
   post '/submit_payment', to: "payments#payment"
 
   get '/thank_you', to: "companies#thank_you"
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
   root 'home#index'
+  get '/how-it-works', to: 'home#why'
 
   get ':controller(/:action(/:id))'
   post ':controller(/:action(/:id))'
