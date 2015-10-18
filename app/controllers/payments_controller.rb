@@ -1,6 +1,7 @@
-
 class PaymentsController < ApplicationController
-	def index
+  before_action :authorize
+
+  def index
 	end
 
   def payment
@@ -50,6 +51,14 @@ class PaymentsController < ApplicationController
       p "Reason: #{tran.error}"
     end
     redirect_to payment_path
+  end
+
+  private
+
+  def authorize
+    if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Admin]
+      redirect_to url_for(:controller => 'home', :action => 'unauthorized')
+    end
   end
 
 end
