@@ -44,6 +44,8 @@ Rails.application.routes.draw do
 
   get '/payment', to: "payments#index", as: :payment
   post '/submit_payment', to: "payments#payment"
+
+  get '/thank_you', to: "companies#thank_you"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

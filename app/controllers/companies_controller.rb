@@ -246,6 +246,10 @@ class CompaniesController < ApplicationController
 			end
     end
 
+    def thank_you
+
+    end
+
    private
    def verify
    	user = User.find(session[:current_user])
