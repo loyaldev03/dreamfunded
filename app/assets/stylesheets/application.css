@@ -268,4 +268,8 @@ input[type='number']::-webkit-inner-spin-button {
 	margin: 0 10px;
 }
 
+.darkgrau {
+	color: #8A8A8A;
+}
+
 
