@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   root 'home#index'
   #URLs from old site
   get '/how-it-works', to: 'home#why'
+  get '/why-invest-with-dream-funded', to: 'home#why'
   get '/faq', to: 'home#faq'
   get '/about', to: 'home#about'
   get '/portofolio', to: 'companies#index'
@@ -54,6 +55,11 @@ Rails.application.routes.draw do
   match "/our-team/manny-fernandez" => redirect("team/manny-fernandez"), via: 'get'
   match "/our-team/rexford-r-hibbs" => redirect("team/rexford-r-hibbs"), via: 'get'
   match "/our-team/manny-fernandez" => redirect("team/manny-fernandez"), via: 'get'
+  match "/our-team/helder-suzuki" => redirect("team/helder-suzuki"), via: 'get'
+  match "/our-team/jacob-white" => redirect("team/jacob-white"), via: 'get'
+  match "/our-team/bill-payne" => redirect("team/bill-payne"), via: 'get'
+  match "/dreamfunded-mentioned-forbes-get-introduced-investors/" => redirect("news/dreamfunded-mentioned-in-forbes"), via: 'get'
+
 
 
   get ':controller(/:action(/:id))'
