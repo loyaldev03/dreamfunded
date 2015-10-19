@@ -44,7 +44,17 @@ Rails.application.routes.draw do
   get '/thank_you', to: "companies#thank_you"
 
   root 'home#index'
+  #URLs from old site
   get '/how-it-works', to: 'home#why'
+  get '/faq', to: 'home#faq'
+  get '/about', to: 'home#about'
+  get '/portofolio', to: 'companies#index'
+  get '/dreamfunded-exchange', to: 'home#exchange'
+  get '/our-team', to: 'teams#index'
+  match "/our-team/manny-fernandez" => redirect("team/manny-fernandez"), via: 'get'
+  match "/our-team/rexford-r-hibbs" => redirect("team/rexford-r-hibbs"), via: 'get'
+  match "/our-team/manny-fernandez" => redirect("team/manny-fernandez"), via: 'get'
+
 
   get ':controller(/:action(/:id))'
   post ':controller(/:action(/:id))'
