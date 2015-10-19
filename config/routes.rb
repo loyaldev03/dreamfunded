@@ -69,4 +69,6 @@ Rails.application.routes.draw do
 
   get ':controller(/:action(/:id))'
   post ':controller(/:action(/:id))'
+
+  match "/:id" => redirect("/"), via: 'get'
 end
