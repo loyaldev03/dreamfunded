@@ -63,7 +63,7 @@ Rails.application.routes.draw do
   get '/buy-equity', to: 'users#new'
   get "/information-selling-equity", to: 'home#exchange'
   match "/regulation-mini-ipos-way-rule-change-allows-regular-joes-invest-startups/" => redirect("news/regulation-a-mini-ipos-on-the-way-as-rule-change-allows-regular-joes-to-invest-in-startups"), via: 'get'
-
+  get '/funding', to: 'home#index'
 
 
 

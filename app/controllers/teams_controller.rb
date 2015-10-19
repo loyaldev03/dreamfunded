@@ -67,6 +67,6 @@ class TeamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
-      params.require(:team).permit(:name, :file_name, :summary, :fullbio, :image_file_name, :image_content_type, :image_file_size, :image_updated_at, :title, :slug )
+      params.require(:team).permit(:name, :file_name, :summary, :fullbio, :image, :image_file_name, :image_content_type, :image_file_size, :image_updated_at, :title, :slug )
     end
 end
