@@ -18,22 +18,13 @@
 								<%= link_to image_tag( investment.company.image.url, :class => "image"), {controller: 'companies', :action => 'company_profile', :id => investment.company.id} %>
 							</div></div>
 							<div class= "">
-								<div class="meter orange">
-									<span class= "front" style= "100%"></span>
-								</div>
 								<br>
-								<div class= "left-column-portfolio">
-									<div>
-										<p class= "twenty no-margin center">Invested<span class= "darkblue twenty"><br> Status </span> </p>
-									</div>
-
-								</div>
 								<div class= "right-column-portfolio">
 									<div>
-										<p class= "twenty no-margin center"><%= investment.invested_amount %><br><span class= "darkblue twenty">Amount</span></p>
+										<p class= "twenty no-margin center"><span class= "darkblue twenty">Invested </span><%=("$"+ number_with_delimiter(investment.invested_amount, :delimiter => ','))%></p>
 									</div>
-
 								</div>
+								<br>
 							</div>
 								<div class= "button-wrap">
 								</div>
