@@ -16,13 +16,14 @@
 					<table id="user-table">
 					 <tr>
 					 	<th>User ID</th>
-					   	<th>First name</th>
-					   	<th>Last name</th>
-					   	<th>E-mail</th>
-					   	<th>Authority</th>
-					   	<th>Promote</th>
-					   	<th>Demote</th>
-					   	<th>Delete</th>
+				   	<th>First name</th>
+				   	<th>Last name</th>
+				   	<th>E-mail</th>
+				   	<th>Authority</th>
+				   	<th>Promote</th>
+				   	<th>Demote</th>
+				   	<th>Delete</th>
+				   	<th>Portfolio</th>
 					 </tr>
 					  	<% @users.each do |user| %>
 					  		<tr>
@@ -49,6 +50,7 @@
 											<%= submit_tag("Delete") %>
 										<% end %>
 									</td>
+									<td><%= link_to("Portfolio", portfolio_admin_path(user.id)) %></td>
 								</tr>
 						<% end %>
 					</table>

@@ -27,8 +27,21 @@ class UsersController < ApplicationController
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
 		end
 		user = User.find(session[:current_user].id)
-		#@current_user = session[:current_user]
 		@investments = user.investments
+	end
+
+	def portfolio_admin
+		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Admin]
+			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
+		end
+		@user = User.find(params[:id])
+		@investments = @user.investments
+	end
+
+	def remove_investment
+		investment = Investment.find(params[:id])
+		investment.destroy
+		redirect_to url_for(:action => 'write')
 	end
 
 	def write

@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>DreamFunded | Portfolio</title>
+  </head>
+
+  <body>
+    <div class= "wrapper">
+      <div class="header">
+        <h1 class="centered"><%= @user.first_name%>'s Portfolio</h1>
+      </div>
+        <div class= "companies-container margin-bottom-100">
+          <% @investments.each do |investment| %>
+            <div class= "company-container">
+              <%= button_to "X", {action: 'remove_investment', id: investment.id} , data: { confirm: 'Are you sure?' }, class:'remove-button'%>
+
+
+              <div class= "company-image"><div class= "image-wrap">
+                <%= link_to image_tag( investment.company.image.url, :class => "image"), {controller: 'companies', :action => 'company_profile', :id => investment.company.id} %>
+              </div></div>
+              <div class= "">
+                <br>
+                <div class= "right-column-portfolio">
+                  <div>
+                    <p class= "twenty no-margin center"><span class= "darkblue twenty">Invested </span><%=("$"+ number_with_delimiter(investment.invested_amount, :delimiter => ','))%></p>
+                  </div>
+                </div>
+                <br>
+              </div>
+                <div class= "button-wrap">
+                </div>
+                <div class= "button-wrap"><%= button_to "Learn More", {controller: 'companies', :action => 'company_profile', :id => investment.company.id }, {:class => 'company-button twenty'} %>
+                </div>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  </body>
+  <style>
+  .foot-text.darkblue{
+    display: none;
+  }
+  </style>
+</html>
