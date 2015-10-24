@@ -1,11 +1,10 @@
 class Company < ActiveRecord::Base
-	belongs_to :user
+	has_many :investments
+	has_many :users, through: :investments
 
 	has_many :sections
 	has_many :founders
 	has_many :documents
-
-
 
 
 	has_attached_file :image,

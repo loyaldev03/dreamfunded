@@ -353,12 +353,16 @@
 	margin: 0 2%;
 	height: 148px;
 }
-
-.right-column {
+.left-column-portfolio {
 	width: 45%;
 	float: left;
 	margin: 0 2%;
-	height: 148px;
+}
+
+.right-column-portfolio {
+	width: 45%;
+	float: left;
+	margin: 0 2%;
 }
 
 .profile-wrap {
@@ -381,4 +385,7 @@
 	margin: 0 auto;
 	background: white;
 	padding: 20px;
+}
+.margin-bottom-100{
+	margin-bottom: 100px;
 }

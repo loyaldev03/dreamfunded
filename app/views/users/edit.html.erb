@@ -5,12 +5,14 @@
 
 <body>
         <div class= "wrapper"><div class= "box signin-box">
-            <h2 class= "centered"> Add a new Team Member </h2>
+            <h2 class= "centered"> Add Investment to <%= @user.first_name%> Profile </h2>
             <%= form_for @user do |f| %>
-                <%= f.text_field(:company_id, :placeholder => "Name", :class => "input-box") %><br>
 
+                <label >Select Company </label><br>
+                <%= select_tag 'company_id', options_for_select(Company.all.collect{ |u| [u.name, u.id] }) %><br><br>
+
+                <label >Input Investment Amount </label><br>
                 <%= f.text_field(:invested_amount, :placeholder => "Title", :class => "input-box") %><br>
-
 
                 <div class= "centered">
                     <%= f.submit("Add", :id => "submit-button") %>

@@ -13,9 +13,22 @@ class UsersController < ApplicationController
 	end
 
 	def edit
+		@user = User.find(params[:id])
 	end
 
 	def update
+		user = User.find_by(id: params[:id])
+		Investment.create(user_id: user.id, company_id: params[:company_id], invested_amount: params[:user][:invested_amount])
+		redirect_to(:action => :write)
+	end
+
+	def portfolio
+		if session[:current_user] == nil
+			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
+		end
+		user = User.find(session[:current_user].id)
+		#@current_user = session[:current_user]
+		@investments = user.investments
 	end
 
 	def write
@@ -24,7 +37,7 @@ class UsersController < ApplicationController
 		end
 		@current_user = session[:current_user]
 		@Authority = User.Authority
-		@users = User.all
+		@users = User.all.order(:first_name)
 		@new = News.new
 	end
 

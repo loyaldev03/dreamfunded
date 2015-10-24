@@ -8,7 +8,45 @@
 			<div class="header">
 				<h1 class="centered">Portfolio</h1>
 			</div>
+				<div class= "companies-container margin-bottom-100">
+					<% @investments.each do |investment| %>
+						<div class= "company-container">
+
+
+
+							<div class= "company-image"><div class= "image-wrap">
+								<%= link_to image_tag( investment.company.image.url, :class => "image"), {controller: 'companies', :action => 'company_profile', :id => investment.company.id} %>
+							</div></div>
+							<div class= "">
+								<div class="meter orange">
+									<span class= "front" style= "100%"></span>
+								</div>
+								<br>
+								<div class= "left-column-portfolio">
+									<div>
+										<p class= "twenty no-margin center">Invested<span class= "darkblue twenty"><br> Status </span> </p>
+									</div>
+
+								</div>
+								<div class= "right-column-portfolio">
+									<div>
+										<p class= "twenty no-margin center"><%= investment.invested_amount %><br><span class= "darkblue twenty">Amount</span></p>
+									</div>
+
+								</div>
+							</div>
+								<div class= "button-wrap">
+								</div>
+								<div class= "button-wrap"><%= button_to "Learn More", {controller: 'companies', :action => 'company_profile', :id => investment.company.id }, {:class => 'company-button twenty'} %>
+								</div>
+						</div>
+					<% end %>
+				</div>
 		</div>
 	</body>
-
+	<style>
+	.foot-text.darkblue{
+	 	display: none;
+	}
+	</style>
 </html>

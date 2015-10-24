@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'news/manage'
   get 'welcome/index'
 
+  get 'users/portfolio', to: "users#portfolio", as: :portfolio
+
   get 'new/full/:id', to: "news#full", as: :full_article
   post 'home_controller/create', to: "home#create"
   post 'companies_controller/add_team_member', to: "companies#add_team_member"
@@ -34,6 +36,7 @@ Rails.application.routes.draw do
 
   resources :companies
   resources :news
+
   #resources :teams
   get '/team', to: "teams#index", as: :teams
   get '/team/:id', to: "teams#show", as: :team
@@ -66,9 +69,9 @@ Rails.application.routes.draw do
   get '/funding', to: 'home#index'
 
 
-
+  resources :users, only: [:edit, :update]
   get ':controller(/:action(/:id))'
   post ':controller(/:action(/:id))'
 
-  match "/:id" => redirect("/"), via: 'get'
+  # match "/:id" => redirect("/"), via: 'get'
 end
