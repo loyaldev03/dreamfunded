@@ -19,7 +19,7 @@
 					<p class= "article"><%= nl2br(h(@article.content)).html_safe %></p>
 				</div>
 				<br><br><br>
-				<div><p class= "article darkblue indent">Source: <%= @article.source %></p></div>
+				<div><p class= "article darkblue indent">Source: <%= link_to @article.source, @article.source %></p></div>
 			</div>
 		</div></div>
 	</body>
