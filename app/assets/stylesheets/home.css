@@ -438,6 +438,15 @@ and (max-device-width : 568px) {
 	.foot-text.darkblue{
 	 	display: none;
 	}
+	#mentioned_in{
+		display: none;
+	}
+	.big-title{
+		top: 128px;
+	}
+	.big-title h1{
+		font-size:65px;
+	}
 }
 
 .transparent {
