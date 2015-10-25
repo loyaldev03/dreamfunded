@@ -1,3 +1,4 @@
+require 'usaepay.rb'
 class PaymentsController < ApplicationController
   before_action :authorize
 
@@ -16,12 +17,18 @@ class PaymentsController < ApplicationController
 
     # tran.card="4111111111111111"
     # tran.exp="0919"
-    tran.command="check:sale"
+    tran.command="check"
+    tran.accounttype = "Checking"
+    tran.billfname ='Alexandr'
+    tran.billlname = 'Larionov'
+    tran.billcity = 'San Francisco'
+    tran.billstate = 'CA'
+
     tran.amount= params[:amount]
     tran.invoice="1234"
     #tran.cardholder="Test T Jones"
-    #tran.street="1234 Main Street"
-    #tran.zip="90036"
+    tran.street="1234 Main Street"
+    tran.zip="94116"
     tran.description="Online Order"
     #tran.cvv2="435"
     # tran.custom3="testest"
