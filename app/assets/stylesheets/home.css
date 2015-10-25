@@ -321,12 +321,23 @@ h3 {
 	margin: 10px 70px;
 }
 
+.row{
+	position: relative;
+}
 .row2 img {
+	position: absolute;
 	max-height: 100px;
-	max-width: 390px;
+	max-width: 330px;
 	margin: 25px 14px;
 }
-
+#wallstreet_logo{
+	left: 400px;
+	padding-top: 14px;
+}
+#fast_company_logo{
+	left: 800px;
+	padding-top: 13px;
+}
 
 ////---------------- Story -------------------- ////////
 
