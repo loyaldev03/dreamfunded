@@ -3,7 +3,8 @@ class ContactMailer < ActionMailer::Base
 
 
   def welcome_email(user)
-
+    @user = user
+    mail(to: user.email, subject: "Welcome to DreamFunded")
   end
 
   def reset_email(user)
