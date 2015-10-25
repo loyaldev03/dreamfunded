@@ -10,6 +10,7 @@ class PaymentsController < ApplicationController
 
     # Merchants Source key must be generated within the console
     tran.key="azIZnB64RLfnc7yFhWbidTGTgkdq5p36"
+    #tran.key="p3681m70sjSf25eG2wplW7Y6MhTvdPD3"
 
     # Send request to sandbox server not production.  Make sure to comment or remove this line before
     #  putting your code into production
@@ -25,7 +26,7 @@ class PaymentsController < ApplicationController
     tran.billstate = 'CA'
 
     tran.amount= params[:amount]
-    tran.invoice="1234"
+
     #tran.cardholder="Test T Jones"
     tran.street="1234 Main Street"
     tran.zip="94116"
