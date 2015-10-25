@@ -420,6 +420,11 @@ and (max-device-width : 568px) {
 	#mobile-menu li{
 		visibility: visible;
 	}
+	#left{
+		visibility: visible;
+		position: absolute;
+		top: 12px;
+	}
 	.big-title{
 
 	}
@@ -445,7 +450,7 @@ and (max-device-width : 568px) {
 		top: 128px;
 	}
 	.big-title h1{
-		font-size:65px;
+		font-size:52px;
 	}
 	.menu-wrap{
 		height: 80px !important;
@@ -457,6 +462,15 @@ and (max-device-width : 568px) {
 	.invest-button{
 		font-size: 30px !important;
 		padding: 23px !important;
+	}
+	.space-keeper{
+		min-height: 0px;
+	}
+	.bottom-buttons{
+		visibility: hidden;
+	}
+	.section2-box{
+		height: 490px;
 	}
 
 }
