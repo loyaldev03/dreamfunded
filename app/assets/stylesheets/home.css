@@ -113,6 +113,20 @@ h3 {
 	outline: none;
 }
 
+#go_back_button{
+	padding: 17px;
+	width: 22%;
+	background: #0d87b3;
+	font-size: 20px;
+	border: none;
+	color: white;
+	cursor: pointer;
+	outline: none;
+}
+#go_back_button:hover{
+	background: #0B6E91;
+}
+
 .remove-margin {
 	margin-top: 0;
 	margin-bottom: 0;

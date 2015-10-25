@@ -33,6 +33,10 @@
             </div>
           <% end %>
         </div>
+
+        <div class= "centered twenty">
+          <%= button_to "Go Back to Offerings", {controller: 'companies' , :action => 'index'}, method: 'get', :id => 'go_back_button' %>
+        </div>
     </div>
   </body>
   <style>
