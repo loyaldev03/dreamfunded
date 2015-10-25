@@ -13,7 +13,7 @@ class PaymentsController < ApplicationController
 
     # Send request to sandbox server not production.  Make sure to comment or remove this line before
     #  putting your code into production
-    tran.usesandbox=true
+    tran.usesandbox=false
 
     # tran.card="4111111111111111"
     # tran.exp="0919"
