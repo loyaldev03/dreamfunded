@@ -448,11 +448,15 @@ and (max-device-width : 568px) {
 		font-size:65px;
 	}
 	.menu-wrap{
-		height: 80px;
+		height: 80px !important;
 	}
 	.menu button{
-		height: 80px;
-		font-size: 25px;
+		height: 80px !important;
+		font-size: 25px !important;
+	}
+	.invest-button{
+		font-size: 30px !important;
+		padding: 23px !important;
 	}
 
 }
