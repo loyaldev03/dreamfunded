@@ -321,8 +321,10 @@ h3 {
 	margin: 10px 70px;
 }
 
-.row{
+.row2{
 	position: relative;
+	margin-top: 50px;
+	margin-bottom: 128px;
 }
 .row2 img {
 	position: absolute;
