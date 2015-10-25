@@ -447,6 +447,14 @@ and (max-device-width : 568px) {
 	.big-title h1{
 		font-size:65px;
 	}
+	.menu-wrap{
+		height: 80px;
+	}
+	.menu button{
+		height: 80px;
+		font-size: 25px;
+	}
+
 }
 
 .transparent {
