@@ -38,6 +38,7 @@ gem 'rails_12factor'
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '< 2.0'
 gem 'friendly_id'
+gem "rails_autolink"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
