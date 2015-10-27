@@ -41,7 +41,7 @@ Rails.application.configure do
   ActionMailer::Base.smtp_settings = {
     :user_name => 'DreamFunded',
     :password => 'agyu@7dS',
-    :domain => "dreamfunded.vc",
+    :domain => "dreamfunded.com",
     :address => 'smtp.sendgrid.net',
     :port => 587,
     :authentication => :plain,
