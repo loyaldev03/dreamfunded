@@ -16,10 +16,11 @@
         <div class= "art-text">
           <h2 class= "center darkblue title"><%= @article.title %></h2>
           <%= image_tag @article.image.url, :class => "full-image" %>
-          <p class= "article"><%= nl2br(h(@article.content)).html_safe %></p>
+          <p class= "article"><%#= nl2br(h(@article.content)).html_safe %></p>
+           <p class= "article"><%= h auto_link(@article.content).gsub(/\n/, '<br/>').html_safe %></p>
         </div>
         <br><br><br>
-        <div><p class= "article darkblue indent">Source: <%= @article.source %></p></div>
+        <div><p class= "article darkblue indent">Source: <%= link_to @article.source, @article.source %></p></div>
       </div>
     </div></div>
   </body>

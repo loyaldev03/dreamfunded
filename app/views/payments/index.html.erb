@@ -4,25 +4,25 @@
 	</div>
 
   <div class= "box signin-box centered">
-<!-- 	<%#= form_tag( '/submit_payment', method: :post) do %>
+	<%= form_tag( '/submit_payment', method: :post) do %>
 			<p>Name</p>
-		<%#= text_field_tag(:name, nil, :placeholder => "Name") %>
+		<%= text_field_tag(:name, nil, :placeholder => "Name") %>
 		<p>Account Number</p>
-		<%#= text_field_tag(:account, nil, :placeholder => "Account Number") %>
+		<%= text_field_tag(:account, nil, :placeholder => "Account Number") %>
 		<p>Routing Number</p>
-		<%#= text_field_tag(:routing, nil, :placeholder => "Routing Number") %>
+		<%= text_field_tag(:routing, nil, :placeholder => "Routing Number") %>
 		<p>Amount</p>
-		<%#= text_field_tag(:amout, nil, :placeholder => "Amount") %>
+		<%= text_field_tag(:amount, nil, :placeholder => "Amount") %>
 
-		<%#= submit_tag "Proceed"%>
-	<%# end %>
+		<%= submit_tag "Proceed"%>
+	<% end %>
 	<p>
-		<%#= flash[:message] %>
-	</p> -->
-	<form action="https://www.usaepay.com/gate.php " method="POST">
+		<%= flash[:message] %>
+	</p>
+	<!-- <form action="https://sandbox.usaepay.com/gate.php " method="POST">
 	<input type="hidden" name="UMcommand " value="check:sale">
 	<input type="hidden" name="UMkey" value="azIZnB64RLfnc7yFhWbidTGTgkdq5p36">
-	<input type="hidden" name="UMredirApproved" value="http://dreamfunded.vc/payment">
+	<input type="hidden" name="UMredirApproved" value="http://dreamfunded.com/payment">
 	<input type="hidden" name="UMinvoice" value="123456">
 	Amount<input type="text" name="UMamount"><br>
 	Full Name: <input type="text" name="UMname"><br>
@@ -31,7 +31,7 @@
 
 
 	<input type="submit" value="Place Order">
-	</form>
+	</form> -->
 	</div>
 
 	</div>

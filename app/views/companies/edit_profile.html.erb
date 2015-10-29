@@ -53,6 +53,10 @@
 								<p class= "twenty no-margin center"><span class= "darkblue twenty">Status: </span> </p>
 								<%= f.select( :status, [["Active", 2],["Funded", 3],["Coming Soon", 1] ])  %>
 							</div>
+							<div>
+								<p class= "twenty no-margin center"><span class= "darkblue twenty">Hidden: </span> </p>
+								<%= f.select( :hidden, [["Yes", true],["No", false] ])  %>
+							</div>
 
 							<div>
 								<p class= "twenty no-margin center"><%= f.number_field :invested_amount, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Invested </span> </p>

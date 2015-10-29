@@ -8,7 +8,7 @@
 			<div class="header">
 				<h1 class="centered">Portfolio</h1>
 			</div>
-				<div class= "companies-container margin-bottom-100">
+				<div class= "companies-container margin-bottom-50">
 					<% @investments.each do |investment| %>
 						<div class= "company-container">
 
@@ -32,6 +32,10 @@
 								</div>
 						</div>
 					<% end %>
+				</div>
+
+				<div class= "centered twenty margin-bottom-50">
+				  <%= button_to "Go Back to Offerings", {controller: 'companies' , :action => 'index'}, method: 'get', :id => 'go_back_button' %>
 				</div>
 		</div>
 	</body>

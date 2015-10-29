@@ -113,6 +113,20 @@ h3 {
 	outline: none;
 }
 
+#go_back_button{
+	padding: 17px;
+	width: 22%;
+	background: #0d87b3;
+	font-size: 20px;
+	border: none;
+	color: white;
+	cursor: pointer;
+	outline: none;
+}
+#go_back_button:hover{
+	background: #0B6E91;
+}
+
 .remove-margin {
 	margin-top: 0;
 	margin-bottom: 0;
@@ -307,12 +321,25 @@ h3 {
 	margin: 10px 70px;
 }
 
-.row2 img {
-	max-height: 100px;
-	max-width: 450px;
-	margin: 20px 70px;
+.row2{
+	position: relative;
+	margin-top: 50px;
+	margin-bottom: 128px;
 }
-
+.row2 img {
+	position: absolute;
+	max-height: 100px;
+	max-width: 330px;
+	margin: 25px 14px;
+}
+#wallstreet_logo{
+	left: 400px;
+	padding-top: 14px;
+}
+#fast_company_logo{
+	left: 800px;
+	padding-top: 13px;
+}
 
 ////---------------- Story -------------------- ////////
 
@@ -393,6 +420,11 @@ and (max-device-width : 568px) {
 	#mobile-menu li{
 		visibility: visible;
 	}
+	#left{
+		visibility: visible;
+		position: absolute;
+		top: 12px;
+	}
 	.big-title{
 
 	}
@@ -408,6 +440,39 @@ and (max-device-width : 568px) {
 	.logos-container{
 		width: 100% !important;
 	}
+	.foot-text.darkblue{
+	 	display: none;
+	}
+	#mentioned_in{
+		display: none;
+	}
+	.big-title{
+		top: 128px;
+	}
+	.big-title h1{
+		font-size:52px;
+	}
+	.menu-wrap{
+		height: 80px !important;
+	}
+	.menu button{
+		height: 80px !important;
+		font-size: 25px !important;
+	}
+	.invest-button{
+		font-size: 30px !important;
+		padding: 23px !important;
+	}
+	.space-keeper{
+		min-height: 0px;
+	}
+	.bottom-buttons{
+		visibility: hidden;
+	}
+	.section2-box{
+		height: 490px;
+	}
+
 }
 
 .transparent {
