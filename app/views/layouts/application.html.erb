@@ -60,9 +60,9 @@
 					<li><button onclick= "whyInv()">Why Invest</button></li>
 
 					<% if user_session != nil && user_session.authority >= authority[:Accredited] %>
-						<li><button onclick= "invest()">Invest Now</button></li>
+						<li><button onclick= "invest()">Investments</button></li>
 					<% elsif user_session == nil %>
-						<li><button onclick= "signUp()">Invest Now</button></li>
+						<li><button onclick= "signUp()">Investments</button></li>
 					<% end %>
 					<li><button onclick= "home()">Home</button></li>
 					<li id= "left"><button onclick= "home()" id= "nopadding"><div class= "logo"></div></button></li>
