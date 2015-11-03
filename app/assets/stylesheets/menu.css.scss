@@ -99,6 +99,7 @@ button {
 	font-size: 16px;
 	padding: 0 17px;
 	height: 52px;
+font-weight: 600;
 }
 
 
@@ -129,4 +130,8 @@ button {
 
 #left:hover {
 	background: white;
+}
+#sign-in-button{
+	background-color: #FFAA00;
+	color: white;
 }
