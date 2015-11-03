@@ -44,7 +44,7 @@
 							<li><button onclick= "contact()">Contact Us</button></li>
 						</ul>
 					</li>
-					<li id="last-menu-button">f</li>
+					<li id="last-menu-button"></li>
 					<% if user_session == nil %>
 						<li><button onclick= "signIn()" id="sign-in-button">Sign Up</button></li>
 						<li><button onclick= "login()">Login</button></li>
@@ -98,22 +98,25 @@
 </div>
 <footer class= "footer fullWidth">
 	<div class= "footer-content">
-
-
 		<a class= "indent foot-text"> COPYRIGHT © <%= Time.now.year %> DREAMFUNDED </a>
 
-
-	<div class= "right table">
+	<div class= "table">
 		<%= link_to "Contact", "/contact", :class => "spaced border" %>
 		<%= link_to "Frequently Asked Questions", faq_path, :class => "spaced border" %>
 		<%= link_to "Legal Information", "/legal", :class => "spaced" %>
 	</div>
-	<br>
-	<br>
-	<p class= "indent foot-text darkblue">DreamFunded.com is a platform operated by DreamFunded, Inc. By accessing this site and any pages thereof, you agree to be bound by our Terms of Service and Privacy Policy. DreamFunded.com is intended only for accredited investors, who are residing in the U.S. or residing abroad in jurisdictions where securities registration exemptions apply.
+
+	<div class= "image4-box gap">
+		<%= link_to image_tag("static/facebook.png", :class => 'image4'), "https://www.facebook.com/dreamfundedcom", :target => "_blank" %>
+		<%= link_to image_tag("static/twitter.png", :class => 'image4'), "https://twitter.com/dreamfunded", :target => "_blank" %>
+		<%= link_to image_tag("static/linkedin.png", :class => 'image4'), "https://www.linkedin.com/company/dreamfunded-com", :target => "_blank" %>
+		<%= link_to image_tag("static/angel.png", :class => 'image4'), "https://angel.co/dreamfunded-1", :target => "_blank" %>
+	</div>
+
+	<!-- <p class= "indent foot-text darkblue">DreamFunded.com is a platform operated by DreamFunded, Inc. By accessing this site and any pages thereof, you agree to be bound by our Terms of Service and Privacy Policy. DreamFunded.com is intended only for accredited investors, who are residing in the U.S. or residing abroad in jurisdictions where securities registration exemptions apply.
 	DreamFunded does not make investment recommendations, and no communication through this website or in any other medium should be construed as such. Investment opportunities posted on this website are “private placements” of securities that are not publicly traded, are subject to holding period requirements, and are intended for investors who do not need a liquid investment. Private placement investments are not bank deposits (and thus not insured by the FDIC or by any other federal governmental agency), are not guaranteed by DreamFunded and may lose value. Neither the Securities and Exchange Commission nor any federal or state securities commission or regulatory authority has recommended or approved any investment or the accuracy or completeness of any of the information or materials provided by or through the website. Investors must be able to afford the loss of their entire investment.</p>
 
-	<p class= "indent foot-text darkblue">Any financial projections or returns shown on the website are illustrative examples only; there can be no assurance that any valuations provided are accurate or in agreement with market or industry valuations. Any investment information contained herein has been secured from sources DreamFunded believes are reliable, but we make no representations or warranties as to the accuracy of such information and accept no liability thereof. Offers to sell or buy any security can only be made through official offering documents that contain important information about risks, fees, and expenses. Investors should conduct their own due diligence and not rely solely on the financial assumptions or estimates displayed on this website; they are encouraged to consult with a financial advisor, attorney, accountant, and any other professional that can help you to understand and assess the risks associated with any investment opportunity.</p>
+	<p class= "indent foot-text darkblue">Any financial projections or returns shown on the website are illustrative examples only; there can be no assurance that any valuations provided are accurate or in agreement with market or industry valuations. Any investment information contained herein has been secured from sources DreamFunded believes are reliable, but we make no representations or warranties as to the accuracy of such information and accept no liability thereof. Offers to sell or buy any security can only be made through official offering documents that contain important information about risks, fees, and expenses. Investors should conduct their own due diligence and not rely solely on the financial assumptions or estimates displayed on this website; they are encouraged to consult with a financial advisor, attorney, accountant, and any other professional that can help you to understand and assess the risks associated with any investment opportunity.</p> -->
 </div></footer>
 <%= render 'layouts/footer' %>
 <!-- begin olark code -->
