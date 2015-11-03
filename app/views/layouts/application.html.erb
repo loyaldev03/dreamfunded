@@ -45,7 +45,7 @@
 						</ul>
 					</li>
 					<% if user_session == nil %>
-						<li><button onclick= "signIn()" id="sign-in-button">Sign In</button></li>
+						<li><button onclick= "signIn()" id="sign-in-button">Sign Up</button></li>
 						<li><button onclick= "login()">Login</button></li>
 					<% else %>
 						<li><button onclick= "profile()" >Welcome <%= user_session.first_name.capitalize%> <span class="arrow">&#9660;</span></button>
