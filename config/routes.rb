@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   get '/why-invest-with-dream-funded', to: 'home#why'
   get '/faq', to: 'home#faq'
   get '/about', to: 'home#about'
+  get '/education', to: 'home#education'
   get '/portofolio', to: 'companies#index'
   get '/dreamfunded-exchange', to: 'home#exchange'
   get '/our-team', to: 'teams#index'
