@@ -25,6 +25,9 @@ function team() {
 function faq() {
 	window.location = "/home/faq";
 }
+function blog() {
+	window.location = "/posts";
+}
 
 function contact() {
 	window.location = "/contact";

@@ -76,6 +76,7 @@ class HomeController < ApplicationController
 	end
 
 	def faq
+		@posts = Post.order(:created_at).where(page: 'faq')
 	end
 
 	def legal
