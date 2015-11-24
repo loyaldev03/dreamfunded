@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :posts
+
   resources :documents
 
   match "/diversity-tech-angels-earn-wings/" => redirect("https://dreamfundedsf.wpengine.com/diversity-tech-angels-earn-wings/"), via: 'get'
@@ -34,7 +36,8 @@ Rails.application.routes.draw do
   get '/liquidate_after', to: 'home#liquidate_after'
 
   get '/home/edit_member/:id', to: "home#team_member_edit", as: :edit_member
-  patch '/home/edit_member', to: 'home#team_member_update', as: 'update_member'
+  put '/home/edit_member', to: 'home#team_member_update', as: 'update_member'
+  # patch '/home/edit_member', to: 'home#team_member_update', as: 'update_member'
 
   resources :companies
   resources :news

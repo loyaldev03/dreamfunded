@@ -122,7 +122,7 @@ class HomeController < ApplicationController
 
    private
    def team_params
-      params.require(:team).permit(:image, :name, :title, :summary, :fullbio )
+      params.permit(:image, :name, :title, :summary, :fullbio )
    end
 
 end
