@@ -28,6 +28,8 @@ class PostsController < ApplicationController
       if @post.save
         if @post.page == 'faq'
           redirect_to faq_path, notice: 'Post was successfully updated.'
+        elsif @post.page == 'about_us'
+          redirect_to about_path, notice: 'Post was successfully updated.'
         else
           redirect_to @post, notice: 'Post was successfully updated.'
         end
@@ -44,6 +46,8 @@ class PostsController < ApplicationController
       if @post.update(post_params)
         if @post.page == 'faq'
           redirect_to faq_path, notice: 'Post was successfully updated.'
+        elsif @post.page == 'about_us'
+          redirect_to about_path, notice: 'Post was successfully updated.'
         else
           redirect_to @post, notice: 'Post was successfully updated.'
         end
@@ -59,8 +63,13 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    post = @post
     @post.destroy
-    redirect_to faq_path
+    if post.page == 'about_us'
+          redirect_to about_path, notice: 'Post was successfully updated.'
+    else
+      redirect_to faq_path
+    end
   end
 
   private

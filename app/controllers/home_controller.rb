@@ -23,6 +23,7 @@ class HomeController < ApplicationController
 	end
 
 	def about
+		@posts = Post.order(:created_at).where(page: 'about_us')
 	end
 
 	def exchange
