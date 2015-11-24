@@ -23,7 +23,7 @@ function team() {
 }
 
 function faq() {
-	window.location = "/home/faq";
+	window.location = "/faq";
 }
 function blog() {
 	window.location = "/posts";
