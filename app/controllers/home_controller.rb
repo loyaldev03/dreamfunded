@@ -23,7 +23,7 @@ class HomeController < ApplicationController
 	end
 
 	def about
-		@posts = Post.order(:created_at).where(page: 'about_us')
+		@posts = Post.order(:position).where(page: 'about_us')
 	end
 
 	def exchange
@@ -77,7 +77,7 @@ class HomeController < ApplicationController
 	end
 
 	def faq
-		@posts = Post.order(:created_at).where(page: 'faq')
+		@posts = Post.order(:position).where(page: 'faq')
 	end
 
 	def legal

@@ -20,6 +20,7 @@
       <div class = "notice centered">
         <%= flash[:file_uploaded] if flash[:file_uploaded] %>
       </div>
+      <%= f.text_field(:video_link, :placeholder => 'Youtube link',  :class=> 'input-box') %><br>
 
       <label for = "image">Upload Article Image: </label>
       <%= f.file_field "image" %><br>
