@@ -15,7 +15,7 @@
       <div class= "page">
         <div class= "art-text">
           <h2 class= "center darkblue title"><%= @article.title %></h2>
-          <% if @article.video_link %>
+          <% if @article.video_link != ''%>
             <center>
               <iframe  class='youtube-video' src= <%= @article.video_link %> frameborder="0" allowfullscreen ></iframe>
             </center>
