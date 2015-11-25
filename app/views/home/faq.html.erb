@@ -15,6 +15,7 @@
 					<% if user_session != nil && user_session.authority == authority[:Admin] %>
 						<%= button_to "Delete", {:controller => :posts,  :action => 'destroy', :id => post.id }, :method => :delete, class: 'float-rigth' %>
 						<%= link_to 'Edit', edit_post_path(post), {:class => 'right'} %>
+						<span class='paragraph-position right'>positon: <%= post.position %></span>
 
 					<% end %>
 					<h3 class= "question darkblue"><%= post.title%></h3>
