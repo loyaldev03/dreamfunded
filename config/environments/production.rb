@@ -64,24 +64,24 @@ Rails.application.configure do
  config.action_mailer.default_url_options = { host: 'www.dreamfunded.com'}
  config.action_mailer.perform_deliveries = true
  config.action_mailer.delivery_method = :smtp
- # ActionMailer::Base.smtp_settings = {
- #   :user_name => 'DreamFunded',
- #   :password => 'agyu@7dS',
- #   :domain => "dreamfunded.com",
- #   :address => 'smtp.sendgrid.net',
- #   :port => 587,
- #   :authentication => :plain,
- #   :enable_starttls_auto => true
- # }
- config.action_mailer.smtp_settings = {
-   :address  => 'smtp.gmail.com',
-   :port   => 587,
+ ActionMailer::Base.smtp_settings = {
+   :user_name => 'dreamfunded',
+   :password => 'agyu@7dS',
    :domain => "dreamfunded.com",
-   :user_name => 'dreamfundedmembership@gmail.com',
-   :password => 'accesstech',
-   :authentication => 'plain',
+   :address => 'smtp.sendgrid.net',
+   :port => 587,
+   :authentication => :plain,
    :enable_starttls_auto => true
  }
+ #config.action_mailer.smtp_settings = {
+ #   :address  => 'smtp.gmail.com',
+ #   :port   => 587,
+ #   :domain => "dreamfunded.com",
+ #   :user_name => 'dreamfundedmembership@gmail.com',
+ #   :password => 'accesstech',
+ #   :authentication => 'plain',
+ #   :enable_starttls_auto => true
+ # }
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
