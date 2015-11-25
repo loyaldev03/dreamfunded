@@ -34,7 +34,7 @@ class HomeController < ApplicationController
 	end
 
 	def team
-		@teams = Team.all
+		@teams = Team.all.order(:updated_at)
 	end
 
 	def fullbio
