@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <% title "DreamFunded | Education " %>
+  </head>
+
+  <body>
+    <div class= "wrapper">
+      <div class="header">
+        <h1 class="centered">Education</h1>
+      </div>
+      <div class= "left-panel">
+        <ul class='education-menu'>
+            <a href='/education/basics'><li class='education-item active'>The Basics</li></a>
+            <a href='/education/investing-tips'><li class='education-item'>Investing Tips & Strategies</li></a>
+            <a href='/education/rules-regulations'><li class='education-item'>Rules & Regulations</li></a>
+            <a href='/education/important-terms'><li class='education-item'>Important Terms</li></a>
+        </ul>
+      </div>
+      <div class= "right-panel word-content">
+        <div class= "text-content">
+            <h3 class= "question darkblue flip">The Basics</h3>
+            <ul class='education-center-list'>
+                <!-- <li>Getting Started With DreamFunded </li> -->
+                <li>What is an Angel Investor? </li>
+                <p class='panel'>
+                    An Angel investor is the title typically given to someone who invests in early stage startup companies.  Traditionally angel investors were high net worth individuals who invested $50K or more into each startup.
+                </p>
+                <li>What is CrowdFunding? </li>
+                <p class='panel'>
+                     &nbsp; &nbsp;Many people might not know this but crowdfunding has been around for years.  It is one of the oldest forms of raising money.  Crowdfunding, in its most basic form, is pooling money together from multipule sources for a common investment interest.  This style of fundraising has been a Wall Street favorite for hundreds of years.  However, CrowdFunding as we know it today has changed, it is no longer just a word of mouth process.
+                    <br><br>
+                    &nbsp; &nbsp;Thanks to technology, crowdfunding has moved online where people from all across the world can invest together in a myriad of different things.  Standard crowdfunding, without the equity component typically refers to platforms like Indiegogo and KickStarter, which are the most well-known online crowdfunding platforms in the United States.  These and other similar crowdfunding platforms raise money in the form of “donations” for all types of different things; from new products and companies, to social causes and public initiatives. These donations are often in return for some sort of “Perk”, such as a product or service, like a tee shirt, product prototype or event ticket.  Online crowdfunding does have limits, especially in the United States where investors, unless accredited are not allowed to invest in a company in exchange for equity in that company.  Meaning, if you go to Indiegogo or Kickstarter, you will only be able to “donate” money in return for various perks from the company, such as a tee shirt or product.  This is where equity crowdfunding takes over.
+                </p>
+                <li>What is Equity CrowdFunding? </li>
+                <p class='panel'>
+                     &nbsp; &nbsp;You might have heard the term “Equity crowdfunding” at some point in the past few years.  You might be wondering how it differs from traditional crowdfunding. Simply put, investors participating in equity crowdfunding offerings are actually investing in return for an equity ownership stake in the offering company.  An easy way to remember the difference is equity crowdfunding is for actual equity and standard crowdfunding is not. <br><br>
+
+                    &nbsp; &nbsp;The term equity crowdfunding is the hottest term and most controversial subject in the investment world at the moment.  Unfortunately for 99% of Americans, participating in equity crowdfunding has been out of the realm of possibility because of SEC regulations, which mandated that investors must be an “Accredited Investor”.
+
+                </p>
+                <li>What is an Accredited Investor? </li>
+                <p class='panel'>An “Accredited Investor” is an SEC classification for high net worth individuals.  An accredited investor must meet one of the     following requirements in each of the last 2 years and expected in the current year;<br>1. Earn an annual income of $200,000 or more if you are filling as single.<br>2. Earn an annual income of 300,000 or more if you are filing as married.<br>3. Be investing on behalf of an institution, fund or family office.</p>
+
+                <li>What is a Difference Between a Primary and Secondary Investment? </li>
+                <p class='panel'>Lorem ipsum dolor sit amet, id quo congue nullam, wisi debet ocurreret ea vel, bonorum consetetur mei ei. Adhuc postulant percipitur cu cum, nec in rebum mazim quando. Ei sea tale munere quaerendum. Te sit case quidam eligendi, ei vix placerat inciderint contentiones, causae aeterno facilisi ut ius. Qui eu ocurreret deseruisse. Amet viderer ceteros ei cum, posse impetus ius no.Enim equidem ius an. Timeam maluisset cu est, id fugit animal feugait pri, splendide voluptaria vis ea. Sit et primis senserit, discere platonem mel ea. Consul verear pertinax duo ea, eos ad equidem consectetuer. Sea dissentiunt voluptatibus ex.</p>
+            </ul>
+
+
+            <br><br><br>
+
+            <div class= "centered twenty">
+              <%= button_to "Get Started", {:action => 'get_started'}, {:id => 'push'} %>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
+<script>
+$(document).ready(function(){
+    $(".education-center-list li").click(function(){
+        $(this).toggleClass('open');
+        if($(this).hasClass('open') ){
+            $(this).next().slideDown("slow");
+        }else{
+            $(this).next().slideUp("slow");
+        }
+    });
+});
+</script>

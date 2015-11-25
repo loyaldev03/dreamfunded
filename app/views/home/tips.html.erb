@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <% title "DreamFunded | Education " %>
+  </head>
+
+  <body>
+    <div class= "wrapper">
+      <div class="header">
+        <h1 class="centered">Education</h1>
+      </div>
+      <div class= "left-panel">
+        <ul class='education-menu'>
+           <a href='/education/basics'><li class='education-item '>The Basics</li></a>
+           <a href='/education/investing-tips'><li class='education-item active'>Investing Tips & Strategies</li></a>
+           <a href='/education/rules-regulations'><li class='education-item'>Rules & Regulations</li></a>
+           <a href='/education/important-terms'><li class='education-item'>Important Terms</li></a>
+        </ul>
+      </div>
+      <div class= "right-panel word-content">
+        <div class= "text-content">
+
+
+            <h3 class= "question darkblue flip">Investing Tips, Strategies & Trends</h3>
+            <ul class='education-center-list'>
+                <li>Why Invest in Private, not Public Companies? </li>
+                <p class='panel'>Private tech companies are going IPO later than ever before.  In the last tech boom in 2000, the average time for a private company to go IPO was 4 years.  Now that average time is 11 years.  This means that the biggest returns, which used to be earned in the public markets have now shifted to private. </p>
+
+                <li>Tips for Succesfull Angel Investing </li>
+                <p class='panel'>  - Kauffman Foundation Study<br>
+                The Kauffman Foundation did a study on “Returns to angels in angel groups”.  What they found is that successful angel investors are invested into a portfolio of angel investments, 20+. <br>
+                - Portfolio<br>
+                - Vetting
+                </p>
+                <ul class='education-center-list'>
+                    <li>Proper Company Vetting & Due Diligence </li>
+                    <p class='panel'>Lorem ipsum dolor sit amet, id quo congue nullam, wisi debet ocurreret ea vel, bonorum consetetur mei ei. Adhuc postulant percipitur cu cum, nec in rebum mazim quando. Ei sea tale munere quaerendum. Te sit case quidam eligendi, ei vix placerat inciderint contentiones, causae aeterno facilisi ut ius. Qui eu ocurreret deseruisse. Amet viderer ceteros ei cum, posse impetus ius no.Enim equidem ius an. Timeam maluisset cu est, id fugit animal feugait pri, splendide voluptaria vis ea. Sit et primis senserit, discere platonem mel ea. Consul verear pertinax duo ea, eos ad equidem consectetuer. Sea dissentiunt voluptatibus ex.</p>
+                </ul>
+                <li>New Trend: Push to Later Stage Funding Rounds (Delaying IPO) </li><p class='panel'>Lorem ipsum dolor sit amet, id quo congue nullam, wisi debet ocurreret ea vel, bonorum consetetur mei ei. Adhuc postulant percipitur cu cum, nec in rebum mazim quando. Ei sea tale munere quaerendum. Te sit case quidam eligendi, ei vix placerat inciderint contentiones, causae aeterno facilisi ut ius. Qui eu ocurreret deseruisse. Amet viderer ceteros ei cum, posse impetus ius no.Enim equidem ius an. Timeam maluisset cu est, id fugit animal feugait pri, splendide voluptaria vis ea. Sit et primis senserit, discere platonem mel ea. Consul verear pertinax duo ea, eos ad equidem consectetuer. Sea dissentiunt voluptatibus ex.</p>
+
+                <li>Building a Strong Investment Portfolio </li>
+                <p class='panel'>
+                    <ul class='education-center-list'>
+                        <li>New Trend: push to later stage funding rounds </li>
+                        <li>Investment Portfolio </li>
+                    </ul>
+                </p>
+
+            </ul>
+
+
+
+            <br><br><br>
+
+            <div class= "centered twenty">
+              <%= button_to "Get Started", {:action => 'get_started'}, {:id => 'push'} %>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
+<script>
+$(document).ready(function(){
+    $(".education-center-list li").click(function(){
+        $(this).toggleClass('open');
+        if($(this).hasClass('open') ){
+            $(this).next().slideDown("slow");
+        }else{
+            $(this).next().slideUp("slow");
+        }
+    });
+});
+</script>

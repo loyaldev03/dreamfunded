@@ -122,6 +122,21 @@ class HomeController < ApplicationController
     redirect_to "/home/team"
    end
 
+   def education
+   end
+
+   def basics
+   end
+
+   def tips
+	 end
+
+	 def rules
+	 end
+
+	 def terms
+	 end
+
    private
    def team_params
       params.permit(:image, :name, :title, :summary, :fullbio )

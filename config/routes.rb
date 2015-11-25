@@ -58,6 +58,12 @@ Rails.application.routes.draw do
   get '/faq', to: 'home#faq'
   get '/about', to: 'home#about'
   get '/education', to: 'home#education'
+
+  get '/education/basics', to: 'home#basics'
+  get '/education/investing-tips', to: 'home#tips'
+  get '/education/rules-regulations', to: 'home#rules'
+  get '/education/important-terms', to: 'home#terms'
+
   get '/portofolio', to: 'companies#index'
   get '/dreamfunded-exchange', to: 'home#exchange'
   get '/our-team', to: 'teams#index'
