@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get '/posts/new/:page', to: "posts#new"
+  get '/posts/:id/edit/:page', to: "posts#edit"
   resources :posts
 
   resources :documents

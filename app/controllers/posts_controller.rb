@@ -14,11 +14,13 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
+    @page = params[:page]
     @post = Post.new
   end
 
   # GET /posts/1/edit
   def edit
+    @page = params[:page]
   end
 
   # POST /posts
