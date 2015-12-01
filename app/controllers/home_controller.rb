@@ -136,6 +136,7 @@ class HomeController < ApplicationController
 	 end
 
 	 def terms
+	 	@posts = Post.order(:position).where(page: 'terms')
 	 end
 
    private

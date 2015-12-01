@@ -90,8 +90,23 @@
                 <p class='panel'>The process by which an employee accrues ownership of stock in a company.  The usual terms in the Silicon Valley are a 4 year vesting cycle with a 1 year cliff.  4 year vesting means the employee will be vesting stock until the 4th year when they will have earned all their stock options.  The 1 year cliff means that the employee will not start accruing stock ownership unless they have been working at the company for at least 1 year.  This prevents the employee from leaving abruptly within the first year and leaving with stock options in the company. At the end of the vesting term, the employee has the right to purchase all the vested stock from the company at a discount.  A more aggressive vesting schedule is typically given in lieu of a higher salary.</p>
 
                 <li>Vetting</li>
-                 <p class='panel'>A screening process that an investor (usually angel group or VC firm) goes through to determine whether or not a startup has what it takes to become successful down the road.  There is no formula to determine whether a startup company will be successful or not ,but proper vetting can make a big difference in determining the sustainability of a startup.  Vetting is measured by hours of due diligence performed on a startup company.  The more hours of due diligence performed, the better the vetting.
-</p>
+                 <p class='panel'>A screening process that an investor (usually angel group or VC firm) goes through to determine whether or not a startup has what it takes to become successful down the road.  There is no formula to determine whether a startup company will be successful or not ,but proper vetting can make a big difference in determining the sustainability of a startup.  Vetting is measured by hours of due diligence performed on a startup company.  The more hours of due diligence performed, the better the vetting.</p>
+            <% @posts.each do |post|%>
+                <% if user_session != nil && user_session.authority == authority[:Admin] %>
+                    <%= button_to "Delete", {:controller => :posts,  :action => 'destroy', :id => post.id }, :method => :delete, class: 'float-rigth' %>
+                    <%= link_to 'Edit', "/posts/#{post.id}/edit/terms", {:class => 'right'} %>
+
+                <% end %>
+                <li><%= post.title%></li>
+
+                <p class='panel'><%#= post.content%>
+                    <%= nl2br(h(post.content)).html_safe %>
+                </p>
+                <br>
+            <% end %>
+            <% if user_session != nil && user_session.authority == authority[:Admin] %>
+                <h3><%= link_to 'Create New', "/posts/new/terms", {:class => 'right'} %></h3>
+            <% end %>
             </ul>
 
             <br><br><br>
