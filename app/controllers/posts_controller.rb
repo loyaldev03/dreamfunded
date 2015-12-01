@@ -32,6 +32,8 @@ class PostsController < ApplicationController
           redirect_to faq_path, notice: 'Post was successfully updated.'
         elsif @post.page == 'about_us'
           redirect_to about_path, notice: 'Post was successfully updated.'
+        elsif @post.page == 'basics'
+          redirect_to edication_basics_path
         else
           redirect_to @post, notice: 'Post was successfully updated.'
         end
@@ -50,6 +52,8 @@ class PostsController < ApplicationController
           redirect_to faq_path, notice: 'Post was successfully updated.'
         elsif @post.page == 'about_us'
           redirect_to about_path, notice: 'Post was successfully updated.'
+        elsif @post.page == 'basics'
+          redirect_to edication_basics_path
         else
           redirect_to @post, notice: 'Post was successfully updated.'
         end
@@ -68,9 +72,13 @@ class PostsController < ApplicationController
     post = @post
     @post.destroy
     if post.page == 'about_us'
-          redirect_to about_path, notice: 'Post was successfully updated.'
+      redirect_to about_path, notice: 'Post was successfully updated.'
+    elsif @post.page == 'faq'
+      redirect_to faq_path, notice: 'Post was successfully updated.'
+    elsif @post.page == 'basics'
+      redirect_to edication_basics_path
     else
-      redirect_to faq_path
+      redirect_to root
     end
   end
 

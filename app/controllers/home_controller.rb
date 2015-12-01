@@ -126,6 +126,7 @@ class HomeController < ApplicationController
    end
 
    def basics
+   	@posts = Post.order(:position).where(page: 'basics')
    end
 
    def tips

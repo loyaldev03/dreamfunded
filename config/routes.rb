@@ -62,7 +62,7 @@ Rails.application.routes.draw do
   get '/about', to: 'home#about'
   get '/education', to: 'home#education'
 
-  get '/education/basics', to: 'home#basics'
+  get '/education/basics', to: 'home#basics', as: 'edication_basics'
   get '/education/investing-tips', to: 'home#tips'
   get '/education/rules-regulations', to: 'home#rules'
   get '/education/important-terms', to: 'home#terms'
