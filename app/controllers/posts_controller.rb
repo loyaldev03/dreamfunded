@@ -28,19 +28,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
       if @post.save
-        if @post.page == 'faq'
-          redirect_to faq_path, notice: 'Post was successfully updated.'
-        elsif @post.page == 'about_us'
-          redirect_to about_path, notice: 'Post was successfully updated.'
-        elsif @post.page == 'basics'
-          redirect_to edication_basics_path
-        elsif @post.page == 'terms'
-          redirect_to education_terms_path
-        elsif @post.page == 'tips'
-          redirect_to education_tips_path
-        else
-          redirect_to @post, notice: 'Post was successfully updated.'
-        end
+        redirect_to find_redirect(@post.page)
       else
         render :new
         render json: @post.errors, status: :unprocessable_entity
@@ -50,28 +38,11 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-
       if @post.update(post_params)
-        if @post.page == 'faq'
-          redirect_to faq_path, notice: 'Post was successfully updated.'
-        elsif @post.page == 'about_us'
-          redirect_to about_path, notice: 'Post was successfully updated.'
-        elsif @post.page == 'basics'
-          redirect_to edication_basics_path
-        elsif @post.page == 'terms'
-          redirect_to education_terms_path
-        elsif @post.page == 'tips'
-          redirect_to education_tips_path, notice: 'Post was successfully updated.'
-        else
-          redirect_to @post, notice: 'Post was successfully updated.'
-        end
-
-
+        redirect_to find_redirect(@post.page)
       else
         render :edit
-
       end
-
   end
 
   # DELETE /posts/1
@@ -79,25 +50,33 @@ class PostsController < ApplicationController
   def destroy
     post = @post
     @post.destroy
-    if post.page == 'about_us'
-      redirect_to about_path, notice: 'Post was successfully updated.'
-    elsif @post.page == 'faq'
-      redirect_to faq_path, notice: 'Post was successfully updated.'
-    elsif @post.page == 'basics'
-      redirect_to edication_basics_path
-    elsif @post.page == 'terms'
-      redirect_to education_terms_path
-    elsif @post.page == 'tips'
-      redirect_to education_tips_path, notice: 'Post was successfully updated.'
-    else
-      redirect_to root
-    end
+    redirect_to find_redirect(post.page)
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    def find_redirect(page)
+      if page == 'about_us'
+        return about_path
+      elsif page == 'faq'
+        return faq_path
+      elsif page == 'basics'
+        return edication_basics_path
+      elsif page == 'terms'
+        return education_terms_path
+      elsif page == 'tips'
+        return education_tips_path
+      elsif page == 'taxes'
+        return education_taxes_path
+      elsif page == 'investor-qa'
+        return investorqa_path
+      else
+        return root
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

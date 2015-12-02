@@ -144,6 +144,10 @@ class HomeController < ApplicationController
 	 	@posts = Post.order(:position).where(page: 'taxes')
 	 end
 
+	 def investorqa
+	 	@posts = Post.order(:position).where(page: 'investor-qa')
+	 end
+
    private
    def team_params
       params.permit(:image, :name, :title, :summary, :fullbio )
