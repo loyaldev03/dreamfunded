@@ -36,6 +36,8 @@ class PostsController < ApplicationController
           redirect_to edication_basics_path
         elsif @post.page == 'terms'
           redirect_to education_terms_path
+        elsif @post.page == 'tips'
+          redirect_to education_tips_path
         else
           redirect_to @post, notice: 'Post was successfully updated.'
         end
@@ -58,6 +60,8 @@ class PostsController < ApplicationController
           redirect_to edication_basics_path
         elsif @post.page == 'terms'
           redirect_to education_terms_path
+        elsif @post.page == 'tips'
+          redirect_to education_tips_path, notice: 'Post was successfully updated.'
         else
           redirect_to @post, notice: 'Post was successfully updated.'
         end
@@ -83,6 +87,8 @@ class PostsController < ApplicationController
       redirect_to edication_basics_path
     elsif @post.page == 'terms'
       redirect_to education_terms_path
+    elsif @post.page == 'tips'
+      redirect_to education_tips_path, notice: 'Post was successfully updated.'
     else
       redirect_to root
     end

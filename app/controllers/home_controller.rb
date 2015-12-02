@@ -130,6 +130,7 @@ class HomeController < ApplicationController
    end
 
    def tips
+   	@posts = Post.order(:position).where(page: 'tips')
 	 end
 
 	 def rules
