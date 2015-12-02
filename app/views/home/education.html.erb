@@ -5,21 +5,31 @@
 
   <body>
     <div class= "wrapper">
-      <div class="header">
-        <h1 class="centered">Education Center</h1>
+      <div class="header education-center">
+        <div class='education-title'>Education Center</div>
+        <a href="#" class='education-links'>All Education</a> <%= fa_icon "chevron-right"%> <a href="#" class='education-links'>The Basics</a>
       </div>
-      <div class= "left-panel">
+      <div class='education-slogan'>
+        <div >We belive that education is a key factor in making successful investment decisions</div>
+        <div >Search our Resourse Center to become an Expert Angel inverstor!</div>
+      </div>
+      <center>
+        <button class='education-button' onClick="invest()">Get Started</button>
+      </center>
+        <%#= button_to "Get Started", {:action => 'get_started'}, {:id => 'push'} %>
+      </div>
+<!--       <div class= "left-panel">
         <ul class='education-menu'>
             <a href='/education/basics'><li class='education-item '>The Basics</li></a>
             <a href='/education/investing-tips'><li class='education-item'>Investing Tips & Strategies</li></a>
-            <!-- <a href='/education/rules-regulations'><li class='education-item'>Rules & Regulations</li></a> -->
+            <a href='/education/rules-regulations'><li class='education-item'>Rules & Regulations</li></a>
             <a href='/education/important-terms'><li class='education-item'>Investment Terms</li></a>
             <a href='/education/taxes-gains'><li class='education-item'>Taxes & Gains</li></a>
             <a href='/education/investor-qa'><li class='education-item'>Investor Q&A</li></a>
             <a href='/education/employee-qa'><li class='education-item'>Employee Q&A</li></a>
         </ul>
-      </div>
-      <div class= "right-panel word-content">
+      </div> -->
+<!--       <div class= "right-panel word-content">
         <div class= "text-content">
             <center>
               <iframe  class='youtube-video' src="https://www.youtube.com/embed/oJNlRr32YC8" frameborder="0" allowfullscreen ></iframe>
@@ -28,11 +38,11 @@
             <br><br><br>
 
             <div class= "centered twenty">
-              <%= button_to "Get Started", {:action => 'get_started'}, {:id => 'push'} %>
+              <%#= button_to "Get Started", {:action => 'get_started'}, {:id => 'push'} %>
             </div>
 
         </div>
-      </div>
+      </div> -->
     </div>
   </body>
 

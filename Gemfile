@@ -30,6 +30,7 @@ gem 'aws-sdk', '< 2.0'
 gem 'friendly_id'
 gem "rails_autolink"
 gem 'activerecord-session_store'
+gem "font-awesome-rails"
 
 
 gem 'will_paginate', '~> 3.0.5'

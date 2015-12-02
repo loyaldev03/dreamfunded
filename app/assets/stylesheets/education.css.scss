@@ -44,5 +44,50 @@
   padding: 1.5em;
 }
 .education-menu .active{
-  background-color: antiquewhite;
+  box-shadow: 0px 0px 1px 1px #fcc668, inset 0 0 1px 1px #fcc668;
+  border-bottom: 1px solid #fcc668;
+}
+.education-title{
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.education-center {
+  text-align: left !important;
+  padding-left: 115px !important;;
+  padding-bottom: 30px !important;;
+  padding-top: 20px !important;;
+}
+.education-links{
+  padding-top: 10px;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: 'proxima-nova',sans-serif;
+}
+.education-links:hover{
+  text-decoration:none;
+  color:white;
+}
+.education-slogan{
+  text-align: center;
+  margin-top: 20px;
+}
+.education-button{
+  padding: 17px;
+  width: 18%;
+  margin-top: 5px;
+  background: #0d87b3;
+  font-size: 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  outline: none;
+}
+.education-button button{
+
+}
+.education-slogan div{
+  color: #808080;
+  font-size: 18px;
+  margin-bottom: 4px;
 }
