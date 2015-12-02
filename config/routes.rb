@@ -66,6 +66,7 @@ Rails.application.routes.draw do
   get '/education/investing-tips', to: 'home#tips', as: 'education_tips'
   get '/education/rules-regulations', to: 'home#rules'
   get '/education/important-terms', to: 'home#terms', as: 'education_terms'
+  get '/education/taxes-gains', to: 'home#taxes', as: 'education_taxes'
 
   get '/portofolio', to: 'companies#index'
   get '/dreamfunded-exchange', to: 'home#exchange'

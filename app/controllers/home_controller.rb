@@ -140,6 +140,10 @@ class HomeController < ApplicationController
 	 	@posts = Post.order(:position).where(page: 'terms')
 	 end
 
+	 def taxes
+	 	@posts = Post.order(:position).where(page: 'taxes')
+	 end
+
    private
    def team_params
       params.permit(:image, :name, :title, :summary, :fullbio )

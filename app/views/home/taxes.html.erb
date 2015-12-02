@@ -13,20 +13,20 @@
             <a href='/education/basics'><li class='education-item'>The Basics</li></a>
             <a href='/education/investing-tips'><li class='education-item'>Investing Tips & Strategies</li></a>
            <!--  <a href='/education/rules-regulations'><li class='education-item'>Rules & Regulations</li></a> -->
-            <a href='/education/important-terms'><li class='education-item active'>Important Terms</li></a>
-            <a href='/education/taxes-gains'><li class='education-item'>Taxes & Gains</li></a>
+            <a href='/education/important-terms'><li class='education-item '>Important Terms</li></a>
+            <a href='/education/taxes-gains'><li class='education-item active'>Taxes & Gains</li></a>
         </ul>
       </div>
       <div class= "right-panel word-content">
         <div class= "text-content">
 
-            <h3 class= "question darkblue flip">Important Terms  </h3>
+            <h3 class= "question darkblue flip">Taxes & Gains</h3>
             <ul class='education-center-list'>
 
             <% @posts.each do |post|%>
                 <% if user_session != nil && user_session.authority == authority[:Admin] %>
                     <%= button_to "Delete", {:controller => :posts,  :action => 'destroy', :id => post.id }, :method => :delete, class: 'float-rigth' %>
-                    <%= link_to 'Edit', "/posts/#{post.id}/edit/taxes", {:class => 'right'} %>
+                    <%= link_to 'Edit', "/posts/#{post.id}/edit/terms", {:class => 'right'} %>
 
                 <% end %>
                 <li><%= post.title%></li>
@@ -37,7 +37,7 @@
 
             <% end %>
             <% if user_session != nil && user_session.authority == authority[:Admin] %>
-                <h3><%= link_to 'Create New', "/posts/new/taxes", {:class => 'right'} %></h3>
+                <h3><%= link_to 'Create New', "/posts/new/terms", {:class => 'right'} %></h3>
             <% end %>
             </ul>
 
