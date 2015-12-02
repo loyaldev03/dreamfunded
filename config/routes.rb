@@ -68,6 +68,7 @@ Rails.application.routes.draw do
   get '/education/important-terms', to: 'home#terms', as: 'education_terms'
   get '/education/taxes-gains', to: 'home#taxes', as: 'education_taxes'
   get '/education/investro-qa', to: 'home#investorqa', as: 'investorqa'
+  get '/education/employee-qa', to: 'home#employeeqa', as: 'employeeqa'
 
 
   get '/portofolio', to: 'companies#index'

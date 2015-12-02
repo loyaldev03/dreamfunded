@@ -74,6 +74,8 @@ class PostsController < ApplicationController
         return education_taxes_path
       elsif page == 'investor-qa'
         return investorqa_path
+      elsif page == 'employee-qa'
+        return employeeqa_path
       else
         return root
       end
