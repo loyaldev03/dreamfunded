@@ -10,8 +10,8 @@
         <a href="#" class='education-links'>All Education</a> <%= fa_icon "chevron-right"%> <a href="#" class='education-links'>The Basics</a>
       </div>
       <div class='education-slogan'>
-        <div >We belive that education is a key factor in making successful investment decisions</div>
-        <div >Search our Resourse Center to become an Expert Angel inverstor!</div>
+        <div >Research has shown that education is a critical factor in making successful angel investments decisions</div>
+        <div >Browse our education center to become an informed angel investor</div>
       </div>
       <center>
         <button class='education-button' onClick="invest()">Get Started</button>
@@ -22,15 +22,24 @@
       <hr class='education-hr'>
       <div class= "left-panel">
         <ul class='education-menu'>
+
             <a href='/education/basics'><li class='education-item '>The Basics</li></a>
             <a href='/education/investing-tips'><li class='education-item'>Investing Tips & Strategies</li></a>
             <a href='/education/rules-regulations'><li class='education-item'>Rules & Regulations</li></a>
             <a href='/education/important-terms'><li class='education-item'>Investment Terms</li></a>
             <a href='/education/taxes-gains'><li class='education-item'>Taxes & Gains</li></a>
-            <a href='/education/investor-qa'><li class='education-item'>Investor Q&A</li></a>
-            <a href='/education/employee-qa'><li class='education-item'>Employee Q&A</li></a>
+            <!-- <a href='/education/investor-qa'><li class='education-item'>Investor Q&A</li></a>
+            <a href='/education/employee-qa'><li class='education-item'>Employee Q&A</li></a> -->
         </ul>
       </div>
+<!--       <div class= "left-panel">
+        <ul class='education-menu'>
+            <a href='/education/basics'><li class='education-item '>The Basics</li></a>
+            <a href='/education/investing-tips'><li class='education-item'>Investing Tips & Strategies</li></a>
+            <a href='/education/rules-regulations'><li class='education-item'>Rules & Regulations</li></a>
+
+        </ul>
+      </div> -->
       <div class= "right-panel word-content">
         <div class= "text-content">
             <center>
@@ -40,7 +49,7 @@
             <br><br><br>
 
             <div class= "centered twenty">
-              <%#= button_to "Get Started", {:action => 'get_started'}, {:id => 'push'} %>
+              <%= button_to "Get Started", {:action => 'get_started'}, {:id => 'push'} %>
             </div>
 
         </div>
