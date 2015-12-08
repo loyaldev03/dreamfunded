@@ -14,7 +14,13 @@
         <div >Browse our education center to become an informed angel investor.</div>
       </div>
       <center>
-        <button class='education-button' onClick="invest()">Get Started</button>
+
+
+        <% if user_session != nil && user_session.authority >= authority[:Accredited] %>
+          <button class='education-button' onclick= "invest()">Get Started</button>
+        <% elsif user_session == nil %>
+          <button class='education-button' onclick= "signUp()">Get Started</button>
+        <% end %>
       </center>
 
         <%#= button_to "Get Started", {:action => 'get_started'}, {:id => 'push'} %>
