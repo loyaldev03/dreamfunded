@@ -76,6 +76,8 @@ class PostsController < ApplicationController
         return investorqa_path
       elsif page == 'employee-qa'
         return employeeqa_path
+      elsif page == 'market_trends'
+        return market_trends_path
       else
         return root
       end

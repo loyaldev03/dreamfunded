@@ -152,6 +152,10 @@ class HomeController < ApplicationController
 	 	@posts = Post.order(:position).where(page: 'employee-qa')
 	 end
 
+	 def market_trends
+	 	@posts = Post.order(:position).where(page: 'market_trends')
+	 end
+
    private
    def team_params
       params.permit(:image, :name, :title, :summary, :fullbio )

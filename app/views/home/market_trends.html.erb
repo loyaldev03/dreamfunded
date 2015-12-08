@@ -11,7 +11,7 @@
       <div class="header education-center">
         <div class='education-title'>Education Center</div>
         <a href="#" class='education-links'>All Education</a> <%= fa_icon "chevron-right"%> <a href="#" class='education-links'> Employees </a>
-        <%= fa_icon "chevron-right"%> <a href="#" class='education-links'>Employee Q&A</a>
+        <%= fa_icon "chevron-right"%> <a href="#" class='education-links'>Market Trends</a>
       </div>
       <div class= "left-panel">
         <ul class='education-menu'>
@@ -21,20 +21,20 @@
             <a href='/education/important-terms'><li class='education-item'>Important Terms</li></a>
             <a href='/education/taxes-gains'><li class='education-item'>Taxes & Gains</li></a>
             <a href='/education/investor-qa'><li class='education-item'>Investor Q&A</li></a>
-            <a href='/education/employee-qa'><li class='education-item active'>Employee Q&A</li></a>
-            <a href='/education/market_trends'><li class='education-item'>Market Trends</li></a>
+            <a href='/education/employee-qa'><li class='education-item'>Employee Q&A</li></a>
+            <a href='/education/market_trends'><li class='education-item active'>Market Trends</li></a>
         </ul>
       </div>
       <div class= "right-panel word-content">
         <div class= "text-content">
 
-            <h3 class= "question darkblue flip">Employee Q&A</h3>
+            <h3 class= "question darkblue flip">Market Trends </h3>
             <ul class='education-center-list'>
 
             <% @posts.each do |post|%>
                 <% if user_session != nil && user_session.authority == authority[:Admin] %>
                     <%= button_to "Delete", {:controller => :posts,  :action => 'destroy', :id => post.id }, :method => :delete, class: 'float-rigth' %>
-                    <%= link_to 'Edit', "/posts/#{post.id}/edit/employee-qa", {:class => 'right'} %>
+                    <%= link_to 'Edit', "/posts/#{post.id}/edit/market_trends", {:class => 'right'} %>
 
                 <% end %>
                 <li><%= post.title%></li>
@@ -45,7 +45,7 @@
 
             <% end %>
             <% if user_session != nil && user_session.authority == authority[:Admin] %>
-                <h3><%= link_to 'Create New', "/posts/new/employee-qa", {:class => 'right'} %></h3>
+                <h3><%= link_to 'Create New', "/posts/new/market_trends", {:class => 'right'} %></h3>
             <% end %>
             </ul>
 
