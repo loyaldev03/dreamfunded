@@ -2,7 +2,7 @@
 		<div class= "cover-image">
 				<div class= "space-keeper"><%= image_tag("skylinedark comp.png", :class => "sky") %></div>
 				<div class= "big-title white ">
-					<h1><%#= session[:current_user].confirmed %></h1>
+
 					<h1 class= "remove-margin">Access to Invest in Pre-IPO Tech Companies</h1>
 					<div class= "top-space"><h3 class= "remove-margin">Sillicon Valley's 1st Private Tech Stock Market ~ Buy or Sell Private Shares</h3></div>
 					<div class= "top-space"><h3 class= "remove-margin"></h3></div>
@@ -127,4 +127,70 @@
 				</div>
 			</div>
 		</div> -->
+<% if user_session != nil && user_session.confirmed == false %>
+		<!-- ---------------------- -->
+		<a href="#dialog" class="modalLink">Verify Email Address</a>
 
+		<div id="modal">
+		  <!-- First modal window -->
+		   <div id="dialog" class="window">
+		    <div class="contents">
+		    		<div class='close-icon'>
+		    			<a href="#" class="close"><i class="fa fa-times"></i></a>
+		    		</div>
+		        <h3>Verify Email Address</h3>
+		        <!-- <hr class='line-verify-modal'> -->
+		        <p class='verify-modal-text'>Thank you for joining DreamFunded. A verification email has been sent to <%= user_session.email %>. Please complete your signup by clicking the link in this email.</p>
+		        <center>
+		        	<a href="#" class="close">Close</a>
+
+		        </center>
+		    </div>
+		 </div>
+		</div>
+		<!-- ------------- -->
+	<script>
+	// run when page is ready
+	$(document).ready(function(){
+
+	    // create variable to hold the current modal window
+	    var activeWindow;
+
+	        // cancel the default link behaviour
+
+	        // find the href of the link that was clicked to use as an id
+	        var id = '#dialog'
+	        console.log(id);
+	        // assign the window with matching id to the activeWindow variable, move it to the center of the screen and fade in
+	        activeWindow = $('.window' + id)
+	            .css('opacity', '0') // set to an initial 0 opacity
+	            .css('top', '50%') // position vertically at 50%
+	            .css('left', '50%') // position horizontally at 50%
+	            .fadeTo(500, 1); // fade to an opacity of 1 (100%) over 500 milliseconds
+
+	        // create blind and fade in
+	        $('#modal')
+	            .append('<div id="blind" />') // create a <div> with an id of 'blind'
+	            .find('#blind') // select the div we've just created
+	            .css('opacity', '0') // set the initial opacity to 0
+	            .fadeTo(500, 0.8) // fade in to an opacity of 0.8 (80%) over 500 milliseconds
+	            .click(function(e){
+	                closeModal(); // close modal if someone clicks anywhere on the blind (outside of the window)
+	            });
+
+	    $('a.close').click(function(e){
+	            // cancel default behaviour
+	            e.preventDefault();
+	            // call the closeModal function passing this close button's window
+	            closeModal();
+	    });
+	    function closeModal()
+	    {
+	        // fade out window and then move back to off screen when fade completes
+	        activeWindow.fadeOut(250, function(){ $(this).css('top', '-1000px').css('left', '-1000px'); });
+	        // fade out blind and then remove it
+	        $('#blind').fadeOut(250,    function(){ $(this).remove(); });
+	    }
+	});
+	</script>
+<% end %>

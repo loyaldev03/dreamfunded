@@ -25,25 +25,25 @@
 			<h3><%= link_to 'Create New', "/posts/new/about_us", {:class => 'right', :data => { :page => 'faq' }} %></h3>
 		<% end %>
 		<!-- ---------------------- -->
-		<!-- <a href="#dialog" class="modalLink">Verify Email Address</a>
+		<a href="#dialog" class="modalLink">Verify Email Address</a>
 
-		<div id="modal"> -->
+		<div id="modal">
 		  <!-- First modal window -->
-		  <!--  <div id="dialog" class="window">
+		   <div id="dialog" class="window">
 		    <div class="contents">
 		    		<div class='close-icon'>
 		    			<a href="#" class="close"><i class="fa fa-times"></i></a>
 		    		</div>
-		        <h3>Verify Email Address</h3> -->
+		        <h3>Verify Email Address</h3>
 		        <!-- <hr class='line-verify-modal'> -->
-		       <!--  <p>Thank you for joining DreamFunded. A verification email has been sent to <%#= session[:current_user].email %>. Please complete your signup by clicking the link in this email.</p>
+		        <p class='verify-modal-text'>Thank you for joining DreamFunded. A verification email has been sent to <%= session[:current_user].email %>. Please complete your signup by clicking the link in this email.</p>
 		        <center>
 		        	<a href="#" class="close">Close</a>
 
 		        </center>
 		    </div>
 		 </div>
-		</div> -->
+		</div>
 
 
 		<!-- ------------- -->
@@ -55,14 +55,15 @@
 		<script>
 		// run when page is ready
 		$(document).ready(function(){
-				console.log('modal code loaded')
+
 		    // create variable to hold the current modal window
 		    var activeWindow;
-		    $('a.modalLink').click(function(e){
+
 		        // cancel the default link behaviour
-		        e.preventDefault();
+
 		        // find the href of the link that was clicked to use as an id
-		        var id = $(this).attr('href');
+		        var id = '#dialog'
+		        console.log(id);
 		        // assign the window with matching id to the activeWindow variable, move it to the center of the screen and fade in
 		        activeWindow = $('.window' + id)
 		            .css('opacity', '0') // set to an initial 0 opacity
@@ -79,7 +80,7 @@
 		            .click(function(e){
 		                closeModal(); // close modal if someone clicks anywhere on the blind (outside of the window)
 		            });
-		    });
+
 		    $('a.close').click(function(e){
 		            // cancel default behaviour
 		            e.preventDefault();

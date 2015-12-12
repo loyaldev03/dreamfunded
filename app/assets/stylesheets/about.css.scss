@@ -13,7 +13,7 @@
    top:0;
    left:0;
    width:100%;
-   height:100%;
+   height:500%;
    /* set the background to a suitably dark tone */
    background-color:#000000;
 }
@@ -24,7 +24,7 @@
    z-index:10000;
    /* set the width and height of the window */
    width:466px;
-   height:230px;
+   height:250px;
    /* give the window negative margins that match the width/2 and height/2 so it is centered */
    margin-left:-200px;
    margin-top:-124px;
@@ -42,8 +42,15 @@
 .contents h3{
   text-align: center;
 }
-.contents .close{
+center .close{
   text-align: center;
+  background-color: #ff9308;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 4px;
+  color: #fff;
 }
 .close-icon{
   display: inline;
@@ -51,4 +58,8 @@
 }
 .close-icon a{
   color: #FF9308;
+}
+.verify-modal-text{
+  margin-bottom: 30px;
+  text-align: center;
 }

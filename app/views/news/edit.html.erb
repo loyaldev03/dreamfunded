@@ -2,7 +2,7 @@
   <div class= "box creation-wrap">
     <h2 class= "centered"> Edit article </h2>
 
-    <%= form_for @article , multipart: true do |f| %>
+    <%= form_for @article, multipart: true do |f| %>
 
       <%= f.text_field :title,  :placeholder => "Name of Your Article", :class => "input-box"%><br>
       <div class= "description-wrap">
