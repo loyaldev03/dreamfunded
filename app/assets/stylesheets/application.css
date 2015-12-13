@@ -267,6 +267,9 @@ hr {
   padding: 0;
   position: relative;
 }
+.hidden-facebook{
+	visibility: hidden;
+}
 
 input[type='number']::-webkit-outer-spin-button,
 input[type='number']::-webkit-inner-spin-button {
