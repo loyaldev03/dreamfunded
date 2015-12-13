@@ -57,7 +57,7 @@
 }
 
 #submit-button:disabled {
-	background-color: $buttongray; 
+	background-color: $buttongray;
 }
 
 .top-gap {
@@ -72,6 +72,9 @@
 
 .check_box {
 	font-size : 15px;
+}
+.check_box input{
+	margin-bottom: 6px;
 }
 
 .tab {
