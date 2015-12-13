@@ -15,10 +15,10 @@
 				<% if @current_user.authority == @Authority[:Admin] %>
 					<table id="user-table">
 					 <tr>
-					 	<th>User ID</th>
 				   	<th>First name</th>
 				   	<th>Last name</th>
 				   	<th>E-mail</th>
+				   	<th>Phone</th>
 				   	<th>Authority</th>
 				   	<th>Promote</th>
 				   	<th>Demote</th>
@@ -27,10 +27,10 @@
 					 </tr>
 					  	<% @users.each do |user| %>
 					  		<tr>
-									<td><%= user.login %></td>
 									<td><%= link_to(user.first_name, edit_user_path(user) ) %></td>
 									<td><%= user.last_name %></td>
 									<td><%= user.email %></td>
+									<td><%= user.phone %></td>
 									<td><%= user.authority %></td>
 									<td>
 										<%= form_tag("/users/promote", method: "post") do %>

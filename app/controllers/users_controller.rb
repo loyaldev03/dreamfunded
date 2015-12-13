@@ -96,6 +96,7 @@ class UsersController < ApplicationController
 		@last_name = params[:last_name]
 		@password = params[:password]
 		@email = params[:email]
+		@phone = params[:phone]
 
 		#Change to enum / class later
 		if params[:reg] == nil
@@ -104,7 +105,7 @@ class UsersController < ApplicationController
 			@authority = User.Authority[:Basic]
 		end
 
-		record = User.new(:first_name => @first_name, :last_name => @last_name, :email => @email, :authority => @authority)
+		record = User.new(:first_name => @first_name, :last_name => @last_name, :email => @email, :authority => @authority, phone: @phone)
 		record.password = @password
 		record.password_confirmation = params[:password_confirmation]
 		if record.valid?
