@@ -56,7 +56,7 @@ class NewsController < ApplicationController
   def full
     if params[:id] != nil
       @article = News.friendly.find(params[:id])
-      render "/news/full"
+      redirect_to news_path(@article)
     else
       redirect_to "/news"
     end
