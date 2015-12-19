@@ -1,0 +1,32 @@
+  <html>
+<head>
+  <title>DreamFunded | Write</title>
+</head>
+
+<body>
+  <div class= "wrapper">
+    <div class= "header"><h1 class= "centered">Subscribers To Newsletter</h1></div>
+
+    <div class= "word-content"><div class= "text-content">
+      <%= button_to "Download", '/guests.csv', :method => 'get', :id => 'user-button' %>
+
+        <% if user_session.authority == authority[:Admin] %>
+          <table id="user-table">
+           <tr>
+            <th>ID</th>
+            <th>Email</th>
+
+           </tr>
+              <% @guests.each do |guest| %>
+                <tr>
+                  <td><%= guest.id %></td>
+                  <td><%= guest.email %></td>
+                </tr>
+            <% end %>
+          </table>
+        <% end %>
+    </div></div>
+  </div>
+
+</body>
+</html>

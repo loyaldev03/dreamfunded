@@ -1,0 +1,7 @@
+$('#newsletter-text-field').hide();
+$('#newsletter-submit-button').hide();
+$('#display-later').show();
+window.setInterval(myCallback, 3000);
+function myCallback(){
+    $('#toast-container').fadeOut();
+}

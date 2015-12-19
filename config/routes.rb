@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :posts
 
   resources :documents
+  resources :guests
 
   match "/diversity-tech-angels-earn-wings/" => redirect("https://dreamfundedsf.wpengine.com/diversity-tech-angels-earn-wings/"), via: 'get'
 

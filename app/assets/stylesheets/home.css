@@ -566,3 +566,8 @@ and (max-device-width : 568px) {
   cursor: pointer;
   opacity: .4;
 }
+#display-later{
+	display: none;
+	text-align: center;
+	font-size: 19px;
+}

@@ -119,10 +119,11 @@
 			<div id='toastEmail'>
 				<i class="fa fa-times" id='close-subcribtion'></i>
 				<p>Join our educational newsletter and <b>become a better investor</b> today.</p>
-				<form>
-					<input type='text' id='newsletter-text-field'>
+				<%= form_for Guest.new, remote: true do |f|%>
+					<%= f.text_field 'email', required: true, id: 'newsletter-text-field' %>
 					<button id='newsletter-submit-button'>SUBSCRIBE</button>
-				</form>
+					<p id='display-later'>THANK YOU</p>
+				<% end %>
 			</div>
 		</div>
 <!-- 		<div class= "foot-bar">
