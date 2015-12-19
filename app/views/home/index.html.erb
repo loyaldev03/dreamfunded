@@ -112,7 +112,18 @@
 				<%= link_to "Get Started", {:action => 'get_started'}, {:class => 'invest-button invest-now-button'} %>
 				<%#= link_to "Liquidate Now", {:action => 'liquidate'}, {:class => 'invest-button liquidate-now-button'} %>
 			</div>
+		</div>
+		<!-- Newsletter Subscribers -->
 
+		<div id='toast-container'>
+			<div id='toastEmail'>
+				<i class="fa fa-times" id='close-subcribtion'></i>
+				<p>Access <b>passive income deals</b> and <b>become a better investor</b> today with our free eight day educational email series.</p>
+				<form>
+					<input type='text' id='newsletter-text-field'>
+					<button id='newsletter-submit-button'>SUBSCRIBE</button>
+				</form>
+			</div>
 		</div>
 <!-- 		<div class= "foot-bar">
 			<div class= "foot-wrap">
@@ -191,7 +202,14 @@
 	        // fade out blind and then remove it
 	        $('#blind').fadeOut(250,    function(){ $(this).remove(); });
 	    }
+
+	  // close NewsLetter Subscription Box
 	});
 	</script>
 	<% end %>
 <% end %>
+<script type="text/javascript">
+	 $('#close-subcribtion').click(function(){
+	  $('#toast-container').hide();
+	 })
+</script>
