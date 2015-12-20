@@ -12,6 +12,7 @@ class GuestsController < ApplicationController
     @guest = Guest.new(guest_params)
     respond_to do |format|
       if @guest.save
+        SubscribeJob.new.async.perform(@guest.id)
         format.html { redirect_to root_path, notice: 'guest was successfully created.' }
         format.json { render nothing: true, status: :created, location: @guest }
         format.js {}

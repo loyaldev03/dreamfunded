@@ -31,6 +31,8 @@ gem 'friendly_id'
 gem "rails_autolink"
 gem 'activerecord-session_store'
 gem "font-awesome-rails"
+gem 'gibbon'
+gem 'sucker_punch'
 
 
 gem 'will_paginate', '~> 3.0.5'
