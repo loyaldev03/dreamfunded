@@ -78,6 +78,8 @@ class PostsController < ApplicationController
         return employeeqa_path
       elsif page == 'market_trends'
         return market_trends_path
+      elsif page == 'how_works'
+        return '/how_it_works'
       else
         return root
       end

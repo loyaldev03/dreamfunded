@@ -60,6 +60,7 @@ Rails.application.routes.draw do
   get '/how-it-works', to: 'home#why'
   get '/why-invest-with-dream-funded', to: 'home#why'
   get '/faq', to: 'home#faq'
+  get '/how_it_works', to: 'home#howItWorks'
   get '/about', to: 'home#about'
   get '/education', to: 'home#education'
 

@@ -80,6 +80,10 @@ class HomeController < ApplicationController
 		@posts = Post.order(:position).where(page: 'faq')
 	end
 
+	def howItWorks
+		@posts = Post.order(:position).where(page: 'how_works')
+	end
+
 	def legal
 	end
 

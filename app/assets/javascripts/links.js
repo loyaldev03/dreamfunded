@@ -71,3 +71,7 @@ function admin() {
 function legal() {
 	window.location = "/home/legal";
 }
+function how_it_works() {
+	window.location = "/how_it_works";
+}
+
