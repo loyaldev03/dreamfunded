@@ -3,7 +3,7 @@
 
 
 .menu-wrap {
-	background-color: white;
+	background-color: #ECECEC;
 	box-shadow: 0 2px 4px rgba(9, 94, 125, 0.20), 0 2px 4px rgba(9, 94, 125, 0.22);
 	position: fixed;
 	top: 0;
@@ -96,9 +96,11 @@ button {
 }
 
 .menu button {
-	font-size: 16px;
+	font-size: 15px;
 	padding: 0 17px;
 	height: 52px;
+	font-weight: 500;
+	font-family: 'proxima-nova',sans-serif;
 }
 
 
@@ -116,6 +118,9 @@ button {
 	border-top: 10px solid transparent;
 	border-bottom: 12px solid transparent;
 }
+/*.logo:hover{
+	background-color: #ECECEC;
+}*/
 
 #nopadding {
 	padding: 0;
@@ -128,5 +133,12 @@ button {
 }
 
 #left:hover {
-	background: white;
+
+}
+#sign-in-button{
+	background-color: #FFAA00;
+	color: white;
+}
+#last-menu-button{
+	width: 77px;
 }

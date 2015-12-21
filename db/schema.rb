@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151024234637) do
+ActiveRecord::Schema.define(version: 20151219220515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,13 @@ ActiveRecord::Schema.define(version: 20151024234637) do
     t.datetime "image_updated_at"
   end
 
+  create_table "guests", force: true do |t|
+    t.string   "email"
+    t.string   "newsletter_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "investments", force: true do |t|
     t.integer  "company_id"
     t.integer  "user_id"
@@ -93,9 +100,31 @@ ActiveRecord::Schema.define(version: 20151024234637) do
     t.datetime "image_updated_at"
     t.string   "slug"
     t.integer  "position",           default: 0
+    t.string   "video_link",         default: ""
   end
 
   add_index "news", ["slug"], name: "index_news_on_slug", using: :btree
+
+  create_table "paragraphs", force: true do |t|
+    t.string  "page"
+    t.text    "title"
+    t.text    "content"
+    t.integer "position"
+  end
+
+  create_table "posts", force: true do |t|
+    t.text     "content"
+    t.text     "title"
+    t.string   "source"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "position",           default: 0
+    t.string   "page"
+  end
 
   create_table "sections", force: true do |t|
     t.integer  "company_id"
@@ -147,6 +176,7 @@ ActiveRecord::Schema.define(version: 20151024234637) do
     t.boolean "confirmed",       default: false
     t.string  "slug"
     t.integer "invested_amount", default: 0
+    t.string  "phone"
   end
 
   add_index "users", ["slug"], name: "index_users_on_slug", using: :btree

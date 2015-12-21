@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <% title "DreamFunded | FAQs " %>
+  </head>
+
+  <body>
+    <div class= "wrapper">
+      <div class="header">
+        <h1 class="centered">How It Works</h1>
+      </div>
+      <div class= "word-content"><div class= "text-content">
+
+
+        <% @posts.each do |post|%>
+          <% if user_session != nil && user_session.authority == authority[:Admin] %>
+            <%= button_to "Delete", {:controller => :posts,  :action => 'destroy', :id => post.id }, :method => :delete, class: 'float-rigth' %>
+            <%= link_to 'Edit', "/posts/#{post.id}/edit/how_works", {:class => 'right'} %>
+            <span class='paragraph-position right'>positon: <%= post.position %></span>
+
+          <% end %>
+          <h3 class= "question darkblue"><%= post.title%></h3>
+          <hr>
+          <p><%#= post.content%>
+            <%= nl2br(h(post.content)).html_safe %>
+          </p>
+          <br>
+        <% end %>
+        <% if user_session != nil && user_session.authority == authority[:Admin] %>
+          <h3><%= link_to 'Create New',  "/posts/new/how_works", {:class => 'right', :data => { :page => 'how_works' }} %></h3>
+        <% end %>
+
+
+        <br><br>
+
+        <div class= "centered twenty">
+          <%= button_to "Get Started", {:action => 'get_started'}, {:id => 'push'} %>
+        </div>
+
+      </div></div>
+    </div>
+  </body>
+
+</html>

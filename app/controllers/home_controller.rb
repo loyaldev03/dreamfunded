@@ -23,6 +23,7 @@ class HomeController < ApplicationController
 	end
 
 	def about
+		@posts = Post.order(:position).where(page: 'about_us')
 	end
 
 	def exchange
@@ -33,7 +34,7 @@ class HomeController < ApplicationController
 	end
 
 	def team
-		@teams = Team.all
+		@teams = Team.all.order(:updated_at)
 	end
 
 	def fullbio
@@ -76,6 +77,11 @@ class HomeController < ApplicationController
 	end
 
 	def faq
+		@posts = Post.order(:position).where(page: 'faq')
+	end
+
+	def howItWorks
+		@posts = Post.order(:position).where(page: 'how_works')
 	end
 
 	def legal
@@ -120,9 +126,43 @@ class HomeController < ApplicationController
     redirect_to "/home/team"
    end
 
+   def education
+   end
+
+   def basics
+   	@posts = Post.order(:position).where(page: 'basics')
+   end
+
+   def tips
+   	@posts = Post.order(:position).where(page: 'tips')
+	 end
+
+	 def rules
+	 end
+
+	 def terms
+	 	@posts = Post.order(:position).where(page: 'terms')
+	 end
+
+	 def taxes
+	 	@posts = Post.order(:position).where(page: 'taxes')
+	 end
+
+	 def investorqa
+	 	@posts = Post.order(:position).where(page: 'investor-qa')
+	 end
+
+	 def employeeqa
+	 	@posts = Post.order(:position).where(page: 'employee-qa')
+	 end
+
+	 def market_trends
+	 	@posts = Post.order(:position).where(page: 'market_trends')
+	 end
+
    private
    def team_params
-      params.require(:team).permit(:image, :name, :title, :summary, :fullbio )
+      params.permit(:image, :name, :title, :summary, :fullbio )
    end
 
 end

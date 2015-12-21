@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
+
+  get '/posts/new/:page', to: "posts#new"
+  get '/posts/:id/edit/:page', to: "posts#edit"
+  resources :posts
+
   resources :documents
+  resources :guests
 
   match "/diversity-tech-angels-earn-wings/" => redirect("https://dreamfundedsf.wpengine.com/diversity-tech-angels-earn-wings/"), via: 'get'
 
@@ -29,12 +35,14 @@ Rails.application.routes.draw do
   get '/contact', to: 'home#contact_us'
   post '/contact_us', to: 'home#contact_us_send_email'
 
+
   get '/liquidate', to: 'home#liquidate'
   post '/liquidate_form', to: 'home#liquidate_form'
   get '/liquidate_after', to: 'home#liquidate_after'
 
   get '/home/edit_member/:id', to: "home#team_member_edit", as: :edit_member
-  patch '/home/edit_member', to: 'home#team_member_update', as: 'update_member'
+  put '/home/edit_member', to: 'home#team_member_update', as: 'update_member'
+  # patch '/home/edit_member', to: 'home#team_member_update', as: 'update_member'
 
   resources :companies
   resources :news
@@ -53,7 +61,21 @@ Rails.application.routes.draw do
   get '/how-it-works', to: 'home#why'
   get '/why-invest-with-dream-funded', to: 'home#why'
   get '/faq', to: 'home#faq'
+  get '/how_it_works', to: 'home#howItWorks'
   get '/about', to: 'home#about'
+  get '/education', to: 'home#education'
+
+  get '/education/basics', to: 'home#basics', as: 'edication_basics'
+  get '/education/investing-tips', to: 'home#tips', as: 'education_tips'
+  # get '/education/rules-regulations', to: 'home#rules'
+  get '/education/important-terms', to: 'home#terms', as: 'education_terms'
+  get '/education/taxes-gains', to: 'home#taxes', as: 'education_taxes'
+  get '/education/investor-qa', to: 'home#investorqa', as: 'investorqa'
+  get '/education/employee-qa', to: 'home#employeeqa', as: 'employeeqa'
+  get '/education/market_trends', to: 'home#market_trends', as: 'market_trends'
+  get '/get-funded', to: 'home#contact_us'
+
+
   get '/portofolio', to: 'companies#index'
   get '/dreamfunded-exchange', to: 'home#exchange'
   get '/our-team', to: 'teams#index'

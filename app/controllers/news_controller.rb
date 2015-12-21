@@ -2,7 +2,7 @@ class NewsController < ApplicationController
 
 #default page with news listed by most recent
   def index
-  	@news = News.paginate(page: params[:page], per_page: 5).order(:position)
+  	@news = News.all.paginate(page: params[:page], per_page: 5).order(:position, 'created_at DESC')
     respond_to do |format|
       format.html
       format.js
@@ -56,7 +56,7 @@ class NewsController < ApplicationController
   def full
     if params[:id] != nil
       @article = News.friendly.find(params[:id])
-      render "/news/full"
+      redirect_to news_path(@article)
     else
       redirect_to "/news"
     end
@@ -74,7 +74,7 @@ class NewsController < ApplicationController
 
   private
   def news_params
-    params.require(:news).permit(:title, :image, :content, :source, :slug, :created_at, :updated_at, :position )
+    params.require(:news).permit(:title, :image, :content, :source, :slug, :created_at, :updated_at, :position, :video_link )
   end
 
 end

@@ -14,7 +14,10 @@
 			<%= f.text_field(:title, :placeholder => "Name of Your Article", :class => "input-box") %><br>
 
 			<label for = "Image">Upload Article Image: </label>
-			<%= f.file_field "image" %><br>
+			<%= f.file_field "image" %><br><br>
+
+			<%= f.text_field(:video_link, :placeholder => 'Youtube link',  :class=> 'input-box') %><br>
+
 
 			<div class= "description-wrap">
 				<%= f.text_area(:content, :placeholder => "Article Content", :class => "description-box") %>

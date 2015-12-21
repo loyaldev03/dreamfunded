@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 
 module Dreamfunded
   class Application < Rails::Application
+    SuckerPunch.logger = Logger.new("#{Rails.root}/log/sucker_punch.log")
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
     # Settings in config/environments/* take precedence over those specified here.
