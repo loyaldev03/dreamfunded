@@ -14,18 +14,17 @@
 				<ul class= "main-menu white">
 					<li id='mobile-menu'><button >Menu<span class="arrow">&#9660;</span></button>
 						<ul class='sub-menu white'>
-							<li id= "left"><button onclick= "home()" id= "nopadding"><div class= "logo"></div></button></li>
-							<% if user_session == nil %>
-								<li><button onclick= "signIn()">Login</button></li>
-							<% else %>
-								<li><button onclick= "profile()" >Welcome <%= user_session.first_name.capitalize%> <span class="arrow"></span></button></li>
-							<% end %>
 							<li><button onclick= "whyInv()">Why Invest</button></li>
 							<li><button onclick= "news()">News</button></li>
 							<li><button onclick= "team()">Team</button></li>
 							<li><button onclick= "about()">About Us</button></li>
 							<li><button onclick= "faq()">FAQ</button></li>
 							<li><button onclick= "contact()">Contact Us</button></li>
+							<% if user_session == nil %>
+								<li><button onclick= "signIn()">Login</button></li>
+							<% else %>
+								<li><button onclick= "profile()" >Welcome <%= user_session.first_name.capitalize%> <span class="arrow"></span></button></li>
+							<% end %>
 						</ul>
 					</li>
 					<% if user_session == nil %>
