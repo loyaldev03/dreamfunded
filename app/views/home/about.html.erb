@@ -17,7 +17,7 @@
 			<h2 class= "darkblue centered"><%= post.title%></h2>
 
 			<p class= "faq-answer"><%#= post.content%>
-				<%= nl2br(h(post.content)).html_safe %>
+				<%=nl2br(h(post.content)).html_safe %>
 			</p>
 			<br>
 		<% end %>

@@ -9,12 +9,15 @@
         <div class='education-title'><%=link_to "Education Center", education_path%></div>
         <a href="#" class='education-links'>All Education</a> <%= fa_icon "chevron-right"%> <a href="#" class='education-links'>The Basics</a>
       </div>
-      <div class='education-slogan'>
-        <div >Research has shown that education is a critical factor in making successful angel investment decisions.</div>
-        <div >Browse our education center to become an informed angel investor.</div>
-      </div>
-      <center>
 
+      <div class= "word-content"><div class= "text-content">
+
+      <div class='education-slogan'>
+        <div><p class= "faq-answer centered"><strong>Research has shown that education is a critical factor in making successful angel investment decisions.</strong></p></div>
+        <div><p class= "faq-answer centered">Browse our education center to become an informed angel investor.</p></div>
+      </div>
+      <br>
+      <center>
 
         <% if user_session != nil && user_session.authority >= authority[:Accredited] %>
           <button class='education-button' onclick= "invest()">Get Started</button>
@@ -93,6 +96,7 @@
         </div>
       </div> -->
     </div>
+    </div></div>
   </body>
 
 </html>
