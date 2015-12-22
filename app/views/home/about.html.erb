@@ -14,9 +14,9 @@
 				<%= link_to 'Edit', "/posts/#{post.id}/edit/about_us", {:class => 'right'} %>
 
 			<% end %>
-			<p class="subtitle darkblue text-underline"><%= post.title%></p>
+			<h2 class= "darkblue centered"><%= post.title%></h2>
 
-			<p><%#= post.content%>
+			<p class= "faq-answer"><%#= post.content%>
 				<%= nl2br(h(post.content)).html_safe %>
 			</p>
 			<br>
