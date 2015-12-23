@@ -70,6 +70,10 @@ class HomeController < ApplicationController
 		end
 	end
 
+	def link_team
+		redirect_to "/team"
+	end
+
 	def unauthorized
 	end
 

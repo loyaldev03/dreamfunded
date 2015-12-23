@@ -25,6 +25,10 @@
 		<% if user_session != nil && user_session.authority == authority[:Admin] %>
 			<h3><%= link_to 'Create New', "/posts/new/about_us", {:class => 'right', :data => { :page => 'faq' }} %></h3>
 		<% end %>
+		<p class= "faq-answer">
+			Click <u><%= link_to 'here', :action => 'link_team' %></u> to read about our founders and team.
+		</p>
+
 	</div></div>
 </div>
 </body>
