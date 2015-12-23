@@ -1,3 +1,5 @@
+@import 'colors';
+
 .panel{
   display: none;
 }
@@ -69,7 +71,7 @@
   font-family: 'proxima-nova',sans-serif;
 }
 .education-links:hover{
-  text-decoration:none;
+  text-decoration: underline;
   color:white;
 }
 .education-slogan{
@@ -78,15 +80,19 @@
 }
 .education-button{
   padding: 17px;
-  width: 30%;
+  width: 35%;
   margin-top: 5px;
-  background: #0d87b3;
+  background: $darkblue;
   font-size: 20px;
   border: none;
   color: white;
   cursor: pointer;
   outline: none;
   border-radius: 5px;
+}
+
+.education-button:hover {
+  background: #0B6E91;
 }
 .education-button button{
 
@@ -96,11 +102,8 @@
   font-size: 18px;
   margin-bottom: 4px;
 }
-.education-hr{
-  width: 80%;
-}
 .for-investors-list {
-  margin-left: 26%;
+  margin-left: 10%;
 }
 .for-investors-list-item {
   font-size: 20px;
@@ -116,13 +119,24 @@
 }
 .for-investors {
   display: inline-block;
-  width: 40%;
+  width: 49%;
   vertical-align: top;
+}
+.for-investors-container {
+  width: 80%;
+  margin: 0 auto;
+}
+.right-line {
+  border-right: 1px solid gray;
 }
 .education-category {
   text-align: center;
+  margin: 15px auto;
   color: #000;
   font-size: 20px;
   text-decoration: none;
   list-style: none;
+}
+.category-container {
+  border-bottom: 1px solid #CCCCCC;
 }
