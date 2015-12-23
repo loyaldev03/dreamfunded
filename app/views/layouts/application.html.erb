@@ -80,12 +80,17 @@
 					<li><button onclick="location.href='/dreamfunded-exchange';" >Sell Shares	</button></li>
 
 					<!-- <li><button onclick= "whyInv()">Why Invest</button></li> -->
-
-					<% if user_session != nil && user_session.authority >= authority[:Accredited] %>
-						<li><button onclick= "invest()">Investments</button></li>
-					<% elsif user_session == nil %>
-						<li><button onclick= "signUp()">Investments</button></li>
-					<% end %>
+					
+					<li><button disabled= "true">Investments <span class="arrow">&#9660;</span></button>
+						<ul class= "sub-menu">
+							<li><button onclick= "dreamfunded_portfolio()">Portfolio</button></li>
+							<% if user_session != nil && user_session.authority >= authority[:Accredited] %>
+								<li><button onclick= "invest()">Invest</button></li>
+							<% elsif user_session == nil %>
+								<li><button onclick= "signUp()">Invest</button></li>
+							<% end %>
+						</ul>
+					</li>
 					<li><button onclick= "how_it_works()">How It Works</button></li>
 					<li><button onclick= "home()">Home</button></li>
 					<li id= "left"><button onclick= "home()" id= "nopadding"><div class= "logo"></div></button></li>

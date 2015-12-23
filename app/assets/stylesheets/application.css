@@ -302,3 +302,35 @@ input[type='number']::-webkit-inner-spin-button {
 	font-family: 'Open Sans', sans-serif;
 }
 
+.porfolio-container {
+	height: 300px;
+	width: 100%;
+}
+
+.portfolio-box {
+	width: 33%;
+	height: 300px;
+	float: left;
+	text-align: center;
+}
+
+.portfolio-box2 {
+	width: 25%;
+	height: 300px;
+	float: left;
+	text-align: center;
+}
+
+.helper {
+	height: 100%;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.portfolio-img {
+	max-width: 80%;
+	margin: 0 auto;
+	vertical-align: middle;
+}
+
+
