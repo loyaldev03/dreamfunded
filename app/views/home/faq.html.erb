@@ -18,9 +18,9 @@
 						<span class='paragraph-position right'>positon: <%= post.position %></span>
 
 					<% end %>
-					<h3 class= "question darkblue"><%= post.title%></h3>
+					<h3 class= "question"><%= post.title%></h3>
 					<hr>
-					<p><%#= post.content%>
+					<p class= "faq-answer"><%#= post.content%>
 						<%= nl2br(h(post.content)).html_safe %>
 					</p>
 					<br>
