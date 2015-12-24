@@ -3,7 +3,7 @@ class TeamsController < ApplicationController
   # GET /documents
   # GET /documents.json
   def index
-    @teams = Team.all
+    @teams = Team.all.order("id ASC")
   end
 
   # GET /documents/1

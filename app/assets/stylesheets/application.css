@@ -333,4 +333,9 @@ input[type='number']::-webkit-inner-spin-button {
 	vertical-align: middle;
 }
 
+.about-image {
+	max-width: 70%;
+	display: block;
+	margin: auto;
+}
 
