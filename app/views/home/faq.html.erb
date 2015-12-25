@@ -20,7 +20,7 @@
 					<% end %>
 					<h4 class= "question"><%= post.title%></h4>
 					<p class= "faq-answer"><%#= post.content%>
-						<%= nl2br(h(post.content)).html_safe %>
+						<%= post.content.html_safe %>
 					</p>
 					<br>
 				<% end %>
