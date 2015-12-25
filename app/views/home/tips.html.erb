@@ -59,7 +59,7 @@ These later stage funding rounds have crippled big returns for investors in the 
                   <li><%= post.title%></li>
 
                   <p class='panel'><%#= post.content%>
-                      <%= nl2br(h(post.content)).html_safe %>
+                      <%= post.content.html_safe %>
                   </p>
 
               <% end %>
