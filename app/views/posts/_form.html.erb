@@ -37,8 +37,12 @@
   </div>
 <% end %>
 <script type="text/javascript">
-
+  var ready;
+  ready = function() {
       $('.ckeditor').ckeditor({
         // optional config
       });
+  };
+  $(document).ready(ready);
+  $(document).on('page:load', ready);
 </script>
