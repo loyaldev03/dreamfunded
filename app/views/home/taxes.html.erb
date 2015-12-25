@@ -39,8 +39,8 @@
                 <% end %>
                 <li><%= post.title%></li>
 
-                <p class='panel'><%#= post.content%>
-                    <%= nl2br(h(post.content)).html_safe %>
+                <p class='panel ckeditor'><%#= post.content%>
+                    <%= post.content.html_safe %>
                 </p>
 
             <% end %>

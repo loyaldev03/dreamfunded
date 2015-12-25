@@ -33,6 +33,7 @@ gem 'activerecord-session_store'
 gem "font-awesome-rails"
 gem 'gibbon'
 gem 'sucker_punch'
+gem 'ckeditor', github: 'galetahub/ckeditor'
 
 
 gem 'will_paginate', '~> 3.0.5'

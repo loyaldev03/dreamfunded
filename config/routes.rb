@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
   get '/posts/new/:page', to: "posts#new"
   get '/posts/:id/edit/:page', to: "posts#edit"
   resources :posts
