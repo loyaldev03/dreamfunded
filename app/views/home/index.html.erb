@@ -115,6 +115,15 @@
 			</div>
 		</div>
 		<!-- Newsletter Subscribers -->
+		<div class='cnbc-video-wrapper'>
+				<h2 class='watch-video-cnbc'>DreamFunded as seen on CNBC Squawk BOX</h2>
+				<iframe class='cnbc-youtube-video' src="https://www.youtube.com/embed/UosDuIgUCjI" frameborder="0" allowfullscreen></iframe>
+				<div class='cnbc-video-title'>
+					<span class='cnbc-video-text'>Betting on pre-IPO companies</span><br>
+					<span class='cnbc-video-description'>Manny Fernandez, DreamFunded CEO, weighs in on Silicon Valley's private tech stock market that connects angel investors with private markets through an equity crowdfunding platfrom.</span><br>
+					<%= link_to 'More News', news_index_path, class: 'cnbc-link-news' %>
+				</div>
+		</div>
 
 		<div id='toast-container'>
 			<div id='toastEmail'>
@@ -204,7 +213,6 @@
 	        // fade out blind and then remove it
 	        $('#blind').fadeOut(250,    function(){ $(this).remove(); });
 	    }
-
 	  // close NewsLetter Subscription Box
 	});
 	</script>
