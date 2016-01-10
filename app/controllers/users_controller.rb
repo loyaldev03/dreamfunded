@@ -111,7 +111,7 @@ class UsersController < ApplicationController
 		if record.valid?
 			record.save
 			ContactMailer.verify_email(record).deliver
-			#ContactMailer.account_created(record).deliver
+			ContactMailer.account_created(record).deliver
 			flash[:notice] = "Registration successful."
 			redirect_to(:action => :post_login, :email => @email, :password => @password)
 		else
