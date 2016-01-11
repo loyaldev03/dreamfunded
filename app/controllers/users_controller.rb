@@ -188,7 +188,7 @@ class UsersController < ApplicationController
 		user = User.find_by(email: params[:email])
 		user.confirmed = true
 		user.save(:validate => false)
-		ContactMailer.welcome_email(user).deliver
+		#ContactMailer.welcome_email(user).deliver
 		ContactMailer.personal_hello(user).deliver
 		redirect_to root_path
 	end
