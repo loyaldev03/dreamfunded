@@ -44,7 +44,9 @@ class ContactMailer < ActionMailer::Base
   def personal_hello(user)
     @name = user.first_name
     @email= user.email
-    mail(to: @email, subject: 'Following up', from: 'Manny Fernandez <manny@dreamfunded.com>')
+    time = Time.now.in_time_zone("Pacific Time (US & Canada)").to_i
+    send_at = time + 3600
+    mail(to: @email, subject: 'Following up', from: 'Manny Fernandez <manny@dreamfunded.com>',  send_at: send_at)
   end
 
   def reset_password_request(user)
