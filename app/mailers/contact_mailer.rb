@@ -44,7 +44,7 @@ class ContactMailer < ActionMailer::Base
   def personal_hello(user)
     @name = user.first_name
     @email= user.email
-    mail(to: @email, subject: 'Welcome to DreamFunded', from: 'DreamFunded <manny@dreamfunded.com>')
+    mail(to: @email, subject: 'Following up', from: 'Manny Fernandez <manny@dreamfunded.com>')
   end
 
   def reset_password_request(user)
