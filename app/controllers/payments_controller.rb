@@ -64,7 +64,7 @@ class PaymentsController < ApplicationController
   private
 
   def authorize
-    if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Admin]
+    if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Accredited]
       redirect_to url_for(:controller => 'home', :action => 'unauthorized')
     end
   end
