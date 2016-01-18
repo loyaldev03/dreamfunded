@@ -45,7 +45,8 @@ class PaymentsController < ApplicationController
     $stdout.flush
 
     tran.process
-    flash[:message] = tran.error
+    #lash[:message] = tran.error
+    flash[:message] = "Thank you. Your investment has been completed. You will receive an email from DreamFunded within 24 hours or less."
     if tran.resultcode.to_s=="A"
     then
       flash[:message] = tran.result
