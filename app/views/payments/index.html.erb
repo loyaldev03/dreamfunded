@@ -9,19 +9,20 @@
   			<%= text_field_tag(:name, nil ) %>
   		</p>
 
-  		<p class='payment-form'>Account Number<br>
-  			<%= text_field_tag(:account, nil ) %>
-  		</p>
-
   		<p class='payment-form'>Routing Number<br>
   		<%= text_field_tag(:routing, nil ) %>
   		</p>
 
-  		<p class='payment-form'>Amount<br>
+  		<p class='payment-form'>Account Number<br>
+  			<%= text_field_tag(:account, nil ) %>
+  		</p>
+
+
+  		<p class='payment-form'>Investment Amount<br>
   		<%= text_field_tag(:amount, nil 	) %>
   		</p>
 
-  		<%= submit_tag "Proceed", id: 'submit-button'%>
+  		<%= submit_tag "Invest", id: 'submit-button'%>
   	<% end %>
 	<p>
 		<%= flash[:message] %>
