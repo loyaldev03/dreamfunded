@@ -1,9 +1,9 @@
 <div class= "wrapper">
 	<div class="header-container shadow">
-		<div class= "header centered"><h1>Complete Your Investment</h1></div>
+		<div class= "header centered"><h2 id='payment-title'>Complete Your Investment</h2></div>
 	</div>
 
-  <div class= "box signin-box centered">
+  <div class= " payment-box centered">
   	<%= form_tag( '/submit_payment', method: :post) do %>
   		<p class='payment-form'>Name<br>
   			<%= text_field_tag(:name, nil ) %>

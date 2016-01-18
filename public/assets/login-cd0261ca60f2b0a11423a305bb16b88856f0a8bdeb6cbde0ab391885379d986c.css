@@ -1,0 +1,113 @@
+/* line 11, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/colors.css.scss */
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+}
+
+/* line 5, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.signin-box {
+  margin: 100px auto;
+  font-family: "Lato", sans-serif;
+  width: 500px;
+  border: none;
+  background: #ffffff;
+  padding: 10px 40px 40px 40px;
+}
+
+/* line 13, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.payment-box {
+  margin: 60px auto;
+  font-family: "Lato", sans-serif;
+  width: 500px;
+  border: none;
+  background: #ffffff;
+  padding: 10px 40px 40px 40px;
+}
+
+/* line 22, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.userbox, .passbox {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid gray;
+  border-right: 1px solid gray;
+  padding: 3px 6px;
+  font-size: 16px;
+  width: 100%;
+  margin: 15px auto;
+}
+
+/* line 33, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.userbox:focus, .passbox:focus {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
+/* line 38, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.login-button {
+  padding: 0 20px;
+  min-width: 200px;
+  height: 50px;
+  background: #10a1d6;
+  border: none;
+  outline: 0;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-family: "Lato", sans-serif;
+  color: white;
+}
+
+/* line 51, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.login-button:hover {
+  background-color: #0D87B3;
+}
+
+/* line 55, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.signup {
+  outline: 0;
+  border: none;
+  background: white;
+  font-size: 16px;
+}
+
+/* line 62, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.signup:hover {
+  text-decoration: underline;
+}
+
+/* line 66, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.notice {
+  color: #0033CC;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* line 72, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.tab {
+  width: 49%;
+  float: left;
+  position: relative;
+  display: table-cell;
+  padding-bottom: 10px;
+}
+
+/* line 80, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.row {
+  position: relative;
+  display: table;
+  padding: 20px 0;
+  width: 100%;
+}
+
+/* line 87, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.right-line {
+  border-right: 1px solid #CCCCCC;
+}
+
+/* line 91, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.login-container {
+  margin-top: 20px;
+}
+
+/* line 95, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.expand {
+  height: 200px;
+}
