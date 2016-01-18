@@ -4,18 +4,25 @@
 	</div>
 
   <div class= "box signin-box centered">
-	<%= form_tag( '/submit_payment', method: :post) do %>
-			<p>Name</p>
-		<%= text_field_tag(:name, nil, :placeholder => "Name") %>
-		<p>Account Number</p>
-		<%= text_field_tag(:account, nil, :placeholder => "Account Number") %>
-		<p>Routing Number</p>
-		<%= text_field_tag(:routing, nil, :placeholder => "Routing Number") %>
-		<p>Amount</p>
-		<%= text_field_tag(:amount, nil, :placeholder => "Amount") %>
+  	<%= form_tag( '/submit_payment', method: :post) do %>
+  		<p class='payment-form'>Name<br>
+  			<%= text_field_tag(:name, nil ) %>
+  		</p>
 
-		<%= submit_tag "Proceed"%>
-	<% end %>
+  		<p class='payment-form'>Account Number<br>
+  			<%= text_field_tag(:account, nil ) %>
+  		</p>
+
+  		<p class='payment-form'>Routing Number<br>
+  		<%= text_field_tag(:routing, nil ) %>
+  		</p>
+
+  		<p class='payment-form'>Amount<br>
+  		<%= text_field_tag(:amount, nil 	) %>
+  		</p>
+
+  		<%= submit_tag "Proceed", id: 'submit-button'%>
+  	<% end %>
 	<p>
 		<%= flash[:message] %>
 	</p>
