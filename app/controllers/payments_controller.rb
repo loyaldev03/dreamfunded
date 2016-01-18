@@ -3,7 +3,6 @@ class PaymentsController < ApplicationController
   before_action :authorize
 
   def index
-    flash[:message] = "Thank you. Your investment has been completed. You will receive an email from DreamFunded within 24 hours or less."
 	end
 
   def payment
