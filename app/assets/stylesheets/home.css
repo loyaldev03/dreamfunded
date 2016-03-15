@@ -498,6 +498,9 @@ and (max-device-width : 568px) {
   .sub-menu {
     min-width: 240px !important;
   }
+  .footer-content{
+    font-size: 18px !important;
+  }
 }
 
 .transparent {
