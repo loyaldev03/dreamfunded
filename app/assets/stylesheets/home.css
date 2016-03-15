@@ -217,7 +217,7 @@ h3 {
 
 .team {
 	margin: 30px auto;
-	width: 1200px;
+	width: 85%;
 	padding: 20px;
 	position: relative;
 }
@@ -503,6 +503,9 @@ and (max-device-width : 568px) {
   }
   .news-single-container{
     width: 90% !important;
+  }
+  .team{
+    width: inherit !important;
   }
 }
 
