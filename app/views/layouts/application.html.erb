@@ -33,6 +33,7 @@
 					<li id='mobile-menu'><button >Menu<span class="arrow">&#9660;</span></button>
 						<ul class='sub-menu white'>
 							<li><button onclick= "whyInv()">Why Invest</button></li>
+							<li><button onclick= "invest()">Invest</button></li>
 							<li><button onclick= "news()">News</button></li>
 							<li><button onclick="location.href='/education';" >Education</button></li>
 							<li><button onclick= "team()">Team</button></li>
@@ -43,6 +44,7 @@
 								<li><button onclick= "signIn()">Login</button></li>
 							<% else %>
 								<li><button onclick= "profile()" >Welcome <%= user_session.first_name.capitalize%> <span class="arrow"></span></button></li>
+								<li><button onclick= "signOut()" >Sign Out</button></li>
 							<% end %>
 						</ul>
 					</li>

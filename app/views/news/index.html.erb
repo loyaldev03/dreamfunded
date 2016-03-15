@@ -26,7 +26,7 @@
 							<div class= "news">
 								<div class= "title-container"> <%= article.title %> </div>
 								<div class= "content-container"> <%= nl2br(h(article.content)).html_safe %></div>
-								<div>
+								<div class='news-read-more-buton'>
 									<%= link_to "Read More >", news_path(article), :class =>'article-button' %>
 								</div>
 
