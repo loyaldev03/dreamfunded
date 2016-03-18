@@ -526,31 +526,6 @@ and (max-device-width : 568px) {
   .company-description{
     height: inherit !important;
   }
-  .stats-container{
-    float: none;
-    width: 100%;
-  }
-  .profile-image-wrap{
-    margin-bottom: 10% !important;
-  }
-  .signin-box h2 a, .signup-size h2 a{
-    font-size: 1.75em !important;
-  }
-  #email, #password{
-    font-size: 1.5em !important;
-  }
-  .login-button, #submit-button{
-    font-size: 1.8em !important;
-  }
-  .signup-content h4, #phone, .half{
-    font-size: 1.5em !important;
-  }
-  .check_box{
-    font-size: 1.25em !important;
-  }
-  .signup-size{
-    width: 70% !important;
-  }
 }
 
 .transparent {

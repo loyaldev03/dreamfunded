@@ -33,6 +33,11 @@
 					<li id='mobile-menu'><button >Menu<span class="arrow">&#9660;</span></button>
 						<ul class='sub-menu white'>
 							<li><button onclick= "whyInv()">Why Invest</button></li>
+							<% if user_session != nil && user_session.authority >= authority[:Accredited] %>
+								<li><button onclick= "invest()">Invest</button></li>
+							<% elsif user_session == nil %>
+								<li><button onclick= "signUp()">Invest</button></li>
+							<% end %>
 							<li><button onclick= "news()">News</button></li>
 							<li><button onclick="location.href='/education';" >Education</button></li>
 							<li><button onclick= "team()">Team</button></li>
@@ -43,6 +48,7 @@
 								<li><button onclick= "signIn()">Login</button></li>
 							<% else %>
 								<li><button onclick= "profile()" >Welcome <%= user_session.first_name.capitalize%> <span class="arrow"></span></button></li>
+								<li><button onclick= "signOut()" >Sign Out</button></li>
 							<% end %>
 						</ul>
 					</li>
@@ -125,7 +131,8 @@
 	DreamFunded does not make investment recommendations, and no communication through this website or in any other medium should be construed as such. Investment opportunities posted on this website are “private placements” of securities that are not publicly traded, are subject to holding period requirements, and are intended for investors who do not need a liquid investment. Private placement investments are not bank deposits (and thus not insured by the FDIC or by any other federal governmental agency), are not guaranteed by DreamFunded and may lose value. Neither the Securities and Exchange Commission nor any federal or state securities commission or regulatory authority has recommended or approved any investment or the accuracy or completeness of any of the information or materials provided by or through the website. Investors must be able to afford the loss of their entire investment.</p>
 
 	<p class= "indent foot-text darkblue">Any financial projections or returns shown on the website are illustrative examples only; there can be no assurance that any valuations provided are accurate or in agreement with market or industry valuations. Any investment information contained herein has been secured from sources DreamFunded believes are reliable, but we make no representations or warranties as to the accuracy of such information and accept no liability thereof. Offers to sell or buy any security can only be made through official offering documents that contain important information about risks, fees, and expenses. Investors should conduct their own due diligence and not rely solely on the financial assumptions or estimates displayed on this website; they are encouraged to consult with a financial advisor, attorney, accountant, and any other professional that can help you to understand and assess the risks associated with any investment opportunity.</p> -->
-</div></footer>
+</div>
+</footer>
 <%= render 'layouts/footer' %>
 <!-- begin olark code -->
 <script data-cfasync="false" type='text/javascript'>/*<![CDATA[*/window.olark||(function(c){var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){

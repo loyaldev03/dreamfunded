@@ -217,7 +217,7 @@ h3 {
 
 .team {
 	margin: 30px auto;
-	width: 85%;
+	width: 1200px;
 	padding: 20px;
 	position: relative;
 }
@@ -241,7 +241,7 @@ h3 {
 .white-box {
 	background: white;
 	height: 200px;
-
+	width: 800px;
 	padding: 25px;
 	margin-left: 300px;
 	vertical-align: middle;
@@ -411,7 +411,6 @@ h3 {
 	display: none;
 }
 
-/*M O B I L E*/
 
 @media only screen
 and (min-device-width : 320px)
@@ -498,58 +497,6 @@ and (max-device-width : 568px) {
   }
   .sub-menu {
     min-width: 240px !important;
-  }
-  .footer-content{
-    font-size: 18px !important;
-  }
-  .news-single-container{
-    width: 90% !important;
-  }
-  .team{
-    width: inherit !important;
-  }
-  .article-button{
-    font-size: 25px !important;
-  }
-  .twenty{
-    font-size: 34px !important;
-  }
-  .company-container{
-    width: 43% !important;
-  }
-  .company-image{
-    width: 30% !important;
-  }
-  .left-column{
-    height: inherit !important;
-  }
-  .company-description{
-    height: inherit !important;
-  }
-  .stats-container{
-    float: none;
-    width: 100%;
-  }
-  .profile-image-wrap{
-    margin-bottom: 10% !important;
-  }
-  .signin-box h2 a, .signup-size h2 a{
-    font-size: 1.75em !important;
-  }
-  #email, #password{
-    font-size: 1.5em !important;
-  }
-  .login-button, #submit-button{
-    font-size: 1.8em !important;
-  }
-  .signup-content h4, #phone, .half{
-    font-size: 1.5em !important;
-  }
-  .check_box{
-    font-size: 1.25em !important;
-  }
-  .signup-size{
-    width: 70% !important;
   }
 }
 

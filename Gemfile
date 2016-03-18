@@ -42,4 +42,5 @@ gem 'bootstrap-will_paginate', '~> 0.0.10'
 
 group :development do
    gem "thin"
+   gem "letter_opener"
 end

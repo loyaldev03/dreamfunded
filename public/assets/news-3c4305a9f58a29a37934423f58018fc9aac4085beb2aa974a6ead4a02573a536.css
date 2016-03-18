@@ -1,0 +1,158 @@
+/* line 11, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/colors.css.scss */
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+}
+
+/* line 7, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.creation-wrap {
+  width: 550px;
+}
+
+/* line 11, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.news-single-container {
+  width: 77%;
+  height: 250px;
+  margin: 30px auto;
+  padding: 30px;
+  background: white;
+  position: relative;
+}
+
+/* line 20, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.news-image {
+  float: left;
+  overflow: hidden;
+  position: relative;
+}
+
+/* line 26, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.article-image {
+  width: 250px;
+  height: auto;
+  max-height: 250px;
+}
+
+/* line 32, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.news {
+  margin-left: 30px;
+  width: 63%;
+  float: left;
+  padding: 15px;
+}
+
+/* line 39, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.smaller {
+  margin: 20px 0;
+  width: 130px;
+}
+
+/* line 44, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.title-container {
+  font-size: 30px;
+  color: #10a1d6;
+  border-bottom: 1px solid gray;
+  overflow: hidden;
+  height: 40px;
+}
+
+/* line 52, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.content-container {
+  margin: 10px 30px;
+  height: 90px;
+  overflow: hidden;
+  font-size: 18px;
+}
+
+/* line 59, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.point {
+  font-size: 20px;
+}
+
+/* line 63, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.article-button {
+  display: inline-block;
+  margin-top: 10px;
+  color: white;
+  border: none;
+  padding: 10px 50px;
+  background: #10a1d6;
+  font-size: 18px;
+  cursor: pointer;
+  font-family: BlinkMacSystemFont;
+}
+
+/* line 75, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.article-button:focus {
+  outline: none;
+}
+
+/* line 79, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.center {
+  text-align: center;
+}
+
+/* line 83, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.title {
+  font-size: 30px;
+}
+
+/* line 87, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.topbar {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  height: 30px;
+}
+
+/* line 93, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.full-image {
+  max-width: 550px;
+  max-height: 550px;
+  float: left;
+  margin: 0 40px 40px 0;
+}
+
+/* line 99, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.full-photo {
+  max-width: 300px;
+  max-height: 550px;
+  float: left;
+  margin: 0 40px 40px 0;
+  border-radius: 50%;
+}
+
+/* line 107, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.article {
+  font-size: 17px;
+  line-height: 150%;
+}
+
+/* line 112, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.description-box {
+  width: 95%;
+  height: 200px;
+  margin: 2%;
+  border: none;
+  outline: 0;
+  font-size: 16px;
+}
+
+/* line 121, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.source {
+  margin: 10px;
+  height: 15px;
+}
+
+/* line 126, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.page {
+  min-height: 450px;
+}
+
+/* line 130, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.art-text {
+  min-height: 400px;
+}
+
+/* line 133, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.news-read-more-buton {
+  text-align: center;
+}

@@ -548,9 +548,6 @@ and (max-device-width : 568px) {
   .check_box{
     font-size: 1.25em !important;
   }
-  .signup-size{
-    width: 70% !important;
-  }
 }
 
 .transparent {
