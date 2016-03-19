@@ -95,3 +95,19 @@
 .expand {
 	height: 200px;
 }
+
+.input-symbol{
+  position: relative;
+}
+
+.input-symbol span{
+  position: absolute;
+  transform: translate(0,-50%);
+  top: 50%;
+  pointer-events: none;
+  margin-left: 0.2em; /* adjust as appropriate */
+}
+
+.input-symbol input{
+  text-indent: 1em; /* adjust as appropriate */
+}

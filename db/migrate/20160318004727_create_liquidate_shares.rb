@@ -3,8 +3,8 @@ class CreateLiquidateShares < ActiveRecord::Migration
     create_table :liquidate_shares do |t|
     	t.string  :name
     	t.string  :company
-		t.string  :numShares
-    	t.string  :sharesPrice
+		t.integer :number_shares
+    	t.integer :shares_price
     	t.string  :urgency
     	t.string  :email
     	t.string  :phone

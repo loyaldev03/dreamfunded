@@ -108,15 +108,22 @@ class HomeController < ApplicationController
 	end
 
 	def liquidate
+
 	end
 
 	def liquidate_form
-		@name = params[:name]
+		@first_name = params[:first_name]
+		@last_name = params[:last_name]
 		@email = params[:email]
 		@phone = params[:phone]
+		@company = params[:company]
+		@number_shares = params[:number_shares]
+		@shares_price = params[:shares_price]
+		@urgency = params[:urgency]
 		@message = params[:message].first
-		ContactMailer.liquidate_email(@name, @email, @phone, @message).deliver
-		flash[:name] = @name
+		LiquidateShare.create(first_name: @first_name, last_name: @last_name, company: @company, number_shares: @number_shares, shares_price: @shares_price, urgency: @urgency, email: @email, phone: @phone, message: @message)
+		ContactMailer.liquidate_email(@first_name, @last_name, @company, @number_shares, @shares_price, @urgency, @email, @phone, @message).deliver
+		flash[:name] = @first_name
 		redirect_to '/liquidate_after'
 	end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160315224856) do
+ActiveRecord::Schema.define(version: 20160319003945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,14 +104,15 @@ ActiveRecord::Schema.define(version: 20160315224856) do
   add_index "investments", ["user_id"], name: "index_investments_on_user_id", using: :btree
 
   create_table "liquidate_shares", force: true do |t|
-    t.string "name"
-    t.string "company"
-    t.string "numShares"
-    t.string "sharesPrice"
-    t.string "urgency"
-    t.string "email"
-    t.string "phone"
-    t.string "message"
+    t.string  "first_name"
+    t.string  "company"
+    t.integer "number_shares"
+    t.integer "shares_price"
+    t.string  "urgency"
+    t.string  "email"
+    t.string  "phone"
+    t.text    "message"
+    t.string  "last_name"
   end
 
   create_table "news", force: true do |t|
