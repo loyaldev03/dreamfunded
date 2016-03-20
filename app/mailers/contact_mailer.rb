@@ -26,7 +26,7 @@ class ContactMailer < ActionMailer::Base
     # mail(to: "alexandr.larionov88@gmail.com", subject: 'Guest Contacted From DreamFunded website')
   end
 
-  def liquidate_email(first_name, last_name, company, number_shares, shares_price, urgency, email, phone, rofr_restrictions, financial_assistance, message)
+  def liquidate_email(first_name, last_name, company, number_shares, shares_price, timeframe, email, phone, rofr_restrictions, financial_assistance, message)
     @first_name = first_name
     @last_name = last_name
     @email= email
@@ -38,7 +38,7 @@ class ContactMailer < ActionMailer::Base
     @rofr_restrictions = rofr_restrictions
     @financial_assistance = financial_assistance
     @message = message
-    mail(to: "info@dreamfunded.com", subject: "Request to liquidate #{company} shares (#{number_shares}) by #{timeframe} - #{first_name} #{last_name}")
+    mail(to: "info@dreamfunded.com", subject: "Request to liquidate #{number_shares} shares of #{company} (#{timeframe} timeframe)")
     # mail(to: "alexandr.larionov88@gmail.com", subject: 'Request to liquidate shares')
   end
 
