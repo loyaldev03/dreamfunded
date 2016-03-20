@@ -6,7 +6,7 @@
       <hr>
       <br>
       <div class='liquidate-info'>
-        Please fill in the form to send your request to a DreamFunded team member. All information will be kept confidential. Questions? Go to our education center here.</div><br>
+        Please fill in the form to send your request to a DreamFunded team member. All information will be kept confidential. <br><br> Questions? Go to our education center <a href= "/education"><u>here</u></a>.</div>
     </div>
   </div>
 
@@ -24,8 +24,21 @@
         </span>
         <%= number_field_tag(:shares_price, nil, :class =>"userbox", :placeholder => "Desired share price", :required => true) %>
       </div>
-      <%= select_tag(:urgency, options_for_select([ "< 1 Week", "< 1 Month", "1 Month or More" ]), prompt: "Timeframe") %>
-      <%= text_area(:message, nil, rows: 5, :class =>"userbox expand", :placeholder => "Comment") %>
+      <%= select_tag(:timeframe, options_for_select([ "< 1 Week", "< 1 Month", "1 Month or More" ]), prompt: "Timeframe") %>
+      <br>
+      <br>
+      <%= check_box_tag(:rofr_restrictions, nil, false) %>
+      My company has
+      <a class="tooltip" href="/education/basics">ROFR<span class="warning">Dreamfunded can help you sell your shares immediately -- and avoid your company's restrictions!</span></a>     
+      restrictions (right of first refusal).
+      <br>
+      <br>
+      <%= check_box_tag(:financial_assistance, nil, false) %>
+      I may need financial help to
+      <a class="tooltip" href="/education/basics">purchase<span class="help">We offer financial assistance in order to allow you to exercise your shares!</span></a>     
+      shares from my company.
+
+      <%= text_area(:message, nil, rows: 5, :class =>"userbox", :placeholder => "Comments") %>
       <br>
         <div class = "notice centered">
           <h2 class='darkblue' ><%= flash[:notice] if flash[:notice] %></h2>

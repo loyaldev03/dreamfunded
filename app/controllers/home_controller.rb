@@ -119,10 +119,12 @@ class HomeController < ApplicationController
 		@company = params[:company]
 		@number_shares = params[:number_shares]
 		@shares_price = params[:shares_price]
-		@urgency = params[:urgency]
+		@timeframe = params[:timeframe]
+		@rofr_restrictions = params[:rofr_restrictions]
+		@financial_assistance = params[:financial_assistance]
 		@message = params[:message].first
-		LiquidateShare.create(first_name: @first_name, last_name: @last_name, company: @company, number_shares: @number_shares, shares_price: @shares_price, urgency: @urgency, email: @email, phone: @phone, message: @message)
-		ContactMailer.liquidate_email(@first_name, @last_name, @company, @number_shares, @shares_price, @urgency, @email, @phone, @message).deliver
+		LiquidateShare.create(first_name: @first_name, last_name: @last_name, company: @company, number_shares: @number_shares, shares_price: @shares_price, urgency: @timeframe, email: @email, phone: @phone, rofr_restrictions: @rofr_restrictions, financial_assistance: @financial_assistance, message: @message)
+		ContactMailer.liquidate_email(@first_name, @last_name, @company, @number_shares, @shares_price, @timeframe, @email, @phone, @rofr_restrictions, @financial_assistance, @message).deliver
 		flash[:name] = @first_name
 		redirect_to '/liquidate_after'
 	end
