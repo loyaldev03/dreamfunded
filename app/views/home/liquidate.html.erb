@@ -18,25 +18,26 @@
       <%= text_field_tag(:phone, nil, :class =>"userbox half", :placeholder => "Phone") %>
       <%= text_field_tag(:company, nil, :class =>"userbox", :placeholder => "Company", :required => true) %>
       <%= number_field_tag(:number_shares, nil, :class =>"userbox", :placeholder => "Quantity of shares") %>
-      <div class="input-symbol">
+<!--       <div class="input-symbol">
         <span>
           &#36;
-        </span>
+        </span> -->
         <%= number_field_tag(:shares_price, nil, :class =>"userbox", :placeholder => "Desired share price", :required => true) %>
-      </div>
+<!--       </div>
+ -->      
       <%= select_tag(:timeframe, options_for_select([ "< 1 Week", "< 1 Month", "1 Month or More" ]), prompt: "Timeframe") %>
       <br>
       <br>
       <%= check_box_tag(:rofr_restrictions, nil, false) %>
-      My company has
-      <a class="tooltip" href="/education/basics">ROFR<span class="warning">Dreamfunded can help you sell your shares immediately -- and avoid your company's restrictions!</span></a>     
-      restrictions (right of first refusal).
+      My company has ROFR restrictions (right of first refusal).
+      <!-- <a class="tooltip" href="/education/basics">ROFR<span class="warning">Dreamfunded can help you sell your shares immediately -- and avoid your company's restrictions!</span></a>     
+      restrictions (right of first refusal). -->
       <br>
       <br>
       <%= check_box_tag(:financial_assistance, nil, false) %>
-      I may need financial help to
-      <a class="tooltip" href="/education/basics">purchase<span class="help">We offer financial assistance in order to allow you to exercise your shares!</span></a>     
-      shares from my company.
+      I may need financial help to exercise (purchase) shares from my employer (company).
+      <!-- <a class="tooltip" href="/education/basics">purchase<span class="help">We offer financial assistance in order to allow you to exercise your shares!</span></a>     
+      shares from my company. -->
 
       <%= text_area(:message, nil, rows: 5, :class =>"userbox", :placeholder => "Comments") %>
       <br>
