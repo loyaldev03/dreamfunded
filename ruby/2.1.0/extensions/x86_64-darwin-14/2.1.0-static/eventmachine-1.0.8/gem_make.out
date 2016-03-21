@@ -1,0 +1,14 @@
+/Users/Avery/.rvm/rubies/ruby-2.1.5/bin/ruby -r ./siteconf20160312-44058-1q1twk5.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling mapper.cpp
+compiling rubymain.cpp
+linking shared-object fastfilereaderext.bundle
+ld: warning: directory not found for option '-L/Users/mpapis/.sm/pkg/active/lib'
+
+make "DESTDIR=" install
+/usr/bin/install -m 0755 fastfilereaderext.bundle ./.gem.20160312-44058-51731u
+installing default fastfilereaderext libraries
