@@ -17,8 +17,17 @@ class HomeController < ApplicationController
 		@seller = LiquidateShare.find(params[:id])
 	end
 
+	def new_seller
+		@seller = LiquidateShare.new
+	end
+
+	def create_new_seller
+		LiquidateShare.create(liquidate_share_params)
+		redirect_to sellers_path
+	end
+
 	def edit_liq_seller
-		@seller = LiquidateShare.find_by(email: params[:liquidate_share][:email])
+		@seller = LiquidateShare.find_by(id: params[:liquidate_share][:id])
 		@seller.update(liquidate_share_params)
 		redirect_to sellers_path
 	end

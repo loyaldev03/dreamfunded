@@ -3,10 +3,11 @@
 
 <body>
   <div class= "wrapper">
-    <div class= "header"><h1 class= "centered">List of Sellers on our Platform</h1></div>
+    <div class= "header"><h1 class= "centered">Liquidators</h1></div>
 
     <div class= "word-content"><div class= "text-content">
-      <%= button_to "Download", '/sellers.csv', :method => 'get', :id => 'user-button' %>
+      <%= button_to "Download to Excel", '/sellers.csv', :method => 'get', :id => 'user-button' %>
+      <%= button_to "Add New Seller", '/new_seller', :method => 'get', :id => 'user-button' %>
 
         <% if user_session.authority == authority[:Admin] %>
           <table id="user-table">
@@ -21,6 +22,8 @@
             <th>Timeframe</th>
             <th>ROFR Restrictions</th>
             <th>Financial Assistance</th>
+            <th>Created</th>
+            <th>Updated</th>
             <th>Edit</th>
 
            </tr>
@@ -36,6 +39,8 @@
                   <td><%= seller.timeframe %></td>
                   <td><%= seller.rofr_restrictions %></td>
                   <td><%= seller.financial_assistance %></td>
+                  <td><%= seller.created_at %></td>
+                  <td><%= seller.updated_at %></td>
                   <td><%= link_to "Edit", edit_seller_path(seller.id) %></td>
                 </tr>
             <% end %>
