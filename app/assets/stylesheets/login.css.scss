@@ -156,4 +156,32 @@
 .info { background: #9FDAEE; border: 1px solid #2BB0D7; }
 .warning { background: #FFFFAA; border: 1px solid #FFAD33; }
 
-
+.styled-select select {
+   background: transparent;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+   color: #979797;
+}
+.styled-select {
+   width: 240px;
+   height: 34px;
+   overflow: hidden;
+   background: url(arrow-select.png) no-repeat right;
+   background-position: 97%;
+   border: 1px solid grey;
+   background-size: 25px;
+   margin-top: 10px;
+}
+.liquidate-form-company{
+  float: left;
+  width: 97%;
+}
+.half-field{
+  width: 45%;
+}
