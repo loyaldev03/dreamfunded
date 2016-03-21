@@ -9,6 +9,20 @@ class HomeController < ApplicationController
 		end
 	end
 
+	def sellers
+		@sellers = LiquidateShare.all
+	end
+
+	def edit_seller
+		@seller = LiquidateShare.find(params[:id])
+	end
+
+	def edit_liq_seller
+		@seller = LiquidateShare.find_by(email: params[:liquidate_share][:email])
+		@seller.update(liquidate_share_params)
+		redirect_to sellers_path
+	end
+
 	def team_add
 		@team = Team.new
 	end
@@ -181,4 +195,7 @@ class HomeController < ApplicationController
       params.permit(:image, :name, :title, :summary, :fullbio )
    end
 
+   def liquidate_share_params
+   	params.require(:liquidate_share).permit(:first_name, :last_name, :email,  :phone, :company, :number_shares, :shares_price, :timeframe, :rofr_restrictions, :financial_assistance, :message)
+   end
 end

@@ -45,6 +45,10 @@ Rails.application.routes.draw do
   put '/home/edit_member', to: 'home#team_member_update', as: 'update_member'
   # patch '/home/edit_member', to: 'home#team_member_update', as: 'update_member'
 
+  get '/sellers', to: "home#sellers", as: :sellers
+  get '/edit_seller/:id', to: "home#edit_seller", as: 'edit_seller'
+  patch '/liquidate_shares', to: "home#edit_liq_seller", as: :edit_shareholder
+
   resources :companies
   resources :news
 
