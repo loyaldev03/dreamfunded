@@ -117,7 +117,7 @@ class HomeController < ApplicationController
 		@email = params[:email]
 		@phone = params[:phone]
 		@company = params[:company]
-		@number_shares = params[:number_shares]
+		@number_shares = params[:number_shares].delete(',').to_i
 		@shares_price = params[:shares_price]
 		@timeframe = params[:timeframe]
 		@rofr_restrictions = params[:rofr_restrictions]
