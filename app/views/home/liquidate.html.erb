@@ -6,18 +6,41 @@
       <hr>
       <br>
       <div class='liquidate-info'>
-        Please fill in the form to send your request to a DreamFunded team member. All information will be kept confidential.</div><br>
+        Please fill in the form to send your request to a DreamFunded team member. All information will be kept confidential. <br><br> Questions? Go to our education center <a href= "/education"><u>here</u></a>.</div>
     </div>
   </div>
 
   <div class= "login-container">
     <%= form_tag('liquidate_form', :method => :post, :id => "liquidate_form") do %>
-      <%= text_field_tag(:name, nil, :class =>"userbox", :placeholder => "Name", :required => true) %>
-      <%= text_field_tag(:email, nil, :class =>"userbox", :placeholder => "Email", :required => true) %>
-      <%= text_field_tag(:phone, nil, :class =>"userbox", :placeholder => "Phone") %>
-      <%= text_area(:message, nil, rows: 5, :class =>"userbox expand", :placeholder => "Comment", :required => true) %>
+      <%= text_field_tag(:first_name, nil, :class =>"userbox half", :placeholder => "First name", :required => true) %>
+      <%= text_field_tag(:last_name, nil, :class =>"userbox half", :placeholder => "Last name", :required => true) %>
+      <%= text_field_tag(:email, nil, :class =>"userbox half", :placeholder => "Email", :required => true) %>
+      <%= text_field_tag(:phone, nil, :class =>"userbox half", :placeholder => "Phone") %>
+      <%= text_field_tag(:company, nil, :class =>"userbox", :placeholder => "Company", :required => true) %>
+      <%= number_field_tag(:number_shares, nil, :class =>"userbox", :placeholder => "Quantity of shares") %>
+<!--       <div class="input-symbol">
+        <span>
+          &#36;
+        </span> -->
+        <%= number_field_tag(:shares_price, nil, :class =>"userbox", :placeholder => "Desired share price", :required => true) %>
+<!--       </div>
+ -->      
+      <%= select_tag(:timeframe, options_for_select([ "< 1 Week", "< 1 Month", "1 Month or More" ]), prompt: "Timeframe") %>
       <br>
+      <br>
+      <%= check_box_tag(:rofr_restrictions, nil, false) %>
+      My company has ROFR restrictions (right of first refusal).
+      <!-- <a class="tooltip" href="/education/basics">ROFR<span class="warning">Dreamfunded can help you sell your shares immediately -- and avoid your company's restrictions!</span></a>     
+      restrictions (right of first refusal). -->
+      <br>
+      <br>
+      <%= check_box_tag(:financial_assistance, nil, false) %>
+      I may need financial help to exercise (purchase) shares from my employer (company).
+      <!-- <a class="tooltip" href="/education/basics">purchase<span class="help">We offer financial assistance in order to allow you to exercise your shares!</span></a>     
+      shares from my company. -->
 
+      <%= text_area(:message, nil, rows: 5, :class =>"userbox", :placeholder => "Comments") %>
+      <br>
         <div class = "notice centered">
           <h2 class='darkblue' ><%= flash[:notice] if flash[:notice] %></h2>
         </div>

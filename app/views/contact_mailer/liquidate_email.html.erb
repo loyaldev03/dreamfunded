@@ -1,8 +1,7 @@
   <h2 style='font-family:Georgia,Palatino,serif;font-size:16px;margin-bottom:24px;padding:0px;line-height:22px;max-width:540px'>Hello,</h2>
 
-  <p style='font-family:Georgia,Palatino,serif;font-size:16px;margin-bottom:24px;padding:0px;line-height:22px;max-width:540px'><%= @name %>  has just contacted you from the Liquidate Now page</p>
-  <p style='font-family:Georgia,Palatino,serif;font-size:16px;margin-bottom:24px;padding:0px;line-height:22px;max-width:540px'><%= @name %>'s email: <%= @email%> </p>
-  <p style='font-family:Georgia,Palatino,serif;font-size:16px;margin-bottom:24px;padding:0px;line-height:22px;max-width:540px'><%= @name %>'s phone: <%= @phone%> </p>
+  <p style='font-family:Georgia,Palatino,serif;font-size:16px;margin-bottom:24px;padding:0px;line-height:22px;max-width:540px'><%= @first_name %> <%= @last_name %>  has just contacted you from the liquidate now lead-gen form!</p>
+  <p style='font-family:Georgia,Palatino,serif;font-size:16px;margin-bottom:24px;padding:0px;line-height:22px;max-width:540px'><b>Company:</b> <%= @company%><br><b>Number of Shares:</b> <%= @number_shares%><br><b>Desired Share Price:</b> $<%= @shares_price%><br><b>Timeframe:</b> <%= @timeframe%><br><b>Phone Number:</b> <%= @phone%><br><b>Email:</b> <%= @email%><br><b>ROFR Restrictions:</b> <%= @rofr_restrictions%><br><b>Financial Assistance:</b> <%= @financial_assistance%></p>
+ 
 
-
-  <p style='font-family:Georgia,Palatino,serif;font-size:16px;margin-bottom:24px;padding:0px;line-height:22px;max-width:540px'><%= @message%></p>
+  <p style='font-family:Georgia,Palatino,serif;font-size:16px;margin-bottom:24px;padding:0px;line-height:22px;max-width:540px'><b>Comments: </b><%= @message%></p>
