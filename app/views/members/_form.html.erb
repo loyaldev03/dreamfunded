@@ -1,0 +1,40 @@
+<%= form_for(@member,  multipart: true) do |f| %>
+  <% if @member.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@member.errors.count, "error") %> prohibited this member from being saved:</h2>
+
+      <ul>
+      <% @member.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :name, :placeholder => "Name", :class => "input-box" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :title, :placeholder => "Title", :class => "input-box" %>
+  </div>
+
+  <div class="field">
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="description-wrap">
+    <%= f.text_area :summary,  :placeholder => "Summary of the Biography", :class => "description-box" %>
+  </div>
+
+  <div class="description-wrap">
+    <%= f.text_area :fullbio, :placeholder => "Full Biography", :class => "description-box" %>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :rank, value: 0, :placeholder => "Position", :class => "input-box" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Add", :id => "submit-button" %>
+  </div>
+<% end %>

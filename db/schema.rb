@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160320200307) do
+ActiveRecord::Schema.define(version: 20160322004359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,6 +117,23 @@ ActiveRecord::Schema.define(version: 20160320200307) do
     t.boolean "financial_assistance"
   end
 
+  create_table "members", force: true do |t|
+    t.string   "name"
+    t.text     "summary"
+    t.text     "fullbio"
+    t.string   "title"
+    t.integer  "rank"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "slug"
+  end
+
+  add_index "members", ["slug"], name: "index_members_on_slug", using: :btree
+
   create_table "news", force: true do |t|
     t.text     "title"
     t.string   "image_filename"
@@ -192,6 +209,8 @@ ActiveRecord::Schema.define(version: 20160320200307) do
     t.string   "title"
     t.string   "slug"
     t.integer  "rank"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "teams", ["slug"], name: "index_teams_on_slug", using: :btree
