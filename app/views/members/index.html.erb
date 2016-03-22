@@ -1,0 +1,42 @@
+<html>
+<head>
+  <title>DreamFunded | Our Team</title>
+</head>
+
+<body>
+  <div class= "wrapper">
+  <div class="header-container shadow">
+    <div class= "header centered"><h1>Our Team</h1></div>
+  </div>
+
+  <div class= "team">
+    <% if @members != nil %>
+      <% @members.each do |team| %>
+        <div class= "team-wrap">
+          <div class= "team-pic-wrap">
+            <%= link_to image_tag( team.image.url, :class => "team-picture"), team_path(team) %>
+
+          </div>
+          <div class= "white-box">
+            <span class="company-position">
+              <% if user_session != nil && user_session.authority == authority[:Admin] %>
+                <%= team.rank%>
+              <% end %>
+            </span>
+            <% if user_session != nil && user_session.authority == authority[:Admin] %>
+              <%= link_to 'X', team, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'remove-button' %>
+            <% end %>
+            <div class="name indentt"><p class= "darkblue twentyf no-margin"> <%= team.name %>, <%= team.title %></p></div>
+            <div class= "summary">
+              <p class= "no-margin"> <%= team.summary %> </p>
+            </div>
+            <div><%= link_to "Full Biography", member_path(team), {:class => "team-button twenty"} %></div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+</body>
+
+</html>

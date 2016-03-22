@@ -201,7 +201,7 @@ class HomeController < ApplicationController
 
    private
    def team_params
-      params.permit(:image, :name, :title, :summary, :fullbio )
+      params.require(:team).permit(:image, :name, :title, :summary, :fullbio )
    end
 
    def liquidate_share_params
