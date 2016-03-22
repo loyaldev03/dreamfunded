@@ -23,7 +23,7 @@ function about() {
 }
 
 function team() {
-	window.location = "/team";
+	window.location = "/members";
 }
 
 function faq() {
