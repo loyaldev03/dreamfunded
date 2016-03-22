@@ -1,29 +1,16 @@
-<p id="notice"><%= notice %></p>
+    <div class= "word-content"><div class="text-content">
+      <div class= "topbar">
+        <a href= "/members" class= "darkblue">&#8617; Back</a>
+        <% if user_session != nil && user_session.authority == authority[:Admin] %>
+          <%= link_to 'Edit', edit_member_path(@member), {:class => 'right'} %>
+        <% end %>
+      </div>
+      <div class= "page">
+        <div class= "art-text">
+          <h2 class= "center darkblue title"><%= @member.name %>, <%= @member.title %></h2>
+          <%= image_tag @member.image.url, :class => "full-photo" %>
+          <p class= "article"><%= nl2br(h(@member.fullbio)).html_safe %></p>
+        </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @member.name %>
-</p>
-
-<p>
-  <strong>Summary:</strong>
-  <%= @member.summary %>
-</p>
-
-<p>
-  <strong>Fullbio:</strong>
-  <%= @member.fullbio %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @member.title %>
-</p>
-
-<p>
-  <strong>Rank:</strong>
-  <%= @member.rank %>
-</p>
-
-<%= link_to 'Edit', edit_member_path(@member) %> |
-<%= link_to 'Back', members_path %>
+      </div>
+    </div></div>

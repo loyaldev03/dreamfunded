@@ -1,33 +1,42 @@
-<h1>Listing members</h1>
+<html>
+<head>
+  <title>DreamFunded | Our Team</title>
+</head>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Summary</th>
-      <th>Fullbio</th>
-      <th>Title</th>
-      <th>Rank</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<body>
+  <div class= "wrapper">
+  <div class="header-container shadow">
+    <div class= "header centered"><h1>Our Team</h1></div>
+  </div>
 
-  <tbody>
-    <% @members.each do |member| %>
-      <tr>
-        <td><%= member.name %></td>
-        <td><%= member.summary %></td>
-        <td><%= member.fullbio %></td>
-        <td><%= member.title %></td>
-        <td><%= member.rank %></td>
-        <td><%= link_to 'Show', member %></td>
-        <td><%= link_to 'Edit', edit_member_path(member) %></td>
-        <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+  <div class= "team">
+    <% if @members != nil %>
+      <% @members.each do |team| %>
+        <div class= "team-wrap">
+          <div class= "team-pic-wrap">
+            <%= link_to image_tag( team.image.url, :class => "team-picture"), team_path(team) %>
+
+          </div>
+          <div class= "white-box">
+            <span class="company-position">
+              <% if user_session != nil && user_session.authority == authority[:Admin] %>
+                <%= team.rank%>
+              <% end %>
+            </span>
+            <% if user_session != nil && user_session.authority == authority[:Admin] %>
+              <%= link_to 'X', team, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'remove-button' %>
+            <% end %>
+            <div class="name indentt"><p class= "darkblue twentyf no-margin"> <%= team.name %>, <%= team.title %></p></div>
+            <div class= "summary">
+              <p class= "no-margin"> <%= team.summary %> </p>
+            </div>
+            <div><%= link_to "Full Biography", team_path(team), {:class => "team-button twenty"} %></div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<br>
+</body>
 
-<%= link_to 'New Member', new_member_path %>
+</html>
