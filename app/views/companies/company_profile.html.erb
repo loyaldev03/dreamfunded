@@ -65,9 +65,12 @@
 				<% elsif @company.status == 1 %>
 
 					<%= mail_to "manny@dreamfunded.com", "Join The Waitlist", subject: "I want to invest in #{@company.name}", :class => "company-button profile-button mail-to-button" %>
-
 					
-					<div class="slide">
+					Suggested Target Price for this auction: 
+					<%= button_to "$#{@company.suggested_target_price}", nil, :class => "company-button profile-button", :disabled => true %>
+						
+					
+			<!-- 		<div class="slide">
 					Investment Size
 					  <input class="investment-range" type="range" min="0" max="10" id="myRange"/>
 					</div>
@@ -75,7 +78,7 @@
 					<div class="slide">
 					Share Price
 					  <input class="share-price-range" type="range" min="0" max="10" id="mySecondRange"/>
-					</div>
+					</div> -->
 
 					
 
