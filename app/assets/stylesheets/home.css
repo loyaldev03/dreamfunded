@@ -651,8 +651,7 @@ and (max-device-width : 568px) {
   display: inline-block;
 }
 .cnbc-video-wrapper{
-  text-align: left;
-  margin-left: 12%;
+  text-align: center;
   margin-bottom: 100px;
 }
 .cnbc-video-description{
@@ -664,7 +663,7 @@ and (max-device-width : 568px) {
   vertical-align: top;
   font-size: 112%;
   padding-left: 30px;
-  width: 258px;
+  width: 75%;
 }
 .cnbc-video-text{
   padding-bottom: 10px;
@@ -676,4 +675,17 @@ and (max-device-width : 568px) {
   font-size: 80%;
   color: #333;
   text-decoration: underline;
+}
+.investor-logos{
+  text-align: center;
+}
+.aca-logo{
+  width: 150px;
+}
+.perkins-logo{
+  width: 190px;
+  margin-left: 5%;
+  vertical-align: top;
+  margin-top: -7px;
+  }
 }
