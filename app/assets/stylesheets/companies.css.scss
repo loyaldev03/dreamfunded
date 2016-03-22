@@ -389,3 +389,8 @@
 .margin-bottom-50{
 	margin-bottom: 20px;
 }
+
+.slide{
+    width: Calc(100% - 196px); /*196px means both sides (left 98px and right 98px)*/
+    margin: 0 auto;
+}

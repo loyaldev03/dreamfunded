@@ -63,9 +63,23 @@
 				<% if @company.status == 2 && @company.display != 0 %>
 					<%= link_to "Invest in #{@company.name}", @company.docusign_url, :class => "company-button profile-button mail-to-button", target: "_blank" %>
 				<% elsif @company.status == 1 %>
+
 					<%= mail_to "manny@dreamfunded.com", "Join The Waitlist", subject: "I want to invest in #{@company.name}", :class => "company-button profile-button mail-to-button" %>
+
+					
+					<div class="slide">
+					Investment Size
+					  <input class="investment-range" type="range" min="0" max="10" id="myRange"/>
+					</div>
+					<br>
+					<div class="slide">
+					Share Price
+					  <input class="share-price-range" type="range" min="0" max="10" id="mySecondRange"/>
+					</div>
+
 					
 
+				
 				<% else %>
 					<%= button_to "Invest in #{@company.name}", nil, :class => "company-button profile-button", :disabled => true %>
 				<% end %>
@@ -164,3 +178,20 @@
 	</body>
 
 </html>
+<!-- 
+<script>
+	$("#stats-container").click(function () {
+	    $header = $(this);
+	    //getting the next element
+	    $content = $header.next();
+	    //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+	    $content.slideToggle(500, function () {
+	        //execute this after slideToggle is done
+	        //change text of header based on visibility of content div
+	        $header.text(function () {
+	            //change text based on condition
+	            return $content.is(":visible") ? "Collapse" : "Expand";
+	        });
+	   	 });
+	});	
+</script>	 -->
