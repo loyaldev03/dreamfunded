@@ -50,7 +50,7 @@ class UsersController < ApplicationController
 		end
 		@current_user = session[:current_user]
 		@Authority = User.Authority
-		@users = User.all.order(:first_name)
+		@users = User.all.order(:created_at)
 		@new = News.new
 	end
 
@@ -191,6 +191,21 @@ class UsersController < ApplicationController
 		session[:current_user] = user
 		#ContactMailer.welcome_email(user).deliver
 		ContactMailer.personal_hello(user).deliver
+		redirect_to root_path
+	end
+
+	def certify
+	end
+
+	def certify_user
+		user = User.find(params[:id])
+		if params[:reg] == nil
+			@authority = User.Authority[:Accredited]
+		else
+			@authority = User.Authority[:Basic]
+		end
+		user.update(authority: @authority)
+		session[:current_user] = user
 		redirect_to root_path
 	end
 
