@@ -17,21 +17,10 @@
       </div>
 
       <div class= "signup-content">
-        <h4>Basic Information</h4>
-        <%= form_tag("create", method: "post") do %>
-           <%= text_field_tag(:first_name, nil, :placeholder => "First Name", :class => "input-box half") %>
-           <div class= "filler"></div>
-           <%= text_field_tag(:last_name, nil, :placeholder => "Last Name", :class => "input-box half scoot-left") %><br>
-           <%= text_field_tag(:phone, nil, :placeholder => "Phone", :class => "input-box") %><br>
-
-        <h4>Login Information</h4>
-           <%= text_field_tag(:email, nil, :placeholder => "Email", :class => "input-box") %>
-           <%= password_field_tag(:password, nil, :placeholder => "Password ", :class => "input-box half little-margin") %>
-           <%= password_field_tag(:password_confirmation, nil, :placeholder => "Confirm Password", :class => "input-box half scoot-left little-margin") %>
-           <span class='password-six-chars'>Password must be at least 6 characters</span>
-           <br>
+        <%= form_tag("certify_user", method: "post") do %>
+            <%= hidden_field_tag(:id,  session[:current_user].id )%>
+           <h4>Step 2</h4>
            <h4> Certify yourself as an investor </h4>
-
            <div class = "check_box">
              <input type="checkbox" name="net_worth" id="box1" onclick = "onOff()"> My net worth is over $1 million, excluding my home.<br>
              <input type="checkbox" name="income" id="box3" onclick = "onOff()"> My income was $200k+ for the past two years.<br>
@@ -39,10 +28,6 @@
              <input type="checkbox" name="international" id='box2'  onclick = "onOff()"> I am an international investor.<br>
              <input type="checkbox" name="reg" id="box5" onclick = "onOff()"> I am not accredited, but may invest when the rules change.<br>
           </div>
-
-<!--            <div class= "centered">
-              <p>A questionnaire will be sent to your email shortly to determine your account type.</p>
-           </div> -->
 
            <div class = "notice centered">
               <%= flash[:notice] if flash[:notice] %>
@@ -52,10 +37,6 @@
            <div class= "centered">
            <p class='check_box'>We will never sell or rent your personal information.</p>
               <%= submit_tag("Submit", :id => "submit-button", :disabled => true) %>
-              <div class='social-login-ions'>
-                <%= link_to fa_icon("google 2x"), '/auth/google_oauth2', id: 'google-icon' %>
-                <%= link_to fa_icon("linkedin 2x"), '/auth/linkedin', id: 'linkedin-icon'  %>
-              </div>
            </div>
 
         <% end %>
