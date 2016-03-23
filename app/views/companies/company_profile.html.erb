@@ -66,8 +66,21 @@
 
 					<%= mail_to "manny@dreamfunded.com", "Join The Waitlist", subject: "I want to invest in #{@company.name}", :class => "company-button profile-button mail-to-button" %>
 					
-					Suggested Target Price for this auction: 
-					<%= button_to "$#{@company.suggested_target_price}", nil, :class => "company-button profile-button", :disabled => true %>
+
+						<%= button_to "$#{@company.suggested_target_price}", nil, :class => "company-button profile-button", :disabled => true %>
+
+					<%= form_tag "/submit_bid" , method: :post do %>
+						Suggested Target Price for this auction: 
+
+						<%= text_field_tag(:investment_amount, nil, :class =>"userbox liquidate-form-company", :placeholder => "Investment Amount", :required => true) %>
+
+						<%= text_field_tag(:shares_price, nil, :class =>"userbox liquidate-form-company", :placeholder => "Shares Price", :required => true) %>
+						
+						<%= submit_tag "Place a Bid", :class => "company-button profile-button", :disabled => false %>
+						<%= hidden_field_tag "id", @company.id %>
+						<%= hidden_field_tag "name", @company.name %>
+					<% end %>
+
 						
 					
 			<!-- 		<div class="slide">

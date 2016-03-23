@@ -250,6 +250,12 @@ class CompaniesController < ApplicationController
 
     end
 
+    def submit_bid
+    	user = session[:current_user]
+    	ProspectiveInvestment.create(user_id: user.id, first_name: user.first_name, last_name: user.last_name, email: user.email, phone: user.phone, shares_price: params[:shares_price], investment_amount: params[:investment_amount], company: params[:name], company_id: params[:id])
+		redirect_to :controller => 'companies', :action => 'company_profile', :id => params[:id]
+   	end
+
    private
    def verify
    	user = User.find(session[:current_user])

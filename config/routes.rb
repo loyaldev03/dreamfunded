@@ -51,6 +51,8 @@ Rails.application.routes.draw do
   get '/edit_seller/:id', to: "home#edit_seller", as: 'edit_seller'
   patch '/liquidate_shares', to: "home#edit_liq_seller", as: :edit_shareholder
 
+  post 'submit_bid', to: "companies#submit_bid"
+
 
   get '/new_seller', to: "home#new_seller"
   post '/new_seller', to: "home#create_new_seller", as: :create_shareholder
