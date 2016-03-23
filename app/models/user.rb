@@ -6,9 +6,23 @@ class User < ActiveRecord::Base
 	validates :first_name, presence:true
 	validates :last_name, presence:true
 	#validates_uniqueness_of :login
-	validates_uniqueness_of :email
-	validates :password, length: { in: 6..20 }
-	validates :password, confirmation: true
+	#validates_uniqueness_of :email
+	# validates :password, length: { in: 6..20 }
+	# validates :password, confirmation: true
+
+	def self.from_omniauth(auth)
+		pass =  SecureRandom.uuid.gsub(/\-/, '')
+	  where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+	    user.provider = auth.provider
+	    user.uid = auth.uid
+	    user.email = auth.info.email
+	    user.confirmed = true
+	    user.first_name = auth.info.name.split(' ').first
+	    user.last_name = auth.info.name.split(' ').second
+	    user.authority = 1
+	    #user.image_url = auth.info.image
+	  end
+	end
 
 	def password_valid?(pass)
 		pass_db = self.password_digest

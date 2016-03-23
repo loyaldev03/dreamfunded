@@ -34,6 +34,9 @@ gem "font-awesome-rails"
 gem 'gibbon'
 gem 'sucker_punch'
 gem 'ckeditor', github: 'galetahub/ckeditor'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-linkedin'
 
 
 gem 'will_paginate', '~> 3.0.5'

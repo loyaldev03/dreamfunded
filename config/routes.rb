@@ -15,6 +15,11 @@ Rails.application.routes.draw do
   get 'payment/index'
   get 'news/manage'
   get 'welcome/index'
+  get 'auth/google_oauth2/callback', to:'omniauth_callbacks#google_oauth2'
+  post 'auth/google_oauth2/callback', to:'omniauth_callbacks#google_oauth2'
+
+  get 'auth/linkedin/callback', to:'omniauth_callbacks#google_oauth2'
+  post 'auth/linkedin/callback', to:'omniauth_callbacks#google_oauth2'
 
   get 'users/portfolio', to: "users#portfolio", as: :portfolio
   get 'users/portfolio_admin/:id', to: "users#portfolio_admin", as: :portfolio_admin
@@ -32,6 +37,8 @@ Rails.application.routes.draw do
 
   get '/epay', to: "companies#epay", as: :epay
   post '/users/verify', to: 'users#verify', as: 'user_verify'
+
+  get '/users/certify', to: "users#certify", as: 'certify'
 
   get 'homes/faq', to: "home#faq", as: :faq
   get '/legal', to: "home#legal", as: :legal
