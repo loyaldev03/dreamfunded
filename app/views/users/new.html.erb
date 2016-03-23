@@ -52,8 +52,10 @@
            <div class= "centered">
            <p class='check_box'>We will never sell or rent your personal information.</p>
               <%= submit_tag("Submit", :id => "submit-button", :disabled => true) %>
-              <%= link_to 'Sign Up wiht Google', '/auth/google_oauth2' %>
-              <%= link_to 'Sign Up wiht LinkedIn', '/auth/linkedin' %>
+              <div class='social-login-ions'>
+                <%= link_to fa_icon("google 2x"), '/auth/google_oauth2', id: 'google-icon' %>
+                <%= link_to fa_icon("linkedin 2x"), '/auth/linkedin', id: 'linkedin-icon'  %>
+              </div>
            </div>
 
         <% end %>
