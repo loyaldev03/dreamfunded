@@ -17,6 +17,7 @@ ActiveAdmin.register News do
     column  "source"
     column  "created_at"
     column  "updated_at"
+    actions
   end
 
 end

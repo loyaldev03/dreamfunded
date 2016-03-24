@@ -24,6 +24,7 @@ ActiveAdmin.register User do
     column  "provider"
     column  "created_at"
     column  "updated_at"
+    actions
   end
 
 

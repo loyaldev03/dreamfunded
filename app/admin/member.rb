@@ -18,6 +18,7 @@ ActiveAdmin.register Member do
     column  "rank"
     column  "created_at"
     column  "updated_at"
+    actions
   end
 
 end

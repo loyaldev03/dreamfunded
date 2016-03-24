@@ -21,6 +21,7 @@ ActiveAdmin.register Company do
     column  "CEO"
     column  "created_at"
     column  "updated_at"
+    actions
   end
 
 end
