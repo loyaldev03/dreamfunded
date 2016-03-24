@@ -125,7 +125,7 @@ class UsersController < ApplicationController
 	end
 
 	def post_login
-		login_user = User.find_by(email: params[:email])
+		login_user = User.find_by(email: params[:email], provider: nil)
 		if login_user == nil
 			flash[:notice] = "This user ID does not exist."
 			redirect_to(:action => :login)
@@ -205,6 +205,8 @@ class UsersController < ApplicationController
 			@authority = User.Authority[:Basic]
 		end
 		user.update(authority: @authority)
+		ContactMailer.personal_hello(user).deliver
+		ContactMailer.account_created(record).deliver
 		session[:current_user] = user
 		redirect_to root_path
 	end

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  ActiveAdmin.routes(self)
   resources :members
 
   mount Ckeditor::Engine => '/ckeditor'
