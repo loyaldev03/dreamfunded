@@ -252,8 +252,9 @@ class CompaniesController < ApplicationController
 
     def submit_bid
     	user = session[:current_user]
-    	ProspectiveInvestment.create(user_id: user.id, first_name: user.first_name, last_name: user.last_name, email: user.email, phone: user.phone, shares_price: params[:shares_price], investment_amount: params[:investment_amount], company: params[:name], company_id: params[:id])
-		redirect_to :controller => 'companies', :action => 'company_profile', :id => params[:id]
+    	investment = ProspectiveInvestment.create(user_id: user.id, first_name: user.first_name, last_name: user.last_name, email: user.email, phone: user.phone, shares_price: params[:shares_price], investment_amount: params[:investment_amount], company: params[:name], company_id: params[:id])
+		ContactMailer.prospective_investment_email(user.first_name, user.last_name, user.email, user.phone, investment.company, investment.investment_amount, investment.shares_price)
+		redirect_to '/companies'
    	end
 
    private

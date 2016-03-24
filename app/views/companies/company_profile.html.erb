@@ -71,18 +71,15 @@
 					<%= form_tag "/submit_bid" , method: :post do %>
 						Suggested Target Price for this auction: 
 						<br>
-						<%= button_to "$#{@company.suggested_target_price}", nil, :class => "company-button profile-button", :disabled => true %>
+						<%#= button_to "$#{@company.suggested_target_price}", nil, :class => "company-button profile-button", :disabled => true %>
 						<%= select_tag(:investment_amount, options_for_select([ "$3-5k", "$5-10k", "$10-25k", "$25k or more" ]), prompt: "Investment Amount") %>
 
-					<!-- 	<%= text_field_tag(:investment_amount, nil, :class =>"userbox liquidate-form-company", :placeholder => "Investment Amount", :required => true) %> -->
-
+						<br><br>
+						<%= range_field_tag(:shares_price, :min=>0, :max=>200, :class=>"slide", :id=>"slider1") %>
 						<%= text_field_tag(:shares_price, nil, :class =>"userbox liquidate-form-company", :placeholder => "Shares Price", :required => true) %>
 
-<!-- 						<br>
-						<%= range_field_tag 'ranger', in: 10, step: 1 %>
-						<div id='target'></div> -->
-						
-						<%= submit_tag "Place a Bid", :class => "company-button profile-button" %>
+
+						<%= submit_tag("Place a Bid", :class => "company-button profile-button") %>
 						<%= hidden_field_tag "id", @company.id %>
 						<%= hidden_field_tag "name", @company.name %>
 					<% end %>
@@ -200,10 +197,6 @@
 	</body>
 
 </html>
-<script>
-$('#ranger').on 'input', ->
-  $('#target').text($('#ranger').val())
-</script>	
 <!-- 
 <script>
 	$("#stats-container").click(function () {

@@ -152,6 +152,7 @@ class HomeController < ApplicationController
 		redirect_to '/liquidate_after'
 	end
 
+
 	def liquidate_after
 	end
 

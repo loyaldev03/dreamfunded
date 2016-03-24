@@ -42,6 +42,17 @@ class ContactMailer < ActionMailer::Base
     # mail(to: "alexandr.larionov88@gmail.com", subject: 'Request to liquidate shares')
   end
 
+  def prospective_investment_email(first_name, last_name, email, phone, company, investment_amount, shares_price)
+    @first_name = first_name
+    @last_name = last_name
+    @email = email
+    @phone = phone
+    @company = company
+    @investment_amount = investment_amount
+    @shares_price = shares_price
+    mail(to: "info@dreamfunded.com", subject: "Bid on #{company}: $#{shares_price}/share and Total Investment of #{investment_amount}")
+  end
+
   def account_created(user)
     @name = user.last_name
     @email= user.email
