@@ -3,7 +3,7 @@ ActiveAdmin.register Company do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-# permit_params :list, :of, :attributes, :on, :model
+permit_params :image, :document, :hidden, :position, :docusign_url, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at
 #
 # or
 #
@@ -28,6 +28,7 @@ ActiveAdmin.register Company do
     f.inputs 'Company Details' do
         f.input  :name
         f.input  :description
+        f.input :image, :required => false, :as => :file
         f.input  :invested_amount
         f.input  :website_link
         f.input  :goal_amount
@@ -37,5 +38,22 @@ ActiveAdmin.register Company do
     end
     f.actions
   end
+
+  show do |ad|
+    attributes_table do
+      row :name
+      row :image do
+        image_tag(ad.image.url)
+      end
+      row :description
+      row :invested_amount
+      row :website_link
+      row :goal_amount
+      row :CEO
+      row :created_at
+      row :updated_at
+      # Will display the image on show object page
+    end
+   end
 
 end

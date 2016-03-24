@@ -553,6 +553,33 @@ and (max-device-width : 568px) {
   }
 }
 
+ /*i P A D*/
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)  {
+  #left{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 0 !important;
+  }
+  .image4-box {
+    display: none;
+  }
+  .logos-container{
+    width: 100% !important;
+  }
+  .row2 img{
+    position: relative;
+  }
+  #wallstreet_logo{
+    left: 0;
+  }
+  #fast_company_logo{
+    left: 0;
+  }
+}
+
 .transparent {
 	color: transparent;
 }
