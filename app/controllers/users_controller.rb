@@ -205,6 +205,8 @@ class UsersController < ApplicationController
 			@authority = User.Authority[:Basic]
 		end
 		user.update(authority: @authority)
+		ContactMailer.personal_hello(user).deliver
+		ContactMailer.account_created(record).deliver
 		session[:current_user] = user
 		redirect_to root_path
 	end
