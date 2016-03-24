@@ -23,4 +23,18 @@ ActiveAdmin.register Company do
     column  "updated_at"
   end
 
+  form do |f|
+    f.inputs 'Company Details' do
+        f.input  :name
+        f.input  :description
+        f.input  :invested_amount
+        f.input  :website_link
+        f.input  :goal_amount
+        f.input  :CEO
+        f.input  :created_at
+        f.input  :updated_at
+    end
+    f.actions
+  end
+
 end
