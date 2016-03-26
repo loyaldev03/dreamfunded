@@ -38,6 +38,7 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-linkedin'
 gem 'activeadmin'
+gem 'infusionsoft'
 
 
 gem 'will_paginate', '~> 3.0.5'
@@ -47,4 +48,6 @@ gem 'bootstrap-will_paginate', '~> 0.0.10'
 group :development do
    gem "thin"
    gem "letter_opener"
+   gem "better_errors"
+   gem 'binding_of_caller'
 end

@@ -205,6 +205,9 @@ class UsersController < ApplicationController
 			@authority = User.Authority[:Basic]
 		end
 		user.update(authority: @authority)
+		if user.first_name && user.last_name && user.email && Rails.env.production?
+			Infusionsoft.contact_add({:FirstName => user.first_name , :LastName => user.last_name, :Email => user.email})
+		end
 		ContactMailer.personal_hello(user).deliver
 		ContactMailer.account_created(user).deliver
 		session[:current_user] = user
