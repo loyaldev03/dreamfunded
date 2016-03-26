@@ -113,6 +113,9 @@ class UsersController < ApplicationController
 			ContactMailer.verify_email(record).deliver
 			ContactMailer.account_created(record).deliver
 			flash[:notice] = "Registration successful."
+			if user.first_name && user.last_name && user.email && Rails.env.production?
+				Infusionsoft.contact_add({:FirstName => user.first_name , :LastName => user.last_name, :Email => user.email})
+			end
 			redirect_to(:action => :post_login, :email => @email, :password => @password)
 		else
 			flash[:notice] = "Validation failed."
@@ -122,6 +125,7 @@ class UsersController < ApplicationController
 			end
 			render(:action => :new)
 		end
+
 	end
 
 	def post_login
