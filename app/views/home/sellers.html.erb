@@ -25,6 +25,7 @@
             <th>Created</th>
             <th>Updated</th>
             <th>Edit</th>
+            <th>Approve</th>
 
            </tr>
               <% @sellers.order(:first_name).each do |seller| %>
@@ -42,6 +43,10 @@
                   <td><%= seller.created_at %></td>
                   <td><%= seller.updated_at %></td>
                   <td><%= link_to "Edit", edit_seller_path(seller.id) %></td>
+                  <td><% if seller.approved != true %>
+                         <%= link_to "Approve", "/email_all_investors/#{seller.id}" %>
+                      <% end %>
+                  </td>
                 </tr>
             <% end %>
           </table>

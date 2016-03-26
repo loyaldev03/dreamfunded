@@ -59,6 +59,8 @@ Rails.application.routes.draw do
   get '/edit_seller/:id', to: "home#edit_seller", as: 'edit_seller'
   patch '/liquidate_shares', to: "home#edit_liq_seller", as: :edit_shareholder
 
+  get '/email_all_investors/:id', to: "home#email_all_investors", as: :email_all_investors
+
   post 'submit_bid', to: "companies#submit_bid"
 
 

@@ -53,6 +53,17 @@ class ContactMailer < ActionMailer::Base
     mail(to: "info@dreamfunded.com", subject: "Bid on #{company}: $#{shares_price}/share and Total Investment of #{investment_amount}")
   end
 
+  def open_auction_email(first_name, last_name, email, phone, company, number_shares, shares_price)
+    @first_name = first_name
+    @last_name = last_name
+    @email = email
+    @phone = phone
+    @company = company
+    @number_shares = number_shares
+    @shares_price = shares_price
+    mail(to: "rexford@dreamfunded.com", subject: "Dreamfunded: new Auction for #{number_shares} shares of #{company}")
+  end
+
   def account_created(user)
     @name = user.last_name
     @email= user.email

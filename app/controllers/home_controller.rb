@@ -9,6 +9,7 @@ class HomeController < ApplicationController
 		end
 	end
 
+
 	def sellers
 		@sellers = LiquidateShare.all
 	end
@@ -148,10 +149,24 @@ class HomeController < ApplicationController
 		@message = params[:message].first
 		LiquidateShare.create(first_name: @first_name, last_name: @last_name, company: @company, number_shares: @number_shares, shares_price: @shares_price, timeframe: @timeframe, email: @email, phone: @phone, rofr_restrictions: @rofr_restrictions, financial_assistance: @financial_assistance, message: @message)
 		ContactMailer.liquidate_email(@first_name, @last_name, @company, @number_shares, @shares_price, @timeframe, @email, @phone, @rofr_restrictions, @financial_assistance, @message).deliver
+		
 		flash[:name] = @first_name
 		redirect_to '/liquidate_after'
 	end
 
+	def email_all_investors
+		seller = LiquidateShare.find(params[:id])
+		seller.update(approved: true)
+		first_name = seller.first_name
+		last_name = seller.last_name
+		email = seller.email
+		phone = seller.phone
+		company = seller.company
+		number_shares = seller.number_shares
+		shares_price = seller.shares_price
+		ContactMailer.open_auction_email(first_name, last_name, email, phone, company, number_shares, shares_price).deliver
+		redirect_to '/sellers'
+	end
 
 	def liquidate_after
 	end
