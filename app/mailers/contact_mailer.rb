@@ -61,7 +61,9 @@ class ContactMailer < ActionMailer::Base
     @company = company
     @number_shares = number_shares
     @shares_price = shares_price
-    mail(to: "rexford@dreamfunded.com", subject: "Dreamfunded: new Auction for #{number_shares} shares of #{company}")
+    User.where(authority: 2).each do |user|
+      mail(to: user.email, subject: "Dreamfunded: new Auction for #{number_shares} shares of #{company}")
+    end
   end
 
   def account_created(user)
