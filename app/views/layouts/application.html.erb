@@ -32,7 +32,7 @@
 				<ul class= "main-menu white">
 					<li id='mobile-menu'><button >Menu<span class="arrow">&#9660;</span></button>
 						<ul class='sub-menu white'>
-							<li><button onclick= "whyInv()">Why Invest</button></li>
+							<!-- <li><button onclick= "whyInv()">Why Invest</button></li> -->
 							<% if user_session != nil && user_session.authority >= authority[:Accredited] %>
 								<li><button onclick= "invest()">Invest</button></li>
 							<% elsif user_session == nil %>
