@@ -1,0 +1,4835 @@
+/*!
+ * Bootstrap v3.3.5 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+/*!
+ * Generated using the Bootstrap Customizer (http://getbootstrap.com/customize/?id=02b791e4025965ed4cc7)
+ * Config saved to config.json and https://gist.github.com/02b791e4025965ed4cc7
+ *//*!
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ *//*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+ /*html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:0.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace, monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}html{font-size:10px;-webkit-tap-highlight-color:rgba(0,0,0,0)}body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:1.42857143;color:#333;background-color:#fff}input,button,select,textarea{font-family:inherit;font-size:inherit;line-height:inherit}a{color:#337ab7;text-decoration:none}a:hover,a:focus{color:#23527c;text-decoration:underline}a:focus{outline:thin dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}figure{margin:0}img{vertical-align:middle}.img-responsive{display:block;max-width:100%;height:auto}.img-rounded{border-radius:6px}.img-thumbnail{padding:4px;line-height:1.42857143;background-color:#fff;border:1px solid #ddd;border-radius:4px;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;transition:all .2s ease-in-out;display:inline-block;max-width:100%;height:auto}.img-circle{border-radius:50%}hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eee}.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);border:0}.sr-only-focusable:active,.sr-only-focusable:focus{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto}[role="button"]{cursor:pointer}.modal-open{overflow:hidden}.modal{display:none;overflow:hidden;position:fixed;top:0;right:0;bottom:0;left:0;z-index:1050;-webkit-overflow-scrolling:touch;outline:0}.modal.fade .modal-dialog{-webkit-transform:translate(0, -25%);-ms-transform:translate(0, -25%);-o-transform:translate(0, -25%);transform:translate(0, -25%);-webkit-transition:-webkit-transform 0.3s ease-out;-o-transition:-o-transform 0.3s ease-out;transition:transform 0.3s ease-out}.modal.in .modal-dialog{-webkit-transform:translate(0, 0);-ms-transform:translate(0, 0);-o-transform:translate(0, 0);transform:translate(0, 0)}.modal-open .modal{overflow-x:hidden;overflow-y:auto}.modal-dialog{position:relative;width:auto;margin:10px}.modal-content{position:relative;background-color:#fff;border:1px solid #999;border:1px solid rgba(0,0,0,0.2);border-radius:6px;-webkit-box-shadow:0 3px 9px rgba(0,0,0,0.5);box-shadow:0 3px 9px rgba(0,0,0,0.5);-webkit-background-clip:padding-box;background-clip:padding-box;outline:0}.modal-backdrop{position:fixed;top:0;right:0;bottom:0;left:0;z-index:1040;background-color:#000}.modal-backdrop.fade{opacity:0;filter:alpha(opacity=0)}.modal-backdrop.in{opacity:.5;filter:alpha(opacity=50)}.modal-header{padding:15px;border-bottom:1px solid #e5e5e5}.modal-header .close{margin-top:-2px}.modal-title{margin:0;line-height:1.42857143}.modal-body{position:relative;padding:15px}.modal-footer{padding:15px;text-align:right;border-top:1px solid #e5e5e5}.modal-footer .btn+.btn{margin-left:5px;margin-bottom:0}.modal-footer .btn-group .btn+.btn{margin-left:-1px}.modal-footer .btn-block+.btn-block{margin-left:0}.modal-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}@media (min-width:768px){.modal-dialog{width:600px;margin:30px auto}.modal-content{-webkit-box-shadow:0 5px 15px rgba(0,0,0,0.5);box-shadow:0 5px 15px rgba(0,0,0,0.5)}.modal-sm{width:300px}}@media (min-width:992px){.modal-lg{width:900px}}.clearfix:before,.clearfix:after,.modal-header:before,.modal-header:after,.modal-footer:before,.modal-footer:after{content:" ";display:table}.clearfix:after,.modal-header:after,.modal-footer:after{clear:both}.center-block{display:block;margin-left:auto;margin-right:auto}.pull-right{float:right !important}.pull-left{float:left !important}.hide{display:none !important}.show{display:block !important}.invisible{visibility:hidden}.text-hide{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}.hidden{display:none !important}.affix{position:fixed}*/
+
+/*!
+ *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+/* FONT PATH
+ * -------------------------- */
+
+
+
+
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/assets/fontawesome-webfont.eot?v=4.5.0');
+  src: url('/assets/fontawesome-webfont.eot?#iefix&v=4.5.0') format('embedded-opentype'), url('/assets/fontawesome-webfont.woff2?v=4.5.0') format('woff2'), url('/assets/fontawesome-webfont.woff?v=4.5.0') format('woff'), url('/assets/fontawesome-webfont.ttf?v=4.5.0') format('truetype'), url('/assets/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* makes the font 33% larger relative to the icon container */
+.fa-lg {
+  font-size: 1.33333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+.fa-2x {
+  font-size: 2em;
+}
+.fa-3x {
+  font-size: 3em;
+}
+.fa-4x {
+  font-size: 4em;
+}
+.fa-5x {
+  font-size: 5em;
+}
+.fa-fw {
+  width: 1.28571429em;
+  text-align: center;
+}
+.fa-ul {
+  padding-left: 0;
+  margin-left: 2.14285714em;
+  list-style-type: none;
+}
+.fa-ul > li {
+  position: relative;
+}
+.fa-li {
+  position: absolute;
+  left: -2.14285714em;
+  width: 2.14285714em;
+  top: 0.14285714em;
+  text-align: center;
+}
+.fa-li.fa-lg {
+  left: -1.85714286em;
+}
+.fa-border {
+  padding: .2em .25em .15em;
+  border: solid 0.08em #eeeeee;
+  border-radius: .1em;
+}
+.fa-pull-left {
+  float: left;
+}
+.fa-pull-right {
+  float: right;
+}
+.fa.fa-pull-left {
+  margin-right: .3em;
+}
+.fa.fa-pull-right {
+  margin-left: .3em;
+}
+/* Deprecated as of 4.4.0 */
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+.fa.pull-left {
+  margin-right: .3em;
+}
+.fa.pull-right {
+  margin-left: .3em;
+}
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
+}
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+  animation: fa-spin 1s infinite steps(8);
+}
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+.fa-rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.fa-rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.fa-rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+.fa-flip-horizontal {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+.fa-flip-vertical {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+:root .fa-rotate-90,
+:root .fa-rotate-180,
+:root .fa-rotate-270,
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical {
+  filter: none;
+}
+.fa-stack {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle;
+}
+.fa-stack-1x,
+.fa-stack-2x {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+.fa-stack-1x {
+  line-height: inherit;
+}
+.fa-stack-2x {
+  font-size: 2em;
+}
+.fa-inverse {
+  color: #ffffff;
+}
+/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+   readers do not read off random characters that represent icons */
+.fa-glass:before {
+  content: "\f000";
+}
+.fa-music:before {
+  content: "\f001";
+}
+.fa-search:before {
+  content: "\f002";
+}
+.fa-envelope-o:before {
+  content: "\f003";
+}
+.fa-heart:before {
+  content: "\f004";
+}
+.fa-star:before {
+  content: "\f005";
+}
+.fa-star-o:before {
+  content: "\f006";
+}
+.fa-user:before {
+  content: "\f007";
+}
+.fa-film:before {
+  content: "\f008";
+}
+.fa-th-large:before {
+  content: "\f009";
+}
+.fa-th:before {
+  content: "\f00a";
+}
+.fa-th-list:before {
+  content: "\f00b";
+}
+.fa-check:before {
+  content: "\f00c";
+}
+.fa-remove:before,
+.fa-close:before,
+.fa-times:before {
+  content: "\f00d";
+}
+.fa-search-plus:before {
+  content: "\f00e";
+}
+.fa-search-minus:before {
+  content: "\f010";
+}
+.fa-power-off:before {
+  content: "\f011";
+}
+.fa-signal:before {
+  content: "\f012";
+}
+.fa-gear:before,
+.fa-cog:before {
+  content: "\f013";
+}
+.fa-trash-o:before {
+  content: "\f014";
+}
+.fa-home:before {
+  content: "\f015";
+}
+.fa-file-o:before {
+  content: "\f016";
+}
+.fa-clock-o:before {
+  content: "\f017";
+}
+.fa-road:before {
+  content: "\f018";
+}
+.fa-download:before {
+  content: "\f019";
+}
+.fa-arrow-circle-o-down:before {
+  content: "\f01a";
+}
+.fa-arrow-circle-o-up:before {
+  content: "\f01b";
+}
+.fa-inbox:before {
+  content: "\f01c";
+}
+.fa-play-circle-o:before {
+  content: "\f01d";
+}
+.fa-rotate-right:before,
+.fa-repeat:before {
+  content: "\f01e";
+}
+.fa-refresh:before {
+  content: "\f021";
+}
+.fa-list-alt:before {
+  content: "\f022";
+}
+.fa-lock:before {
+  content: "\f023";
+}
+.fa-flag:before {
+  content: "\f024";
+}
+.fa-headphones:before {
+  content: "\f025";
+}
+.fa-volume-off:before {
+  content: "\f026";
+}
+.fa-volume-down:before {
+  content: "\f027";
+}
+.fa-volume-up:before {
+  content: "\f028";
+}
+.fa-qrcode:before {
+  content: "\f029";
+}
+.fa-barcode:before {
+  content: "\f02a";
+}
+.fa-tag:before {
+  content: "\f02b";
+}
+.fa-tags:before {
+  content: "\f02c";
+}
+.fa-book:before {
+  content: "\f02d";
+}
+.fa-bookmark:before {
+  content: "\f02e";
+}
+.fa-print:before {
+  content: "\f02f";
+}
+.fa-camera:before {
+  content: "\f030";
+}
+.fa-font:before {
+  content: "\f031";
+}
+.fa-bold:before {
+  content: "\f032";
+}
+.fa-italic:before {
+  content: "\f033";
+}
+.fa-text-height:before {
+  content: "\f034";
+}
+.fa-text-width:before {
+  content: "\f035";
+}
+.fa-align-left:before {
+  content: "\f036";
+}
+.fa-align-center:before {
+  content: "\f037";
+}
+.fa-align-right:before {
+  content: "\f038";
+}
+.fa-align-justify:before {
+  content: "\f039";
+}
+.fa-list:before {
+  content: "\f03a";
+}
+.fa-dedent:before,
+.fa-outdent:before {
+  content: "\f03b";
+}
+.fa-indent:before {
+  content: "\f03c";
+}
+.fa-video-camera:before {
+  content: "\f03d";
+}
+.fa-photo:before,
+.fa-image:before,
+.fa-picture-o:before {
+  content: "\f03e";
+}
+.fa-pencil:before {
+  content: "\f040";
+}
+.fa-map-marker:before {
+  content: "\f041";
+}
+.fa-adjust:before {
+  content: "\f042";
+}
+.fa-tint:before {
+  content: "\f043";
+}
+.fa-edit:before,
+.fa-pencil-square-o:before {
+  content: "\f044";
+}
+.fa-share-square-o:before {
+  content: "\f045";
+}
+.fa-check-square-o:before {
+  content: "\f046";
+}
+.fa-arrows:before {
+  content: "\f047";
+}
+.fa-step-backward:before {
+  content: "\f048";
+}
+.fa-fast-backward:before {
+  content: "\f049";
+}
+.fa-backward:before {
+  content: "\f04a";
+}
+.fa-play:before {
+  content: "\f04b";
+}
+.fa-pause:before {
+  content: "\f04c";
+}
+.fa-stop:before {
+  content: "\f04d";
+}
+.fa-forward:before {
+  content: "\f04e";
+}
+.fa-fast-forward:before {
+  content: "\f050";
+}
+.fa-step-forward:before {
+  content: "\f051";
+}
+.fa-eject:before {
+  content: "\f052";
+}
+.fa-chevron-left:before {
+  content: "\f053";
+}
+.fa-chevron-right:before {
+  content: "\f054";
+}
+.fa-plus-circle:before {
+  content: "\f055";
+}
+.fa-minus-circle:before {
+  content: "\f056";
+}
+.fa-times-circle:before {
+  content: "\f057";
+}
+.fa-check-circle:before {
+  content: "\f058";
+}
+.fa-question-circle:before {
+  content: "\f059";
+}
+.fa-info-circle:before {
+  content: "\f05a";
+}
+.fa-crosshairs:before {
+  content: "\f05b";
+}
+.fa-times-circle-o:before {
+  content: "\f05c";
+}
+.fa-check-circle-o:before {
+  content: "\f05d";
+}
+.fa-ban:before {
+  content: "\f05e";
+}
+.fa-arrow-left:before {
+  content: "\f060";
+}
+.fa-arrow-right:before {
+  content: "\f061";
+}
+.fa-arrow-up:before {
+  content: "\f062";
+}
+.fa-arrow-down:before {
+  content: "\f063";
+}
+.fa-mail-forward:before,
+.fa-share:before {
+  content: "\f064";
+}
+.fa-expand:before {
+  content: "\f065";
+}
+.fa-compress:before {
+  content: "\f066";
+}
+.fa-plus:before {
+  content: "\f067";
+}
+.fa-minus:before {
+  content: "\f068";
+}
+.fa-asterisk:before {
+  content: "\f069";
+}
+.fa-exclamation-circle:before {
+  content: "\f06a";
+}
+.fa-gift:before {
+  content: "\f06b";
+}
+.fa-leaf:before {
+  content: "\f06c";
+}
+.fa-fire:before {
+  content: "\f06d";
+}
+.fa-eye:before {
+  content: "\f06e";
+}
+.fa-eye-slash:before {
+  content: "\f070";
+}
+.fa-warning:before,
+.fa-exclamation-triangle:before {
+  content: "\f071";
+}
+.fa-plane:before {
+  content: "\f072";
+}
+.fa-calendar:before {
+  content: "\f073";
+}
+.fa-random:before {
+  content: "\f074";
+}
+.fa-comment:before {
+  content: "\f075";
+}
+.fa-magnet:before {
+  content: "\f076";
+}
+.fa-chevron-up:before {
+  content: "\f077";
+}
+.fa-chevron-down:before {
+  content: "\f078";
+}
+.fa-retweet:before {
+  content: "\f079";
+}
+.fa-shopping-cart:before {
+  content: "\f07a";
+}
+.fa-folder:before {
+  content: "\f07b";
+}
+.fa-folder-open:before {
+  content: "\f07c";
+}
+.fa-arrows-v:before {
+  content: "\f07d";
+}
+.fa-arrows-h:before {
+  content: "\f07e";
+}
+.fa-bar-chart-o:before,
+.fa-bar-chart:before {
+  content: "\f080";
+}
+.fa-twitter-square:before {
+  content: "\f081";
+}
+.fa-facebook-square:before {
+  content: "\f082";
+}
+.fa-camera-retro:before {
+  content: "\f083";
+}
+.fa-key:before {
+  content: "\f084";
+}
+.fa-gears:before,
+.fa-cogs:before {
+  content: "\f085";
+}
+.fa-comments:before {
+  content: "\f086";
+}
+.fa-thumbs-o-up:before {
+  content: "\f087";
+}
+.fa-thumbs-o-down:before {
+  content: "\f088";
+}
+.fa-star-half:before {
+  content: "\f089";
+}
+.fa-heart-o:before {
+  content: "\f08a";
+}
+.fa-sign-out:before {
+  content: "\f08b";
+}
+.fa-linkedin-square:before {
+  content: "\f08c";
+}
+.fa-thumb-tack:before {
+  content: "\f08d";
+}
+.fa-external-link:before {
+  content: "\f08e";
+}
+.fa-sign-in:before {
+  content: "\f090";
+}
+.fa-trophy:before {
+  content: "\f091";
+}
+.fa-github-square:before {
+  content: "\f092";
+}
+.fa-upload:before {
+  content: "\f093";
+}
+.fa-lemon-o:before {
+  content: "\f094";
+}
+.fa-phone:before {
+  content: "\f095";
+}
+.fa-square-o:before {
+  content: "\f096";
+}
+.fa-bookmark-o:before {
+  content: "\f097";
+}
+.fa-phone-square:before {
+  content: "\f098";
+}
+.fa-twitter:before {
+  content: "\f099";
+}
+.fa-facebook-f:before,
+.fa-facebook:before {
+  content: "\f09a";
+}
+.fa-github:before {
+  content: "\f09b";
+}
+.fa-unlock:before {
+  content: "\f09c";
+}
+.fa-credit-card:before {
+  content: "\f09d";
+}
+.fa-feed:before,
+.fa-rss:before {
+  content: "\f09e";
+}
+.fa-hdd-o:before {
+  content: "\f0a0";
+}
+.fa-bullhorn:before {
+  content: "\f0a1";
+}
+.fa-bell:before {
+  content: "\f0f3";
+}
+.fa-certificate:before {
+  content: "\f0a3";
+}
+.fa-hand-o-right:before {
+  content: "\f0a4";
+}
+.fa-hand-o-left:before {
+  content: "\f0a5";
+}
+.fa-hand-o-up:before {
+  content: "\f0a6";
+}
+.fa-hand-o-down:before {
+  content: "\f0a7";
+}
+.fa-arrow-circle-left:before {
+  content: "\f0a8";
+}
+.fa-arrow-circle-right:before {
+  content: "\f0a9";
+}
+.fa-arrow-circle-up:before {
+  content: "\f0aa";
+}
+.fa-arrow-circle-down:before {
+  content: "\f0ab";
+}
+.fa-globe:before {
+  content: "\f0ac";
+}
+.fa-wrench:before {
+  content: "\f0ad";
+}
+.fa-tasks:before {
+  content: "\f0ae";
+}
+.fa-filter:before {
+  content: "\f0b0";
+}
+.fa-briefcase:before {
+  content: "\f0b1";
+}
+.fa-arrows-alt:before {
+  content: "\f0b2";
+}
+.fa-group:before,
+.fa-users:before {
+  content: "\f0c0";
+}
+.fa-chain:before,
+.fa-link:before {
+  content: "\f0c1";
+}
+.fa-cloud:before {
+  content: "\f0c2";
+}
+.fa-flask:before {
+  content: "\f0c3";
+}
+.fa-cut:before,
+.fa-scissors:before {
+  content: "\f0c4";
+}
+.fa-copy:before,
+.fa-files-o:before {
+  content: "\f0c5";
+}
+.fa-paperclip:before {
+  content: "\f0c6";
+}
+.fa-save:before,
+.fa-floppy-o:before {
+  content: "\f0c7";
+}
+.fa-square:before {
+  content: "\f0c8";
+}
+.fa-navicon:before,
+.fa-reorder:before,
+.fa-bars:before {
+  content: "\f0c9";
+}
+.fa-list-ul:before {
+  content: "\f0ca";
+}
+.fa-list-ol:before {
+  content: "\f0cb";
+}
+.fa-strikethrough:before {
+  content: "\f0cc";
+}
+.fa-underline:before {
+  content: "\f0cd";
+}
+.fa-table:before {
+  content: "\f0ce";
+}
+.fa-magic:before {
+  content: "\f0d0";
+}
+.fa-truck:before {
+  content: "\f0d1";
+}
+.fa-pinterest:before {
+  content: "\f0d2";
+}
+.fa-pinterest-square:before {
+  content: "\f0d3";
+}
+.fa-google-plus-square:before {
+  content: "\f0d4";
+}
+.fa-google-plus:before {
+  content: "\f0d5";
+}
+.fa-money:before {
+  content: "\f0d6";
+}
+.fa-caret-down:before {
+  content: "\f0d7";
+}
+.fa-caret-up:before {
+  content: "\f0d8";
+}
+.fa-caret-left:before {
+  content: "\f0d9";
+}
+.fa-caret-right:before {
+  content: "\f0da";
+}
+.fa-columns:before {
+  content: "\f0db";
+}
+.fa-unsorted:before,
+.fa-sort:before {
+  content: "\f0dc";
+}
+.fa-sort-down:before,
+.fa-sort-desc:before {
+  content: "\f0dd";
+}
+.fa-sort-up:before,
+.fa-sort-asc:before {
+  content: "\f0de";
+}
+.fa-envelope:before {
+  content: "\f0e0";
+}
+.fa-linkedin:before {
+  content: "\f0e1";
+}
+.fa-rotate-left:before,
+.fa-undo:before {
+  content: "\f0e2";
+}
+.fa-legal:before,
+.fa-gavel:before {
+  content: "\f0e3";
+}
+.fa-dashboard:before,
+.fa-tachometer:before {
+  content: "\f0e4";
+}
+.fa-comment-o:before {
+  content: "\f0e5";
+}
+.fa-comments-o:before {
+  content: "\f0e6";
+}
+.fa-flash:before,
+.fa-bolt:before {
+  content: "\f0e7";
+}
+.fa-sitemap:before {
+  content: "\f0e8";
+}
+.fa-umbrella:before {
+  content: "\f0e9";
+}
+.fa-paste:before,
+.fa-clipboard:before {
+  content: "\f0ea";
+}
+.fa-lightbulb-o:before {
+  content: "\f0eb";
+}
+.fa-exchange:before {
+  content: "\f0ec";
+}
+.fa-cloud-download:before {
+  content: "\f0ed";
+}
+.fa-cloud-upload:before {
+  content: "\f0ee";
+}
+.fa-user-md:before {
+  content: "\f0f0";
+}
+.fa-stethoscope:before {
+  content: "\f0f1";
+}
+.fa-suitcase:before {
+  content: "\f0f2";
+}
+.fa-bell-o:before {
+  content: "\f0a2";
+}
+.fa-coffee:before {
+  content: "\f0f4";
+}
+.fa-cutlery:before {
+  content: "\f0f5";
+}
+.fa-file-text-o:before {
+  content: "\f0f6";
+}
+.fa-building-o:before {
+  content: "\f0f7";
+}
+.fa-hospital-o:before {
+  content: "\f0f8";
+}
+.fa-ambulance:before {
+  content: "\f0f9";
+}
+.fa-medkit:before {
+  content: "\f0fa";
+}
+.fa-fighter-jet:before {
+  content: "\f0fb";
+}
+.fa-beer:before {
+  content: "\f0fc";
+}
+.fa-h-square:before {
+  content: "\f0fd";
+}
+.fa-plus-square:before {
+  content: "\f0fe";
+}
+.fa-angle-double-left:before {
+  content: "\f100";
+}
+.fa-angle-double-right:before {
+  content: "\f101";
+}
+.fa-angle-double-up:before {
+  content: "\f102";
+}
+.fa-angle-double-down:before {
+  content: "\f103";
+}
+.fa-angle-left:before {
+  content: "\f104";
+}
+.fa-angle-right:before {
+  content: "\f105";
+}
+.fa-angle-up:before {
+  content: "\f106";
+}
+.fa-angle-down:before {
+  content: "\f107";
+}
+.fa-desktop:before {
+  content: "\f108";
+}
+.fa-laptop:before {
+  content: "\f109";
+}
+.fa-tablet:before {
+  content: "\f10a";
+}
+.fa-mobile-phone:before,
+.fa-mobile:before {
+  content: "\f10b";
+}
+.fa-circle-o:before {
+  content: "\f10c";
+}
+.fa-quote-left:before {
+  content: "\f10d";
+}
+.fa-quote-right:before {
+  content: "\f10e";
+}
+.fa-spinner:before {
+  content: "\f110";
+}
+.fa-circle:before {
+  content: "\f111";
+}
+.fa-mail-reply:before,
+.fa-reply:before {
+  content: "\f112";
+}
+.fa-github-alt:before {
+  content: "\f113";
+}
+.fa-folder-o:before {
+  content: "\f114";
+}
+.fa-folder-open-o:before {
+  content: "\f115";
+}
+.fa-smile-o:before {
+  content: "\f118";
+}
+.fa-frown-o:before {
+  content: "\f119";
+}
+.fa-meh-o:before {
+  content: "\f11a";
+}
+.fa-gamepad:before {
+  content: "\f11b";
+}
+.fa-keyboard-o:before {
+  content: "\f11c";
+}
+.fa-flag-o:before {
+  content: "\f11d";
+}
+.fa-flag-checkered:before {
+  content: "\f11e";
+}
+.fa-terminal:before {
+  content: "\f120";
+}
+.fa-code:before {
+  content: "\f121";
+}
+.fa-mail-reply-all:before,
+.fa-reply-all:before {
+  content: "\f122";
+}
+.fa-star-half-empty:before,
+.fa-star-half-full:before,
+.fa-star-half-o:before {
+  content: "\f123";
+}
+.fa-location-arrow:before {
+  content: "\f124";
+}
+.fa-crop:before {
+  content: "\f125";
+}
+.fa-code-fork:before {
+  content: "\f126";
+}
+.fa-unlink:before,
+.fa-chain-broken:before {
+  content: "\f127";
+}
+.fa-question:before {
+  content: "\f128";
+}
+.fa-info:before {
+  content: "\f129";
+}
+.fa-exclamation:before {
+  content: "\f12a";
+}
+.fa-superscript:before {
+  content: "\f12b";
+}
+.fa-subscript:before {
+  content: "\f12c";
+}
+.fa-eraser:before {
+  content: "\f12d";
+}
+.fa-puzzle-piece:before {
+  content: "\f12e";
+}
+.fa-microphone:before {
+  content: "\f130";
+}
+.fa-microphone-slash:before {
+  content: "\f131";
+}
+.fa-shield:before {
+  content: "\f132";
+}
+.fa-calendar-o:before {
+  content: "\f133";
+}
+.fa-fire-extinguisher:before {
+  content: "\f134";
+}
+.fa-rocket:before {
+  content: "\f135";
+}
+.fa-maxcdn:before {
+  content: "\f136";
+}
+.fa-chevron-circle-left:before {
+  content: "\f137";
+}
+.fa-chevron-circle-right:before {
+  content: "\f138";
+}
+.fa-chevron-circle-up:before {
+  content: "\f139";
+}
+.fa-chevron-circle-down:before {
+  content: "\f13a";
+}
+.fa-html5:before {
+  content: "\f13b";
+}
+.fa-css3:before {
+  content: "\f13c";
+}
+.fa-anchor:before {
+  content: "\f13d";
+}
+.fa-unlock-alt:before {
+  content: "\f13e";
+}
+.fa-bullseye:before {
+  content: "\f140";
+}
+.fa-ellipsis-h:before {
+  content: "\f141";
+}
+.fa-ellipsis-v:before {
+  content: "\f142";
+}
+.fa-rss-square:before {
+  content: "\f143";
+}
+.fa-play-circle:before {
+  content: "\f144";
+}
+.fa-ticket:before {
+  content: "\f145";
+}
+.fa-minus-square:before {
+  content: "\f146";
+}
+.fa-minus-square-o:before {
+  content: "\f147";
+}
+.fa-level-up:before {
+  content: "\f148";
+}
+.fa-level-down:before {
+  content: "\f149";
+}
+.fa-check-square:before {
+  content: "\f14a";
+}
+.fa-pencil-square:before {
+  content: "\f14b";
+}
+.fa-external-link-square:before {
+  content: "\f14c";
+}
+.fa-share-square:before {
+  content: "\f14d";
+}
+.fa-compass:before {
+  content: "\f14e";
+}
+.fa-toggle-down:before,
+.fa-caret-square-o-down:before {
+  content: "\f150";
+}
+.fa-toggle-up:before,
+.fa-caret-square-o-up:before {
+  content: "\f151";
+}
+.fa-toggle-right:before,
+.fa-caret-square-o-right:before {
+  content: "\f152";
+}
+.fa-euro:before,
+.fa-eur:before {
+  content: "\f153";
+}
+.fa-gbp:before {
+  content: "\f154";
+}
+.fa-dollar:before,
+.fa-usd:before {
+  content: "\f155";
+}
+.fa-rupee:before,
+.fa-inr:before {
+  content: "\f156";
+}
+.fa-cny:before,
+.fa-rmb:before,
+.fa-yen:before,
+.fa-jpy:before {
+  content: "\f157";
+}
+.fa-ruble:before,
+.fa-rouble:before,
+.fa-rub:before {
+  content: "\f158";
+}
+.fa-won:before,
+.fa-krw:before {
+  content: "\f159";
+}
+.fa-bitcoin:before,
+.fa-btc:before {
+  content: "\f15a";
+}
+.fa-file:before {
+  content: "\f15b";
+}
+.fa-file-text:before {
+  content: "\f15c";
+}
+.fa-sort-alpha-asc:before {
+  content: "\f15d";
+}
+.fa-sort-alpha-desc:before {
+  content: "\f15e";
+}
+.fa-sort-amount-asc:before {
+  content: "\f160";
+}
+.fa-sort-amount-desc:before {
+  content: "\f161";
+}
+.fa-sort-numeric-asc:before {
+  content: "\f162";
+}
+.fa-sort-numeric-desc:before {
+  content: "\f163";
+}
+.fa-thumbs-up:before {
+  content: "\f164";
+}
+.fa-thumbs-down:before {
+  content: "\f165";
+}
+.fa-youtube-square:before {
+  content: "\f166";
+}
+.fa-youtube:before {
+  content: "\f167";
+}
+.fa-xing:before {
+  content: "\f168";
+}
+.fa-xing-square:before {
+  content: "\f169";
+}
+.fa-youtube-play:before {
+  content: "\f16a";
+}
+.fa-dropbox:before {
+  content: "\f16b";
+}
+.fa-stack-overflow:before {
+  content: "\f16c";
+}
+.fa-instagram:before {
+  content: "\f16d";
+}
+.fa-flickr:before {
+  content: "\f16e";
+}
+.fa-adn:before {
+  content: "\f170";
+}
+.fa-bitbucket:before {
+  content: "\f171";
+}
+.fa-bitbucket-square:before {
+  content: "\f172";
+}
+.fa-tumblr:before {
+  content: "\f173";
+}
+.fa-tumblr-square:before {
+  content: "\f174";
+}
+.fa-long-arrow-down:before {
+  content: "\f175";
+}
+.fa-long-arrow-up:before {
+  content: "\f176";
+}
+.fa-long-arrow-left:before {
+  content: "\f177";
+}
+.fa-long-arrow-right:before {
+  content: "\f178";
+}
+.fa-apple:before {
+  content: "\f179";
+}
+.fa-windows:before {
+  content: "\f17a";
+}
+.fa-android:before {
+  content: "\f17b";
+}
+.fa-linux:before {
+  content: "\f17c";
+}
+.fa-dribbble:before {
+  content: "\f17d";
+}
+.fa-skype:before {
+  content: "\f17e";
+}
+.fa-foursquare:before {
+  content: "\f180";
+}
+.fa-trello:before {
+  content: "\f181";
+}
+.fa-female:before {
+  content: "\f182";
+}
+.fa-male:before {
+  content: "\f183";
+}
+.fa-gittip:before,
+.fa-gratipay:before {
+  content: "\f184";
+}
+.fa-sun-o:before {
+  content: "\f185";
+}
+.fa-moon-o:before {
+  content: "\f186";
+}
+.fa-archive:before {
+  content: "\f187";
+}
+.fa-bug:before {
+  content: "\f188";
+}
+.fa-vk:before {
+  content: "\f189";
+}
+.fa-weibo:before {
+  content: "\f18a";
+}
+.fa-renren:before {
+  content: "\f18b";
+}
+.fa-pagelines:before {
+  content: "\f18c";
+}
+.fa-stack-exchange:before {
+  content: "\f18d";
+}
+.fa-arrow-circle-o-right:before {
+  content: "\f18e";
+}
+.fa-arrow-circle-o-left:before {
+  content: "\f190";
+}
+.fa-toggle-left:before,
+.fa-caret-square-o-left:before {
+  content: "\f191";
+}
+.fa-dot-circle-o:before {
+  content: "\f192";
+}
+.fa-wheelchair:before {
+  content: "\f193";
+}
+.fa-vimeo-square:before {
+  content: "\f194";
+}
+.fa-turkish-lira:before,
+.fa-try:before {
+  content: "\f195";
+}
+.fa-plus-square-o:before {
+  content: "\f196";
+}
+.fa-space-shuttle:before {
+  content: "\f197";
+}
+.fa-slack:before {
+  content: "\f198";
+}
+.fa-envelope-square:before {
+  content: "\f199";
+}
+.fa-wordpress:before {
+  content: "\f19a";
+}
+.fa-openid:before {
+  content: "\f19b";
+}
+.fa-institution:before,
+.fa-bank:before,
+.fa-university:before {
+  content: "\f19c";
+}
+.fa-mortar-board:before,
+.fa-graduation-cap:before {
+  content: "\f19d";
+}
+.fa-yahoo:before {
+  content: "\f19e";
+}
+.fa-google:before {
+  content: "\f1a0";
+}
+.fa-reddit:before {
+  content: "\f1a1";
+}
+.fa-reddit-square:before {
+  content: "\f1a2";
+}
+.fa-stumbleupon-circle:before {
+  content: "\f1a3";
+}
+.fa-stumbleupon:before {
+  content: "\f1a4";
+}
+.fa-delicious:before {
+  content: "\f1a5";
+}
+.fa-digg:before {
+  content: "\f1a6";
+}
+.fa-pied-piper:before {
+  content: "\f1a7";
+}
+.fa-pied-piper-alt:before {
+  content: "\f1a8";
+}
+.fa-drupal:before {
+  content: "\f1a9";
+}
+.fa-joomla:before {
+  content: "\f1aa";
+}
+.fa-language:before {
+  content: "\f1ab";
+}
+.fa-fax:before {
+  content: "\f1ac";
+}
+.fa-building:before {
+  content: "\f1ad";
+}
+.fa-child:before {
+  content: "\f1ae";
+}
+.fa-paw:before {
+  content: "\f1b0";
+}
+.fa-spoon:before {
+  content: "\f1b1";
+}
+.fa-cube:before {
+  content: "\f1b2";
+}
+.fa-cubes:before {
+  content: "\f1b3";
+}
+.fa-behance:before {
+  content: "\f1b4";
+}
+.fa-behance-square:before {
+  content: "\f1b5";
+}
+.fa-steam:before {
+  content: "\f1b6";
+}
+.fa-steam-square:before {
+  content: "\f1b7";
+}
+.fa-recycle:before {
+  content: "\f1b8";
+}
+.fa-automobile:before,
+.fa-car:before {
+  content: "\f1b9";
+}
+.fa-cab:before,
+.fa-taxi:before {
+  content: "\f1ba";
+}
+.fa-tree:before {
+  content: "\f1bb";
+}
+.fa-spotify:before {
+  content: "\f1bc";
+}
+.fa-deviantart:before {
+  content: "\f1bd";
+}
+.fa-soundcloud:before {
+  content: "\f1be";
+}
+.fa-database:before {
+  content: "\f1c0";
+}
+.fa-file-pdf-o:before {
+  content: "\f1c1";
+}
+.fa-file-word-o:before {
+  content: "\f1c2";
+}
+.fa-file-excel-o:before {
+  content: "\f1c3";
+}
+.fa-file-powerpoint-o:before {
+  content: "\f1c4";
+}
+.fa-file-photo-o:before,
+.fa-file-picture-o:before,
+.fa-file-image-o:before {
+  content: "\f1c5";
+}
+.fa-file-zip-o:before,
+.fa-file-archive-o:before {
+  content: "\f1c6";
+}
+.fa-file-sound-o:before,
+.fa-file-audio-o:before {
+  content: "\f1c7";
+}
+.fa-file-movie-o:before,
+.fa-file-video-o:before {
+  content: "\f1c8";
+}
+.fa-file-code-o:before {
+  content: "\f1c9";
+}
+.fa-vine:before {
+  content: "\f1ca";
+}
+.fa-codepen:before {
+  content: "\f1cb";
+}
+.fa-jsfiddle:before {
+  content: "\f1cc";
+}
+.fa-life-bouy:before,
+.fa-life-buoy:before,
+.fa-life-saver:before,
+.fa-support:before,
+.fa-life-ring:before {
+  content: "\f1cd";
+}
+.fa-circle-o-notch:before {
+  content: "\f1ce";
+}
+.fa-ra:before,
+.fa-rebel:before {
+  content: "\f1d0";
+}
+.fa-ge:before,
+.fa-empire:before {
+  content: "\f1d1";
+}
+.fa-git-square:before {
+  content: "\f1d2";
+}
+.fa-git:before {
+  content: "\f1d3";
+}
+.fa-y-combinator-square:before,
+.fa-yc-square:before,
+.fa-hacker-news:before {
+  content: "\f1d4";
+}
+.fa-tencent-weibo:before {
+  content: "\f1d5";
+}
+.fa-qq:before {
+  content: "\f1d6";
+}
+.fa-wechat:before,
+.fa-weixin:before {
+  content: "\f1d7";
+}
+.fa-send:before,
+.fa-paper-plane:before {
+  content: "\f1d8";
+}
+.fa-send-o:before,
+.fa-paper-plane-o:before {
+  content: "\f1d9";
+}
+.fa-history:before {
+  content: "\f1da";
+}
+.fa-circle-thin:before {
+  content: "\f1db";
+}
+.fa-header:before {
+  content: "\f1dc";
+}
+.fa-paragraph:before {
+  content: "\f1dd";
+}
+.fa-sliders:before {
+  content: "\f1de";
+}
+.fa-share-alt:before {
+  content: "\f1e0";
+}
+.fa-share-alt-square:before {
+  content: "\f1e1";
+}
+.fa-bomb:before {
+  content: "\f1e2";
+}
+.fa-soccer-ball-o:before,
+.fa-futbol-o:before {
+  content: "\f1e3";
+}
+.fa-tty:before {
+  content: "\f1e4";
+}
+.fa-binoculars:before {
+  content: "\f1e5";
+}
+.fa-plug:before {
+  content: "\f1e6";
+}
+.fa-slideshare:before {
+  content: "\f1e7";
+}
+.fa-twitch:before {
+  content: "\f1e8";
+}
+.fa-yelp:before {
+  content: "\f1e9";
+}
+.fa-newspaper-o:before {
+  content: "\f1ea";
+}
+.fa-wifi:before {
+  content: "\f1eb";
+}
+.fa-calculator:before {
+  content: "\f1ec";
+}
+.fa-paypal:before {
+  content: "\f1ed";
+}
+.fa-google-wallet:before {
+  content: "\f1ee";
+}
+.fa-cc-visa:before {
+  content: "\f1f0";
+}
+.fa-cc-mastercard:before {
+  content: "\f1f1";
+}
+.fa-cc-discover:before {
+  content: "\f1f2";
+}
+.fa-cc-amex:before {
+  content: "\f1f3";
+}
+.fa-cc-paypal:before {
+  content: "\f1f4";
+}
+.fa-cc-stripe:before {
+  content: "\f1f5";
+}
+.fa-bell-slash:before {
+  content: "\f1f6";
+}
+.fa-bell-slash-o:before {
+  content: "\f1f7";
+}
+.fa-trash:before {
+  content: "\f1f8";
+}
+.fa-copyright:before {
+  content: "\f1f9";
+}
+.fa-at:before {
+  content: "\f1fa";
+}
+.fa-eyedropper:before {
+  content: "\f1fb";
+}
+.fa-paint-brush:before {
+  content: "\f1fc";
+}
+.fa-birthday-cake:before {
+  content: "\f1fd";
+}
+.fa-area-chart:before {
+  content: "\f1fe";
+}
+.fa-pie-chart:before {
+  content: "\f200";
+}
+.fa-line-chart:before {
+  content: "\f201";
+}
+.fa-lastfm:before {
+  content: "\f202";
+}
+.fa-lastfm-square:before {
+  content: "\f203";
+}
+.fa-toggle-off:before {
+  content: "\f204";
+}
+.fa-toggle-on:before {
+  content: "\f205";
+}
+.fa-bicycle:before {
+  content: "\f206";
+}
+.fa-bus:before {
+  content: "\f207";
+}
+.fa-ioxhost:before {
+  content: "\f208";
+}
+.fa-angellist:before {
+  content: "\f209";
+}
+.fa-cc:before {
+  content: "\f20a";
+}
+.fa-shekel:before,
+.fa-sheqel:before,
+.fa-ils:before {
+  content: "\f20b";
+}
+.fa-meanpath:before {
+  content: "\f20c";
+}
+.fa-buysellads:before {
+  content: "\f20d";
+}
+.fa-connectdevelop:before {
+  content: "\f20e";
+}
+.fa-dashcube:before {
+  content: "\f210";
+}
+.fa-forumbee:before {
+  content: "\f211";
+}
+.fa-leanpub:before {
+  content: "\f212";
+}
+.fa-sellsy:before {
+  content: "\f213";
+}
+.fa-shirtsinbulk:before {
+  content: "\f214";
+}
+.fa-simplybuilt:before {
+  content: "\f215";
+}
+.fa-skyatlas:before {
+  content: "\f216";
+}
+.fa-cart-plus:before {
+  content: "\f217";
+}
+.fa-cart-arrow-down:before {
+  content: "\f218";
+}
+.fa-diamond:before {
+  content: "\f219";
+}
+.fa-ship:before {
+  content: "\f21a";
+}
+.fa-user-secret:before {
+  content: "\f21b";
+}
+.fa-motorcycle:before {
+  content: "\f21c";
+}
+.fa-street-view:before {
+  content: "\f21d";
+}
+.fa-heartbeat:before {
+  content: "\f21e";
+}
+.fa-venus:before {
+  content: "\f221";
+}
+.fa-mars:before {
+  content: "\f222";
+}
+.fa-mercury:before {
+  content: "\f223";
+}
+.fa-intersex:before,
+.fa-transgender:before {
+  content: "\f224";
+}
+.fa-transgender-alt:before {
+  content: "\f225";
+}
+.fa-venus-double:before {
+  content: "\f226";
+}
+.fa-mars-double:before {
+  content: "\f227";
+}
+.fa-venus-mars:before {
+  content: "\f228";
+}
+.fa-mars-stroke:before {
+  content: "\f229";
+}
+.fa-mars-stroke-v:before {
+  content: "\f22a";
+}
+.fa-mars-stroke-h:before {
+  content: "\f22b";
+}
+.fa-neuter:before {
+  content: "\f22c";
+}
+.fa-genderless:before {
+  content: "\f22d";
+}
+.fa-facebook-official:before {
+  content: "\f230";
+}
+.fa-pinterest-p:before {
+  content: "\f231";
+}
+.fa-whatsapp:before {
+  content: "\f232";
+}
+.fa-server:before {
+  content: "\f233";
+}
+.fa-user-plus:before {
+  content: "\f234";
+}
+.fa-user-times:before {
+  content: "\f235";
+}
+.fa-hotel:before,
+.fa-bed:before {
+  content: "\f236";
+}
+.fa-viacoin:before {
+  content: "\f237";
+}
+.fa-train:before {
+  content: "\f238";
+}
+.fa-subway:before {
+  content: "\f239";
+}
+.fa-medium:before {
+  content: "\f23a";
+}
+.fa-yc:before,
+.fa-y-combinator:before {
+  content: "\f23b";
+}
+.fa-optin-monster:before {
+  content: "\f23c";
+}
+.fa-opencart:before {
+  content: "\f23d";
+}
+.fa-expeditedssl:before {
+  content: "\f23e";
+}
+.fa-battery-4:before,
+.fa-battery-full:before {
+  content: "\f240";
+}
+.fa-battery-3:before,
+.fa-battery-three-quarters:before {
+  content: "\f241";
+}
+.fa-battery-2:before,
+.fa-battery-half:before {
+  content: "\f242";
+}
+.fa-battery-1:before,
+.fa-battery-quarter:before {
+  content: "\f243";
+}
+.fa-battery-0:before,
+.fa-battery-empty:before {
+  content: "\f244";
+}
+.fa-mouse-pointer:before {
+  content: "\f245";
+}
+.fa-i-cursor:before {
+  content: "\f246";
+}
+.fa-object-group:before {
+  content: "\f247";
+}
+.fa-object-ungroup:before {
+  content: "\f248";
+}
+.fa-sticky-note:before {
+  content: "\f249";
+}
+.fa-sticky-note-o:before {
+  content: "\f24a";
+}
+.fa-cc-jcb:before {
+  content: "\f24b";
+}
+.fa-cc-diners-club:before {
+  content: "\f24c";
+}
+.fa-clone:before {
+  content: "\f24d";
+}
+.fa-balance-scale:before {
+  content: "\f24e";
+}
+.fa-hourglass-o:before {
+  content: "\f250";
+}
+.fa-hourglass-1:before,
+.fa-hourglass-start:before {
+  content: "\f251";
+}
+.fa-hourglass-2:before,
+.fa-hourglass-half:before {
+  content: "\f252";
+}
+.fa-hourglass-3:before,
+.fa-hourglass-end:before {
+  content: "\f253";
+}
+.fa-hourglass:before {
+  content: "\f254";
+}
+.fa-hand-grab-o:before,
+.fa-hand-rock-o:before {
+  content: "\f255";
+}
+.fa-hand-stop-o:before,
+.fa-hand-paper-o:before {
+  content: "\f256";
+}
+.fa-hand-scissors-o:before {
+  content: "\f257";
+}
+.fa-hand-lizard-o:before {
+  content: "\f258";
+}
+.fa-hand-spock-o:before {
+  content: "\f259";
+}
+.fa-hand-pointer-o:before {
+  content: "\f25a";
+}
+.fa-hand-peace-o:before {
+  content: "\f25b";
+}
+.fa-trademark:before {
+  content: "\f25c";
+}
+.fa-registered:before {
+  content: "\f25d";
+}
+.fa-creative-commons:before {
+  content: "\f25e";
+}
+.fa-gg:before {
+  content: "\f260";
+}
+.fa-gg-circle:before {
+  content: "\f261";
+}
+.fa-tripadvisor:before {
+  content: "\f262";
+}
+.fa-odnoklassniki:before {
+  content: "\f263";
+}
+.fa-odnoklassniki-square:before {
+  content: "\f264";
+}
+.fa-get-pocket:before {
+  content: "\f265";
+}
+.fa-wikipedia-w:before {
+  content: "\f266";
+}
+.fa-safari:before {
+  content: "\f267";
+}
+.fa-chrome:before {
+  content: "\f268";
+}
+.fa-firefox:before {
+  content: "\f269";
+}
+.fa-opera:before {
+  content: "\f26a";
+}
+.fa-internet-explorer:before {
+  content: "\f26b";
+}
+.fa-tv:before,
+.fa-television:before {
+  content: "\f26c";
+}
+.fa-contao:before {
+  content: "\f26d";
+}
+.fa-500px:before {
+  content: "\f26e";
+}
+.fa-amazon:before {
+  content: "\f270";
+}
+.fa-calendar-plus-o:before {
+  content: "\f271";
+}
+.fa-calendar-minus-o:before {
+  content: "\f272";
+}
+.fa-calendar-times-o:before {
+  content: "\f273";
+}
+.fa-calendar-check-o:before {
+  content: "\f274";
+}
+.fa-industry:before {
+  content: "\f275";
+}
+.fa-map-pin:before {
+  content: "\f276";
+}
+.fa-map-signs:before {
+  content: "\f277";
+}
+.fa-map-o:before {
+  content: "\f278";
+}
+.fa-map:before {
+  content: "\f279";
+}
+.fa-commenting:before {
+  content: "\f27a";
+}
+.fa-commenting-o:before {
+  content: "\f27b";
+}
+.fa-houzz:before {
+  content: "\f27c";
+}
+.fa-vimeo:before {
+  content: "\f27d";
+}
+.fa-black-tie:before {
+  content: "\f27e";
+}
+.fa-fonticons:before {
+  content: "\f280";
+}
+.fa-reddit-alien:before {
+  content: "\f281";
+}
+.fa-edge:before {
+  content: "\f282";
+}
+.fa-credit-card-alt:before {
+  content: "\f283";
+}
+.fa-codiepie:before {
+  content: "\f284";
+}
+.fa-modx:before {
+  content: "\f285";
+}
+.fa-fort-awesome:before {
+  content: "\f286";
+}
+.fa-usb:before {
+  content: "\f287";
+}
+.fa-product-hunt:before {
+  content: "\f288";
+}
+.fa-mixcloud:before {
+  content: "\f289";
+}
+.fa-scribd:before {
+  content: "\f28a";
+}
+.fa-pause-circle:before {
+  content: "\f28b";
+}
+.fa-pause-circle-o:before {
+  content: "\f28c";
+}
+.fa-stop-circle:before {
+  content: "\f28d";
+}
+.fa-stop-circle-o:before {
+  content: "\f28e";
+}
+.fa-shopping-bag:before {
+  content: "\f290";
+}
+.fa-shopping-basket:before {
+  content: "\f291";
+}
+.fa-hashtag:before {
+  content: "\f292";
+}
+.fa-bluetooth:before {
+  content: "\f293";
+}
+.fa-bluetooth-b:before {
+  content: "\f294";
+}
+.fa-percent:before {
+  content: "\f295";
+}
+/* line 1, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/about.css.scss */
+#modal .contents {
+  /* style the modal's contents, in this case we're just adding padding */
+  padding: 24px;
+}
+
+/* line 6, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/about.css.scss */
+#blind {
+  /* position element so the z-index can be set */
+  position: absolute;
+  /* set z-index so the blind will cover all page content */
+  z-index: 9999;
+  /* set the top, left, width and height so the blind covers the browser window */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 500%;
+  /* set the background to a suitably dark tone */
+  background-color: #000000;
+}
+
+/* line 20, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/about.css.scss */
+#modal .window {
+  /* position the element so that the z-index can be applied */
+  position: absolute;
+  /* Set the z-index to a number higher than the blind's z-index */
+  z-index: 10000;
+  /* set the width and height of the window */
+  width: 466px;
+  height: 250px;
+  /* give the window negative margins that match the width/2 and height/2 so it is centered */
+  margin-left: -200px;
+  margin-top: -124px;
+  /* position the top left corner off stage so it can't be seen (instead of display:none;) */
+  left: -1000px;
+  top: -1000px;
+  /* color the background so it shows up */
+  background-color: #ffffff;
+  /* throw on a CSS3 box shadow, because it's cool, and we can */
+  box-shadow: 4px 4px 80px #000;
+  -webkit-box-shadow: 4px 4px 80px #000;
+  -moz-box-shadow: 4px 4px 80px #000;
+  border-radius: 7px;
+}
+
+/* line 42, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/about.css.scss */
+.contents h3 {
+  text-align: center;
+}
+
+/* line 45, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/about.css.scss */
+center .close {
+  text-align: center;
+  background-color: #ff9308;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+/* line 55, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/about.css.scss */
+.close-icon {
+  display: inline;
+  float: right;
+}
+
+/* line 59, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/about.css.scss */
+.close-icon a {
+  color: #FF9308;
+}
+
+/* line 62, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/about.css.scss */
+.verify-modal-text {
+  margin-bottom: 30px;
+  text-align: center;
+}
+/* line 11, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/colors.css.scss */
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+}
+/* line 11, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/colors.css.scss */
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+}
+
+/* line 7, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.wrap {
+  font-family: "Calibri";
+  width: 100%;
+}
+
+/* line 12, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.gray {
+  color: #ECECEC;
+}
+
+/* line 16, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.document-url {
+  color: grey;
+}
+
+/* line 20, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.companies-container {
+  display: table;
+  width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+/* line 27, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.company-container {
+  display: table-cell;
+  width: 270px;
+  /*	height: 480px;*/
+  padding: 20px;
+  margin: 20px 1%;
+  float: left;
+  background: white;
+  position: relative;
+}
+
+/* line 38, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.register-content {
+  margin-top: 40px;
+}
+
+/* line 42, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.company-image {
+  height: 200px;
+  width: 290px;
+  display: table-cell;
+  vertical-align: middle;
+  position: relative;
+}
+
+/* line 50, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.image-wrap {
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* line 56, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.image {
+  max-width: 180px;
+  max-height: 180px;
+}
+
+/* line 61, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.image-gray {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  max-width: 180px;
+  max-height: 180px;
+}
+
+/* line 68, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.company-description {
+  margin: 5px;
+  height: 200px;
+}
+
+/* line 73, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.text {
+  height: 160px;
+  overflow: auto;
+  border-bottom: 10px solid white;
+}
+
+/* line 79, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.company-button {
+  background: #10a1d6;
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* line 89, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.company-button:disabled {
+  background: gray;
+  cursor: default;
+}
+
+/* line 94, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.company-button:focus {
+  outline: 0;
+}
+
+/* line 98, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.profile-button {
+  width: 80%;
+  margin: 20px auto;
+  display: block;
+  font-size: 17px;
+}
+
+/* line 104, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.mail-to-button {
+  text-align: center;
+}
+
+/* line 109, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.button-wrap {
+  text-align: center;
+}
+
+/* line 113, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.register-wrap {
+  width: 500px;
+}
+
+/* line 117, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.description-wrap {
+  border: 1px solid gray;
+  margin: 25px auto;
+}
+
+/* line 122, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.description-box {
+  width: 95%;
+  height: 200px;
+  margin: 2%;
+  border: none;
+  outline: 0;
+  font-size: 16px;
+}
+
+/* line 131, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.company-title {
+  font-size: 30px;
+  text-align: left;
+  width: 63%;
+  float: left;
+}
+
+/* line 138, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.indent {
+  text-indent: 50px;
+}
+
+/* line 142, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.no-margin {
+  margin: 0;
+}
+
+/* line 146, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.small-margin {
+  margin: 10px 0;
+}
+
+/* line 150, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.stats-container {
+  float: right;
+  width: 32%;
+  margin-left: 3%;
+  margin-bottom: 3%;
+  /*height: 530px;*/
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+}
+
+/* line 160, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.stats-container:hover {
+  border: 1px solid #10a1d6;
+}
+
+/* line 164, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.stats-container:hover hr {
+  border-top: 1px solid #10a1d6;
+}
+
+/* line 168, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.stats-image {
+  max-width: 200px;
+  max-height: 200px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+}
+
+/* line 178, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.profile-image-wrap {
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  margin: 10px auto;
+  background: white;
+  text-align: center;
+}
+
+/* line 187, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.description-container {
+  margin-top: 120px;
+}
+
+/* line 191, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.numbers {
+  /*height: 200px;*/
+  width: 85%;
+  margin: 0 auto;
+}
+
+/* line 202, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.stretch {
+  min-height: 600px;
+}
+
+/* line 206, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.posted {
+  font-size: 16px;
+  text-indent: 100px;
+}
+
+/* line 211, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.topbar {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  height: 30px;
+}
+
+/* line 217, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.right {
+  text-align: right;
+  float: right;
+}
+
+/* line 222, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.right-align {
+  text-align: right;
+}
+
+/* line 226, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.spaced {
+  margin-right: 20px;
+}
+
+/* line 230, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.meter {
+  height: 10px;
+  /* Can be anything */
+  position: relative;
+  background: #CCCCCC;
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  border-radius: 25px;
+  padding: 5px;
+  box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+}
+
+/* line 241, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.meter > span {
+  display: block;
+  height: 100%;
+  border-radius: 20px;
+  background-image: linear-gradient(center bottom, #2bc253 37%, #54f054 69%);
+  box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3), inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* line 257, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.orange > span {
+  background-image: linear-gradient(to bottom, #0D87B3, #68C3F4);
+}
+
+/* line 261, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.back {
+  background-image: black;
+  position: absolute;
+}
+
+/* line 266, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.video-box {
+  height: 400px;
+  width: 600px;
+  margin-top: -30px;
+}
+
+/* line 271, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.max-width-image {
+  max-width: 600px;
+}
+
+/* line 274, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.invest-amount {
+  text-align: center;
+  width: 50% !important;
+}
+
+/*.youtube-video{
+	width: 100%;
+	height: 400px;
+}*/
+/*youtube-video different screene*/
+@media screen and (min-width: 480px) {
+  /* line 284, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+  .youtube-video {
+    width: 250px;
+    height: 175px;
+  }
+}
+/*# Tablet*/
+@media screen and (min-width: 768px) {
+  /* line 292, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+  .youtube-video {
+    width: 100%;
+    height: 400px;
+  }
+}
+/*# Desktop*/
+@media screen and (min-width: 992px) {
+  /* line 300, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+  .youtube-video {
+    width: 400px;
+    height: 300px;
+  }
+}
+/*# Huge*/
+@media screen and (min-width: 1199px) {
+  /* line 307, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+  .youtube-video {
+    width: 500px;
+    height: 400px;
+  }
+}
+/*# Huge*/
+@media screen and (min-width: 1400px) {
+  /* line 314, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+  .youtube-video {
+    width: 600px;
+    height: 450px;
+  }
+}
+/* line 320, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.image-max-width {
+  max-width: 600px;
+}
+
+/* line 324, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.section {
+  border: 1px solid black;
+  margin: 20px 0;
+}
+
+/* line 329, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.team-band div {
+  display: inline-block;
+}
+
+/* line 333, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.team-box {
+  width: 100%;
+  height: 290px;
+  overflow: scroll;
+  margin-top: 1%;
+  position: relative;
+}
+
+/* line 341, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.team-pic {
+  float: left;
+  margin: 0 20px 10px 0;
+}
+
+/* line 346, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.right-align {
+  text-align: right;
+}
+
+/* line 350, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.left-column {
+  width: 45%;
+  float: left;
+  margin: 0 2%;
+  height: 148px;
+}
+
+/* line 356, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.left-column-portfolio {
+  width: 45%;
+  float: left;
+  margin: 0 2%;
+}
+
+/* line 362, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.right-column-portfolio {
+  width: 100%;
+  margin: 0 2%;
+}
+
+/* line 368, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.profile-wrap {
+  width: 1000px;
+}
+
+/* line 372, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.fake-button {
+  width: 80%;
+  background: gray;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin: 20px auto;
+}
+
+/* line 381, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.thank-you-margin {
+  margin-top: 100px !important;
+  margin-bottom: 100px !important;
+  width: 60% !important;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+}
+
+/* line 389, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.margin-bottom-50 {
+  margin-bottom: 20px;
+}
+/* line 1, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/contact_us.css.scss */
+.contact-us-info {
+  margin-top: 5px;
+}
+
+/* line 5, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/contact_us.css.scss */
+.liquidate-info {
+  margin-top: 5px;
+  text-align: justify;
+}
+
+/* line 9, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/contact_us.css.scss */
+.company-name {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* line 13, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/contact_us.css.scss */
+.address1 {
+  display: inline-block;
+  text-align: left;
+  margin-right: 22px;
+  margin-left: 30px;
+}
+
+/* line 19, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/contact_us.css.scss */
+.contact-phone-number {
+  margin-top: 20px;
+}
+/* line 5, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/docusign.css.scss */
+iframe {
+  height: 1000px;
+  width: 1000px;
+}
+/* line 11, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/colors.css.scss */
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+}
+
+/* line 3, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.panel {
+  display: none;
+}
+
+/* line 6, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.flip {
+  margin-bottom: -10px;
+  font-size: 28px;
+  text-decoration: underline;
+}
+
+/* line 11, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.education-center-list li {
+  cursor: pointer;
+  padding-top: 5px;
+  color: #0D87B3;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* line 18, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.right-panel {
+  vertical-align: top;
+  width: 60% !important;
+  display: inline-block;
+}
+
+/* line 24, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.left-panel {
+  margin-left: 5%;
+  margin-right: 1%;
+  width: 24%;
+  display: inline-block;
+  color: #0D87B3;
+}
+
+/* line 31, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.left-panel a li {
+  color: #0D87B3;
+}
+
+/* line 34, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.education-item {
+  border-bottom: 1px solid #9F9F9F;
+  background-color: white;
+}
+
+/* line 38, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.education-menu {
+  font-size: 16px;
+  margin-top: 0;
+}
+
+/* line 42, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.education-menu li {
+  list-style: none;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 1.5em;
+}
+
+/* line 49, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.education-menu .active {
+  box-shadow: 0px 0px 1px 1px #0D87B3, inset 0 0 1px 1px #0D87B3;
+  border-bottom: 1px solid #0D87B3;
+}
+
+/* line 53, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.education-title {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+/* line 57, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.education-title a {
+  color: #fff;
+}
+
+/* line 60, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.education-center {
+  text-align: left !important;
+  padding-left: 115px !important;
+  padding-bottom: 30px !important;
+  padding-top: 20px !important;
+}
+
+/* line 66, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.education-links {
+  padding-top: 10px;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: 'proxima-nova',sans-serif;
+}
+
+/* line 73, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.education-links:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+/* line 77, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.education-slogan {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* line 81, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.education-button {
+  padding: 17px;
+  width: 35%;
+  margin-top: 5px;
+  background: #10a1d6;
+  font-size: 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  border-radius: 5px;
+}
+
+/* line 94, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.education-button:hover {
+  background: #0B6E91;
+}
+
+/* line 100, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.education-slogan div {
+  color: #000;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+/* line 105, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.for-investors-list {
+  margin-left: 10%;
+}
+
+/* line 108, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.for-investors-list-item {
+  font-size: 20px;
+  margin-bottom: 50px;
+  text-decoration: none;
+  list-style: none;
+}
+
+/* line 114, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.for-investors-list-item a {
+  color: #666;
+}
+
+/* line 117, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.for-investors-list-item:first-child {
+  margin-top: 30px;
+}
+
+/* line 120, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.for-investors {
+  display: inline-block;
+  width: 49%;
+  vertical-align: top;
+}
+
+/* line 125, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.for-investors-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* line 129, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.right-line {
+  border-right: 1px solid gray;
+}
+
+/* line 132, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.education-category {
+  text-align: center;
+  margin: 15px auto;
+  color: #000;
+  text-decoration: none;
+  list-style: none;
+}
+
+/* line 139, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/education.css.scss */
+.category-container {
+  border-bottom: 1px solid #CCCCCC;
+}
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// Styling for index.html.erb
+
+
+
+.subtitle {
+	font-size: 30px;
+}
+
+.container {
+	max-width: 100% !important;
+	position: relative;
+}
+.cover-image{
+	width: 100%;
+}
+
+.fullWidth {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: initial;
+}
+
+////////------------- Front ----------------//////////
+
+.top {
+	background-color: white;
+}
+
+.space-keeper {
+	/*min-height: 600px;*/
+}
+
+.big-title {
+	top: 270px;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+}
+
+h1 {
+	font-size: 50px;
+	font-family: "Open Sans", arial, sans-serif;
+
+}
+
+h3 {
+	font-size: 23px;
+	font-weight: 300;
+	font-family: "Open Sans", arial, sans-serif;
+}
+.top-space h3 {
+	margin-top: -15px;
+}
+.button-box {
+	position: relative;
+	margin: 50px;
+}
+
+.sky {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+.invest-button {
+  width: 20%;
+  margin: 7% auto;
+  display: inline-block;
+  padding: 15px;
+  background: #10a1d6;
+  font-size: 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  border-radius: 4px;
+}
+.invest-now-button{
+	margin-right: 0px;
+}
+.liquidate-now-button{
+	margin-left: 25px;
+}
+
+
+.invest-button:hover {
+	background: #0B6E91;
+}
+
+.invest-button:active {
+	outline: none;
+}
+
+#push {
+	padding: 17px;
+	width: 40%;
+	background: #10a1d6;
+	font-size: 20px;
+	border: none;
+	color: white;
+	cursor: pointer;
+	outline: none;
+	border-radius: 4px;
+}
+
+#push:hover {
+	background: #0B6E91;
+}
+
+#push:active {
+	outline: none;
+}
+
+#go_back_button{
+	padding: 17px;
+	width: 22%;
+	background: #0d87b3;
+	font-size: 20px;
+	border: none;
+	color: white;
+	cursor: pointer;
+	outline: none;
+}
+#go_back_button:hover{
+	background: #0B6E91;
+}
+
+.remove-margin {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.top-space {
+	margin-top: 30px;
+}
+
+////---------------- Section 2 -------------------- ////////
+
+
+.section2 {
+	margin: 50px auto;
+	height: 550px;
+}
+
+.boxes {
+	margin: 0 auto;
+	width: 95%;
+}
+
+.section2-box {
+	//border: 1px solid gray;
+	// background: -webkit-linear-gradient(bottom, white, #ECECEC); /* For Safari 5.1 to 6.0 */
+	// background: -o-linear-gradient(top, white, #ECECEC);  For Opera 11.1 to 12.0
+	// background: -moz-linear-gradient(top, white, #ECECEC); /* For Firefox 3.6 to 15 */
+	// background: linear-gradient(to top, white, #ECECEC); /* Standard syntax */
+	background: white;
+	width: 29%;
+	height: 460px;
+	float: left;
+	margin: 0 2%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	border-radius: 10px;
+}
+
+.section2-box:hover {
+	//border: 1px solid #0d87b3;
+}
+
+.section2-content {
+	padding: 30px;
+	padding-top: 12px;
+}
+
+.outer {
+	margin: 0 auto;
+	display: table;
+	margin-top: 30px;
+}
+
+.middle {
+	margin-top: 50px;
+}
+
+.image2 {
+	max-width: 180px;
+	max-height: 180px;
+}
+
+.seventeen {
+	font-size: 17px;
+}
+
+.bigger {
+	font-size: 2em;
+}
+
+.box-text {
+	height: 130px;
+	color: gray;
+}
+
+
+////---------------- Team -------------------- ////////
+
+
+.header-contents {
+	padding: 10px;
+}
+
+.team {
+	margin: 30px auto;
+	width: 85%;
+	padding: 20px;
+	position: relative;
+}
+
+.team-wrap {
+	position: relative;
+	height: 250px;
+	margin-bottom: 50px;
+}
+
+.team-picture {
+	height: 195px;
+	border-radius: 50%;
+	margin-top: 25px;
+}
+
+.team-pic-wrap {
+	float: left;
+}
+
+.white-box {
+	background: white;
+	height: 200px;
+
+	padding: 25px;
+	margin-left: 300px;
+	vertical-align: middle;
+	position: relative;
+}
+
+.summary {
+	height: 90px;
+	padding: 10px;
+	overflow: hidden;
+}
+
+.team-button {
+	display: inline-block;
+	border: none;
+	outline: 0;
+	color: white;
+	padding: 10px 40px;
+	background-color: #0d87b3;
+	margin: 15px 0;
+	cursor: pointer;
+}
+
+.name {
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.indentt {
+	text-indent: 25px;
+}
+
+.long {
+	height: 400px;
+}
+
+.all_team {
+	float: left;
+	width: 150px;
+	margin: 10px;
+	height: 600px;
+	overflow: scroll;
+}
+.portrait_left {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+}
+
+.full-bio-team {
+	margin: 30px 1% 30px 14%;
+}
+
+.unbold {
+	 font-weight: normal;
+	 text-decoration: underline;
+}
+
+
+////---------------- Logos -------------------- ////////
+
+.logos {
+	background-color: white;
+	height: 420px;
+	margin: 50px 0;
+}
+
+.logos-container {
+	width: 1200px;
+	position: relative;
+	margin: 0 auto;
+}
+.padding-top-100{
+	padding-top: 10px;
+}
+.padding-mentioned-in{
+	padding-top: 28px;
+}
+.row1{
+  text-align: center;
+}
+.row1 img {
+	width: 150px;
+	height: 150px;
+	margin: 10px 40px;
+}
+
+.row2{
+	position: relative;
+	margin-top: 50px;
+	margin-bottom: 128px;
+  /*text-align: center;*/
+}
+.row2 img {
+	position: absolute;
+	max-height: 100px;
+	max-width: 330px;
+	margin: 25px 14px;
+}
+#wallstreet_logo{
+	left: 400px;
+	padding-top: 14px;
+}
+#fast_company_logo{
+	left: 800px;
+	padding-top: 13px;
+}
+
+////---------------- Story -------------------- ////////
+
+.story-img {
+	text-align: center;
+	height: 350px;
+	overflow: hidden;
+	background-color: black;
+}
+
+.story-cont {
+	margin: 0 auto;
+	width: 85%;
+	position: relative;
+}
+
+.story {
+	padding-bottom: 70px;
+}
+
+.one-story {
+	width: 33%;
+	margin: 0;
+	height: inherit;
+	display: inline-block;
+	overflow: hidden;
+}
+
+.story-img img.wide {
+    height: 100%;
+}
+.story-img img.tall {
+    width: 100%;
+}​
+
+.spacer {
+	height: 50px;
+}
+
+.black-box {
+	height: 80px;
+	background-color: rgba(0, 0, 0, .8);
+	color: white;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	overflow: hidden;
+}
+
+.black-box-content {
+	margin: 30px;
+	position: relative;
+}
+
+#one {
+	display: block;
+}
+
+#two {
+	display: none;
+}
+
+#three {
+	display: none;
+}
+
+/*M O B I L E*/
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+	.main-menu li{
+		visibility: hidden;
+	}
+	#mobile-menu{
+		float: right !important;
+		visibility: visible !important;
+	}
+	#mobile-menu li{
+		visibility: visible;
+	}
+	#left{
+		visibility: visible;
+		position: absolute;
+		top: 12px;
+	}
+	.big-title{
+
+	}
+	.row2 {
+		display: none;
+	}
+	.row1 {
+		display: none;
+	}
+	.invest-button{
+		width: auto;
+	}
+	.logos-container{
+		width: 100% !important;
+	}
+	.foot-text.darkblue{
+	 	display: none;
+	}
+	#mentioned_in{
+		display: none;
+	}
+	.big-title{
+		top: 128px;
+	}
+	.big-title h1{
+		font-size:52px;
+	}
+	.menu-wrap{
+		height: 80px !important;
+	}
+	.menu button{
+		height: 80px !important;
+		font-size: 33px !important;
+    font-weight: 100;
+	}
+	.invest-button{
+		font-size: 30px !important;
+		padding: 23px !important;
+	}
+	.space-keeper{
+		min-height: 0px;
+	}
+	.bottom-buttons{
+		visibility: hidden;
+    display: none;
+	}
+	.section2-box{
+		height: 490px;
+	}
+  #toast-container{
+    display: none;
+  }
+  .cnbc-video-wrapper{
+    text-align: center !important;
+    margin-left: 0 !important;
+  }
+  .cnbc-video-title {
+    visibility: hidden;
+  }
+  .logo {
+    width: 270px;
+  }
+  .image4-box {
+    display: none;
+  }
+  .sub-menu {
+    min-width: 240px !important;
+  }
+  .footer-content{
+    font-size: 18px !important;
+  }
+  .news-single-container{
+    width: 90% !important;
+  }
+  .team{
+    width: inherit !important;
+  }
+  .article-button{
+    font-size: 25px !important;
+  }
+  .twenty{
+    font-size: 34px !important;
+  }
+  .company-container{
+    width: 43% !important;
+  }
+  .company-image{
+    width: 30% !important;
+  }
+  .left-column{
+    height: inherit !important;
+  }
+  .company-description{
+    height: inherit !important;
+  }
+  .stats-container{
+    float: none;
+    width: 100%;
+  }
+  .profile-image-wrap{
+    margin-bottom: 10% !important;
+  }
+  .signin-box h2 a, .signup-size h2 a{
+    font-size: 1.75em !important;
+  }
+  #email, #password{
+    font-size: 1.5em !important;
+  }
+  .login-button, #submit-button{
+    font-size: 1.8em !important;
+  }
+  .signup-content h4, #phone, .half{
+    font-size: 1.5em !important;
+  }
+  .check_box{
+    font-size: 1.25em !important;
+  }
+  .signup-size{
+    width: 70% !important;
+  }
+}
+
+ /*i P A D*/
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)  {
+  .main-menu li{
+    visibility: hidden;
+  }
+  .ipad-menu{
+    display: inline-block !important;
+    float: right !important;
+    visibility: visible !important;
+    width: inherit !important;
+  }
+  .ipad-menu li{
+    visibility: visible;
+  }
+  #left{
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 0 !important;
+  }
+  .image4-box {
+    display: none;
+  }
+  .logos-container{
+    width: 100% !important;
+  }
+  .row2 img{
+    position: relative;
+  }
+  #wallstreet_logo{
+    left: 0;
+    top: -18px;
+  }
+  #fast_company_logo{
+    left: 0;
+  }
+  .big-title{
+    top: 170px;
+  }
+  .homepage-press-mentions{
+    display: inline-block;
+    width: 30%;
+  }
+  .row2{
+    text-align: center;
+    margin-bottom: 0;
+  }
+  #newsletter-text-field{
+    width:60% !important;
+  }
+  .invest-button{
+    width: 31%;
+    font-size: 25px;
+  }
+
+}
+
+.transparent {
+	color: transparent;
+}
+#toast-container {
+  position: fixed;
+  z-index: 999999999999;
+  right: 12px;
+  bottom: 35px;
+  width: 48%;
+}
+#toastEmail{
+	margin: 0 0 6px;
+  padding: 10px 20px 20px 20px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+  background-position: 15px center;
+  background-repeat: no-repeat;
+  -moz-box-shadow: 0 0 12px #999;
+  -webkit-box-shadow: 0 0 12px #999;
+  box-shadow: 0 0 12px #999;
+  color: #fff;
+  opacity: 1;
+  background-color: #0D87B3;
+  font-size: 13px;
+  line-height: 20px;
+  font-family: 'Open Sans',"Helvetica Neue","Verdana",sans-serif;
+  font-weight: 400;
+  width: 66%;
+  float: right;
+}
+#toastEmail p{
+	font-size: 14px;
+	line-height: 20px;
+	color: #FAFAFA!important;
+}
+#newsletter-text-field{
+	box-sizing: border-box;
+	height: 33px !important;
+	vertical-align: bottom;
+	display: inline-block;
+  width: 65%;
+  height: 18px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+#newsletter-submit-button{
+	height: 18px;
+	box-sizing: border-box;
+	height: 33px;
+	vertical-align: bottom;
+	border: 0;
+	padding: 5px 10px;
+	font-size: 12px;
+	color: #3F3F3F;
+  background-color: #DCDCDC;
+  margin-left: 4%;
+  /*padding-top: 1.75%;*/
+  /*padding-bottom: 1.75%;*/
+  padding-left: 5%;
+  padding-right: 5%;
+  font-weight: bold;
+}
+#close-subcribtion{
+	position: absolute;
+	top: 7%;
+	right: 2%;
+	font-size: medium;
+	cursor: pointer;
+}
+#close-subcribtion:hover{
+	color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: .4;
+}
+#display-later{
+	display: none;
+	text-align: center;
+	font-size: 19px;
+}
+.cnbc-youtube-video{
+  width: 865px;
+  height: 487px;
+  display: inline-block;
+}
+.cnbc-video-wrapper{
+  text-align: center;
+  margin-bottom: 100px;
+}
+.cnbc-video-description{
+  font-size: 80%;
+
+}
+.cnbc-video-title{
+  display: inline-block;
+  vertical-align: top;
+  font-size: 112%;
+  padding-left: 30px;
+  width: 75%;
+}
+.cnbc-video-text{
+  padding-bottom: 10px;
+}
+.watch-video-cnbc{
+  margin-bottom: 50px;
+}
+.cnbc-link-news{
+  font-size: 80%;
+  color: #333;
+  text-decoration: underline;
+}
+.investor-logos{
+  text-align: center;
+}
+.aca-logo{
+  width: 150px;
+}
+.perkins-logo{
+  width: 190px;
+  margin-left: 5%;
+  vertical-align: top;
+  margin-top: -7px;
+  }
+}
+/* line 11, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/colors.css.scss */
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+}
+
+/* line 5, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.signin-box {
+  margin: 100px auto;
+  font-family: "Lato", sans-serif;
+  width: 500px;
+  border: none;
+  background: #ffffff;
+  padding: 10px 40px 40px 40px;
+}
+
+/* line 13, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.payment-box {
+  margin: 60px auto;
+  font-family: "Lato", sans-serif;
+  width: 500px;
+  border: none;
+  background: #ffffff;
+  padding: 10px 40px 40px 40px;
+}
+
+/* line 22, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.userbox, .passbox {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid gray;
+  border-right: 1px solid gray;
+  padding: 3px 6px;
+  font-size: 16px;
+  width: 100%;
+  margin: 15px auto;
+}
+
+/* line 33, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.userbox:focus, .passbox:focus {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
+/* line 38, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.login-button {
+  padding: 0 20px;
+  min-width: 200px;
+  height: 50px;
+  background: #10a1d6;
+  border: none;
+  outline: 0;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-family: "Lato", sans-serif;
+  color: white;
+}
+
+/* line 51, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.login-button:hover {
+  background-color: #0D87B3;
+}
+
+/* line 55, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.signup {
+  outline: 0;
+  border: none;
+  background: white;
+  font-size: 16px;
+}
+
+/* line 62, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.signup:hover {
+  text-decoration: underline;
+}
+
+/* line 66, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.notice {
+  color: #0033CC;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* line 72, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.tab {
+  width: 49%;
+  float: left;
+  position: relative;
+  display: table-cell;
+  padding-bottom: 10px;
+}
+
+/* line 80, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.row {
+  position: relative;
+  display: table;
+  padding: 20px 0;
+  width: 100%;
+}
+
+/* line 87, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.right-line {
+  border-right: 1px solid #CCCCCC;
+}
+
+/* line 91, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.login-container {
+  margin-top: 20px;
+}
+
+/* line 95, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.expand {
+  height: 200px;
+}
+
+/* line 99, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.input-symbol {
+  position: relative;
+}
+
+/* line 103, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.input-symbol span {
+  position: absolute;
+  transform: translate(0, -50%);
+  top: 50%;
+  pointer-events: none;
+  margin-left: 0.2em;
+  /* adjust as appropriate */
+}
+
+/* line 111, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.input-symbol input {
+  text-indent: 1em;
+  /* adjust as appropriate */
+}
+
+/* line 117, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.tooltip {
+  border-bottom: 1px dotted #000000;
+  color: #000000;
+  outline: none;
+  cursor: help;
+  text-decoration: none;
+  position: relative;
+}
+
+/* line 123, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.tooltip span {
+  margin-left: -999em;
+  position: absolute;
+}
+
+/* line 128, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.tooltip:hover span {
+  font-family: Calibri, Tahoma, Geneva, sans-serif;
+  position: absolute;
+  left: 1em;
+  top: 2em;
+  z-index: 99;
+  margin-left: 0;
+  width: 250px;
+}
+
+/* line 137, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.tooltip:hover img {
+  border: 0;
+  margin: -10px 0 0 -55px;
+  float: left;
+  position: absolute;
+}
+
+/* line 143, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.tooltip:hover em {
+  font-family: Candara, Tahoma, Geneva, sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+  display: block;
+  padding: 0.2em 0 0.6em 0;
+}
+
+/* line 150, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.classic {
+  padding: 0.8em 1em;
+}
+
+/* line 151, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.custom {
+  padding: 0.5em 0.8em 0.8em 2em;
+}
+
+/* line 152, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+* html a:hover {
+  background: transparent;
+}
+
+/* line 153, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.classic {
+  background: #FFFFAA;
+  border: 1px solid #FFAD33;
+}
+
+/* line 154, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.critical {
+  background: #FFCCAA;
+  border: 1px solid #FF3334;
+}
+
+/* line 155, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.help {
+  background: #9FDAEE;
+  border: 1px solid #2BB0D7;
+}
+
+/* line 156, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.info {
+  background: #9FDAEE;
+  border: 1px solid #2BB0D7;
+}
+
+/* line 157, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.warning {
+  background: #FFFFAA;
+  border: 1px solid #FFAD33;
+}
+
+/* line 159, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.styled-select select {
+  background: transparent;
+  width: 268px;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  border: 0;
+  border-radius: 0;
+  height: 34px;
+  -webkit-appearance: none;
+  color: #979797;
+}
+
+/* line 171, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.styled-select {
+  width: 240px;
+  height: 34px;
+  overflow: hidden;
+  background: url(arrow-select.png) no-repeat right;
+  background-position: 97%;
+  border: 1px solid grey;
+  background-size: 25px;
+  margin-top: 10px;
+}
+
+/* line 181, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.liquidate-form-company {
+  float: left;
+  width: 97%;
+}
+
+/* line 185, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/login.css.scss */
+.half-field {
+  width: 45%;
+}
+/* line 11, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/colors.css.scss */
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+}
+
+/* line 5, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.menu-wrap {
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(9, 94, 125, 0.2), 0 2px 4px rgba(9, 94, 125, 0.22);
+  position: fixed;
+  top: 0;
+  border: none;
+  outline: 0;
+  z-index: 999;
+  height: 52px;
+}
+
+/* line 16, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.main-menu {
+  display: inline;
+  clear: both;
+}
+
+/* line 20, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+#mobile-menu {
+  float: left;
+  visibility: hidden;
+}
+
+/* line 24, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.ipad-menu {
+  float: left;
+  visibility: hidden;
+  width: 0;
+}
+
+/* line 30, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 34, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.white a, .white {
+  color: white;
+}
+
+/* line 38, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.menu {
+  margin: 0 auto;
+}
+
+/* line 42, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.menu li {
+  margin: 0;
+  list-style: none;
+}
+
+/* line 47, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.menu > ul > li {
+  display: inline-block;
+  position: relative;
+  font-size: 18px;
+  float: right;
+}
+
+/* line 54, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.menu > ul > li:hover {
+  background-color: #DFDFDF;
+}
+
+/* line 58, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.menu > ul > li:hover, .menu li:hover, .sub-menu li:hover, button:hover {
+  cursor: hand;
+  cursor: pointer;
+}
+
+/* line 63, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.sub-menu {
+  width: 130%;
+  min-width: 170px;
+  padding: 0;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  display: none;
+  opacity: 0;
+  transition: opacity linear 0.15s;
+  background: #DFDFDF;
+  box-shadow: 0 6px 8px rgba(9, 94, 125, 0.2);
+}
+
+/* line 77, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.sub-menu button {
+  min-width: 170px;
+  text-align: left;
+}
+
+/* line 82, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.sub-menu li:hover {
+  background: #B4B4B4;
+}
+
+/* line 86, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.menu li:hover .sub-menu {
+  display: block;
+  opacity: 1;
+}
+
+/* line 91, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+button {
+  outline: 0;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  color: white;
+}
+
+/* line 99, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.main-menu button {
+  color: #10a1d6;
+}
+
+/* line 103, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.menu button {
+  font-size: 15px;
+  padding: 0 17px;
+  height: 52px;
+  font-weight: 500;
+  font-family: 'proxima-nova',sans-serif;
+}
+
+/* line 112, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.arrow {
+  font-size: 9px;
+  line-height: 0%;
+}
+
+/* line 117, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.logo {
+  background: transparent url("/assets/DreamFundedLogo.png") no-repeat top left;
+  background-size: contain;
+  height: inherit;
+  width: 180px;
+  position: relative;
+  border-top: 10px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+
+/*.logo:hover{
+	background-color: #ECECEC;
+}*/
+/* line 130, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+#nopadding {
+  padding: 0;
+}
+
+/* line 134, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+#left {
+  margin-left: 40px;
+  float: left;
+  height: 52px;
+}
+
+/* line 143, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+#sign-in-button {
+  background-color: #FFA600;
+  color: white;
+}
+
+/* line 147, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+#last-menu-button {
+  width: 77px;
+}
+/* line 11, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/colors.css.scss */
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+}
+
+/* line 7, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.creation-wrap {
+  width: 550px;
+}
+
+/* line 11, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.news-single-container {
+  width: 77%;
+  height: 250px;
+  margin: 30px auto;
+  padding: 30px;
+  background: white;
+  position: relative;
+}
+
+/* line 20, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.news-image {
+  float: left;
+  overflow: hidden;
+  position: relative;
+}
+
+/* line 26, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.article-image {
+  width: 250px;
+  height: auto;
+  max-height: 250px;
+}
+
+/* line 32, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.news {
+  margin-left: 30px;
+  width: 63%;
+  float: left;
+  padding: 15px;
+}
+
+/* line 39, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.smaller {
+  margin: 20px 0;
+  width: 130px;
+}
+
+/* line 44, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.title-container {
+  font-size: 30px;
+  color: #10a1d6;
+  border-bottom: 1px solid gray;
+  overflow: hidden;
+  height: 40px;
+}
+
+/* line 52, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.content-container {
+  margin: 10px 30px;
+  height: 90px;
+  overflow: hidden;
+  font-size: 18px;
+}
+
+/* line 59, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.point {
+  font-size: 20px;
+}
+
+/* line 63, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.article-button {
+  display: inline-block;
+  margin-top: 10px;
+  color: white;
+  border: none;
+  padding: 10px 50px;
+  background: #10a1d6;
+  font-size: 18px;
+  cursor: pointer;
+  font-family: BlinkMacSystemFont;
+}
+
+/* line 75, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.article-button:focus {
+  outline: none;
+}
+
+/* line 79, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.center {
+  text-align: center;
+}
+
+/* line 83, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.title {
+  font-size: 30px;
+}
+
+/* line 87, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.topbar {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  height: 30px;
+}
+
+/* line 93, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.full-image {
+  max-width: 550px;
+  max-height: 550px;
+  float: left;
+  margin: 0 40px 40px 0;
+}
+
+/* line 99, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.full-photo {
+  max-width: 300px;
+  max-height: 550px;
+  float: left;
+  margin: 0 40px 40px 0;
+  border-radius: 50%;
+}
+
+/* line 107, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.article {
+  font-size: 17px;
+  line-height: 150%;
+}
+
+/* line 112, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.description-box {
+  width: 95%;
+  height: 200px;
+  margin: 2%;
+  border: none;
+  outline: 0;
+  font-size: 16px;
+}
+
+/* line 121, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.source {
+  margin: 10px;
+  height: 15px;
+}
+
+/* line 126, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.page {
+  min-height: 450px;
+}
+
+/* line 130, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.art-text {
+  min-height: 400px;
+}
+
+/* line 133, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.news-read-more-buton {
+  text-align: center;
+}
+/* line 11, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/colors.css.scss */
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+}
+/* line 4, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/posts.css.scss */
+.edit-form {
+  text-align: center;
+}
+
+/* line 7, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/posts.css.scss */
+.float-rigth {
+  float: right;
+  margin-left: 10px;
+}
+
+/* line 11, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/posts.css.scss */
+.paragraph-position {
+  margin-right: 10px;
+}
+
+/* line 14, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/posts.css.scss */
+.posts-form {
+  font-size: 20px;
+  color: #0D87B3;
+  text-align: center;
+}
+
+/* line 19, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/posts.css.scss */
+.posts-textarea {
+  font-size: 16px;
+  line-height: 130%;
+}
+/* line 11, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/colors.css.scss */
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+}
+/* line 11, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/colors.css.scss */
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+}
+
+/* line 6, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.box {
+  margin: 100px auto;
+  font-family: "Lato", sans-serif;
+  border: none;
+  background: #ffffff;
+  padding: 20px 40px 40px 40px;
+}
+
+/* line 14, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.signup-size {
+  width: 500px;
+}
+
+/* line 18, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.input-box {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid gray;
+  border-right: 1px solid white;
+  padding: 3px 6px;
+  font-size: 16px;
+  width: 97%;
+  margin: 0 0 30px 0;
+}
+
+/* line 29, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.input-box:focus {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
+/* line 34, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.half {
+  width: 45%;
+  float: left;
+}
+
+/* line 39, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.scoot-left {
+  margin-left: 3%;
+}
+
+/* line 43, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+#submit-button {
+  width: 200px;
+  height: 50px;
+  background: #FFAA00;
+  border: none;
+  outline: 0;
+  margin: 20px auto;
+  font-size: 18px;
+  font-family: "Lato", sans-serif;
+  color: white;
+}
+
+/* line 55, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+#submit-button:hover {
+  background-color: #C4901E;
+}
+
+/* line 59, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+#submit-button:disabled {
+  background-color: #878787;
+}
+
+/* line 63, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.top-gap {
+  padding-top: 20px;
+}
+
+/* line 67, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.notice {
+  height: 50px;
+  color: #0033CC;
+  font-size: 14px;
+}
+
+/* line 73, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.check_box {
+  font-size: 15px;
+}
+
+/* line 76, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.check_box input {
+  margin-bottom: 6px;
+}
+
+/* line 80, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.tab {
+  width: 49%;
+  float: left;
+  position: relative;
+  display: table-cell;
+  padding-bottom: 10px;
+}
+
+/* line 88, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.row {
+  position: relative;
+  display: table;
+  padding: 20px 0;
+  width: 100%;
+}
+
+/* line 95, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.right-line {
+  border-right: 1px solid #CCCCCC;
+}
+
+/* line 98, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.payment-form {
+  text-align: center;
+}
+
+/* line 101, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.payment-form input {
+  height: 22px;
+  width: 151px;
+}
+
+/* line 105, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+#payment-title {
+  font-size: 35px;
+}
+
+/* line 108, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+#linkedin-icon {
+  color: #0077b5;
+  margin-left: 10px;
+}
+
+/* line 112, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+#google-icon {
+  color: #EF2219;
+  margin-right: 10px;
+}
+
+/* line 116, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.social-login-ions {
+  margin-bottom: 10px;
+}
+
+/*i P A D*/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* line 123, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+  .input-box, .userbox {
+    font-size: 19px;
+  }
+}
+.error {
+	width: 460px;
+	padding: 20px 40px;
+}
+
+.left {
+	text-align: left;
+}
+/* line 11, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/colors.css.scss */
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+}
+
+/* line 6, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/users.css.scss */
+#user-button {
+  width: 40%;
+  margin: 5%;
+  padding: 15px;
+  background: #10a1d6;
+  font-size: 18px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  float: left;
+}
+
+/* line 18, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/users.css.scss */
+#user-button:hover {
+  background: #0B6E91;
+}
+
+/* line 22, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/users.css.scss */
+#user-button:focus {
+  outline: 0;
+  border: none;
+}
+
+/* line 27, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/users.css.scss */
+#user-table {
+  text-align: center;
+  float: center;
+  margin: 0 auto;
+}
+
+/* line 33, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/users.css.scss */
+#user-table th {
+  color: #10a1d6;
+}
+
+/* line 37, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/users.css.scss */
+#user-table th {
+  border-bottom: 1px solid #10a1d6;
+  padding-bottom: 10px;
+}
+
+/* line 42, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/users.css.scss */
+#user-table td {
+  border-right: solid 1px #10a1d6;
+  border-left: solid 1px #10a1d6;
+  padding: 10px 10px;
+  font-size: 12px;
+}
+
+/* line 49, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/users.css.scss */
+.team-wrapper {
+  width: 500px;
+  margin: 50px auto;
+}
+
+/* line 53, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/users.css.scss */
+.password-six-chars {
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* line 57, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/users.css.scss */
+.little-margin {
+  margin-bottom: 10px;
+}
+/* line 1, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/why.css.scss */
+.video {
+  padding: 30px 30px 30px 0;
+  float: left;
+}
+
+/* line 6, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/why.css.scss */
+.subtitle {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* line 10, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/why.css.scss */
+.text-underline {
+  display: inline-block;
+  border-bottom: 2px solid #0D87B3;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+
+
+ */
+
+
+
+.wrapper {
+	margin: 0;
+	margin-top: 50px;
+	padding: 0;
+	/*min-height: 1000px;*/
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Geneva, Helvetica;
+	background: #ECECEC;
+}
+
+#whiteback {
+	background: white;
+}
+
+p {
+	font-size: 16px;
+	line-height: 150%;
+	text-align: left;
+	font-weight: lighter;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid #CCCCCC;
+}
+.centered {
+	text-align:center;
+}
+
+.header-container{
+	background-color:white;
+	z-index: 300;
+}
+
+.black {
+	color: #000000;
+}
+
+.header {
+	background: #0D87B3;
+	padding: 10px;
+	color: white;
+	text-align: center;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
+	position: relative;
+}
+
+.word-content {
+	margin: 0 auto;
+	width: 80%;
+	background: white;
+	padding: 20px;
+	padding-bottom: 100px;
+	margin-bottom: 100px;
+	min-height: 400px;
+}
+
+.text-content {
+	margin: 70px;
+}
+
+.sides {
+	margin: 20px 50px;
+}
+
+.indent {
+	text-indent: 50px;
+}
+.underline{
+	text-decoration: underline;
+}
+
+.darkblue {
+	color: #10a1d6;
+}
+
+.darkblue a {
+	color: #10a1d6;
+}
+
+.remove-button {
+	cursor: pointer;
+	float: right;
+	outline: 0;
+	border: none;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	background: transparent;
+	color: red;
+}
+.company-position {
+	cursor: pointer;
+	float: left;
+	outline: 0;
+	border: none;
+	position: absolute;
+
+	top: 10px;
+	background: transparent;
+	color: red;
+}
+
+.approve-button {
+	cursor: pointer;
+	float: left;
+	outline: 0;
+	border: none;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	background: transparent;
+	color: green;
+}
+
+.twenty {
+	font-size: 20px;
+}
+
+.eighteen {
+	font-size: 18px;
+}
+
+.fifteen {
+	font-size: 15px;
+}
+
+.twentyf {
+	font-size: 25px;
+}
+
+.normal {
+	line-height: 50%;
+}
+
+.no-margin {
+	margin: 0;
+}
+
+.yes-margin {
+	margin: 40px;
+}
+
+.active {
+}
+
+.nodec {
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.scroll {
+	overflow: auto;
+}
+
+.hide {
+	display: none
+}
+
+/******************************************************** Footer **********************************************/
+
+.footer {
+	position: relative;
+    padding: 0px;
+    position: relative;
+    z-index: 1;
+}
+
+.foot-bar {
+	background: white;
+	height: 150px;
+}
+
+.footer-content {
+	padding: 30px 50px;
+	height: 20px;
+}
+
+.foot-text {
+	color: gray;
+	font-size: 10px;
+	float: left;
+	margin-top: 5px;
+}
+
+.spaced {
+	padding: 0 30px;
+}
+
+.gap {
+	margin: 0 64px;
+}
+
+.spaced:hover {
+	text-decoration: underline;
+}
+
+.border {
+	border-right: 2px solid gray;
+}
+
+.foot-wrap {
+	height: 150px;
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.image3 {
+	max-width: 150px;
+	max-height: 150px;
+	display: table-cell;
+	vertical-align: middle;
+	position: absolute;
+	margin: 0 25px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.image3-box {
+	width: 200px;
+	height: 150px;
+	float: right;
+	padding: 0;
+	position: relative;
+}
+
+.image4 {
+	max-width: 35px;
+	max-height: 35px;
+	margin: 0 7px;
+	display: table-cell;
+	vertical-align: middle;
+	position: relative;
+	top: 50%;
+	float: left;
+	transform: translateY(-50%);
+}
+
+.image4-box {
+	float: left;
+  margin-top: 8px;
+ /* margin-right: 9%;*/
+ 	margin-left: 0%;
+  padding: 0;
+  position: relative;
+}
+.hidden-facebook{
+	visibility: hidden;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+
+.pagination li {
+	display: inline;
+	margin: 0 10px;
+}
+
+.darkgray {
+	color: #8A8A8A;
+}
+.table{
+	float: left;
+}
+
+.question {
+	font-size: 17px;
+}
+
+.faq-subtitle {
+	font-size: 25px;
+}
+
+.faq-answer {
+	color: #666666;
+	font-weight: 100;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.porfolio-container {
+	height: 300px;
+	width: 100%;
+}
+
+.portfolio-box {
+	width: 33%;
+	height: 300px;
+	float: left;
+	text-align: center;
+}
+
+.portfolio-box2 {
+	width: 25%;
+	height: 300px;
+	float: left;
+	text-align: center;
+}
+
+.helper {
+	height: 100%;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.portfolio-img {
+	max-width: 80%;
+	margin: 0 auto;
+	vertical-align: middle;
+}
+
+.about-image {
+	max-width: 70%;
+	display: block;
+	margin: auto;
+}
+
