@@ -31,7 +31,7 @@
 }
 
 .space-keeper {
-	min-height: 600px;
+	/*min-height: 600px;*/
 }
 
 .big-title {
@@ -596,6 +596,11 @@ and (max-device-width : 1024px)  {
   #newsletter-text-field{
     width:60% !important;
   }
+  .invest-button{
+    width: 31%;
+    font-size: 25px;
+  }
+
 }
 
 .transparent {
