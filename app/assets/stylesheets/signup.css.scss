@@ -116,3 +116,12 @@
 .social-login-ions{
 	margin-bottom: 10px;
 }
+ /*i P A D*/
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)  {
+	.input-box, .userbox {
+		font-size: 19px;
+	}
+
+}
