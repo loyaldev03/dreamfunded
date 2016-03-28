@@ -1,5 +1,14 @@
 ActiveAdmin.register Company do
+  controller do
+    before_filter :authenticate
 
+    private
+    def authenticate
+      if user_session.authority != authority[:Admin]
+        redirect_to root_path
+      end
+    end
+  end
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

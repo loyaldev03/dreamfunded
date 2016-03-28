@@ -1,4 +1,14 @@
 ActiveAdmin.register_page "Dashboard" do
+  controller do
+    before_filter :authenticate
+
+    private
+    def authenticate
+      if user_session.authority != authority[:Admin]
+        redirect_to root_path
+      end
+    end
+  end
 
   menu priority: 1, label: proc{ I18n.t("active_admin.dashboard") }
 

@@ -1,0 +1,173 @@
+/* line 11, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/colors.css.scss */
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+}
+
+/* line 5, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.menu-wrap {
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(9, 94, 125, 0.2), 0 2px 4px rgba(9, 94, 125, 0.22);
+  position: fixed;
+  top: 0;
+  border: none;
+  outline: 0;
+  z-index: 999;
+  height: 52px;
+}
+
+/* line 16, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.main-menu {
+  display: inline;
+  clear: both;
+}
+
+/* line 20, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+#mobile-menu {
+  float: left;
+  visibility: hidden;
+}
+
+/* line 24, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.ipad-menu {
+  float: left;
+  visibility: hidden;
+  width: 0;
+}
+
+/* line 30, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 34, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.white a, .white {
+  color: white;
+}
+
+/* line 38, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.menu {
+  margin: 0 auto;
+}
+
+/* line 42, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.menu li {
+  margin: 0;
+  list-style: none;
+}
+
+/* line 47, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.menu > ul > li {
+  display: inline-block;
+  position: relative;
+  font-size: 18px;
+  float: right;
+}
+
+/* line 54, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.menu > ul > li:hover {
+  background-color: #DFDFDF;
+}
+
+/* line 58, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.menu > ul > li:hover, .menu li:hover, .sub-menu li:hover, button:hover {
+  cursor: hand;
+  cursor: pointer;
+}
+
+/* line 63, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.sub-menu {
+  width: 130%;
+  min-width: 170px;
+  padding: 0;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  display: none;
+  opacity: 0;
+  transition: opacity linear 0.15s;
+  background: #DFDFDF;
+  box-shadow: 0 6px 8px rgba(9, 94, 125, 0.2);
+}
+
+/* line 77, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.sub-menu button {
+  min-width: 170px;
+  text-align: left;
+}
+
+/* line 82, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.sub-menu li:hover {
+  background: #B4B4B4;
+}
+
+/* line 86, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.menu li:hover .sub-menu {
+  display: block;
+  opacity: 1;
+}
+
+/* line 91, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+button {
+  outline: 0;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  color: white;
+}
+
+/* line 99, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.main-menu button {
+  color: #10a1d6;
+}
+
+/* line 103, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.menu button {
+  font-size: 15px;
+  padding: 0 17px;
+  height: 52px;
+  font-weight: 500;
+  font-family: 'proxima-nova',sans-serif;
+}
+
+/* line 112, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.arrow {
+  font-size: 9px;
+  line-height: 0%;
+}
+
+/* line 117, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+.logo {
+  background: transparent url("/assets/DreamFundedLogo.png") no-repeat top left;
+  background-size: contain;
+  height: inherit;
+  width: 180px;
+  position: relative;
+  border-top: 10px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+
+/*.logo:hover{
+	background-color: #ECECEC;
+}*/
+/* line 130, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+#nopadding {
+  padding: 0;
+}
+
+/* line 134, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+#left {
+  margin-left: 40px;
+  float: left;
+  height: 52px;
+}
+
+/* line 143, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+#sign-in-button {
+  background-color: #FFA600;
+  color: white;
+}
+
+/* line 147, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/menu.css.scss */
+#last-menu-button {
+  width: 77px;
+}

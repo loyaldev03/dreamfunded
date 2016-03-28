@@ -31,7 +31,7 @@
 }
 
 .space-keeper {
-	/*min-height: 600px;*/
+	min-height: 600px;
 }
 
 .big-title {
@@ -438,22 +438,11 @@ and (max-device-width : 568px) {
 
 	}
 	.row2 {
-		/*display: none;*/
-    text-align: center;
+		display: none;
 	}
 	.row1 {
-		/*display: none;*/
+		display: none;
 	}
-  .row2 img{
-    position: relative;
-  }
-  #wallstreet_logo{
-    left: 0;
-    top: -18px;
-  }
-  #fast_company_logo{
-    left: 0;
-  }
 	.invest-button{
 		width: auto;
 	}
@@ -565,30 +554,13 @@ and (max-device-width : 568px) {
   .signup-size{
     width: 70% !important;
   }
-  .homepage-press-mentions{
-    display: inline-block;
-    width: 30%;
-  }
 }
 
  /*i P A D*/
 @media only screen
 and (min-device-width : 768px)
 and (max-device-width : 1024px)  {
-  .main-menu li{
-    visibility: hidden;
-  }
-  .ipad-menu{
-    display: inline-block !important;
-    float: right !important;
-    visibility: visible !important;
-    width: inherit !important;
-  }
-  .ipad-menu li{
-    visibility: visible;
-  }
   #left{
-    visibility: visible;
     position: absolute;
     top: 0;
     left: 0;
@@ -619,17 +591,9 @@ and (max-device-width : 1024px)  {
   }
   .row2{
     text-align: center;
-    margin-bottom: 0;
   }
   #newsletter-text-field{
-    width:60% !important;
-  }
-  .invest-button{
-    width: 31%;
-    font-size: 25px;
-  }
-  .menu button{
-    font-size: 18px !important;
+    width:63%;
   }
 }
 

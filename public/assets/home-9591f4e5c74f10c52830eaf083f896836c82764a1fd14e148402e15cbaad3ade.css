@@ -438,22 +438,11 @@ and (max-device-width : 568px) {
 
 	}
 	.row2 {
-		/*display: none;*/
-    text-align: center;
+		display: none;
 	}
 	.row1 {
-		/*display: none;*/
+		display: none;
 	}
-  .row2 img{
-    position: relative;
-  }
-  #wallstreet_logo{
-    left: 0;
-    top: -18px;
-  }
-  #fast_company_logo{
-    left: 0;
-  }
 	.invest-button{
 		width: auto;
 	}
@@ -565,10 +554,6 @@ and (max-device-width : 568px) {
   .signup-size{
     width: 70% !important;
   }
-  .homepage-press-mentions{
-    display: inline-block;
-    width: 30%;
-  }
 }
 
  /*i P A D*/
@@ -628,9 +613,7 @@ and (max-device-width : 1024px)  {
     width: 31%;
     font-size: 25px;
   }
-  .menu button{
-    font-size: 18px !important;
-  }
+
 }
 
 .transparent {

@@ -1,4 +1,14 @@
 ActiveAdmin.register News do
+  controller do
+    before_filter :authenticate
+
+    private
+    def authenticate
+      if user_session.authority != authority[:Admin]
+        redirect_to root_path
+      end
+    end
+  end
 
 permit_params :image, :title, :content, :source, :position, :video_link
 before_filter :only => [:show, :edit, :update, :destroy] do
