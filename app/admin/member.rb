@@ -1,4 +1,14 @@
 ActiveAdmin.register Member do
+  controller do
+    before_filter :authenticate
+
+    private
+    def authenticate
+      if user_session.authority != authority[:Admin]
+        redirect_to root_path
+      end
+    end
+  end
 
 permit_params :name, :summary, :fullbio, :title, :rank, :image
 before_filter :only => [:show, :edit, :update, :destroy] do

@@ -1,17 +1,16 @@
 ActiveAdmin.register User do
+  controller do
+    before_filter :authenticate
 
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
+    private
+    def authenticate
+      if user_session.authority != authority[:Admin]
+        redirect_to root_path
+      end
+    end
+  end
+
 permit_params :first_name, :last_name, :login, :email, :authority, :salt, :password_digest, :confirmed, :invested_amount, :phone
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if resource.something?
-#   permitted
-# end
 
   index do
     column  "first_name"
