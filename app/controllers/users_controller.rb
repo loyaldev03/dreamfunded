@@ -212,7 +212,7 @@ class UsersController < ApplicationController
 		if user.first_name && user.last_name && user.email && Rails.env.production?
 			Infusionsoft.contact_add({:FirstName => user.first_name , :LastName => user.last_name, :Email => user.email})
 		end
-		#ContactMailer.personal_hello(user).deliver
+		ContactMailer.personal_hello(user).deliver
 		ContactMailer.account_created(user).deliver
 		session[:current_user] = user
 		redirect_to root_path
