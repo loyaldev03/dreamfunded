@@ -778,11 +778,14 @@ and (max-device-width : 1024px)  {
 }
 .aca-logo{
   width: 150px;
+  vertical-align: top;
+  margin-left: 5%;
 }
 .perkins-logo{
   width: 190px;
   margin-left: 5%;
   vertical-align: top;
-  margin-top: -7px;
-  }
+}
+.fb_iframe_widget{
+  z-index: 2;
 }
