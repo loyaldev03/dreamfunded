@@ -21,10 +21,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'spring',        group: :development
 gem 'async-rails'
 gem 'carrierwave'
-gem 'rails_12factor'
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '< 2.0'
 gem 'friendly_id'
@@ -51,4 +49,9 @@ group :development do
    gem "letter_opener"
    gem "better_errors"
    gem 'binding_of_caller'
+   gem 'spring'
+end
+
+group :production do
+    gem 'rails_12factor'
 end

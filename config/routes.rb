@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :documents
   resources :guests
+  resources :invites
 
   match "/diversity-tech-angels-earn-wings/" => redirect("https://dreamfundedsf.wpengine.com/diversity-tech-angels-earn-wings/"), via: 'get'
 
@@ -57,6 +58,8 @@ Rails.application.routes.draw do
 
   resources :companies
   resources :news
+
+  get '/invite', to: "invites#invite"
 
   #resources :teams
   get '/team', to: "teams#index", as: :teams

@@ -1,0 +1,53 @@
+.invite-email-icon{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee;
+  border-radius: 50% 50%;
+  height: 60px;
+  margin-right: 20px;
+  padding: 10px;
+  width: 60px;
+}
+.invite-via-email{
+  border-top: 2px solid #eee;
+  margin-top: 30px;
+  padding-left: 30px;
+  padding-top: 30px;
+}
+.invite-text{
+  font-size: 24px;
+  color: #212121;
+}
+.invite-form{
+  display: inline-block;
+  float: right;
+  width: 500px;
+  padding-top: 19px;
+}
+.invite-text-input{
+  height: 30px;
+  width: 70%;
+  padding: 6px 12px;
+  font-size: 16px;
+  color: #212121;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.invite-button{
+  width: 100px;
+  margin-left: 5px;
+  font-size: 14px;
+  height: 43px;
+  vertical-align: top;
+  color: #fff;
+  background-color: #4c9cc1;
+  border: 0;
+}

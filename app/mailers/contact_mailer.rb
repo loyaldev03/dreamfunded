@@ -59,4 +59,11 @@ class ContactMailer < ActionMailer::Base
     @email= user.email
     mail(to: "info@dreamfunded.com", subject: 'Password Reset Request')
   end
+
+  def invite(invite)
+    email = invite.email
+    @name = invite.user.name
+    @token = invite.token
+    mail(to: email, subject: "Congratulations, #{@name} has given you $100 to invest on DreamFunded")
+  end
 end
