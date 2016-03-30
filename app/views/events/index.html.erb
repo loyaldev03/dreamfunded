@@ -44,7 +44,7 @@
     <% @events.each do |event| %>
       <div class='event'>
         <div class='event-name'><%= event.name %></div>
-        <span class='event-date'><i class="fa fa-calendar"></i><%= event.date.to_formatted_s(:long) %></span><span class='event-location'><i class="fa fa-map-marker"></i><%= event.location %></span>
+        <span class='event-date'><i class="fa fa-calendar"></i><%= event.date.strftime("%b, %e") %></span><span class='event-location'><i class="fa fa-map-marker"></i><%= event.location %></span>
       </div>
     <% end %>
   </div>
