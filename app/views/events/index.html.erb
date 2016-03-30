@@ -9,14 +9,20 @@
   <div class= "events-content">
     <% @events.each do |event| %>
       <div class='event'>
-        <div class="round-date"><div class='event-day'><%= event.date.strftime("%e") %></div><div class='event-month'><%= event.date.strftime("%b") %></div></div>
-        <div class='event-block'>
-          <div class='event-name'><%= event.name %></div>
-          <span class='event-date'><i class="fa fa-calendar"></i> <%= event.date.strftime("%b,  %e %Y") %></span>
-          <span class='event-location'><i class="fa fa-map-marker"></i> <%= event.location %></span>
+        <div class='event-block1'>
+            <div class="round-date"><div class='event-day'><%= event.date.strftime("%e") %></div><div class='event-month'><%= event.date.strftime("%b") %></div></div>
         </div>
-        <div class='event-learn-more'>
-          <span class='event-link'> <%= link_to "Learn More", event.link, :target => '_blank' %></span>
+
+        <div class='event-block'>
+            <div class='event-name'><%= event.name %></div>
+            <span class='event-date'><i class="fa fa-calendar"></i> <%= event.date.strftime("%b,  %e %Y") %></span>
+            <span class='event-location'><i class="fa fa-map-marker"></i> <%= event.location %></span>
+        </div>
+
+        <div class='event-block2'>
+            <div class='event-learn-more'>
+              <span class='event-link'> <%= link_to "Learn More", event.link, :target => '_blank' %></span>
+            </div>
         </div>
         <% if user_session != nil && user_session.authority == authority[:Admin] %>
           <%= link_to 'Edit', edit_event_path(event), class: 'event-edit-link' %>
