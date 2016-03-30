@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :bids
+
 
   ActiveAdmin.routes(self)
   resources :members

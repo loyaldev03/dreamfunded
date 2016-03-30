@@ -30,7 +30,9 @@ class BidsController < ApplicationController
 
 	def show 
 		@company = Company.find(params[:id])
+		@auctions = LiquidateShare.where(company: @company.name)
 	end
+
 
 
 end

@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160330003156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +97,16 @@ ActiveRecord::Schema.define(version: 20160330003156) do
     t.datetime "file_updated_at"
   end
 
+  create_table "events", force: true do |t|
+    t.string   "name"
+    t.string   "location"
+    t.text     "description"
+    t.date     "date"
+    t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "founders", force: true do |t|
     t.string   "name"
     t.string   "position"
@@ -129,6 +138,14 @@ ActiveRecord::Schema.define(version: 20160330003156) do
 
   add_index "investments", ["company_id"], name: "index_investments_on_company_id", using: :btree
   add_index "investments", ["user_id"], name: "index_investments_on_user_id", using: :btree
+
+  create_table "invites", force: true do |t|
+    t.integer  "user_id"
+    t.string   "email"
+    t.string   "token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "liquidate_shares", force: true do |t|
     t.string   "first_name"
