@@ -8,6 +8,9 @@
   margin-bottom: 5px;
   vertical-align: top;
 }
+.event-name a{
+  color: #000;
+}
 .event{
   padding: 20px;
   border-bottom: 1px solid #999;
@@ -48,7 +51,7 @@
 .event-block3{
   vertical-align: top;
   display: inline-block;
-  width: 15%
+  width: 12%
 }
 .event-location{
 display: block;
@@ -95,4 +98,9 @@ display: block;
   position: absolute;
   right: 0;
   bottom: 0;
+}
+.event-image{
+  width: 100px;
+  height: auto;
+  max-height: 150px;
 }
