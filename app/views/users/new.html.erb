@@ -25,7 +25,7 @@
            <%= text_field_tag(:phone, nil, :placeholder => "Phone", :class => "input-box") %><br>
 
         <h4>Login Information</h4>
-           <%= text_field_tag(:email, nil, :placeholder => "Email", :class => "input-box") %>
+           <%= text_field_tag(:email, nil, :placeholder => "Email", :class => "input-box email-signup") %>
            <%= password_field_tag(:password, nil, :placeholder => "Password ", :class => "input-box half little-margin", required: true, pattern: ".{6,}") %>
            <%= password_field_tag(:password_confirmation, nil, :placeholder => "Confirm Password", required: true, pattern: ".{6,}", :class => "input-box half scoot-left little-margin") %>
            <span class='password-six-chars'>Password must be at least 6 characters</span>

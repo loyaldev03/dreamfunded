@@ -38,7 +38,7 @@ class ContactMailer < ActionMailer::Base
     @rofr_restrictions = rofr_restrictions
     @financial_assistance = financial_assistance
     @message = message
-    mail(to: "info@dreamfunded.com", subject: "Request to liquidate #{number_shares} shares of #{company} (#{timeframe} timeframe)")
+    mail(to: ["info@dreamfunded.com", "rexford@dreamfunded.com"], subject: "Request to liquidate #{number_shares} shares of #{company} (#{timeframe} timeframe)")
     # mail(to: "alexandr.larionov88@gmail.com", subject: 'Request to liquidate shares')
   end
 

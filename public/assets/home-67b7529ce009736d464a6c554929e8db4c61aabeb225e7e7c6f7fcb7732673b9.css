@@ -790,7 +790,3 @@ and (max-device-width : 1024px)  {
 .fb_iframe_widget{
   z-index: 2;
 }
-.link-button{
-  display: inline-block;
-  width: 37%;
-}

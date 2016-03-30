@@ -23,7 +23,6 @@ permit_params :image, :document, :hidden, :position, :docusign_url, :user_id, :n
 # end
   index do
     column  "name"
-    column  "description"
     column  "invested_amount"
     column  "website_link"
     column  "goal_amount"

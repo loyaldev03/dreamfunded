@@ -440,11 +440,7 @@ and (max-device-width : 568px) {
 	.row2 {
 		/*display: none;*/
     text-align: center;
-    margin-bottom: 30px;
 	}
-  .watch-video-cnbc {
-       margin-bottom: 8px !important;
-  }
 	.row1 {
 		/*display: none;*/
 	}
@@ -778,19 +774,11 @@ and (max-device-width : 1024px)  {
 }
 .aca-logo{
   width: 150px;
-  vertical-align: top;
-  margin-left: 5%;
 }
 .perkins-logo{
   width: 190px;
   margin-left: 5%;
   vertical-align: top;
-  margin-top: -6px;
-}
-.fb_iframe_widget{
-  z-index: 2;
-}
-.link-button{
-  display: inline-block;
-  width: 37%;
+  margin-top: -7px;
+  }
 }
