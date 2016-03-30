@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :events
+
   ActiveAdmin.routes(self)
   resources :members
 
