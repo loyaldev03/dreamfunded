@@ -1,37 +1,3 @@
-<h1>Listing events</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Location</th>
-      <th>Description</th>
-      <th>Date</th>
-      <th>Link</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.name %></td>
-        <td><%= event.location %></td>
-        <td><%= event.description %></td>
-        <td><%= event.date %></td>
-        <td><%= event.link %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>
-
 <head>
   <% title "DreamFunded | Events" %>
 </head>
@@ -40,11 +6,27 @@
   <div class="header">
     <h1 class="centered">Events</h1>
   </div>
-  <div class= "word-content">
+  <div class= "events-content">
     <% @events.each do |event| %>
       <div class='event'>
-        <div class='event-name'><%= event.name %></div>
-        <span class='event-date'><i class="fa fa-calendar"></i><%= event.date.strftime("%b, %e") %></span><span class='event-location'><i class="fa fa-map-marker"></i><%= event.location %></span>
+        <div class="round-date"><div class='event-day'><%= event.date.strftime("%e") %></div><div class='event-month'><%= event.date.strftime("%b") %></div></div>
+        <div class='event-block'>
+          <div class='event-name'><%= event.name %></div>
+          <span class='event-date'><i class="fa fa-calendar"></i> <%= event.date.strftime("%b,  %e %Y") %></span>
+          <span class='event-location'><i class="fa fa-map-marker"></i> <%= event.location %></span>
+        </div>
+        <div class='event-learn-more'>
+          <span class='event-link'> <%= link_to "Learn More", event.link %></span>
+        </div>
+        <% if user_session != nil && user_session.authority == authority[:Admin] %>
+          <%= link_to 'Edit', edit_event_path(event), class: 'event-edit-link' %>
+          <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'event-delete-link' %>
+        <% end %>
+      </div>
+    <% end %>
+    <% if user_session != nil && user_session.authority == authority[:Admin] %>
+      <div class='event'>
+        <%= link_to 'New Event', new_event_path, class: 'centered add-new-event' %>
       </div>
     <% end %>
   </div>
