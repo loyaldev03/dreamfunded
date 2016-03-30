@@ -4,7 +4,7 @@
 
 <div class= "wrapper">
   <div class="header">
-    <h1 class="centered">Events</h1>
+    <h1 class="centered">Upcoming Events</h1>
   </div>
   <div class= "events-content">
     <% @events.each do |event| %>
@@ -16,7 +16,7 @@
           <span class='event-location'><i class="fa fa-map-marker"></i> <%= event.location %></span>
         </div>
         <div class='event-learn-more'>
-          <span class='event-link'> <%= link_to "Learn More", event.link %></span>
+          <span class='event-link'> <%= link_to "Learn More", event.link, :target => '_blank' %></span>
         </div>
         <% if user_session != nil && user_session.authority == authority[:Admin] %>
           <%= link_to 'Edit', edit_event_path(event), class: 'event-edit-link' %>
