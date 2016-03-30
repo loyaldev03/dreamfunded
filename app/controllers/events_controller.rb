@@ -1,7 +1,7 @@
 class EventsController < InheritedResources::Base
 
   def index
-    @events = Event.all.order('created_at DESC')
+    @events = Event.all.order('created_at ASC')
   end
 
   def create
