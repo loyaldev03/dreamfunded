@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326004831) do
+ActiveRecord::Schema.define(version: 20160330003156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 20160326004831) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "bids", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "auction_id"
+    t.string   "user_id"
+    t.string   "seller_id"
+    t.string   "bid_amount"
+    t.string   "counter_amount"
+    t.boolean  "accepted"
+  end
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -266,6 +277,7 @@ ActiveRecord::Schema.define(version: 20160326004831) do
     t.string   "provider"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "role"
   end
 
   add_index "users", ["slug"], name: "index_users_on_slug", using: :btree

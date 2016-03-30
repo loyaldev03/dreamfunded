@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :bids
+
   ActiveAdmin.routes(self)
   resources :members
 
@@ -21,6 +23,8 @@ Rails.application.routes.draw do
 
   get 'auth/linkedin/callback', to:'omniauth_callbacks#google_oauth2'
   post 'auth/linkedin/callback', to:'omniauth_callbacks#google_oauth2'
+
+  get 'bid/:id', to: "bids#bid"
 
   get 'users/portfolio', to: "users#portfolio", as: :portfolio
   get 'users/portfolio_admin/:id', to: "users#portfolio_admin", as: :portfolio_admin
