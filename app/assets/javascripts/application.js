@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require ckeditor/init
 //= require bootstrap.min
+//= require instafilta.min
 //= require turbolinks
 //= require_tree .
 

@@ -18,7 +18,7 @@
       end
 
       def authorise
-                client_id = "53258587093-kl5m6bi61j835409ncebrhr9dtvmt0se.apps.googleusercontent.com"
+        client_id = "53258587093-kl5m6bi61j835409ncebrhr9dtvmt0se.apps.googleusercontent.com"
         client_secret = "zuN6_MdtvUkOlqKfyL9sL6tF"
         client = OAuth2::Client.new(client_id, client_secret,
                    site: 'https://accounts.google.com',
@@ -26,7 +26,14 @@
                    authorize_url: '/o/oauth2/auth')
         token = client.auth_code.get_token(params[:code], :redirect_uri => 'http://localhost:3000/authorise')
         user = GoogleContactsApi::User.new(token)
-        @contacts = user.contacts.to_hash
+        @contacts = user.contacts
+        @hash = {}
+        @contacts.each do |contact|
+          if contact.full_name
+            @hash[contact.full_name] = contact.primary_email
+          end
+        end
+        @hash = @hash.sort.to_h
       end
 
     end

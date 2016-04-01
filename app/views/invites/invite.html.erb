@@ -1,4 +1,3 @@
-<html>
 <head>
   <% title "DreamFunded | Invite" %>
 </head>
@@ -10,6 +9,7 @@
   <div class= "word-content">
     <h3 class=' education-category darkblue'>Gift your friends <b>$100</b> to get started on DreamFunded.</h3>
     <p class= "faq-answer center">When you invite a friend to join DreamFunded, we'll give them $100 to start investing with DreamFunded. And when they make an investment, you'll get $100 to invest too.</p>
+
     <div class="invite-via-email">
       <span class='invite-email-icon'><%=  fa_icon("envelope 2x")%> </span>
       <span class='invite-text'>Invite via Email</span>
@@ -20,11 +20,19 @@
         <% end %>
       </span>
     </div>
-    <a href="/contacts/google_oauth2/callback">Invite Friends</a>
 
-
-
+    <div class="invite-via-email">
+      <span class='invite-email-icon'><%=  fa_icon("google 2x")%> </span>
+      <span class='invite-text'>Invite from Gmail</span>
+      <span class='invite-form'>
+        <%= button_to  '/authenticate', class: 'invite-google-contacts' do %>
+          Invite Contacts from Gmail
+          <%= image_tag "static/gmail-icon.png", class: 'gmail-icon' %>
+        <% end %>
+       <!--  <button href="/authenticate" class='invite-google-contacts'>Invite Contacts from Gmail
+        </button> -->
+      </span>
+    </div>
   </div>
 </div>
 </body>
-</html>
