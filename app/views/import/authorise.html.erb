@@ -56,19 +56,27 @@
             <div class="search">
               <input type="text" id="fiter-input" placeholder="Search" class='input-search'>
             </div>
-            <ul class='instafilta-section imported-contacts'>
-            <% @hash.each do |key, value| %>
-              <div class="contact-item">
-                <li class='imported-name'> <input type="checkbox" name="email" value=<%=value%> checked><%= key %></li>
-                <li class='imported-email'><%= value %></li>
-                <hr>
-              </div>
+            <%= form_tag('/google_contacts') do%>
+              <ul class='instafilta-section imported-contacts'>
+                <% @hash.each do |key, value| %>
+                  <div class="contact-item">
+                    <label>
+                      <li class='imported-name'>
+                        <%= check_box_tag "emails[]", value %>
+                        <%= key %></li>
+                      <li class='imported-email'><%= value %></li>
+                    </label>
+                    <hr>
+                  </div>
+                <% end %>
+              </ul>
+              <center class='invite-buttons'>
+                <a href="#" class="close-button">Cancel</a>
+                <!-- <a href="#" class="invite-google-button">Send Invitations</a> -->
+                <%= submit_tag "Send Invitations", class: 'invite-google-button'%>
+              </center>
+
             <% end %>
-            </ul>
-            <center class='invite-buttons'>
-              <a href="#" class="close-button">Cancel</a>
-              <a href="#" class="invite-google-button">Send Invitations</a>
-            </center>
         </div>
      </div>
     </div>

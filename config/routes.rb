@@ -69,6 +69,7 @@ Rails.application.routes.draw do
   resources :news
 
   get '/invite', to: "invites#invite"
+  post '/google_contacts', to: "invites#google_contacts"
 
   #resources :teams
   get '/team', to: "teams#index", as: :teams
