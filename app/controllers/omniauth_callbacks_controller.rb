@@ -13,8 +13,9 @@ class OmniauthCallbacksController < ApplicationController
   end
 
   def google_oauth2
-    p request.env["omniauth.auth"]
     @user = User.from_omniauth(request.env["omniauth.auth"])
+
+
     if @user.persisted?
       @user.update(confirmed: true)
       session[:current_user] = @user
@@ -29,6 +30,6 @@ class OmniauthCallbacksController < ApplicationController
       redirect_to 'users/new'
     end
   end
-
   alias_method :google, :google_oauth2
+
 end

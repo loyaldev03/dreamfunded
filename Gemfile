@@ -38,6 +38,7 @@ gem 'omniauth-linkedin'
 gem 'activeadmin'
 gem 'infusionsoft'
 gem 'newrelic_rpm'
+gem 'google_contacts_api'
 
 
 gem 'will_paginate', '~> 3.0.5'
@@ -50,6 +51,7 @@ group :development do
    gem "better_errors"
    gem 'binding_of_caller'
    gem 'spring'
+   gem 'byebug'
 end
 
 group :production do
