@@ -2,11 +2,12 @@
   <% title "DreamFunded | Invite" %>
 </head>
 
-<body><div class= "wrapper">
+<body>
+<div class= "wrapper">
   <div class="header">
     <h1 class="centered">Invites</h1>
   </div>
-  <div class= "word-content">
+  <div class= "invite-content">
     <h3 class=' education-category darkblue'>Gift your friends <b>$100</b> to get started on DreamFunded.</h3>
     <p class= "faq-answer center">When you invite a friend to join DreamFunded, we'll give them $100 to start investing with DreamFunded. And when they make an investment, you'll get $100 to invest too.</p>
 
@@ -15,7 +16,7 @@
       <span class='invite-text'>Invite via Email</span>
       <span class='invite-form'>
         <%= form_for(Invite.new, remote: true) do |f| %>
-          <%= f.text_field(:email, placeholder: 'Email Address',class: 'invite-text-input')%>
+          <%= f.text_field(:email, placeholder: 'Email Address',class: 'invite-text-input', pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")%>
           <%= f.submit "Send", class: 'invite-button' %>
         <% end %>
       </span>
@@ -33,6 +34,16 @@
         </button> -->
       </span>
     </div>
+  </div>
+
+  <div class= "invite-content">
+    <h3 class=' education-category darkblue'>You have <b>$0</b> of credit to invest with</h3>
+    <% @invites.each do |invite| %>
+      <div class="current-invites">
+        <span class='imported-name' ><%= invite.email %></span><br>
+        <span class='invite-status'>Hasn't signed up yet</span>
+      </div>
+    <% end %>
   </div>
 </div>
 </body>
