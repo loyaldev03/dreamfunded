@@ -1,5 +1,9 @@
 class EventsController < InheritedResources::Base
 
+  def index
+    @events = Event.all.order('created_at ASC')
+  end
+
   def create
     @event = Event.new(event_params)
 
@@ -30,7 +34,7 @@ class EventsController < InheritedResources::Base
   private
 
     def event_params
-      params.require(:event).permit(:name, :location, :description, :date, :link)
+      params.require(:event).permit(:name, :location, :description, :date, :link, :image)
     end
 end
 

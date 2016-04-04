@@ -7,26 +7,27 @@
 	  <%= javascript_include_tag		'links' %>
 	  <%= javascript_include_tag	'jquery-1.4.2.min.js', 'application' %>
 	  <%= favicon_link_tag 'favicon.ico' %>
+	  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 	  <meta name="google-site-verification" content="4EqIIS1zzxponsiDalE--56ZXT7Dx_uvmH4sfzK3JRc" />
 	  <meta name="description" content="DreamFunded Exchange is a Silicon Valley private tech stock market. We are providing employee liquidity through our marketplace, which in turn provides access to angel investors to buy pre-IPO shares. ">
 	  <meta name="keywords" content="angel investors, pre-iso, employee liquidity, equity crowdfunding, startup investing, Silicon Valley investing, San Francisco angel investing">
-  <%= csrf_meta_tags %>
-  <!-- Facebook Conversion Code for Leads - 1414927242055598 1 -->
-  <script>(function() {
-  var _fbq = window._fbq || (window._fbq = []);
-  if (!_fbq.loaded) {
-  var fbds = document.createElement('script');
-  fbds.async = true;
-  fbds.src = '//connect.facebook.net/en_US/fbds.js';
-  var s = document.getElementsByTagName('script')[0];
-  s.parentNode.insertBefore(fbds, s);
-  _fbq.loaded = true;
-  }
-  })();
-  window._fbq = window._fbq || [];
-  window._fbq.push(['track', '6033653694759', {'value':'0.00','currency':'USD'}]);
-  </script>
-  <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6033653694759&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
+	  <%= csrf_meta_tags %>
+	  <!-- Facebook Conversion Code for Leads - 1414927242055598 1 -->
+	  <script>(function() {
+	  var _fbq = window._fbq || (window._fbq = []);
+	  if (!_fbq.loaded) {
+	  var fbds = document.createElement('script');
+	  fbds.async = true;
+	  fbds.src = '//connect.facebook.net/en_US/fbds.js';
+	  var s = document.getElementsByTagName('script')[0];
+	  s.parentNode.insertBefore(fbds, s);
+	  _fbq.loaded = true;
+	  }
+	  })();
+	  window._fbq = window._fbq || [];
+	  window._fbq.push(['track', '6033653694759', {'value':'0.00','currency':'USD'}]);
+	  </script>
+	  <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6033653694759&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
 
   			<div class= "menu-wrap fullWidth"> <nav class= "menu fullWidth">
 				<ul class= "main-menu white">
@@ -42,6 +43,7 @@
 							<% end %>
 							<li><button onclick="location.href='/dreamfunded-exchange';" >Sell Shares	</button></li>
 							<li><button onclick= "news()">News</button></li>
+							<li><button onclick= "location.href='/events';">Events</button></li>
 							<li><button onclick="location.href='/education';" >Education</button></li>
 							<li><button onclick= "team()">Team</button></li>
 							<li><button onclick= "about()">About Us</button></li>
@@ -82,6 +84,7 @@
 						</ul>
 					</li>
 					<li class='ipad-menu'><button onclick="location.href='/education';" >Education</button></li>
+					<li class='ipad-menu'><button onclick="location.href='/events';" >Events</button></li>
 					<li class='ipad-menu'><button onclick="location.href='/dreamfunded-exchange';" >Sell Shares	</button></li>
 					<% if user_session != nil && user_session.authority >= authority[:Accredited] %>
 						<li class='ipad-menu'><button onclick= "invest()">Invest</button></li>
@@ -146,19 +149,19 @@
 				</ul>
 
 			</nav></div>
+			<!-- facebook code -->
+			<div id="fb-root"></div>
+			<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=208256392895631";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
+			<!-- facebook end -->
 
 </head>
 <body>
-	<!-- facebook code -->
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=208256392895631";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
-	<!-- facebook end -->
 <div class= "wrapper">
 	<%= yield %>
 </div>

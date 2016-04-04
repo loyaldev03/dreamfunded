@@ -13,6 +13,7 @@ class News < ActiveRecord::Base
     :bucket => 'dreamfunded',
     :path => "news/:filename",
     :url =>':s3_domain_url',
+    :s3_protocol => :https,
     :s3_credentials => {
       :access_key_id => "AKIAJWDE6UJS56MXQYPQ",
       :secret_access_key => "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"
