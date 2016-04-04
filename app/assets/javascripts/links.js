@@ -61,7 +61,7 @@ function signIn() {
 }
 
 function home() {
-	window.location = "/home";
+	window.location = "/";
 }
 
 function portfolio() {
