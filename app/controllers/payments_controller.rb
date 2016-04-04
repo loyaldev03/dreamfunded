@@ -3,9 +3,10 @@ class PaymentsController < ApplicationController
   before_action :authorize
 
   def index
+    @user = session[:current_user]
 	end
 
-  def payment
+  def payment_path
     tran=UmTransaction.new
 
     # Merchants Source key must be generated within the console
