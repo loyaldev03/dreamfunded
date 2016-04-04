@@ -97,7 +97,11 @@ class UsersController < ApplicationController
 		@password = params[:password]
 		@email = params[:email]
 		@phone = params[:phone]
-
+		@token = params[:token]
+		if @token
+			invite = Invite.find_by(token: @token)
+			invite.use_token
+		end
 		#Change to enum / class later
 		if params[:reg] == nil
 			@authority = User.Authority[:Accredited]

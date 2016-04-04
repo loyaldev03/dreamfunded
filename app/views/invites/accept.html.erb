@@ -1,0 +1,66 @@
+<html>
+<head>
+    <%= javascript_include_tag    'signup' %>
+    <% title "DreamFunded | Sign Up" %>
+</head>
+
+<body>
+   <div class= "wrapper"><div class= "signup-size box">
+
+      <div class="row">
+        <div class="tab right-line darkblue nodec">
+          <h2 class= "no-margin centered"><a href="/users/login" id="login-form-link">Login</a></h2>
+        </div>
+        <div class="tab darkblue active">
+          <h2 class= "no-margin centered"><a href="/users/new" id="register-form-link">Sign Up</a></h2>
+        </div>
+      </div>
+
+      <div class= "signup-content">
+        <h4>Basic Information</h4>
+        <%#= form_tag("create", method: "post", ) do %>
+        <%= form_tag url_for(:controller => 'users', :action => 'create'), :method => 'post' do%>
+           <%= text_field_tag(:first_name, nil, :placeholder => "First Name", :class => "input-box half") %>
+           <div class= "filler"></div>
+           <%= text_field_tag(:last_name, nil, :placeholder => "Last Name", :class => "input-box half scoot-left") %><br>
+           <%= text_field_tag(:phone, nil, :placeholder => "Phone", :class => "input-box") %><br>
+           <h4>Token</h4>
+           <%= text_field_tag(:token, @token, :placeholder => "Token", :class => "input-box") %>
+           <span class='password-six-chars'>Please use invite token from your email to get $100 </span><br>
+
+        <h4>Login Information</h4>
+           <%= text_field_tag(:email, @email, :placeholder => "Email", :class => "input-box email-signup") %>
+           <%= password_field_tag(:password, nil, :placeholder => "Password ", :class => "input-box half little-margin", required: true, pattern: ".{6,}") %>
+           <%= password_field_tag(:password_confirmation, nil, :placeholder => "Confirm Password", required: true, pattern: ".{6,}", :class => "input-box half scoot-left little-margin") %>
+           <span class='password-six-chars'>Password must be at least 6 characters</span>
+           <br>
+           <h4> Certify yourself as an investor </h4>
+
+           <div class = "check_box">
+             <input type="checkbox" name="net_worth" id="box1" onclick = "onOff()"> My net worth is over $1 million, excluding my home.<br>
+             <input type="checkbox" name="income" id="box3" onclick = "onOff()"> My income was $200k+ for the past two years.<br>
+             <input type="checkbox" name="investor" id="box4" onclick = "onOff()"> I invest from an accredited business, family office or VC.<br>
+             <input type="checkbox" name="international" id='box2'  onclick = "onOff()"> I am an international investor.<br>
+             <input type="checkbox" name="reg" id="box5" onclick = "onOff()"> I am not accredited, but may invest when the rules change.<br>
+          </div>
+
+<!--            <div class= "centered">
+              <p>A questionnaire will be sent to your email shortly to determine your account type.</p>
+           </div> -->
+
+           <div class = "notice centered">
+              <%= flash[:notice] if flash[:notice] %>
+              <%= @error_message %>
+           </div>
+
+           <div class= "centered">
+           <p class='check_box'>We will never sell or rent your personal information.</p>
+              <%= submit_tag("Submit", :id => "submit-button", :disabled => true) %>
+           </div>
+
+        <% end %>
+      </div>
+      </div>
+  </div>
+</body>
+</html>

@@ -71,6 +71,8 @@ Rails.application.routes.draw do
   get '/invite', to: "invites#invite"
   post '/google_contacts', to: "invites#google_contacts"
 
+  get '/accept-invite', to: "invites#accept"
+
   #resources :teams
   get '/team', to: "teams#index", as: :teams
   get '/team/:id', to: "teams#show", as: :team

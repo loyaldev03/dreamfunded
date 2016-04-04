@@ -61,9 +61,9 @@ class ContactMailer < ActionMailer::Base
   end
 
   def invite(invite)
-    email = invite.email
+    @email = invite.email
     @name = invite.user.name
     @token = invite.token
-    mail(to: email, subject: "Congratulations, #{@name} has given you $100 to invest on DreamFunded")
+    mail(to: @email, subject: "Congratulations, #{@name} has given you $100 to invest on DreamFunded")
   end
 end

@@ -18,6 +18,11 @@ class InvitesController < ApplicationController
     redirect_to '/invite'
   end
 
+  def accept
+    @token = params[:token]
+    @email = params[:email]
+  end
+
   private
 
   def invite_params

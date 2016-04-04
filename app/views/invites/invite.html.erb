@@ -41,7 +41,7 @@
     <% @invites.each do |invite| %>
       <div class="current-invites">
         <span class='imported-name' ><%= invite.email %></span><br>
-        <span class='invite-status'>Hasn't signed up yet</span>
+        <span class='invite-status'><%= invite.status %></span>
       </div>
     <% end %>
   </div>
