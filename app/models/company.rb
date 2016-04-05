@@ -3,6 +3,7 @@ class Company < ActiveRecord::Base
 	has_many :users, through: :investments
 
 	has_many :sections
+  has_many :bids
 	has_many :founders
 	has_many :documents
 
