@@ -58,4 +58,12 @@ class Company < ActiveRecord::Base
 			"Funded"
 		end
 	end
+
+	def total_shares
+		 LiquidateShare.where(company: name).pluck(:number_shares).sum
+	end
+
+  def average_share_price
+     LiquidateShare.where(company: name).pluck(:shares_price, :number_shares).map!{|a| a[0]*a[1]}.sum/ LiquidateShare.where(company: name).pluck(:number_shares).sum
+  end
 end

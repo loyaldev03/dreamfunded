@@ -41,6 +41,7 @@ permit_params :image, :document, :hidden, :position, :docusign_url, :user_id, :n
         f.input  :suggested_target_price
         f.input  :website_link
         f.input  :goal_amount
+        f.input  :status
         f.input  :CEO
         f.input  :created_at
         f.input  :updated_at

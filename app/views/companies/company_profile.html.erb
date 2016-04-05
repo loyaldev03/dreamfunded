@@ -58,7 +58,9 @@
 
 
 					<%= form_tag "/submit_bid" , method: :post do %>
-						Suggested Target Price for this auction: <%= @company.suggested_target_price %>
+						<div>Number of Shares available: <%= @company.total_shares %></div>
+						<div>Price per share on average: <%= @company.average_share_price%></div>
+						<div>Suggested Target Price for this auction: <%= @company.suggested_target_price %></div>
 						<br>
  					<%#= select_tag(:investment_amount, options_for_select([ "$3-5k", "$5-10k", "$10-25k", "$25k or more" ]), prompt: "Investment Amount") %>
 
