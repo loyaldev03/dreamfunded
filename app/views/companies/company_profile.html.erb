@@ -20,20 +20,9 @@
 			<div class= "stats-container">
 				<div class= "profile-image-wrap"> <%= link_to image_tag( @company.image.url, :class => "stats-image"), @company.website_link %></div>
 				<div class= "numbers"><div class= "numbers-content">
-					<div class="meter orange">
-						<% @progress = ((@company.invested_amount.to_f / @company.goal_amount.to_f).to_f) *100 %>
-						<% if @progress == 0 %>
-							<span class= "front" style="width: 5px"></span>
-						<% elsif @progress > 100 %>
-							<span style= 'width: 100%'></span>
-						<% else %>
-					 		<span style='width: <%= @progress %>%'></span>
-					 	<% end %>
-					</div><br>
+
 					<div class= 'statistics'>
-							<div>
-								<p class= "twenty no-margin center"><span class= "darkblue twenty">Status: </span> <%= @company.get_status %><br><br></p>
-							</div>
+
 					<% if @company.status == 2 %>
 							<div>
 								<p class= "twenty no-margin center"><span class= "darkblue twenty">Invested: </span><%= number_to_currency @company.invested_amount, precision: 0 %><br><br> </p>
@@ -64,42 +53,39 @@
 					<%= link_to "Invest in #{@company.name}", @company.docusign_url, :class => "company-button profile-button mail-to-button", target: "_blank" %>
 				<% elsif @company.status == 1 %>
 
-					<%= mail_to "manny@dreamfunded.com", "Join The Waitlist", subject: "I want to invest in #{@company.name}", :class => "company-button profile-button mail-to-button" %>
-					
+					<%#= mail_to "manny@dreamfunded.com", "Join The Waitlist", subject: "I want to invest in #{@company.name}", :class => "company-button profile-button mail-to-button" %>
 
-<!-- 
-					<#%= form_tag "/submit_bid" , method: :post do %>
-						Suggested Target Price for this auction: 
+
+
+					<%= form_tag "/submit_bid" , method: :post do %>
+						Suggested Target Price for this auction: <%= @company.suggested_target_price %>
 						<br>
  					<%#= select_tag(:investment_amount, options_for_select([ "$3-5k", "$5-10k", "$10-25k", "$25k or more" ]), prompt: "Investment Amount") %>
 
 						<br><br>
-						<%#= range_field_tag(:shares_price, :min=>0, :max=>200, :class=>"slide", :id=>"slider1") %>
-						<%#= text_field_tag(:shares_price, nil, :class =>"userbox liquidate-form-company", :placeholder => "Shares Price", :required => true) %>
+						<label>Number of Shares</label><br>
+						<%= text_field_tag(:shares_price, nil,  :placeholder => "Num of Shares", :required => true) %>
+						<%= range_field_tag(:shares_price, :min=>0, :max=>200, :class=>"slide", :id=>"slider1") %>
+						<br><br><br>
+						<label>Target Price per Share</label><br>
+						<%= text_field_tag(:bid_amount, nil,  :placeholder => "Price per Share", :required => true) %>
+						<%= range_field_tag(:bid_amount, :min=>0, :max=>200, :class=>"slide", :id=>"slider1") %>
+						<br><br>
+
+						<div class="target-share-priece">
+							<div>Target Share Price Estimates:</div><br>
+							<div>Estimated Valuation:</div>
+							<div>Transaction Size:</div>
+						</div>
 						<br>
-						<%#= check_box_tag(:financial_assistance, nil, false) %>  I have a good faith intention to compelete this transaction.
+						<%= check_box_tag(:financial_assistance, nil, false) %>  I have a good faith intention to compelete this transaction.
+						<%= submit_tag("Place Bid", :class => "company-button profile-button", :disabled => false) %>
+						<%= hidden_field_tag "id", @company.id %>
+						<%= hidden_field_tag "name", @company.name %>
+					<% end %>
 
 
-						<%#= submit_tag("Place Bid", :class => "company-button profile-button", :disabled => false) %>
-						<%#= hidden_field_tag "id", @company.id %>
-						<%#= hidden_field_tag "name", @company.name %>
-					<%# end %> -->
 
-						
-					
-			<!-- 		<div class="slide">
-					Investment Size
-					  <input class="investment-range" type="range" min="0" max="10" id="myRange"/>
-					</div>
-					<br>
-					<div class="slide">
-					Share Price
-					  <input class="share-price-range" type="range" min="0" max="10" id="mySecondRange"/>
-					</div> -->
-
-					
-
-				
 				<% else %>
 					<%= button_to "Invest in #{@company.name}", nil, :class => "company-button profile-button", :disabled => true %>
 				<% end %>
@@ -198,7 +184,7 @@
 	</body>
 
 </html>
-<!-- 
+<!--
 <script>
 	$("#stats-container").click(function () {
 	    $header = $(this);
@@ -213,5 +199,5 @@
 	            return $content.is(":visible") ? "Collapse" : "Expand";
 	        });
 	   	 });
-	});	
+	});
 </script>	 -->

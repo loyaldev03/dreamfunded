@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20160404233558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +40,8 @@
     t.string   "bid_amount"
     t.string   "counter_amount"
     t.boolean  "accepted"
+    t.integer  "company_id"
+    t.integer  "number_of_shares"
   end
 
   create_table "ckeditor_assets", force: true do |t|
@@ -149,6 +152,8 @@
     t.string   "token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "accepted"
+    t.boolean  "signedup"
   end
 
   create_table "liquidate_shares", force: true do |t|
@@ -299,6 +304,7 @@
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role"
+    t.integer  "credit"
   end
 
   add_index "users", ["slug"], name: "index_users_on_slug", using: :btree
