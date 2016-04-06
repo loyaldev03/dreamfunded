@@ -26,11 +26,9 @@ class BidsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
-
   end
 
   def show
@@ -38,7 +36,7 @@ class BidsController < ApplicationController
     @auctions = LiquidateShare.where(company: @company.name)
   end
 
-
+  private
   def bid_params
     params.require(:bid).permit(:auction_id, :user_id, :seller_id, :bid_amount, :counter_amount, :accepted, :company_id,:number_of_shares)
   end
