@@ -83,4 +83,10 @@ class ContactMailer < ActionMailer::Base
     @email= user.email
     mail(to: "info@dreamfunded.com", subject: 'Password Reset Request')
   end
+
+  def seller_account(seller, password)
+    @seller = seller
+    @password = password
+    mail(to: @seller.email, subject: "DreamFunded Account Created")
+  end
 end
