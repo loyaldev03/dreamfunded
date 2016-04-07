@@ -8,11 +8,29 @@
       <div class="header">
         <h1 class="centered">My Shares</h1>
       </div>
-      <div class= "word-content"><div class= "text-content">
+        <div class= "bids-content">
 
 
+          <% @shares.each do |bid| %>
+            <div class='event'>
 
-      </div></div>
+              <div class='shares-block1'>
+                  Company: <%= bid.company %>
+              </div>
+
+              <div class='bid-block'>
+                 Number of shares: <div class='event-date'><%= bid.number_shares%></div>
+              </div>
+
+              <div class='bid_block3'>
+                Desired Share Price: <div class='event-date'>$<%= bid.shares_price %></div>
+              </div>
+
+            </div>
+          <% end %>
+
+
+        </div>
     </div>
   </body>
 

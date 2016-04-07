@@ -5,6 +5,14 @@ class BidsController < ApplicationController
 		@bids = Bid.where(user_id: user_session.id.to_s)
 	end
 
+  #improve associations later
+  def sellers_bids
+    @seller = user_session
+    company_name = @seller.liquidate_shares.first.company
+    @company = Company.find_by(name: company_name)
+    @bids = Bid.where(company_id: @company.id)
+  end
+
   def bid
     @company = Company.find(params[:id])
   end
@@ -20,6 +28,8 @@ class BidsController < ApplicationController
     @bid = Bid.new(bid_params)
       if @bid.save
         redirect_to "/companies", notice: 'bid was successfully created.'
+        #send email to all sellers
+        #ContactMailer.bid_created().deliver
       else
         render :new
       end
@@ -34,6 +44,15 @@ class BidsController < ApplicationController
   def show
     @company = Company.find(params[:id])
     @auctions = LiquidateShare.where(company: @company.name)
+  end
+
+  def accept
+  end
+
+  def decline
+  end
+
+  def counter_offer
   end
 
   private

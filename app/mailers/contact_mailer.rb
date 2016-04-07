@@ -89,4 +89,7 @@ class ContactMailer < ActionMailer::Base
     @password = password
     mail(to: @seller.email, subject: "DreamFunded Account Created")
   end
+
+  def bid_created
+  end
 end
