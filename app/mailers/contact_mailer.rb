@@ -92,4 +92,16 @@ class ContactMailer < ActionMailer::Base
 
   def bid_created
   end
+
+  def bid_accepted(bid)
+    user = User.find(bid.user_id)
+    @bid = bid
+    mail(to: user.email, subject: "Bid was Accepted")
+  end
+
+  def bid_declined(bid)
+    user = User.find(bid.user_id)
+    @bid = bid
+    mail(to: user.email, subject: "Bid was Declined")
+  end
 end

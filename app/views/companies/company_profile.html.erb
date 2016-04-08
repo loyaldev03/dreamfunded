@@ -65,12 +65,12 @@
  					<%#= select_tag(:investment_amount, options_for_select([ "$3-5k", "$5-10k", "$10-25k", "$25k or more" ]), prompt: "Investment Amount") %>
 
 						<br><br>
-						<label>Number of Shares</label><br>
-						<%= f.text_field(:number_of_shares,  :placeholder => "Num of Shares", :required => true) %>
-						<%= range_field_tag(:number_of_shares, :min=>0, :max=>200, :class=>"slide", :id=>"slider1") %>
+
+						<%= f.text_field :number_of_shares,  :placeholder => "Num of Shares", :required => true, class: 'input-box no-margin center' %><br>
+						<%= range_field_tag(:number_of_shares, :min=>0, :max=>200, :id=>"slider1") %>
 						<br><br><br>
-						<label>Target Price per Share</label><br>
-						<%= f.text_field(:bid_amount, :placeholder => "Price per Share", :required => true) %>
+
+						<%= f.text_field(:bid_amount, :placeholder => "Price per Share", :required => true,class: 'input-box no-margin center') %>
 						<%= range_field_tag(:bid_amount, :min=>0, :max=>200, :class=>"slide", :id=>"slider1") %>
 						<br><br>
 
@@ -96,11 +96,11 @@
 
 			<div class= "description-container">
 				<div class= "video-box">
-					<% if @company.video_link %>
+					<% if @company.video_link.empty? %>
+						<%= image_tag( @company.image.url, class: 'image-max-width')%>
+					<% else %>
 						<iframe  class='youtube-video' src= <%= @company.video_link %> frameborder="0" allowfullscreen ></iframe>
 						<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/VQJJJGNeM-s" frameborder="0" allowfullscreen></iframe> -->
-					<% else %>
-						<%= image_tag( @company.image.url, class: 'image-max-width')%>
 					<% end %>
 				</div>
 				<br><br><br><br>
@@ -187,20 +187,14 @@
 	</body>
 
 </html>
-<!--
+
 <script>
-	$("#stats-container").click(function () {
-	    $header = $(this);
-	    //getting the next element
-	    $content = $header.next();
-	    //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
-	    $content.slideToggle(500, function () {
-	        //execute this after slideToggle is done
-	        //change text of header based on visibility of content div
-	        $header.text(function () {
-	            //change text based on condition
-	            return $content.is(":visible") ? "Collapse" : "Expand";
-	        });
-	   	 });
-	});
-</script>	 -->
+	$('#number_of_shares').change(function(){
+	 value = $(this).val();
+	  $("#bid_number_of_shares").val(value);
+	})
+	$('#bid_amount').change(function(){
+	 value = $(this).val();
+	  $("#bid_bid_amount").val(value);
+	})
+</script>

@@ -140,7 +140,7 @@ class HomeController < ApplicationController
 		@last_name = params[:last_name]
 		@email = params[:email]
 		@phone = params[:phone]
-		@company = params[:company]
+		@company_id = params[:company_id]
 		@number_shares = params[:number_shares].delete(',').to_i
 		@shares_price = params[:shares_price]
 		@timeframe = params[:timeframe]
@@ -150,7 +150,7 @@ class HomeController < ApplicationController
 		ContactMailer.liquidate_email(@first_name, @last_name, @company, @number_shares, @shares_price, @timeframe, @email, @phone, @rofr_restrictions, @financial_assistance, @message).deliver
 		password = SecureRandom.hex(3)
 		seller = User.create(first_name: @first_name, last_name: @last_name, email: @email, password: password, password_confirmation: password, role: 'seller', confirmed: true, authority: 1)
-		LiquidateShare.create(first_name: @first_name, last_name: @last_name, company: @company, number_shares: @number_shares, shares_price: @shares_price, timeframe: @timeframe, email: @email, phone: @phone, rofr_restrictions: @rofr_restrictions, financial_assistance: @financial_assistance, message: @message, user_id: seller.id)
+		LiquidateShare.create(first_name: @first_name, last_name: @last_name, company_id: @company_id, number_shares: @number_shares, shares_price: @shares_price, timeframe: @timeframe, email: @email, phone: @phone, rofr_restrictions: @rofr_restrictions, financial_assistance: @financial_assistance, message: @message, user_id: seller.id)
 		ContactMailer.seller_account(seller, password).deliver
 		flash[:name] = @first_name
 		redirect_to '/liquidate_after'

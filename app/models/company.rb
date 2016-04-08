@@ -6,6 +6,7 @@ class Company < ActiveRecord::Base
   has_many :bids
 	has_many :founders
 	has_many :documents
+  has_many :liquidate_shares
 
 
 	has_attached_file :image,
@@ -61,10 +62,12 @@ class Company < ActiveRecord::Base
 	end
 
 	def total_shares
-		 LiquidateShare.where(company: name).pluck(:number_shares).sum
+		 liquidate_shares.pluck(:number_shares).sum
 	end
 
   def average_share_price
-     LiquidateShare.where(company: name).pluck(:shares_price, :number_shares).map!{|a| a[0]*a[1]}.sum/ LiquidateShare.where(company: name).pluck(:number_shares).sum
+    if total_shares > 0
+     liquidate_shares.pluck(:shares_price, :number_shares).map!{|a| a[0]*a[1]}.sum / liquidate_shares.pluck(:number_shares).sum
+    end
   end
 end

@@ -8,8 +8,7 @@ class BidsController < ApplicationController
   #improve associations later
   def sellers_bids
     @seller = user_session
-    company_name = @seller.liquidate_shares.first.company
-    @company = Company.find_by(name: company_name)
+    @company = @seller.liquidate_shares.first.company
     @bids = Bid.where(company_id: @company.id)
   end
 
@@ -47,9 +46,17 @@ class BidsController < ApplicationController
   end
 
   def accept
+    bid = Bid.find(params[:id])
+    bid.update(accepted: true)
+    ContactMailer.bid_accepted(bid).deliver
+    redirect_to :sellers_bids
   end
 
   def decline
+    bid = Bid.find(params[:id])
+    ContactMailer.bid_declined(bid).deliver
+    bid.delete
+    redirect_to :sellers_bids
   end
 
   def counter_offer

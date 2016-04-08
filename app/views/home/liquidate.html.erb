@@ -16,7 +16,7 @@
       <%= text_field_tag(:last_name, nil, :class =>"userbox half-field scoot-left", :placeholder => "Last name") %>
       <%= text_field_tag(:email, nil, :class =>"userbox liquidate-form-company", :placeholder => "Email", :required => true) %>
       <%= text_field_tag(:phone, nil, :class =>"userbox half-field ", :placeholder => "Phone") %>
-      <%= text_field_tag(:company, nil, :class =>"userbox half-field scoot-left", :placeholder => "Company", :required => true) %>
+      <%= select_tag(:company_id, options_from_collection_for_select(Company.all, :id, :name), { :class =>"userbox half-field scoot-left", :placeholder => "Company", :required => true}) %>
       <%= text_field_tag(:number_shares, nil, :class =>"userbox half-field", :placeholder => "Quantity of shares") %>
       <%= text_field_tag(:shares_price, nil, :class =>"userbox half-field scoot-left", :placeholder => "Desired share price", :required => true) %>
 

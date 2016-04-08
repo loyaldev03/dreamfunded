@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 
   get 'bid/:id', to: "bids#bid"
   get 'sellers_bids', to: "bids#sellers_bids"
+  get 'accept_bid/:id', to: "bids#accept"
+  get 'decline_bid/:id', to: "bids#decline"
 
   get 'users/portfolio', to: "users#portfolio", as: :portfolio
   get 'users/portfolio_admin/:id', to: "users#portfolio_admin", as: :portfolio_admin

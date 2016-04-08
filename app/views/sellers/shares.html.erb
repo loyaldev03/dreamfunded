@@ -11,19 +11,23 @@
         <div class= "bids-content">
 
 
-          <% @shares.each do |bid| %>
+          <% @shares.each do |share| %>
             <div class='event'>
 
               <div class='shares-block1'>
-                  Company: <%= bid.company %>
-              </div>
-
-              <div class='bid-block'>
-                 Number of shares: <div class='event-date'><%= bid.number_shares%></div>
+                  Company: <%= share.company.name %>
               </div>
 
               <div class='bid_block3'>
-                Desired Share Price: <div class='event-date'>$<%= bid.shares_price %></div>
+                 Number of shares: <div class='event-date'><%= share.number_shares%></div>
+              </div>
+
+              <div class='bid_block3'>
+                Desired Share Price: <div class='event-date'>$<%= share.shares_price %></div>
+              </div>
+
+              <div class='bid_block3'>
+                <div class='event-date'><%= link_to "Bids", '/sellers_bids' %></div>
               </div>
 
             </div>
