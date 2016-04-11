@@ -3,6 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .target-share-priece{
   background-color:#f0f0f0;
+  background-color: #f0f0f0;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px
 }
 .bid-block{
   width: 40%;
@@ -40,3 +44,49 @@
 .shares-line{
   margin-bottom: 10px;
 }
+.share-details{
+  padding: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+.share-underline{
+  border-bottom: 1px solid #999;
+  margin-bottom: 10px;
+}
+.shares-block2{
+  vertical-align: top;
+  display: inline-block;
+  margin-right: 10px;
+  margin-left: 25px;
+  width: 17%;
+}
+.accept-bid{
+  color: #ececec !important;
+  background-color: #4DA02B !important;
+  display: block;
+  width: 135px;
+  margin-bottom: 5px;
+  float: right;
+}
+.decline-bid {
+  color: #ececec !important;
+  background-color :#C14925 !important;
+  display: block;
+  width: 135px;
+  margin-bottom: 5px;
+  float: right;
+}
+.counter-bid {
+  display: block;
+  width: 135px;
+  margin-bottom: 5px;
+  float: right;
+}
+.marging-top-30{
+  margin-top: 30px !important;
+}
+
+
+
+
+

@@ -77,10 +77,11 @@
 						<div class="target-share-priece">
 							<div>Target Share Price Estimates:</div><br>
 							<div>Estimated Valuation:</div>
-							<div>Transaction Size:</div>
+							<div>Transaction Size: <span id='transaction-price'></span></div>
 						</div>
 						<br>
-						<%= check_box_tag(:financial_assistance, nil, false) %>  I have a good-faith intention to complete this transaction if a match is found and any further review of the transaction documents and due diligence materials is to my satisfaction. Equidate counts on its shareholders and investors to follow through and therefore repeated or unexplained cancellations may result in my access to the Equidate platform being restricted.
+						<%#= check_box_tag(:financial_assistance, nil, false) %>
+						  <!-- I have a good-faith intention to complete this transaction if a match is found and any further review of the transaction documents and due diligence materials is to my satisfaction. Equidate counts on its shareholders and investors to follow through and therefore repeated or unexplained cancellations may result in my access to the Equidate platform being restricted. -->
 						<%= submit_tag("Place Bid", :class => "company-button profile-button", :disabled => false) %>
 						<%= f.hidden_field "user_id", value: user_session.id %>
 						<%= f.hidden_field "company_id", value: @company.id %>
@@ -192,9 +193,13 @@
 	$('#number_of_shares').change(function(){
 	 value = $(this).val();
 	  $("#bid_number_of_shares").val(value);
+
+	  $("#transaction-price").html(  $('#bid_amount').val() * $(this).val() )
 	})
 	$('#bid_amount').change(function(){
-	 value = $(this).val();
+	  value = $(this).val();
 	  $("#bid_bid_amount").val(value);
+	  $("#transaction-price").html(  $('#bid_amount').val() * $(this).val() )
 	})
+
 </script>
