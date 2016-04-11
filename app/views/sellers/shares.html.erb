@@ -18,10 +18,15 @@
                 <%= image_tag share.company.image, class: 'shares-company-image' %>
               </div>
 
-              <div class='shares-block1'>
+              <div class='shares-details-block'>
                 <div class=" darkblue shares-line">Shareholder: <span class='event-date'><%= @seller.name %></span></div>
-                <div class='shares-line '>Number of shares: <%= number_with_delimiter(share.number_shares) %></div>
-                <div class='shares-line'>Desired Share Price: $<%= share.shares_price %></div>
+                <div class='shares-line '>
+                    Number of shares: <%= number_with_delimiter(share.number_shares) %>
+                      <a href='/edit-shares/<%= share.id %>' class="darkblue edit-link"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                </div>
+                <div class='shares-line'>
+                    Desired Share Price: $<%= share.shares_price %> <a href='/edit-shares/<%= share.id %>' class="darkblue edit-link"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                </div>
 
               </div>
               <!-- <div class='shares-block1'>

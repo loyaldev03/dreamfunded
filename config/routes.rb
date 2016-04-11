@@ -60,6 +60,8 @@ Rails.application.routes.draw do
   get '/liquidate_after', to: 'home#liquidate_after'
 
   get '/shares', to: 'sellers#shares'
+  get '/edit-shares/:id', to: 'sellers#edit'
+  post '/update-shares', to: 'sellers#update'
 
   get '/home/edit_member/:id', to: "home#team_member_edit"
   put '/home/edit_member', to: 'home#team_member_update'

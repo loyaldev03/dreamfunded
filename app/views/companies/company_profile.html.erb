@@ -67,11 +67,11 @@
 						<br><br>
 
 						<%= f.text_field :number_of_shares,  :placeholder => "Num of Shares", :required => true, class: 'input-box no-margin center' %><br>
-						<%= range_field_tag(:number_of_shares, :min=>0, max: @company.total_shares, step: 100 , :id=>"slider1") %>
+						<%= range_field_tag(:number_of_shares, @company.total_shares/2,{:min=>0, max: @company.total_shares, step: 100 , id:"slider1"}) %>
 						<br><br><br>
 
 						<%= f.text_field(:bid_amount, :placeholder => "Price per Share", :required => true,class: 'input-box no-margin center') %>
-						<%= range_field_tag(:bid_amount, :min=>0, :max=>@company.average_share_price*4, :class=>"slide", :id=>"slider1") %>
+						<%= range_field_tag(:bid_amount,@company.average_share_price/2, { :min=>0, :max=>@company.average_share_price*4, :class=>"slide", id: "slider2"}) %>
 						<br><br>
 
 						<div class="target-share-priece">
@@ -190,16 +190,26 @@
 </html>
 
 <script>
-	$('#number_of_shares').change(function(){
+	$('#slider1').change(function(){
 	 value = $(this).val();
 	  $("#bid_number_of_shares").val(value);
+	  $("#transaction-price").html(  $('#bid_bid_amount').val() * $(this).val() )
+	});
 
-	  $("#transaction-price").html(  $('#bid_amount').val() * $(this).val() )
-	})
-	$('#bid_amount').change(function(){
+	$("#bid_number_of_shares").on('input', function() {
+    value = $(this).val();
+    $('#slider1').val(value);
+	});
+
+	$("#bid_bid_amount").on('input', function() {
+	    value = $(this).val();
+	    $('#slider2').val(value);
+	});
+
+	$('#slider2').change(function(){
 	  value = $(this).val();
 	  $("#bid_bid_amount").val(value);
-	  $("#transaction-price").html(  $('#bid_amount').val() * $(this).val() )
-	})
+	  $("#transaction-price").html(  $('#bid_bid_amount').val() * $(this).val() )
+	});
 
 </script>

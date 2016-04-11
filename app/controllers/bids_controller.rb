@@ -26,7 +26,7 @@ class BidsController < ApplicationController
   def create
     @bid = Bid.new(bid_params)
       if @bid.save
-        redirect_to "/companies", notice: 'bid was successfully created.'
+        redirect_to bids_path, notice: 'bid was successfully created.'
         #send email to all sellers
         #ContactMailer.bid_created().deliver
       else

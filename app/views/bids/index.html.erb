@@ -12,19 +12,23 @@
     <% @bids.each do |bid| %>
       <div class='event'>
 
-        <div class='bids-block1'>
+        <div class='shares-block3'>
             <%= image_tag bid.company.image.url, class: 'event-image' %>
         </div>
 
-        <div class='bid-block'>
+        <div class='shares-block3'>
            Number of shares: <div class='event-date'><%= bid.number_of_shares%></div>
         </div>
 
-        <div class='bid_block3'>
+        <div class='shares-block3'>
           Bid Amount: <div class='event-date'>$<%= bid.bid_amount %></div>
         </div>
 
-        <div class='bid_block3'>
+        <div class='shares-block3'>
+          Total: <div class='event-date'>$<%= bid.number_of_shares.to_i * bid.bid_amount.to_i %></div>
+        </div>
+
+        <div class='shares-block3'>
           Status: <div class='event-date'>Pending</div>
         </div>
 
