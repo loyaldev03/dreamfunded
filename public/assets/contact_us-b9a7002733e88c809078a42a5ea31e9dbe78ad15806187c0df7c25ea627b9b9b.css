@@ -1,0 +1,34 @@
+/* line 1, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/contact_us.css.scss */
+.contact-us-info {
+  margin-top: 5px;
+}
+
+/* line 5, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/contact_us.css.scss */
+.liquidate-info {
+  margin-top: 5px;
+  text-align: justify;
+}
+
+/* line 9, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/contact_us.css.scss */
+.company-name {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* line 13, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/contact_us.css.scss */
+.address1 {
+  display: inline-block;
+  text-align: left;
+  margin-right: 22px;
+  margin-left: 30px;
+}
+
+/* line 19, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/contact_us.css.scss */
+.contact-phone-number {
+  margin-top: 20px;
+}
+
+/* line 22, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/contact_us.css.scss */
+.marging-top-30 {
+  margin-top: 30px !important;
+}
