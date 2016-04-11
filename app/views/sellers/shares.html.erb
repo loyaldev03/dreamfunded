@@ -15,25 +15,49 @@
             <div class='event'>
 
               <div class='shares-block1'>
-                  Company: <%= share.company.name %>
+                <%= image_tag share.company.image, class: 'shares-company-image' %>
               </div>
 
-              <div class='bid_block3'>
-                 Number of shares: <div class='event-date'><%= share.number_shares%></div>
-              </div>
+              <div class='shares-block1'>
+                <div class=" darkblue shares-line">Shareholder: <span class='event-date'><%= @seller.name %></span></div>
+                <div class='shares-line '>Number of shares: <%= number_with_delimiter(share.number_shares) %></div>
+                <div class='shares-line'>Desired Share Price: $<%= share.shares_price %></div>
 
-              <div class='bid_block3'>
-                Desired Share Price: <div class='event-date'>$<%= share.shares_price %></div>
               </div>
+              <!-- <div class='shares-block1'>
+              </div> -->
 
-              <div class='bid_block3'>
-                <div class='event-date'><%= link_to "Bids", '/sellers_bids' %></div>
-              </div>
+
 
             </div>
           <% end %>
 
 
+
+          <% @bids.each do |bid| %>
+            <div class='event'>
+
+              <div class='event-block1'>
+                <div class="round-date"><div class='event-day'><%= bid.created_at.strftime("%e") %></div><div class='event-month'><%= bid.created_at.strftime("%b") %></div></div>
+              </div>
+
+              <div class='bid-block'>
+                 Number of shares: <div class='event-date'><%= bid.number_of_shares%></div>
+              </div>
+
+              <div class='bid_block3'>
+                Bid Amount: <div class='event-date'>$<%= bid.bid_amount %></div>
+              </div>
+
+              <div class='bid_block3'>
+                Action: <br>
+                <a href='/accept_bid/<%= bid.id %>' style="display: block;">Accept</a>
+                <a href='/decline_bid/<%= bid.id %>' style="display: block;">Decline</a>
+                <a href='#' style="display: block;">Counter Offer</a>
+              </div>
+
+            </div>
+          <% end %>
         </div>
     </div>
   </body>

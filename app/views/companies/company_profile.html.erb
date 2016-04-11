@@ -67,11 +67,11 @@
 						<br><br>
 
 						<%= f.text_field :number_of_shares,  :placeholder => "Num of Shares", :required => true, class: 'input-box no-margin center' %><br>
-						<%= range_field_tag(:number_of_shares, :min=>0, :max=>200, :id=>"slider1") %>
+						<%= range_field_tag(:number_of_shares, :min=>0, max: @company.total_shares, step: 100 , :id=>"slider1") %>
 						<br><br><br>
 
 						<%= f.text_field(:bid_amount, :placeholder => "Price per Share", :required => true,class: 'input-box no-margin center') %>
-						<%= range_field_tag(:bid_amount, :min=>0, :max=>200, :class=>"slide", :id=>"slider1") %>
+						<%= range_field_tag(:bid_amount, :min=>0, :max=>@company.average_share_price*4, :class=>"slide", :id=>"slider1") %>
 						<br><br>
 
 						<div class="target-share-priece">

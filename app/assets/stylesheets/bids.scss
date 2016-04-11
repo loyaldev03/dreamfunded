@@ -9,25 +9,34 @@
   display: inline-block;
 }
 .bids-content {
-    margin: 0 auto;
-    width: 60%;
-    background: white;
-    padding: 20px;
-    padding-bottom: 100px;
-    margin-bottom: 100px;
+  margin: 0 auto;
+  width: 60%;
+  background: white;
+  padding: 20px;
+  padding-bottom: 100px;
+  margin-bottom: 100px;
 }
 .bids-block1{
   vertical-align: top;
-      display: inline-block;
-      width: 15%;
+  display: inline-block;
+  width: 15%;
 }
 .bid_block3{
   vertical-align: top;
   display: inline-block;
-  width: 20%;
 }
 .shares-block1{
   vertical-align: top;
   display: inline-block;
-  width: 20%;
+  margin-right: 20px;
+  width: 30%;
+}
+.shares-company-image{
+  width: 200px;
+  height: auto;
+  border-radius: 6px;
+  border: 2px solid #555;
+}
+.shares-line{
+  margin-bottom: 10px;
 }
