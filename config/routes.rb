@@ -61,8 +61,8 @@ Rails.application.routes.draw do
   resources :news
 
   #resources :teams
-  get '/team', to: "teams#index", as: :teams
-  get '/team/:id', to: "teams#show", as: :team
+  get '/team', to: "members#index", as: :teams
+  get '/team/:id', to: "members#show", as: :team
 
   get '/payment', to: "payments#index", as: :payment
   post '/submit_payment', to: "payments#payment"
@@ -91,7 +91,7 @@ Rails.application.routes.draw do
 
   get '/portofolio', to: 'companies#index'
   get '/dreamfunded-exchange', to: 'home#exchange'
-  get '/our-team', to: 'teams#index'
+  get '/our-team', to: 'members#index'
   match "/our-team/manny-fernandez" => redirect("team/manny-fernandez"), via: 'get'
   match "/our-team/rexford-r-hibbs" => redirect("team/rexford-r-hibbs"), via: 'get'
   match "/our-team/manny-fernandez" => redirect("team/manny-fernandez"), via: 'get'
