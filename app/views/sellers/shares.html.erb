@@ -56,14 +56,14 @@
 
 
               <div class='shares-block2'>
-                Total: <div class='event-date'>$<%= bid.number_of_shares.to_i * bid.bid_amount.to_i %></div>
+                Total: <div class='event-date'>$<%= number_with_delimiter(bid.number_of_shares.to_i * bid.bid_amount.to_i) %></div>
               </div>
 
               <div class='shares-block2'>
 
                 <button id="newsletter-submit-button" class="accept-bid">ACCEPT</button>
                 <button id="newsletter-submit-button" class="decline-bid">DECLINE</button>
-                <button id="newsletter-submit-button" class="counter-bid">COUNTER OFFER</button>
+                <%= button_to "COUNTER OFFER","counter_offer/#{bid.id}", {method: :get, id: "newsletter-submit-button", class: "counter-bid" }%>
 <!--                 <a href='/accept_bid/<% bid.id %>' style="display: block;">Accept</a>
                 <a href='/decline_bid/<% bid.id %>' style="display: block;">Decline</a>
                 <a href='#' style="display: block;">Counter Offer</a> -->

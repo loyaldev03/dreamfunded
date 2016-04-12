@@ -104,4 +104,9 @@ class ContactMailer < ActionMailer::Base
     @bid = bid
     mail(to: user.email, subject: "Bid was Declined")
   end
+
+  def counter_offer(bid)
+    @bid = bid
+    mail(to: @bid.)
+  end
 end

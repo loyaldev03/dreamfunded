@@ -17,7 +17,7 @@
         </div>
 
         <div class='shares-block3'>
-           Number of shares: <div class='event-date'><%= bid.number_of_shares%></div>
+           Number of shares: <div class='event-date'><%= number_with_delimiter bid.number_of_shares%></div>
         </div>
 
         <div class='shares-block3'>
@@ -25,7 +25,7 @@
         </div>
 
         <div class='shares-block3'>
-          Total: <div class='event-date'>$<%= bid.number_of_shares.to_i * bid.bid_amount.to_i %></div>
+          Total: <div class='event-date'>$<%= number_with_delimiter ( bid.number_of_shares.to_i * bid.bid_amount.to_i )%></div>
         </div>
 
         <div class='shares-block3'>

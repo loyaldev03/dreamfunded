@@ -17,10 +17,15 @@ class BidsController < ApplicationController
   end
 
   def new
-    @bid = Bid.new
-    if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Founder]
-      redirect_to url_for(:controller => 'home', :action => 'unauthorized')
-    end
+    @id = params[:id]
+    @company = Company.find(params[:id])
+    @progress = @company.invested_amount / @company.goal_amount rescue 0
+
+    @members = @company.founders
+    @section = @company.sections.first
+
+    @bid = Bid.find_by(user_id: user_session.id, company_id: @id)
+    @bid = Bid.new if @bid == nil
   end
 
   def create
@@ -38,6 +43,12 @@ class BidsController < ApplicationController
   end
 
   def update
+    bid = Bid.find(params[:id])
+    if bid.update(bid_params)
+      redirect_to bids_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -60,6 +71,13 @@ class BidsController < ApplicationController
   end
 
   def counter_offer
+    @seller = user_session
+    @bid = Bid.find(params[:id])
+  end
+
+  def send_counter_offer
+    ContactMailer.counter_offer().deliver
+    redirect_to shares_path
   end
 
   private

@@ -57,7 +57,7 @@
 
 
 
-					<%= form_for Bid.new do |f| %>
+					<%= form_for @bid do |f| %>
 						<div>Number of Shares available: <%= @company.total_shares %></div>
 						<div>Price per share on average: <%= @company.average_share_price%></div>
 						<div>Suggested Target Price for this auction: <%= @company.suggested_target_price %></div>
@@ -191,9 +191,11 @@
 
 <script>
 	$('#slider1').change(function(){
-	 value = $(this).val();
+	  value = $(this).val();
 	  $("#bid_number_of_shares").val(value);
-	  $("#transaction-price").html(  $('#bid_bid_amount').val() * $(this).val() )
+
+	  price = $('#bid_bid_amount').val() * $(this).val();
+	  $("#transaction-price").html( price )
 	});
 
 	$("#bid_number_of_shares").on('input', function() {
@@ -209,7 +211,9 @@
 	$('#slider2').change(function(){
 	  value = $(this).val();
 	  $("#bid_bid_amount").val(value);
-	  $("#transaction-price").html(  $('#bid_bid_amount').val() * $(this).val() )
+	  price = $('#bid_bid_amount').val() * $("#bid_number_of_shares").val();
+
+	  $("#transaction-price").html( price )
 	});
 
 </script>

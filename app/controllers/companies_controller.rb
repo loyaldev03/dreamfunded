@@ -181,6 +181,9 @@ class CompaniesController < ApplicationController
 
 			@members = @company.founders
 			@section = @company.sections.first
+
+			@bid = Bid.find_by(user_id: user_session.id, company_id: @id)
+			@bid = Bid.new if @bid == nil
 		else
 			redirect_to "/companies"
 		end
