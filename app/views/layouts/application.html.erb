@@ -38,8 +38,8 @@
 							<!-- <li><button onclick= "whyInv()">Why Invest</button></li> -->
 							<% if user_session != nil && user_session.authority >= authority[:Accredited] %>
 								<li><button onclick= "invest()">Invest</button></li>
-							<% elsif user_session == nil %>
-								<li><button onclick= "signUp()">Invest</button></li>
+							<% elsif user_session != nil && user_session.authority == 1 %>
+								<li><button onclick= "location.href='/marketplace_companies	';">NonAccredited</button></li>
 							<% end %>
 							<li><button onclick="location.href='/dreamfunded-exchange';" >Sell Shares	</button></li>
 							<li><button onclick= "news()">News</button></li>
@@ -136,8 +136,8 @@
 							<li><button onclick= "dreamfunded_portfolio()">Portfolio</button></li>
 							<% if user_session != nil && user_session.authority >= authority[:Accredited] %>
 								<li><button onclick= "invest()">Invest</button></li>
-							<% elsif user_session == nil %>
-								<li><button onclick= "signUp()">Invest</button></li>
+							<% elsif user_session != nil && user_session.authority == 1 %>
+								<li><button onclick= "location.href='/marketplace_companies';">Invest</button></li>
 							<% end %>
 						</ul>
 					</li>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160330233058) do
+ActiveRecord::Schema.define(version: 20160412183846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,18 @@ ActiveRecord::Schema.define(version: 20160330233058) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "bids", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "auction_id"
+    t.string   "bid_amount"
+    t.string   "counter_amount"
+    t.boolean  "accepted"
+    t.integer  "company_id"
+    t.integer  "number_of_shares"
+    t.integer  "user_id"
+  end
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -71,8 +83,10 @@ ActiveRecord::Schema.define(version: 20160330233058) do
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
     t.text     "docusign_url"
-    t.integer  "position",              default: 0
-    t.boolean  "hidden",                default: false
+    t.integer  "position",               default: 0
+    t.boolean  "hidden",                 default: false
+    t.float    "suggested_target_price"
+    t.boolean  "accredited"
   end
 
   create_table "documents", force: true do |t|
@@ -138,20 +152,28 @@ ActiveRecord::Schema.define(version: 20160330233058) do
     t.string   "token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "accepted"
+    t.boolean  "signedup"
   end
 
   create_table "liquidate_shares", force: true do |t|
-    t.string  "first_name"
-    t.string  "company"
-    t.integer "number_shares"
-    t.integer "shares_price"
-    t.string  "timeframe"
-    t.string  "email"
-    t.string  "phone"
-    t.text    "message"
-    t.string  "last_name"
-    t.boolean "rofr_restrictions"
-    t.boolean "financial_assistance"
+    t.string   "first_name"
+    t.string   "company"
+    t.integer  "number_shares"
+    t.integer  "shares_price"
+    t.string   "timeframe"
+    t.string   "email"
+    t.string   "phone"
+    t.text     "message"
+    t.string   "last_name"
+    t.boolean  "rofr_restrictions"
+    t.boolean  "financial_assistance"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "suggested_target_price"
+    t.boolean  "approved"
+    t.integer  "user_id"
+    t.integer  "company_id"
   end
 
   create_table "members", force: true do |t|
@@ -208,6 +230,21 @@ ActiveRecord::Schema.define(version: 20160330233058) do
     t.datetime "updated_at"
     t.integer  "position",           default: 0
     t.string   "page"
+  end
+
+  create_table "prospective_investments", force: true do |t|
+    t.string   "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "company"
+    t.string   "company_id"
+    t.string   "investment_amount"
+    t.float    "shares_price"
+    t.string   "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sections", force: true do |t|
@@ -269,6 +306,7 @@ ActiveRecord::Schema.define(version: 20160330233058) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role"
+    t.integer  "credit"
   end
 
   add_index "users", ["slug"], name: "index_users_on_slug", using: :btree

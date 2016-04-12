@@ -31,7 +31,6 @@ class Company < ActiveRecord::Base
 
 	# validates_attachment_presence :image
 	validates_attachment_size :image, :less_than => 5.megabytes
-	validates :user_id, presence:true
 	validates :name, presence:true
 	validates_uniqueness_of :name
 	validates :description, presence:true
