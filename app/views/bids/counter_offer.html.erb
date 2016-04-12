@@ -11,7 +11,8 @@
         <div class= "bids-content">
 
 
-          <%= form_tag '/counter-offer' do  %>
+          <%= form_tag '/send_counter_offer' do  %>
+            <%= hidden_field_tag :bid_id, @bid.id%>
             <div class='share-details'>
 
               <div class='shares-block1'>
