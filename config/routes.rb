@@ -3,7 +3,16 @@ Rails.application.routes.draw do
   resources :events
 
   ActiveAdmin.routes(self)
-  resources :members
+
+  get '/team', to: "members#index", as: :members
+  post 'members', to: 'members#create'
+  get 'members/new', to: "members#new", as: :new_member
+  get 'members/:id/edit', to: 'members#edit', as: :edit_member
+  get '/team/:id', to: "members#show", as: :member
+  patch 'team/:id', to: 'members#update'
+  put 'team/:id', to: 'members#update'
+  delete 'team/:id', to: 'members#destroy'
+
 
   mount Ckeditor::Engine => '/ckeditor'
   get '/posts/new/:page', to: "posts#new"
@@ -61,7 +70,7 @@ Rails.application.routes.draw do
   resources :news
 
   #resources :teams
-  get '/team', to: "members#index", as: :teams
+
   get '/team/:id', to: "members#show", as: :team
 
   get '/payment', to: "payments#index", as: :payment
