@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get 'decline_bid/:id', to: "bids#decline"
   get 'counter_offer/:id', to: "bids#counter_offer"
   post 'send_counter_offer', to: "bids#send_counter_offer"
+  get 'confirm', to: "bids#confirm"
 
   get 'users/portfolio', to: "users#portfolio", as: :portfolio
   get 'users/portfolio_admin/:id', to: "users#portfolio_admin", as: :portfolio_admin

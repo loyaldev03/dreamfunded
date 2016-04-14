@@ -84,6 +84,16 @@ class BidsController < ApplicationController
     redirect_to shares_path
   end
 
+  def confirm
+    @bid = Bid.find(params[:id])
+  end
+
+  def accept
+    @bid = Bid.find(params[:id])
+    @bid.update(status: 'Accepted')
+    redirect_to shares_path
+  end
+
   private
   def bid_params
     params.require(:bid).permit(:auction_id, :user_id, :seller_id, :bid_amount, :counter_amount, :accepted, :company_id,:number_of_shares)
