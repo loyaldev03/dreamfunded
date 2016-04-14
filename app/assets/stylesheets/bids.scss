@@ -8,6 +8,15 @@
   border-radius: 5px;
   padding: 10px 5px 10px 5px;
 }
+.cofirm-box{
+  background-color: #f0f0f0;
+  padding: 5px;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: left;
+  margin-top: 30px;
+  font-weight: lighter;
+}
 .bid-block{
   width: 40%;
   display: inline-block;
@@ -127,6 +136,24 @@
   display: none;
   padding : 5px;
   padding-top: 15px;
+}
+.confirm-payment-box {
+  margin: 60px auto;
+  font-family: "Lato", sans-serif;
+  width: 800px;
+  border: none;
+  background: #ffffff;
+  padding: 10px 40px 40px 40px;
+}
+.col-1{
+  display: inline-block;
+  width: 45%;
+  vertical-align: top;
+}
+.confirm-company-image{
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 5px;
 }
 
 

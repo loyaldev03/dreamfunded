@@ -86,6 +86,7 @@ class BidsController < ApplicationController
 
   def confirm
     @bid = Bid.find(params[:id])
+    @total = @bid.bid_amount * @bid.number_of_shares
   end
 
   def accept
@@ -93,6 +94,7 @@ class BidsController < ApplicationController
     @bid.update(status: 'Accepted')
     redirect_to shares_path
   end
+
 
   private
   def bid_params
