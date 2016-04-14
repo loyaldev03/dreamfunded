@@ -17,85 +17,7 @@
           <%= link_to @company.name, @company.website_link %>
         </h2>
       </div>
-      <div class= "stats-container">
-        <div class= "profile-image-wrap"> <%= link_to image_tag( @company.image.url, :class => "stats-image"), @company.website_link %></div>
-        <div class= "numbers"><div class= "numbers-content">
-
-          <div class= 'statistics'>
-
-          <% if @company.status == 2 %>
-              <div>
-                <p class= "twenty no-margin center"><span class= "darkblue twenty">Invested: </span><%= number_to_currency @company.invested_amount, precision: 0 %><br><br> </p>
-              </div>
-              <div>
-                <p class= "twenty no-margin center"><span class= "darkblue twenty">Goal Amount: </span> <%= number_to_currency @company.goal_amount, precision: 0 %><br><br></p>
-              </div>
-
-            <div>
-              <p class= "twenty no-margin center"><span class= "darkblue twenty">Days Left: </span><%= @company.days_left %><br><br></p>
-            </div>
-
-              <div>
-                <p class= "twenty no-margin center"><span class= "darkblue twenty">Funded: </span><%= "%.1f" % @progress %>%<br><br></p>
-              </div>
-              <div>
-                <span class= "darkblue twenty">Documents: </span>
-                <% @company.documents.each do |doc|%>
-                  <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to doc.file_file_name, doc.file.url, target: "_blank", class: 'document-url' %></p>
-                <% end %>
-              </div>
-
-          <% end %>
-          </div>
-
-        </div></div>
-        <% if @company.status == 2 && @company.display != 0 %>
-          <%= link_to "Invest in #{@company.name}", @company.docusign_url, :class => "company-button profile-button mail-to-button", target: "_blank" %>
-        <% elsif @company.status == 1 %>
-
-          <%#= mail_to "manny@dreamfunded.com", "Join The Waitlist", subject: "I want to invest in #{@company.name}", :class => "company-button profile-button mail-to-button" %>
-
-
-
-          <%= form_for @bid do |f| %>
-            <div>Number of Shares available: <%= @company.total_shares %></div>
-            <div>Price per share on average: <%= @company.average_share_price%></div>
-            <div>Suggested Target Price for this auction: <%= @company.suggested_target_price %></div>
-            <br>
-          <%#= select_tag(:investment_amount, options_for_select([ "$3-5k", "$5-10k", "$10-25k", "$25k or more" ]), prompt: "Investment Amount") %>
-
-            <br><br>
-
-            <%= f.text_field :number_of_shares,  :placeholder => "Num of Shares", :required => true, class: 'input-box no-margin center' %><br>
-            <%= range_field_tag(:number_of_shares, @company.total_shares/2,{:min=>0, max: @company.total_shares, step: 100 , id:"slider1"}) %>
-            <br><br><br>
-
-            <%= f.text_field(:bid_amount, :placeholder => "Price per Share", :required => true,class: 'input-box no-margin center') %>
-            <%= range_field_tag(:bid_amount,@company.average_share_price/2, { :min=>0, :max=>@company.average_share_price*4, :class=>"slide", id: "slider2"}) %>
-            <br><br>
-
-            <div class="target-share-priece">
-              <div>Target Share Price Estimates:</div><br>
-              <div>Estimated Valuation:</div>
-              <div>Transaction Size: <span id='transaction-price'></span></div>
-            </div>
-            <br>
-            <%#= check_box_tag(:financial_assistance, nil, false) %>
-              <!-- I have a good-faith intention to complete this transaction if a match is found and any further review of the transaction documents and due diligence materials is to my satisfaction. Equidate counts on its shareholders and investors to follow through and therefore repeated or unexplained cancellations may result in my access to the Equidate platform being restricted. -->
-            <%= submit_tag("Place Bid", :class => "company-button profile-button", :disabled => false) %>
-            <%= f.hidden_field "user_id", value: session[:current_user].id %>
-            <%= f.hidden_field "company_id", value: @company.id %>
-            <%= f.hidden_field "name", value: @company.name %>
-          <% end %>
-
-
-
-        <% else %>
-          <%= button_to "Invest in #{@company.name}", nil, :class => "company-button profile-button", :disabled => true %>
-        <% end %>
-      </div>
-
-      <div class= "description-container">
+      <div class= "description-container-bid">
         <div class= "video-box">
           <% if @company.video_link.empty? %>
             <%= image_tag( @company.image.url, class: 'image-max-width')%>
@@ -179,6 +101,85 @@
           <% end %>
         <% end %>
       </div>
+      <div class= "stats-container-bid">
+        <div class= "profile-image-wrap"> <%= link_to image_tag( @company.image.url, :class => "stats-image"), @company.website_link %></div>
+        <div class= "numbers"><div class= "numbers-content">
+
+          <div class= 'statistics'>
+
+          <% if @company.status == 2 %>
+              <div>
+                <p class= "twenty no-margin center"><span class= "darkblue twenty">Invested: </span><%= number_to_currency @company.invested_amount, precision: 0 %><br><br> </p>
+              </div>
+              <div>
+                <p class= "twenty no-margin center"><span class= "darkblue twenty">Goal Amount: </span> <%= number_to_currency @company.goal_amount, precision: 0 %><br><br></p>
+              </div>
+
+            <div>
+              <p class= "twenty no-margin center"><span class= "darkblue twenty">Days Left: </span><%= @company.days_left %><br><br></p>
+            </div>
+
+              <div>
+                <p class= "twenty no-margin center"><span class= "darkblue twenty">Funded: </span><%= "%.1f" % @progress %>%<br><br></p>
+              </div>
+              <div>
+                <span class= "darkblue twenty">Documents: </span>
+                <% @company.documents.each do |doc|%>
+                  <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to doc.file_file_name, doc.file.url, target: "_blank", class: 'document-url' %></p>
+                <% end %>
+              </div>
+
+          <% end %>
+          </div>
+
+        </div></div>
+        <% if @company.status == 2 && @company.display != 0 %>
+          <%= link_to "Invest in #{@company.name}", @company.docusign_url, :class => "company-button profile-button mail-to-button", target: "_blank" %>
+        <% elsif @company.status == 1 %>
+
+          <%#= mail_to "manny@dreamfunded.com", "Join The Waitlist", subject: "I want to invest in #{@company.name}", :class => "company-button profile-button mail-to-button" %>
+
+
+
+          <%= form_for @bid do |f| %>
+            <div class='target-share-priece'>
+                <div>Number of shares available: <%= @company.total_shares %></div>
+                <div>Price per share on average: <%= @company.average_share_price%></div>
+                <div>Suggested target price: <%= @company.suggested_target_price %></div>
+            </div>
+          <%#= select_tag(:investment_amount, options_for_select([ "$3-5k", "$5-10k", "$10-25k", "$25k or more" ]), prompt: "Investment Amount") %>
+
+            <br><br>
+
+            <%= f.text_field :number_of_shares,  :placeholder => "Num of Shares", :required => true, class: 'input-box no-margin center' %><br>
+            <%= range_field_tag(:number_of_shares, 1000,{:min=>0, max: 10000, step: 100 , id:"slider1"}) %>
+            <br><br><br>
+
+            <%= f.text_field(:bid_amount, :placeholder => "Price per Share", :required => true,class: 'input-box no-margin center') %>
+            <%= range_field_tag(:bid_amount, 10,{ :min=>0, :max=> 100, :class=>"slide", id: "slider2"}) %>
+            <br><br>
+
+            <div class="target-share-priece">
+
+              <div>Transaction Size: <span id='transaction-price'></span></div>
+            </div>
+            <br>
+            <%#= check_box_tag(:financial_assistance, nil, false) %>
+              <!-- I have a good-faith intention to complete this transaction if a match is found and any further review of the transaction documents and due diligence materials is to my satisfaction. Equidate counts on its shareholders and investors to follow through and therefore repeated or unexplained cancellations may result in my access to the Equidate platform being restricted. -->
+            <%= submit_tag("Place Bid", :class => "company-button profile-button", :disabled => false) %>
+            <%= f.hidden_field "user_id", value: session[:current_user].id %>
+            <%= f.hidden_field "company_id", value: @company.id %>
+            <%= f.hidden_field "name", value: @company.name %>
+          <% end %>
+
+
+
+        <% else %>
+          <%= button_to "Invest in #{@company.name}", nil, :class => "company-button profile-button", :disabled => true %>
+        <% end %>
+      </div>
+
+
     </div></div>
     <style>
     .foot-text.darkblue{

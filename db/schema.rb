@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160411221539) do
+ActiveRecord::Schema.define(version: 20160413234019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20160411221539) do
     t.integer  "company_id"
     t.integer  "number_of_shares"
     t.integer  "user_id"
+    t.string   "status",           default: "pending"
   end
 
   create_table "ckeditor_assets", force: true do |t|
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(version: 20160411221539) do
     t.integer  "position",               default: 0
     t.boolean  "hidden",                 default: false
     t.float    "suggested_target_price"
+    t.boolean  "accredited"
   end
 
   create_table "documents", force: true do |t|
@@ -296,9 +298,9 @@ ActiveRecord::Schema.define(version: 20160411221539) do
     t.integer  "authority"
     t.string   "salt"
     t.string   "password_digest"
-    t.boolean  "confirmed",       default: false
+    t.boolean  "confirmed",              default: false
     t.string   "slug"
-    t.integer  "invested_amount", default: 0
+    t.integer  "invested_amount",        default: 0
     t.string   "phone"
     t.string   "uid"
     t.string   "provider"
@@ -306,6 +308,15 @@ ActiveRecord::Schema.define(version: 20160411221539) do
     t.datetime "updated_at"
     t.string   "role"
     t.integer  "credit"
+    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,     null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
   end
 
   add_index "users", ["slug"], name: "index_users_on_slug", using: :btree

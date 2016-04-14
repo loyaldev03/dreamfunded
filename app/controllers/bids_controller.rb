@@ -79,6 +79,7 @@ class BidsController < ApplicationController
     price = params[:price]
     number = params[:number]
     @bid = Bid.find(params[:bid_id])
+    @bid.update(counter_amount: price, status: 'Counter Offer')
     ContactMailer.counter_offer(@bid, price, number).deliver
     redirect_to shares_path
   end

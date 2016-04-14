@@ -2,11 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .target-share-priece{
-  background-color:#f0f0f0;
   background-color: #f0f0f0;
   margin: 5px;
   padding: 5px;
-  border-radius: 5px
+  border-radius: 5px;
+  padding: 10px 5px 10px 5px;
 }
 .bid-block{
   width: 40%;
@@ -67,6 +67,13 @@
   margin-left: 25px;
   width: 15%;
 }
+.shares-block4{
+  vertical-align: top;
+  display: inline-block;
+  margin-right: 10px;
+  margin-left: 25px;
+  width: 22%;
+}
 .shares-details-block{
    vertical-align: top;
    display: inline-block;
@@ -101,7 +108,25 @@
   float: right;
   font-size: 14px;
 }
-
-
+.stats-container-bid{
+  display: inline-block;
+  width: 39%;
+  margin-left: 3%;
+  margin-bottom: 3%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+  vertical-align: top;
+  padding: 0 10px 0 10px;
+}
+.description-container-bid{
+  display: inline-block;
+  width: 55%;
+  margin-top: 35px;
+}
+.counter-offer-content{
+  display: none;
+  padding : 5px;
+  padding-top: 15px;
+}
 
 

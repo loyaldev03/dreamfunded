@@ -29,10 +29,31 @@
         </div>
 
         <div class='shares-block3'>
-          Status: <div class='event-date'>Pending</div>
+          Status: <div class='event-date'><%= bid.status%></div>
+          <%= button_to( "VIEW OFFER","#", {method: :get, id: "newsletter-submit-button", class: "counter-bid" }) if bid.status == "Counter Offer"%>
         </div>
-
       </div>
+
+     <div class="counter-offer-content">
+            <div class='shares-block3'>
+
+            </div>
+            <div class='shares-block3'>
+               Number of shares: <div class='event-date'><%= number_with_delimiter bid.number_of_shares%></div>
+            </div>
+
+            <div class='shares-block3'>
+              Bid Amount: <div class='event-date'>$<%= bid.counter_amount %></div>
+            </div>
+
+            <div class='shares-block3'>
+              Total: <div class='event-date'>$<%= number_with_delimiter ( bid.number_of_shares.to_i * bid.counter_amount.to_i )%></div>
+            </div>
+            <div class='shares-block3'>
+              <button id="newsletter-submit-button" class="accept-bid">ACCEPT</button>
+            </div>
+
+     </div>
     <% end %>
 
 
