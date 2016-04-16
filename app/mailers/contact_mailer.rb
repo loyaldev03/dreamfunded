@@ -90,13 +90,16 @@ class ContactMailer < ActionMailer::Base
     mail(to: @seller.email, subject: "DreamFunded Account Created")
   end
 
-  def bid_created
+  def bid_created(seller, bid)
+    @seller = seller
+    @bid = bid
+    mail(to: @seller.email, subject: 'A Bid Has Been Placed')
   end
 
   def bid_accepted(bid)
     user = User.find(bid.user_id)
     @bid = bid
-    mail(to: user.email, subject: "Bid was Accepted")
+    mail(to: user.email, subject: "Your Bid Has Been Accepted")
   end
 
   def bid_declined(bid)
@@ -110,6 +113,17 @@ class ContactMailer < ActionMailer::Base
     @price = price
     @number= number
     @user = @bid.user
+    mail(to: @bid.user.email, subject: "Counter Offer has been made for you bid on #{@bid.company.name}")
+  end
+
+  def seller_accepts_offer(bid, seller)
+    @bid = bid
+    @seller = seller
+    mail(to: @seller.email, subject: "Counter Offer has been made for you bid on #{@bid.company.name}")
+  end
+
+  def your_offer_win(bid)
+    @bid = bid
     mail(to: @bid.user.email, subject: "Counter Offer has been made for you bid on #{@bid.company.name}")
   end
 end

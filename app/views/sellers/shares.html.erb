@@ -27,7 +27,6 @@
                 <div class='shares-line'>
                     Desired Share Price: $<%= share.shares_price %> <a href='/edit-shares/<%= share.id %>' class="darkblue edit-link"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
                 </div>
-
               </div>
               <!-- <div class='shares-block1'>
               </div> -->
@@ -67,11 +66,7 @@
                     <button id="newsletter-submit-button" class="decline-bid">DECLINE</button>
                     <%= button_to "COUNTER OFFER","counter_offer/#{bid.id}", {method: :get, id: "newsletter-submit-button", class: "counter-bid" }%>
                 <%end%>
-<!--                 <a href='/accept_bid/<% bid.id %>' style="display: block;">Accept</a>
-                <a href='/decline_bid/<% bid.id %>' style="display: block;">Decline</a>
-                <a href='#' style="display: block;">Counter Offer</a> -->
               </div>
-
             </div>
           <% end %>
         </div>

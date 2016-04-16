@@ -38,10 +38,12 @@
                   <%= submit_tag "Confirm and pay", class: 'accept-bid',id: "newsletter-submit-button" %>
               <% end %>
 
-          <%else%>
+          <% elsif bid.status == 'Counter Offer' %>
               Status: <div class='event-date'><%= bid.status%></div>
-              <%= button_to( "VIEW OFFER","#", {method: :get, id: "newsletter-submit-button", class: "counter-bid" }) if bid.status == "Counter Offer"%>
-          <%end%>
+              <button id="newsletter-submit-button" class="counter-bid view-counter-offer">VIEW OFFER</button>
+          <% else %>
+              Status: <div class='event-date'><%= bid.status%></div>
+          <% end %>
         </div>
       </div>
 
@@ -58,10 +60,15 @@
             </div>
 
             <div class='shares-block3'>
-              Total: <div class='event-date'>$<%= number_with_delimiter ( bid.number_of_shares.to_i * bid.counter_amount.to_i )%></div>
+              Total: <div class='event-date'>$<%= number_with_delimiter ( bid.number_of_shares * bid.counter_amount )%></div>
             </div>
             <div class='shares-block3'>
-              <button id="newsletter-submit-button" class="accept-bid">UPDATE OFFER</button>
+              <%= form_tag(update_bid_offer_path) do %>
+                <%= hidden_field_tag :id, bid.id%>
+                <%= hidden_field_tag :number, bid.number_of_shares %>
+                <%= hidden_field_tag :price, bid.counter_amount %>
+                <%= submit_tag( "UPDATE OFFER", id: "newsletter-submit-button", class: "accept-bid" )%>
+              <% end %>
             </div>
 
      </div>

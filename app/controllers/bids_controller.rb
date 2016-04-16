@@ -31,6 +31,11 @@ class BidsController < ApplicationController
   def create
     @bid = Bid.new(bid_params)
       if @bid.save
+        user_ids = LiquidateShare.where(company_id: @bid.company_id).pluck(:user_id)
+        sellers = User.where(id: user_ids)
+        sellers.each do |seller|
+          ContactMailer.bid_created(seller, @bid).deliver
+        end
         redirect_to bids_path, notice: 'bid was successfully created.'
         #send email to all sellers
         #ContactMailer.bid_created().deliver
@@ -56,12 +61,6 @@ class BidsController < ApplicationController
     @auctions = LiquidateShare.where(company: @company.name)
   end
 
-  def accept
-    bid = Bid.find(params[:id])
-    bid.update(accepted: true)
-    ContactMailer.bid_accepted(bid).deliver
-    redirect_to :sellers_bids
-  end
 
   def decline
     bid = Bid.find(params[:id])
@@ -92,7 +91,66 @@ class BidsController < ApplicationController
   def accept
     @bid = Bid.find(params[:id])
     @bid.update(status: 'Accepted')
+    @seller = user_session
+    docusign(@bid, user_session)
+    ContactMailer.seller_accepts_offer(@bid, @seller).deliver
+    ContactMailer.your_offer_win(@bid).deliver
     redirect_to shares_path
+  end
+
+  def update_bid_offer
+    bid = Bid.find(params[:id])
+    price = params[:price]
+    amount = params[:number]
+    bid.update(bid_amount: price, number_of_shares: amount, status: 'Reviewing')
+    redirect_to bids_path
+  end
+
+  protected
+
+  def docusign(bid, seller)
+    @client = DocusignRest::Client.new
+    @document_envelope_response = @client.create_envelope_from_document(
+      email: {
+        subject: "test email subject",
+        body: "this is the email body and it's large!"
+      },
+      # If embedded is set to true  in the signers array below, emails
+      # don't go out to the signers and you can embed the signature page in an
+      # iFrame by using the client.get_recipient_view method
+      signers: [
+        {
+          embedded: false,
+          name: 'Test Guy',
+          email: bid.user.email,
+          role_name: 'buyer',
+          sign_here_tabs: [
+            {
+              anchor_string: '---------------------',
+              anchor_x_offset: '140',
+              anchor_y_offset: '8'
+            }
+          ]
+        },
+        {
+          embedded: false,
+          name: 'Test Girl',
+          email: seller.email,
+          role_name: 'seller',
+          sign_here_tabs: [
+            {
+              anchor_string: '---------------------',
+              anchor_x_offset: '140',
+              anchor_y_offset: '8'
+            }
+          ]
+        }
+      ],
+      files: [
+        {path: "#{Rails.root}/app/assets/doc/test.pdf", name: 'test.pdf'}
+      ],
+      status: 'sent'
+    )
   end
 
 

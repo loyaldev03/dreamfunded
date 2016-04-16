@@ -33,6 +33,10 @@ Rails.application.routes.draw do
   get 'counter_offer/:id', to: "bids#counter_offer"
   post 'send_counter_offer', to: "bids#send_counter_offer"
   get 'confirm', to: "bids#confirm", as: :confirm
+  post 'update_bid_offer', to: "bids#update_bid_offer", as: :update_bid_offer
+  get "docusign", to: "sellers#docusign", as: :docusign
+  get "check-status", to: "sellers#check_status", as: :check_status
+  #post '/account/1613988/envelopes', to: "sellers#send", as: :send_docusign
 
   get 'users/portfolio', to: "users#portfolio", as: :portfolio
   get 'users/portfolio_admin/:id', to: "users#portfolio_admin", as: :portfolio_admin
