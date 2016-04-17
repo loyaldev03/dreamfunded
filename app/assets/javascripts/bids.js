@@ -15,7 +15,8 @@
     return x1 + x2;
   }
 
-$(document).ready(function(){
+  var ready;
+  ready = function() {
 
     $(".view-counter-offer").click(function (e) {
         console.log('click')
@@ -34,6 +35,37 @@ $(document).ready(function(){
                 return $content.is(":visible") ? "HIDE OFFER" : "VIEW OFFER";
             });
         });
-
     });
-})
+
+    $('#slider1').change(function(){
+      value = $(this).val();
+      $("#bid_number_of_shares").val(value);
+
+      price = $('#bid_bid_amount').val() * $(this).val();
+      $("#transaction-price").html( price )
+    });
+
+    $("#bid_number_of_shares").on('input', function() {
+      value = $(this).val();
+      $('#slider1').val(value);
+    });
+
+    $("#bid_bid_amount").on('input', function() {
+        value = $(this).val();
+        $('#slider2').val(value);
+    });
+
+    $('#slider2').change(function(){
+      value = $(this).val();
+      $("#bid_bid_amount").val(value);
+      price = $('#bid_bid_amount').val() * $("#bid_number_of_shares").val();
+
+      $("#transaction-price").html( price )
+    });
+
+  };
+
+  $(document).ready(ready);
+  $(document).on('page:load', ready);
+
+
