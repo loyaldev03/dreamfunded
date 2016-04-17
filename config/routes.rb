@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   post 'update_bid_offer', to: "bids#update_bid_offer", as: :update_bid_offer
   get "docusign", to: "sellers#docusign", as: :docusign
   get "check-status", to: "sellers#check_status", as: :check_status
+  get '/auction', to: "companies#auctions"
   #post '/account/1613988/envelopes', to: "sellers#send", as: :send_docusign
 
   get 'users/portfolio', to: "users#portfolio", as: :portfolio

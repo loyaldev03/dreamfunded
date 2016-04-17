@@ -141,6 +141,7 @@
 							<li><button onclick= "dreamfunded_portfolio()">Portfolio</button></li>
 							<% if user_session != nil && user_session.authority >= authority[:Accredited] %>
 								<li><button onclick= "invest()">Invest</button></li>
+								<li><button onclick= "auction()">Auction</button></li>
 							<% elsif user_session == nil %>
 								<li><button onclick= "signUp()">Invest</button></li>
 							<% end %>

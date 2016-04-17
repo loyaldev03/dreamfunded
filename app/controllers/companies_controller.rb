@@ -9,6 +9,13 @@ class CompaniesController < ApplicationController
 		@companies = Company.all.order(:position).where(hidden: false)
 	end
 
+	def auctions
+		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Basic]
+			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
+		end
+		@companies = Company.all.order(:position).where(hidden: false)
+	end
+
 	def new
 		@company = Company.new
 		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Founder]
