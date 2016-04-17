@@ -40,7 +40,6 @@ gem 'omniauth-linkedin'
 gem 'activeadmin'
 gem 'infusionsoft'
 gem 'newrelic_rpm'
-gem 'docusign_rest'
 
 
 gem 'will_paginate', '~> 3.0.5'
