@@ -3,7 +3,16 @@ Rails.application.routes.draw do
 
 
   ActiveAdmin.routes(self)
-  resources :members
+
+  get '/team', to: "members#index", as: :members
+  post 'members', to: 'members#create'
+  get 'members/new', to: "members#new", as: :new_member
+  get 'members/:id/edit', to: 'members#edit', as: :edit_member
+  get '/team/:id', to: "members#show", as: :member
+  patch 'team/:id', to: 'members#update'
+  put 'team/:id', to: 'members#update'
+  delete 'team/:id', to: 'members#destroy'
+
 
   mount Ckeditor::Engine => '/ckeditor'
   get '/posts/new/:page', to: "posts#new"
@@ -92,8 +101,8 @@ Rails.application.routes.draw do
   resources :news
 
   #resources :teams
-  get '/team', to: "teams#index", as: :teams
-  get '/team/:id', to: "teams#show", as: :team
+
+  get '/team/:id', to: "members#show", as: :team
 
   get '/payment', to: "payments#index", as: :payment
   post '/submit_payment', to: "payments#payment"
@@ -122,7 +131,7 @@ Rails.application.routes.draw do
 
   get '/portofolio', to: 'companies#index'
   get '/dreamfunded-exchange', to: 'home#exchange'
-  get '/our-team', to: 'teams#index'
+  get '/our-team', to: 'members#index'
   match "/our-team/manny-fernandez" => redirect("team/manny-fernandez"), via: 'get'
   match "/our-team/rexford-r-hibbs" => redirect("team/rexford-r-hibbs"), via: 'get'
   match "/our-team/manny-fernandez" => redirect("team/manny-fernandez"), via: 'get'

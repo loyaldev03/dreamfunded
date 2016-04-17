@@ -1,9 +1,6 @@
 function invest() {
 	window.location = "/companies";
 }
-function auction() {
-	window.location = "/auction";
-}
 
 function dreamfunded_portfolio() {
 	window.location = "/home/portfolio";
