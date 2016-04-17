@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :events
+
 
   ActiveAdmin.routes(self)
 
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   resources :documents
   resources :guests
+  resources :bids
 
   match "/diversity-tech-angels-earn-wings/" => redirect("https://dreamfundedsf.wpengine.com/diversity-tech-angels-earn-wings/"), via: 'get'
 
@@ -32,6 +33,20 @@ Rails.application.routes.draw do
 
   get 'auth/linkedin/callback', to:'omniauth_callbacks#google_oauth2'
   post 'auth/linkedin/callback', to:'omniauth_callbacks#google_oauth2'
+
+  # B I D D I N G   S Y S T E M
+  get 'bid/:id', to: "bids#bid"
+  get 'sellers_bids', to: "bids#sellers_bids"
+  get 'accept_bid/:id', to: "bids#accept"
+  get 'decline_bid/:id', to: "bids#decline"
+  get 'counter_offer/:id', to: "bids#counter_offer"
+  post 'send_counter_offer', to: "bids#send_counter_offer"
+  get 'confirm', to: "bids#confirm", as: :confirm
+  post 'update_bid_offer', to: "bids#update_bid_offer", as: :update_bid_offer
+  get "docusign", to: "sellers#docusign", as: :docusign
+  get "check-status", to: "sellers#check_status", as: :check_status
+  get '/auction', to: "companies#auctions"
+  #post '/account/1613988/envelopes', to: "sellers#send", as: :send_docusign
 
   get 'users/portfolio', to: "users#portfolio", as: :portfolio
   get 'users/portfolio_admin/:id', to: "users#portfolio_admin", as: :portfolio_admin
@@ -62,9 +77,25 @@ Rails.application.routes.draw do
   post '/liquidate_form', to: 'home#liquidate_form'
   get '/liquidate_after', to: 'home#liquidate_after'
 
+  get '/shares', to: 'sellers#shares'
+  get '/edit-shares/:id', to: 'sellers#edit'
+  post '/update-shares', to: 'sellers#update'
+
   get '/home/edit_member/:id', to: "home#team_member_edit"
   put '/home/edit_member', to: 'home#team_member_update'
   # patch '/home/edit_member', to: 'home#team_member_update', as: 'update_member'
+
+  get '/sellers', to: "home#sellers", as: :sellers
+  get '/edit_seller/:id', to: "home#edit_seller", as: 'edit_seller'
+  patch '/liquidate_shares', to: "home#edit_liq_seller", as: :edit_shareholder
+
+  get '/email_all_investors/:id', to: "home#email_all_investors", as: :email_all_investors
+
+  post 'submit_bid', to: "companies#submit_bid"
+
+
+  get '/new_seller', to: "home#new_seller"
+  post '/new_seller', to: "home#create_new_seller", as: :create_shareholder
 
   resources :companies
   resources :news

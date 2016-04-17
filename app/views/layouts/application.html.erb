@@ -101,7 +101,12 @@
 					<% else %>
 						<li><button onclick= "profile()" >Welcome <%= user_session.first_name.capitalize%> <span class="arrow">&#9660;</span></button>
 							<ul class= "sub-menu">
-								<li><button onclick= "portfolio()">My Portfolio</button></li>
+								<% if user_session.role == 'seller' %>
+									<li><button onclick= "location.href='/shares';">My Shares</button></li>
+								<% else %>
+									<li><button onclick= "portfolio()">My Portfolio</button></li>
+								  <li><button onclick= "location.href='/bids'">Bids</button></li>
+								<% end %>
 								<% if user_session.authority != authority[:Admin] %>
 									<li><button onclick= "signOut()" >Sign Out</button></li>
 								<% else %>
@@ -136,6 +141,7 @@
 							<li><button onclick= "dreamfunded_portfolio()">Portfolio</button></li>
 							<% if user_session != nil && user_session.authority >= authority[:Accredited] %>
 								<li><button onclick= "invest()">Invest</button></li>
+								<li><button onclick= "auction()">Auction</button></li>
 							<% elsif user_session == nil %>
 								<li><button onclick= "signUp()">Invest</button></li>
 							<% end %>

@@ -1,0 +1,79 @@
+<head>
+  <% title "DreamFunded | Auctions" %>
+</head>
+
+<div class= "wrapper">
+  <div class="header">
+    <h1 class="centered">My Auctions</h1>
+  </div>
+  <div class= "bids-content">
+
+
+    <% @bids.each do |bid| %>
+      <div class='event'>
+
+        <div class='shares-block3'>
+            <%= image_tag bid.company.image.url, class: 'event-image' %>
+        </div>
+
+        <div class='shares-block3'>
+           Number of shares: <div class='event-date'><%= number_with_delimiter bid.number_of_shares%></div>
+        </div>
+
+        <div class='shares-block3'>
+          Bid Amount: <div class='event-date'>$<%= bid.bid_amount %></div>
+        </div>
+
+        <div class='shares-block3'>
+          Total: <div class='event-date'>$<%= number_with_delimiter ( bid.number_of_shares.to_i * bid.bid_amount.to_i )%></div>
+        </div>
+
+        <div class='shares-block3'>
+          <% if bid.status == 'Accepted' %>
+              Status: <div class='event-date'><%= bid.status%></div>
+              <%= form_tag(confirm_path, method: :get) do %>
+                  <%= hidden_field_tag :id, bid.id%>
+                  <%= hidden_field_tag :value, bid.number_of_shares %>
+                  <%= hidden_field_tag :price, bid.bid_amount %>
+                  <%= submit_tag "Confirm and pay", class: 'accept-bid',id: "newsletter-submit-button" %>
+              <% end %>
+
+          <% elsif bid.status == 'Counter Offer' %>
+              Status: <div class='event-date'><%= bid.status%></div>
+              <button id="newsletter-submit-button" class="counter-bid view-counter-offer">VIEW OFFER</button>
+          <% else %>
+              Status: <div class='event-date'><%= bid.status%></div>
+          <% end %>
+        </div>
+      </div>
+
+     <div class="counter-offer-content">
+            <div class='shares-block3'>
+
+            </div>
+            <div class='shares-block3'>
+               Number of shares: <div class='event-date'><%= number_with_delimiter bid.number_of_shares%></div>
+            </div>
+
+            <div class='shares-block3'>
+              Bid Amount: <div class='event-date'>$<%= bid.counter_amount %></div>
+            </div>
+
+            <div class='shares-block3'>
+              Total: <div class='event-date'>$<%= number_with_delimiter ( bid.number_of_shares * bid.counter_amount )%></div>
+            </div>
+            <div class='shares-block3'>
+              <%= form_tag(update_bid_offer_path) do %>
+                <%= hidden_field_tag :id, bid.id%>
+                <%= hidden_field_tag :number, bid.number_of_shares %>
+                <%= hidden_field_tag :price, bid.counter_amount %>
+                <%= submit_tag( "UPDATE OFFER", id: "newsletter-submit-button", class: "accept-bid" )%>
+              <% end %>
+            </div>
+
+     </div>
+    <% end %>
+
+
+  </div>
+</div>

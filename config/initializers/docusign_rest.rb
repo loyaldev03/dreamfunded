@@ -5,10 +5,11 @@
 require 'docusign_rest'
 
 DocusignRest.configure do |config|
-  config.username       = 'Manny@sfangel.co'
-  config.password       = 'h@67$27S'
-  config.integrator_key = 'SFAN-21897a26-9108-43d1-b9b6-501d5b76e46a'
-  config.account_id     = '341201'
-  config.endpoint       = 'https://demo.docusign.net/restapi'
-  config.api_version    = 'v2'
+  config.username       = 'alexandr.larionov88@gmail.com'
+  config.password       = 'alexandr9'
+  config.integrator_key = 'ALEX-46557da2-175a-4662-9a7c-5abfe791c13c'
+  config.account_id     = '1613988'
+  #config.endpoint       = 'https://www.docusign.net/restapi'
+  #config.api_version    = 'v1'
 end
+

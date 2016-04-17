@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <% title "DreamFunded | My Shares " %>
+  </head>
+
+  <body>
+    <div class= "wrapper">
+      <div class="header">
+        <h1 class="centered">My Shares</h1>
+      </div>
+        <div class= "bids-content">
+
+
+          <%= form_tag '/send_counter_offer' do  %>
+            <%= hidden_field_tag :bid_id, @bid.id%>
+            <div class='share-details'>
+
+              <div class='shares-block1'>
+                <%= image_tag @bid.company.image, class: 'shares-company-image' %>
+              </div>
+
+              <div class='shares-details-block'>
+                <div class='event-name centered'>Make Counter Offer</div><br>
+                <div class='shares-line '>
+                    Number of shares: <%= text_field_tag :number, number_with_delimiter(@bid.number_of_shares), class: 'userbox' %>
+
+                </div>
+                <div class='shares-line'>
+                    Desired Share Price: <%= text_field_tag :price, @bid.bid_amount, class: 'userbox' %>
+                </div>
+
+              <span class="password-six-chars">We will send you counter offer to investor</span><br><br>
+              </div>
+              <div class= "centered">
+                <%= submit_tag("Send", :class => "login-button") %>
+              </div>
+
+
+            </div>
+          <% end %>
+
+        </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    $( "#number" ).keyup(function() {
+        var value = addCommas( $( this ).val() );
+        $( this ).val( value );
+    });
+  </script>
+</html>

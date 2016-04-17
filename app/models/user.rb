@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 	has_many :investments
 	has_many :companies, through: :investments
 
+	has_many :liquidate_shares
+	has_many :bids
 	#Getter
 	validates :first_name, presence:true
 	validates :last_name, presence:true
@@ -51,6 +53,10 @@ class User < ActiveRecord::Base
 			:Founder => 3,
 			:Admin => 4
 		}
+	end
+
+	def name
+		first_name.capitalize + " " + last_name.capitalize
 	end
 
 end
