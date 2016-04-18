@@ -15,7 +15,7 @@
               <span class='company-position'><%= company.position%></span>
             <% end %>
             <div class= "company-image"><div class= "image-wrap">
-              <%= link_to image_tag( company.image.url, :class => "image"), {:action => 'company_profile', :id => company.id} %>
+              <%= link_to image_tag( company.image.url, :class => "image"), {:action => 'new', controller: 'bids', :id => company.id} %>
             </div></div>
             <div class= "company-description">
               <div class="meter orange">
@@ -67,7 +67,7 @@
             <% end %>
 
             <div class= "company-image"><div class= "image-wrap">
-              <%= link_to image_tag("companies/#{company.image_file_name}", :class => "image-gray"), {:action => 'company_profile', :id => company.id} %>
+              <%= link_to image_tag("companies/#{company.image_file_name}", :class => "image-gray"), {:action => 'new', controller: 'bids', :id => company.id} %>
             </div></div>
             <div class= "company-description">
               <div class="meter orange">
