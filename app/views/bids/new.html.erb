@@ -159,6 +159,9 @@
   </body>
 
 </html>
-
-<script>
-</script>
+<% if Rails.env.production?  %>
+  <script>
+    jQuery.noConflict();
+    console.log('production')
+  </script>
+<% end %>

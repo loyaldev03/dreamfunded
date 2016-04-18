@@ -15,8 +15,8 @@
     return x1 + x2;
   }
 
-  var ready;
-  ready = function() {
+
+  $(document).on('ready', function(){
 
     $(".view-counter-offer").click(function (e) {
         console.log('click')
@@ -44,7 +44,6 @@
       price = $('#bid_bid_amount').val() * $(this).val();
       $("#transaction-price").html( price )
     });
-
     $("#bid_number_of_shares").on('input', function() {
       value = $(this).val();
       $('#slider1').val(value);
@@ -62,10 +61,11 @@
 
       $("#transaction-price").html( price )
     });
+  })
 
-  };
 
-  $(document).ready(ready);
-  $(document).on('page:load', ready);
+
+
+
 
 
