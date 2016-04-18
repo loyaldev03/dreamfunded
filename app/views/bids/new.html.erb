@@ -149,7 +149,8 @@
           <% end %>
 
 
-
+        <% elsif @company.status == 1 %>
+          <%= mail_to "manny@dreamfunded.com", "Join The Waitlist", subject: "I want to invest in #{@company.name}", :class => "company-button profile-button mail-to-button" %>
         <% else %>
           <%= button_to "Invest in #{@company.name}", nil, :class => "company-button profile-button", :disabled => true %>
         <% end %>

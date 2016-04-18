@@ -36,7 +36,7 @@ class BidsController < ApplicationController
         sellers.each do |seller|
           ContactMailer.bid_created(seller, @bid).deliver
         end
-        redirect_to bids_path, notice: 'bid was successfully created.'
+        redirect_to bids_path
         #send email to all sellers
         #ContactMailer.bid_created().deliver
       else
