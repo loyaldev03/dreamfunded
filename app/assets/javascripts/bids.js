@@ -42,7 +42,8 @@
       $("#bid_number_of_shares").val(value);
 
       price = $('#bid_bid_amount').val() * $(this).val();
-      $("#transaction-price").html( price )
+      price = addCommas(price.toString());
+      $("#transaction-price").html( '$' + price )
     });
     $("#bid_number_of_shares").on('input', function() {
       value = $(this).val();
@@ -57,9 +58,10 @@
     $('#slider2').change(function(){
       value = $(this).val();
       $("#bid_bid_amount").val(value);
-      price = $('#bid_bid_amount').val() * $("#bid_number_of_shares").val();
 
-      $("#transaction-price").html( price )
+      price = $('#bid_bid_amount').val() * $("#bid_number_of_shares").val();
+      price = addCommas(price.toString());
+      $("#transaction-price").html( '$' + price )
     });
   })
 

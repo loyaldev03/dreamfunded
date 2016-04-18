@@ -113,25 +113,31 @@
 
           <%= form_for @bid do |f| %>
             <div class='target-share-priece'>
-                <div>Number of shares available: <%= @company.total_shares %></div>
-                <div>Price per share on average: <%= @company.average_share_price%></div>
+                <div>Number of shares available: $<%= number_with_delimiter @company.total_shares %></div>
+                <div>Price per share on average: $<%= number_with_precision @company.average_share_price, :precision => 2 %></div>
                 <div>Suggested target price: <%= @company.suggested_target_price %></div>
             </div>
             <%#= select_tag(:investment_amount, options_for_select([ "$3-5k", "$5-10k", "$10-25k", "$25k or more" ]), prompt: "Investment Amount") %>
 
             <br><br>
-
-            <%= f.text_field :number_of_shares,  :placeholder => "Num of Shares", :required => true, class: 'input-box no-margin center' %><br>
+            <div class='centered'> <label>Number of Shares</label> </div>
+            <%= f.text_field :number_of_shares, :value => number_with_precision(f.object.number_of_shares), :placeholder => "Num of Shares", :required => true, class: 'input-box no-margin center' %><br>
             <%= range_field_tag(:number_of_shares, 1000,{:min=>0, max: 10000, step: 100 , id:"slider1"}) %>
             <br><br><br>
 
+            <div class='centered'> <label>Bid Amount</label> </div>
             <%= f.text_field(:bid_amount, :placeholder => "Price per Share", :required => true,class: 'input-box no-margin center') %>
             <%= range_field_tag(:bid_amount, 10,{ :min=>0, :max=> 100, :class=>"slide", id: "slider2"}) %>
             <br><br>
 
             <div class="target-share-priece">
 
-              <div>Transaction Size: <span id='transaction-price'></span></div>
+              <div>Transaction Size:
+              <span id='transaction-price'>
+                <%= '$' if @bid.bid_amount%>
+                <%= number_with_delimiter(@bid.bid_amount * @bid.number_of_shares) if @bid.bid_amount%>
+              </span>
+              </div>
             </div>
             <br>
             <%#= check_box_tag(:financial_assistance, nil, false) %>
