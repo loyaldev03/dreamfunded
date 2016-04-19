@@ -218,4 +218,12 @@ class UsersController < ApplicationController
 		redirect_to root_path
 	end
 
+	def admin
+		@users = User.all.where(authority: 1)
+	end
+
+	def companies
+		@companies = Company.all.where(accredited: false)
+	end
+
 end

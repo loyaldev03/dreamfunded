@@ -13,200 +13,42 @@
 	  <meta name="keywords" content="angel investors, pre-iso, employee liquidity, equity crowdfunding, startup investing, Silicon Valley investing, San Francisco angel investing">
 	  <%= csrf_meta_tags %>
 	  <!-- Facebook Conversion Code for Leads - 1414927242055598 1 -->
-	  <script>(function() {
-	  var _fbq = window._fbq || (window._fbq = []);
-	  if (!_fbq.loaded) {
-	  var fbds = document.createElement('script');
-	  fbds.async = true;
-	  fbds.src = '//connect.facebook.net/en_US/fbds.js';
-	  var s = document.getElementsByTagName('script')[0];
-	  s.parentNode.insertBefore(fbds, s);
-	  _fbq.loaded = true;
-	  }
-	  })();
-	  window._fbq = window._fbq || [];
-	  window._fbq.push(['track', '6033653694759', {'value':'0.00','currency':'USD'}]);
+	  <script>
+			  (function() {
+			  var _fbq = window._fbq || (window._fbq = []);
+			  if (!_fbq.loaded) {
+			  var fbds = document.createElement('script');
+			  fbds.async = true;
+			  fbds.src = '//connect.facebook.net/en_US/fbds.js';
+			  var s = document.getElementsByTagName('script')[0];
+			  s.parentNode.insertBefore(fbds, s);
+			  _fbq.loaded = true;
+			  }
+			  })();
+			  window._fbq = window._fbq || [];
+			  window._fbq.push(['track', '6033653694759', {'value':'0.00','currency':'USD'}]);
 	  </script>
 	  <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6033653694759&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
 
-  			<div class= "menu-wrap fullWidth"> <nav class= "menu fullWidth">
-				<ul class= "main-menu white">
-
-					<!-- M O B I L E -->
-					<li id='mobile-menu'><button >Menu<span class="arrow">&#9660;</span></button>
-						<ul class='sub-menu white'>
-							<!-- <li><button onclick= "whyInv()">Why Invest</button></li> -->
-							<% if user_session != nil && user_session.authority >= authority[:Accredited] %>
-								<li><button onclick= "invest()">Invest</button></li>
-							<% elsif user_session != nil && user_session.authority == 1 %>
-								<li><button onclick= "location.href='/marketplace_companies	';">NonAccredited</button></li>
-							<% end %>
-							<li><button onclick="location.href='/dreamfunded-exchange';" >Sell Shares	</button></li>
-							<li><button onclick= "news()">News</button></li>
-							<li><button onclick= "location.href='/events';">Events</button></li>
-							<li><button onclick="location.href='/education';" >Education</button></li>
-							<li><button onclick= "team()">Team</button></li>
-							<li><button onclick= "about()">About Us</button></li>
-							<li><button onclick= "faq()">FAQ</button></li>
-							<li><button onclick= "contact()">Contact Us</button></li>
-							<% if user_session == nil %>
-								<li><button onclick= "signIn()">Login</button></li>
-							<% else %>
-								<li><button onclick= "profile()" >Welcome <%= user_session.first_name.capitalize%> <span class="arrow"></span></button></li>
-								<li><button onclick= "signOut()" >Sign Out</button></li>
-							<% end %>
-						</ul>
-					</li>
-					<!-- M O B I L E   E N D -->
-
-					<!-- iPAD MENU -->
-
-					<li class='ipad-menu'><button >Menu<span class="arrow">&#9660;</span></button>
-						<ul class='sub-menu white'>
-							<!-- <li><button onclick= "whyInv()">Why Invest</button></li> -->
-
-							<% if user_session == nil %>
-								<li><button onclick= "login()">Login</button></li>
-								<li><button onclick= "signUp()">Sign Up</button></li>
-							<% else %>
-								<li><button onclick= "profile()" >Welcome <%= user_session.first_name.capitalize%> <span class="arrow"></span></button></li>
-								<li><button onclick= "signOut()" >Sign Out</button></li>
-							<% end %>
-						</ul>
-					</li>
-					<li class='ipad-menu'><button >About<span class="arrow">&#9660;</span></button>
-						<ul class='sub-menu white'>
-							<li><button onclick= "about()">About Us</button></li>
-							<li><button onclick= "faq()">FAQ</button></li>
-							<li><button onclick= "team()">Team</button></li>
-							<li><button onclick= "news()">News</button></li>
-							<li><button onclick= "contact()">Contact Us</button></li>
-						</ul>
-					</li>
-					<li class='ipad-menu'><button onclick="location.href='/education';" >Education</button></li>
-					<li class='ipad-menu'><button onclick="location.href='/events';" >Events</button></li>
-					<li class='ipad-menu'><button onclick="location.href='/dreamfunded-exchange';" >Sell Shares	</button></li>
-					<% if user_session != nil && user_session.authority >= authority[:Accredited] %>
-						<li class='ipad-menu'><button onclick= "invest()">Invest</button></li>
-					<% elsif user_session == nil %>
-						<li class='ipad-menu'><button onclick= "signUp()">Invest</button></li>
-					<% end %>
-					<li class='ipad-menu'><button onclick= "how_it_works()">How It Works</button></li>
-					<!-- iPAD MENU END -->
-
-					<li id="last-menu-button"></li>
-					<% if user_session == nil %>
-						<li><button onclick= "signIn()" id="sign-in-button">Sign Up</button></li>
-						<li><button onclick= "login()">Login</button></li>
-					<% else %>
-						<li><button onclick= "profile()" >Welcome <%= user_session.first_name.capitalize%> <span class="arrow">&#9660;</span></button>
-							<ul class= "sub-menu">
-								<li><button onclick= "portfolio()">My Portfolio</button></li>
-								<% if user_session.authority != authority[:Admin] %>
-									<li><button onclick= "signOut()" >Sign Out</button></li>
-								<% else %>
-									<li><button onclick= "admin()">Admin Panel</button></li>
-									<li><button onclick="location.href='/admin/users';" >New Admin Panel</button></li>
-									<li><button onclick= "signOut()" >Sign Out</button></li>
-								<% end %>
-							</ul>
-						</li>
-					<% end %>
-
-					<li><button disabled= "true">About <span class="arrow">&#9660;</span></button>
-						<ul class= "sub-menu">
-							<li><button onclick= "about()">About Us</button></li>
-							<li><button onclick= "faq()">FAQ</button></li>
-							<li><button onclick= "team()">Team</button></li>
-							<li><button onclick= "news()">News</button></li>
-							<li><button onclick= "contact()">Contact Us</button></li>
-						</ul>
-					</li>
-					<%# if user_session != nil && user_session.authority > 2 %>
-						<!-- <li><button onclick= "funding()">Get Funded</button></li> -->
-					<%# end %>
-					<li><button onclick="location.href='/events';" >Events</button></li>
-					<li><button onclick="location.href='/education';" >Education</button></li>
-					<li><button onclick="location.href='/dreamfunded-exchange';" >Sell Shares	</button></li>
-
-					<!-- <li><button onclick= "whyInv()">Why Invest</button></li> -->
-
-					<li><button disabled= "true">Investments <span class="arrow">&#9660;</span></button>
-						<ul class= "sub-menu">
-							<li><button onclick= "dreamfunded_portfolio()">Portfolio</button></li>
-							<% if user_session != nil && user_session.authority >= authority[:Accredited] %>
-								<li><button onclick= "invest()">Invest</button></li>
-							<% elsif user_session != nil && user_session.authority == 1 %>
-								<li><button onclick= "location.href='/marketplace_companies';">Invest</button></li>
-							<% end %>
-						</ul>
-					</li>
-					<li><button onclick= "how_it_works()">How It Works</button></li>
-					<li><button onclick= "home()">Home</button></li>
-					<li id= "left"><button onclick= "home()" id= "nopadding"><div class= "logo"></div></button></li>
-
-				</ul>
-
-			</nav></div>
-			<!-- facebook code -->
-			<div id="fb-root"></div>
-			<script>(function(d, s, id) {
-			  var js, fjs = d.getElementsByTagName(s)[0];
-			  if (d.getElementById(id)) return;
-			  js = d.createElement(s); js.id = id;
-			  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=208256392895631";
-			  fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));</script>
-			<!-- facebook end -->
-
+		<!-- facebook code -->
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=208256392895631";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		<!-- facebook end -->
 </head>
+
 <body>
-<div class= "wrapper">
-	<%= yield %>
-</div>
-<footer class= "footer fullWidth">
-	<div class= "footer-content">
-		<a class= "indent foot-text"> COPYRIGHT © <%= Time.now.year %> DREAMFUNDED </a>
+		<%= render 'layouts/header' %>
+		<div class= "wrapper">
+			<%= yield %>
+		</div>
 
-	<div class= "table darkblue">
-		<%= link_to "Contact", "/contact", :class => "spaced border" %>
-		<%= link_to "Frequently Asked Questions", faq_path, :class => "spaced border" %>
-		<%= link_to "Legal Information", "/legal", :class => "spaced" %>
-	</div>
-
-	<div class= "image4-box gap">
-		<%= link_to image_tag("static/facebook.png", :class => 'image4'), "https://www.facebook.com/dreamfundedcom", :target => "_blank", class:'hidden-facebook' %>
-		<%= link_to image_tag("static/twitter.png", :class => 'image4'), "https://twitter.com/dreamfunded", :target => "_blank" %>
-		<%= link_to image_tag("static/linkedin.png", :class => 'image4'), "https://www.linkedin.com/company/dreamfunded-com", :target => "_blank" %>
-		<%= link_to image_tag("static/angel.png", :class => 'image4'), "https://angel.co/dreamfunded-1", :target => "_blank" %>
-	</div>
-
-	<!-- <p class= "indent foot-text darkblue">DreamFunded.com is a platform operated by DreamFunded, Inc. By accessing this site and any pages thereof, you agree to be bound by our Terms of Service and Privacy Policy. DreamFunded.com is intended only for accredited investors, who are residing in the U.S. or residing abroad in jurisdictions where securities registration exemptions apply.
-	DreamFunded does not make investment recommendations, and no communication through this website or in any other medium should be construed as such. Investment opportunities posted on this website are “private placements” of securities that are not publicly traded, are subject to holding period requirements, and are intended for investors who do not need a liquid investment. Private placement investments are not bank deposits (and thus not insured by the FDIC or by any other federal governmental agency), are not guaranteed by DreamFunded and may lose value. Neither the Securities and Exchange Commission nor any federal or state securities commission or regulatory authority has recommended or approved any investment or the accuracy or completeness of any of the information or materials provided by or through the website. Investors must be able to afford the loss of their entire investment.</p>
-
-	<p class= "indent foot-text darkblue">Any financial projections or returns shown on the website are illustrative examples only; there can be no assurance that any valuations provided are accurate or in agreement with market or industry valuations. Any investment information contained herein has been secured from sources DreamFunded believes are reliable, but we make no representations or warranties as to the accuracy of such information and accept no liability thereof. Offers to sell or buy any security can only be made through official offering documents that contain important information about risks, fees, and expenses. Investors should conduct their own due diligence and not rely solely on the financial assumptions or estimates displayed on this website; they are encouraged to consult with a financial advisor, attorney, accountant, and any other professional that can help you to understand and assess the risks associated with any investment opportunity.</p> -->
-</div>
-</footer>
 <%= render 'layouts/footer' %>
-<!-- begin olark code -->
-<script data-cfasync="false" type='text/javascript'>/*<![CDATA[*/window.olark||(function(c){var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){
-f[z]=function(){
-(a.s=a.s||[]).push(arguments)};var a=f[z]._={
-},q=c.methods.length;while(q--){(function(n){f[z][n]=function(){
-f[z]("call",n,arguments)}})(c.methods[q])}a.l=c.loader;a.i=nt;a.p={
-0:+new Date};a.P=function(u){
-a.p[u]=new Date-a.p[0]};function s(){
-a.P(r);f[z](r)}f.addEventListener?f.addEventListener(r,s,false):f.attachEvent("on"+r,s);var ld=function(){function p(hd){
-hd="head";return["<",hd,"></",hd,"><",i,' onl' + 'oad="var d=',g,";d.getElementsByTagName('head')[0].",j,"(d.",h,"('script')).",k,"='",l,"//",a.l,"'",'"',"></",i,">"].join("")}var i="body",m=d[i];if(!m){
-return setTimeout(ld,100)}a.P(1);var j="appendChild",h="createElement",k="src",n=d[h]("div"),v=n[j](d[h](z)),b=d[h]("iframe"),g="document",e="domain",o;n.style.display="none";m.insertBefore(n,m.firstChild).id=z;b.frameBorder="0";b.id=z+"-loader";if(/MSIE[ ]+6/.test(navigator.userAgent)){
-b.src="javascript:false"}b.allowTransparency="true";v[j](b);try{
-b.contentWindow[g].open()}catch(w){
-c[e]=d[e];o="javascript:var d="+g+".open();d.domain='"+d.domain+"';";b[k]=o+"void(0);"}try{
-var t=b.contentWindow[g];t.write(p());t.close()}catch(x){
-b[k]=o+'d.write("'+p().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};ld()};nt()})({
-loader: "static.olark.com/jsclient/loader0.js",name:"olark",methods:["configure","extend","declare","identify"]});
-/* custom configuration goes here (www.olark.com/documentation) */
-olark.identify('8644-622-10-9040');/*]]>*/</script><noscript><a href="https://www.olark.com/site/8644-622-10-9040/contact" title="Contact us" target="_blank">Questions? Feedback?</a> powered by <a href="http://www.olark.com?welcome" title="Olark live chat software">Olark live chat software</a></noscript>
-<!-- end olark code -->
+
 </body>
 </html>
