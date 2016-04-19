@@ -133,3 +133,11 @@
 .news-read-more-buton{
 	text-align: center;
 }
+ /*i P A D*/
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)  {
+	.news-single-container{
+		width: 90%;
+	}
+}
