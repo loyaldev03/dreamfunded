@@ -123,7 +123,7 @@ class UsersController < ApplicationController
 			end
 			redirect_to(:action => :post_login, :email => @email, :password => @password)
 		else
-			flash[:notice] = "Validation failed."
+			flash[:signup_errors] = "Validation failed."
 			@error_message = ""
 			record.errors.full_messages.each do |error|
 				@error_message = @error_message + error + ". "
