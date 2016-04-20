@@ -1,0 +1,55 @@
+<title>DreamFunded | Write</title>
+</head>
+
+<body>
+  <div class= "wrapper">
+    <div class= "header"><h1 class= "centered">Liquidators</h1></div>
+
+    <div class= "word-content"><div class= "text-content">
+      <%= button_to "Download to Excel", '/sellers.csv', :method => 'get', :id => 'user-button' %>
+      <%= button_to "Add New Seller", '/new_seller', :method => 'get', :id => 'user-button' %>
+
+        <% if user_session.authority == authority[:Admin] %>
+          <table id="user-table">
+           <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Company</th>
+            <th>Number of Shares</th>
+            <th>Shares Price</th>
+            <th>Timeframe</th>
+            <th>ROFR Restrictions</th>
+            <th>Financial Assistance</th>
+            <th>Created</th>
+            <th>Updated</th>
+            <th>Edit</th>
+            <th>Approve</th>
+
+           </tr>
+              <% @sellers.order(:first_name).each do |seller| %>
+                <tr>
+                  <td><%= seller.first_name %></td>
+                  <td><%= seller.last_name %></td>
+                  <td><%= seller.email %></td>
+                  <td><%= seller.phone %></td>
+                  <td><%= seller.company %></td>
+                  <td><%= seller.number_shares %></td>
+                  <td><%= seller.shares_price %></td>
+                  <td><%= seller.timeframe %></td>
+                  <td><%= seller.rofr_restrictions %></td>
+                  <td><%= seller.financial_assistance %></td>
+                  <td><%= seller.created_at %></td>
+                  <td><%= seller.updated_at %></td>
+                  <td><%= link_to "Edit", edit_seller_path(seller.id) %></td>
+                  <td><% if seller.approved != true %>
+                         <%= link_to "Approve", "/email_all_investors/#{seller.id}" %>
+                      <% end %>
+                  </td>
+                </tr>
+            <% end %>
+          </table>
+        <% end %>
+    </div></div>
+  </div>

@@ -1,0 +1,51 @@
+<% title "SSL Secured" %>
+<div class= "wrapper">
+  <div class="header-container shadow">
+    <div class= "header centered"><h2 id='payment-title'>Please Complete Your Investment Below</h2></div>
+  </div>
+
+  <div class= " confirm-payment-box ">
+    <div class='col-1 centered'>
+      <%= image_tag @bid.company.image, class: 'confirm-company-image' %>
+        <div class="cofirm-box">
+            <div class='shares-line '>
+                Number of shares: <%= number_with_delimiter(@bid.number_of_shares) %>
+            </div>
+            <div class='shares-line'>
+                Desired Share Price: $<%= @bid.bid_amount %>
+            </div>
+            <div class='shares-line'>
+                Total: $<%= @bid.bid_amount %>
+            </div>
+        </div>
+    </div>
+
+    <div class='col-1 centered margin-left-7-percent'>
+        <%= form_tag( '/submit_payment', method: :post) do %>
+          <p class='payment-form'>Name<br>
+            <%= text_field_tag(:name, user_session.name ) %>
+          </p>
+
+          <p class='payment-form'>Routing Number<br>
+          <%= text_field_tag(:routing, nil ) %>
+          </p>
+
+          <p class='payment-form'>Account Number<br>
+            <%= text_field_tag(:account, nil ) %>
+          </p>
+
+
+          <p class='payment-form'>Investment Amount<br>
+          <%= text_field_tag(:amount, @total   ) %>
+          </p>
+
+          <%= submit_tag "Confirm", id: 'submit-button'%>
+        <% end %>
+        <p>
+          <b><%= flash[:message] %></b>
+        </p>
+    </div>
+  </div>
+
+  </div>
+</div>

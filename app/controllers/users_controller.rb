@@ -97,6 +97,7 @@ class UsersController < ApplicationController
 		@password = params[:password]
 		@email = params[:email]
 		@phone = params[:phone]
+		role = params[:user_role]
 
 		#Change to enum / class later
 		if params[:reg] == nil
@@ -105,7 +106,11 @@ class UsersController < ApplicationController
 			@authority = User.Authority[:Basic]
 		end
 
-		record = User.new(:first_name => @first_name, :last_name => @last_name, :email => @email, :authority => @authority, phone: @phone)
+		if role = 'Seller'
+			@authority = User.Authority[:Basic]
+		end
+
+		record = User.new(:first_name => @first_name, :last_name => @last_name, :email => @email, :authority => @authority, phone: @phone, role: role)
 		record.password = @password
 		record.password_confirmation = params[:password_confirmation]
 		if record.valid?
@@ -118,7 +123,7 @@ class UsersController < ApplicationController
 			end
 			redirect_to(:action => :post_login, :email => @email, :password => @password)
 		else
-			flash[:notice] = "Validation failed."
+			flash[:signup_errors] = "Validation failed."
 			@error_message = ""
 			record.errors.full_messages.each do |error|
 				@error_message = @error_message + error + ". "
@@ -135,7 +140,6 @@ class UsersController < ApplicationController
 			redirect_to(:action => :login)
 		else
 			password = params[:password]
-
 			if(login_user.password_valid?(password))
 				session[:current_user] = login_user
 				redirect_to url_for(:controller => 'home', :action => 'index')
@@ -217,6 +221,7 @@ class UsersController < ApplicationController
 		session[:current_user] = user
 		redirect_to root_path
 	end
+
 
 	def admin
 		@users = User.all.where(authority: 1)

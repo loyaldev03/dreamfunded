@@ -1,0 +1,23 @@
+<%= @company.name %>
+<br>
+<%= @auctions %>
+<!-- 
+Index - Get all companies that have shares available for sale under LiquidateShares where company.name = LiquidateShares.name and are approved by Manny
+
+Get all sellers [email, shares_price, number_shares] from LiquidateShares
+Add input for number of shares and price
+Add submit button to send bid to sellers
+ -->
+
+   <div class= "login-container">
+    <%= form_tag('liquidate_form', :method => :post, :id => "liquidate_form") do %>
+      <%= text_field_tag(:number_shares, nil, :class =>"userbox half-field", :placeholder => "Quantity of shares") %>
+      <%= text_field_tag(:shares_price, nil, :class =>"userbox half-field scoot-left", :placeholder => "Desired share price", :required => true) %>
+      <br>
+        <div class = "notice centered">
+          <h2 class='darkblue' ><%= flash[:notice] if flash[:notice] %></h2>
+        </div>
+      <div class= "centered">
+        <%= submit_tag("Submit", :class => "login-button") %>
+      </div>
+    <% end %>

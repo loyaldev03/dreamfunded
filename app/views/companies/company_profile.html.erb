@@ -72,11 +72,11 @@
 
 			<div class= "description-container">
 				<div class= "video-box">
-					<% if @company.video_link %>
+					<% if @company.video_link.empty? %>
+						<%= image_tag( @company.image.url, class: 'image-max-width')%>
+					<% else %>
 						<iframe  class='youtube-video' src= <%= @company.video_link %> frameborder="0" allowfullscreen ></iframe>
 						<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/VQJJJGNeM-s" frameborder="0" allowfullscreen></iframe> -->
-					<% else %>
-						<%= image_tag( @company.image.url, class: 'image-max-width')%>
 					<% end %>
 				</div>
 				<br><br><br><br>
@@ -163,3 +163,32 @@
 	</body>
 
 </html>
+
+<script>
+	$('#slider1').change(function(){
+	  value = $(this).val();
+	  $("#bid_number_of_shares").val(value);
+
+	  price = $('#bid_bid_amount').val() * $(this).val();
+	  $("#transaction-price").html( price )
+	});
+
+	$("#bid_number_of_shares").on('input', function() {
+    value = $(this).val();
+    $('#slider1').val(value);
+	});
+
+	$("#bid_bid_amount").on('input', function() {
+	    value = $(this).val();
+	    $('#slider2').val(value);
+	});
+
+	$('#slider2').change(function(){
+	  value = $(this).val();
+	  $("#bid_bid_amount").val(value);
+	  price = $('#bid_bid_amount').val() * $("#bid_number_of_shares").val();
+
+	  $("#transaction-price").html( price )
+	});
+
+</script>

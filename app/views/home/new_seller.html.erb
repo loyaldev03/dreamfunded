@@ -1,0 +1,82 @@
+<div class= "wrapper"><div class= "box signin-box centered">
+
+  <div class="row">
+    <div class="active">
+      <h2 class= "no-margin centered darkblue"><a  id="login-form-link">Add New Seller</a></h2>
+      <hr>
+      <br>
+    </div>
+  </div>
+
+  <div class= "login-container">
+    <%= form_for(@seller, url: create_shareholder_path) do |f| %>
+      <%= f.text_field(:first_name,  :class =>"userbox half-field", :placeholder => "First name", :required => true) %>
+      <%= f.text_field(:last_name,  :class =>"userbox half-field scoot-left", :placeholder => "Last name") %>
+      <%= f.text_field(:email,  :class =>"userbox liquidate-form-company", :placeholder => "Email", :required => true) %>
+      <%= f.text_field(:phone,  :class =>"userbox half-field ", :placeholder => "Phone") %>
+      <%= f.text_field(:company,  :class =>"userbox half-field scoot-left", :placeholder => "Company", :required => true) %>
+      <%= f.text_field(:number_shares,  :class =>"userbox half-field", :placeholder => "Quantity of shares") %>
+      <%= f.text_field(:shares_price,  :class =>"userbox half-field scoot-left", :placeholder => "Desired share price", :required => true) %>
+
+      <div class="styled-select">
+        <%= select_tag(:timeframe, options_for_select([ "< 1 Week", "< 1 Month", "1 Month or More" ]), prompt: "Timeframe") %>
+      </div>
+      <br>
+
+      <div class='left'>
+        <%= check_box_tag(:rofr_restrictions, nil, false) %>
+        <span>My company has ROFR restrictions (right of first refusal).</span>
+      </div>
+      <!-- <a class="tooltip" href="/education/basics">ROFR<span class="warning">Dreamfunded can help you sell your shares immediately -- and avoid your company's restrictions!</span></a>
+      restrictions (right of first refusal). -->
+
+      <br>
+      <div class='left'>
+        <%= check_box_tag(:financial_assistance, nil, false) %>
+        <span>
+          I may need financial help to exercise (purchase) shares from my employer (company).
+        </span>
+      </div>
+      <!-- <a class="tooltip" href="/education/basics">purchase<span class="help">We offer financial assistance in order to allow you to exercise your shares!</span></a>
+      shares from my company. -->
+
+      <%= text_area(:message, nil, rows: 5, :class =>"userbox", :placeholder => "Comments") %>
+      <br>
+        <div class = "notice centered">
+          <h2 class='darkblue' ><%= flash[:notice] if flash[:notice] %></h2>
+        </div>
+      <div class= "centered">
+        <%= submit_tag("Submit", :class => "login-button") %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<script>
+  String.prototype.replaceAll = function(search, replacement) {
+      var target = this;
+      return target.split(search).join(replacement);
+  };
+  function addCommas(nStr) {
+    nStr = nStr.replaceAll(',', '');
+    nStr += '';
+    var x = nStr.split('.');
+    var x1 = x[0];
+    var x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+    return x1 + x2;
+  }
+
+
+  $( "#number_shares" ).keyup(function() {
+      var value = addCommas( $( this ).val() );
+      $( this ).val( value );
+  });
+  $( "#shares_price" ).keyup(function() {
+      var value = addCommas( $( this ).val() );
+      $( this ).val( value );
+  })
+
+</script>

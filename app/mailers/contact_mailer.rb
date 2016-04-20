@@ -42,6 +42,30 @@ class ContactMailer < ActionMailer::Base
     # mail(to: "alexandr.larionov88@gmail.com", subject: 'Request to liquidate shares')
   end
 
+  def prospective_investment_email(first_name, last_name, email, phone, company, investment_amount, shares_price)
+    @first_name = first_name
+    @last_name = last_name
+    @email = email
+    @phone = phone
+    @company = company
+    @investment_amount = investment_amount
+    @shares_price = shares_price
+    mail(to: "info@dreamfunded.com", subject: "Bid on #{company}: $#{shares_price}/share and Total Investment of #{investment_amount}")
+  end
+
+  def open_auction_email(first_name, last_name, email, phone, company, number_shares, shares_price)
+    @first_name = first_name
+    @last_name = last_name
+    @email = email
+    @phone = phone
+    @company = company
+    @number_shares = number_shares
+    @shares_price = shares_price
+    User.where(authority: 2).each do |user|
+      mail(to: user.email, subject: "Dreamfunded: new Auction for #{number_shares} shares of #{company}")
+    end
+  end
+
   def account_created(user)
     @name = user.last_name
     @email= user.email
@@ -58,5 +82,48 @@ class ContactMailer < ActionMailer::Base
     @name = user.last_name
     @email= user.email
     mail(to: "info@dreamfunded.com", subject: 'Password Reset Request')
+  end
+
+  def seller_account(seller, password)
+    @seller = seller
+    @password = password
+    mail(to: @seller.email, subject: "DreamFunded Account Created")
+  end
+
+  def bid_created(seller, bid)
+    @seller = seller
+    @bid = bid
+    mail(to: @seller.email, subject: 'A Bid Has Been Placed')
+  end
+
+  def bid_accepted(bid)
+    user = User.find(bid.user_id)
+    @bid = bid
+    mail(to: user.email, subject: "Your Bid Has Been Accepted")
+  end
+
+  def bid_declined(bid)
+    user = User.find(bid.user_id)
+    @bid = bid
+    mail(to: user.email, subject: "Bid was Declined")
+  end
+
+  def counter_offer(bid, price, number)
+    @bid = bid
+    @price = price
+    @number= number
+    @user = @bid.user
+    mail(to: @bid.user.email, subject: "Counter Offer has been made for you bid on #{@bid.company.name}")
+  end
+
+  def seller_accepts_offer(bid, seller)
+    @bid = bid
+    @seller = seller
+    mail(to: @seller.email, subject: "Counter Offer has been made for you bid on #{@bid.company.name}")
+  end
+
+  def your_offer_win(bid)
+    @bid = bid
+    mail(to: @bid.user.email, subject: "Counter Offer has been made for you bid on #{@bid.company.name}")
   end
 end

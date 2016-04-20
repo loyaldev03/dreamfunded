@@ -308,9 +308,9 @@ input[type='number']::-webkit-inner-spin-button {
 }
 
 .portfolio-box {
-	width: 33%;
+	width: 32%;
 	height: 300px;
-	float: left;
+	display: inline-block;
 	text-align: center;
 }
 

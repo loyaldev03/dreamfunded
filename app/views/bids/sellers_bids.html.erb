@@ -1,0 +1,39 @@
+<head>
+  <% title "DreamFunded | Auctions" %>
+</head>
+
+<div class= "wrapper">
+  <div class="header">
+    <h1 class="centered">Seller Bids</h1>
+  </div>
+  <div class= "bids-content">
+
+
+    <% @bids.each do |bid| %>
+      <div class='event'>
+
+        <div class='bids-block1'>
+            <%= image_tag bid.company.image.url, class: 'event-image' %>
+        </div>
+
+        <div class='bid-block'>
+           Number of shares: <div class='event-date'><%= bid.number_of_shares%></div>
+        </div>
+
+        <div class='bid_block3'>
+          Bid Amount: <div class='event-date'>$<%= bid.bid_amount %></div>
+        </div>
+
+        <div class='bid_block3'>
+          Action: <br>
+          <a href='/accept_bid/<%= bid.id %>' style="display: block;">Accept</a>
+          <a href='/decline_bid/<%= bid.id %>' style="display: block;">Decline</a>
+          <a href='#' style="display: block;">Counter Offer</a>
+        </div>
+
+      </div>
+    <% end %>
+
+
+  </div>
+</div>

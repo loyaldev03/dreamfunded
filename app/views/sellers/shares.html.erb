@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <% title "DreamFunded | My Shares " %>
+  </head>
+
+  <body>
+    <div class= "wrapper">
+      <div class="header">
+        <h1 class="centered">My Shares</h1>
+      </div>
+        <div class= "bids-content">
+
+
+          <% @shares.each do |share| %>
+            <div class='share-details'>
+
+              <div class='shares-block1'>
+                <%= image_tag share.company.image, class: 'shares-company-image' %>
+              </div>
+
+              <div class='shares-details-block'>
+                <div class=" darkblue shares-line">Shareholder: <span class='event-date'><%= @seller.name %></span></div>
+                <div class='shares-line '>
+                    Number of shares: <%= number_with_delimiter(share.number_shares) %>
+                      <a href='/edit-shares/<%= share.id %>' class="darkblue edit-link"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                </div>
+                <div class='shares-line'>
+                    Desired Share Price: $<%= share.shares_price %> <a href='/edit-shares/<%= share.id %>' class="darkblue edit-link"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                </div>
+              </div>
+              <!-- <div class='shares-block1'>
+              </div> -->
+
+
+
+            </div>
+          <% end %>
+
+
+           <div class='event-name centered share-underline'>Auction: Recent Bids</div>
+          <% @bids.each do |bid| %>
+            <div class='event'>
+
+              <div class='event-block1'>
+                <div class="round-date"><div class='event-day'><%= bid.created_at.strftime("%e") %></div><div class='event-month'><%= bid.created_at.strftime("%b") %></div></div>
+              </div>
+
+              <div class='shares-block2'>
+                 Number of shares: <div class='event-date'><%= number_with_delimiter(bid.number_of_shares) %></div>
+              </div>
+
+              <div class='shares-block2'>
+                Bid Amount: <div class='event-date'>$<%= bid.bid_amount %></div>
+              </div>
+
+
+              <div class='shares-block2'>
+                Total: <div class='event-date'>$<%= number_with_delimiter(bid.number_of_shares.to_i * bid.bid_amount.to_i) %></div>
+              </div>
+
+              <div class='shares-block2'>
+                <% if bid.status == 'Accepted'%>
+                    <button id="newsletter-submit-button" class="accept-bid">ACCEPTED</button>
+                <%else%>
+                    <%= button_to "ACCEPT","accept_bid/#{bid.id}", {method: :get, id: "newsletter-submit-button", class: "accept-bid" }%>
+                    <button id="newsletter-submit-button" class="decline-bid">DECLINE</button>
+                    <%= button_to "COUNTER OFFER","counter_offer/#{bid.id}", {method: :get, id: "newsletter-submit-button", class: "counter-bid" }%>
+                <%end%>
+              </div>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  </body>
+
+</html>
