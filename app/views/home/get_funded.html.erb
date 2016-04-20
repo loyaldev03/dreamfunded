@@ -1,0 +1,81 @@
+<% title "DreamFunded | Contact Us" %>
+<div class= "wrapper"><div class= "box get-funded ">
+
+  <div class="row">
+    <div class=" active">
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Contact DreamFunded</a></h2>
+      <br>
+    </div>
+  </div>
+
+  <div class= "login-container">
+    <%= form_tag('get_funded', :method => :post, :id => "contact_us") do %>
+      <div class='get-funded-section-name'>
+        Registration
+      </div>
+      <%= text_field_tag(:name, nil, :class =>"userbox half-field", :placeholder => "Company Name", :required => true) %>
+      <%= text_field_tag(:email, nil, :class =>"userbox half-field scoot-left", :placeholder => "Email", :required => true) %>
+      <%= text_field_tag(:entrepreneur, nil, :class =>"userbox half-field", :placeholder => "Entrepreneur First Name") %>
+      <%= text_field_tag(:entrepreneur, nil, :class =>"userbox half-field scoot-left", :placeholder => "Entrepreneur Last Name") %>
+      <%#= text_area(:message, nil, rows: 4, :class =>"userbox expand half-field", :placeholder => "Type Your Message", :required => true) %>
+      <br><br>
+      <div class='get-funded-section-name'>
+        Contact Information
+      </div>
+
+      <%= text_field_tag(:country, nil, :class =>"userbox half-field", :placeholder => "Country", :required => true) %>
+      <%= text_field_tag(:phone, nil, :class =>"userbox half-field scoot-left", :placeholder => "Phone Number", :required => true) %>
+      <%= text_field_tag(:address, nil, :class =>"userbox half-field", :placeholder => "Address", :required => true) %>
+      <%= text_field_tag(:website, nil, :class =>"userbox half-field scoot-left", :placeholder => "Company Website", :required => true) %>
+      <%= text_field_tag(:country, nil, :class =>"userbox half-field", :placeholder => "City", :required => true) %>
+      <%= text_field_tag(:city, nil, :class =>"userbox half-field scoot-left", :placeholder => "Country", :required => true) %>
+      <%= text_field_tag(:state, nil, :class =>"userbox half-field", :placeholder => "State", :required => true) %>
+      <%= text_field_tag(:zipcode, nil, :class =>"userbox half-field scoot-left", :placeholder => "ZIP Code", :required => true) %>
+
+      <br><br>
+      <div class='get-funded-section-name'>
+        Company Basics
+      </div>
+      <div class='get-funded-right-block'>
+        <div class="styled-select select-full-width" >
+          <%= select_tag(:timeframe, options_for_select(
+                        ["Idea/Concept Stage",
+                        "Product under development",
+                        "Prototype ready",
+                        "Product ready",
+                        "$0-$500K trailing annual rev.",
+                        "$500K-$1M trailing annual rev.",
+                        "$1M-$3M trailing annual rev.",
+                        "$3M-$5M trailing annual rev.",
+                        "$5M-$10M trailing annual rev.",
+                        "$10M-$20M trailing annual rev.",
+                        "+$20M trailing annual rev."]), prompt: "What Stage is Your Company") %>
+        </div>
+        <br>
+        <div class=''>
+          Date Company Was Founded
+        </div>
+        <br>
+        <div class="styled-select get-funded-select-date half-field">
+          <%= select_month(Date.today, :class =>"userbox half-field", :placeholder => "Month", :required => true) %>
+        </div>
+        <div class="styled-select get-funded-select-date">
+          <%= select_year(Date.today, end_year: 1966, start_year: 2016) %>
+        </div>
+      </div>
+
+      <%= text_area(:message, nil, rows: 6, :class =>"userbox half-field", :placeholder => "Two Line Company Summary", :required => true) %>
+
+
+
+        <div class = "notice centered">
+          <h2 class='darkblue' ><%= flash[:notice] if flash[:notice] %></h2>
+          <%= @error_message %>
+        </div>
+      <div class= "centered">
+        <%= submit_tag("Send", :class => "login-button") %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

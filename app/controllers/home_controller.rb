@@ -217,6 +217,9 @@ class HomeController < ApplicationController
 	 	@posts = Post.order(:position).where(page: 'market_trends')
 	 end
 
+	 def get_funded
+	 end
+
    private
    def team_params
       params.require(:team).permit(:image, :name, :title, :summary, :fullbio )
