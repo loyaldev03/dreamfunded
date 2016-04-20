@@ -43,6 +43,7 @@ permit_params :image, :document, :accredited, :hidden, :position, :docusign_url,
         f.input  :website_link
         f.input  :goal_amount
         f.input  :status
+        f.input  :video_link
         f.input  :CEO
         f.input :status, :as => :select, collection: [ ["Coming Soon",1], ["Active", 2], ['Funded',3] ]
         f.input  :created_at
@@ -62,6 +63,7 @@ permit_params :image, :document, :accredited, :hidden, :position, :docusign_url,
       row :suggested_target_price
       row :website_link
       row :goal_amount
+      row :video_link
       row :CEO
       row :created_at
       row :updated_at
