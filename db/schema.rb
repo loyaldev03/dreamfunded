@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415234134) do
+ActiveRecord::Schema.define(version: 20160412183846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,13 +35,21 @@ ActiveRecord::Schema.define(version: 20160415234134) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "auction_id"
+<<<<<<< HEAD
+    t.string   "bid_amount"
+    t.string   "counter_amount"
+=======
+>>>>>>> master
     t.boolean  "accepted"
     t.integer  "company_id"
     t.integer  "number_of_shares"
     t.integer  "user_id"
+<<<<<<< HEAD
+=======
     t.string   "status",           default: "pending"
     t.float    "bid_amount"
     t.integer  "counter_amount",   default: 0
+>>>>>>> master
   end
 
   create_table "ckeditor_assets", force: true do |t|
@@ -308,6 +316,8 @@ ActiveRecord::Schema.define(version: 20160415234134) do
     t.datetime "updated_at"
     t.string   "role"
     t.integer  "credit"
+<<<<<<< HEAD
+=======
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -317,6 +327,7 @@ ActiveRecord::Schema.define(version: 20160415234134) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+>>>>>>> master
   end
 
   add_index "users", ["slug"], name: "index_users_on_slug", using: :btree

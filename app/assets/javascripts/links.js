@@ -74,6 +74,9 @@ function portfolio() {
 function admin() {
 	window.location = "/users/write";
 }
+function government_admin() {
+	window.location = "/users/admin";
+}
 
 function legal() {
 	window.location = "/home/legal";

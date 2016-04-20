@@ -68,6 +68,9 @@ Rails.application.routes.draw do
 
   get '/users/certify', to: "users#certify", as: 'certify'
 
+  get 'users/admin', to: "users#admin"
+  get 'users/admin-companies', to: "users#companies"
+
   get 'homes/faq', to: "home#faq", as: :faq
   get '/legal', to: "home#legal", as: :legal
   get '/contact', to: 'home#contact_us'
@@ -131,6 +134,7 @@ Rails.application.routes.draw do
 
 
   get '/portofolio', to: 'companies#index'
+  get '/marketplace_companies', to: 'companies#nonaccredited_index'
   get '/dreamfunded-exchange', to: 'home#exchange'
   get '/our-team', to: 'members#index'
   match "/our-team/manny-fernandez" => redirect("team/manny-fernandez"), via: 'get'
