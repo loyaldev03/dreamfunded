@@ -9,7 +9,7 @@
 .get-funded-select {
   width: 45% !important;
 }
-.get-funded-select select{
+.get-funded-select select, .select-full-width select{
   width: 100% !important;
 }
 .get-funded-select-date{

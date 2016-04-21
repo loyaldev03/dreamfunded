@@ -84,3 +84,6 @@ function legal() {
 function how_it_works() {
 	window.location = "/how_it_works";
 }
+function get_funded(){
+	window.location = "/get-funded";
+}

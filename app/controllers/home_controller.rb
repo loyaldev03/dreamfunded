@@ -220,6 +220,50 @@ class HomeController < ApplicationController
 	 def get_funded
 	 end
 
+	def get_funded_send
+		name = params[:name]
+		email = params[:email]
+		entrepreneur = [:entrepreneur]
+		country = params[:country]
+		phone = params[:phone]
+		address = params[:address]
+		website = params[:website]
+		city = params[:city]
+		state = params[:state]
+		zipcode = params[:zipcode]
+		timeframe = params[:timeframe]
+		month_created = params[:date][:month]
+		year_created = params[:date][:year]
+		number_employees = params[:number_employees]
+		two_line_summary = params[:two_line_summary]
+		business_summary = params[:business_summary]
+		market_of_customers = params[:market_of_customers]
+		customer_problem = params[:customer_problem]
+		current_customers = params[:current_customers]
+		solution =  params[:solution]
+		market_strategy = params[:market_strategy]
+		business_modal = params[:business_modal]
+		competitors = params[:competitors]
+		qualifications = params[:qualifications]
+		barriers = params[:barriers]
+		executive_summary_file = params[:executive_summary_file]
+ 		investor_slide_file = params[:investor_slide_file]
+		round_name = params[:round_name]
+		burn_rate = params[:burn_rate]
+		previous_capital = params[:previous_capital]
+		current_revenue = params[:current_revenue]
+		amout_seeking = params[:amout_seeking]
+		esimated_valuation = params[:esimated_valuation]
+		exit_strategy = params[:exit_strategy]
+
+		ContactMailer.get_funded(name, email, entrepreneur, country, phone, address, website, city, state, zipcode, timeframe, month_created, year_created, number_employees, two_line_summary, business_summary, market_of_customers, customer_problem, current_customers, solution, market_strategy, business_modal, competitors, qualifications, barriers, executive_summary_file,  investor_slide_file, round_name, burn_rate, previous_capital, current_revenue, amout_seeking, esimated_valuation, exit_strategy).deliver
+		redirect_to :get_funded_after
+	end
+
+	def get_funded_after
+
+	end
+
    private
    def team_params
       params.require(:team).permit(:image, :name, :title, :summary, :fullbio )
