@@ -30,9 +30,9 @@
       <%= text_field_tag(:address, nil, :class =>"userbox half-field", :placeholder => "Address", :required => true) %>
       <%= text_field_tag(:website, nil, :class =>"userbox half-field scoot-left", :placeholder => "Company Website") %>
       <%= text_field_tag(:country, nil, :class =>"userbox half-field", :placeholder => "City", :required => true) %>
-      <%= text_field_tag(:city, nil, :class =>"userbox half-field scoot-left", :placeholder => "Country", :required => true) %>
-      <%= text_field_tag(:state, nil, :class =>"userbox half-field", :placeholder => "State", :required => true) %>
-      <%= text_field_tag(:zipcode, nil, :class =>"userbox half-field scoot-left", :placeholder => "ZIP Code", :required => true) %>
+
+      <%= text_field_tag(:state, nil, :class =>"userbox half-field scoot-left", :placeholder => "State", :required => true) %>
+      <%= text_field_tag(:zipcode, nil, :class =>"userbox half-field ", :placeholder => "ZIP Code", :required => true) %>
 
       <br><br>
 
@@ -113,7 +113,7 @@
       </div>
       <br>
       <div>
-          <label>Investor Slidesd</label>
+          <label>Investor Slides</label>
           <%= file_field_tag(:investor_slide_file) %>
       </div>
 
