@@ -1,0 +1,28 @@
+.get-funded {
+  width: 50%;
+}
+.get-funded-section-name {
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin: 10px 0 10px 0;
+}
+.get-funded-select {
+  width: 45% !important;
+}
+.get-funded-select select, .select-full-width select{
+  width: 100% !important;
+}
+.get-funded-select-date{
+  width: 45.5% !important;
+  display: inline-block;
+}
+.get-funded-select-date select{
+  width: 100% !important;
+}
+.get-funded-right-block{
+  display: inline-block;
+  width: 50%;
+}
+.select-full-width{
+  width: 93% !important;
+}

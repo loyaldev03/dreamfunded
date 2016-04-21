@@ -126,4 +126,11 @@ class ContactMailer < ActionMailer::Base
     @bid = bid
     mail(to: @bid.user.email, subject: "Counter Offer has been made for you bid on #{@bid.company.name}")
   end
+
+  def get_funded(name, email, entrepreneur, country, phone, address, website, city, state, zipcode, timeframe, month_created, year_created, number_employees, two_line_summary, business_summary, market_of_customers, customer_problem, current_customers, solution, market_strategy, business_modal, competitors, qualifications, barriers, executive_summary_file, investor_slide_file, round_name, burn_rate, previous_capital, current_revenue, amout_seeking, esimated_valuation, exit_strategy)
+    @name = name, @email = email, @entrepreneur = entrepreneur, @country = country, @phone = phone, @address = address, @website = website, @city = city, @state = state, @zipcode = zipcode, @timeframe = timeframe, @month_created = month_created, @year_created = year_created, @number_employees = number_employees, @two_line_summary = two_line_summary, @business_summary = business_summary, @market_of_customers = market_of_customers, @customer_problem = customer_problem, @current_customers = current_customers, @solution = solution, @market_strategy = market_strategy, @business_modal = business_modal, @competitors = competitors, @qualifications = qualifications, @barriers = barriers, @executive_summary_file = executive_summary_file, @investor_slide_file = investor_slide_file, @round_name = round_name, @burn_rate = burn_rate, @previous_capital = previous_capital, @current_revenue = current_revenue, @amout_seeking = amout_seeking, @esimated_valuation = esimated_valuation, @exit_strategy =  exit_strategy
+    attachments[executive_summary_file.original_filename] =   File.read(executive_summary_file.path)
+    attachments[investor_slide_file.original_filename] =  File.read(investor_slide_file.path)
+    mail(to: 'info@dreamfunded.com', subject: 'Get Funded Request')
+  end
 end
