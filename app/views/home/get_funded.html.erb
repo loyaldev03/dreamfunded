@@ -14,10 +14,10 @@
         Registration
         <hr>
       </div>
-      <%= text_field_tag(:name, nil, :class =>"userbox half-field", :placeholder => "Company Name", :required => true) %>
+      <%= text_field_tag(:company, nil, :class =>"userbox half-field", :placeholder => "Company Name", :required => true) %>
       <%= text_field_tag(:email, nil, :class =>"userbox half-field scoot-left", :placeholder => "Email", :required => true) %>
-      <%= text_field_tag(:entrepreneur, nil, :class =>"userbox half-field", :placeholder => "Entrepreneur First Name", :required => true) %>
-      <%= text_field_tag(:entrepreneur, nil, :class =>"userbox half-field scoot-left", :placeholder => "Entrepreneur Last Name", :required => true) %>
+      <%= text_field_tag(:entrepreneur_first, nil, :class =>"userbox half-field", :placeholder => "Entrepreneur First Name", :required => true) %>
+      <%= text_field_tag(:entrepreneur_last, nil, :class =>"userbox half-field scoot-left", :placeholder => "Entrepreneur Last Name", :required => true) %>
       <%#= text_area(:message, nil, rows: 4, :class =>"userbox expand half-field", :placeholder => "Type Your Message", :required => true) %>
       <br><br>
       <div class='get-funded-section-name'>
@@ -109,12 +109,12 @@
       </div>
       <div>
           <label>Executive Summary</label>
-          <%= file_field_tag(:executive_summary_file) %>
+          <%#= file_field_tag(:executive_summary_file, required: true) %>
       </div>
       <br>
       <div>
           <label>Investor Slides</label>
-          <%= file_field_tag(:investor_slide_file) %>
+          <%#= file_field_tag(:investor_slide_file, required: true) %>
       </div>
 
 
