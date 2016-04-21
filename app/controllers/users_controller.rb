@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	invisible_captcha only: [:create]
 	def index
 		@users = User.all()
 	end

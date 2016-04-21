@@ -40,6 +40,7 @@ gem 'omniauth-linkedin'
 gem 'activeadmin'
 gem 'infusionsoft'
 gem 'newrelic_rpm'
+gem 'invisible_captcha'
 
 
 gem 'will_paginate', '~> 3.0.5'

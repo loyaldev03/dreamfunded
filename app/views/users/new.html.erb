@@ -19,6 +19,7 @@
       <div class= "signup-content">
         <h4>Basic Information</h4>
         <%= form_tag("create", method: "post") do %>
+           <%= invisible_captcha %>
            <%= text_field_tag(:first_name, nil, :placeholder => "First Name", :class => "input-box half") %>
            <div class= "filler"></div>
            <%= text_field_tag(:last_name, nil, :placeholder => "Last Name", :class => "input-box half scoot-left") %><br>

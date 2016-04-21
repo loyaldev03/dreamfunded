@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+	invisible_captcha only: [:liquidate_form, :contact_us_send_email, :get_funded_send]
+
 	def index
 		@Authority = User.Authority
 		@news = News.all.reverse
