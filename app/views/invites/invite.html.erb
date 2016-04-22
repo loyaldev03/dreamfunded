@@ -37,7 +37,7 @@
   </div>
 
   <div class= "invite-content">
-    <h3 class=' education-category darkblue'>You have <b>$0</b> of credit to invest with</h3>
+    <h3 class=' education-category darkblue'>You have <b>$<%= user_session.invite_credit %></b> of credit to invest with</h3>
     <% @invites.each do |invite| %>
       <div class="current-invites">
         <span class='imported-name' ><%= invite.email %></span><br>
