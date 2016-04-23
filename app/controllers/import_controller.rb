@@ -34,9 +34,7 @@
             @hash[contact.full_name] = contact.primary_email
           end
         end
-        p '******************************'
-        p @hash.class
-        #@hash = @hash.sort.to_h
+        @hash = @hash.sort.to_h
       end
 
     end
