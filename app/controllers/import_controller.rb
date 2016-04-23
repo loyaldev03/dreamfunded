@@ -13,7 +13,7 @@
                    token_url: '/o/oauth2/token',
                    authorize_url: '/o/oauth2/auth')
         url = client.auth_code.authorize_url(scope: "https://www.google.com/m8/feeds",
-                   redirect_uri: 'https://dreamfunded.com/authorise')
+                   redirect_uri: 'http://localhost:3000/authorise')
         redirect_to url
       end
 
@@ -24,8 +24,8 @@
                    site: 'https://accounts.google.com',
                    token_url: '/o/oauth2/token',
                    authorize_url: '/o/oauth2/auth')
-        #token = client.auth_code.get_token(params[:code], :redirect_uri => 'http://localhost:3000/authorise')
-        token = client.auth_code.get_token(params[:code], :redirect_uri => 'https://dreamfunded.com/authorise')
+        token = client.auth_code.get_token(params[:code], :redirect_uri => 'http://localhost:3000/authorise')
+        #token = client.auth_code.get_token(params[:code], :redirect_uri => 'https://dreamfunded.com/authorise')
         user = GoogleContactsApi::User.new(token)
         @contacts = user.contacts
         @hash = {}
@@ -34,7 +34,9 @@
             @hash[contact.full_name] = contact.primary_email
           end
         end
-        @hash = @hash.sort.to_h
+        p '******************************'
+        p @hash.class
+        #@hash = @hash.sort.to_h
       end
 
     end
