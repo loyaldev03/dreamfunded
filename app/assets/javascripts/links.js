@@ -87,3 +87,6 @@ function how_it_works() {
 function get_funded(){
 	window.location = "/getfunded";
 }
+function invite(){
+	window.location = "/invite";
+}
