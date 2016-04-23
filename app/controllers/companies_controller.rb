@@ -1,8 +1,18 @@
 class CompaniesController < ApplicationController
 	before_action :verify
 
-	#Default site that shows all startups
 	def index
+		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Basic]
+			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
+		end
+		@companies = Company.all.order(:position).where(hidden: false, accredited: true)
+	end
+
+	def nonaccredited_index
+		@companies = Company.all.order(:position).where(hidden: false, accredited: false)
+	end
+
+	def auctions
 		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Basic]
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
 		end
@@ -181,6 +191,9 @@ class CompaniesController < ApplicationController
 
 			@members = @company.founders
 			@section = @company.sections.first
+
+			@bid = Bid.find_by(user_id: user_session.id, company_id: @id)
+			@bid = Bid.new if @bid == nil
 		else
 			redirect_to "/companies"
 		end
@@ -250,6 +263,13 @@ class CompaniesController < ApplicationController
 
     end
 
+    def submit_bid
+    	user = session[:current_user]
+    	investment = ProspectiveInvestment.create(user_id: user.id, first_name: user.first_name, last_name: user.last_name, email: user.email, phone: user.phone, shares_price: params[:shares_price], investment_amount: params[:investment_amount], company: params[:name], company_id: params[:id])
+			ContactMailer.prospective_investment_email(user.first_name, user.last_name, user.email, user.phone, investment.company, investment.investment_amount, investment.shares_price)
+			redirect_to '/companies'
+   	end
+
    private
    def verify
    	user = User.find(session[:current_user])
@@ -263,7 +283,7 @@ class CompaniesController < ApplicationController
    end
 
    def company_params
-      params.require(:company).permit(:image, :document, :hidden, :position, :docusign_url, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at)
+      params.require(:company).permit(:image, :document, :hidden, :position, :docusign_url, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at, :suggested_target_price)
    end
 
    def founder_params

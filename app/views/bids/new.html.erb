@@ -1,0 +1,174 @@
+<html>
+
+  <head>
+    <title>DreamFunded | <%= @company.name %> </title>
+  </head>
+
+  <body>
+    <div class= "word-content"><div class="text-content stretch">
+      <div class= "topbar">
+        <a href= "/companies" class= "darkblue">&#8617; Back</a>
+        <% if user_session != nil && user_session.authority == authority[:Admin] %>
+          <%= link_to 'Edit', {:controller => 'companies', :action => 'edit_profile', :id => @id }, {:class => 'right'} %>
+        <% end %>
+      </div>
+      <div class= "company-title indent">
+        <h2 class= "darkblue small-margin">
+          <%= link_to @company.name, @company.website_link %>
+        </h2>
+      </div>
+      <div class= "description-container-bid">
+        <div class= "video-box">
+          <% if @company.video_link.empty? %>
+            <%= image_tag( @company.image.url, class: 'image-max-width')%>
+          <% else %>
+            <iframe  class='youtube-video' src= <%= @company.video_link %> frameborder="0" allowfullscreen ></iframe>
+            <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/VQJJJGNeM-s" frameborder="0" allowfullscreen></iframe> -->
+          <% end %>
+        </div>
+        <br><br><br><br>
+        <h2 class= "darkblue twentyf indent">Highlight</h2>
+          <hr>
+          <p class= "fifteen"><%= nl2br(h(@company.description)).html_safe %></p>
+        <% if @company.status == 2 || @company.status == 1 %>
+          <% if @members != nil && !@members.empty? %>
+            <br>
+            <h2 class= "darkblue twentyf indent">Team</h2>
+              <hr>
+              <div class= "team-band">
+                <% @members.each do |member| %>
+                  <div class= "team-box">
+                    <% if user_session != nil && user_session.authority == authority[:Admin] %>
+                      <%= button_to "X", { action: 'remove_founder', id: member.id} , {:class => 'remove-button'} %>
+                    <% end %>
+                    <%= image_tag( member.image.url, :class => "image team-pic") %>
+                    <h2 class= "twenty no-margin"><%= member.name %>, <%= member.position %></h2>
+                    <br>
+                    <p class= "fifteen no-margin"><%= nl2br(h(member.content)).html_safe %></p>
+                  </div>
+                <% end %>
+              </div>
+          <% end %>
+          <% if @section != nil %>
+            <% if @section.overview && @section.overview != "" %>
+              <br>
+              <h2 class= "darkblue twentyf indent">Overview</h2>
+              <hr>
+              <p><%= nl2br(h(@section.overview)).html_safe %></p>
+            <% end %>
+
+            <% if @section.target_market && @section.target_market != "" %>
+              <h2 class= "darkblue twentyf indent">Target Market</h2>
+              <hr>
+              <p><%= nl2br(h(@section.target_market)).html_safe %></p>
+            <% end %>
+
+            <% if @section.current_investor_details && @section.current_investor_details != "" %>
+              <h2 class= "darkblue twentyf indent">Current Investor Details</h2>
+              <hr>
+              <p><%= nl2br(h(@section.current_investor_details)).html_safe %></p>
+            <% end %>
+
+            <% if @section.detailed_metrics && @section.detailed_metrics != "" %>
+              <h2 class= "darkblue twentyf indent">Detailed Metrics</h2>
+              <hr>
+              <p><%= nl2br(h(@section.detailed_metrics)).html_safe %></p>
+            <% end %>
+
+            <% if @section.customer_testimonials && @section.customer_testimonials != "" %>
+              <h2 class= "darkblue twentyf indent">Customer Testimonials</h2>
+              <hr>
+              <p><%= nl2br(h(@section.customer_testimonials)).html_safe %></p>
+            <% end %>
+
+            <% if @section.competitive_landscape && @section.competitive_landscape != "" %>
+              <h2 class= "darkblue twentyf indent">Competitive Landscape</h2>
+              <hr>
+              <p><%= nl2br(h(@section.competitive_landscape)).html_safe %></p>
+            <% end %>
+
+            <% if @section.planned_use_of_funds && @section.planned_use_of_funds != "" %>
+              <h2 class= "darkblue twentyf indent">Planned Use of Funds</h2>
+              <hr>
+              <p><%= nl2br(h(@section.planned_use_of_funds)).html_safe %></p>
+            <% end %>
+
+            <% if @section.pitch_deck && @section.pitch_deck != nil %>
+              <h2 class= "darkblue twentyf indent">Pitch Deck</h2>
+              <hr>
+              <p><%= nl2br(h(@section.pitch_deck)).html_safe %></p>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class= "stats-container-bid">
+        <div class= "profile-image-wrap"> <%= link_to image_tag( @company.image.url, :class => "stats-image"), @company.website_link %></div>
+
+
+        <%  if @company.status == 2 %>
+
+          <%#= mail_to "manny@dreamfunded.com", "Join The Waitlist", subject: "I want to invest in #{@company.name}", :class => "company-button profile-button mail-to-button" %>
+
+
+
+          <%= form_for @bid do |f| %>
+            <div class='target-share-priece'>
+                <div>Number of shares available: $<%= number_with_delimiter @company.total_shares %></div>
+                <div>Price per share on average: $<%= number_with_precision @company.average_share_price, :precision => 2 %></div>
+                <div>Suggested target price: <%= @company.suggested_target_price %></div>
+            </div>
+            <%#= select_tag(:investment_amount, options_for_select([ "$3-5k", "$5-10k", "$10-25k", "$25k or more" ]), prompt: "Investment Amount") %>
+
+            <br><br>
+            <div class='centered'> <label>Number of Shares</label> </div>
+            <%= f.text_field :number_of_shares, :value => number_with_precision(f.object.number_of_shares), :placeholder => "Num of Shares", :required => true, class: 'input-box no-margin center' %><br>
+            <%= range_field_tag(:number_of_shares, 1000,{:min=>0, max: 10000, step: 100 , id:"slider1"}) %>
+            <br><br><br>
+
+            <div class='centered'> <label>Bid Amount</label> </div>
+            <%= f.text_field(:bid_amount, :placeholder => "Price per Share", :required => true,class: 'input-box no-margin center') %>
+            <%= range_field_tag(:bid_amount, 10,{ :min=>0, :max=> 100, :class=>"slide", id: "slider2"}) %>
+            <br><br>
+
+            <div class="target-share-priece">
+
+              <div>Transaction Size:
+              <span id='transaction-price'>
+                <%= '$' if @bid.bid_amount%>
+                <%= number_with_delimiter(@bid.bid_amount * @bid.number_of_shares) if @bid.bid_amount%>
+              </span>
+              </div>
+            </div>
+            <br>
+            <%#= check_box_tag(:financial_assistance, nil, false) %>
+              <!-- I have a good-faith intention to complete this transaction if a match is found and any further review of the transaction documents and due diligence materials is to my satisfaction. Equidate counts on its shareholders and investors to follow through and therefore repeated or unexplained cancellations may result in my access to the Equidate platform being restricted. -->
+            <%= submit_tag("Place Bid", :class => "company-button profile-button", :disabled => false) %>
+            <%= f.hidden_field "user_id", value: session[:current_user].id %>
+            <%= f.hidden_field "company_id", value: @company.id %>
+            <%= f.hidden_field "name", value: @company.name %>
+          <% end %>
+
+
+        <% elsif @company.status == 1 %>
+          <%= mail_to "manny@dreamfunded.com", "Join The Waitlist", subject: "I want to invest in #{@company.name}", :class => "company-button profile-button mail-to-button" %>
+        <% else %>
+          <%= button_to "Invest in #{@company.name}", nil, :class => "company-button profile-button", :disabled => true %>
+        <% end %>
+      </div>
+
+
+    </div></div>
+    <style>
+    .foot-text.darkblue{
+      display: none;
+    }
+    </style>
+  </body>
+
+</html>
+<% if Rails.env.production?  %>
+  <script>
+    jQuery.noConflict();
+    console.log('production')
+  </script>
+<% end %>

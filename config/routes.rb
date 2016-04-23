@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
 
+
+
   ActiveAdmin.routes(self)
-  resources :members
+
+  get '/team', to: "members#index", as: :members
+  post 'members', to: 'members#create'
+  get 'members/new', to: "members#new", as: :new_member
+  get 'members/:id/edit', to: 'members#edit', as: :edit_member
+  get '/team/:id', to: "members#show", as: :member
+  patch 'team/:id', to: 'members#update'
+  put 'team/:id', to: 'members#update'
+  delete 'team/:id', to: 'members#destroy'
+
 
   mount Ckeditor::Engine => '/ckeditor'
   get '/posts/new/:page', to: "posts#new"
@@ -11,6 +22,8 @@ Rails.application.routes.draw do
   resources :documents
   resources :guests
   resources :invites
+  resources :bids
+  resources :events
 
   match "/diversity-tech-angels-earn-wings/" => redirect("https://dreamfundedsf.wpengine.com/diversity-tech-angels-earn-wings/"), via: 'get'
 
@@ -32,6 +45,20 @@ Rails.application.routes.draw do
   get 'auth/linkedin/callback', to:'omniauth_callbacks#google_oauth2'
   post 'auth/linkedin/callback', to:'omniauth_callbacks#google_oauth2'
 
+  # B I D D I N G   S Y S T E M
+  get 'bid/:id', to: "bids#bid"
+  get 'sellers_bids', to: "bids#sellers_bids"
+  get 'accept_bid/:id', to: "bids#accept"
+  get 'decline_bid/:id', to: "bids#decline"
+  get 'counter_offer/:id', to: "bids#counter_offer"
+  post 'send_counter_offer', to: "bids#send_counter_offer"
+  get 'confirm', to: "bids#confirm", as: :confirm
+  post 'update_bid_offer', to: "bids#update_bid_offer", as: :update_bid_offer
+  get "docusign", to: "sellers#docusign", as: :docusign
+  get "check-status", to: "sellers#check_status", as: :check_status
+  get '/auction', to: "companies#auctions"
+  #post '/account/1613988/envelopes', to: "sellers#send", as: :send_docusign
+
   get 'users/portfolio', to: "users#portfolio", as: :portfolio
   get 'users/portfolio_admin/:id', to: "users#portfolio_admin", as: :portfolio_admin
   post 'users/portfolio_admin/:id', to: "users#remove_investment", as: :remove_investment
@@ -51,6 +78,9 @@ Rails.application.routes.draw do
 
   get '/users/certify', to: "users#certify", as: 'certify'
 
+  get 'users/admin', to: "users#admin"
+  get 'users/admin-companies', to: "users#companies"
+
   get 'homes/faq', to: "home#faq", as: :faq
   get '/legal', to: "home#legal", as: :legal
   get '/contact', to: 'home#contact_us'
@@ -61,9 +91,25 @@ Rails.application.routes.draw do
   post '/liquidate_form', to: 'home#liquidate_form'
   get '/liquidate_after', to: 'home#liquidate_after'
 
+  get '/shares', to: 'sellers#shares'
+  get '/edit-shares/:id', to: 'sellers#edit'
+  post '/update-shares', to: 'sellers#update'
+
   get '/home/edit_member/:id', to: "home#team_member_edit"
   put '/home/edit_member', to: 'home#team_member_update'
   # patch '/home/edit_member', to: 'home#team_member_update', as: 'update_member'
+
+  get '/sellers', to: "home#sellers", as: :sellers
+  get '/edit_seller/:id', to: "home#edit_seller", as: 'edit_seller'
+  patch '/liquidate_shares', to: "home#edit_liq_seller", as: :edit_shareholder
+
+  get '/email_all_investors/:id', to: "home#email_all_investors", as: :email_all_investors
+
+  post 'submit_bid', to: "companies#submit_bid"
+
+
+  get '/new_seller', to: "home#new_seller"
+  post '/new_seller', to: "home#create_new_seller", as: :create_shareholder
 
   resources :companies
   resources :news
@@ -74,8 +120,8 @@ Rails.application.routes.draw do
   get '/accept-invite', to: "invites#accept"
 
   #resources :teams
-  get '/team', to: "teams#index", as: :teams
-  get '/team/:id', to: "teams#show", as: :team
+
+  get '/team/:id', to: "members#show", as: :team
 
   get '/payment', to: "payments#index", as: :payment
   post '/submit_payment', to: "payments#payment"
@@ -99,12 +145,15 @@ Rails.application.routes.draw do
   get '/education/investor-qa', to: 'home#investorqa', as: 'investorqa'
   get '/education/employee-qa', to: 'home#employeeqa', as: 'employeeqa'
   get '/education/market_trends', to: 'home#market_trends', as: 'market_trends'
-  get '/get-funded', to: 'home#contact_us'
 
+  get '/getfunded', to: 'home#get_funded'
+  post '/get_funded', to: 'home#get_funded_send'
+  get '/get-funded_after', to: 'home#get_funded_after'
 
   get '/portofolio', to: 'companies#index'
+  get '/marketplace_companies', to: 'companies#nonaccredited_index'
   get '/dreamfunded-exchange', to: 'home#exchange'
-  get '/our-team', to: 'teams#index'
+  get '/our-team', to: 'members#index'
   match "/our-team/manny-fernandez" => redirect("team/manny-fernandez"), via: 'get'
   match "/our-team/rexford-r-hibbs" => redirect("team/rexford-r-hibbs"), via: 'get'
   match "/our-team/manny-fernandez" => redirect("team/manny-fernandez"), via: 'get'

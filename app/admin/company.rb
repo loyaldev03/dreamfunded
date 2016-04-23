@@ -12,7 +12,7 @@ ActiveAdmin.register Company do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :image, :document, :hidden, :position, :docusign_url, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at
+permit_params :image, :document, :accredited, :hidden, :position, :docusign_url, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at, :suggested_target_price
 #
 # or
 #
@@ -35,12 +35,17 @@ permit_params :image, :document, :hidden, :position, :docusign_url, :user_id, :n
   form do |f|
     f.inputs 'Company Details' do
         f.input  :name
+        f.input  :accredited
         f.input  :description
         f.input :image, :required => false, :as => :file
         f.input  :invested_amount
+        f.input  :suggested_target_price
         f.input  :website_link
         f.input  :goal_amount
+        f.input  :status
+        f.input  :video_link
         f.input  :CEO
+        f.input :status, :as => :select, collection: [ ["Coming Soon",1], ["Active", 2], ['Funded',3] ]
         f.input  :created_at
         f.input  :updated_at
     end
@@ -55,8 +60,10 @@ permit_params :image, :document, :hidden, :position, :docusign_url, :user_id, :n
       end
       row :description
       row :invested_amount
+      row :suggested_target_price
       row :website_link
       row :goal_amount
+      row :video_link
       row :CEO
       row :created_at
       row :updated_at

@@ -3,8 +3,10 @@ class Company < ActiveRecord::Base
 	has_many :users, through: :investments
 
 	has_many :sections
+  has_many :bids
 	has_many :founders
 	has_many :documents
+  has_many :liquidate_shares
 
 
 	has_attached_file :image,
@@ -14,6 +16,7 @@ class Company < ActiveRecord::Base
 	  :bucket => 'dreamfunded',
 	  :path => "companies/:filename",
 	  :url =>':s3_domain_url',
+	  :s3_protocol => :https,
 	  :s3_credentials => {
 	    :access_key_id => "AKIAJWDE6UJS56MXQYPQ",
 	    :secret_access_key => "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"
@@ -30,7 +33,6 @@ class Company < ActiveRecord::Base
 
 	# validates_attachment_presence :image
 	validates_attachment_size :image, :less_than => 5.megabytes
-	validates :user_id, presence:true
 	validates :name, presence:true
 	validates_uniqueness_of :name
 	validates :description, presence:true
@@ -57,4 +59,14 @@ class Company < ActiveRecord::Base
 			"Funded"
 		end
 	end
+
+	def total_shares
+		 liquidate_shares.pluck(:number_shares).sum
+	end
+
+  def average_share_price
+    if total_shares > 0
+     liquidate_shares.pluck(:shares_price, :number_shares).map!{|a| a[0]*a[1]}.sum / liquidate_shares.pluck(:number_shares).sum
+    end
+  end
 end

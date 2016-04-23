@@ -1,0 +1,565 @@
+/* line 11, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/colors.css.scss */
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+}
+
+/* line 7, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.wrap {
+  font-family: "Calibri";
+  width: 100%;
+}
+
+/* line 12, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.gray {
+  color: #ECECEC;
+}
+
+/* line 16, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.document-url {
+  color: grey;
+}
+
+/* line 20, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.companies-container {
+  display: table;
+  width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+/* line 27, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.company-container {
+  display: table-cell;
+  width: 270px;
+  /*	height: 480px;*/
+  padding: 20px;
+  margin: 20px 1%;
+  float: left;
+  background: white;
+  position: relative;
+}
+
+/* line 38, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.register-content {
+  margin-top: 40px;
+}
+
+/* line 42, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.company-image {
+  height: 200px;
+  width: 290px;
+  display: table-cell;
+  vertical-align: middle;
+  position: relative;
+}
+
+/* line 50, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.image-wrap {
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* line 56, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.image {
+  max-width: 180px;
+  max-height: 180px;
+}
+
+/* line 61, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.image-gray {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  max-width: 180px;
+  max-height: 180px;
+}
+
+/* line 68, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.company-description {
+  margin: 5px;
+  height: 200px;
+}
+
+/* line 73, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.text {
+  height: 160px;
+  overflow: auto;
+  border-bottom: 10px solid white;
+}
+
+/* line 79, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.company-button {
+  background: #10a1d6;
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* line 89, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.company-button:disabled {
+  background: gray;
+  cursor: default;
+}
+
+/* line 94, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.company-button:focus {
+  outline: 0;
+}
+
+/* line 98, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.profile-button {
+  width: 80%;
+  margin: 20px auto;
+  display: block;
+  font-size: 17px;
+}
+
+/* line 104, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.mail-to-button {
+  text-align: center;
+}
+
+/* line 109, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.button-wrap {
+  text-align: center;
+}
+
+/* line 113, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.register-wrap {
+  width: 500px;
+}
+
+/* line 117, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.description-wrap {
+  border: 1px solid gray;
+  margin: 25px auto;
+}
+
+/* line 122, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.description-box {
+  width: 95%;
+  height: 200px;
+  margin: 2%;
+  border: none;
+  outline: 0;
+  font-size: 16px;
+}
+
+/* line 131, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.company-title {
+  font-size: 30px;
+  text-align: left;
+  width: 63%;
+  float: left;
+}
+
+/* line 138, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.indent {
+  text-indent: 50px;
+}
+
+/* line 142, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.no-margin {
+  margin: 0;
+}
+
+/* line 146, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.small-margin {
+  margin: 10px 0;
+}
+
+/* line 150, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.stats-container {
+  float: right;
+  width: 32%;
+  margin-left: 3%;
+  margin-bottom: 3%;
+  /*height: 530px;*/
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+}
+
+/* line 160, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.stats-container:hover {
+  border: 1px solid #10a1d6;
+}
+
+/* line 164, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.stats-container:hover hr {
+  border-top: 1px solid #10a1d6;
+}
+
+/* line 168, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.stats-image {
+  max-width: 200px;
+  max-height: 200px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+}
+
+/* line 178, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.profile-image-wrap {
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  margin: 10px auto;
+  background: white;
+  text-align: center;
+}
+
+/* line 187, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.description-container {
+  margin-top: 120px;
+}
+
+/* line 191, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.numbers {
+  /*height: 200px;*/
+  width: 85%;
+  margin: 0 auto;
+}
+
+/* line 202, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.stretch {
+  min-height: 600px;
+}
+
+/* line 206, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.posted {
+  font-size: 16px;
+  text-indent: 100px;
+}
+
+/* line 211, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.topbar {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  height: 30px;
+}
+
+/* line 217, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.right {
+  text-align: right;
+  float: right;
+}
+
+/* line 222, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.right-align {
+  text-align: right;
+}
+
+/* line 226, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.spaced {
+  margin-right: 20px;
+}
+
+/* line 230, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.meter {
+  height: 10px;
+  /* Can be anything */
+  position: relative;
+  background: #CCCCCC;
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  border-radius: 25px;
+  padding: 5px;
+  box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+}
+
+/* line 241, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.meter > span {
+  display: block;
+  height: 100%;
+  border-radius: 20px;
+  background-image: linear-gradient(center bottom, #2bc253 37%, #54f054 69%);
+  box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3), inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* line 257, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.orange > span {
+  background-image: linear-gradient(to bottom, #0D87B3, #68C3F4);
+}
+
+/* line 261, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.back {
+  background-image: black;
+  position: absolute;
+}
+
+/* line 266, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.video-box {
+  height: 400px;
+  width: 500px;
+  margin-top: -30px;
+}
+
+/* line 271, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.max-width-image {
+  max-width: 600px;
+}
+
+/* line 274, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.invest-amount {
+  text-align: center;
+  width: 50% !important;
+}
+
+/*.youtube-video{
+	width: 100%;
+	height: 400px;
+}*/
+/*youtube-video different screene*/
+@media screen and (min-width: 480px) {
+  /* line 284, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+  .youtube-video {
+    width: 250px;
+    height: 175px;
+  }
+}
+/*# Tablet*/
+@media screen and (min-width: 768px) {
+  /* line 292, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+  .youtube-video {
+    width: 100%;
+    height: 400px;
+  }
+}
+/*# Desktop*/
+@media screen and (min-width: 992px) {
+  /* line 300, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+  .youtube-video {
+    width: 400px;
+    height: 300px;
+  }
+}
+/*# Huge*/
+@media screen and (min-width: 1199px) {
+  /* line 307, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+  .youtube-video {
+    width: 500px;
+    height: 400px;
+  }
+}
+/*# Huge*/
+@media screen and (min-width: 1400px) {
+  /* line 314, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+  .youtube-video {
+    width: 500px;
+    height: 400px;
+  }
+}
+/* line 320, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.image-max-width {
+  max-width: 600px;
+}
+
+/* line 324, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.section {
+  border: 1px solid black;
+  margin: 20px 0;
+}
+
+/* line 329, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.team-band div {
+  display: inline-block;
+}
+
+/* line 333, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.team-box {
+  width: 100%;
+  height: 290px;
+  overflow: scroll;
+  margin-top: 1%;
+  position: relative;
+}
+
+/* line 341, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.team-pic {
+  float: left;
+  margin: 0 20px 10px 0;
+}
+
+/* line 346, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.right-align {
+  text-align: right;
+}
+
+/* line 350, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.left-column {
+  width: 45%;
+  float: left;
+  margin: 0 2%;
+  height: 148px;
+}
+
+/* line 356, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.left-column-portfolio {
+  width: 45%;
+  float: left;
+  margin: 0 2%;
+}
+
+/* line 362, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.right-column-portfolio {
+  width: 100%;
+  margin: 0 2%;
+}
+
+/* line 368, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.profile-wrap {
+  width: 1000px;
+}
+
+/* line 372, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.fake-button {
+  width: 80%;
+  background: gray;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin: 20px auto;
+}
+
+/* line 381, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.thank-you-margin {
+  margin-top: 100px !important;
+  margin-bottom: 100px !important;
+  width: 60% !important;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+}
+
+/* line 389, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.margin-bottom-50 {
+  margin-bottom: 20px;
+}
+
+/* line 393, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+.slide {
+  width: Calc(100% - 196px);
+  /*196px means both sides (left 98px and right 98px)*/
+  margin: 0 auto;
+}
+
+/* line 398, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 100%;
+}
+
+/* line 403, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+input[type=range]:focus {
+  outline: none;
+}
+
+/* line 406, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #10a1d6;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+
+/* line 416, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -14px;
+}
+
+/* line 427, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #367ebd;
+}
+
+/* line 430, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #3071a9;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+
+/* line 440, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+/* line 449, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+
+/* line 459, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+input[type=range]::-ms-fill-lower {
+  background: #2a6495;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+/* line 465, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+input[type=range]::-ms-fill-upper {
+  background: #3071a9;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+/* line 471, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+/* line 480, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+input[type=range]:focus::-ms-fill-lower {
+  background: #3071a9;
+}
+
+/* line 483, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/companies.css.scss */
+input[type=range]:focus::-ms-fill-upper {
+  background: #367ebd;
+}

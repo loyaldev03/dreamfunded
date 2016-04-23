@@ -1,0 +1,46 @@
+<head>
+  <% title "DreamFunded | Events" %>
+</head>
+
+<div class= "wrapper">
+  <div class="header">
+    <h1 class="centered">Upcoming Events</h1>
+  </div>
+  <div class= "events-content">
+
+
+    <% @events.each do |event| %>
+      <div class='event'>
+
+        <div class='event-block1'>
+            <div class="round-date"><div class='event-day'><%= event.date.strftime("%e") %></div><div class='event-month'><%= event.date.strftime("%b") %></div></div>
+        </div>
+
+        <div class='event-block'>
+            <div class='event-name'><%= link_to event.name, event.link, target: '_blank' %></div>
+            <span class='event-date'><i class="fa fa-calendar"></i> <%= event.date.strftime("%b,  %e %Y") %></span>
+            <span class='event-location'><i class="fa fa-map-marker"></i> <%= event.location %></span>
+            <div class='event-link'> <%= link_to "Learn More", event.link, :target => '_blank' %></div>
+        </div>
+
+        <div class='event-block3'>
+              <%= image_tag event.image.url(:thumb), class: 'event-image' if event.image.exists? %>
+
+        </div>
+
+        <% if user_session != nil && user_session.authority == authority[:Admin] %>
+          <%= link_to 'Edit', edit_event_path(event), class: 'event-edit-link' %>
+          <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'event-delete-link' %>
+        <% end %>
+
+      </div>
+    <% end %>
+
+
+    <% if user_session != nil && user_session.authority == authority[:Admin] %>
+      <div class='event'>
+        <%= link_to 'New Event', new_event_path, class: 'centered add-new-event' %>
+      </div>
+    <% end %>
+  </div>
+</div>

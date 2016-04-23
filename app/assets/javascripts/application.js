@@ -16,5 +16,6 @@
 //= require bootstrap.min
 //= require instafilta.min
 //= require turbolinks
+//= require links
 //= require_tree .
 

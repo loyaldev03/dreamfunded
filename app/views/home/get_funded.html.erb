@@ -1,0 +1,147 @@
+<% title "DreamFunded | Contact Us" %>
+<div class= "wrapper"><div class= "box get-funded ">
+
+  <div class="row">
+    <div class=" active">
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Get Funded</a></h2>
+      <br>
+    </div>
+  </div>
+
+  <div class= "login-container">
+    <%= form_tag('get_funded', :method => :post, :id => "contact_us", :multipart => true ) do %>
+       <%= invisible_captcha %>
+      <div class='get-funded-section-name'>
+        Registration
+        <hr>
+      </div>
+      <%= text_field_tag(:company, nil, :class =>"userbox half-field", :placeholder => "Company Name", :required => true) %>
+      <%= text_field_tag(:email, nil, :class =>"userbox half-field scoot-left", :placeholder => "Email", :required => true) %>
+      <%= text_field_tag(:entrepreneur_first, nil, :class =>"userbox half-field", :placeholder => "Entrepreneur First Name", :required => true) %>
+      <%= text_field_tag(:entrepreneur_last, nil, :class =>"userbox half-field scoot-left", :placeholder => "Entrepreneur Last Name", :required => true) %>
+      <%#= text_area(:message, nil, rows: 4, :class =>"userbox expand half-field", :placeholder => "Type Your Message", :required => true) %>
+      <br><br>
+      <div class='get-funded-section-name'>
+        Contact Information
+        <hr>
+      </div>
+
+      <%= text_field_tag(:country, nil, :class =>"userbox half-field", :placeholder => "Country", :required => true) %>
+      <%= text_field_tag(:phone, nil, :class =>"userbox half-field scoot-left", :placeholder => "Phone Number", :required => true) %>
+      <%= text_field_tag(:address, nil, :class =>"userbox half-field", :placeholder => "Address", :required => true) %>
+      <%= text_field_tag(:website, nil, :class =>"userbox half-field scoot-left", :placeholder => "Company Website") %>
+      <%= text_field_tag(:country, nil, :class =>"userbox half-field", :placeholder => "City", :required => true) %>
+
+      <%= text_field_tag(:state, nil, :class =>"userbox half-field scoot-left", :placeholder => "State", :required => true) %>
+      <%= text_field_tag(:zipcode, nil, :class =>"userbox half-field ", :placeholder => "ZIP Code", :required => true) %>
+
+      <br><br>
+
+      <div class='get-funded-section-name'>
+        Company Basics
+        <hr>
+      </div>
+
+      <div class='vertical-top-align'>
+        <div class='get-funded-right-block'>
+          <div class="styled-select select-full-width" >
+            <%= select_tag(:timeframe, options_for_select(
+                          ["Idea/Concept Stage",
+                          "Product under development",
+                          "Prototype ready",
+                          "Product ready",
+                          "$0-$500K trailing annual rev.",
+                          "$500K-$1M trailing annual rev.",
+                          "$1M-$3M trailing annual rev.",
+                          "$3M-$5M trailing annual rev.",
+                          "$5M-$10M trailing annual rev.",
+                          "$10M-$20M trailing annual rev.",
+                          "+$20M trailing annual rev."]), prompt: "What Stage is Your Company" ,:required => true) %>
+          </div>
+          <br>
+          <div class=''>
+            Date Company Was Founded
+          </div>
+          <br>
+          <div class="styled-select get-funded-select-date half-field">
+            <%= select_month(Date.today, :class =>"userbox half-field", :placeholder => "Month", :required => true) %>
+          </div>
+          <div class="styled-select get-funded-select-date">
+            <%= select_year(Date.today, end_year: 1966, start_year: 2016, :required => true) %>
+          </div>
+          <div class="styled-select select-full-width">
+            <%= select_tag(:number_employees, options_for_select(['0 - 5','5 - 10','10 - 20','20+']), prompt: "Number of Employees", :required => true) %>
+          </div>
+        </div>
+        <%= text_area(:two_line_summary, nil, rows: 6, :class =>"userbox half-field", :placeholder => "Two Line Company Summary", :required => true) %>
+      </div>
+
+      <div class='get-funded-section-name'>
+        <br>
+        Market Opportunity
+        <hr>
+      </div>
+      <%= text_area(:business_summary, nil, rows: 6, :class =>"userbox half-field", :placeholder => "Summarize Your Business", :required => true) %>
+
+      <%= text_area(:market_of_customers, nil, rows: 6, :class =>"userbox half-field", :placeholder => "Size Your Potential Market of Customers", :required => true) %>
+
+      <%= text_area(:customer_problem, nil, rows: 6, :class =>"userbox half-field", :placeholder => "What is the Customer Problem Your Product is Solving", :required => true) %>
+
+      <%= text_area(:current_customers, nil, rows: 6, :class =>"userbox half-field", :placeholder => "List Your Specific Current or Potential Customers", :required => true) %>
+
+      <%= text_area(:solution, nil, rows: 6, :class =>"userbox half-field", :placeholder => "What is Your Solution", :required => true) %>
+
+      <%= text_area(:market_strategy, nil, rows: 6, :class =>"userbox half-field", :placeholder => "Describe Your \"Go-To-Market\" and Sales Strategy", :required => true) %>
+
+      <%= text_area(:business_modal, nil, rows: 6, :class =>"userbox half-field", :placeholder => "What is Your Business Model", :required => true) %>
+
+      <%= text_area(:competitors, nil, rows: 6, :class =>"userbox half-field", :placeholder => "List Your Competitors", :required => true) %>
+
+      <%= text_area(:qualifications, nil, rows: 6, :class =>"userbox half-field", :placeholder => "Management Qualifications as Related to This Venture", :required => true) %>
+
+      <%= text_area(:barriers, nil, rows: 6, :class =>"userbox half-field", :placeholder => "Describe Your Competitive Advantage and Barriers to Entry", :required => true) %>
+
+
+
+      <div class='get-funded-section-name'>
+        <br>
+        Key Documents
+        <hr>
+      </div>
+      <div>
+          <label>Executive Summary</label>
+          <%#= file_field_tag(:executive_summary_file, required: true) %>
+      </div>
+      <br>
+      <div>
+          <label>Investor Slides</label>
+          <%#= file_field_tag(:investor_slide_file, required: true) %>
+      </div>
+
+
+      <div class='get-funded-section-name'>
+        <br>
+        Financial Data
+        <hr>
+      </div>
+
+      <%= text_field_tag(:round_name, nil, :class =>"userbox half-field", :placeholder => "Funding Round Name") %>
+      <%= text_field_tag(:burn_rate, nil, :class =>"userbox half-field scoot-left", :placeholder => "Monthly Burn Rate", :required => true) %>
+      <%= text_field_tag(:previous_capital, nil, :class =>"userbox half-field", :placeholder => "Previous Capital Raised",:required => true) %>
+      <%= text_field_tag(:current_revenue, nil, :class =>"userbox half-field scoot-left", :placeholder => "Current Year Revenue",:required => true) %>
+      <%= text_field_tag(:amout_seeking, nil, :class =>"userbox half-field ", :placeholder => "Amount of Capital Seeking",:required => true) %>
+      <%= text_field_tag(:esimated_valuation, nil, :class =>"userbox half-field scoot-left", :placeholder => "Estimated Pre-Money Valuation") %>
+      <%= text_area(:exit_strategy, nil, rows: 6, :class =>"userbox half-field", :placeholder => "Describe Your Exit Strategy") %>
+
+
+        <div class = "notice centered">
+          <h2 class='darkblue' ><%= flash[:notice] if flash[:notice] %></h2>
+          <%= @error_message %>
+        </div>
+      <div class= "centered">
+        <%= submit_tag("Send", :class => "login-button") %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

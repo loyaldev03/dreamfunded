@@ -26,6 +26,7 @@
 
   <div class= "login-container">
     <%= form_tag('contact_us', :method => :post, :id => "contact_us") do %>
+      <%= invisible_captcha %>
       <%= text_field_tag(:name, nil, :class =>"userbox", :placeholder => "Name", :required => true) %>
       <%= text_field_tag(:email, nil, :class =>"userbox", :placeholder => "Email", :required => true) %>
       <%= text_field_tag(:phone, nil, :class =>"userbox", :placeholder => "Phone") %>

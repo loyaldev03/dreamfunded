@@ -1,0 +1,123 @@
+  <div class= "menu-wrap fullWidth">
+        <nav class= "menu fullWidth">
+          <ul class= "main-menu white">
+
+            <!-- M O B I L E -->
+            <li id='mobile-menu'><button >Menu<span class="arrow">&#9660;</span></button>
+              <ul class='sub-menu white'>
+                <!-- <li><button onclick= "whyInv()">Why Invest</button></li> -->
+                <% if user_session != nil && user_session.authority >= authority[:Accredited] %>
+                  <li><button onclick= "invest()">Invest</button></li>
+                <% elsif user_session != nil && user_session.authority == 1 %>
+                  <li><button onclick= "location.href='/marketplace_companies ';">NonAccredited</button></li>
+                <% end %>
+                <li><button onclick="location.href='/dreamfunded-exchange';" >Sell Shares </button></li>
+                <li><button onclick= "news()">News</button></li>
+                <li><button onclick= "location.href='/events';">Events</button></li>
+                <li><button onclick="location.href='/education';" >Education</button></li>
+                <li><button onclick= "team()">Team</button></li>
+                <li><button onclick= "about()">About Us</button></li>
+                <li><button onclick= "faq()">FAQ</button></li>
+                <li><button onclick= "contact()">Contact Us</button></li>
+                <% if user_session == nil %>
+                  <li><button onclick= "signIn()">Login</button></li>
+                <% else %>
+                  <li><button onclick= "profile()" >Welcome <%= user_session.first_name.capitalize%> <span class="arrow"></span></button></li>
+                  <li><button onclick= "signOut()" >Sign Out</button></li>
+                <% end %>
+              </ul>
+            </li>
+            <!-- M O B I L E   E N D -->
+
+            <!-- iPAD MENU -->
+
+            <li class='ipad-menu'><button >Menu<span class="arrow">&#9660;</span></button>
+              <ul class='sub-menu white'>
+                <!-- <li><button onclick= "whyInv()">Why Invest</button></li> -->
+
+                <% if user_session == nil %>
+                  <li><button onclick= "login()">Login</button></li>
+                  <li><button onclick= "signUp()">Sign Up</button></li>
+                <% else %>
+                  <li><button onclick= "profile()" >Welcome <%= user_session.first_name.capitalize%> <span class="arrow"></span></button></li>
+                  <li><button onclick= "signOut()" >Sign Out</button></li>
+                <% end %>
+              </ul>
+            </li>
+            <li class='ipad-menu'><button >About<span class="arrow">&#9660;</span></button>
+              <ul class='sub-menu white'>
+                <li><button onclick= "about()">About Us</button></li>
+                <li><button onclick= "faq()">FAQ</button></li>
+                <li><button onclick= "team()">Team</button></li>
+                <li><button onclick= "news()">News</button></li>
+                <li><button onclick= "contact()">Contact Us</button></li>
+              </ul>
+            </li>
+            <li class='ipad-menu'><button onclick="location.href='/education';" >Education</button></li>
+            <li class='ipad-menu'><button onclick="location.href='/events';" >Events</button></li>
+            <li class='ipad-menu'><button onclick="location.href='/dreamfunded-exchange';" >Sell Shares </button></li>
+            <% if user_session != nil && user_session.authority >= authority[:Accredited] %>
+              <li class='ipad-menu'><button onclick= "invest()">Invest</button></li>
+            <% elsif user_session == nil %>
+              <li class='ipad-menu'><button onclick= "signUp()">Invest</button></li>
+            <% end %>
+            <li class='ipad-menu'><button onclick= "how_it_works()">How It Works</button></li>
+            <!-- iPAD MENU END -->
+
+            <li id="last-menu-button"></li>
+            <% if user_session == nil %>
+              <li><button onclick= "signIn()" id="sign-in-button">Sign Up</button></li>
+              <li><button onclick= "login()">Login</button></li>
+            <% else %>
+              <li><button onclick= "profile()" >Welcome <%= user_session.first_name.capitalize%> <span class="arrow">&#9660;</span></button>
+                <ul class= "sub-menu">
+                  <li><button onclick= "portfolio()">My Portfolio</button></li>
+                  <% if user_session.authority != authority[:Admin] %>
+                    <li><button onclick= "signOut()" >Sign Out</button></li>
+                  <% else %>
+                    <li><button onclick= "admin()">Admin Panel</button></li>
+                    <li><button onclick="location.href='/admin/users';" >New Admin Panel</button></li>
+                    <li><button onclick= "signOut()" >Sign Out</button></li>
+                  <% end %>
+                  <% if user_session.role == "government"%>
+                    <li><button onclick= "government_admin()">Admin Panel</button></li>
+                  <% end %>
+                </ul>
+              </li>
+            <% end %>
+
+            <li><button disabled= "true">About <span class="arrow">&#9660;</span></button>
+              <ul class= "sub-menu">
+                <li><button onclick= "about()">About Us</button></li>
+                <li><button onclick= "faq()">FAQ</button></li>
+                <li><button onclick= "team()">Team</button></li>
+                <li><button onclick= "news()">News</button></li>
+                <li><button onclick= "get_funded()">Get Funded</button></li>
+                <li><button onclick= "contact()">Contact Us</button></li>
+              </ul>
+            </li>
+            <%# if user_session != nil && user_session.authority > 2 %>
+              <!-- <li><button onclick= "funding()">Get Funded</button></li> -->
+            <%# end %>
+            <li><button onclick="location.href='/events';" >Events</button></li>
+            <li><button onclick="location.href='/education';" >Education</button></li>
+            <li><button onclick="location.href='/dreamfunded-exchange';" >Sell Shares </button></li>
+
+            <!-- <li><button onclick= "whyInv()">Why Invest</button></li> -->
+
+            <li><button disabled= "true">Investments <span class="arrow">&#9660;</span></button>
+              <ul class= "sub-menu">
+                <li><button onclick= "dreamfunded_portfolio()">Portfolio</button></li>
+                <% if user_session != nil && user_session.authority >= authority[:Accredited] %>
+                  <li><button onclick= "invest()">Invest</button></li>
+                <% elsif user_session != nil && user_session.authority == 1 %>
+                  <li><button onclick= "location.href='/marketplace_companies';">Invest</button></li>
+                <% end %>
+              </ul>
+            </li>
+            <li><button onclick= "how_it_works()">How It Works</button></li>
+            <li><button onclick= "home()">Home</button></li>
+            <li id= "left"><button onclick= "home()" id= "nopadding"><div class= "logo"></div></button></li>
+          </ul>
+        </nav>
+      </div>

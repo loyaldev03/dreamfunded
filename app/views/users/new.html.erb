@@ -19,6 +19,7 @@
       <div class= "signup-content">
         <h4>Basic Information</h4>
         <%= form_tag("create", method: "post") do %>
+           <%= invisible_captcha %>
            <%= text_field_tag(:first_name, nil, :placeholder => "First Name", :class => "input-box half") %>
            <div class= "filler"></div>
            <%= text_field_tag(:last_name, nil, :placeholder => "Last Name", :class => "input-box half scoot-left") %><br>
@@ -30,6 +31,9 @@
            <%= password_field_tag(:password_confirmation, nil, :placeholder => "Confirm Password", required: true, pattern: ".{6,}", :class => "input-box half scoot-left little-margin") %>
            <span class='password-six-chars'>Password must be at least 6 characters</span>
            <br>
+           <!-- <div class="styled-select">
+             <%#= select_tag(:user_role, options_for_select([ "Investor", "Seller" ]), prompt: "Select Role") %>
+           </div> -->
            <h4> Certify yourself as an investor </h4>
 
            <div class = "check_box">
@@ -45,7 +49,7 @@
            </div> -->
 
            <div class = "notice centered">
-              <%= flash[:notice] if flash[:notice] %>
+              <%= flash[:signup_errors] if flash[:signup_errors] %>
               <%= @error_message %>
            </div>
 
@@ -62,5 +66,15 @@
       </div>
       </div>
   </div>
+  // <script>
+  //   $("#user_role").change(function(){
+  //     var value = $("#user_role option:selected").text();
+  //     if(value === 'Investor'){
+  //       $(".check_box").show();
+  //     }else if(value === 'Seller'){
+  //       document.getElementById("submit-button").disabled= false;
+  //     }
+  //   })
+  // </script>
 </body>
 </html>

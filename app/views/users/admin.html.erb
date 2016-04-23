@@ -1,0 +1,35 @@
+  <html>
+<head>
+  <title>DreamFunded | Write</title>
+</head>
+
+<body>
+  <div class= "wrapper">
+    <div class= "header"><h1 class= "centered">Administration Panel</h1></div>
+
+    <div class= "word-content"><div class= "text-content">
+      <div class='centered'>
+        <%= button_to "Companies", '/users/admin-companies', :method => 'get', class: 'invest-button invest-now-button ' %>
+      </div>
+        <table id="user-table">
+         <tr>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>E-mail</th>
+          <th>Phone</th>
+         </tr>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= link_to(user.first_name, edit_user_path(user) ) %></td>
+                <td><%= user.last_name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.phone %></td>
+              </tr>
+          <% end %>
+        </table>
+
+    </div></div>
+  </div>
+
+</body>
+</html>
