@@ -1,0 +1,49 @@
+<head>
+  <% title "DreamFunded | Invite" %>
+</head>
+
+<body>
+<div class= "wrapper">
+  <div class="header">
+    <h1 class="centered">Invites</h1>
+  </div>
+  <div class= "invite-content">
+    <h3 class=' education-category darkblue'>Gift your friends <b>$100</b> to get started on DreamFunded.</h3>
+    <p class= "faq-answer center">When you invite a friend to join DreamFunded, we'll give them $100 to start investing with DreamFunded. And when they make an investment, you'll get $100 to invest too.</p>
+
+    <div class="invite-via-email">
+      <span class='invite-email-icon'><%=  fa_icon("envelope 2x")%> </span>
+      <span class='invite-text'>Invite via Email</span>
+      <span class='invite-form'>
+        <%= form_for(Invite.new, remote: true) do |f| %>
+          <%= f.text_field(:email, placeholder: 'Email Address',class: 'invite-text-input', pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")%>
+          <%= f.submit "Send", class: 'invite-button' %>
+        <% end %>
+      </span>
+    </div>
+
+    <div class="invite-via-email">
+      <span class='invite-email-icon'><%=  fa_icon("google 2x")%> </span>
+      <span class='invite-text'>Invite from Gmail</span>
+      <span class='invite-form-google'>
+        <%= button_to  '/authenticate', class: 'invite-google-contacts' do %>
+          Invite Contacts from Gmail
+          <%= image_tag "static/gmail-icon.png", class: 'gmail-icon' %>
+        <% end %>
+       <!--  <button href="/authenticate" class='invite-google-contacts'>Invite Contacts from Gmail
+        </button> -->
+      </span>
+    </div>
+  </div>
+
+  <div class= "invite-content">
+    <h3 class=' education-category darkblue'>You have <b>$<%= user_session.invite_credit %></b> of credit to invest with</h3>
+    <% @invites.each do |invite| %>
+      <div class="current-invites">
+        <span class='imported-name' ><%= invite.email %></span><br>
+        <span class='invite-status'><%= invite.status %></span>
+      </div>
+    <% end %>
+  </div>
+</div>
+</body>

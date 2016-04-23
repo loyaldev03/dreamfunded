@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20160412183846) do
 
   # These are extensions that must be enabled in order to support this database
@@ -155,6 +156,7 @@ ActiveRecord::Schema.define(version: 20160412183846) do
     t.datetime "updated_at"
     t.boolean  "accepted"
     t.boolean  "signedup"
+    t.string   "status",     default: "Hasn't signed up yet"
   end
 
   create_table "liquidate_shares", force: true do |t|
@@ -233,6 +235,13 @@ ActiveRecord::Schema.define(version: 20160412183846) do
     t.string   "page"
   end
 
+  create_table "press_posts", force: true do |t|
+    t.datetime "date"
+    t.text     "name"
+    t.string   "source"
+    t.text     "url"
+  end
+
   create_table "prospective_investments", force: true do |t|
     t.string   "user_id"
     t.string   "first_name"
@@ -307,7 +316,17 @@ ActiveRecord::Schema.define(version: 20160412183846) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role"
-    t.integer  "credit"
+    t.integer  "credit",                 default: 0
+    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,     null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.integer  "invite_credit",          default: 0
   end
 
   add_index "users", ["slug"], name: "index_users_on_slug", using: :btree

@@ -1,0 +1,166 @@
+.invite-content {
+  width: 70%;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  padding-bottom: 100px;
+  margin-bottom: 50px;
+}
+.invite-email-icon{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee;
+  border-radius: 50% 50%;
+  height: 60px;
+  margin-right: 20px;
+  padding: 10px;
+  width: 60px;
+}
+.invite-via-email{
+  border-top: 2px solid #eee;
+  margin-top: 30px;
+  padding-left: 30px;
+  padding-top: 30px;
+}
+.invite-text{
+  font-size: 24px;
+  color: #4d4d4d;
+}
+.invite-form, .invite-form-google{
+  display: inline-block;
+  float: right;
+  width: 500px;
+  padding-top: 19px;
+  text-align: right;
+  margin-right: 10px;
+}
+.invite-text-input{
+  height: 30px;
+  width: 70%;
+  padding: 6px 12px;
+  font-size: 16px;
+  color: #212121;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.invite-button{
+  width: 100px;
+  margin-left: 5px;
+  font-size: 14px;
+  height: 43px;
+  vertical-align: top;
+  color: #fff;
+  background-color: #4c9cc1;
+  border: 0;
+  letter-spacing: 1px;
+  border-radius: 3px;
+}
+.invite-google-contacts{
+  margin-left: 5px;
+  padding-left: 50px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  height: 43px;
+  vertical-align: top;
+  color: #fff;
+  background-color: #4c9cc1;
+  border: 0;
+  position: relative;
+  border-radius: 3px;
+}
+.imported-contacts{
+  height: 350px;
+  overflow: scroll;
+}
+.input-search{
+  display: block;
+  width: 95%;
+  height: 28px;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 1.42857143;
+  color: #212121;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.imported-name, .imported-email{
+  font-weight: bold;
+  list-style: none;
+  font-family: Helvetica;
+}
+.imported-email{
+  color: #424242;
+  margin-left: 17px;
+}
+.invite-google-button{
+  text-align: center;
+  background-color: #4c9cc1;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 3px;
+  color: #fff;
+}
+.close-button{
+  text-align: center;
+  background-color: #FFFFFF;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 4px;
+  color: #7B7B7B;
+  border: 1px solid;
+}
+.invite-modal-text{
+  font-size: 14px;
+  text-align: center;
+}
+.close-icon a span{
+  color: #333;
+}
+.invite-buttons{
+  margin-top: 45px;
+}
+.gmail-icon{
+  position: absolute;
+  top: 6px;
+  left: 9px;
+}
+.current-invites{
+  border-bottom: 1px solid #eee;
+  display: block;
+  padding: 21px 27px 20px;
+}
+.invite-status{
+  color: #9e9e9e;
+}
+.invite-google-users{
+  margin-left: 5px;
+  font-size: 14px;
+  height: 37px;
+  color: #fff;
+  background-color: #4c9cc1;
+  border: 0;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  padding: 0;
+  padding-left: 6px;
+  padding-right: 6px;
+}

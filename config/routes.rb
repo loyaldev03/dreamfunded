@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   resources :documents
   resources :guests
+  resources :invites
   resources :bids
   resources :events
 
@@ -29,6 +30,15 @@ Rails.application.routes.draw do
   get 'payment/index'
   get 'news/manage'
   get 'welcome/index'
+
+  get '/authenticate', to: 'import#authenticate'
+  get '/authorise', to: 'import#authorise'
+  get '/import', to: 'import#import'
+
+  post '/authenticate', to: 'import#authenticate'
+  post '/authorise', to: 'import#authorise'
+  post '/import', to: 'import#import'
+
   get 'auth/google_oauth2/callback', to:'omniauth_callbacks#google_oauth2'
   post 'auth/google_oauth2/callback', to:'omniauth_callbacks#google_oauth2'
 
@@ -103,6 +113,11 @@ Rails.application.routes.draw do
 
   resources :companies
   resources :news
+
+  get '/invite', to: "invites#invite"
+  post '/google_contacts', to: "invites#google_contacts"
+
+  get '/accept-invite', to: "invites#accept"
 
   #resources :teams
 

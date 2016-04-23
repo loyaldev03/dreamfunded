@@ -98,6 +98,12 @@ class UsersController < ApplicationController
 		@password = params[:password]
 		@email = params[:email]
 		@phone = params[:phone]
+		@token = params[:token]
+
+		if @token
+			invite = Invite.find_by(token: @token)
+			invite.use_token
+		end
 		role = params[:user_role]
 
 		#Change to enum / class later
@@ -143,7 +149,11 @@ class UsersController < ApplicationController
 			password = params[:password]
 			if(login_user.password_valid?(password))
 				session[:current_user] = login_user
-				redirect_to url_for(:controller => 'home', :action => 'index')
+				if login_user.authority >= 2
+					redirect_to url_for(:controller => 'companies', :action => 'index')
+				else
+					redirect_to url_for(:controller => 'home', :action => 'index')
+				end
 			else
 				flash[:notice] = "Wrong password. Please try again."
 				redirect_to(:action => :login)
