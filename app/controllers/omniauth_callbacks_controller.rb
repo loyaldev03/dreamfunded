@@ -26,7 +26,7 @@ class OmniauthCallbacksController < ApplicationController
     else
       flash[:notice] = 'Unable to creaet a new user'
       p 'STEP 2'
-      redirect_to 'users/new'
+      redirect_to '/users/new'
     end
   end
   alias_method :google, :google_oauth2
