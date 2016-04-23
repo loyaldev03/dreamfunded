@@ -75,7 +75,7 @@
                   <% if user_session.authority != authority[:Admin] %>
                     <li><button onclick= "signOut()" >Sign Out</button></li>
                   <% else %>
-                    <!-- <li><button onclick= "invite()">Invites<br><span class='invite-menu-text'>Give $100 by sharing DreamFunded</span></button></li> -->
+                    <li><button onclick= "invite()">Invites<br><span class='invite-menu-text'>Give $100 by sharing DreamFunded</span></button></li>
                     <li><button onclick= "admin()">Admin Panel</button></li>
                     <li><button onclick="location.href='/admin/users';" >New Admin Panel</button></li>
                     <li><button onclick= "signOut()" >Sign Out</button></li>
