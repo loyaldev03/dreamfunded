@@ -3,6 +3,24 @@
 </head>
 
 <body>
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1711154149164475',
+        xfbml      : true,
+        version    : 'v2.5'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
 <div class= "wrapper">
   <div class="header">
     <h1 class="centered">Invites</h1>
@@ -30,10 +48,41 @@
           Invite Contacts from Gmail
           <%= image_tag "static/gmail-icon.png", class: 'gmail-icon' %>
         <% end %>
-       <!--  <button href="/authenticate" class='invite-google-contacts'>Invite Contacts from Gmail
-        </button> -->
+
       </span>
     </div>
+
+    <div class="invite-via-email">
+      <span class='invite-email-icon'><%=  fa_icon("share-alt 2x")%> </span>
+      <span class='invite-text'>Share on Social Media</span>
+      <span class='invite-form-google'>
+
+            <a id='facebook' class="share-invites-social" href='#'> <i class="fa fa-facebook"></i></a>
+            <script type="text/javascript">
+              $('#facebook').click(function(){
+                FB.ui({
+                  method: 'share',
+                  href: 'https://dreamfunded.com',
+                  redirect_uri: 'https://dreamfunded.com/invite',
+                  quote: "Sign up today and get $100 to invest with on DreamFunded"
+                }, function(response){});
+
+              })
+            </script>
+
+            <a id="twitter" class="share-invites-social" target="_blank" href="http://twitter.com/intent/tweet?text=Join%20DreamFunded%20today%20and%20get%20%24100%20to%20invest%20with%20https://dreamfunded.com" title="Share via Twitter">
+                <i class="fa fa-twitter"></i>
+            </a>
+
+            <a id ='linkedin' class="share-invites-social" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;ro=false&amp;trk=bookmarklet&amp;title=Join%20DreamFunded%20today%20and%20get%20%24100%20to%20invest%20with&amp;url=https://dreamfunded.com" target="_blank" title="Share via LinkedIn" >
+                <i class="fa fa-linkedin"></i>
+            </a>
+
+      </span>
+    </div>
+
+
+
   </div>
 
   <div class= "invite-content">

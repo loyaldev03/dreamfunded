@@ -164,3 +164,32 @@
   padding-left: 6px;
   padding-right: 6px;
 }
+
+#facebook{
+  color: #3B5998;
+}
+
+#twitter{
+  color: #00ACED;
+}
+
+#linkedin{
+  color: #0077B5;
+}
+.share-invites-social{
+  display: inline-block;
+  font-size: 22px;
+  margin-right: 25px;
+  border-radius: 50%;
+  height: 45px;
+  min-width: 0;
+  width: 45px;
+  background-color: #F5F5F5;
+  vertical-align: middle;
+  text-align: center;
+}
+.share-invites-social i{
+  vertical-align: -webkit-baseline-middle;
+  vertical-align: -moz-middle-with-baseline;
+}
+
