@@ -2,7 +2,6 @@ class InvitesController < ApplicationController
 
   def invite
     @invites = Invite.where(user_id: user_session.id)
-    @invite = Invite.new( user_id: user_session.id)
   end
 
   def create

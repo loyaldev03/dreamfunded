@@ -1,7 +1,7 @@
 class Invite < ActiveRecord::Base
   belongs_to :user
 
-  after_initialize :set_token
+  before_save :set_token
 
 
   def set_token
