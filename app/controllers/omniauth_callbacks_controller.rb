@@ -25,8 +25,9 @@ class OmniauthCallbacksController < ApplicationController
         redirect_to certify_path
       end
     else
-      flash[:notice] = 'Unable to creaet a new user'
-      p 'STEP 2'
+
+      flash[:signup_errors] = @user.errors.full_messages.first
+
       redirect_to '/users/new'
     end
   end
