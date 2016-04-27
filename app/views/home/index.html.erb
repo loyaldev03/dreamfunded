@@ -159,7 +159,7 @@
 			</div>
 		</div> -->
 <% if user_session != nil %>
-	<% if user_session.confirmed == false %>
+	<% if User.find(user_session.id).confirmed == false %>
 		<!-- ---------------------- -->
 		<a href="#dialog" class="modalLink">Verify Email Address</a>
 
