@@ -113,10 +113,6 @@ class UsersController < ApplicationController
 			@authority = User.Authority[:Basic]
 		end
 
-		if role = 'Seller'
-			@authority = User.Authority[:Basic]
-		end
-
 		record = User.new(:first_name => @first_name, :last_name => @last_name, :email => @email, :authority => @authority, phone: @phone, role: role)
 		record.password = @password
 		record.password_confirmation = params[:password_confirmation]
