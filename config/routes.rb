@@ -88,6 +88,7 @@ Rails.application.routes.draw do
 
 
   get '/liquidate', to: 'home#liquidate'
+  get '/liquidity', to: 'home#liquidate'
   post '/liquidate_form', to: 'home#liquidate_form'
   get '/liquidate_after', to: 'home#liquidate_after'
 
