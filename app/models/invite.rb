@@ -1,7 +1,8 @@
 class Invite < ActiveRecord::Base
   belongs_to :user
 
-  before_save :set_token
+  after_initialize :set_token
+
 
   def set_token
     self.token ||= SecureRandom.uuid.gsub(/\-/, '').first(5).upcase

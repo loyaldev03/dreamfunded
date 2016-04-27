@@ -52,8 +52,8 @@
       </span>
     </div>
 
-<!--     <div class="invite-via-email">
-      <span class='invite-email-icon'><%#=  fa_icon("share-alt 2x")%> </span>
+    <div class="invite-via-email">
+      <span class='invite-email-icon'><%=  fa_icon("share-alt 2x")%> </span>
       <span class='invite-text'>Share on Social Media</span>
       <span class='invite-form-google'>
 
@@ -62,15 +62,15 @@
               $('#facebook').click(function(){
                 FB.ui({
                   method: 'share',
-                  href: 'https://dreamfunded.com',
-                  redirect_uri: 'https://dreamfunded.com/invite',
+                  href: "https://dreamfunded.com/accept-invite/?token=<%= @invite.token%>",
+                  redirect_uri: "https://dreamfunded.com/accept-invite/?token=<%= @invite.token%>",
                   quote: "Sign up today and get $100 to invest with on DreamFunded"
                 }, function(response){});
 
               })
             </script>
 
-            <a id="twitter" class="share-invites-social" target="_blank" href="http://twitter.com/intent/tweet?text=Join%20DreamFunded%20today%20and%20get%20%24100%20to%20invest%20with%20https://dreamfunded.com" title="Share via Twitter">
+            <a id="twitter" class="share-invites-social" target="_blank" href="http://twitter.com/intent/tweet?text=Join%20DreamFunded%20today%20and%20get%20%24100%20to%20invest%20with%20https://dreamfunded.com/accept-invite/?token=<%= @invite.token%>" title="Share via Twitter">
                 <i class="fa fa-twitter"></i>
             </a>
 
@@ -79,7 +79,7 @@
             </a>
 
       </span>
-    </div> -->
+    </div>
 
 
 
