@@ -1,7 +1,7 @@
 class InvitesController < ApplicationController
 
   def invite
-    @invites = Invite.where(user_id: user_session.id)
+    @invites = Invite.where(user_id: user_session.id).where.not(email: nil)
   end
 
   def create
