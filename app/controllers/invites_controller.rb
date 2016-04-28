@@ -27,7 +27,7 @@ class InvitesController < ApplicationController
     user = User.find(params[:id])
     if user
       @invite = Invite.create(user_id: user.id)
-      redirect_to :action => 'show', :token => @invite.token
+      redirect_to :action => 'accept', :token => @invite.token
     else
       redirect_to root_path
     end
