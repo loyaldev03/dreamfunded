@@ -62,8 +62,8 @@
               $('#facebook').click(function(){
                 FB.ui({
                   method: 'share',
-                  href: "https://dreamfunded.com/create-invite/<%= user_session.id %>",
-                  redirect_uri: "https://dreamfunded.com/",
+                  href: "https://dreamfunded.com/accept-invite//?id=<%= user_session.id %>",
+                  redirect_uri: "https://dreamfunded.com/accept-invite/?id=<%= user_session.id %>",
                   quote: "Sign up today and get $100 to invest with on DreamFunded"
                 }, function(response){});
 

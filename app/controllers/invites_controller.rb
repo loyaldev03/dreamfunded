@@ -19,6 +19,10 @@ class InvitesController < ApplicationController
   end
 
   def accept
+    user = User.find(params[:id])
+    if user
+      Invite.create(user_id: user.id)
+    end
     @token = params[:token]
     @email = params[:email]
   end
