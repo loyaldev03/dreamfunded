@@ -28,8 +28,9 @@ class InvitesController < ApplicationController
     if user
       @invite = Invite.create(user_id: user.id)
       redirect_to :action => 'show', :token => @invite.token
+    else
+      redirect_to root_path
     end
-    redirect_to root_path
   end
 
   private
