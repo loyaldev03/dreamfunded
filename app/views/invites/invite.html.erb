@@ -62,19 +62,19 @@
               $('#facebook').click(function(){
                 FB.ui({
                   method: 'share',
-                  href: "https://dreamfunded.com/create-invite/?id=<%= user_session.id %>",
-                  redirect_uri: "https://dreamfunded.com/create-invite/?id=<%= user_session.id %>",
+                  href: "https://dreamfunded.com/create-invite/id=<%= user_session.id %>",
+                  redirect_uri: "https://dreamfunded.com/create-invite/id=<%= user_session.id %>",
                   quote: "Sign up today and get $100 to invest with on DreamFunded"
                 }, function(response){});
 
               })
             </script>
 
-            <a id="twitter" class="share-invites-social" target="_blank" href="http://twitter.com/intent/tweet?text=Join%20DreamFunded%20today%20and%20get%20%24100%20to%20invest%20with%20https://dreamfunded.com/create-invite/?id=<%= user_session.id %>" title="Share via Twitter">
+            <a id="twitter" class="share-invites-social" target="_blank" href="http://twitter.com/intent/tweet?text=Join%20DreamFunded%20today%20and%20get%20%24100%20to%20invest%20with%20https://dreamfunded.com/create-invite/id=<%= user_session.id %>" title="Share via Twitter">
                 <i class="fa fa-twitter"></i>
             </a>
 
-            <a id ='linkedin' class="share-invites-social" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;ro=false&amp;trk=bookmarklet&amp;title=Join%20DreamFunded%20today%20and%20get%20%24100%20to%20invest%20with&amp;url=https://dreamfunded.com/create-invite/?id=<%= user_session.id %>" target="_blank" title="Share via LinkedIn" >
+            <a id ='linkedin' class="share-invites-social" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;ro=false&amp;trk=bookmarklet&amp;title=Join%20DreamFunded%20today%20and%20get%20%24100%20to%20invest%20with&amp;url=https://dreamfunded.com/create-invite/id=<%= user_session.id %>" target="_blank" title="Share via LinkedIn" >
                 <i class="fa fa-linkedin"></i>
             </a>
 
