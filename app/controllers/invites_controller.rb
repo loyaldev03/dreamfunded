@@ -23,6 +23,15 @@ class InvitesController < ApplicationController
     @email = params[:email]
   end
 
+  def create_from_social
+    user = User.find(params[:id])
+    if user
+      @invite = Invite.create(user_id: user.id)
+      redirect_to action: accept, token: @invite.token
+    end
+    redirect_to root_path
+  end
+
   private
 
   def invite_params

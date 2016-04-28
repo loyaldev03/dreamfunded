@@ -119,7 +119,7 @@ Rails.application.routes.draw do
   post '/google_contacts', to: "invites#google_contacts"
 
   get '/accept-invite', to: "invites#accept"
-  get '/accept-invite-token/:token', to: "invites#accept"
+  get '/create-invite/:id', to: 'invites#create_from_social'
 
   #resources :teams
 
