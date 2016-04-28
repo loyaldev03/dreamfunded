@@ -102,6 +102,7 @@ class UsersController < ApplicationController
 
 		if @token
 			invite = Invite.find_by(token: @token)
+			invite.update(email: @email)
 			invite.use_token
 		end
 		role = params[:user_role]
