@@ -119,6 +119,7 @@ Rails.application.routes.draw do
   post '/google_contacts', to: "invites#google_contacts"
 
   get '/accept-invite', to: "invites#accept"
+  get '/accept-invite-facebook/:id', to: "invites#accept_from_facebook"
   get '/create-invite/:id', to: 'invites#create_from_social'
 
   #resources :teams

@@ -19,12 +19,17 @@ class InvitesController < ApplicationController
   end
 
   def accept
-    user = User.find(params[:id])
-    if user
-      Invite.create(user_id: user.id)
-    end
+
     @token = params[:token]
     @email = params[:email]
+  end
+
+  def accept_from_facebook
+    user = User.find(params[:id])
+    if user
+      invite = Invite.create(user_id: user.id)
+      @token = invite.token
+    end
   end
 
   def create_from_social
