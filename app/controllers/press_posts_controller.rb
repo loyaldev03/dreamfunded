@@ -1,7 +1,7 @@
 class PressPostsController < ApplicationController
 
   def index
-    @press
+    @press_posts = PressPost.all
   end
 
   def new
