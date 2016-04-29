@@ -138,6 +138,10 @@
 and (min-device-width : 768px)
 and (max-device-width : 1024px)  {
 	.news-single-container{
-		width: 90%;
+	  width: 90%;
+	  height: 285px;
+	}
+	.news{
+	  width: 64%;
 	}
 }
