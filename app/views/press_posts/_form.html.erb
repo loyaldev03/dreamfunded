@@ -1,0 +1,38 @@
+<%= form_for(@press_post) do |f| %>
+  <% if @press_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@press_post.errors.count, "error") %> prohibited this press_post from being saved:</h2>
+
+      <ul>
+      <% @press_post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :quote %><br>
+    <%= f.text_area :quote %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :date %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
