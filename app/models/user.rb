@@ -2,14 +2,16 @@ class User < ActiveRecord::Base
 	has_many :investments
 	has_many :companies, through: :investments
 
+	has_many :invites
+
 	has_many :liquidate_shares
 	has_many :bids
 	#Getter
 	validates :first_name, presence:true
 	validates :last_name, presence:true
 	#validates_uniqueness_of :login
-	#validates_uniqueness_of :email
-	# validates :password, length: { in: 6..20 }
+	validates_uniqueness_of :email
+	#validates :password, length: { in: 6..20 }
 	validates :password, confirmation: true
 
 	def self.from_omniauth(auth)

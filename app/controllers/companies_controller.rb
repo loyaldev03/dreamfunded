@@ -1,12 +1,15 @@
 class CompaniesController < ApplicationController
 	before_action :verify
 
-	#Default site that shows all startups
 	def index
 		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Basic]
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
 		end
-		@companies = Company.all.order(:position).where(hidden: false)
+		@companies = Company.all.order(:position).where(hidden: false, accredited: true)
+	end
+
+	def nonaccredited_index
+		@companies = Company.all.order(:position).where(hidden: false, accredited: false)
 	end
 
 	def auctions

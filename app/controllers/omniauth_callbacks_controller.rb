@@ -15,6 +15,7 @@ class OmniauthCallbacksController < ApplicationController
   def google_oauth2
     p request.env["omniauth.auth"]
     @user = User.from_omniauth(request.env["omniauth.auth"])
+
     if @user.persisted?
       @user.update(confirmed: true)
       session[:current_user] = @user
@@ -24,11 +25,12 @@ class OmniauthCallbacksController < ApplicationController
         redirect_to certify_path
       end
     else
-      flash[:notice] = 'Unable to creaet a new user'
-      p 'STEP 2'
-      redirect_to 'users/new'
+
+      flash[:signup_errors] = @user.errors.full_messages.first
+
+      redirect_to '/users/new'
     end
   end
-
   alias_method :google, :google_oauth2
+
 end

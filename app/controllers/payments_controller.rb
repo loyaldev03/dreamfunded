@@ -3,11 +3,11 @@ class PaymentsController < ApplicationController
   before_action :authorize
 
   def index
+    @user = session[:current_user]
 	end
 
   def payment
     tran=UmTransaction.new
-
     # Merchants Source key must be generated within the console
     tran.key="azIZnB64RLfnc7yFhWbidTGTgkdq5p36"
     #tran.key="p3681m70sjSf25eG2wplW7Y6MhTvdPD3"
@@ -48,12 +48,15 @@ class PaymentsController < ApplicationController
     flash[:message] = tran.error
     if tran.resultcode.to_s=="A"
     then
-      # flash[:message] = tran.result
+      flash[:message] = tran.result
       flash[:message] = "Thank you. Your investment has been completed. You will receive an email from DreamFunded within 24 hours or less."
-      p "Full result #{tran.result}"
-      p "Authcode:  #{tran.authcode} "
-      p "AVS Result: #{tran.avs_result} "
-      p "Cvv2 Result: #{tran.cvv2_result} "
+        p "Full result #{tran.result}"
+        p "Authcode:  #{tran.authcode} "
+        p "AVS Result: #{tran.avs_result} "
+        p "Cvv2 Result: #{tran.cvv2_result} "
+
+      # if referral give 100$
+      addCreditForReferral
     else
 
       p "Card Declined #{tran.result} "
@@ -63,6 +66,14 @@ class PaymentsController < ApplicationController
   end
 
   private
+
+  def addCreditForReferral
+    invite = Invite.find_by(email: user_session.email)
+    if invite
+      invite.user.increment!(:invite_credit, 100)
+      invite.update(status: 'User Invested, you received $100 credit')
+    end
+  end
 
   def authorize
     if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Accredited]

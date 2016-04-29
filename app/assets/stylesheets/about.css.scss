@@ -24,7 +24,7 @@
    z-index:10000;
    /* set the width and height of the window */
    width:466px;
-   height:250px;
+   height:265px;
    /* give the window negative margins that match the width/2 and height/2 so it is centered */
    margin-left:-200px;
    margin-top:-124px;
@@ -38,6 +38,28 @@
    -webkit-box-shadow:4px 4px 80px #000;
    -moz-box-shadow:4px 4px 80px #000;
    border-radius: 7px;
+}
+#modal .google-clients{
+  /* position the element so that the z-index can be applied */
+  position:absolute;
+  /* Set the z-index to a number higher than the blind's z-index */
+  z-index:10000;
+  /* set the width and height of the window */
+  width:600px;
+  height:668px;
+  /* give the window negative margins that match the width/2 and height/2 so it is centered */
+  margin-left:-200px;
+  margin-top:-310px;
+  /* position the top left corner off stage so it can't be seen (instead of display:none;) */
+  left:-1000px;
+  top:-1000px;
+  /* color the background so it shows up */
+  background-color:#ffffff;
+  /* throw on a CSS3 box shadow, because it's cool, and we can */
+  box-shadow:4px 4px 80px #000;
+  -webkit-box-shadow:4px 4px 80px #000;
+  -moz-box-shadow:4px 4px 80px #000;
+  border-radius: 7px;
 }
 .contents h3{
   text-align: center;

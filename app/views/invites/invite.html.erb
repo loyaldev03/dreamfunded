@@ -1,0 +1,98 @@
+<head>
+  <% title "DreamFunded | Invite" %>
+</head>
+
+<body>
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1711154149164475',
+        xfbml      : true,
+        version    : 'v2.5'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+<div class= "wrapper">
+  <div class="header">
+    <h1 class="centered">Invites</h1>
+  </div>
+  <div class= "invite-content">
+    <h3 class=' education-category darkblue'>Gift your friends <b>$100</b> to get started on DreamFunded.</h3>
+    <p class= "faq-answer center">When you invite a friend to join DreamFunded, we'll give them $100 to start investing with DreamFunded. And when they make an investment, you'll get $100 to invest too.</p>
+
+    <div class="invite-via-email">
+      <span class='invite-email-icon'><%=  fa_icon("envelope 2x")%> </span>
+      <span class='invite-text'>Invite via Email</span>
+      <span class='invite-form'>
+        <%= form_for(Invite.new, remote: true) do |f| %>
+          <%= f.text_field(:email, placeholder: 'Email Address',class: 'invite-text-input', pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")%>
+          <%= f.submit "Send", class: 'invite-button' %>
+        <% end %>
+      </span>
+    </div>
+
+    <div class="invite-via-email">
+      <span class='invite-email-icon'><%=  fa_icon("google 2x")%> </span>
+      <span class='invite-text'>Invite from Gmail</span>
+      <span class='invite-form-google'>
+        <%= button_to  '/authenticate', class: 'invite-google-contacts' do %>
+          Invite Contacts from Gmail
+          <%= image_tag "static/gmail-icon.png", class: 'gmail-icon' %>
+        <% end %>
+
+      </span>
+    </div>
+
+    <div class="invite-via-email">
+      <span class='invite-email-icon'><%=  fa_icon("share-alt 2x")%> </span>
+      <span class='invite-text'>Share on Social Media</span>
+      <span class='invite-form-google'>
+
+            <a id='facebook' class="share-invites-social" href='#'> <i class="fa fa-facebook"></i></a>
+            <script type="text/javascript">
+              $('#facebook').click(function(){
+                FB.ui({
+                  method: 'share',
+                  href: "https://dreamfunded.com/accept-invite-facebook/<%= user_session.id %>",
+                  redirect_uri: "https://dreamfunded.com/accept-invite-facebook/<%= user_session.id %>",
+                  quote: "Sign up today and get $100 to invest with on DreamFunded"
+                }, function(response){});
+
+              })
+            </script>
+
+            <a id="twitter" class="share-invites-social" target="_blank" href="http://twitter.com/intent/tweet?text=Join%20DreamFunded%20today%20and%20get%20%24100%20to%20invest%20with%20https://dreamfunded.com/create-invite/<%= user_session.id %>" title="Share via Twitter">
+                <i class="fa fa-twitter"></i>
+            </a>
+
+            <a id ='linkedin' class="share-invites-social" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;ro=false&amp;trk=bookmarklet&amp;title=Join%20DreamFunded%20today%20and%20get%20%24100%20to%20invest%20with&amp;url=https://dreamfunded.com/create-invite/<%= user_session.id %>" target="_blank" title="Share via LinkedIn" >
+                <i class="fa fa-linkedin"></i>
+            </a>
+
+      </span>
+    </div>
+
+
+
+  </div>
+
+  <div class= "invite-content">
+    <h3 class=' education-category darkblue'>You have <b>$<%= user_session.invite_credit %></b> of credit to invest with</h3>
+    <% @invites.each do |invite| %>
+      <div class="current-invites">
+        <span class='imported-name' ><%= invite.email %></span><br>
+        <span class='invite-status'><%= invite.status %></span>
+      </div>
+    <% end %>
+  </div>
+</div>
+</body>

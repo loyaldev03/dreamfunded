@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   resources :documents
   resources :guests
+  resources :invites
   resources :bids
   resources :events
   resources :press_posts
@@ -30,6 +31,15 @@ Rails.application.routes.draw do
   get 'payment/index'
   get 'news/manage'
   get 'welcome/index'
+
+  get '/authenticate', to: 'import#authenticate'
+  get '/authorise', to: 'import#authorise'
+  get '/import', to: 'import#import'
+
+  post '/authenticate', to: 'import#authenticate'
+  post '/authorise', to: 'import#authorise'
+  post '/import', to: 'import#import'
+
   get 'auth/google_oauth2/callback', to:'omniauth_callbacks#google_oauth2'
   post 'auth/google_oauth2/callback', to:'omniauth_callbacks#google_oauth2'
 
@@ -69,6 +79,9 @@ Rails.application.routes.draw do
 
   get '/users/certify', to: "users#certify", as: 'certify'
 
+  get 'users/admin', to: "users#admin"
+  get 'users/admin-companies', to: "users#companies"
+
   get 'homes/faq', to: "home#faq", as: :faq
   get '/legal', to: "home#legal", as: :legal
   get '/contact', to: 'home#contact_us'
@@ -76,6 +89,7 @@ Rails.application.routes.draw do
 
 
   get '/liquidate', to: 'home#liquidate'
+  get '/liquidity', to: 'home#liquidate'
   post '/liquidate_form', to: 'home#liquidate_form'
   get '/liquidate_after', to: 'home#liquidate_after'
 
@@ -101,6 +115,13 @@ Rails.application.routes.draw do
 
   resources :companies
   resources :news
+
+  get '/invite', to: "invites#invite"
+  post '/google_contacts', to: "invites#google_contacts"
+
+  get '/accept-invite', to: "invites#accept"
+  get '/accept-invite-facebook/:id', to: "invites#accept_from_facebook"
+  get '/create-invite/:id', to: 'invites#create_from_social'
 
   #resources :teams
 
@@ -128,10 +149,13 @@ Rails.application.routes.draw do
   get '/education/investor-qa', to: 'home#investorqa', as: 'investorqa'
   get '/education/employee-qa', to: 'home#employeeqa', as: 'employeeqa'
   get '/education/market_trends', to: 'home#market_trends', as: 'market_trends'
-  get '/get-funded', to: 'home#contact_us'
 
+  get '/getfunded', to: 'home#get_funded'
+  post '/get_funded', to: 'home#get_funded_send'
+  get '/get-funded_after', to: 'home#get_funded_after'
 
   get '/portofolio', to: 'companies#index'
+  get '/marketplace_companies', to: 'companies#nonaccredited_index'
   get '/dreamfunded-exchange', to: 'home#exchange'
   get '/our-team', to: 'members#index'
   match "/our-team/manny-fernandez" => redirect("team/manny-fernandez"), via: 'get'

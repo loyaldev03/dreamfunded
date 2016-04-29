@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby "2.2.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
@@ -21,10 +21,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'spring',        group: :development
 gem 'async-rails'
 gem 'carrierwave'
-gem 'rails_12factor'
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '< 2.0'
 gem 'friendly_id'
@@ -40,6 +38,8 @@ gem 'omniauth-linkedin'
 gem 'activeadmin'
 gem 'infusionsoft'
 gem 'newrelic_rpm'
+gem 'google_contacts_api'
+gem 'invisible_captcha'
 
 
 gem 'will_paginate', '~> 3.0.5'
@@ -51,4 +51,10 @@ group :development do
    gem "letter_opener"
    gem "better_errors"
    gem 'binding_of_caller'
+   gem 'spring'
+   gem 'byebug'
+end
+
+group :production do
+    gem 'rails_12factor'
 end

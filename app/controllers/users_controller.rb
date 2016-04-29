@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	invisible_captcha only: [:create]
 	def index
 		@users = User.all()
 	end
@@ -97,16 +98,19 @@ class UsersController < ApplicationController
 		@password = params[:password]
 		@email = params[:email]
 		@phone = params[:phone]
+		@token = params[:token]
+
+		if @token
+			invite = Invite.find_by(token: @token)
+			invite.update(email: @email)
+			invite.use_token
+		end
 		role = params[:user_role]
 
 		#Change to enum / class later
 		if params[:reg] == nil
 			@authority = User.Authority[:Accredited]
 		else
-			@authority = User.Authority[:Basic]
-		end
-
-		if role = 'Seller'
 			@authority = User.Authority[:Basic]
 		end
 
@@ -121,7 +125,8 @@ class UsersController < ApplicationController
 			if record.first_name && record.last_name && record.email && Rails.env.production?
 				Infusionsoft.contact_add({:FirstName => record.first_name , :LastName => record.last_name, :Email => record.email})
 			end
-			redirect_to(:action => :post_login, :email => @email, :password => @password)
+			session[:current_user] = record
+			redirect_to(:controller => 'home', :action => 'index')
 		else
 			flash[:signup_errors] = "Validation failed."
 			@error_message = ""
@@ -142,7 +147,11 @@ class UsersController < ApplicationController
 			password = params[:password]
 			if(login_user.password_valid?(password))
 				session[:current_user] = login_user
-				redirect_to url_for(:controller => 'home', :action => 'index')
+				if login_user.authority >= 2
+					redirect_to url_for(:controller => 'companies', :action => 'index')
+				else
+					redirect_to url_for(:controller => 'home', :action => 'index')
+				end
 			else
 				flash[:notice] = "Wrong password. Please try again."
 				redirect_to(:action => :login)
@@ -222,8 +231,13 @@ class UsersController < ApplicationController
 		redirect_to root_path
 	end
 
-	def seller
 
+	def admin
+		@users = User.all.where(authority: 1)
+	end
+
+	def companies
+		@companies = Company.all.where(accredited: false)
 	end
 
 end

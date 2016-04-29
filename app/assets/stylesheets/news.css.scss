@@ -138,6 +138,23 @@
 and (min-device-width : 768px)
 and (max-device-width : 1024px)  {
 	.news-single-container{
-		width: 90%;
+	  width: 90%;
+	  height: 285px;
+	}
+	.news{
+	  width: 64%;
 	}
 }
+ /*M O B I L E*/
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+	.full-image{
+		float: none !important;
+	}
+	.article-overlfow{
+		overflow-x: auto;
+	}
+}
+
+

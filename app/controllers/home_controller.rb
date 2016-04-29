@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+	invisible_captcha only: [:liquidate_form, :contact_us_send_email, :get_funded_send]
+
 	def index
 		@Authority = User.Authority
 		@news = News.all.reverse
@@ -216,6 +218,54 @@ class HomeController < ApplicationController
 	 def market_trends
 	 	@posts = Post.order(:position).where(page: 'market_trends')
 	 end
+
+	 def get_funded
+	 end
+
+	def get_funded_send
+		company = params[:company]
+		email = params[:email]
+		entrepreneur_last = params[:entrepreneur_last]
+		entrepreneur_first = params[:entrepreneur_first]
+		country = params[:country]
+		phone = params[:phone]
+		address = params[:address]
+		website = params[:website]
+		city = params[:city]
+		state = params[:state]
+		zipcode = params[:zipcode]
+		timeframe = params[:timeframe]
+		month_created = params[:date][:month]
+		year_created = params[:date][:year]
+		number_employees = params[:number_employees]
+		two_line_summary = params[:two_line_summary].first
+		business_summary = params[:business_summary].first
+		market_of_customers = params[:market_of_customers].first
+		customer_problem = params[:customer_problem].first
+		current_customers = params[:current_customers].first
+		solution =  params[:solution].first
+		market_strategy = params[:market_strategy].first
+		business_modal = params[:business_modal].first
+		competitors = params[:competitors].first
+		qualifications = params[:qualifications].first
+		barriers = params[:barriers].first
+		executive_summary_file = params[:executive_summary_file]
+ 		investor_slide_file = params[:investor_slide_file]
+		round_name = params[:round_name]
+		burn_rate = params[:burn_rate]
+		previous_capital = params[:previous_capital]
+		current_revenue = params[:current_revenue]
+		amout_seeking = params[:amout_seeking]
+		esimated_valuation = params[:esimated_valuation]
+		exit_strategy = params[:exit_strategy].first
+
+		ContactMailer.get_funded(company, email, entrepreneur_last,entrepreneur_first, country, phone, address, website, city, state, zipcode, timeframe, month_created, year_created, number_employees, two_line_summary, business_summary, market_of_customers, customer_problem, current_customers, solution, market_strategy, business_modal, competitors, qualifications, barriers, executive_summary_file,  investor_slide_file, round_name, burn_rate, previous_capital, current_revenue, amout_seeking, esimated_valuation, exit_strategy).deliver
+		redirect_to :get_funded_after
+	end
+
+	def get_funded_after
+
+	end
 
    private
    def team_params
