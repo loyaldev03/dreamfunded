@@ -90,3 +90,6 @@ function get_funded(){
 function invite(){
 	window.location = "/invite";
 }
+function press(){
+	window.location = "/press_posts";
+}

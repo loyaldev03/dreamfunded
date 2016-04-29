@@ -10,7 +10,9 @@
   <div class= "events-content press-posts-content">
     <% @press_posts.each do |post| %>
       <div class='press-post'>
+        <%= link_to post.url do %>
         <%= image_tag(post.image, class: 'press-image')%>
+        <% end %>
         <span class='press-post-inline'>
           <div class="press-post-item press-quote">"<%= post.quote%>"</div>
           <div class="press-post-item"><%= link_to(post.name, post.url, class: 'darkblue')%></div>
