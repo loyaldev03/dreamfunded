@@ -1,7 +1,7 @@
 class PressPostsController < ApplicationController
 
   def index
-    @press_posts = PressPost.all.order('date ASC')
+    @press_posts = PressPost.all.order('date DESC')
   end
 
   def new
