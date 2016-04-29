@@ -27,6 +27,10 @@
 				<%= f.text_area(:source, :placeholder => "Source", :class => "description-box source") %>
 			</div>
 
+			<div class= "description-wrap">
+				<%= f.text_area(:source_url, :placeholder => "Source URL", :class => "description-box source") %>
+			</div>
+
 			<div class = "notice centered">
 				<%= flash[:file_uploaded] if flash[:file_uploaded] %>
 			</div>
