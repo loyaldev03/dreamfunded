@@ -4,7 +4,8 @@
 
 <div class= "wrapper">
   <div class="header">
-    <h1 class="centered"> DreamFunded in the Press</h1>
+    <h1 class="centered press-post-h1">Press</h1>
+    <p class="centered press-post-name">DreamFunded in the news</p>
   </div>
   <div class= "events-content">
 
@@ -31,7 +32,7 @@
 
     <% if user_session != nil && user_session.authority == authority[:Admin] %>
       <div class='event'>
-        <%= link_to 'New Event', new_event_path, class: 'centered add-new-event' %>
+        <%= link_to 'New Press Post', new_press_post_path, class: 'centered add-new-event' %>
       </div>
     <% end %>
   </div>
