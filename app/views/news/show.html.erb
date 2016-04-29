@@ -29,7 +29,7 @@
            <p class= "article"><%= h auto_link(@article.content).gsub(/\n/, '<br/>').html_safe %></p>
         </div>
         <br><br><br>
-        <div><p class= "article darkblue indent article-overlfow">Source: <%= link_to @article.source, @article.source_url %></p></div>
+        <div><p class= "article darkblue indent article-overlfow">Source: <%= link_to @article.source, @article.source_url, target: '_blank' %></p></div>
       </div>
     </div></div>
   </body>
