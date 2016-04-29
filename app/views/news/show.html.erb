@@ -20,7 +20,9 @@
               <iframe  class='youtube-video' src= <%= @article.video_link %> frameborder="0" allowfullscreen ></iframe>
             </center>
           <% else %>
-            <%= image_tag @article.image.url, :class => "full-image" %>
+            <center>
+              <%= image_tag @article.image.url, :class => "full-image" %>
+            </center>
           <% end %>
 
           <p class= "article"><%#= nl2br(h(@article.content)).html_safe %></p>
