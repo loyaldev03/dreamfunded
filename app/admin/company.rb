@@ -1,4 +1,4 @@
-ActiveAdmin.register Company do
+  ActiveAdmin.register Company do
   controller do
     before_filter :authenticate
 
@@ -45,6 +45,7 @@ permit_params :image, :document, :accredited, :hidden, :position, :docusign_url,
         f.input  :status
         f.input  :video_link
         f.input  :CEO
+        f.input  :hidden
         f.input :status, :as => :select, collection: [ ["Coming Soon",1], ["Active", 2], ['Funded',3] ]
         f.input  :created_at
         f.input  :updated_at
@@ -65,6 +66,7 @@ permit_params :image, :document, :accredited, :hidden, :position, :docusign_url,
       row :goal_amount
       row :video_link
       row :CEO
+      row :hidden
       row :created_at
       row :updated_at
       # Will display the image on show object page
