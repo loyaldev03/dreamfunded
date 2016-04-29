@@ -1,6 +1,11 @@
 class PressPostsController < ApplicationController
 
   def index
+    @press
+  end
+
+  def new
+    @press_post = PressPost.new
   end
 
   private
