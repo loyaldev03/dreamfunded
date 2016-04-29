@@ -15,7 +15,7 @@
         <% end %>
         <span class='press-post-inline'>
           <div class="press-post-item press-quote">"<%= post.quote%>"</div>
-          <div class="press-post-item"><%= link_to(post.name, post.url, class: 'darkblue')%></div>
+          <div class="press-post-item"><%= link_to(post.name, post.url, target: '_blank', class: 'darkblue')%></div>
           <div class="press-post-item press-date"><%= post.date.strftime("%b,  %e %Y") %></div>
         </span>
 
