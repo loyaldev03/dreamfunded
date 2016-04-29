@@ -145,3 +145,13 @@ and (max-device-width : 1024px)  {
 	  width: 64%;
 	}
 }
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+
+	.full-image{
+		float: none !important;
+	}
+}
+
+
