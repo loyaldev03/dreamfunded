@@ -24,7 +24,8 @@ Rails.application.routes.draw do
   resources :invites
   resources :bids
   resources :events
-  resources :press_posts
+  resources :press_posts, except: [:index]
+  get '/press', to: "press_posts#index"
 
   match "/diversity-tech-angels-earn-wings/" => redirect("https://dreamfundedsf.wpengine.com/diversity-tech-angels-earn-wings/"), via: 'get'
 

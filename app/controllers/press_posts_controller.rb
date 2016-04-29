@@ -12,7 +12,7 @@ class PressPostsController < ApplicationController
     @press_post = PressPost.new(press_post_params)
 
       if @press_post.save
-        redirect_to press_posts_path, notice: 'Member was successfully created.'
+        redirect_to press_path, notice: 'Member was successfully created.'
       else
         render :new
       end
@@ -25,7 +25,7 @@ class PressPostsController < ApplicationController
   def update
     @press_post = PressPost.find(params[:id])
     if @press_post.update(press_post_params)
-      redirect_to press_posts_path
+      redirect_to press_path
     else
       render :edit
     end
