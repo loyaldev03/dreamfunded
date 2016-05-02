@@ -54,6 +54,10 @@ class MembersController < ApplicationController
     @member = Member.find(1)
   end
 
+  def rexford
+    @member = Member.find(2)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_member

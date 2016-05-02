@@ -62,6 +62,7 @@ Rails.application.routes.draw do
   #post '/account/1613988/envelopes', to: "sellers#send", as: :send_docusign
 
   get '/manny-fernandez', to: 'members#manny'
+  get '/rexford-r-hibbs', to: 'members#rexford'
 
   get 'users/portfolio', to: "users#portfolio", as: :portfolio
   get 'users/portfolio_admin/:id', to: "users#portfolio_admin", as: :portfolio_admin

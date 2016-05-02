@@ -1,0 +1,19 @@
+    <div class= "word-content"><div class="text-content">
+      <div class= "topbar">
+        <a href= "/team" class= "darkblue">&#8617; Back</a>
+        <% if user_session != nil && user_session.authority == authority[:Admin] %>
+          <%= link_to 'Edit', edit_member_path(@member), {:class => 'right'} %>
+        <% end %>
+      </div>
+      <div class= "page">
+        <div class= "art-text">
+          <h2 class= "center darkblue title"><%= @member.name %>, <%= @member.title %></h2>
+          <%= image_tag @member.image.url, :class => "full-photo" %>
+          <p class= "article"><%= nl2br(h(@member.fullbio)).html_safe %></p>
+
+            <div class="fb-like" data-href="https://www.facebook.com/RexfordHibbs/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+
+        </div>
+
+      </div>
+    </div></div>
