@@ -32,9 +32,11 @@
             </div>
             <div>
               <% if team.id == 1 %>
-                <%= link_to "Full Biography", manny_path, {:class => "team-button twenty"} %>
+                <%#= link_to "Full Biography", manny_path, {:class => "team-button twenty"} %>
+                <a class="team-button twenty" onclick= "manny()">Full Biography</a>
               <% elsif team.id == 2 %>
-                <%= link_to "Full Biography", rexford_path, {:class => "team-button twenty"} %>
+                <%#= link_to "Full Biography", rexford_path, {:class => "team-button twenty"} %>
+                <a class="team-button twenty" onclick= "rexford()">Full Biography</a>
               <% else %>
                 <%= link_to "Full Biography", member_path(team), {:class => "team-button twenty"} %>
               <% end %>
