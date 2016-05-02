@@ -61,6 +61,8 @@ Rails.application.routes.draw do
   get '/auction', to: "companies#auctions"
   #post '/account/1613988/envelopes', to: "sellers#send", as: :send_docusign
 
+  get '/manny-fernandez', to: 'members#manny'
+
   get 'users/portfolio', to: "users#portfolio", as: :portfolio
   get 'users/portfolio_admin/:id', to: "users#portfolio_admin", as: :portfolio_admin
   post 'users/portfolio_admin/:id', to: "users#remove_investment", as: :remove_investment

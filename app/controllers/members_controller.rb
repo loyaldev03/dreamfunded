@@ -1,28 +1,21 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
-  # GET /members
-  # GET /members.json
+
   def index
     @members = Member.all.order("rank ASC")
   end
 
-  # GET /members/1
-  # GET /members/1.json
   def show
   end
 
-  # GET /members/new
   def new
     @member = Member.new
   end
 
-  # GET /members/1/edit
   def edit
   end
 
-  # POST /members
-  # POST /members.json
   def create
     @member = Member.new(member_params)
 
@@ -37,8 +30,6 @@ class MembersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /members/1
-  # PATCH/PUT /members/1.json
   def update
     respond_to do |format|
       if @member.update(member_params)
@@ -51,14 +42,16 @@ class MembersController < ApplicationController
     end
   end
 
-  # DELETE /members/1
-  # DELETE /members/1.json
   def destroy
     @member.destroy
     respond_to do |format|
       format.html { redirect_to members_url, notice: 'Member was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def manny
+    @member = Member.find(1)
   end
 
   private
