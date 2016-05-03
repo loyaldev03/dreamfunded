@@ -45,9 +45,9 @@
 					</div> </div>
 			<% end %>
 
-			<br>
-			<h2 class= "centered darkblue">We're Your Way Into Tech Companies Before They Go Public</h2>
-			<br>
+
+			<h2 class= "centered darkblue homepage-line-text">We're Your Way Into Tech Companies Before They Go Public</h2>
+
 			<div class= "section2-wrap"><div class= "section2"><div class="boxes">
 
 				<div class= "section2-box">
@@ -93,25 +93,47 @@
 					<div class= "logo-title">
 						<h2 class= "centered darkblue" id='mentioned_in'>As Seen On</h2>
 					</div>
-					<div class= "row1">
-						<span class='homepage-press-mentions'><%= image_tag("static/nbc-logo.png") %></span>
-						<span class='homepage-press-mentions'><%= image_tag("static/Forbes.jpg", class: "padding-top-100") %></span>
-						<span class='homepage-press-mentions'><%= image_tag("static/tech.png") %></span>
-						<span class='homepage-press-mentions'><%= image_tag("static/fox.jpg") %></span>
-						<span class='homepage-press-mentions'><%= link_to image_tag("static/cnbc.png"), 'news/betting-on-pre-ipo-companies' %></span>
-					</div>
-					<div class='row1'>
+					<span class="desktop_logos">
+							<div class= "row1">
+								<span class='homepage-press-mentions'><%= image_tag("static/nbc-logo.png") %></span>
+								<span class='homepage-press-mentions'><%= image_tag("static/Forbes.jpg", class: "padding-top-100") %></span>
+								<span class='homepage-press-mentions'><%= image_tag("static/tech.png") %></span>
+								<span class='homepage-press-mentions'><%= image_tag("static/fox.jpg", id: 'fox-news-logo') %></span>
+								<span class='homepage-press-mentions'><%= link_to image_tag("static/cnbc.png"), 'news/betting-on-pre-ipo-companies' %></span>
+							</div>
+							<div class='row1'>
+								<span class='homepage-press-mentions'><%= image_tag("static/inc_logo.png", id: "inc_logo") %></span>
+								<span class='homepage-press-mentions'><%= image_tag("static/fortune_logo.png", id: "fortune_logo") %></span>
+								<span class='homepage-press-mentions'><%= image_tag("static/cnn.png", class: 'cnn-logo') %></span>
+							</div>
+							<div class= "row2">
+								<%=  image_tag("static/entrepreneur.png") %>
+								<%=  image_tag("static/wallstreet.png", id: 'wallstreet_logo') %>
+								<%=  image_tag("static/fast_company.png", id: 'fast_company_logo') %>
+							</div>
+					</span>
+					<span class="mobile-logos">
+							<div class= "row1">
+							  <span class='homepage-press-mentions'><%= image_tag("static/nbc-logo.png") %></span>
+							  <span class='homepage-press-mentions'><%= image_tag("static/Forbes.jpg", class: "padding-top-100") %></span>
+							  <span class='homepage-press-mentions'><%= image_tag("static/tech.png") %></span>
+							</div>
+							<div class='row1'>
+							  <span class='homepage-press-mentions'><%= image_tag("static/fox.jpg", id: 'fox-news-logo') %></span>
+							  <span class='homepage-press-mentions'><%= link_to image_tag("static/cnbc.png"), 'news/betting-on-pre-ipo-companies' %></span>
+							  <span class='homepage-press-mentions'><%= image_tag("static/inc.png", id: "inc_logo") %></span>
+							  <span class='homepage-press-mentions'><%#= image_tag("static/cnn.png", class: 'cnn-logo') %></span>
+							</div>
+							<div class= "row2">
+							  <span class='homepage-press-mentions'><%= image_tag("static/fortune_logo.png", id: "fortune_logo") %></span>
+							  <span class='homepage-press-mentions'><%=  image_tag("static/entrepreneur.png", id: "entrepreneur_logo") %></span>
+							</div>
+							<div class= "row2">
+							  <%=  image_tag("static/wallstreet.png", id: 'wallstreet_logo') %>
+							  <%=  image_tag("static/fast_company.png", id: 'fast_company_logo') %>
+							</div>
+					</span>
 
-						<span class='homepage-press-mentions'><%= image_tag("static/inc_logo.png", id: "inc_logo") %></span>
-						<span class='homepage-press-mentions'><%= image_tag("static/fortune_logo.png", id: "fortune_logo") %></span>
-						<span class='homepage-press-mentions'><%= image_tag("static/cnn.png", class: 'cnn-logo') %></span>
-					</div>
-
-					<div class= "row2">
-						<%=  image_tag("static/entrepreneur.png") %>
-						<%=  image_tag("static/wallstreet.png", id: 'wallstreet_logo') %>
-						<%=  image_tag("static/fast_company.png", id: 'fast_company_logo') %>
-					</div>
 				</div>
 			</div>
 
@@ -145,10 +167,11 @@
 
 		<div class="investor-logos">
 			<!-- <div class="fb-like" data-href="https://www.facebook.com/dreamfundedcom/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div> -->
-			<div class="fb-like" data-href="https://www.facebook.com/dreamfundedcom/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+			<div class="fb-like" data-href="https://www.facebook.com/dreamfundedcom/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+
 			<%= image_tag("static/aca_logo.png", :class => 'aca-logo') %>
 			<%= image_tag("static/perkins.png", :class => 'perkins-logo') %>
-
+			<a class= "indent foot-text "> COPYRIGHT © <%= Time.now.year %> DREAMFUNDED </a>
 		</div>
 <!-- 		<div class= "foot-bar">
 			<div class= "foot-wrap">

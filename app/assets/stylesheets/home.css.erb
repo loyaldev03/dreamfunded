@@ -143,6 +143,9 @@ h3 {
 .top-space {
 	margin-top: 30px;
 }
+.homepage-line-text{
+  margin: 50px 0 50px 0;
+}
 
 ////---------------- Section 2 -------------------- ////////
 
@@ -210,7 +213,9 @@ h3 {
 	height: 130px;
 	color: gray;
 }
-
+.mobile-logos{
+  display: none;
+}
 
 ////---------------- Team -------------------- ////////
 
@@ -433,6 +438,12 @@ and (max-device-width : 568px) {
 	.main-menu li{
 		visibility: hidden;
 	}
+  .mobile-logos{
+    display: inline;
+  }
+  .desktop_logos{
+    display: none;
+  }
 	#mobile-menu{
 		float: right !important;
 		visibility: visible !important;
@@ -452,22 +463,26 @@ and (max-device-width : 568px) {
 		/*display: none;*/
     text-align: center;
     margin-bottom: 30px;
+    margin-top: 0;
+    position: relative;
 	}
   .watch-video-cnbc {
-       margin-bottom: 8px !important;
+    margin-bottom: -14px !important;
+    font-size: 30px;
   }
 	.row1 {
 		/*display: none;*/
+    margin-top: 0;
 	}
   .row2 img{
+    margin: 0;
     position: relative;
   }
   #wallstreet_logo{
-    left: 0;
-    top: -18px;
+    left: -43px;
   }
   #fast_company_logo{
-    left: 0;
+    left: 60px;
   }
 	.invest-button{
 		width: auto;
@@ -478,6 +493,13 @@ and (max-device-width : 568px) {
 	.foot-text.darkblue{
 	 	display: none;
 	}
+  .foot-text{
+    float: none !important;
+    margin-left: 5%;
+  }
+  .aca-logo{
+    margin: 0;
+  }
 	#mentioned_in{
 		display: none;
 	}
@@ -530,6 +552,13 @@ and (max-device-width : 568px) {
   }
   .footer-content{
     font-size: 18px !important;
+    text-align:center;
+  }
+  .table{
+    float: none !important;
+  }
+  .hide-on-mobile{
+    display: none;
   }
   .news-single-container{
     width: 90% !important;
@@ -603,6 +632,28 @@ and (max-device-width : 568px) {
   }
   .row1 img{
     margin: 10px 50px;
+  }
+  .homepage-line-text{
+    margin: 10px 0 0 0;
+  }
+  #fox-news-logo{
+    margin-top: 30px;
+  }
+  #fortune_logo{
+    margin-left: 0;
+    position: relative;
+    right: 87px;
+  }
+  #entrepreneur_logo{
+    position: relative;
+    left: 54px;
+    top: 22px;
+  }
+  .fb-like{
+    display: none !important;
+  }
+  .aca-logo{
+    margin: 0;
   }
 }
 
