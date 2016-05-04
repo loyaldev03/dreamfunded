@@ -144,6 +144,12 @@ and (max-device-width : 1024px)  {
 	.news{
 	  width: 64%;
 	}
+	.news .title-container{
+		font-family: Geneva, Helvetica;
+	}
+	.news .content-container{
+		font-family: Geneva, Helvetica;
+	}
 }
  /*M O B I L E*/
 @media only screen
