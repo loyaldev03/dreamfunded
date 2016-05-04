@@ -39,9 +39,9 @@
                 <% end %>
                 <li><%= post.title%></li>
 
-                <p class='panel ckeditor'><%#= post.content%>
+                <div class='panel ckeditor'><%#= post.content%>
                     <%= post.content.html_safe %>
-                </p>
+                </div>
 
             <% end %>
             <% if user_session != nil && user_session.authority == authority[:Admin] %>

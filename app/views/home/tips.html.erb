@@ -28,28 +28,7 @@
 
             <h3 class= "question darkblue flip">Investing Tips, Strategies & Trends</h3>
             <ul class='education-center-list'>
-<!--                 <li>Why Invest in Private, not Public Companies? </li>
-                <p class='panel'>In 2000, the average time to IPO for a private tech firm in Silicon Valley was 4 years; as of 2014, the average time to IPO is 11. This push to later stage funding rounds is placing a tremendous strain on employees with equity in these tech companies. We noticed a huge opportunity here, one that had not been properly addressed. The opportunity is in the large demand on both the employee side (for liquidity) and the investor side (for investment). Unlike 2000, the Google’s of today's tech boom are all private companies.<br><br>
 
-These later stage funding rounds have crippled big returns for investors in the public markets, who are no longer able to capitalize on a company's growth curve after an 11 year IPO. Public investors seeing poor returns are now looking to put capital into the private markets. There is tremendous value locked up in employee equity in the valley right now. There are currently 114 private “unicorn” companies in Silicon Valley with a combined valuation of $409 Billion. Of that total value, 15% is in the hands of the employees.
-</p>
-
-                <li>Tips for Succesfull Angel Investing </li>
-                <p class='panel'>
-                    The Kauffman Foundation did a study on “Returns to Angel Investors in Groups”.  What they found is that successful angel investors are invested into a portfolio of at least 20 angel investments.  This spreads out risk and improves the chances of hitting a home run.
-                </p>
-                <ul class='education-center-list'>
-                    <p class='panel'>
-                    <li>Building a Strong Investment Portfolio </li>
-                    <p class='panel'>
-                        The Kauffman Foundation’s study on returns to angels in angel groups concluded that in order to be successful as an angel investor, you must be invested into 20 or more startup companies. It also found that it is better to invest low dollar amounts into more companies, than to put high dollar amounts into just a few.
-
-                    </p>
-                        <li>New Trend: push to later stage funding rounds </li>
-                        <p class='panel'>In the last tech boom in 2000, the average time to IPO was 4 years. As of last year, the average time to IPO was 11. This trend in later stage funding rounds is placing tremendous strain on employees with equity in private, Pre-IPO companies. Trends are changing, but employee compensation, and liquidity has not changed. So the DreamFunded team created a marketplace so shareholders can privately sell their shares to our community of investors.</p>
-
-                    </ul>
-                </p> -->
               <% @posts.each do |post|%>
                   <% if user_session != nil && user_session.authority == authority[:Admin] %>
                       <%= button_to "Delete", {:controller => :posts,  :action => 'destroy', :id => post.id }, :method => :delete, class: 'float-rigth' %>
@@ -58,21 +37,16 @@ These later stage funding rounds have crippled big returns for investors in the 
                   <% end %>
                   <li><%= post.title%></li>
 
-                  <p class='panel'><%#= post.content%>
+                  <div class='panel'><%#= post.content%>
                       <%= post.content.html_safe %>
-                  </p>
+                  </div>
 
               <% end %>
               <% if user_session != nil && user_session.authority == authority[:Admin] %>
                   <h3><%= link_to 'Create New', "/posts/new/tips", {:class => 'right'} %></h3>
               <% end %>
 
-
-
-
             </ul>
-
-
 
             <br><br><br>
 
