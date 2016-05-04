@@ -17,7 +17,7 @@
       <%= text_field_tag(:last_name, nil, :class =>"userbox half-field scoot-left", :placeholder => "Last name") %>
       <%= text_field_tag(:email, nil, :class =>"userbox liquidate-form-company", :placeholder => "Email", :required => true) %>
       <div class="styled-select">
-        <%= select_tag(:company_id, options_from_collection_for_select(Company.all.where(accredited: true), :id, :name), {  :placeholder => "Company", :required => true}) %>
+        <%= select_tag(:company_id, options_from_collection_for_select( Company.all.where(accredited: true), :id, :name), {  :placeholder => "Company", :required => true}) %>
       </div>
       <div class="styled-select scoot-left">
         <%= select_tag(:timeframe, options_for_select([ "< 1 Week", "< 1 Month", "1 Month or More" ]), prompt: "Timeframe") %>
