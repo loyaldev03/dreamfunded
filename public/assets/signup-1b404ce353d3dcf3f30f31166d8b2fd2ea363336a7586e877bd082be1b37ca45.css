@@ -1,0 +1,223 @@
+/* line 11, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/colors.css.scss */
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+}
+
+/* line 6, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.box {
+  margin: 100px auto;
+  font-family: "Lato", sans-serif;
+  border: none;
+  background: #ffffff;
+  padding: 20px 40px 40px 40px;
+}
+
+/* line 14, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.signup-size {
+  width: 500px;
+}
+
+/* line 18, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.input-box {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid gray;
+  border-right: 1px solid white;
+  padding: 3px 6px;
+  font-size: 16px;
+  width: 97%;
+  margin: 0 0 30px 0;
+}
+
+/* line 29, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.input-box:focus {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
+/* line 34, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.half {
+  width: 45%;
+  float: left;
+}
+
+/* line 39, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.scoot-left {
+  margin-left: 3%;
+}
+
+/* line 43, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+#submit-button {
+  width: 200px;
+  height: 50px;
+  background: #FFAA00;
+  border: none;
+  outline: 0;
+  margin: 20px auto;
+  font-size: 18px;
+  font-family: "Lato", sans-serif;
+  color: white;
+}
+
+/* line 55, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+#submit-button:hover {
+  background-color: #C4901E;
+}
+
+/* line 59, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+#submit-button:disabled {
+  background-color: #878787;
+}
+
+/* line 63, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.top-gap {
+  padding-top: 20px;
+}
+
+/* line 67, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.notice {
+  height: 50px;
+  color: #0033CC;
+  font-size: 14px;
+}
+
+/* line 73, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.check_box {
+  font-size: 15px;
+  display: block;
+}
+
+/* line 77, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.check_box input {
+  margin-bottom: 6px;
+}
+
+/* line 81, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.tab {
+  width: 49%;
+  float: left;
+  position: relative;
+  display: table-cell;
+  padding-bottom: 10px;
+}
+
+/* line 89, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.row {
+  position: relative;
+  display: table;
+  padding: 20px 0;
+  width: 100%;
+}
+
+/* line 96, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.right-line {
+  border-right: 1px solid #CCCCCC;
+}
+
+/* line 99, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.payment-form {
+  text-align: center;
+}
+
+/* line 102, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.payment-form input {
+  height: 22px;
+  width: 151px;
+}
+
+/* line 106, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+#payment-title {
+  font-size: 35px;
+}
+
+/* line 109, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+#linkedin-icon {
+  color: #0077b5;
+  margin-left: 10px;
+}
+
+/* line 113, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+#google-icon {
+  color: #EF2219;
+  margin-right: 10px;
+}
+
+/* line 117, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+.social-login-ions {
+  margin-bottom: 10px;
+}
+
+/*i P A D*/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* line 124, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+  .input-box, .userbox, .passbox {
+    font-size: 25px;
+    border: 1px solid gray;
+    border-radius: 3px;
+  }
+
+  /* line 129, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+  .input-box {
+    font-size: 20px;
+  }
+
+  /* line 132, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+  .userbox:focus {
+    border: 1px solid gray;
+  }
+}
+/*M O B I L E*/
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+  /* line 141, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+  #submit-button {
+    -webkit-appearance: none;
+  }
+
+  /* line 144, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+  input[type=checkbox] {
+    outline: none;
+    width: 58px;
+    height: 23px;
+    font-size: 11px;
+    line-height: 2;
+    display: inline-block;
+    font-weight: bold;
+    border-radius: 3px;
+    border: 1px solid #B9B9B9;
+    -webkit-appearance: none;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #E8E8E8), color-stop(0.5, #E8E8E8), color-stop(0.5, #FDFDFD), color-stop(1, #FDFDFD));
+    box-shadow: 0px 1px 2px #AFAFAF inset;
+    color: #7F7F7F;
+  }
+
+  /* line 167, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+  input[type=checkbox]:checked {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #367EF8), color-stop(0.5, #367EF8), color-stop(0.5, #66A3F8), color-stop(1, #66A3F8));
+    box-shadow: 0px 1px 2px #1449A3 inset;
+    color: #fff;
+    text-shadow: 0px -1px 1px #000;
+    border: 1px solid #99B9E8;
+  }
+
+  /* line 181, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+  input[type=checkbox]:before {
+    content: 'OFF';
+    border-radius: 3px;
+    border-top: 1px solid #F7F7F7;
+    border-right: 1px solid #999999;
+    border-bottom: 1px solid #BABABA;
+    border-left: 1px solid #BDBDBD;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #D8D8D8), color-stop(1, #FBFBFB));
+    height: 20px;
+    width: 22px;
+    display: inline-block;
+    text-indent: 27px;
+  }
+
+  /* line 199, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/signup.css.scss */
+  input[type=checkbox]:checked:before {
+    content: 'ON';
+    text-indent: -25px;
+    margin-left: 33px;
+  }
+}
