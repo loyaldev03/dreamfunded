@@ -169,7 +169,7 @@
    color: #979797;
 }
 .styled-select {
-   width: 240px;
+   width: 237px;
    height: 34px;
    overflow: hidden;
    background: url(arrow-select.png) no-repeat right;
@@ -177,10 +177,11 @@
    border: 1px solid grey;
    background-size: 25px;
    margin-top: 10px;
+   display: inline-block;
 }
 .liquidate-form-company{
   float: left;
-  width: 97%;
+  width: 96.5%;
 }
 .half-field{
   width: 45%;
@@ -191,3 +192,21 @@
 .margin-top-80{
   margin-top: 40px;
 }
+/*M O B I L E*/
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+  .styled-select {
+    height: 50px;
+    width: 46.5%;
+  }
+  .styled-select select{
+    height: 50px;
+    font-size: 40px;
+  }
+  .liquidate-form-company{
+    width:95%;
+  }
+}
+

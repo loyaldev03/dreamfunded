@@ -1,4 +1,4 @@
-<div class= "wrapper"><div class= "box signin-box centered">
+<div class= "wrapper"><div class= "box signin-box ">
 
   <div class="row">
     <div class="active">
@@ -16,14 +16,16 @@
       <%= text_field_tag(:first_name, nil, :class =>"userbox half-field", :placeholder => "First name", :required => true) %>
       <%= text_field_tag(:last_name, nil, :class =>"userbox half-field scoot-left", :placeholder => "Last name") %>
       <%= text_field_tag(:email, nil, :class =>"userbox liquidate-form-company", :placeholder => "Email", :required => true) %>
-      <%= text_field_tag(:phone, nil, :class =>"userbox half-field ", :placeholder => "Phone") %>
-      <%= select_tag(:company_id, options_from_collection_for_select(Company.all.where(accredited: true), :id, :name), { :class =>"userbox half-field scoot-left", :placeholder => "Company", :required => true}) %>
-      <%= text_field_tag(:number_shares, nil, :class =>"userbox half-field", :placeholder => "Quantity of shares") %>
-      <%= text_field_tag(:shares_price, nil, :class =>"userbox half-field scoot-left", :placeholder => "Desired share price", :required => true) %>
-
       <div class="styled-select">
+        <%= select_tag(:company_id, options_from_collection_for_select(Company.all.where(accredited: true), :id, :name), {  :placeholder => "Company", :required => true}) %>
+      </div>
+      <div class="styled-select scoot-left">
         <%= select_tag(:timeframe, options_for_select([ "< 1 Week", "< 1 Month", "1 Month or More" ]), prompt: "Timeframe") %>
       </div>
+      <%= text_field_tag(:phone, nil, :class =>"userbox half-field ", :placeholder => "Phone") %>
+      <%= text_field_tag(:number_shares, nil, :class =>"userbox half-field scoot-left", :placeholder => "Quantity of shares") %>
+      <%= text_field_tag(:shares_price, nil, :class =>"userbox half-field ", :placeholder => "Desired share price", :required => true) %>
+
       <br>
 
       <!-- <a class="tooltip" href="/education/basics">ROFR<span class="warning">Dreamfunded can help you sell your shares immediately -- and avoid your company's restrictions!</span></a>
@@ -39,7 +41,7 @@
       <!-- <a class="tooltip" href="/education/basics">purchase<span class="help">We offer financial assistance in order to allow you to exercise your shares!</span></a>
       shares from my company. -->
 
-      <%= text_area(:message, nil, rows: 5, :class =>"userbox", :placeholder => "Comments") %>
+      <%= text_area(:message, nil, rows: 5, :class =>"userbox liquidate-form-company", :placeholder => "Comments") %>
       <br>
         <div class = "notice centered">
           <h2 class='darkblue' ><%= flash[:notice] if flash[:notice] %></h2>
