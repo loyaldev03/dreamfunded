@@ -139,3 +139,24 @@
 .category-container {
   border-bottom: 1px solid #CCCCCC;
 }
+
+/*M O B I L E*/
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+    .wrapper{
+      margin-top: 80px !important;
+    }
+    .education-title, .education-button, .for-investors-list-item{
+      font-size: 25px;
+    }
+    .education-links{
+      font-size: 20px;
+    }
+    .education-category{
+      font-size: 33px;
+    }
+
+}
+
