@@ -66,8 +66,9 @@
 
 .notice {
 	height: 50px;
-	color: #0033CC;
-	font-size: 14px;
+	color: #CF513D;
+	font-size: 15px;
+	font-weight: 600;
 }
 
 .check_box {
@@ -151,5 +152,8 @@ and (max-device-width : 568px) {
 	}
 	.checbox-block{
 		position: relative;
+	}
+	.notice{
+		font-size: 25px;
 	}
 }

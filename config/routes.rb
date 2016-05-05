@@ -176,7 +176,7 @@ Rails.application.routes.draw do
   get '/funding', to: 'home#index'
 
 
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:update, :edit, :create, :new]
   get ':controller(/:action(/:id))'
   post ':controller(/:action(/:id))'
 

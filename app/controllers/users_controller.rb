@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 	end
 
 	def new
+		@user = User.new
 	end
 
 	def show
@@ -93,12 +94,12 @@ class UsersController < ApplicationController
 
 	def create
 		#@login = params[:login]
-		@first_name = params[:first_name]
-		@last_name = params[:last_name]
-		@password = params[:password]
-		@email = params[:email]
-		@phone = params[:phone]
-		@token = params[:token]
+		@first_name = params[:user][:first_name]
+		@last_name = params[:user][:last_name]
+		@password = params[:user][:password]
+		@email = params[:user][:email]
+		@phone = params[:user][:phone]
+		@token = params[:user][:token]
 
 		if @token
 			invite = Invite.find_by(token: @token)
@@ -114,23 +115,23 @@ class UsersController < ApplicationController
 			@authority = User.Authority[:Basic]
 		end
 
-		record = User.new(:first_name => @first_name, :last_name => @last_name, :email => @email, :authority => @authority, phone: @phone, role: role)
-		record.password = @password
-		record.password_confirmation = params[:password_confirmation]
-		if record.valid?
-			record.save
-			ContactMailer.verify_email(record).deliver
-			ContactMailer.account_created(record).deliver
+		@user = User.new(:first_name => @first_name, :last_name => @last_name, :email => @email, :authority => @authority, phone: @phone, role: role)
+
+		@user.password_confirmation = params[:user][:password_confirmation]
+		if @user.valid?
+			@user.save
+			ContactMailer.verify_email(@user).deliver
+			ContactMailer.account_created(@user).deliver
 			flash[:notice] = "Registration successful."
-			if record.first_name && record.last_name && record.email && Rails.env.production?
-				Infusionsoft.contact_add({:FirstName => record.first_name , :LastName => record.last_name, :Email => record.email})
+			if @user.first_name && @user.last_name && @user.email && Rails.env.production?
+				Infusionsoft.contact_add({:FirstName => @user.first_name , :LastName => @user.last_name, :Email => @user.email})
 			end
-			session[:current_user] = record
+			session[:current_user] = @user
 			redirect_to(:controller => 'home', :action => 'index')
 		else
 			flash[:signup_errors] = "Validation failed."
 			@error_message = ""
-			record.errors.full_messages.each do |error|
+			@user.errors.full_messages.each do |error|
 				@error_message = @error_message + error + ". "
 			end
 			render(:action => :new)

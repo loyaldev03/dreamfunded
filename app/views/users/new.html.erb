@@ -18,17 +18,18 @@
 
       <div class= "signup-content">
         <h4>Basic Information</h4>
-        <%= form_tag("create", method: "post") do %>
+
+        <%= form_for @user do |f| %>
            <%= invisible_captcha %>
-           <%= text_field_tag(:first_name, nil, :placeholder => "First Name", :class => "input-box half") %>
+           <%= f.text_field(:first_name, :placeholder => "First Name", :class => "input-box half") %>
            <div class= "filler"></div>
-           <%= text_field_tag(:last_name, nil, :placeholder => "Last Name", :class => "input-box half scoot-left") %><br>
-           <%= text_field_tag(:phone, nil, :placeholder => "Phone", :class => "input-box") %><br>
+           <%= f.text_field(:last_name, :placeholder => "Last Name", :class => "input-box half scoot-left") %><br>
+           <%= f.text_field(:phone, :placeholder => "Phone", :class => "input-box") %><br>
 
         <h4>Login Information</h4>
-           <%= text_field_tag(:email, nil, :placeholder => "Email", :class => "input-box email-signup") %>
-           <%= password_field_tag(:password, nil, :placeholder => "Password ", :class => "input-box half little-margin", required: true, pattern: ".{6,}") %>
-           <%= password_field_tag(:password_confirmation, nil, :placeholder => "Confirm Password", required: true, pattern: ".{6,}", :class => "input-box half scoot-left little-margin") %>
+           <%= f.text_field(:email, :placeholder => "Email", :class => "input-box email-signup") %>
+           <%= f.password_field(:password, :placeholder => "Password ", :class => "input-box half little-margin", required: true, pattern: ".{6,}") %>
+           <%= f.password_field(:password_confirmation, :placeholder => "Confirm Password", required: true, pattern: ".{6,}", :class => "input-box half scoot-left little-margin") %>
            <span class='password-six-chars'>Password must be at least 6 characters</span>
            <br>
            <!-- <div class="styled-select">
@@ -62,7 +63,7 @@
 
            <div class= "centered">
            <p class='check_box'>We will never sell or rent your personal information.</p>
-              <%= submit_tag("Submit", :id => "submit-button", :disabled => true) %>
+              <%= f.submit("Submit", :id => "submit-button", :disabled => true) %>
               <div class='social-login-ions'>
                 <%= link_to fa_icon("google 2x"), '/auth/google_oauth2', id: 'google-icon' %>
                 <%= link_to fa_icon("linkedin 2x"), '/auth/linkedin', id: 'linkedin-icon'  %>
