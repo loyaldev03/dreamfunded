@@ -516,3 +516,17 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
   background: #367ebd;
 }
+
+/*M O B I L E*/
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+  .company-button{
+    -webkit-appearance: none;
+  }
+  .twenty{
+    font-family: Helvetica;
+  }
+
+}
