@@ -97,6 +97,7 @@ class UsersController < ApplicationController
 		@first_name = params[:user][:first_name]
 		@last_name = params[:user][:last_name]
 		@password = params[:user][:password]
+		@password_confirmation = params[:user][:password_confirmation]
 		@email = params[:user][:email]
 		@phone = params[:user][:phone]
 		@token = params[:user][:token]
@@ -115,9 +116,9 @@ class UsersController < ApplicationController
 			@authority = User.Authority[:Basic]
 		end
 
-		@user = User.new(:first_name => @first_name, :last_name => @last_name, :email => @email, :authority => @authority, phone: @phone, role: role)
+		@user = User.new(:first_name => @first_name, :last_name => @last_name, :email => @email, :authority => @authority, phone: @phone, role: role, password: @password, password_confirmation: @password_confirmation)
 
-		@user.password_confirmation = params[:user][:password_confirmation]
+		#@user.password_confirmation = params[:user][:password_confirmation]
 		if @user.valid?
 			@user.save
 			ContactMailer.verify_email(@user).deliver
