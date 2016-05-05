@@ -7,7 +7,7 @@
 	<body>
 		<div class= "word-content"><div class="text-content stretch">
 			<div class= "topbar">
-				<a href= "/companies" class= "darkblue">&#8617; Back</a>
+				<a href= "/companies" class= "darkblue hide-on-mobile">&#8617; Back</a>
 				<% if user_session != nil && user_session.authority == authority[:Admin] %>
 					<%= link_to 'Edit', {:controller => 'companies', :action => 'edit_profile', :id => @id }, {:class => 'right'} %>
 				<% end %>
@@ -79,7 +79,7 @@
 						<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/VQJJJGNeM-s" frameborder="0" allowfullscreen></iframe> -->
 					<% end %>
 				</div>
-				<br><br><br><br>
+				<!-- <br><br><br><br> -->
 				<h2 class= "darkblue twentyf indent">Highlight</h2>
 					<hr>
 					<p class= "fifteen"><%= nl2br(h(@company.description)).html_safe %></p>

@@ -267,6 +267,7 @@
 	height: 400px;
 	width: 500px;
 	margin-top: -30px;
+  margin-bottom: 100px;
 }
 .max-width-image{
 	max-width: 600px;
@@ -524,11 +525,15 @@ and (min-device-width : 320px)
 and (max-device-width : 568px) {
   .company-button{
     -webkit-appearance: none;
+    font-size: 31px !important;
   }
   .twenty{
     font-family: Helvetica;
   }
   .twenty{
     font-size: 31px !important;
+  }
+  .video-box{
+    margin: 20% auto;
   }
 }
