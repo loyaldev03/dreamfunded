@@ -140,4 +140,8 @@ class ContactMailer < ActionMailer::Base
     attachments[investor_slide_file.original_filename] =  File.read(investor_slide_file.path)
     mail(to: 'info@dreamfunded.com', subject: 'Get Funded Request')
   end
+
+  def unaccredited_investor(user)
+     mail(to: user.email, subject: 'Investor Accreditations')
+  end
 end
