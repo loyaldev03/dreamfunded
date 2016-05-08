@@ -18,7 +18,7 @@
 
         <div class='event-block'>
             <div class='event-name'><%= link_to event.name, event.link, target: '_blank' %></div>
-            <span class='event-date'><i class="fa fa-calendar"></i> <%= event.date.strftime("%b,  %e %Y") %></span>
+            <span class='event-date'><i class="fa fa-calendar"></i> <%= event.date.strftime("%b %e, %Y") %></span>
             <span class='event-location'><i class="fa fa-map-marker"></i> <%= event.location %></span>
             <div class='event-link'> <%= link_to "Learn More", event.link, :target => '_blank' %></div>
         </div>
