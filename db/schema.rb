@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160429221357) do
+ActiveRecord::Schema.define(version: 20160509183554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20160429221357) do
     t.boolean  "hidden",                 default: false
     t.float    "suggested_target_price"
     t.boolean  "accredited"
+    t.date     "end_date"
   end
 
   create_table "documents", force: true do |t|

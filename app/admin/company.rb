@@ -12,7 +12,7 @@
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :image, :document, :accredited, :hidden, :position, :docusign_url, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at, :suggested_target_price
+permit_params :image, :document, :end_date, :accredited, :hidden, :position, :docusign_url, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at, :suggested_target_price
 #
 # or
 #
@@ -47,6 +47,7 @@ permit_params :image, :document, :accredited, :hidden, :position, :docusign_url,
         f.input  :CEO
         f.input  :hidden
         f.input :status, :as => :select, collection: [ ["Coming Soon",1], ["Active", 2], ['Funded',3] ]
+        f.input  :end_date
         f.input  :created_at
         f.input  :updated_at
     end
@@ -66,6 +67,7 @@ permit_params :image, :document, :accredited, :hidden, :position, :docusign_url,
       row :goal_amount
       row :video_link
       row :CEO
+      row :end_date
       row :hidden
       row :created_at
       row :updated_at

@@ -43,7 +43,7 @@
 							</div>
 							<div class= "right-column">
 								<div>
-									<p class= "twenty no-margin center"><span class= "darkblue twenty">Days Left</span><br> <%= company.days_left if company.status == 2 %> 	&nbsp;</p>
+									<p class= "twenty no-margin center"><span class= "darkblue twenty">Days Left</span><br> <%= company.left_days if company.status == 2 %> 	&nbsp;</p>
 								</div>
 								<br>
 								<hr>
@@ -91,7 +91,7 @@
 							</div>
 							<div class= "right-column">
 								<div>
-									<p class= "twenty no-margin center"><%= company.days_left%><br><span class= "darkblue twenty">Days Left</span></p>
+									<p class= "twenty no-margin center"><%= company.left_days if company.status == 2%><br><span class= "darkblue twenty">Days Left</span></p>
 								</div>
 								<br>
 								<hr>

@@ -50,6 +50,10 @@ class Company < ActiveRecord::Base
 		}
 	end
 
+  before_create do
+    self.end_date = Date.today unless self.end_date
+  end
+
 	def get_status
 		if self.status == 1
 			"Coming Soon"
@@ -68,5 +72,14 @@ class Company < ActiveRecord::Base
     if total_shares > 0
      liquidate_shares.pluck(:shares_price, :number_shares).map!{|a| a[0]*a[1]}.sum / liquidate_shares.pluck(:number_shares).sum
     end
+  end
+
+  def left_days
+    if end_date == nil
+      return ' '
+    end
+    days_left = (end_date -  Date.today).to_i
+    days_left = ' ' if days_left <= 0
+    days_left
   end
 end

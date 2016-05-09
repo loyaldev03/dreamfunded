@@ -283,7 +283,7 @@ class CompaniesController < ApplicationController
    end
 
    def company_params
-      params.require(:company).permit(:image, :document, :hidden, :position, :docusign_url, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at, :suggested_target_price)
+      params.require(:company).permit(:image, :end_date, :document, :hidden, :position, :docusign_url, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at, :suggested_target_price)
    end
 
    def founder_params
