@@ -176,6 +176,8 @@ GEM
     omniauth (1.3.1)
       hashie (>= 1.2, < 4)
       rack (>= 1.0, < 3)
+    omniauth-facebook (3.0.0)
+      omniauth-oauth2 (~> 1.2)
     omniauth-google-oauth2 (0.2.8)
       addressable (~> 2.3)
       jwt (~> 1.0)
@@ -300,6 +302,7 @@ DEPENDENCIES
   letter_opener
   newrelic_rpm
   omniauth
+  omniauth-facebook
   omniauth-google-oauth2
   omniauth-linkedin
   paperclip (~> 4.2)

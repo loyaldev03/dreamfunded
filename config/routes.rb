@@ -47,6 +47,9 @@ Rails.application.routes.draw do
   get 'auth/linkedin/callback', to:'omniauth_callbacks#google_oauth2'
   post 'auth/linkedin/callback', to:'omniauth_callbacks#google_oauth2'
 
+  get 'auth/facebook/callback', to:'omniauth_callbacks#google_oauth2'
+  post 'auth/facebook/callback', to:'omniauth_callbacks#google_oauth2'
+
   # B I D D I N G   S Y S T E M
   get 'bid/:id', to: "bids#bid"
   get 'sellers_bids', to: "bids#sellers_bids"
