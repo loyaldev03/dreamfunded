@@ -89,9 +89,11 @@ class HomeController < ApplicationController
 
 
 	def get_started
-		if session[:current_user] == nil || session[:current_user].try(:authority) < 2
+		if session[:current_user] == nil
 			redirect_to "/users/new"
-		else
+		elsif session[:current_user].try(:authority) == 1
+			redirect_to '/marketplace_companies'
+		elsif session[:current_user].try(:authority) > 1
 			redirect_to "/companies"
 		end
 	end
