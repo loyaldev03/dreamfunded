@@ -8,6 +8,8 @@
 			<div class="header">
 				<h1 class="centered">Portfolio</h1>
 			</div>
+			<div class= "word-content"><div class= "text-content">
+
 				<div class= "companies-container margin-bottom-50">
 					<% @investments.each do |investment| %>
 						<div class= "company-container">
@@ -41,6 +43,8 @@
 				  	<%= link_to "Go Back to Offerings", {controller: 'companies' , :action => 'nonaccredited_index'}, method: 'get', :id => 'go_back_button' %>
 				  <% end %>
 				</div>
+
+		  </div></div>
 		</div>
 	</body>
 	<style>

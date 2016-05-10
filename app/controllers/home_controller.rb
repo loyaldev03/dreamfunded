@@ -271,6 +271,9 @@ class HomeController < ApplicationController
 	def resources
 	end
 
+	def marketplace
+	end
+
    private
    def team_params
       params.require(:team).permit(:image, :name, :title, :summary, :fullbio )

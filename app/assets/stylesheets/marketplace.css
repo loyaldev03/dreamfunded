@@ -1,0 +1,36 @@
+#manhattan{
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+}
+.countdown-time{
+  font-size: 127px;
+    color: #fff;
+    font-family: Helvetica;
+    font-weight: 600;
+}
+.countdown-sub-text{
+  font-size: 50px;
+  font-family: Helvetica;
+  font-weight: 600;
+}
+/*M O B I L E*/
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+  #manhattan{
+    width: initial;
+    height: 100%;
+  }
+  .countdown-time {
+
+    margin-top: 38%;
+}
+}
