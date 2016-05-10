@@ -12,5 +12,5 @@ class Document < ActiveRecord::Base
       :secret_access_key => "0SZTrtqzs9C9SQfi5O6RgYranP4Hp04Gbo7NUE0Z"
     }
 
-    validates_attachment_content_type :file, :content_type =>['application/pdf']
+    validates_attachment_content_type :file, :content_type =>['application/pdf', "application/vnd.openxmlformats-officedocument.presentationml.presentation"]
 end

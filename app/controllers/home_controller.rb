@@ -264,7 +264,9 @@ class HomeController < ApplicationController
 	end
 
 	def get_funded_after
+	end
 
+	def resources
 	end
 
    private

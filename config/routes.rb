@@ -161,6 +161,8 @@ Rails.application.routes.draw do
   post '/get_funded', to: 'home#get_funded_send'
   get '/get-funded_after', to: 'home#get_funded_after'
 
+  get '/resources', to: 'home#resources'
+
   get '/portofolio', to: 'companies#index'
   get '/marketplace_companies', to: 'companies#nonaccredited_index'
   get '/dreamfunded-exchange', to: 'home#exchange'
