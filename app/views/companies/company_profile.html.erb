@@ -7,7 +7,8 @@
 	<body>
 		<div class= "word-content"><div class="text-content stretch">
 			<div class= "topbar">
-				<a href= "/companies" class= "darkblue hide-on-mobile">&#8617; Back</a>
+
+				<%= link_to "↩  Back", :back,  {:class => 'darkblue hide-on-mobile'} %>
 				<% if user_session != nil && user_session.authority == authority[:Admin] %>
 					<%= link_to 'Edit', {:controller => 'companies', :action => 'edit_profile', :id => @id }, {:class => 'right'} %>
 				<% end %>
