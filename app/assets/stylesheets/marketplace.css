@@ -16,7 +16,7 @@
   font-weight: 600;
 }
 .countdown-sub-text{
-  font-size: 50px;
+  font-size: 60px;
   font-family: Helvetica;
   font-weight: 600;
 }
@@ -52,4 +52,10 @@ and (max-device-width : 568px) {
   #newsletter-container{
     width: 44%;
   }
+  #toastEmail p {
+    font-size: 2em;
+    line-height: normal;
+    color: #FAFAFA!important;
+  }
+
 }
