@@ -59,7 +59,7 @@
                           "+$20M trailing annual rev."]), prompt: "What Stage is Your Company" ,:required => true) %>
           </div>
           <br>
-          <div class=''>
+          <div class='key_docs'>
             Date Company Was Founded
           </div>
           <br>
@@ -108,12 +108,12 @@
         Key Documents
         <hr>
       </div>
-      <div>
+      <div class='key_docs'>
           <label>Executive Summary</label>
           <%= file_field_tag(:executive_summary_file, required: true) %>
       </div>
       <br>
-      <div>
+      <div class="key_docs">
           <label>Investor Slides</label>
           <%= file_field_tag(:investor_slide_file, required: true) %>
       </div>

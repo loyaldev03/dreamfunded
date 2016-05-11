@@ -1,11 +1,19 @@
-<%= image_tag "manhattan_sm.jpg", id: 'manhattan' %>
-
-<div class='countdown-time big-title'>
-    <div class='countdown-sub-text'>July 7th, Live CrowdFunding</div>
-    <div id="countdown" class="countdownHolder"></div>
+<div>
+  <%= image_tag "sf_bg.jpg", id: 'manhattan' %>
+  <div class='cover_on_top'></div>
 </div>
 
-<div id='toast-container'>
+<div class='countdown-time big-title'>
+    <div class='countdown-sub-text'>July 7th, Live Equity CrowdFunding Event</div>
+    <div id="countdown" class="countdownHolder"></div>
+     <%= link_to "Get Funded", {:action => 'get_funded_link'}, {:class => 'invest-button invest-now-button', id: 'get_funded_link'} %>
+</div>
+
+<div class= " button-box"  >
+
+</div>
+
+<div id='newsletter-container'>
   <div id='toastEmail'>
     <i class="fa fa-times" id='close-subcribtion'></i>
     <p>Join our educational newsletter and <b>become a better investor</b> today.</p>
@@ -20,9 +28,8 @@
 <script type="text/javascript">
   $(document).ready(function(){
     $('footer').hide();
-
      $('#close-subcribtion').click(function(){
-      $('#toast-container').hide();
+      $('#newsletter-container').hide();
      });
   })
 
