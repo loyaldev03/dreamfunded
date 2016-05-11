@@ -1,29 +1,23 @@
 <div>
-  <%= image_tag "sf_bg.jpg", id: 'manhattan' %>
-  <div class='cover_on_top'></div>
+  <%= image_tag "smaller_bg.jpg", id: 'manhattan' %>
+  <!-- <div class='cover_on_top'></div> -->
 </div>
 
 <div class='countdown-time big-title'>
     <div class='countdown-sub-text'>July 7th, Live Equity CrowdFunding Event</div>
     <div id="countdown" class="countdownHolder"></div>
-     <%= link_to "Get Funded", {:action => 'get_funded'}, {:class => 'invest-button invest-now-button', id: 'get_funded_link'} %>
+     <h3 class='market-place-subscribe-label'>Sign Up for Updated News About This Event </h3>
+      <%= form_tag('/marketplace_signup', remote: true, class: 'marketplace_form') do %>
+        <input type='text' name='email' placeholder="Email" id="marketplace-text-field" >
+        <button id='marketplace-submit-button'>SUBSCRIBE</button>
+      <% end %>
 </div>
 
 <div class= " button-box"  >
 
 </div>
 
-<div id='newsletter-container'>
-  <div id='toastEmail'>
-    <i class="fa fa-times" id='close-subcribtion'></i>
-    <p>Join our educational newsletter and <b>become a better investor</b> today.</p>
-    <%= form_for Guest.new, remote: true do |f|%>
-      <%= f.text_field 'email', required: true, id: 'newsletter-text-field' %>
-      <button id='newsletter-submit-button'>SUBSCRIBE</button>
-      <p id='display-later'>THANK YOU</p>
-    <% end %>
-  </div>
-</div>
+
 
 <script type="text/javascript">
   $(document).ready(function(){

@@ -26,6 +26,10 @@ class GuestsController < ApplicationController
   def show
   end
 
+  def marketplace
+    Guest.create(email: params[:email])
+  end
+
   private
   # Never trust parameters from the scary internet, only allow the white list through.
   def guest_params

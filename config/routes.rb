@@ -89,6 +89,8 @@ Rails.application.routes.draw do
   get 'users/admin', to: "users#admin"
   get 'users/admin-companies', to: "users#companies"
 
+  post '/marketplace_signup', to: 'guests#marketplace'
+
   get 'homes/faq', to: "home#faq", as: :faq
   get '/legal', to: "home#legal", as: :legal
   get '/contact', to: 'home#contact_us'
