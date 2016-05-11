@@ -99,5 +99,18 @@ and (max-device-width : 568px) {
     color: #FAFAFA!important;
     font-weight: bold;
   }
-
+  .market-place-subscribe-label{
+    margin-left: 15%;
+    margin-right: 15%;
+    font-weight: bold;
+    font-size: 50px;
+  }
+  #marketplace-text-field{
+    font-size:35px;
+    height: 60px !important;
+  }
+  #marketplace-submit-button{
+    font-size: 35px;
+    height: 60px;
+  }
 }
