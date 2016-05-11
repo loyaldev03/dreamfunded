@@ -11,9 +11,10 @@
 }
 .countdown-time{
   font-size: 127px;
-  color: #ececec;
+  color: #fff;
   font-family: Helvetica;
   font-weight: 600;
+  text-shadow: 2px 2px 6px #484848;
 }
 .countdown-sub-text{
   font-size: 60px;
