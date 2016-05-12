@@ -27,7 +27,18 @@ class GuestsController < ApplicationController
   end
 
   def marketplace
-    Guest.create(email: params[:email])
+    @guest = Guest.new(email: params[:email])
+    respond_to do |format|
+      if @guest.save
+        SubscribeJob.new.async.mailchimp_subscribe(@guest.id)
+        format.html { redirect_to root_path, notice: 'guest was successfully created.' }
+        format.json { render nothing: true, status: :created, location: @guest }
+        format.js {}
+      else
+        format.html { render :new }
+        format.json { render json: @guest.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
