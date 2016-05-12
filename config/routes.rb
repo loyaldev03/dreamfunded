@@ -89,6 +89,8 @@ Rails.application.routes.draw do
   get 'users/admin', to: "users#admin"
   get 'users/admin-companies', to: "users#companies"
 
+  get 'dreamfunded_portfolio', to: "home#portfolio"
+
   post '/marketplace_signup', to: 'guests#marketplace'
 
   get 'homes/faq', to: "home#faq", as: :faq
@@ -164,9 +166,9 @@ Rails.application.routes.draw do
   get '/get-funded_after', to: 'home#get_funded_after'
 
   get '/resources', to: 'home#resources'
-  get '/marketplace', to: 'home#marketplace'
+  get '/marketplace', to: 'homese#marketplace'
 
-  get '/portofolio', to: 'companies#index'
+  get '/portfolio', to: 'users#portfolio'
   get '/marketplace_companies', to: 'companies#nonaccredited_index'
   get '/dreamfunded-exchange', to: 'home#exchange'
   get '/our-team', to: 'members#index'

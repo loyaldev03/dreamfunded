@@ -3,7 +3,7 @@
           <ul class= "main-menu white">
 
             <!-- M O B I L E -->
-            <li id='mobile-menu'><button >Menu<span class="arrow">&#9660;</span></button>
+            <li id='mobile-menu'><button >Menu <span class="arrow"><i class="fa fa-caret-down" aria-hidden="true"></i></span></button>
               <ul class='sub-menu white'>
                 <!-- <li><button onclick= "whyInv()">Why Invest</button></li> -->
                 <% if user_session != nil && user_session.authority >= authority[:Accredited] %>
@@ -12,19 +12,27 @@
                   <li><button onclick= "location.href='/marketplace_companies ';">NonAccredited</button></li>
                 <% end %>
                 <li><button onclick="location.href='/dreamfunded-exchange';" >Sell Shares </button></li>
-                <li><button onclick= "news()">News</button></li>
                 <li><button onclick= "location.href='/events';">Events</button></li>
                 <li><button onclick="location.href='/education';" >Education</button></li>
-                <li><button onclick= "team()">Team</button></li>
-                <li><button onclick= "about()">About Us</button></li>
-                <li><button onclick= "faq()">FAQ</button></li>
                 <li><button onclick= "contact()">Contact Us</button></li>
                 <% if user_session == nil %>
                   <li><button onclick= "signIn()">Login</button></li>
                 <% else %>
-                  <li><button onclick= "profile()" >Welcome <%= user_session.first_name.capitalize%> <span class="arrow"></span></button></li>
                   <li><button onclick= "signOut()" >Sign Out</button></li>
                 <% end %>
+              </ul>
+            </li>
+
+            <li id='mobile-menu'><button >About <span class="arrow"><i class="fa fa-caret-down" aria-hidden="true"></i></span></button>
+              <ul class='sub-menu white'>
+                <li><button onclick= "about()">About Us</button></li>
+                <li><button onclick= "team()">Team</button></li>
+                <li><button onclick= "press()">Press</button></li>
+                <li><button onclick= "dreamfunded_portfolio()">Portfolio</button></li>
+                <li><button onclick= "how_it_works()">How It Works</button></li>
+                <li><button onclick= "faq()">FAQ</button></li>
+                <li><button onclick= "team()">Team</button></li>
+                <li><button onclick= "get_funded()">Get Funded</button></li>
               </ul>
             </li>
             <!-- M O B I L E   E N D -->

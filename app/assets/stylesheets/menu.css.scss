@@ -157,3 +157,15 @@ button {
 .invite-menu-button{
 	height: 70px !important;
 }
+
+
+/*M O B I L E*/
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+	.arrow{
+		font-size: 28px;
+	}
+
+}
