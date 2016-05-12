@@ -166,7 +166,7 @@ Rails.application.routes.draw do
   get '/get-funded_after', to: 'home#get_funded_after'
 
   get '/resources', to: 'home#resources'
-  get '/marketplace', to: 'homese#marketplace'
+  get '/marketplace', to: 'home#marketplace'
 
   get '/portfolio', to: 'users#portfolio'
   get '/marketplace_companies', to: 'companies#nonaccredited_index'
