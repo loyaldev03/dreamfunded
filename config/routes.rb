@@ -50,8 +50,8 @@ Rails.application.routes.draw do
   get 'auth/facebook/callback', to:'omniauth_callbacks#google_oauth2'
   post 'auth/facebook/callback', to:'omniauth_callbacks#google_oauth2'
 
-  get 'auth/yahoo_oauth2/callback', to:'omniauth_callbacks#google_oauth2'
-  post 'auth/yahoo_oauth2/callback', to:'omniauth_callbacks#google_oauth2'
+  get 'auth/yahoo/callback', to:'omniauth_callbacks#google_oauth2'
+  post 'auth/yahoo/callback', to:'omniauth_callbacks#google_oauth2'
 
   # B I D D I N G   S Y S T E M
   get 'bid/:id', to: "bids#bid"
