@@ -8,5 +8,9 @@ module ApplicationHelper
     content_for :description, descr.to_s
   end
 
+  def facebook_url(url)
+    content_for :url, url.to_s
+  end
+
 end
 
