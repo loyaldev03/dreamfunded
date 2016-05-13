@@ -62,3 +62,15 @@
   bottom: 0;
   right: 0;
 }
+@media only screen and (max-device-width: 568px) and (min-device-width: 320px) {
+  .press-posts-content {
+    width: 91%;
+  }
+  .press-post-inline, .press-quote, .press-post-name {
+    font-size: 30px;
+    font-weight: 500 !important;
+  }
+  .press-post-h1{
+    font-size: 58px;
+  }
+}
