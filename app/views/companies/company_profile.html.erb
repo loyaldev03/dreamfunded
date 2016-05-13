@@ -22,7 +22,7 @@
 				<div class= "profile-image-wrap"> <%= link_to image_tag( @company.image.url, :class => "stats-image"), @company.website_link %></div>
 				<div class= "numbers"><div class= "numbers-content">
 					<div class="meter orange">
-						<% @progress = ((@company.invested_amount.to_f / @company.goal_amount.to_f).to_f) *100 %>
+						<% @progress = ((@company.invested.to_f / @company.goal_amount.to_f).to_f) *100 %>
 						<% if @progress == 0 %>
 							<span class= "front" style="width: 5px"></span>
 						<% elsif @progress > 100 %>
@@ -37,7 +37,7 @@
 							</div>
 					<% if @company.status == 2 %>
 							<div>
-								<p class= "twenty no-margin center"><span class= "darkblue twenty">Invested: </span><%= number_to_currency @company.invested_amount, precision: 0 %><br><br> </p>
+								<p class= "twenty no-margin center"><span class= "darkblue twenty">Invested: </span><%= number_to_currency @company.invested, precision: 0 %><br><br> </p>
 							</div>
 							<div>
 								<p class= "twenty no-margin center"><span class= "darkblue twenty">Goal Amount: </span> <%= number_to_currency @company.goal_amount, precision: 0 %><br><br></p>

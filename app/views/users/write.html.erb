@@ -26,6 +26,7 @@
 			   	<th>Demote</th>
 			   	<th>Delete</th>
 			   	<th>Portfolio</th>
+			   	<th>Edit</th>
 				 </tr>
 				  	<% @users.each do |user| %>
 				  		<tr>
@@ -53,6 +54,7 @@
 									<% end %>
 								</td>
 								<td><%= link_to("Portfolio", portfolio_admin_path(user.id)) %></td>
+								<td><%= link_to("Edit", edit_user_path(user)) %></td>
 							</tr>
 					<% end %>
 				</table>

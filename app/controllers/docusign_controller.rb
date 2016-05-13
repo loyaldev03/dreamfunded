@@ -1,4 +1,3 @@
-
 class DocusignController < ApplicationController
   # the view corresponding to this action has the iFrame in it with the
   # @url as it's src. @envelope_response is populated from either:

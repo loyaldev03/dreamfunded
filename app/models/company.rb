@@ -82,4 +82,8 @@ class Company < ActiveRecord::Base
     days_left = ' ' if days_left <= 0
     days_left
   end
+
+  def invested
+    investments.pluck(:invested_amount).sum
+  end
 end
