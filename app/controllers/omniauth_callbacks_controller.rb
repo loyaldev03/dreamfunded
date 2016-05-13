@@ -33,4 +33,13 @@ class OmniauthCallbacksController < ApplicationController
   end
   alias_method :google, :google_oauth2
 
+   def omniauth_failure
+    p '$$$$$$$$$$$$$$$$$$$$$$$$$$$'
+    p params
+    flash[:signup_errors] = params.first.try(:last)
+
+    redirect_to new_user_path
+    #redirect wherever you want.
+  end
+
 end
