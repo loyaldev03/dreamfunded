@@ -124,6 +124,10 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hashie (3.4.3)
+    hellosign-ruby-sdk (3.2.11)
+      faraday
+      mime-types
+      multi_json
     hitimes (1.2.3)
     httparty (0.13.3)
       json (~> 1.8)
@@ -298,6 +302,7 @@ DEPENDENCIES
   friendly_id
   gibbon
   google_contacts_api
+  hellosign-ruby-sdk
   infusionsoft
   invisible_captcha
   jbuilder (~> 2.0)

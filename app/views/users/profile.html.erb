@@ -3,12 +3,12 @@
 	    <%= javascript_include_tag    'signup' %>
 	   <title>DreamFunded | Sign Up</title>
 	</head>
-	
+
 	<body>
 		<div class= "wrapper">
 			<div class= "header"><h1 class= "centered"> Profile </h1></div>
 			<div class= "word-content"><div class= "text-content">
-				<h3> Hello <%= @current_user.first_name %> </h3>
+				<h3> Hello <%= user_session.name %> </h3>
 			</div></div>
 		</div>
 	</body>

@@ -8,6 +8,8 @@ class Company < ActiveRecord::Base
 	has_many :documents
   has_many :liquidate_shares
 
+  has_many :docusigns
+
 
 	has_attached_file :image,
 	  :styles =>{

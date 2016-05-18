@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509183554) do
+ActiveRecord::Schema.define(version: 20160516235903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,12 @@ ActiveRecord::Schema.define(version: 20160509183554) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
+  end
+
+  create_table "docusigns", force: true do |t|
+    t.string  "envelope_id"
+    t.integer "user_id"
+    t.integer "company_id"
   end
 
   create_table "events", force: true do |t|

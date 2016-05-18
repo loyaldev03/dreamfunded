@@ -42,6 +42,7 @@ gem 'infusionsoft'
 gem 'newrelic_rpm'
 gem 'google_contacts_api'
 gem 'invisible_captcha'
+gem 'hellosign-ruby-sdk'
 
 
 gem 'will_paginate', '~> 3.0.5'

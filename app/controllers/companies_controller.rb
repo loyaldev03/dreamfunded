@@ -232,7 +232,7 @@ class CompaniesController < ApplicationController
     end
 
     def remove_founder
-		if params[:id] != nil
+			if params[:id] != nil
 	    	@founder = Founder.find(params[:id])
 	    	if @founder!= nil
 	    		@founder.destroy
@@ -243,7 +243,7 @@ class CompaniesController < ApplicationController
     end
 
     def approve_company
-		if params[:id] != nil
+			if params[:id] != nil
 	    	@company = Company.find(params[:id])
 	    	if @company != nil
 	    		@company.update_column :display, 1
@@ -259,10 +259,6 @@ class CompaniesController < ApplicationController
 			end
     end
 
-    def thank_you
-
-    end
-
     def submit_bid
     	user = session[:current_user]
     	investment = ProspectiveInvestment.create(user_id: user.id, first_name: user.first_name, last_name: user.last_name, email: user.email, phone: user.phone, shares_price: params[:shares_price], investment_amount: params[:investment_amount], company: params[:name], company_id: params[:id])
@@ -270,12 +266,163 @@ class CompaniesController < ApplicationController
 			redirect_to '/companies'
    	end
 
+    def thank_you
+   #  	@client = DocusignRest::Client.new
+   #  	envelope_id = Docusign.where(user_id: user_session.id).last.try(:envelope_id)
+			# @response = @client.get_envelope_recipients( envelope_id: envelope_id )
+			# p @response
+			# @status = @response["signers"].first["status"]
+			# @user_id = @response["signers"].first["userId"]
+
+			# @url = @client.get_recipient_view(
+			#   envelope_id: envelope_id,
+			#   name: user_session.name,
+			#   email: user_session.email,
+			#   userId: @user_id,
+			#   return_url: 'http://localhost:3000/payment'
+			# )
+			# p @url
+			@url = client.get_embedded_sign_url :signature_id => params[:signature_id]
+			p @url
+    end
+
+    def iframe
+    	@client = DocusignRest::Client.new
+    	envelope_id = Docusign.last.envelope_id
+			@response = @client.get_envelope_recipients( envelope_id: envelope_id )
+			@response
+			@status = @response["signers"].first["status"]
+    end
+
+
+    def docusign
+	  	buyer = user_session
+	   #  @client = DocusignRest::Client.new
+	   #  @document_envelope_response = @client.create_envelope_from_document(
+	   #    email: {
+	   #      subject: "test email subject",
+	   #      body: "this is the email body and it's large!"
+	   #    },
+	   #    # If embedded is set to true  in the signers array below, emails
+	   #    # don't go out to the signers and you can embed the signature page in an
+	   #    # iFrame by using the client.get_recipient_view method
+	   #    signers: [
+	   #      {
+	   #        embedded: false,
+	   #        name: buyer.name,
+	   #        email: buyer.email,
+	   #        role_name: 'buyer',
+	   #        sign_here_tabs: [
+	   #          {
+	   #            anchor_string: 'Signature of Member or Authorized Signatory',
+	   #            anchor_x_offset: '140',
+	   #            anchor_y_offset: '-28'
+	   #          }
+	   #        ],
+	   #        text_tabs: [
+	   #          {
+	   #            label: 'Print Name of Member',
+	   #            name: 'Print Name of Member',
+	   #            value:  buyer.name,
+	   #            anchor_string: 'Print Name of Member',
+	   #            anchor_x_offset: '140',
+	   #           	anchor_y_offset: '-28'
+	   #          },{
+	   #            label: 'Name of Authorized Signatory',
+	   #            name: 'Name of Authorized Signatory',
+	   #            value: '                   ',
+	   #            anchor_string: 'Name of Authorized Signatory',
+	   #            anchor_x_offset: '140',
+	   #           	anchor_y_offset: '-28'
+	   #          },
+	   #          {
+	   #            label: 'Title of Authorized Signatory',
+	   #            name: 'Title of Authorized Signatory',
+	   #            value: '                   ',
+	   #            anchor_string: 'Title of Authorized Signatory',
+	   #            anchor_x_offset: '140',
+	   #           	anchor_y_offset: '-28'
+	   #          },
+	   #          {
+	   #          	label: 'OFFICE/RESIDENCE',
+	   #            name: 'OFFICE/RESIDENCE',
+	   #            value: '                   ',
+	   #            anchor_string: 'OFFICE/RESIDENCE',
+	   #            anchor_x_offset: '150',
+	   #            anchor_y_offset: '-20'
+	   #          },
+	   #          {
+	   #          	label: 'SUBSCRIPTION AMOUNT',
+	   #            name: 'SUBSCRIPTION AMOUNT',
+	   #            value: '                   ',
+	   #            anchor_string: 'SUBSCRIPTION AMOUNT',
+	   #            anchor_x_offset: '150',
+	   #            anchor_y_offset: '-20'
+	   #          }
+	   #        ],
+	   #        date_signed_tabs: [
+	   #        	{
+	   #        		 anchor_string: 'Dated:',
+	   #        		 anchor_x_offset: '140',
+	   #        			anchor_y_offset: '-28'
+	   #        	},
+	   #        	{
+	   #        		 anchor_string: 'Fund Operating Agreement as of',
+	   #        		 anchor_x_offset: '240'
+	   #        	}
+	   #        ]
+
+	   #      }
+	   #    ],
+	   #    files: [
+	   #      {path: "#{Rails.root}/app/assets/doc/lyft.docx", name: 'lyft.docx'}
+	   #    ],
+	   #    status: 'sent'
+	   #  )
+	   #  p @document_envelope_response
+	   #  Docusign.create( envelope_id: @document_envelope_response["envelopeId"], user_id: buyer.id )
+	   client = HelloSign::Client.new :api_key => '40b22eff6addeb7f6368eab3c7bdfa890a1c1d433850d46423c1ddec7bdcf9ab'
+	   # @clent = client.create_embedded_signature_request(
+	   #     :test_mode => 1,
+	   #     :client_id => 'b25f62c73dbd65a5211131046a194789',
+	   #     :subject => 'My First embedded signature request',
+	   #     :message => 'Awesome, right?',
+	   #     :signing_redirect_url => "http://localhost:3000/payment",
+	   #     :signers => [
+	   #         {
+	   #             :email_address => 'alexandr.larionov88@gmail.com',
+	   #             :name => 'Alexandr Larionov'
+	   #         }
+	   #     ],
+	   #     :files => ["#{Rails.root}/app/assets/doc/lyft.docx"]
+	   # )
+	    @clent = client.create_embedded_signature_request_with_template(
+	       :test_mode => 1,
+	       :client_id => 'c0ea13cb32b929d77be5043c0fff5b9a',
+	       :template_id => '0edff0ac99ee54e26f8f99d0dedb63f7532dbdc3',
+	       :subject => 'Embedded signature request',
+	       :message => 'Fill this in.',
+	       :signers => [
+	           {
+	               :email_address => buyer.email,
+	               :name => buyer.name,
+	               :role => 'Buyer'
+	           }
+	       ]
+	    )
+	   p @clent
+	   @url = client.get_embedded_sign_url :signature_id => @clent.signatures.first.signature_id
+	   @url = @url.sign_url
+	   p @url
+	   #redirect_to action: "thank_you", signature_id: @clent.signature_request_id
+  	end
+
    private
    def verify
-   	user = User.find(session[:current_user])
-   	if user.confirmed == false
-   		redirect_to url_for(:controller => 'home', :action => 'unverified')
-   	end
+	   	user = User.find(session[:current_user])
+	   	if user.confirmed == false
+	   		redirect_to url_for(:controller => 'home', :action => 'unverified')
+	   	end
    end
 
    def section_params
@@ -289,4 +436,6 @@ class CompaniesController < ApplicationController
    def founder_params
    	params.require(:founder).permit(:image, :name, :position, :content, :company_id, :created_at, :updated_at)
    end
+
+
 end

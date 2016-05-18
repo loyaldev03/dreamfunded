@@ -145,6 +145,8 @@ Rails.application.routes.draw do
   post '/submit_payment', to: "payments#payment"
 
   get '/thank_you', to: "companies#thank_you"
+  get '/iframe', to: "companies#iframe"
+  get '/companies_docusign', to: "companies#docusign"
 
   root 'home#index'
   #URLs from old site
