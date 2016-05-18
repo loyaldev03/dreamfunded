@@ -172,6 +172,7 @@ Rails.application.routes.draw do
 
   get '/resources', to: 'home#resources'
   get '/marketplace', to: 'home#marketplace'
+  get '/book', to: 'home#book'
 
   get '/portfolio', to: 'users#portfolio'
   get '/marketplace_companies', to: 'companies#nonaccredited_index'
