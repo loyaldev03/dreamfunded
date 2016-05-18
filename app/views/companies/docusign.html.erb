@@ -44,7 +44,7 @@
       HelloSign.init("c0ea13cb32b929d77be5043c0fff5b9a");
       HelloSign.open({
           url: $('.paragraph').first().data('url'),
-          skipDomainVerification: true,
+          skipDomainVerification: false,
           allowCancel: true,
           redirectUrl: "http://localhost:3000/payment",
           messageListener: function(eventData) {
