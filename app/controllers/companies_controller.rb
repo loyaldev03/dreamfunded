@@ -381,32 +381,18 @@ class CompaniesController < ApplicationController
 	   #  )
 	   #  p @document_envelope_response
 	   #  Docusign.create( envelope_id: @document_envelope_response["envelopeId"], user_id: buyer.id )
-	   client = HelloSign::Client.new :api_key => '40b22eff6addeb7f6368eab3c7bdfa890a1c1d433850d46423c1ddec7bdcf9ab'
-	   # @clent = client.create_embedded_signature_request(
-	   #     :test_mode => 1,
-	   #     :client_id => 'b25f62c73dbd65a5211131046a194789',
-	   #     :subject => 'My First embedded signature request',
-	   #     :message => 'Awesome, right?',
-	   #     :signing_redirect_url => "http://localhost:3000/payment",
-	   #     :signers => [
-	   #         {
-	   #             :email_address => 'alexandr.larionov88@gmail.com',
-	   #             :name => 'Alexandr Larionov'
-	   #         }
-	   #     ],
-	   #     :files => ["#{Rails.root}/app/assets/doc/lyft.docx"]
-	   # )
+	   client = HelloSign::Client.new :api_key => '28f2f575cbddc72b62aef0714c1819a1b05c6c5a103b2704abf40a8e16e2a1ac'
 	    @clent = client.create_embedded_signature_request_with_template(
 	       :test_mode => 1,
 	       :client_id => 'c0ea13cb32b929d77be5043c0fff5b9a',
-	       :template_id => '0edff0ac99ee54e26f8f99d0dedb63f7532dbdc3',
+	       :template_id => '1aa51edbc3fb7f6a52985e1299868fcc635ef9db',
 	       :subject => 'Embedded signature request',
 	       :message => 'Fill this in.',
 	       :signers => [
 	           {
 	               :email_address => buyer.email,
 	               :name => buyer.name,
-	               :role => 'Buyer'
+	               :role => 'DreamFunded Member'
 	           }
 	       ]
 	    )
