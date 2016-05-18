@@ -10,34 +10,38 @@
 
 .news-single-container {
 	width: 77%;
-	height: 250px;
+	/*height: 250px;*/
 	margin: 30px auto;
 	padding: 30px;
 	background: white;
 	position: relative;
 }
 
-.news-image {
-	float: left;
-  overflow: hidden;
-  position: relative;
-}
 
 .no-top-margin{
 	margin-top: 0 !important;
 }
 
 .article-image {
-	width: 250px;
+	width: auto;
   height: auto;
   max-height: 250px;
+  max-width: 100%;
+}
+
+.news-image {
+	display: inline-block;
+  overflow: hidden;
+  position: relative;
+  width: 23%;
 }
 
 .news {
 	margin-left: 30px;
 	width: 70%;
-	float: left;
 	padding: 15px;
+	vertical-align: top;
+	display: inline-block;
 }
 
 .smaller {

@@ -1,0 +1,222 @@
+/* line 11, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/colors.css.scss */
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+}
+
+/* line 7, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.creation-wrap {
+  width: 550px;
+}
+
+/* line 11, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.news-single-container {
+  width: 77%;
+  /*height: 250px;*/
+  margin: 30px auto;
+  padding: 30px;
+  background: white;
+  position: relative;
+}
+
+/* line 21, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.no-top-margin {
+  margin-top: 0 !important;
+}
+
+/* line 25, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.article-image {
+  width: auto;
+  height: auto;
+  max-height: 250px;
+  max-width: 100%;
+}
+
+/* line 32, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.news-image {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  width: 23%;
+}
+
+/* line 39, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.news {
+  margin-left: 30px;
+  width: 70%;
+  padding: 15px;
+  vertical-align: top;
+  display: inline-block;
+}
+
+/* line 47, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.smaller {
+  margin: 20px 0;
+  width: 130px;
+}
+
+/* line 52, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.title-container {
+  font-size: 30px;
+  color: #10a1d6;
+  border-bottom: 1px solid gray;
+  /*overflow: hidden;
+  height: 40px;*/
+}
+
+/* line 60, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.content-container {
+  margin: 10px 30px;
+  height: 90px;
+  overflow: hidden;
+  font-size: 18px;
+}
+
+/* line 67, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.point {
+  font-size: 20px;
+}
+
+/* line 71, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.article-button {
+  display: inline-block;
+  margin-top: 10px;
+  color: white;
+  border: none;
+  padding: 10px 50px;
+  background: #10a1d6;
+  font-size: 18px;
+  cursor: pointer;
+  font-family: BlinkMacSystemFont;
+}
+
+/* line 83, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.article-button:focus {
+  outline: none;
+}
+
+/* line 87, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.center {
+  text-align: center;
+}
+
+/* line 91, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.title {
+  font-size: 30px;
+}
+
+/* line 95, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.topbar {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  height: 30px;
+}
+
+/* line 101, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.full-image {
+  max-width: 550px;
+  max-height: 550px;
+  float: left;
+  margin: 0 40px 40px 0;
+}
+
+/* line 107, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.full-photo {
+  max-width: 300px;
+  max-height: 550px;
+  float: left;
+  margin: 0 40px 40px 0;
+  border-radius: 50%;
+}
+
+/* line 115, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.article {
+  font-size: 17px;
+  line-height: 150%;
+}
+
+/* line 120, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.book-article {
+  text-align: justify;
+}
+
+/* line 124, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.description-box {
+  width: 95%;
+  height: 200px;
+  margin: 2%;
+  border: none;
+  outline: 0;
+  font-size: 16px;
+}
+
+/* line 133, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.source {
+  margin: 10px;
+  height: 15px;
+}
+
+/* line 138, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.page {
+  min-height: 450px;
+}
+
+/* line 142, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.art-text {
+  min-height: 400px;
+}
+
+/* line 145, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+.news-read-more-buton {
+  text-align: center;
+}
+
+/*i P A D*/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* line 152, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+  .news-single-container {
+    width: 90%;
+    height: 285px;
+  }
+
+  /* line 156, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+  .news {
+    width: 64%;
+  }
+
+  /* line 159, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+  .news .title-container {
+    font-family: Geneva, Helvetica;
+  }
+
+  /* line 162, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+  .news .content-container {
+    font-family: Geneva, Helvetica;
+  }
+}
+/*M O B I L E*/
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+  /* line 170, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+  .full-image {
+    float: none !important;
+  }
+
+  /* line 173, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+  .article-overlfow {
+    overflow-x: auto;
+  }
+
+  /* line 176, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+  .news .title-container {
+    font-family: Geneva, Helvetica;
+  }
+
+  /* line 179, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+  .news .content-container {
+    font-family: Geneva, Helvetica;
+  }
+
+  /* line 182, /Users/apprentice/Desktop/dreamfunded_repo/app/assets/stylesheets/news.css.scss */
+  .article-button {
+    font-family: Helvetica;
+  }
+}
