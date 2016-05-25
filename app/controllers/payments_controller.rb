@@ -62,7 +62,10 @@ class PaymentsController < ApplicationController
       p "Card Declined #{tran.result} "
       p "Reason: #{tran.error}"
     end
-    redirect_to payment_path
+    redirect_to congratulation_path
+  end
+
+  def congrats
   end
 
   private
