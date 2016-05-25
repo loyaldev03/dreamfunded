@@ -1,0 +1,34 @@
+<% title "SSL Secured" %>
+<div class= "wrapper">
+  <div class="header-container shadow">
+    <div class= "header centered"><h2 id='payment-title'>Please Complete Your Investment Below</h2></div>
+  </div>
+
+  <div class= " payment-box centered">
+    <%= form_tag( '/submit_payment', method: :post) do %>
+      <p class='payment-form'>Name<br>
+        <%= text_field_tag(:name, user_session.name ) %>
+      </p>
+
+      <p class='payment-form'>Routing Number<br>
+      <%= text_field_tag(:routing, nil ) %>
+      </p>
+
+      <p class='payment-form'>Account Number<br>
+        <%= text_field_tag(:account, nil ) %>
+      </p>
+
+
+      <p class='payment-form'>Investment Amount<br>
+      <%= text_field_tag(:amount, @amount   ) %>
+      </p>
+
+      <%= submit_tag "Invest", id: 'submit-button'%>
+    <% end %>
+  <p>
+    <b><%= flash[:message] %></b>
+  </p>
+  </div>
+
+  </div>
+</div>

@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 	has_many :liquidate_shares
 	has_many :bids
 
+	has_one :investor
+
 	has_many :docusigns
 	#Getter
 	validates :first_name, presence:true

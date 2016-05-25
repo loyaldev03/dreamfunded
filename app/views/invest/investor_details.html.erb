@@ -1,0 +1,51 @@
+
+<% title "DreamFunded | Get Funded" %>
+<div class= "wrapper"><div class= "box get-funded ">
+
+  <div class="row">
+    <div class=" active">
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Investor Type</a></h2>
+      <br>
+    </div>
+  </div>
+
+  <div class= "login-container">
+    <%= form_tag "/investor_details_submit/#{@company.name}", method: :post,  multipart: true do %>
+      <%= hidden_field_tag :user_id, @user.id %>
+      <label>What type of investor are you?</label>
+      <div class="styled-select select-full-width" >
+        <%= select_tag(:investor_type, options_for_select([ "non-accredited investor", "accredited investor" ]) ) %><br>
+      </div>
+
+      <%= text_field_tag(:annual_income, nil ,:placeholder => "Annual Income", :class => "input-box") %><br>
+      <%= text_field_tag(:new_worth, nil ,:placeholder => "Net Worth", :class => "input-box") %><br>
+
+      <label>Are you a US citizen or legal permanent resident?</label>
+      <div class="styled-select select-full-width" >
+        <%= select_tag(:us_citizen, options_for_select([ "Yes", "No" ]) ) %><br>
+      </div>
+      <br><br>
+
+      <label>Are you exempt from backup withholding?</label>
+      <div class="styled-select select-full-width" >
+        <%= select_tag(:exempt_withholding, options_for_select([ ["I am exempt from backup withholding.", 'yes'], ["I am subject to backup withholding. (Only check this option if you've been notified by the IRS that you are subject to backup withholding.)",'no'] ]) ) %><br>
+      </div>
+      <div class="password-six-chars">The majority of people are exempt from backup withholding. All individuals subject to backup withholding must be notified by the IRS.</div>
+      <br>
+
+      <div>
+        <label>Customer Agreement</label><br>
+        <input type='checkbox' required ><span> Accept <a href='#'>customer agreement.</a></span>
+      </div>
+
+      <div class = "notice centered">
+        <%= flash[:errors] if flash[:errors] %>
+      </div>
+
+      <div class= "centered">
+        <%= submit_tag("Continue", :id => "submit-button") %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

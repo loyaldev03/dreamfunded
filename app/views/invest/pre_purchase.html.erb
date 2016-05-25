@@ -1,0 +1,68 @@
+<% title "DreamFunded | Get Funded" %>
+<div class= "wrapper"><div class= "box get-funded ">
+
+  <div class="row">
+    <div class=" active">
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Invest in <%= @company.name %></a></h2>
+      <br>
+
+    </div>
+  </div>
+
+  <div class='pre_purchase_investment_details' data-price="<%= @company.suggested_target_price %>">
+    <div class='invest_column'><strong>$<%= company_price(@company) %> </strong><br> Per Share</div>
+    <div class='invest_column'><strong>30 Shares </strong><br> Minimum Investment </div>
+    <div class='invest_column'><strong>2,500 Shares </strong><br> Maximum Investment </div>
+  </div>
+
+  <div class= "login-container">
+    <%= form_tag "/pre_purchase_submit/#{@company.name}", method: :post,  multipart: true do |f| %>
+      <%= hidden_field_tag :user_id, @user.id %>
+
+      <div>How many <strong>shares</strong> would you like to purchase?</div>
+
+       <%= text_field_tag(:share_amount, nil ,:placeholder => "30 minimum - 2500 maximum", :class => " purchase_box", id: 'share_number') %>
+       <strong class='center some_margin_left'><label><span id='share_amount'>30</span> shares for $<span id="share_price">60.00</span></label></strong>
+
+      <h4 class= "question">Please check all of the following:</h4>
+      <div class='checkbox_agreement'>
+        <input type='checkbox' required ><span>   I acknowledge that I have reviewed and understand the educational materials and that this investment is at risk and may be lost</span>
+      </div>
+
+      <div class='checkbox_agreement'>
+        <input type='checkbox' required ><span> I acknowledge that, by completing this investment commitment, I can cancel my investment at any time up until 48 hours prior to the target offering deadline. If I do not cancel my investment at that time, my funds will be invested if the offering has reached the target funding goal.</span>
+      </div>
+
+      <div class='checkbox_agreement'>
+        <input type='checkbox' required ><span>  I acknowledge it may be difficult to resell the securities I acquire. I understand they are generally restricted from resale for one year after date of purchase. I understand when the securities are no longer restricted, no market may exist to sell them, and because of changes in law or regulation they may lose their exemption from registration under the Securities Act of 1933.</span>
+      </div>
+
+      <div class='checkbox_agreement'>
+        <input type='checkbox' required ><span>  I acknowledge that during the past 12 months my total investments in Regulation Crowdfunding offerings, including this investment, will not exceed the investment limit applicable to my income or net worth. A few examples of investor limitations based on Investor Annual Income and Investor Net Worth can be found here.</span>
+      </div>
+
+
+
+      <div class = "notice centered">
+        <%= flash[:errors] if flash[:errors] %>
+      </div>
+
+      <div class= "centered">
+        <%= submit_tag("Continue", :id => "submit-button") %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  $('#share_number').keyup(function(){
+
+    value = $(this).val();
+    $("#share_amount").html(value);
+
+    price = $(".pre_purchase_investment_details").data("price")
+
+    total = value * price
+    $("#share_price").html(total);
+  });
+</script>

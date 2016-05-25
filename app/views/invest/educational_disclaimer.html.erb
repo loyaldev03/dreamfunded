@@ -1,0 +1,35 @@
+<% title "DreamFunded | Get Funded" %>
+<div class= "wrapper"><div class= "box get-funded ">
+
+  <div class="row">
+    <div class=" active">
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Educational Disclaimer</a></h2>
+      <br>
+      <h4 class= "question">Please thoroughly review all educational information and acknowledge that you understand the process and associated risks with the offering before proceeding.
+      </h4>
+    </div>
+  </div>
+
+  <div class= "login-container">
+    <%= form_tag "/educational_disclaimer_submit/#{@company.name}", method: :post,  multipart: true do |f| %>
+      <%= hidden_field_tag :user_id, @user.id %>
+
+      <div class='little-margin' > View and download <a href='#'>Educational Materials</a> here.</div>
+
+       <%= text_field_tag(:name, nil ,:placeholder => "Sign your name in the field below by typing your full name", :class => "input-box", required: true) %><br>
+
+      <div>
+        <input type='checkbox' required ><span> I have read and understand the educational materials above.</span>
+      </div>
+
+      <div class = "notice centered">
+        <%= flash[:errors] if flash[:errors] %>
+      </div>
+
+      <div class= "centered">
+        <%= submit_tag("Continue", :id => "submit-button") %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

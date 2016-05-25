@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: myapp_dev
+  database: dreamfundedvc
   pool: 5
   # username: MinKim
   # password:
