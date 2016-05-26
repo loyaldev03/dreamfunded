@@ -17,8 +17,8 @@
         <%= select_tag(:investor_type, options_for_select([ "non-accredited investor", "accredited investor" ]) ) %><br>
       </div>
 
-      <%= text_field_tag(:annual_income, nil ,:placeholder => "Annual Income", :class => "input-box") %><br>
-      <%= text_field_tag(:new_worth, nil ,:placeholder => "Net Worth", :class => "input-box") %><br>
+      <%= text_field_tag(:annual_income, nil ,:placeholder => "Annual Income", :class => "input-box", required: true) %><br>
+      <%= text_field_tag(:new_worth, nil ,:placeholder => "Net Worth", :class => "input-box", required: true) %><br>
 
       <label>Are you a US citizen or legal permanent resident?</label>
       <div class="styled-select select-full-width" >
