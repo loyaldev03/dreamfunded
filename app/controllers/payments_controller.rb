@@ -7,14 +7,16 @@ class PaymentsController < ApplicationController
 	end
 
   def payment
+    shares = params[:number_of_shares]
+    company_id = params[:company_id]
     tran=UmTransaction.new
     # Merchants Source key must be generated within the console
     tran.key="azIZnB64RLfnc7yFhWbidTGTgkdq5p36"
-    #tran.key="p3681m70sjSf25eG2wplW7Y6MhTvdPD3"
+    # tran.key="p3681m70sjSf25eG2wplW7Y6MhTvdPD3"
 
     # Send request to sandbox server not production.  Make sure to comment or remove this line before
     #  putting your code into production
-    tran.usesandbox=false
+    tran.usesandbox = false
 
     # tran.card="4111111111111111"
     # tran.exp="0919"
@@ -47,6 +49,7 @@ class PaymentsController < ApplicationController
     tran.process
     flash[:message] = tran.error
     if tran.resultcode.to_s=="A"
+    if true
     then
       flash[:message] = tran.result
       flash[:message] = "Thank you. Your investment has been completed. You will receive an email from DreamFunded within 24 hours or less."
@@ -57,18 +60,25 @@ class PaymentsController < ApplicationController
 
       # if referral give 100$
       addCreditForReferral
+      createInvestment( params[:amount], company_id, shares)
+      redirect_to congratulation_path(company_id)
     else
 
       p "Card Declined #{tran.result} "
       p "Reason: #{tran.error}"
+      redirect_to :back
     end
-    redirect_to congratulation_path
   end
 
   def congrats
   end
 
   private
+
+  def createInvestment(amount, company_id, shares)
+    Investment.create(user_id: user_session.id, company_id: company_id, invested_amount: amount, number_of_shares: shares)
+  end
+
 
   def addCreditForReferral
     invite = Invite.find_by(email: user_session.email)

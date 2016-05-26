@@ -41,10 +41,12 @@ class InvestController < ApplicationController
   def pre_purchase_submit
     number_of_shares = params[:share_amount]
     amount = @company.suggested_target_price * number_of_shares.to_i
-    redirect_to(:action => :payment, amount: amount)
+    redirect_to(:action => :payment, amount: amount,number_of_shares: number_of_shares, company_id: @company.id)
   end
 
   def payment
+    @number_of_shares = params[:number_of_shares]
+    @company_id = params[:company_id]
     @amount = params[:amount]
   end
 
