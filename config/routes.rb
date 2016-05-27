@@ -38,6 +38,11 @@ Rails.application.routes.draw do
   post '/pre_purchase_submit/:name', to: 'invest#pre_purchase_submit'
   get '/investment_payment', to: 'invest#payment'
 
+  # Company Compaign Submit
+  get '/funding_goal', to: 'campaigns#funding_goal'
+  post '/funding_goal_submit', to: 'campaigns#funding_goal_submit'
+  get '/campaign_basics', to: 'campaigns#basics', as: 'campaign_basics'
+
 
   match "/diversity-tech-angels-earn-wings/" => redirect("https://dreamfundedsf.wpengine.com/diversity-tech-angels-earn-wings/"), via: 'get'
 

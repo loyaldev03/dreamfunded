@@ -9,6 +9,7 @@ class Company < ActiveRecord::Base
   has_many :liquidate_shares
 
   has_many :docusigns
+  has_one :campaign
 
 
 	has_attached_file :image,

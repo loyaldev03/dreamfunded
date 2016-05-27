@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160526222936) do
+ActiveRecord::Schema.define(version: 20160527201039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,13 @@ ActiveRecord::Schema.define(version: 20160526222936) do
     t.string   "status",           default: "pending"
     t.float    "bid_amount"
     t.integer  "counter_amount",   default: 0
+  end
+
+  create_table "campaigns", force: true do |t|
+    t.integer "company_id"
+    t.integer "funding_goal"
+    t.string  "tagline"
+    t.string  "category"
   end
 
   create_table "ckeditor_assets", force: true do |t|

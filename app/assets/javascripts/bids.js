@@ -4,6 +4,8 @@
   };
   function addCommas(nStr) {
     nStr = nStr.replaceAll(',', '');
+    nStr = nStr.replaceAll('$', '');
+    nStr = nStr.replaceAll(' ', '');
     nStr += '';
     var x = nStr.split('.');
     var x1 = x[0];
