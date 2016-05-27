@@ -21,7 +21,7 @@
 
       <div>How many <strong>shares</strong> would you like to purchase?</div>
 
-       <%= text_field_tag(:share_amount, nil ,:placeholder => "30 minimum - 2500 maximum", :class => " purchase_box", id: 'share_number') %>
+       <%= text_field_tag(:share_amount, nil ,:placeholder => "30 minimum - 2500 maximum", :class => " purchase_box", id: 'share_number', required: true) %>
        <strong class='center some_margin_left'><label><span id='share_amount'>30</span> shares for $<span id="share_price">60.00</span></label></strong>
 
       <h4 class= "question">Please check all of the following:</h4>

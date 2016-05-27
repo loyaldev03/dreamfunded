@@ -49,7 +49,6 @@ class PaymentsController < ApplicationController
     tran.process
     flash[:message] = tran.error
     if tran.resultcode.to_s=="A"
-    if true
     then
       flash[:message] = tran.result
       flash[:message] = "Thank you. Your investment has been completed. You will receive an email from DreamFunded within 24 hours or less."
@@ -61,7 +60,8 @@ class PaymentsController < ApplicationController
       # if referral give 100$
       addCreditForReferral
       createInvestment( params[:amount], company_id, shares)
-      redirect_to congratulation_path(company_id)
+      company_name = Company.find(company_id).name
+      redirect_to congratulation_path(company_name)
     else
 
       p "Card Declined #{tran.result} "
@@ -71,6 +71,7 @@ class PaymentsController < ApplicationController
   end
 
   def congrats
+    @company_name = params[:name]
   end
 
   private
