@@ -1,1 +1,51 @@
-Basics
+<% title "DreamFunded | Invest" %>
+<div class= "wrapper"><div class= "box get-funded ">
+
+  <div class="row">
+    <div class=" active">
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Basic Company Information</a></h2>
+      <br>
+      <h3 class= "darkblue no-margin centered">This is the first step in creating your campaign.</h3>
+    </div>
+  </div>
+
+  <div class= "login-container">
+    <%= form_for Company.new, :url => {:action => "basics_submit"} do |f| %>
+      <%= hidden_field_tag :campaign_id, @campaign_id %>
+      <%= f.hidden_field :user_id, value: user_session.id %>
+      <%= f.text_field :name, placeholder: 'Company Name',:class => "input-box", required:true %>
+      <br>
+      <%= text_field_tag :tagline, nil,placeholder: 'Describe your company in one sentence',:class => "input-box", required:true %>
+      <br>
+      <label>Category</label>
+      <div class="styled-select select-100-width" >
+        <%= select_tag(:category, options_for_select(company_categories), required:true ) %><br>
+      </div>
+
+      <%= f.text_area :description, placeholder: 'Short Description about your company', class: 'userbox campaign_text_area_width', rows: 6, required:true %>
+
+      <%= f.text_field :website_link, placeholder: 'Website', :class => "input-box", required:true %><br>
+
+      <label>Company Logo</label>
+      <%= f.file_field :image, required:true %>
+
+
+      <div class = "notice centered">
+        <%= flash[:errors] if flash[:errors] %>
+      </div>
+
+      <div class= "centered">
+        <%= submit_tag("Continue", :id => "submit-button") %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+
+<script type="text/javascript">
+   $( "#funding_goal" ).keyup(function() {
+       var value = addCommas( $( this ).val() );
+       value = "$ " + value
+       $( this ).val( value );
+   });
+</script>

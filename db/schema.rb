@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527201039) do
+ActiveRecord::Schema.define(version: 20160528003328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,10 @@ ActiveRecord::Schema.define(version: 20160527201039) do
     t.integer "funding_goal"
     t.string  "tagline"
     t.string  "category"
+    t.text    "elevator_pitch"
+    t.text    "tags"
+    t.text    "about_campaign"
+    t.integer "employees_numer"
   end
 
   create_table "ckeditor_assets", force: true do |t|

@@ -41,7 +41,10 @@ Rails.application.routes.draw do
   # Company Compaign Submit
   get '/funding_goal', to: 'campaigns#funding_goal'
   post '/funding_goal_submit', to: 'campaigns#funding_goal_submit'
-  get '/campaign_basics', to: 'campaigns#basics', as: 'campaign_basics'
+  get '/campaign_basics/:id', to: 'campaigns#basics', as: 'campaign_basics'
+  post '/basics_submit', to: 'campaigns#basics_submit'
+  get '/company_description/:id', to: 'campaigns#description', as: 'description'
+  post '/company_description_submit', to: 'campaigns#company_description_submit'
 
 
   match "/diversity-tech-angels-earn-wings/" => redirect("https://dreamfundedsf.wpengine.com/diversity-tech-angels-earn-wings/"), via: 'get'

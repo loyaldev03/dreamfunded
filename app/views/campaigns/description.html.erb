@@ -1,0 +1,46 @@
+<% title "DreamFunded | Invest" %>
+<div class= "wrapper"><div class= "box get-funded ">
+
+  <div class="row">
+    <div class=" active">
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Campaign Details</a></h2>
+      <br>
+      <h3 class= "darkblue no-margin centered">Share your story, build a community.</h3>
+    </div>
+  </div>
+
+  <div class= "login-container">
+    <%= form_for Campaign.new, :url => {:action => "basics_submit"} do |f| %>
+
+      <%= text_field_tag :video_link,nil,  placeholder: 'Select Video',:class => "input-box", required:true %>
+      <br>
+
+      <%= f.text_area :elevator_pitch, placeholder: 'Write Elevation Pitch. What makes your company exceptional? Why should the crowd invest in your company?  ', class: 'userbox campaign_text_area_width', rows: 6, required:true %>
+
+      <%= text_field_tag :tags, nil, placeholder: 'Tags (optional)',:class => "input-box", required:true %>
+      <br>
+
+      <%= f.text_area :about_campaign, placeholder: 'About Your Campaign', class: 'userbox campaign_text_area_width', rows: 6, required:true %>
+
+      <%= f.text_field :employees_numer, placeholder: 'Number of Current Employees', :class => "input-box", required:true %>
+
+
+      <div class = "notice centered">
+        <%= flash[:errors] if flash[:errors] %>
+      </div>
+
+      <div class= "centered">
+        <%= submit_tag("Continue", :id => "submit-button") %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+
+<script type="text/javascript">
+   $( "#funding_goal" ).keyup(function() {
+       var value = addCommas( $( this ).val() );
+       value = "$ " + value
+       $( this ).val( value );
+   });
+</script>
