@@ -10,8 +10,7 @@
   </div>
 
   <div class= "login-container">
-    <%= form_for Campaign.new, :url => {:action => "basics_submit"} do |f| %>
-
+    <%= form_for @campaign, :url => {:action => "basics_submit"} do |f| %>
       <%= text_field_tag :video_link,nil,  placeholder: 'Select Video',:class => "input-box", required:true %>
       <br>
 
