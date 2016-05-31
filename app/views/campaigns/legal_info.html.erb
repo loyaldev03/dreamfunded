@@ -10,7 +10,61 @@
   </div>
 
   <div class= "login-container">
+    <%= form_for @campaign, :url => {:action => "legal_info_submit"},method: "post" do |f| %>
 
+      <%= f.text_field :legal_company_name, placeholder: 'Legal Company Name',:class => "campaign-input-box ", required:true %>
+      <%= f.text_field :employer_id_number, placeholder: 'Employer ID Number',:class => "campaign-input-box ", required:true %>
+      <%= f.text_field :state_where_incorporated, placeholder: 'State Where Incorporated',:class => "campaign-input-box ", required:true %>
+      <%= f.text_field :office_location, placeholder: 'Main Office Location',:class => "campaign-input-box ", required:true %>
+      <%= f.text_field :date_formed, placeholder: 'Date Company was Formed',:class => "campaign-input-box", required:true %>
+
+      <div class='get-funded-section-name'>
+        Company Location
+      </div>
+      <%= f.text_field :company_location_address, placeholder: 'Address',:class => "campaign-input-box", required:true %>
+      <%= f.text_field :company_location_city, placeholder: 'City',:class => "campaign-input-box", required:true %>
+      <%= f.text_field :company_location_state, placeholder: 'State',:class => "campaign-input-box", required:true %>
+      <%= f.text_field :company_location_zipcode, placeholder: 'Zipcode',:class => "campaign-input-box", required:true %>
+
+      <div class='get-funded-section-name'>
+        Company Contact Info
+      </div>
+      <%= f.text_field :company_contact_info_name, placeholder: "Person to contact's full name",:class => "campaign-input-box", required:true %>
+      <%= f.text_field :company_contact_info_email, placeholder: 'Email',:class => "campaign-input-box", required:true %>
+      <%= f.text_field :company_contact_info_phone, placeholder: 'Phone',:class => "campaign-input-box", required:true %>
+
+      <div class='get-funded-section-name'>
+        Legal Contact Info
+      </div>
+      <%= f.text_field :legal_contact_info_name, placeholder: "Legal contact's full name",:class => "campaign-input-box", required:true %>
+      <%= f.text_field :legal_contact_info_email, placeholder: "Legal contact's Email",:class => "campaign-input-box", required:true %>
+      <%= f.text_field :legal_contact_info_phone, placeholder: "Legal contact's Phone",:class => "campaign-input-box", required:true %>
+      <%= f.text_field :legal_contact_info_firm, placeholder: "Name of Firm",:class => "campaign-input-box", required:true %>
+      <%= f.text_field :legal_contact_info_website, placeholder: "Website",:class => "campaign-input-box", required:true %>
+
+      <div class='get-funded-section-name'>
+        Accounting Contact Info
+      </div>
+      <%= f.text_field :accounting_info_name, placeholder: "Accounting contact's full name",:class => "campaign-input-box", required:true %>
+      <%= f.text_field :accounting_info_email, placeholder: "Accounting contact's Email",:class => "campaign-input-box", required:true %>
+      <%= f.text_field :accounting_info_phone, placeholder: "Accounting contact's Phone",:class => "campaign-input-box", required:true %>
+      <%= f.text_field :accounting_info_firm, placeholder: "Name of Firm",:class => "campaign-input-box", required:true %>
+      <%= f.text_field :accounting_info_website, placeholder: "Website",:class => "campaign-input-box", required:true %>
+
+
+      <div class='get-funded-section-name'>
+        State Filing Number
+      </div>
+      <%= f.text_field :state_filing_number, placeholder: "State Filing Number",:class => "input-box", required:true %>
+
+      <div class = "notice centered">
+        <%= flash[:errors] if flash[:errors] %>
+      </div>
+
+      <div class= "centered">
+        <%= submit_tag("Continue", :id => "submit-button") %>
+      </div>
+    <% end %>
   </div>
 
 </div>

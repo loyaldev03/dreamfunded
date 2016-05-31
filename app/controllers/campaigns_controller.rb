@@ -37,6 +37,10 @@ class CampaignsController < ApplicationController
 
   def legal_info
     @campaign = Campaign.find(params[:id])
+    @company = @campaign.company
+  end
+
+  def legal_info_submit
   end
 
   def financial

@@ -15,3 +15,13 @@
 .campaign_text_area_width {
   width: 97.7% !important;
 }
+.campaign-input-box {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid gray;
+  border-right: 1px solid white;
+  padding: 3px 6px;
+  font-size: 16px;
+  width: 44%;
+  margin: 0 10px 30px 0;
+}

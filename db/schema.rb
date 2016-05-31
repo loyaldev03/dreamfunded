@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160528003328) do
+ActiveRecord::Schema.define(version: 20160531174154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,29 @@ ActiveRecord::Schema.define(version: 20160528003328) do
     t.text    "tags"
     t.text    "about_campaign"
     t.integer "employees_numer"
+    t.string  "legal_company_name"
+    t.string  "employer_id_number"
+    t.string  "state_where_incorporated"
+    t.string  "office_location"
+    t.date    "date_formed"
+    t.string  "company_location_address"
+    t.string  "company_location_city"
+    t.string  "company_location_state"
+    t.string  "company_location_zipcode"
+    t.string  "company_contact_info_name"
+    t.string  "company_contact_info_email"
+    t.string  "company_contact_info_phone"
+    t.string  "legal_contact_info_name"
+    t.string  "legal_contact_info_email"
+    t.string  "legal_contact_info_phone"
+    t.string  "legal_contact_info_firm"
+    t.string  "legal_contact_info_website"
+    t.string  "accounting_info_name"
+    t.string  "accounting_info_email"
+    t.string  "accounting_info_phone"
+    t.string  "accounting_info_firm"
+    t.string  "accounting_info_website"
+    t.string  "state_filing_number"
   end
 
   create_table "ckeditor_assets", force: true do |t|
