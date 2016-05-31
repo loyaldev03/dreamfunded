@@ -1,5 +1,17 @@
 <% title "DreamFunded | Invest" %>
-<div class= "wrapper"><div class= "box get-funded ">
+<div class= "wrapper">
+
+  <div class="header education-center">
+    <div class='education-title'>Edit My Campaign</div>
+    <a href="/funding_goal" class='education-links '>Funding Goal</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links '>Basics</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links '>Description</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links active-link'> Legal Info </a> <%= fa_icon "chevron-right"%>
+    <span href="#" class='education-links disabled-link'> Financial Info </span>
+  </div>
+
+
+  <div class= "campaign-box get-funded ">
 
   <div class="row">
     <div class=" active">
@@ -11,12 +23,15 @@
 
   <div class= "login-container">
     <%= form_for @campaign, :url => {:action => "legal_info_submit"},method: "post" do |f| %>
-
+      <%= hidden_field_tag :campaign_id, @campaign.id %>
       <%= f.text_field :legal_company_name, placeholder: 'Legal Company Name',:class => "campaign-input-box ", required:true %>
       <%= f.text_field :employer_id_number, placeholder: 'Employer ID Number',:class => "campaign-input-box ", required:true %>
       <%= f.text_field :state_where_incorporated, placeholder: 'State Where Incorporated',:class => "campaign-input-box ", required:true %>
       <%= f.text_field :office_location, placeholder: 'Main Office Location',:class => "campaign-input-box ", required:true %>
-      <%= f.text_field :date_formed, placeholder: 'Date Company was Formed',:class => "campaign-input-box", required:true %>
+      <div class='get-funded-section-name'>
+        Date Company was Formed
+      </div>
+      <%= f.date_field :date_formed, placeholder: 'Date Company was Formed',:class => "campaign-input-box", required:true %>
 
       <div class='get-funded-section-name'>
         Company Location

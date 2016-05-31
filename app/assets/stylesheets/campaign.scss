@@ -25,3 +25,21 @@
   width: 44%;
   margin: 0 10px 30px 0;
 }
+.campaign-box {
+    margin: 0 auto;
+    font-family: "Lato", sans-serif;
+    border: none;
+    background: #ffffff;
+    padding: 20px 40px 40px 40px;
+}
+.active-link{
+  border-bottom: 2px solid white;
+  text-decoration: none;
+}
+.disabled-link{
+  cursor: default;
+  text-decoration: none;
+}
+.disabled-link:hover{
+  text-decoration: none;
+}

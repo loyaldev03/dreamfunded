@@ -41,12 +41,24 @@ class CampaignsController < ApplicationController
   end
 
   def legal_info_submit
+    @campaign = Campaign.find(params[:campaign_id])
+    @campaign.update(campaign_params)
+    redirect_to financial_info_path(@campaign.id)
   end
 
-  def financial
+  def financial_info
+    @campaign = Campaign.find(params[:id])
   end
 
-  def review
+  def financial_info_submit
+    @campaign = Campaign.find(params[:campaign_id])
+    @campaign.update(campaign_params)
+    redirect_to campaign_review_path(@campaign.id)
+  end
+
+  def campaign_review
+    @campaign = Campaign.find(params[:id])
+    @company = @campaign.company
   end
 
   private
@@ -55,7 +67,8 @@ class CampaignsController < ApplicationController
   end
 
   def campaign_params
-    params.require(:campaign).permit("funding_goal", "tagline", "category","elevator_pitch", "tags","about_campaign","employees_numer" )
+    params.require(:campaign).permit("company_id", "funding_goal", "tagline", "category", "elevator_pitch", "tags", "about_campaign", "employees_numer", "legal_company_name", "employer_id_number", "state_where_incorporated", "office_location", "date_formed", "company_location_address", "company_location_city", "company_location_state", "company_location_zipcode", "company_contact_info_name", "company_contact_info_email", "company_contact_info_phone", "legal_contact_info_name", "legal_contact_info_email", "legal_contact_info_phone", "legal_contact_info_firm", "legal_contact_info_website", "accounting_info_name", "accounting_info_email", "accounting_info_phone", "accounting_info_firm", "accounting_info_website", "state_filing_number","offering_terms",
+    "financial_risks", "totat_income", "total_taxable_income", "total_taxes_paid",   )
   end
 
 end

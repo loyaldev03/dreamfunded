@@ -1,0 +1,47 @@
+<% title "DreamFunded | Invest" %>
+<div class= "wrapper">
+
+  <div class="header education-center">
+    <div class='education-title'>Edit My Campaign</div>
+    <a href="/funding_goal" class='education-links '>Funding Goal</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links '>Basics</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links '>Description</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links '> Legal Info </a> <%= fa_icon "chevron-right"%>
+    <span href="#" class='education-links active-link'> Financial Info </span>
+  </div>
+
+  <div class= "campaign-box get-funded ">
+
+  <div class="row">
+    <div class=" active">
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Funding Goals and Details</a></h2>
+      <br>
+      <h3 class= "darkblue no-margin centered">Carefully consider how to raise your round of funding.</h3>
+    </div>
+  </div>
+
+  <div class= "login-container">
+    <%= form_for @campaign, :url => {:action => "financial_info_submit"},method: "post" do |f| %>
+      <%= hidden_field_tag :campaign_id, @campaign.id %>
+
+      <%= text_area(:business_summary, nil, rows: 6, :class =>"userbox ", :placeholder => "Offering Terms", :required => true) %>
+
+      <%= text_area(:market_of_customers, nil, rows: 6, :class =>"userbox ", :placeholder => "Financial Risks", :required => true) %>
+
+      <%= f.text_field :totat_income, placeholder: 'Total Income',:class => "input-box", required:true %>
+
+      <%= f.text_field :total_taxable_income, placeholder: 'Total Taxable Income',:class => "input-box ", required:true %>
+
+      <%= f.text_field :total_taxes_paid, placeholder: 'Total Taxes Paid',:class => "input-box ", required:true %>
+
+      <div class = "notice centered">
+        <%= flash[:errors] if flash[:errors] %>
+      </div>
+
+      <div class= "centered">
+        <%= submit_tag("Continue", :id => "submit-button") %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
