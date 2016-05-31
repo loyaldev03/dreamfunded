@@ -23,14 +23,20 @@ class CampaignsController < ApplicationController
 
   def description
     @campaign_id = params[:id]
+    @campaign = Campaign.find(@campaign_id)
+    @company = @campaign.company
   end
 
   def company_description_submit
-
-    redirect_to legal_info_path
+    @company = Company.find(params[:company_id])
+    @company.update(video_link: params[:video_link])
+    @campaign = Campaign.find(params[:campaign_id])
+    @campaign.update(campaign_params)
+    redirect_to legal_info_path(@campaign.id)
   end
 
   def legal_info
+    @campaign = Campaign.find(params[:id])
   end
 
   def financial
@@ -42,6 +48,10 @@ class CampaignsController < ApplicationController
   private
   def company_params
      params.require(:company).permit(:image, :name, :description, :user_id, :website_link )
+  end
+
+  def campaign_params
+    params.require(:campaign).permit("funding_goal", "tagline", "category","elevator_pitch", "tags","about_campaign","employees_numer" )
   end
 
 end

@@ -10,13 +10,15 @@
   </div>
 
   <div class= "login-container">
-    <%= form_for @campaign, :url => {:action => "basics_submit"} do |f| %>
-      <%= text_field_tag :video_link,nil,  placeholder: 'Select Video',:class => "input-box", required:true %>
+    <%= form_for @campaign, :url => {:action => "company_description_submit"} do |f| %>
+      <%= hidden_field_tag :company_id, @company.id %>
+      <%= hidden_field_tag :campaign_id, @campaign.id %>
+      <%= text_field_tag :video_link,nil,  placeholder: 'Select Video',:class => "input-box" %>
       <br>
 
       <%= f.text_area :elevator_pitch, placeholder: 'Write Elevation Pitch. What makes your company exceptional? Why should the crowd invest in your company?  ', class: 'userbox campaign_text_area_width', rows: 6, required:true %>
 
-      <%= text_field_tag :tags, nil, placeholder: 'Tags (optional)',:class => "input-box", required:true %>
+      <%= f.text_field :tags,  placeholder: 'Tags (optional)',:class => "input-box", required:true %>
       <br>
 
       <%= f.text_area :about_campaign, placeholder: 'About Your Campaign', class: 'userbox campaign_text_area_width', rows: 6, required:true %>

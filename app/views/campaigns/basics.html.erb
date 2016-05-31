@@ -10,7 +10,7 @@
   </div>
 
   <div class= "login-container">
-    <%= form_for Company.new, :url => {:action => "basics_submit"} do |f| %>
+    <%= form_for Company.new, :url => {:action => "basics_submit"},method: "post" do |f| %>
       <%= hidden_field_tag :campaign_id, @campaign_id %>
       <%= f.hidden_field :user_id, value: user_session.id %>
       <%= f.text_field :name, placeholder: 'Company Name',:class => "input-box", required:true %>
