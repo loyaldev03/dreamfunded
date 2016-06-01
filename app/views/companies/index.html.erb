@@ -38,7 +38,7 @@
 								<br>
 								<hr>
 								<div>
-									<p class= "twenty no-margin center"><span class= "darkblue twenty">Invested </span> <br><%= ("$"+ number_with_delimiter(company.invested_amount, :delimiter => ',')) if company.status == 2%></p>
+									<p class= "twenty no-margin center"><span class= "darkblue twenty">Invested </span> <br><%= ("$"+ number_with_delimiter(company.invested, :delimiter => ',')) if company.status == 2%></p>
 								</div>
 							</div>
 							<div class= "right-column">

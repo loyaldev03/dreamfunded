@@ -20,12 +20,12 @@
   </div>
 
   <div class= "login-container">
-    <%= form_for Company.new, :url => {:action => "basics_submit"},method: "post" do |f| %>
+    <%= form_for @company, :url => {:action => "basics_submit"},method: "post" do |f| %>
       <%= hidden_field_tag :campaign_id, @campaign_id %>
       <%= f.hidden_field :user_id, value: user_session.id %>
       <%= f.text_field :name, placeholder: 'Company Name',:class => "input-box", required:true %>
       <br>
-      <%= text_field_tag :tagline, nil,placeholder: 'Describe your company in one sentence',:class => "input-box", required:true %>
+      <%= text_field_tag :tagline, @campaign.tagline ,placeholder: 'Describe your company in one sentence',:class => "input-box", required:true %>
       <br>
       <label>Category</label>
       <div class="styled-select select-100-width" >

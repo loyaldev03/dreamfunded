@@ -3,10 +3,10 @@
 
   <div class="header education-center">
     <div class='education-title'>Edit My Campaign</div>
-    <a href="/funding_goal" class='education-links '>Funding Goal</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links '>Basics</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links '>Description</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links '> Legal Info </a> <%= fa_icon "chevron-right"%>
+    <a href="/funding_campaing_goal/<%=@campaign.id%>" class='education-links '>Funding Goal</a> <%= fa_icon "chevron-right"%>
+    <a href="/campaign_basics/<%=@campaign.id%>" class='education-links '>Basics</a> <%= fa_icon "chevron-right"%>
+    <a href="/company_description/<%= @campaign.id %>" class='education-links '>Description</a> <%= fa_icon "chevron-right"%>
+    <a href="/legal_info/<%= @campaign.id %>" class='education-links '> Legal Info </a> <%= fa_icon "chevron-right"%>
     <span href="#" class='education-links active-link'> Financial Info </span>
   </div>
 
@@ -24,9 +24,9 @@
     <%= form_for @campaign, :url => {:action => "financial_info_submit"},method: "post" do |f| %>
       <%= hidden_field_tag :campaign_id, @campaign.id %>
 
-      <%= text_area(:business_summary, nil, rows: 6, :class =>"userbox ", :placeholder => "Offering Terms", :required => true) %>
+      <%= f.text_area(:offering_terms, rows: 6, :class =>"userbox ", :placeholder => "Offering Terms", :required => true) %>
 
-      <%= text_area(:market_of_customers, nil, rows: 6, :class =>"userbox ", :placeholder => "Financial Risks", :required => true) %>
+      <%= f.text_area(:financial_risks, rows: 6, :class =>"userbox ", :placeholder => "Financial Risks", :required => true) %>
 
       <%= f.text_field :totat_income, placeholder: 'Total Income',:class => "input-box", required:true %>
 

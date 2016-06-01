@@ -5,7 +5,7 @@ class CampaignsController < ApplicationController
 
   def funding_goal_submit
     funding_goal = params[:campaign][:funding_goal].delete('$').delete(',').to_i
-    @company = Company.new(user_id: user_session.id)
+    @company = Company.new(user_id: user_session.id, goal_amount: funding_goal)
     @company.save(:validate => false)
     @campaign = Campaign.create(funding_goal: funding_goal, company_id: @company.id)
     redirect_to campaign_basics_path(@campaign.id)
@@ -24,6 +24,8 @@ class CampaignsController < ApplicationController
 
   def basics
     @campaign_id = params[:id]
+    @campaign = Campaign.find(params[:id])
+    @company = @campaign.company
   end
 
   def basics_submit
@@ -66,7 +68,9 @@ class CampaignsController < ApplicationController
   def financial_info_submit
     @campaign = Campaign.find(params[:campaign_id])
     @campaign.update(campaign_params)
-    redirect_to campaign_review_path(@campaign.id)
+    ContactMailer.campaign_submitted(user_session).deliver
+    ContactMailer.check_campaign(@campaign).deliver
+    redirect_to "/companies/company_profile/#{@campaign.company.id}"
   end
 
   def campaign_review

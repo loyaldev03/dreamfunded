@@ -144,4 +144,13 @@ class ContactMailer < ActionMailer::Base
   def unaccredited_investor(user)
      mail(to: user.email, subject: 'Investor Accreditations')
   end
+
+  def campaign_submitted(user)
+    mail(to: user.email, subject: 'Campaign Submitted')
+  end
+
+  def check_campaign(campaign)
+    @campaign = campaign
+    mail(to: "info@dreamfunded.com", subject: 'Company Submitted')
+  end
 end
