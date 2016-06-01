@@ -1,0 +1,60 @@
+<% title "DreamFunded | Invest" %>
+<div class= "wrapper">
+
+  <div class="header education-center">
+    <div class='education-title'><%=link_to "Edit My Campaign", education_path%></div>
+    <a href="/funding_goal" class='education-links active-link'>Funding Goal</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link'>Basics</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link'>Description</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link'> Legal Info </a> <%= fa_icon "chevron-right"%>
+    <span href="#" class='education-links disabled-link'> Financial Info </span>
+  </div>
+
+  <div class= "campaign-box get-funded ">
+
+
+  <div class="row">
+    <div class=" active">
+
+
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Let's get started.</a></h2>
+      <br>
+      <h3 class= "darkblue no-margin centered"> What's your funding goal?  </h3>
+    </div>
+  </div>
+
+  <div class= "login-container">
+    <%= form_for @campaign, :url => {:action => "funding_goal_update"} do |f| %>
+      <%= hidden_field_tag :campaign_id, @campaign.id %>
+       <%= f.text_field(:funding_goal, :placeholder => "$ 100,000.00", :class => "input-box",id: 'funding_goal', required: true) %>
+       <i>Enter your funding goal.</i>
+
+      <h2 class= " centered">Title III - Regulation Crowdfunding</h2>
+
+      <ul class='funding_goal_list'>
+        <li class='funding_goal_list_item'>Under Title III - Regulation Crowdfunding, companies can raise a maximum of $1M in a 12 month period.</li>
+        <li class='funding_goal_list_item'>All age 18 and over accredited and non-accredited investors can invest in these offerings.</li>
+        <li class='funding_goal_list_item'>The investor limits are based on annual investments. They are determined by net worth, annual income and other Title III investments during that time.</li>
+        <li class='funding_goal_list_item'>The shares are restricted and cannot be sold for a minimum of one year from purchase. Even after this time, there may be no resale market available.</li>
+      </ul>
+
+      <div class = "notice centered">
+        <%= flash[:errors] if flash[:errors] %>
+      </div>
+
+      <div class= "centered">
+        <%= submit_tag("Continue", :id => "submit-button") %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+
+<script type="text/javascript">
+   $( "#funding_goal" ).keyup(function() {
+       var value = addCommas( $( this ).val() );
+       value = "$ " + value
+       $( this ).val( value );
+   });
+</script>
+

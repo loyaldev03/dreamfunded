@@ -41,6 +41,8 @@ Rails.application.routes.draw do
   # Company Compaign Submit
   get '/funding_goal', to: 'campaigns#funding_goal'
   post '/funding_goal_submit', to: 'campaigns#funding_goal_submit'
+  get '/funding_campaing_goal/:id', to: 'campaigns#funding_goal_exist'
+  patch '/funding_goal_update', to: 'campaigns#funding_goal_update'
   get '/campaign_basics/:id', to: 'campaigns#basics', as: 'campaign_basics'
   post '/basics_submit', to: 'campaigns#basics_submit'
   get '/company_description/:id', to: 'campaigns#description', as: 'description'

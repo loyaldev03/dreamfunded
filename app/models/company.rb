@@ -39,9 +39,9 @@ class Company < ActiveRecord::Base
 	validates :name, presence:true
 	validates_uniqueness_of :name
 	validates :description, presence:true
-	validates :invested_amount, presence:true
-	validates :goal_amount, presence:true
-	validates :status, presence:true
+	# validates :invested_amount, presence:true
+	# validates :goal_amount, presence:true
+	# validates :status, presence:true
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 	validates_attachment_content_type :document, :content_type =>['application/pdf']
 

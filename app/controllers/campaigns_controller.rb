@@ -5,7 +5,20 @@ class CampaignsController < ApplicationController
 
   def funding_goal_submit
     funding_goal = params[:campaign][:funding_goal].delete('$').delete(',').to_i
-    @campaign = Campaign.create(funding_goal: funding_goal)
+    @company = Company.new(user_id: user_session.id)
+    @company.save(:validate => false)
+    @campaign = Campaign.create(funding_goal: funding_goal, company_id: @company.id)
+    redirect_to campaign_basics_path(@campaign.id)
+  end
+
+  def funding_goal_exist
+    @campaign = Campaign.find(params[:id])
+  end
+
+  def funding_goal_update
+    funding_goal = params[:campaign][:funding_goal].delete('$').delete(',').to_i
+    @campaign = Campaign.find(params[:campaign_id])
+    @campaign.update(funding_goal: funding_goal)
     redirect_to campaign_basics_path(@campaign.id)
   end
 
@@ -14,10 +27,10 @@ class CampaignsController < ApplicationController
   end
 
   def basics_submit
-    @company = Company.new(company_params)
-    @company.save(:validate => false)
     @campaign = Campaign.find(params[:campaign_id])
-    @campaign.update(company_id: @company.id, tagline: params[:tagline], category: params[:category])
+    @company = @campaign.company
+    @company.update(company_params)
+    @campaign.update( tagline: params[:tagline], category: params[:category])
     redirect_to description_path(@campaign.id)
   end
 
