@@ -1,0 +1,10 @@
+.footer-link-border{
+  border-right: 2px solid gray;
+}
+.footer-link{
+  margin-left: 5px;
+  padding-right: 9px;
+}
+.first-footer-link{
+  margin-left: 15px;
+}
