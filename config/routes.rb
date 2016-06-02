@@ -183,6 +183,7 @@ Rails.application.routes.draw do
   get '/faq', to: 'home#faq'
   get '/how_it_works', to: 'home#howItWorks'
   get '/about', to: 'home#about'
+  get '/privacy_policy', to: 'home#privacy_policy'
   get '/education', to: 'home#education'
 
   get '/education/basics', to: 'home#basics', as: 'edication_basics'

@@ -52,6 +52,9 @@ class HomeController < ApplicationController
 		@posts = Post.order(:position).where(page: 'about_us')
 	end
 
+	def privacy_policy
+	end
+
 	def exchange
 	end
 
