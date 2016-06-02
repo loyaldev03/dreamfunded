@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   get '/investment_payment', to: 'invest#payment'
 
   # Company Compaign Submit
-  get '/funding_goal', to: 'campaigns#funding_goal'
+  get '/funding_goal', to: 'campaigns#funding_goal', as: 'funding_goal'
   post '/funding_goal_submit', to: 'campaigns#funding_goal_submit'
   get '/funding_campaing_goal/:id', to: 'campaigns#funding_goal_exist'
   patch '/funding_goal_update', to: 'campaigns#funding_goal_update'
@@ -118,6 +118,7 @@ Rails.application.routes.draw do
 
   get 'users/admin', to: "users#admin"
   get 'users/admin-companies', to: "users#companies"
+  get '/my_campaigns', to: "users#campaign"
 
   get 'dreamfunded_portfolio', to: "home#portfolio"
 

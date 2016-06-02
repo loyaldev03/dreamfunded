@@ -28,58 +28,19 @@ class CompaniesController < ApplicationController
 
 	#Creates a new startup profile (Need to implement session for later)
 	def create
-		# if params[:file] != nil
-			# uploaded_file = params[:file]
-			# @file_name = uploaded_file.original_filename
-			# directory = "app/assets/images/companies/"
-			# path = File.join(directory, @file_name)
-			# File.open(path, "wb") { |f| f.write(uploaded_file.read) }
-
-			# @user_id = session[:current_user].login
-			# @name = params[:name]
-			# @description = params[:description][0]
-			# @goal = params[:goal]
-			# @status = params[:status]
-			# @invested = 0
-			# @weblink = ""
-			# @videolink = ""
-			# @ceo = params[:CEO]
-			# @number = params[:CEO_number]
-			# @display = 0
-			# image = params[:image]
-
-			# if params[:amount]
-			# 	@invested = params[:amount]
-			# end
-
-			# if params[:url]
-			# 	@weblink = params[:url]
-			# end
-
-			# if params[:video]
-			# 	@videolink = params[:video]
-			# end
-			@company = Company.new(company_params)
-			# uploaded = Company.new(:user_id => @user_id, :name => @name, :description => @description,
-			# 	:goal_amount => @goal, :status => @status, :invested_amount => @invested, :website_link => @weblink, :video_link => @videolink,
-			# 	:CEO => @ceo, :CEO_number => @number, :display => @display, :days_left => 10, )
-
-			if @company.save
-				section = Section.new
-				@company.sections << section
-				redirect_to "/companies"
-			else
-				@error_message = ""
-				@company.errors.full_messages.each do |error|
-					@error_message = @error_message + error + ". "
-				end
-				flash[:message] = @error_message
-				redirect_to "/companies/new"
+		@company = Company.new(company_params)
+		if @company.save
+			section = Section.new
+			@company.sections << section
+			redirect_to "/companies"
+		else
+			@error_message = ""
+			@company.errors.full_messages.each do |error|
+				@error_message = @error_message + error + ". "
 			end
-		# else
-		# 	flash[:message] = "Image is not valid"
-		# 	redirect_to "/companies/new"
-		# end
+			flash[:message] = @error_message
+			redirect_to "/companies/new"
+		end
 	end
 
 	def edit
@@ -114,33 +75,6 @@ class CompaniesController < ApplicationController
 	end
 
 	def add_team_member
-		# @id = params[:id]
-		# if params[:file1] != nil
-		# 	uploaded_file = params[:file1]
-
-		# 	@file_name = uploaded_file.original_filename
-
-		# 	directory = "app/assets/images/companies/"
-		# 	path = File.join(directory, @file_name)
-
-		# 	File.open(path, "wb") { |f| f.write(uploaded_file.read) }
-
-		# 	@name = params[:name1]
-		# 	@content = params[:content1][0]
-		# 	@position = params[:position]
-		# 	@comp_id = params[:id]
-		# 	founder1 = Founder.new(:name => @name, :position => @position, :image_address => @file_name, :content => @content, :company_id => @comp_id)
-
-		# 	if founder1.valid?
-		# 		founder1.save
-		# 		redirect_to "/companies"
-		# 	else
-		# 		@error_message2 = ""
-		# 		founder1.errors.full_messages.each do |error|
-		# 			@error_message2 = @error_message2 + error + ". "
-		# 		end
-
-		# 		flash[:notice] = @error_message2
 			@founder = Founder.new(founder_params)
 			if @founder.save
 				redirect_to "/companies"
@@ -416,7 +350,7 @@ class CompaniesController < ApplicationController
    end
 
    def company_params
-      params.require(:company).permit(:image, :end_date, :document, :hidden, :position, :docusign_url, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at, :suggested_target_price)
+      params.require(:company).permit(:image, :end_date, :document, :hidden, :position, :docusign_url, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at, :suggested_target_price)
    end
 
    def founder_params

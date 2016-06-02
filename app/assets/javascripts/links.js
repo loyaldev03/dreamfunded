@@ -99,3 +99,7 @@ function manny(){
 function rexford(){
 	window.location = "/rexford-r-hibbs";
 }
+function campaign(){
+	window.location = "/my_campaigns";
+}
+
