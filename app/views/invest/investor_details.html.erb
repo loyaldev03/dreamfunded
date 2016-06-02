@@ -35,7 +35,8 @@
 
       <div>
         <label>Customer Agreement</label><br>
-        <input type='checkbox' required ><span> Accept <a href='#'>customer agreement.</a></span>
+        <input type='checkbox' required ><span> Accept </span>
+        <%= link_to 'customer agreement.', asset_path("customer_agreement.pdf"), target: '_blank' %>
       </div>
 
       <div class = "notice centered">
