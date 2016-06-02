@@ -1,5 +1,6 @@
 .get-funded {
   width: 50%;
+  max-width: 720px;
 }
 .get-funded-section-name {
   font-weight: bold;

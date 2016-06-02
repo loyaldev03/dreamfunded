@@ -170,7 +170,7 @@ Rails.application.routes.draw do
 
   get '/payment', to: "payments#index", as: :payment
   post '/submit_payment', to: "payments#payment"
-  get '/congratulation/:name', to: "payments#congrats", as: :congratulation
+  get '/congratulation/:id', to: "payments#congrats", as: :congratulation
 
   get '/thank_you', to: "companies#thank_you"
   get '/iframe', to: "companies#iframe"

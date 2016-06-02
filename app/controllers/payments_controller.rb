@@ -11,7 +11,9 @@ class PaymentsController < ApplicationController
     company_id = params[:company_id]
     tran=UmTransaction.new
     # Merchants Source key must be generated within the console
+    #production key
     tran.key="azIZnB64RLfnc7yFhWbidTGTgkdq5p36"
+    #sandbox key
     # tran.key="p3681m70sjSf25eG2wplW7Y6MhTvdPD3"
 
     # Send request to sandbox server not production.  Make sure to comment or remove this line before
@@ -59,9 +61,9 @@ class PaymentsController < ApplicationController
 
       # if referral give 100$
       addCreditForReferral
-      createInvestment( params[:amount], company_id, shares)
+      investment_id = createInvestment( params[:amount], company_id, shares)
       company_name = Company.find(company_id).name
-      redirect_to congratulation_path(company_name)
+      redirect_to congratulation_path(investment_id)
     else
 
       p "Card Declined #{tran.result} "
@@ -71,13 +73,15 @@ class PaymentsController < ApplicationController
   end
 
   def congrats
-    @company_name = params[:name]
+    @investment = Investment.find(params[:id])
+    @company_name = @investment.company.name
   end
 
   private
 
   def createInvestment(amount, company_id, shares)
-    Investment.create(user_id: user_session.id, company_id: company_id, invested_amount: amount, number_of_shares: shares)
+    investment = Investment.create(user_id: user_session.id, company_id: company_id, invested_amount: amount, number_of_shares: shares)
+    investment.id
   end
 
 

@@ -10,7 +10,8 @@
   </div>
 
   <div class= " congrats-content "><div class="text-content">
-   <center><span class='congrats_title'>Congratulations! Your investment of 30 shares($60.00) in <%= @company_name%> has been submitted.</span></center><br>
+   <center><span class='congrats_title'>Congratulations! Your investment of
+    <%= @investment.number_of_shares %> shares($<%= sprintf "%.2f", @investment.invested_amount%>) in <%= @company_name%> has been submitted.</span></center><br>
 
     <!-- <div>Status: Pending</div><br> -->
 
