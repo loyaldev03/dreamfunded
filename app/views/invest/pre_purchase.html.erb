@@ -12,7 +12,7 @@
   <div class='pre_purchase_investment_details' data-price="<%= @company.suggested_target_price %>">
     <div class='invest_column'><strong>$<%= company_price(@company) %> </strong><br> Per Share</div>
     <div class='invest_column'><strong>30 Shares </strong><br> Minimum Investment </div>
-    <div class='invest_column'><strong><%#= maximum_investment(@user.investor)%> Shares </strong><br> Maximum Investment </div>
+    <div class='invest_column'><strong><%= maximum_investment(@user.investor)%> Shares </strong><br> Maximum Investment </div>
   </div>
 
   <div class= "login-container">
