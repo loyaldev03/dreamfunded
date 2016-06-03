@@ -1,7 +1,6 @@
 class ContactMailer < ActionMailer::Base
   default from: "DreamFunded <info@dreamfunded.com>"
 
-
   def welcome_email(user)
     @user = user
     mail(to: user.email, subject: "Welcome to DreamFunded")
@@ -152,5 +151,11 @@ class ContactMailer < ActionMailer::Base
   def check_campaign(campaign)
     @campaign = campaign
     mail(to: "info@dreamfunded.com", subject: 'Company Submitted')
+  end
+
+  def investment_submitted(user, investment_id)
+    @user = user
+    @investment = Investment.find(investment_id)
+    mail(to: user.email, subject: "Your DreamFunded Investment in #{@investment.company.name} Has Been Submitted")
   end
 end

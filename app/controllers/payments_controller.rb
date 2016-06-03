@@ -12,13 +12,13 @@ class PaymentsController < ApplicationController
     tran=UmTransaction.new
     # Merchants Source key must be generated within the console
     #production key
-    tran.key="azIZnB64RLfnc7yFhWbidTGTgkdq5p36"
+    #tran.key="azIZnB64RLfnc7yFhWbidTGTgkdq5p36"
     #sandbox key
-    # tran.key="p3681m70sjSf25eG2wplW7Y6MhTvdPD3"
+    tran.key="p3681m70sjSf25eG2wplW7Y6MhTvdPD3"
 
     # Send request to sandbox server not production.  Make sure to comment or remove this line before
     #  putting your code into production
-    tran.usesandbox = false
+    tran.usesandbox = true
 
     # tran.card="4111111111111111"
     # tran.exp="0919"
@@ -63,6 +63,7 @@ class PaymentsController < ApplicationController
       addCreditForReferral
       investment_id = createInvestment( params[:amount], company_id, shares)
       company_name = Company.find(company_id).name
+      ContactMailer.investment_submitted(user_session, investment_id).deliver
       redirect_to congratulation_path(investment_id)
     else
 
