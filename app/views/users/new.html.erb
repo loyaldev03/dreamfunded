@@ -31,30 +31,28 @@
            <%= f.password_field(:password, :placeholder => "Password ", :class => "input-box half little-margin", required: true, pattern: ".{6,}") %>
            <%= f.password_field(:password_confirmation, :placeholder => "Confirm Password", required: true, pattern: ".{6,}", :class => "input-box half scoot-left little-margin") %>
            <span class='password-six-chars'>Password must be at least 6 characters</span>
-           <br>
+           <br><br>
            <!-- <div class="styled-select">
              <%#= select_tag(:user_role, options_for_select([ "Investor", "Seller" ]), prompt: "Select Role") %>
            </div> -->
-           <h4> Certify yourself as an investor </h4>
+
 
            <div class = "check_box">
              <div class="checbox-block">
-              <input type="checkbox" name="net_worth" id="box1" onclick = "onOff()">
-              <span class="checkbox-label">My net worth is over $1 million, excluding my home.</span>
+              <input type="checkbox" name="net_worth" id="box1" required>
+              <span class="checkbox-label"> I have read the important notice and consent to the Site’s use of <a>electronic communications, electronic records, and electronic signatures</a>.</span>
             </div>
 
              <div>
-                <input type="checkbox" name="income" id="box3" onclick = "onOff()">
-                <span class="checkbox-label">My income was $200k+ for the past two years.</span>
+                <input type="checkbox" name="income" id="box3" required>
+                <span class="checkbox-label"> I acknowledge that I have reviewed and understand the <%= link_to 'Educational Materials', asset_path("DreamFunded_Investor_Guide.pdf"), target: '_blank' %> and understand the risks involved in the offerings on the Site.</span>
               </div>
-             <div><input type="checkbox" name="investor" id="box4" onclick = "onOff()"> <span class="checkbox-label">I invest from an accredited business, family office or VC.</span></div>
-             <div><input type="checkbox" name="international" id='box2'  onclick = "onOff()"><span class="checkbox-label"> I am an international investor.</span></div>
-             <div><input type="checkbox" name="reg" id="box5" onclick = "onOff()"> <span class="checkbox-label">I am not accredited, but may invest when the rules change.</span></div>
+
+             <div>
+              <input type="checkbox" name="investor" id="box4" required>
+              <span class="checkbox-label"> I have read and signed the Compensation Disclosure.</span></div>
           </div>
 
-<!--            <div class= "centered">
-              <p>A questionnaire will be sent to your email shortly to determine your account type.</p>
-           </div> -->
 
            <div class = "notice centered">
               <%= flash[:signup_errors] if flash[:signup_errors] %>
@@ -62,8 +60,8 @@
            </div>
 
            <div class= "centered">
-           <p class='check_box'>We will never sell or rent your personal information.</p>
-              <%= f.submit("Submit", :id => "submit-button", :disabled => true) %>
+           <p class='check_box'>By signing up you agree with our <a href=''>Terms and Conditions</a> & <a href='/privacy_policy'>Privacy Policy</a></p>
+              <%= f.submit("Submit", :id => "submit-button" ) %>
               <div class='social-login-ions'>
                 <%#= link_to fa_icon("google 2x"), '/auth/google_oauth2', id: 'google-icon' %>
                 <%#= link_to fa_icon("linkedin 2x"), '/auth/linkedin', id: 'linkedin-icon'  %>
