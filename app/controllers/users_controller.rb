@@ -101,6 +101,7 @@ class UsersController < ApplicationController
 		@email = params[:user][:email]
 		@phone = params[:user][:phone]
 		@token = params[:user][:token]
+		@authority = User.Authority[:Accredited]
 
 		if @token
 			invite = Invite.find_by(token: @token)
@@ -108,13 +109,6 @@ class UsersController < ApplicationController
 			invite.use_token
 		end
 		role = params[:user_role]
-
-		#Change to enum / class later
-		if params[:reg] == nil
-			@authority = User.Authority[:Accredited]
-		else
-			@authority = User.Authority[:Basic]
-		end
 
 		@user = User.new(:first_name => @first_name, :last_name => @last_name, :email => @email, :authority => @authority, phone: @phone, role: role, password: @password, password_confirmation: @password_confirmation)
 
