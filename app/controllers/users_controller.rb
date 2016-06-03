@@ -143,7 +143,7 @@ class UsersController < ApplicationController
 	end
 
 	def post_login
-		login_user = User.find_by(email: params[:email], provider: nil)
+		login_user = User.find_by(email: params[:email])
 		if login_user == nil
 			flash[:notice] = "This user ID does not exist."
 			redirect_to(:action => :login)
