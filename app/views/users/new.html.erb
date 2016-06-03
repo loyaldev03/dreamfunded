@@ -40,18 +40,18 @@
            <div class = "check_box">
              <div class="checbox-block">
               <input type="checkbox" name="net_worth" id="box1" required>
-              <span class="checkbox-label"> I have read the important notice and consent to the Site’s use of <a>electronic communications, electronic records, and electronic signatures</a>.</span>
-            </div>
+              <span class="checkbox-label"> I have read the important notice and consent to the Site’s use of <%= link_to 'electronic communications, electronic records, and electronic signatures', asset_path("ElectronicCommunicationsRecordsandSignaturesConsentForm.pdf"), target: '_blank' %>.</span>
+            </div><br>
 
              <div>
                 <input type="checkbox" name="income" id="box3" required>
                 <span class="checkbox-label"> I acknowledge that I have reviewed and understand the <%= link_to 'Educational Materials', asset_path("DreamFunded_Investor_Guide.pdf"), target: '_blank' %> and understand the risks involved in the offerings on the Site.</span>
-              </div>
+              </div><br>
 
              <div>
               <input type="checkbox" name="investor" id="box4" required>
-              <span class="checkbox-label"> I have read and signed the Compensation Disclosure.</span></div>
-          </div>
+              <span class="checkbox-label"> I have read and signed the <%= link_to 'Compensation Disclosure', asset_path("FeeCompensationDisclosureVC.pdf"), target: '_blank' %>.</span></div>
+          </div><br>
 
 
            <div class = "notice centered">
@@ -60,7 +60,7 @@
            </div>
 
            <div class= "centered">
-           <p class='check_box'>By signing up you agree with our <a href=''>Terms and Conditions</a> & <a href='/privacy_policy'>Privacy Policy</a></p>
+           <p class='check_box'>By signing up you agree with our <%= link_to 'Terms and Conditions', asset_path("DreamFundedTermsofUse.pdf"), target: '_blank' %> & <a href='/privacy_policy'>Privacy Policy</a></p>
               <%= f.submit("Submit", :id => "submit-button" ) %>
               <div class='social-login-ions'>
                 <%#= link_to fa_icon("google 2x"), '/auth/google_oauth2', id: 'google-icon' %>
