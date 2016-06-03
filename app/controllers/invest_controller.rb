@@ -3,14 +3,12 @@ class InvestController < ApplicationController
 
   def personal
     @user = user_session
+    @investor = @user.investor
   end
 
   def personal_submit
     user = User.find(params[:user_id])
-    Investor.create( country: params[:country], ssn: params[:ssn], date_of_birth: params[:date_of_birth],
-    address: params[:address], city: params[:city], state: params[:state], zipcode: params[:zipcode],
-    drive_license: params[:drive_license], user_id: user.id, image: params[:image])
-
+    user.investor.update( investor_params )
     redirect_to investor_details_path(@company.name)
   end
 
@@ -55,6 +53,9 @@ class InvestController < ApplicationController
     @company = Company.find_by(name: params[:name])
   end
 
-
+  def investor_params
+    params.require(:investor).permit(
+      "annual_income", "new_worth", "us_citizen", "exempt_withholding", "ssn", "country", "date_of_birth", "address", "city", "state", "zipcode", "user_id", "drive_license", "image" )
+  end
 
 end

@@ -121,6 +121,7 @@ class UsersController < ApplicationController
 		#@user.password_confirmation = params[:user][:password_confirmation]
 		if @user.valid?
 			@user.save
+			@user.investor = Investor.create
 			ContactMailer.verify_email(@user).deliver
 			ContactMailer.account_created(@user).deliver
 			ContactMailer.unaccredited_investor(@user).deliver if @user.authority == 1
