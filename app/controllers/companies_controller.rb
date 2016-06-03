@@ -1,9 +1,9 @@
 class CompaniesController < ApplicationController
-	before_action :verify
+	before_action :verify, except: [:index]
 
 	def index
 		if session[:current_user] == nil || session[:current_user].authority <= User.Authority[:Basic]
-			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
+			redirect_to url_for(:controller => 'users', :action => 'login')
 		end
 		@companies = Company.all.order(:position).where(hidden: false, accredited: true)
 	end

@@ -11,7 +11,7 @@
                 <% elsif user_session != nil && user_session.authority == 1 %>
                   <li><button onclick= "location.href='/marketplace_companies ';">NonAccredited</button></li>
                 <% end %>
-                <li><button onclick="location.href='/dreamfunded-exchange';" >Sell Shares </button></li>
+                <li><button onclick= "get_funded()" >Get Funded</button></li>
                 <li><button onclick= "location.href='/events';">Events</button></li>
                 <li><button onclick="location.href='/education';" >Education</button></li>
                 <li><button onclick= "contact()">Contact Us</button></li>
@@ -63,7 +63,7 @@
             </li>
             <li class='ipad-menu'><button onclick="location.href='/education';" >Education</button></li>
             <li class='ipad-menu'><button onclick="location.href='/events';" >Events</button></li>
-            <li class='ipad-menu'><button onclick="location.href='/dreamfunded-exchange';" >Sell Shares </button></li>
+            <li class='ipad-menu'><button onclick= "get_funded()">Get Funded</button></li>
             <% if user_session != nil && user_session.authority >= authority[:Accredited] %>
               <li class='ipad-menu'><button onclick= "invest()">Invest</button></li>
             <% elsif user_session == nil %>
@@ -102,7 +102,6 @@
                 <li><button onclick= "faq()">FAQ</button></li>
                 <li><button onclick= "team()">Team</button></li>
                 <li><button onclick= "news()">News</button></li>
-                <li><button onclick= "get_funded()">Get Funded</button></li>
                 <li><button onclick= "press()">Press</button></li>
                 <li><button onclick= "contact()">Contact Us</button></li>
               </ul>
@@ -112,19 +111,12 @@
             <%# end %>
             <li><button onclick="location.href='/events';" >Events</button></li>
             <li><button onclick="location.href='/education';" >Education</button></li>
-            <li><button onclick="location.href='/dreamfunded-exchange';" >Sell Shares </button></li>
+            <li><button onclick= "get_funded()">Get Funded</button></li>
 
             <!-- <li><button onclick= "whyInv()">Why Invest</button></li> -->
 
-            <li><button disabled= "true">Investments <span class="arrow">&#9660;</span></button>
-              <ul class= "sub-menu">
-                <li><button onclick= "dreamfunded_portfolio()">Portfolio</button></li>
-                <% if user_session != nil && user_session.authority >= authority[:Accredited] %>
-                  <li><button onclick= "invest()">Invest</button></li>
-                <% elsif user_session != nil && user_session.authority == 1 %>
-                  <li><button onclick= "location.href='/marketplace_companies';">Invest</button></li>
-                <% end %>
-              </ul>
+            <li><button onclick= "invest()">Investments </button>
+
             </li>
             <li><button onclick= "how_it_works()">How It Works</button></li>
             <li><button onclick= "home()">Home</button></li>

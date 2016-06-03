@@ -1,6 +1,9 @@
 class CampaignsController < ApplicationController
 
   def funding_goal
+    if session[:current_user] == nil
+      redirect_to url_for(:controller => 'users', :action => 'login')
+    end
   end
 
   def funding_goal_submit
