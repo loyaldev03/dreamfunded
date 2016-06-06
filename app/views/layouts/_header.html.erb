@@ -80,7 +80,7 @@
                 <ul class= "sub-menu">
                   <li><button onclick= "portfolio()">My Investments</button></li>
                   <li><button onclick= "campaign()">My Campaign</button></li>
-                  <li><button onclick= "invite()" class='invite-menu-button'>Invites<br><span class='invite-menu-text'>Refer a Friend to (Get and Give $100 For Next Investment!) </span></button></li>
+                 <!--  <li><button onclick= "invite()" class='invite-menu-button'>Invites<br><span class='invite-menu-text'>Refer a Friend to (Get and Give $100 For Next Investment!) </span></button></li> -->
                   <% if user_session.authority != authority[:Admin] %>
                     <li><button onclick= "signOut()" >Sign Out</button></li>
                   <% else %>
