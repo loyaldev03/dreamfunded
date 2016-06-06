@@ -212,6 +212,10 @@ class HomeController < ApplicationController
 	 	@posts = Post.order(:position).where(page: 'jobs_act')
 	 end
 
+	 def fund_raising_guide
+	 	@posts = Post.order(:position).where(page: 'fund_raising_guide')
+	 end
+
 	 def taxes
 	 	@posts = Post.order(:position).where(page: 'taxes')
 	 end

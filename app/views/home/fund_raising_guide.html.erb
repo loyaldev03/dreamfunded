@@ -11,7 +11,7 @@
       <div class="header education-center">
         <div class='education-title'><%=link_to "Education Center", education_path%></div>
         <%= link_to "All Education", education_path, class: 'education-links'%> <%= fa_icon "chevron-right"%> <a href="#" class='education-links'> Investors </a>
-        <%= fa_icon "chevron-right"%>  <a href="#" class='education-links'>JOBS ACT</a>
+        <%= fa_icon "chevron-right"%>  <a href="#" class='education-links'>Fund Raising Guide</a>
       </div>
       <div class= "left-panel">
         <ul class='education-menu'>
@@ -22,8 +22,8 @@
             <a href='/education/taxes-gains'><li class='education-item'>Taxes & Gains</li></a>
             <a href='/education/investor-qa'><li class='education-item'>Investor Q&A</li></a>
             <a href='/education/employee-qa'><li class='education-item'>Employee Q&A</li></a>
-            <a href='/education/jobs_act'><li class='education-item active'>JOBS ACT</li></a>
-            <a href='/education/fund_raising_guide'><li class='education-item '>Fund Raising Guide</li></a>
+            <a href='/education/jobs_act'><li class='education-item '>JOBS ACT</li></a>
+            <a href='/education/fund_raising_guide'><li class='education-item active'>Fund Raising Guide</li></a>
             <!-- <a href='/education/market_trends'><li class='education-item'>Market Trends</li></a> -->
         </ul>
       </div>
@@ -36,7 +36,7 @@
             <% @posts.each do |post|%>
                 <% if user_session != nil && user_session.authority == authority[:Admin] %>
                     <%= button_to "Delete", {:controller => :posts,  :action => 'destroy', :id => post.id }, :method => :delete, class: 'float-rigth' %>
-                    <%= link_to 'Edit', "/posts/#{post.id}/edit/jobs_act", {:class => 'right'} %>
+                    <%= link_to 'Edit', "/posts/#{post.id}/edit/fund_raising_guide", {:class => 'right'} %>
 
                 <% end %>
                 <li><%= post.title%></li>
@@ -47,7 +47,7 @@
 
             <% end %>
             <% if user_session != nil && user_session.authority == authority[:Admin] %>
-                <h3><%= link_to 'Create New', "/posts/new/jobs_act", {:class => 'right'} %></h3>
+                <h3><%= link_to 'Create New', "/posts/new/fund_raising_guide", {:class => 'right'} %></h3>
             <% end %>
             </ul>
 

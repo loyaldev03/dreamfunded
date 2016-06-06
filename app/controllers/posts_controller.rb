@@ -82,6 +82,8 @@ class PostsController < ApplicationController
         return '/how_it_works'
       elsif page == 'jobs_act'
         return jobs_act_path
+      elsif page == 'fund_raising_guide'
+        return fund_raising_guide_path
       else
         return root
       end
