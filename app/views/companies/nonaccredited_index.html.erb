@@ -10,6 +10,7 @@
 
     <div class= "companies-container">
       <% @companies.each do |company| %>
+        <% @progress = 100 * (company.invested.to_f / company.goal_amount) %>
         <% if company.display != 0 %>
           <div class= "company-container">
             <% if user_session != nil && user_session.authority == authority[:Admin] %>
@@ -31,7 +32,7 @@
                 <br>
                 <hr>
                 <div>
-                  <p class= "twenty no-margin center"><%= ("$"+ number_with_delimiter(company.invested_amount, :delimiter => ',')) if company.status == 2%><br><span class= "darkblue twenty">Invested </span> </p>
+                  <p class= "twenty no-margin center"><%= ("$"+ number_with_delimiter(company.invested, :delimiter => ',')) if company.status == 2%><br><span class= "darkblue twenty">Invested </span> </p>
                 </div>
               </div>
               <div class= "right-column">
@@ -64,7 +65,7 @@
             </div></div>
             <div class= "company-description">
               <div class="meter orange">
-                <% @progress = 100 * (company.invested_amount.to_f / company.goal_amount) %>
+                <% @progress = 100 * (company.invested.to_f / company.goal_amount) %>
                 <% if @progress == 0 %>
                   <span class= "front" style= "width: 5px"></span>
                 <% else %>
@@ -79,7 +80,7 @@
                 <br>
                 <hr>
                 <div>
-                  <p class= "twenty no-margin center">$<%= number_with_delimiter(company.invested_amount, :delimiter => ',') %><br><span class= "darkblue twenty">Invested </span> </p>
+                  <p class= "twenty no-margin center">$<%= number_with_delimiter(company.invested, :delimiter => ',') %><br><span class= "darkblue twenty">Invested </span> </p>
                 </div>
               </div>
               <div class= "right-column">
