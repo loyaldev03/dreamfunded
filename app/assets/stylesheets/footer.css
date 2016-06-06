@@ -8,3 +8,6 @@
 .first-footer-link{
   margin-left: 15px;
 }
+.footer_links{
+  display: inline-block;
+}

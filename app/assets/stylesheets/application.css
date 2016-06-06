@@ -196,12 +196,13 @@ hr {
 .footer-content {
 	padding: 30px 50px;
 	height: 20px;
+	margin-right: 140px;
+	text-align: center;
 }
 
 .foot-text {
 	color: gray;
 	font-size: 10px;
-	float: left;
 	margin-top: 5px;
 }
 

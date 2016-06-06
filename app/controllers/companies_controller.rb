@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-	before_action :verify, except: [:index]
+	before_action :verify
 
 	def index
 		if session[:current_user] == nil || session[:current_user].authority <= User.Authority[:Basic]
