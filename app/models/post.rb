@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 
   has_attached_file :image,
     :styles =>{
@@ -15,4 +17,8 @@ class Post < ActiveRecord::Base
   # validates_attachment_presence :image
   validates_attachment_size :image, :less_than => 5.megabytes
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+
+  def should_generate_new_friendly_id?
+     new_record?
+   end
 end

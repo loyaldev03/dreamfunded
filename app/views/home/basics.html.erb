@@ -38,9 +38,9 @@
                 <%= link_to 'Edit', "/posts/#{post.id}/edit/basics", {:class => 'right'} %>
 
               <% end %>
-              <li><%= post.title%></li>
+              <li><%= link_to post.title, post %></li>
 
-              <div class='panel'><%#= post.content%>
+              <div class=''><%#= post.content%>
                 <%= post.content.html_safe %>
               </div>
 
@@ -65,15 +65,4 @@
   </body>
 
 </html>
-<script>
-$(document).ready(function(){
-    $(".education-center-list li").click(function(){
-        $(this).toggleClass('open');
-        if($(this).hasClass('open') ){
-            $(this).next().slideDown("slow");
-        }else{
-            $(this).next().slideUp("slow");
-        }
-    });
-});
-</script>
+
