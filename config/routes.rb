@@ -195,6 +195,7 @@ Rails.application.routes.draw do
   get '/education/investor-qa', to: 'home#investorqa', as: 'investorqa'
   get '/education/employee-qa', to: 'home#employeeqa', as: 'employeeqa'
   get '/education/market_trends', to: 'home#market_trends', as: 'market_trends'
+  get '/education/jobs_act', to: 'home#jobs_act', as: 'jobs_act'
 
   get '/getfunded', to: 'home#get_funded'
   post '/get_funded', to: 'home#get_funded_send'
