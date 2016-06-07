@@ -1,6 +1,17 @@
 
 <% title "DreamFunded | Get Funded" %>
-<div class= "wrapper"><div class= "box get-funded ">
+<div class= "wrapper">
+  <div class="header education-center">
+    <div class='education-title'>Invest in <%= @company.name %></div>
+    <a href="#" class='education-links disabled-link'>Personal Info</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links active-link'>Investor Details</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link'>Educational Disclaimer</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link'> Legal Info </a> <%= fa_icon "chevron-right"%>
+    <span href="#" class='education-links disabled-link'> Financial Info </span>
+  </div>
+
+
+  <div class= "campaign-box get-funded ">
 
   <div class="row">
     <div class=" active">
@@ -17,8 +28,8 @@
         <%= select_tag(:investor_type, options_for_select([ "non-accredited investor", "accredited investor" ]) ) %><br>
       </div>
 
-      <%= text_field_tag(:annual_income, nil ,:placeholder => "Annual Income", :class => "input-box", required: true) %><br>
-      <%= text_field_tag(:new_worth, nil ,:placeholder => "Net Worth", :class => "input-box", required: true) %><br>
+      <%= text_field_tag(:annual_income, @user.investor.annual_income ,:placeholder => "Annual Income", :class => "input-box", required: true) %><br>
+      <%= text_field_tag(:new_worth, @user.investor.new_worth ,:placeholder => "Net Worth (not including the value of your primary residence)", :class => "input-box", required: true) %><br>
 
       <label>Are you a US citizen or legal permanent resident?</label>
       <div class="styled-select select-full-width" >

@@ -6,7 +6,6 @@ module InvestHelper
 
   def maximum_investment(investor)
 
-
     income = investor.annual_income
     net_worth = investor.new_worth
 
@@ -18,6 +17,12 @@ module InvestHelper
     elsif min > 100000
       allowed_to_invest = min * 0.1
     end
-    allowed_to_invest
+    allowed_to_invest.to_i
   end
+
+  def max_number_of_shares(maximum_investment, company)
+    output = maximum_investment / company.suggested_target_price.to_i
+    number_with_delimiter(output)
+  end
+
 end

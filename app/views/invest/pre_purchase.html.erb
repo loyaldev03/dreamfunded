@@ -1,5 +1,16 @@
 <% title "DreamFunded | Get Funded" %>
-<div class= "wrapper"><div class= "box get-funded ">
+<div class= "wrapper">
+
+  <div class="header education-center">
+    <div class='education-title'>Invest in <%= @company.name %></div>
+    <a href="#" class='education-links disabled-link'>Personal Info</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links '>Investor Details</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link'>Educational Disclaimer</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link active-link'> Legal Info </a> <%= fa_icon "chevron-right"%>
+    <span href="#" class='education-links disabled-link'> Financial Info </span>
+  </div>
+
+  <div class= "campaign-box get-funded ">
 
   <div class="row">
     <div class=" active">
@@ -11,8 +22,8 @@
 
   <div class='pre_purchase_investment_details' data-price="<%= @company.suggested_target_price %>">
     <div class='invest_column'><strong>$<%= company_price(@company) %> </strong><br> Per Share</div>
-    <div class='invest_column'><strong>30 Shares </strong><br> Minimum Investment </div>
-    <div class='invest_column'><strong><%= maximum_investment(@user.investor)%> Shares </strong><br> Maximum Investment </div>
+    <div class='invest_column'><strong>30 Shares </strong><br> Minimum Investment<br>($60.00) </div>
+    <div class='invest_column'><strong><%= max_number_of_shares(@maximum_investment, @company) %> Shares </strong><br> Maximum Investment<br>($<%=  number_with_precision(@maximum_investment, :precision => 2, :delimiter => ',') %>) </div>
   </div>
 
   <div class= "login-container">
@@ -21,7 +32,7 @@
 
       <div>How many <strong>shares</strong> would you like to purchase?</div>
 
-       <%= text_field_tag(:share_amount, nil ,:placeholder => "30 minimum - 2500 maximum", :class => " purchase_box", id: 'share_number', required: true) %>
+       <%= text_field_tag(:share_amount, nil ,:placeholder => "30 minimum - #{max_number_of_shares(@maximum_investment, @company)} maximum", :class => " purchase_box", id: 'share_number', required: true) %>
        <strong class='center some_margin_left'><label><span id='share_amount'>30</span> shares for $<span id="share_price">60.00</span></label></strong>
 
       <h4 class= "question">Please check all of the following:</h4>
@@ -62,7 +73,8 @@
 
     price = $(".pre_purchase_investment_details").data("price")
 
-    total = value * price
-    $("#share_price").html(total);
+    total = value * price;
+
+    $("#share_price").html(total.toLocaleString());
   });
 </script>

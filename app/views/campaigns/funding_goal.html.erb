@@ -2,7 +2,7 @@
 <div class= "wrapper">
 
   <div class="header education-center">
-    <div class='education-title'><%=link_to "Edit My Campaign", education_path%></div>
+    <div class='education-title'><span> Edit My Campaign </span></div>
     <a href="/funding_goal" class='education-links active-link'>Funding Goal</a> <%= fa_icon "chevron-right"%>
     <a href="#" class='education-links disabled-link'>Basics</a> <%= fa_icon "chevron-right"%>
     <a href="#" class='education-links disabled-link'>Description</a> <%= fa_icon "chevron-right"%>
@@ -17,7 +17,7 @@
     <div class=" active">
 
 
-      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Let's get started.</a></h2>
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Let's get started!</a></h2>
       <br>
       <h3 class= "darkblue no-margin centered"> What's your funding goal?  </h3>
     </div>
@@ -27,7 +27,7 @@
     <%= form_for Campaign.new, :url => {:action => "funding_goal_submit"} do |f| %>
 
        <%= f.text_field(:funding_goal, :placeholder => "$ 100,000.00", :class => "input-box",id: 'funding_goal', required: true) %>
-       <i>Enter your funding goal.</i>
+       <i>Enter your funding goal, up to $1,000,000</i>
 
       <h2 class= " centered">Title III - Regulation Crowdfunding</h2>
 
