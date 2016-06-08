@@ -47,7 +47,7 @@ class CampaignsController < ApplicationController
 
   def company_description_submit
     @company = Company.find(params[:company_id])
-    @company.update(video_link: params[:video_link])
+    #@company.update(video_link: params[:video_link])
     @campaign = Campaign.find(params[:campaign_id])
     @campaign.update(campaign_params)
     redirect_to legal_info_path(@campaign.id)

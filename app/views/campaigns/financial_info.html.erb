@@ -20,6 +20,14 @@
     </div>
   </div>
 
+  <div class='disclaimer-box'>
+    <div class='disclaimer-container'>
+      <i class="fa fa-times close-disclaimer" id='close-subcribtion' ></i>
+      <span class='disclaimer-text'>ALL information in this step will be made publicly available</span>
+    </div>
+  </div>
+  <br>
+
   <div class= "login-container">
     <%= form_for @campaign, :url => {:action => "financial_info_submit"},method: "post" do |f| %>
       <%= hidden_field_tag :campaign_id, @campaign.id %>

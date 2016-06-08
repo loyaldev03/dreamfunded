@@ -20,6 +20,13 @@
     </div>
   </div>
 
+  <div class='disclaimer-box'>
+    <div class='disclaimer-container'>
+      <i class="fa fa-times close-disclaimer" id='close-subcribtion' ></i>
+      <span class='disclaimer-text'>ALL information in this step will be made publicly available</span>
+    </div>
+  </div>
+
   <div class= "login-container">
     <%= form_for @campaign, :url => {:action => "company_description_submit"} do |f| %>
       <%= hidden_field_tag :company_id, @company.id %>
@@ -29,11 +36,25 @@
 
       <%= f.text_area :elevator_pitch, placeholder: 'Write Elevation Pitch. What makes your company exceptional? Why should the crowd invest in your company?  ', class: 'userbox campaign_text_area_width', rows: 6, required:true %>
 
+      <div class='disclaimer-box'>
+        <div class='disclaimer-container'>
+          <i class="fa fa-times close-disclaimer" id='close-subcribtion' ></i>
+          <span class='disclaimer-text'>An elevator pitch can be said in 30 seconds What makes your company exceptional? Why should the crowd invest in your company? All information and claims presented must be accurate and backed by fact.</span>
+        </div>
+      </div>
+      <br>
       <%= f.text_field :tags,  placeholder: 'Tags (optional)',:class => "input-box", required:true %>
       <br>
 
       <%= f.text_area :about_campaign, placeholder: 'About Your Campaign', class: 'userbox campaign_text_area_width', rows: 6, required:true %>
 
+      <div class='disclaimer-box'>
+        <div class='disclaimer-container'>
+          <i class="fa fa-times close-disclaimer" id='close-subcribtion' ></i>
+          <span class='disclaimer-text'>Be creative with this section. You have the ability to add videos and images to make your message stand out. A well designed description of your campaign will set you apart. Your presentation must be factual and accurate.</span>
+        </div>
+      </div>
+      <br>
       <%= f.text_field :employees_numer, placeholder: 'Number of Current Employees', :class => "input-box", required:true %>
 
 

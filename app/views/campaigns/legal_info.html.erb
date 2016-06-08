@@ -21,6 +21,22 @@
     </div>
   </div>
 
+  <div class='disclaimer-box'>
+    <div class='disclaimer-container'>
+      <i class="fa fa-times close-disclaimer" id='close-subcribtion' ></i>
+      <span class='disclaimer-text'>This information must be accurate in order to launch your campaign. Make sure you get it right and keep it updated!</span>
+    </div>
+  </div>
+  <br>
+
+  <div class='disclaimer-box'>
+    <div class='disclaimer-container'>
+      <i class="fa fa-times close-disclaimer" id='close-subcribtion' ></i>
+      <span class='disclaimer-text'>This information is for admin use only, but your Company Location will appear on your profile.</span>
+    </div>
+  </div>
+  <br>
+
   <div class= "login-container">
     <%= form_for @campaign, :url => {:action => "legal_info_submit"},method: "post" do |f| %>
       <%= hidden_field_tag :campaign_id, @campaign.id %>

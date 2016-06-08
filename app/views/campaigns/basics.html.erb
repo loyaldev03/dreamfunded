@@ -23,6 +23,21 @@
     <%= form_for @company, :url => {:action => "basics_submit"},method: "post" do |f| %>
       <%= hidden_field_tag :campaign_id, @campaign_id %>
       <%= f.hidden_field :user_id, value: user_session.id %>
+
+      <div class='disclaimer-box'>
+        <div class='disclaimer-container'>
+          <i class="fa fa-times close-disclaimer" id='close-subcribtion' ></i>
+          <span class='disclaimer-text'>ALL information in this step will be made publicly available</span>
+        </div>
+      </div>
+      <br>
+      <div class='disclaimer-box'>
+        <div class='disclaimer-container'>
+          <i class="fa fa-times close-disclaimer" id='close-subcribtion' ></i>
+          <span class='disclaimer-text'>Use your campaign page to show investors what makes your company unique. Remember to be factual and balanced. Claims cannot be exaggerated or false. Your company must be a US company in order to raise capital under Title III - Regulation Crowdfunding. You may not be a fund.</span>
+        </div>
+      </div>
+      <br>
       <%= f.text_field :name, placeholder: 'Company Name',:class => "input-box", required:true %>
       <br>
       <%= text_field_tag :tagline, @campaign.tagline ,placeholder: 'Describe your company in one sentence',:class => "input-box", required:true %>
@@ -58,4 +73,7 @@
        value = "$ " + value
        $( this ).val( value );
    });
+   $('.close-disclaimer').click(function(){
+    $(this).parent().hide()
+   })
 </script>

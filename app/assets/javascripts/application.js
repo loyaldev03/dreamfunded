@@ -17,6 +17,7 @@
 //= require instafilta.min
 //= require turbolinks
 //= require links
+//= require companies
 //= require jquery.countdown.min
 //= require_tree .
 
