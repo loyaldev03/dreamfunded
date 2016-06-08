@@ -10,39 +10,40 @@
       </div> -->
       <div class="header education-center">
         <div class='education-title'><%=link_to "Education Center", education_path%></div>
-        <%= link_to "All Education", education_path, class: 'education-links'%> <%= fa_icon "chevron-right"%> <a href="#" class='education-links'> Startups </a>
-        <%= fa_icon "chevron-right"%> <a href="#" class='education-links'>Startup Q&A</a>
+        <%= link_to "All Education", education_path, class: 'education-links'%>
+        <%= fa_icon "chevron-right"%> <a href="#" class='education-links'> Investors </a>
+        <%= fa_icon "chevron-right"%>  <a href="#" class='education-links'>Important Terms</a>
       </div>
       <div class= "left-panel">
         <ul class='education-menu'>
-            <a href='/education/startup-basics'><li class='education-item '>The Basics</li></a>
-            <a href='/education/startups-important-terms'><li class='education-item '>Important Terms</li></a>
-            <a href='/education/fund_raising_guide'><li class='education-item '>Fund Raising Guide</li></a>
-            <a href='/education/jobs_act'><li class='education-item '>JOBS ACT</li></a>
-            <a href='/education/employee-qa'><li class='education-item active'>Startup Q&A</li></a>
+            <a href='/education/investors-basics'><li class='education-item '>The Basics</li></a>
+            <a href='/education/investors-important-terms'><li class='education-item active'>Important Terms</li></a>
+            <a href='/education/investing-tips'><li class='education-item'>Investing Tips & Strategies</li></a>
+            <a href='/education/taxes-gains'><li class='education-item'>Taxes & Gains</li></a>
+            <a href='/education/investor-qa'><li class='education-item'>Investor Q&A</li></a>
         </ul>
       </div>
       <div class= "right-panel ">
         <div class= "text-content">
 
-            <h3 class= "question darkblue flip">Startup Q&A</h3>
+            <h3 class= "question darkblue flip">Important Terms  </h3>
             <ul class='education-center-list'>
 
             <% @posts.each do |post|%>
                 <% if user_session != nil && user_session.authority == authority[:Admin] %>
                     <%= button_to "Delete", {:controller => :posts,  :action => 'destroy', :id => post.id }, :method => :delete, class: 'float-rigth' %>
-                    <%= link_to 'Edit', "/posts/#{post.id}/edit/employee-qa", {:class => 'right'} %>
+                    <%= link_to 'Edit', "/posts/#{post.id}/edit/terms", {:class => 'right'} %>
 
                 <% end %>
                 <li><%= link_to post.title, post %></li>
 
                 <div class='panel'><%#= post.content%>
-                   <%= post.content.html_safe %>
+                    <%= post.content.html_safe %>
                 </div>
 
             <% end %>
             <% if user_session != nil && user_session.authority == authority[:Admin] %>
-                <h3><%= link_to 'Create New', "/posts/new/employee-qa", {:class => 'right'} %></h3>
+                <h3><%= link_to 'Create New', "/posts/new/terms", {:class => 'right'} %></h3>
             <% end %>
             </ul>
 

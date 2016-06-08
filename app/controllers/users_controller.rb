@@ -239,8 +239,9 @@ class UsersController < ApplicationController
 	end
 
 	def campaign
-		if user_session.companies.any?
-			id = user_session.companies.first.id
+		user = User.find(user_session.id)
+		if user.companies.any?
+			id = user.companies.first.id
 			redirect_to(:controller => 'companies', :action => :company_profile, id: id)
 		else
 			redirect_to funding_goal_path

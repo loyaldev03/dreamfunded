@@ -193,7 +193,11 @@ class HomeController < ApplicationController
    def education
    end
 
-   def basics
+   def startup_basics
+   	@posts = Post.order(:position).where(page: 'basics')
+   end
+
+   def investors_basics
    	@posts = Post.order(:position).where(page: 'basics')
    end
 
@@ -204,7 +208,11 @@ class HomeController < ApplicationController
 	 def rules
 	 end
 
-	 def terms
+	 def investors_terms
+	 	@posts = Post.order(:position).where(page: 'terms')
+	 end
+
+	 def startups_terms
 	 	@posts = Post.order(:position).where(page: 'terms')
 	 end
 

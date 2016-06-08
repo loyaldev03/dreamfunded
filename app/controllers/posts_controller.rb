@@ -65,9 +65,9 @@ class PostsController < ApplicationController
       elsif page == 'faq'
         return faq_path
       elsif page == 'basics'
-        return edication_basics_path
+        return education_path
       elsif page == 'terms'
-        return education_terms_path
+        return education_path
       elsif page == 'tips'
         return education_tips_path
       elsif page == 'taxes'
