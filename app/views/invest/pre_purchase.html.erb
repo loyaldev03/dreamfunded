@@ -3,9 +3,9 @@
 
   <div class="header education-center">
     <div class='education-title'>Invest in <%= @company.name %></div>
-    <a href="#" class='education-links disabled-link'>Personal Info</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links '>Investor Details</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links disabled-link'>Educational Disclaimer</a> <%= fa_icon "chevron-right"%>
+    <a href="/personal_info/<%= @company.name %>" class='education-links '>Personal Info</a> <%= fa_icon "chevron-right"%>
+    <a href="/investor_details/<%= @company.name %>" class='education-links '>Investor Details</a> <%= fa_icon "chevron-right"%>
+    <a href="/educational_disclaimer/<%= @company.name %>" class='education-links '>Educational Disclaimer</a> <%= fa_icon "chevron-right"%>
     <a href="#" class='education-links disabled-link active-link'> Legal Info </a> <%= fa_icon "chevron-right"%>
     <span href="#" class='education-links disabled-link'> Financial Info </span>
   </div>
