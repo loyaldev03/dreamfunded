@@ -27,6 +27,17 @@
       <div class="styled-select select-full-width" >
         <%= select_tag(:investor_type, options_for_select([ "non-accredited investor", "accredited investor" ]) ) %><br>
       </div>
+      <div>
+        <strong>How do I know if I am an accredited investor? </strong><br>
+        <i>Accredited investors make up a very small percentage of the population</i>
+        <ul>
+          <li>I earn over $200,000 annually, or;</li>
+          <li>My spouse and I earn a combined income of over $300,000 annually, or;</li>
+          <li>I have a net worth, not including my house, of over $1M, or;</li>
+          <li>I am an institutional investor.</li>
+        </ul>
+        <br>
+      </div>
 
       <%= text_field_tag(:annual_income, @user.investor.annual_income ,:placeholder => "Annual Income", :class => "input-box", required: true) %><br>
       <%= text_field_tag(:new_worth, @user.investor.new_worth ,:placeholder => "Net Worth (not including the value of your primary residence)", :class => "input-box", required: true) %><br>
