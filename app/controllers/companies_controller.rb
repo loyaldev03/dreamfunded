@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+	before_action :authorize
 	before_action :verify
 
 	def index
@@ -343,6 +344,12 @@ class CompaniesController < ApplicationController
 	   	if user.confirmed == false
 	   		redirect_to url_for(:controller => 'home', :action => 'unverified')
 	   	end
+   end
+
+   def authorize
+     if session[:current_user] == nil
+       redirect_to url_for(:controller => 'users', :action => 'new')
+     end
    end
 
    def section_params
