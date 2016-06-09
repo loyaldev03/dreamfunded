@@ -20,5 +20,5 @@ class Post < ActiveRecord::Base
 
   def should_generate_new_friendly_id?
      new_record?
-   end
+  end
 end
