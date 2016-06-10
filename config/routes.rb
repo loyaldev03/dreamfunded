@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   get '/pre_purchase/:name', to: 'invest#pre_purchase', as: 'pre_purchase'
   post '/pre_purchase_submit/:name', to: 'invest#pre_purchase_submit'
   get '/investment_payment', to: 'invest#payment'
+  get '/subscription_agreement/:name', to: 'invest#subscription'
 
   # Company Compaign Submit
   get '/funding_goal', to: 'campaigns#funding_goal', as: 'funding_goal'

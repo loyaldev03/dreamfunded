@@ -28,6 +28,9 @@ class InvestController < ApplicationController
     redirect_to pre_purchase_path(@company.name)
   end
 
+  def subscription
+  end
+
   def pre_purchase
     @maximum_investment =  maximum_investment(@user.investor)
   end

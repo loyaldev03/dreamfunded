@@ -1,0 +1,52 @@
+<% title "DreamFunded | Get Funded" %>
+<div class= "wrapper">
+
+  <div class="header education-center">
+    <div class='education-title'>Invest in <%= @company.name %></div>
+    <a href="/personal_info/<%= @company.name %>" class='education-links '>Personal Info</a> <%= fa_icon "chevron-right"%>
+    <a href="/investor_details/<%= @company.name %>" class='education-links '>Investor Details</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link '>Educational Disclaimer</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link'> Pre-Purchase </a> <%= fa_icon "chevron-right"%>
+    <span href="#" class='education-links active-link'> Subscription Agreement </span>
+  </div>
+
+  <div class= "campaign-box get-funded ">
+
+  <div class="row">
+    <div class=" active">
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Subscription Agreement</a></h2>
+      <br>
+
+      <textarea style="overflow:scroll"  class='subcription-agreement'>
+        <%= render "subcription_agreement"%>
+      </textarea>
+    </div>
+  </div>
+
+  <div class= "login-container">
+    <%= form_tag "/educational_disclaimer_submit/#{@company.name}", method: :post,  multipart: true do |f| %>
+      <%= hidden_field_tag :user_id, @user.id %>
+
+      <div class='little-margin' ><strong> Name </strong></div>
+       <%= text_field_tag(:name, @user.name ,:placeholder => "Sign your name in the field below by typing your full name", :class => "input-box", required: true) %><br>
+
+      <div class='little-margin' ><strong> Email</strong></div>
+      <%= text_field_tag(:name, @user.email ,:placeholder => "Sign your name in the field below by typing your full name", :class => "input-box", required: true) %><br>
+
+      <div class='little-margin' ><strong> Signature </strong></div>
+      <div class='little-margin' ><i> Sign your name in the field below by typing your full legal name. </i></div>
+      <%= text_field_tag(:name, nil ,:placeholder => "Required", :class => "input-box", required: true) %><br>
+
+
+
+      <div class = "notice centered">
+        <%= flash[:errors] if flash[:errors] %>
+      </div>
+
+      <div class= "centered">
+        <%= submit_tag("Continue", :id => "submit-button") %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

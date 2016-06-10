@@ -18,6 +18,8 @@
 //= require turbolinks
 //= require links
 //= require companies
+//= require tinyscrollbar.min
+//= require jquery.tinyscrollbar.min
 //= require jquery.countdown.min
 //= require_tree .
 
