@@ -25,10 +25,14 @@ class InvestController < ApplicationController
   end
 
   def educational_disclaimer_submit
-    redirect_to pre_purchase_path(@company.name)
+    redirect_to subscription_path(@company.name)
   end
 
   def subscription
+  end
+
+  def subscription_agreement_submit
+    redirect_to pre_purchase_path(@company.name)
   end
 
   def pre_purchase
@@ -59,7 +63,8 @@ class InvestController < ApplicationController
 
   def investor_params
     params.require(:investor).permit(
-      "annual_income", "new_worth", "us_citizen", "exempt_withholding", "ssn", "country", "date_of_birth", "address", "city", "state", "zipcode", "user_id", "drive_license", "image" )
+      "annual_income", "new_worth", "us_citizen", "exempt_withholding", "ssn", "country", "date_of_birth", "address",
+      "city", "state", "zipcode", "user_id", "drive_license", "image" )
   end
 
 end

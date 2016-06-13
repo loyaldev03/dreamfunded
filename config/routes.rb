@@ -30,14 +30,19 @@ Rails.application.routes.draw do
   #I N V E S T O R   S U B M I T
   get '/personal_info/:name', to: 'invest#personal', as: 'personal'
   post '/personal_submit/:name', to: 'invest#personal_submit'
+
   get '/investor_details/:name', to: 'invest#investor_details', as: 'investor_details'
   post '/investor_details_submit/:name', to: 'invest#investor_details_submit'
+
   get '/educational_disclaimer/:name', to: 'invest#educational_disclaimer', as: 'educational_disclaimer'
   post '/educational_disclaimer_submit/:name', to: 'invest#educational_disclaimer_submit'
+
+  get '/subscription_agreement/:name', to: 'invest#subscription', as: 'subscription'
+  post '/subscription_agreement_submit/:name', to: 'invest#subscription_agreement_submit'
+
   get '/pre_purchase/:name', to: 'invest#pre_purchase', as: 'pre_purchase'
   post '/pre_purchase_submit/:name', to: 'invest#pre_purchase_submit'
   get '/investment_payment', to: 'invest#payment'
-  get '/subscription_agreement/:name', to: 'invest#subscription'
 
   # Company Compaign Submit
   get '/funding_goal', to: 'campaigns#funding_goal', as: 'funding_goal'

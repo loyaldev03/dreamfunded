@@ -6,8 +6,8 @@
     <a href="/personal_info/<%= @company.name %>" class='education-links '>Personal Info</a> <%= fa_icon "chevron-right"%>
     <a href="/investor_details/<%= @company.name %>" class='education-links '>Investor Details</a> <%= fa_icon "chevron-right"%>
     <a href="#" class='education-links disabled-link '>Educational Disclaimer</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links disabled-link'> Pre-Purchase </a> <%= fa_icon "chevron-right"%>
-    <span href="#" class='education-links active-link'> Subscription Agreement </span>
+    <span href="#" class='education-links active-link'> Subscription Agreement </span> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link'> Pre-Purchase </a>
   </div>
 
   <div class= "campaign-box get-funded ">
@@ -24,7 +24,7 @@
   </div>
 
   <div class= "login-container">
-    <%= form_tag "/educational_disclaimer_submit/#{@company.name}", method: :post,  multipart: true do |f| %>
+    <%= form_tag "/subscription_agreement_submit/#{@company.name}", method: :post,  multipart: true do |f| %>
       <%= hidden_field_tag :user_id, @user.id %>
 
       <div class='little-margin' ><strong> Name </strong></div>
@@ -35,7 +35,7 @@
 
       <div class='little-margin' ><strong> Signature </strong></div>
       <div class='little-margin' ><i> Sign your name in the field below by typing your full legal name. </i></div>
-      <%= text_field_tag(:name, nil ,:placeholder => "Required", :class => "input-box", required: true) %><br>
+      <%= text_field_tag(:signature, nil ,:placeholder => "Required", :class => "input-box", required: true) %><br>
 
 
 

@@ -1,5 +1,5 @@
 class ContactMailer < ActionMailer::Base
-  default from: "DreamFunded <info@dreamfunded.com>"
+  default from: "DreamFunded <info@dreamfunded.vc>"
 
   def welcome_email(user)
     @user = user
