@@ -1,0 +1,100 @@
+<html>
+
+  <head>
+    <title>DreamFunded | Edit </title>
+  </head>
+
+  <body>
+    <div class= "word-content"><div class="text-content stretch">
+      <%= form_for(@company, :url => url_for(:controller => 'campaigns', :action => 'update_campaign') ) do |f| %>
+        <% if @company.errors.any? %>
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this company from being saved: </h2>
+
+          <ul>
+            <% @company.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+
+      <div class= "topbar">
+        <a href= "/companies" class= "darkblue">&#8617; Back</a>
+      </div>
+      <div class= "company-title indent">
+        <h2 class= "darkblue small-margin">
+          <%= f.text_field :name, :class => 'input-box half' %>
+          <%= f.text_field :website_link, :class => 'input-box half scoot-left' %>
+        </h2>
+      </div>
+      <div class= "stats-container">
+        <div class= "profile-image-wrap"> <%= link_to image_tag(@company.image.url, :class => "stats-image"), @company.website_link %></div>
+        <div class='center'><span class= "darkblue twenty">Change Image: </span><%= f.file_field "image" %></br></br></div>
+        <div class='center'><span class= "darkblue twenty"><%= link_to "Upload Docs", new_document_path(:company_id => @company.id) %> </span></br></br></div>
+
+        <div class='center'>
+          <span class= "darkblue twenty">Documents: </span>
+          <% @company.documents.each do |doc|%>
+            <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to doc.file_file_name, doc.file.url, target: "_blank", class: 'document-url' %><br><%= link_to 'Destroy', doc, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          <% end %>
+        </div><br>
+
+        <div class= "numbers"><div class= "numbers-content">
+          <div class="meter orange">
+            <% @progress = ((@company.invested_amount.to_f / @company.goal_amount.to_f).to_f) *100 %>
+            <% if @progress == 0 %>
+              <span class= "front" style="width: 5px"></span>
+            <% else %>
+              <span style='width: <%= @progress %>%'></span>
+            <% end %>
+          </div><br>
+          <div class= 'statistics'>
+            <div class= "">
+
+              <div>
+                <p class= "twenty no-margin center"><%= f.number_field :goal_amount, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Goal Amount </span> </p>
+              </div>
+            </div>
+
+            <div>
+              <p class= "twenty no-margin center"><%= f.text_field :video_link, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Video Link</span></p>
+            </div>
+
+              <div>
+                <p class= "twenty no-margin center"><%= "%.1f" % @progress %>%<br><span class= "darkblue twenty">Funded<span></p>
+              </div>
+          </div>
+        </div></div>
+
+        <div class= "fake-button"> Invest </div>
+      </div>
+
+      <div class= "description-container">
+        <div class= "video-box">
+            <%= image_tag(@company.image.url, class: "max-width-image")%>
+        </div>
+        <br><br><br><br>
+        <h2 class= "darkblue twentyf indent">Highlight</h2>
+        <hr>
+        <p class= "fifteen"><%= f.text_area :description, rows: 10, :class => 'edit_textarea twenty no-margin' %></p>
+        <br>
+
+        <h2 class= "darkblue twentyf indent">Why <%= @company.name %></h2>
+        <p class= "fifteen">
+          <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
+            <p class= "fifteen"><%= campaign_fields.text_area :elevator_pitch, rows: 10, :class => 'edit_textarea twenty  no-margin ' %></p>
+            <h2 class= "darkblue twentyf indent">Our Mission</h2>
+            <p class= "fifteen"><%= campaign_fields.text_area :about_campaign, rows: 10, :class => ' edit_textarea twenty no-margin ' %></p>
+          <% end %>
+        </p>
+      </div>
+
+      <div class = "notice centered">
+        <%= flash[:problem_update] if flash[:problem_update] %>
+        <%= @error_update %>
+      </div>
+      <%= f.submit "Update", :class => 'invest-button' %>
+    <% end %>
+    </div></div>
+  </body>
+
+</html>

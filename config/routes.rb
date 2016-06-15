@@ -59,6 +59,9 @@ Rails.application.routes.draw do
   post '/financial_info_submit', to: 'campaigns#financial_info_submit'
   get '/campaign_review/:id', to: 'campaigns#campaign_review', as: 'campaign_review'
 
+  get '/edit_campaign/:id', to: 'campaigns#edit_campaign'
+  patch '/update_campaign', to: 'campaigns#update_campaign'
+
 
   match "/diversity-tech-angels-earn-wings/" => redirect("https://dreamfundedsf.wpengine.com/diversity-tech-angels-earn-wings/"), via: 'get'
 

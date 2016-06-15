@@ -8,7 +8,7 @@ class CampaignsController < ApplicationController
 
   def funding_goal_submit
     funding_goal = params[:campaign][:funding_goal].delete('$').delete(',').to_i
-    @company = Company.new(user_id: user_session.id, goal_amount: funding_goal)
+    @company = Company.new(user_id: user_session.id, goal_amount: funding_goal, status: 1)
     @company.save(:validate => false)
     @campaign = Campaign.create(funding_goal: funding_goal, company_id: @company.id)
     redirect_to campaign_basics_path(@campaign.id)
@@ -81,9 +81,22 @@ class CampaignsController < ApplicationController
     @company = @campaign.company
   end
 
+  def edit_campaign
+    @campaign = Campaign.find(params[:id])
+    @company = @campaign.company
+  end
+
+  def update_campaign
+    @campaign = Campaign.find(params[:company][:campaign_attributes][:id])
+    @company = @campaign.company
+    @company.update(company_params)
+
+    redirect_to :controller => 'companies', :action => 'company_profile', :id => @company.id
+  end
+
   private
   def company_params
-     params.require(:company).permit(:image, :name, :description, :user_id, :website_link )
+     params.require(:company).permit(:image, :name, :description, :user_id, :goal_amount, :website_link, campaign_attributes: [:elevator_pitch, :about_campaign] )
   end
 
   def campaign_params

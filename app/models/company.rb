@@ -10,6 +10,7 @@ class Company < ActiveRecord::Base
 
   has_many :docusigns
   has_one :campaign
+  accepts_nested_attributes_for :campaign
 
 
 	has_attached_file :image,
