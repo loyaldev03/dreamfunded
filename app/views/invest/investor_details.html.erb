@@ -39,8 +39,8 @@
         <br>
       </div>
 
-      <%= text_field_tag(:annual_income, @user.investor.annual_income ,:placeholder => "Annual Income", :class => "input-box", required: true) %><br>
-      <%= text_field_tag(:new_worth, @user.investor.new_worth ,:placeholder => "Net Worth (not including the value of your primary residence)", :class => "input-box", required: true) %><br>
+      <%= number_field_tag(:annual_income, @user.investor.annual_income ,:placeholder => "Annual Income", :class => "input-box", required: true) %><br>
+      <%= number_field_tag(:new_worth, @user.investor.new_worth ,:placeholder => "Net Worth (not including the value of your primary residence)", :class => "input-box", required: true) %><br>
 
       <label>Are you a US citizen or legal permanent resident?</label>
       <div class="styled-select select-full-width" >
@@ -70,5 +70,14 @@
       </div>
     <% end %>
   </div>
-
 </div>
+
+<script>
+ $('#annual_income').on('keyup', function(){
+  console.log('click');
+ price = $(this).val()
+      price = addCommas(price.toString());
+      $(this).html( price )
+
+})
+</script>

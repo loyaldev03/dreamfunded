@@ -31,6 +31,7 @@ class CompaniesController < ApplicationController
 	def create
 		@company = Company.new(company_params)
 		if @company.save
+			@company.campaign = Campaign.create
 			section = Section.new
 			@company.sections << section
 			redirect_to "/companies"

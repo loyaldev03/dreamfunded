@@ -1,9 +1,7 @@
 <html>
-
   <head>
     <title>DreamFunded | Edit </title>
   </head>
-
   <body>
     <div class= "word-content"><div class="text-content stretch">
       <%= form_for(@company, :url => url_for(:controller => 'campaigns', :action => 'update_campaign') ) do |f| %>
@@ -24,6 +22,10 @@
         <h2 class= "darkblue small-margin">
           <%= f.text_field :name, :class => 'input-box half' %>
           <%= f.text_field :website_link, :class => 'input-box half scoot-left' %>
+          <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
+
+          <%= campaign_fields.text_field :tagline, placeholder: 'Describe your company in one sentence',:class => "input-box", required:true %>
+          <% end %>
         </h2>
       </div>
       <div class= "stats-container">
@@ -48,20 +50,24 @@
             <% end %>
           </div><br>
           <div class= 'statistics'>
-            <div class= "">
-
-              <div>
-                <p class= "twenty no-margin center"><%= f.number_field :goal_amount, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Goal Amount </span> </p>
-              </div>
+            <div>
+              <p class= "twenty no-margin center"><%= f.number_field :goal_amount, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Goal Amount </span> </p>
             </div>
 
             <div>
-              <p class= "twenty no-margin center"><%= f.text_field :video_link, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Video Link</span></p>
+              <p class= "twenty no-margin center">
+                <%= f.text_field :video_link, :class => 'input-box no-margin center' %><br>
+                <span class= "darkblue twenty">Video Link</span>
+              </p>
             </div>
 
-              <div>
-                <p class= "twenty no-margin center"><%= "%.1f" % @progress %>%<br><span class= "darkblue twenty">Funded<span></p>
-              </div>
+            <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
+              <p class= "fifteen"> <%= campaign_fields.select(:category, options_for_select(company_categories), required:true ) %></p>
+            <% end %>
+
+            <div>
+              <p class= "twenty no-margin center"><%= "%.1f" % @progress %>%<br><span class= "darkblue twenty">Funded<span></p>
+            </div>
           </div>
         </div></div>
 
