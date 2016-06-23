@@ -60,7 +60,7 @@ class PaymentsController < ApplicationController
         p "Cvv2 Result: #{tran.cvv2_result} "
 
       # if referral give 100$
-      addCreditForReferral
+     # addCreditForReferral
       investment_id = createInvestment( params[:amount], company_id, shares)
       company_name = Company.find(company_id).name
       ContactMailer.investment_submitted(user_session, investment_id).deliver
