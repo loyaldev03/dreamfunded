@@ -40,9 +40,15 @@ class InvestController < ApplicationController
   end
 
   def pre_purchase_submit
+    maximum = params[:maximum].to_i
     number_of_shares = params[:share_amount]
     amount = @company.suggested_target_price * number_of_shares.to_i
-    redirect_to(:action => :payment, amount: amount,number_of_shares: number_of_shares, company_id: @company.id)
+    if amount > maximum
+      flash[:maximum] = "Requiested amount of $#{amount} is larger than the maximum allowed"
+      redirect_to pre_purchase_path(@company.name)
+    else
+      redirect_to(:action => :payment, amount: amount,number_of_shares: number_of_shares, company_id: @company.id)
+    end
   end
 
   def payment

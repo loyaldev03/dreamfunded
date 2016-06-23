@@ -1,4 +1,4 @@
-<% title "DreamFunded | Get Funded" %>
+<% title "DreamFunded | Invest" %>
 <div class= "wrapper">
 
   <div class="header education-center">
@@ -16,7 +16,9 @@
     <div class=" active">
       <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Invest in <%= @company.name %></a></h2>
       <br>
-
+      <div class='notice'>
+        <%= flash[:maximum] %>
+      </div>
     </div>
   </div>
 
@@ -29,6 +31,7 @@
   <div class= "login-container">
     <%= form_tag "/pre_purchase_submit/#{@company.name}", method: :post,  multipart: true do |f| %>
       <%= hidden_field_tag :user_id, @user.id %>
+      <%= hidden_field_tag :maximum, @maximum_investment %>
 
       <div>How many <strong>shares</strong> would you like to purchase?</div>
 
