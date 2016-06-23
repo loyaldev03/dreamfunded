@@ -36,11 +36,11 @@
 
       <%= f.text_area(:financial_risks, rows: 6, :class =>"userbox ", :placeholder => "Financial Risks", :required => true) %>
 
-      <%= f.text_field :totat_income, placeholder: 'Total Income',:class => "input-box", required:true %>
+      <%= f.number_field :totat_income, placeholder: 'Total Income',:class => "input-box", required:true %>
 
-      <%= f.text_field :total_taxable_income, placeholder: 'Total Taxable Income',:class => "input-box ", required:true %>
+      <%= f.number_field :total_taxable_income, placeholder: 'Total Taxable Income',:class => "input-box ", required:true %>
 
-      <%= f.text_field :total_taxes_paid, placeholder: 'Total Taxes Paid',:class => "input-box ", required:true %>
+      <%= f.number_field :total_taxes_paid, placeholder: 'Total Taxes Paid',:class => "input-box ", required:true %>
 
       <div class = "notice centered">
         <%= flash[:errors] if flash[:errors] %>

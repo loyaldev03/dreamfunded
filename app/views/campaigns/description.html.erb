@@ -27,11 +27,20 @@
     </div>
   </div>
 
+  <div class='disclaimer-box'>
+    <div class='disclaimer-container'>
+      <i class="fa fa-times close-disclaimer" id='close-subcribtion' ></i>
+      <span class='disclaimer-text'>Use full Youtube URL</span><br>
+      <%= image_tag("static/youtube_url.png")%>
+    </div>
+  </div>
+
   <div class= "login-container">
     <%= form_for @campaign, :url => {:action => "company_description_submit"} do |f| %>
       <%= hidden_field_tag :company_id, @company.id %>
       <%= hidden_field_tag :campaign_id, @campaign.id %>
-      <%= text_field_tag :video_link,@company.video_link,  placeholder: 'Select Video',:class => "input-box" %>
+
+      <%= text_field_tag :video_link,@company.video_link,  placeholder: 'Select Youtube Video',:class => "input-box" %>
       <br>
 
       <%= f.text_area :elevator_pitch, placeholder: 'Write Elevation Pitch. What makes your company exceptional? Why should the crowd invest in your company?  ', class: 'userbox campaign_text_area_width', rows: 6, required:true %>
