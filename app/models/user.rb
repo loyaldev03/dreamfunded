@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 	has_many :investments
-	has_many :companies, through: :investments
+	has_many :companies
 
 	has_many :invites
 

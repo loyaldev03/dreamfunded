@@ -1,6 +1,6 @@
 class Company < ActiveRecord::Base
 	has_many :investments
-	has_many :users, through: :investments
+	belongs_to :user
 
 	has_many :sections
   has_many :bids
