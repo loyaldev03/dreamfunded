@@ -25,13 +25,6 @@ class InvestController < ApplicationController
   end
 
   def educational_disclaimer_submit
-    redirect_to subscription_path(@company.name)
-  end
-
-  def subscription
-  end
-
-  def subscription_agreement_submit
     redirect_to pre_purchase_path(@company.name)
   end
 
@@ -47,8 +40,21 @@ class InvestController < ApplicationController
       flash[:maximum] = "Requiested amount of $#{amount} is larger than the maximum allowed"
       redirect_to pre_purchase_path(@company.name)
     else
-      redirect_to(:action => :payment, amount: amount,number_of_shares: number_of_shares, company_id: @company.id)
+      redirect_to(:action => :subscription, amount: amount,number_of_shares: number_of_shares, company_id: @company.id)
     end
+  end
+
+  def subscription
+    @number_of_shares = params[:number_of_shares]
+    @company_id = params[:company_id]
+    @amount = params[:amount]
+  end
+
+  def subscription_agreement_submit
+    @number_of_shares = params[:number_of_shares]
+    @company_id = params[:company_id]
+    @amount = params[:amount]
+    redirect_to(:action => :payment, amount: @amount,number_of_shares: @number_of_shares, company_id: @company_id)
   end
 
   def payment
