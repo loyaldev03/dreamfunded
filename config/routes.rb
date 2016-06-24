@@ -59,7 +59,7 @@ Rails.application.routes.draw do
   post '/financial_info_submit', to: 'campaigns#financial_info_submit'
   get '/campaign_review/:id', to: 'campaigns#campaign_review', as: 'campaign_review'
 
-  get '/edit_campaign/:id', to: 'campaigns#edit_campaign'
+  get '/edit_campaign/:id', to: 'campaigns#edit_campaign', as: 'edit_campaign'
   patch '/update_campaign', to: 'campaigns#update_campaign'
 
 
@@ -208,10 +208,6 @@ Rails.application.routes.draw do
   get '/education/market_trends', to: 'home#market_trends', as: 'market_trends'
   get '/education/jobs_act', to: 'home#jobs_act', as: 'jobs_act'
   get '/education/fund_raising_guide', to: 'home#fund_raising_guide', as: 'fund_raising_guide'
-
-  get '/getfunded', to: 'home#get_funded'
-  post '/get_funded', to: 'home#get_funded_send'
-  get '/get-funded_after', to: 'home#get_funded_after'
 
   get '/resources', to: 'home#resources'
   get '/marketplace', to: 'home#marketplace'

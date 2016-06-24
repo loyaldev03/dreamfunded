@@ -97,7 +97,7 @@ class CampaignsController < ApplicationController
 
   private
   def company_params
-     params.require(:company).permit(:image, :name, :description, :user_id, :goal_amount, :website_link, campaign_attributes: [:elevator_pitch, :about_campaign] )
+     params.require(:company).permit(:image, :name, :description, :video_link, :user_id, :goal_amount, :website_link, campaign_attributes: [:tagline, :elevator_pitch, :about_campaign, :id, :category, :employees_numer] )
   end
 
   def campaign_params

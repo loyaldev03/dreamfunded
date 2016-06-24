@@ -24,7 +24,7 @@
           <%= f.text_field :website_link, :class => 'input-box half scoot-left' %>
           <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
 
-          <%= campaign_fields.text_field :tagline, placeholder: 'Describe your company in one sentence',:class => "input-box", required:true %>
+            <%= campaign_fields.text_field :tagline, placeholder: 'Describe your company in one sentence',:class => "input-box", required:true %>
           <% end %>
         </h2>
       </div>
@@ -61,13 +61,22 @@
               </p>
             </div>
 
-            <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
-              <p class= "fifteen"> <%= campaign_fields.select(:category, options_for_select(company_categories), required:true ) %></p>
-            <% end %>
-
             <div>
-              <p class= "twenty no-margin center"><%= "%.1f" % @progress %>%<br><span class= "darkblue twenty">Funded<span></p>
+                <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
+                  <p class= "twenty no-margin center">
+                    <%= campaign_fields.text_field(:category, :class => 'input-box no-margin center', required:true ) %>
+                    <span class= "darkblue twenty">Category</span>
+                  </p>
+                  <p class= "twenty no-margin center">
+                    <%= campaign_fields.text_field(:employees_numer, :class => 'input-box no-margin center', required:true ) %>
+                    <span class= "darkblue twenty">Number of Employees</span>
+                  </p>
+                <% end %>
             </div>
+
+
+
+
           </div>
         </div></div>
 

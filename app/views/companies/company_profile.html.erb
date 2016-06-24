@@ -9,7 +9,10 @@
 
 				<%= link_to "↩  Back", :back,  {:class => 'darkblue hide-on-mobile'} %>
 				<% if user_session != nil && user_session.authority == authority[:Admin] %>
-					<%= link_to 'Edit', {:controller => 'companies', :action => 'edit_profile', :id => @id }, {:class => 'right'} %>
+					<%= link_to 'Edit', {:controller => 'companies', :action => 'edit_profile', :id => @id }, {:class => 'left'} %>
+				<% end %>
+				<% if user_session == @company.user %>
+				<%= link_to 'Edit My Campaign', {:controller => 'campaigns', :action => 'edit_campaign', :id => @company.campaign.id}, {:class => 'right'} %>
 				<% end %>
 			</div>
 			<div class= "company-title indent">
@@ -50,6 +53,15 @@
 							<div>
 								<p class= "twenty no-margin center"><span class= "darkblue twenty">Funded: </span><%= "%.1f" % @progress %>%<br><br></p>
 							</div>
+
+							<div>
+								<p class= "twenty no-margin center"><span class= "darkblue twenty">Number of Employees: </span><%= @company.campaign.employees_numer %><br><br></p>
+							</div>
+
+							<div>
+								<p class= "twenty no-margin center"><span class= "darkblue twenty">Category: </span><%= @company.campaign.category %><br><br></p>
+							</div>
+
 							<div>
 								<span class= "darkblue twenty">Documents: </span>
 								<% @company.documents.each do |doc|%>
