@@ -18,7 +18,7 @@
       <br>
 
       <textarea style="overflow:scroll"  class='subcription-agreement' readonly>
-        <%= render "subcription_agreement"%>
+        <%= render "subcription_agreement",  locals: { user: @user, company: @company}  %>
       </textarea>
     </div>
   </div>
@@ -31,11 +31,11 @@
       <%= hidden_field_tag :amount, @amount %>
 
 
-      <div class='little-margin' ><strong> Name </strong></div>
-       <%= text_field_tag(:name, @user.name ,:placeholder => "Sign your name in the field below by typing your full name", :class => "input-box", required: true) %><br>
+      <div class='little-margin' ><strong> Name:  </strong><%= @user.name %></div><br>
 
-      <div class='little-margin' ><strong> Email</strong></div>
-      <%= text_field_tag(:name, @user.email ,:placeholder => "Sign your name in the field below by typing your full name", :class => "input-box", required: true) %><br>
+
+      <div class='little-margin' ><strong> Email: </strong><%=  @user.email %></div><br>
+
 
       <div class='little-margin' ><strong> Signature </strong></div>
       <div class='little-margin' ><i> Sign your name in the field below by typing your full legal name. </i></div>

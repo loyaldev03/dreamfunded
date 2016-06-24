@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160623195436) do
+ActiveRecord::Schema.define(version: 20160624191303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 20160623195436) do
     t.text     "description"
     t.integer  "invested_amount"
     t.string   "website_link"
-    t.string   "video_link"
+    t.string   "video_link",             default: "video link"
     t.integer  "goal_amount"
     t.integer  "status"
     t.string   "CEO"

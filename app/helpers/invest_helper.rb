@@ -4,6 +4,10 @@ module InvestHelper
     number_with_precision(company.suggested_target_price, :precision => 2)
   end
 
+  def funding_goal_with_precision(number)
+    number_with_precision(number, :precision => 2, :delimiter => ',')
+  end
+
   def maximum_investment(investor)
 
     income = investor.annual_income

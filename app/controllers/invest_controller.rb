@@ -47,7 +47,7 @@ class InvestController < ApplicationController
   def subscription
     @number_of_shares = params[:number_of_shares]
     @company_id = params[:company_id]
-    @amount = params[:amount]
+    @amount = params[:amount].to_i
   end
 
   def subscription_agreement_submit

@@ -3,30 +3,32 @@ Subscription Agreement
 
 THE SECURITIES ARE BEING OFFERED PURSUANT TO SECTION 4(A)(6) OF THE SECURITIES ACT OF 1933 (THE “ACT”) AND HAVE NOT BEEN REGISTERED UNDER THE ACT OR THE SECURITIES LAWS OF ANY STATE OR ANY OTHER JURISDICTION. NO FEDERAL OR STATE SECURITIES ADMINISTRATOR HAS REVIEWED OR PASSED ON THE ACCURACY OR ADEQUACY OF THE OFFERING MATERIALS FOR THESE SECURITIES. THERE ARE SIGNIFICANT RESTRICTIONS ON THE TRANSFERABILITY OF THE SECURITIES DESCRIBED HEREIN AND NO RESALE MARKET MAY BE AVAILABLE AFTER RESTRICTIONS EXPIRE.  THE PURCHASE OF THESE SECURITIES INVOLVES A HIGH DEGREE OF RISK AND SHOULD BE CONSIDERED ONLY BY PERSONS WHO CAN BEAR THE RISK OF THE LOSS OF THEIR ENTIRE INVESTMENT WITHOUT A CHANGE IN THEIR LIFESTYLE.
 
-%%NAME_OF_ISSUER%%
-%%ADDRESS_OF_ISSUER%%
+<%= @company.name %>
+<%= @company.campaign.location %>
 
 Ladies and Gentlemen:
 
-The undersigned understands that %%NAME_OF_ISSUER%%, a Corporation organized under the laws of %%STATE_INCORPORATED%% (the “Company”), is offering up to $%%MAX_FUNDING_AMOUNT%% of equity (the “Securities”) in a Regulation Crowdfunding offering. This offering is made pursuant to the Form C, dated %%DATE_OF_LAUNCH%% the “Form C”). The undersigned further understands that the offering is being made pursuant to Section 4(a)(6) of the Act and Regulation Crowdfunding under the Act (“Regulation Crowdfunding”) and without registration of the Securities under the Act.
+The undersigned understands that <%= @company.name %>, a Corporation organized under the laws of <%= @company.campaign.state_where_incorporated %> (the “Company”), is offering up to $<%= funding_goal_with_precision(@company.campaign.funding_goal) %> of equity (the “Securities”) in a Regulation Crowdfunding offering. This offering is made pursuant to the Form C, dated <%= @company.campaign.date_formed.strftime("%b %d,%Y")   %> the “Form C”). The undersigned further understands that the offering is being made pursuant to Section 4(a)(6) of the Act and Regulation Crowdfunding under the Act (“Regulation Crowdfunding”) and without registration of the Securities under the Act.
 
 1. Subscription. Subject to the terms and conditions hereof and the provisions of the Form C, the undersigned hereby subscribes for the Securities set forth on the signature page hereto for the aggregate purchase price set forth on the signature page hereto, which is payable as described in Section 4 hereof. Subscriber understands and acknowledges that the subscription may not be revoked within the 48 hour period prior to a closing (as described below) of the Offering.  The undersigned acknowledges that the Securities will be subject to restrictions on transfer as set forth in this subscription agreement (the “Subscription Agreement”).
 
 2. Acceptance of Subscription and Issuance of Securities. It is understood and agreed that the Company shall have the sole right, at its complete discretion, to accept or reject this subscription, in whole or in part, for any reason and that the same shall be deemed to be accepted by the Company only when it is signed by a duly authorized officer of the Company and delivered to the undersigned at the Closing referred to in Section 3 hereof.  Subscriptions need not be accepted in the order received, and the Securities may be allocated among subscribers.
 
-3. The Closing. The closing of the purchase and sale of the Securities (the “Closing”) shall take place at 12 a.m. EST on  %%FUNDING_END_DATE%%, or at such other time and place as the Company may designate by notice to the undersigned.
+3. The Closing. The closing of the purchase and sale of the Securities (the “Closing”) shall take place at 12 a.m. EST on  <%= (Date.today+30).strftime("%b %d,%Y") %>, or at such other time and place as the Company may designate by notice to the undersigned.
 
-4. Payment for Securities. Payment for the Securities shall be received by Western Alliance Bank (the “Escrow Agent”) from the undersigned by  %%PAYMENT_METHOD%% of immediately available funds or other means approved by the Escrow Agent prior to the Offering campaign deadline, in the amount as set forth on the signature page hereto. Upon the Closing, the Escrow Agent shall release such funds to the Company. The[a] undersigned shall receive notice and evidence of the entry of the number of the Securities owned by undersigned reflected on the books and records of the Company and verified and by Fund America Stock Transfer (the “Transfer Agent”), which shall bear a notation that the Securities were sold in reliance upon an exemption from registration under the Securities Act.
+4. Payment for Securities. Payment for the Securities shall be received by Western Alliance Bank (the “Escrow Agent”) from the undersigned by  ACH of immediately available funds or other means approved by the Escrow Agent prior to the Offering campaign deadline, in the amount as set forth on the signature page hereto. Upon the Closing, the Escrow Agent shall release such funds to the Company. The undersigned shall receive notice and evidence of the entry of the number of the Securities owned by undersigned reflected on the books and records of the Company and verified by FundAmerica Stock Transfer (the “Transfer Agent”), which shall bear a notation that the Securities were sold in reliance upon an exemption from registration under the Securities Act.
 
 5. Representations and Warranties of the Company. As of the Closing, the Company represents and warrants that:
 
-a) The Company is duly formed and validly existing under the laws of %%STATE_INCORPORATED%%, with full power and authority to conduct its business as it is currently being conducted and to own its assets; and has secured any other authorizations, approvals, permits and orders required by law for the conduct by the Company of its business as it is currently being conducted.
+a) The Company is duly formed and validly existing under the laws of <%= @company.campaign.state_where_incorporated %>, with full power and authority to conduct its business as it is currently being conducted and to own its assets; and has secured any other authorizations, approvals, permits and orders required by law for the conduct by the Company of its business as it is currently being conducted.
 
 b) The Securities have been duly authorized and, when issued, delivered and paid for in the manner set forth in this Subscription Agreement, will be validly issued, fully paid and nonassessable, and will conform in all material respects to the description thereof set forth in the Form C.
 
 c) The execution and delivery by the Company of this Subscription Agreement and the consummation of the transactions contemplated hereby (including the issuance, sale and delivery of the Securities) are within the Company’s powers and have been duly authorized by all necessary corporate action on the part of the Company. Upon full execution hereof, this Subscription Agreement shall constitute a valid and binding agreement of the Company, enforceable against the Company in accordance with its terms, except (i) as limited by applicable bankruptcy, insolvency, reorganization, moratorium, and other laws of general application affecting enforcement of creditors’ rights generally, (ii) as limited by laws relating to the availability of specific performance, injunctive relief, or other equitable remedies and (iii) with respect to provisions relating to indemnification and contribution, as limited by considerations of public policy and by federal or state securities laws.
 
-d) Assuming the accuracy of the undersigned’s representations and warranties set forth in Section 6 hereof, no order, license, consent, authorization or approval of, or exemption by, or action by or in respect of, or notice to, or filing or registration with, any governmental body, agency or official is required by or with respect to the Company in connection with the execution, delivery and performance by the Company of this Subscription Agreement except (i) for such filings as may be required under Regulation Crowdfunding, or under any applicable state securities laws, (ii) for such other filings and approvals as have been made or obtained, or (iii) where the failure to obtain any such order, license, consent, authorization, approval or exemption or give any such notice or make any filing or registration would not have a material adverse effect on the ability of the Company to perform its obligations hereunder.
+d) Assuming the accuracy of the undersigned’s representations and warranties set forth in Section 6 hereof, no order, license, consent, authorization or approval of, or exemption by, or
+
+action by or in respect of, or notice to, or filing or registration with, any governmental body, agency or official is required by or with respect to the Company in connection with the execution, delivery and performance by the Company of this Subscription Agreement except (i) for such filings as may be required under Regulation Crowdfunding, or under any applicable state securities laws, (ii) for such other filings and approvals as have been made or obtained, or (iii) where the failure to obtain any such order, license, consent, authorization, approval or exemption or give any such notice or make any filing or registration would not have a material adverse effect on the ability of the Company to perform its obligations hereunder.
 
 6. Representations and Warranties of the Undersigned. The undersigned hereby represents and warrants to and covenants with the Company that:
 
@@ -54,10 +56,10 @@ vi. The undersigned acknowledges that the Company has the right in its sole and 
 
 vii. The undersigned understands that no federal or state agency has passed upon the merits or risks of an investment in the Securities or made any finding or determination concerning the fairness or advisability of this investment.
 
-viii. Undersigned has up to 48 hours before the campaign end date to cancel the purchase and get a full refund
+viii. Undersigned has up to 48 hours before the campaign end date to cancel the purchase and get a full refund.
 
-c) No Guaranty.
-i. The undersigned confirms that the Company has not (A) given any guarantee or representation as to the potential success, return, effect or benefit (either legal, regulatory, tax, financial, accounting or otherwise) an of investment in the Securities or (B) made any representation to the undersigned regarding the legality of an investment in the Securities under applicable legal investment or similar laws or regulations. In deciding to purchase the Securities, the undersigned is not relying on the advice or recommendations of the Company and the undersigned has made its own independent decision, alone or in consultation with its investment advisors, that the investment in the Securities is suitable and appropriate for the undersigned.
+c) No Guarantee.
+i. The undersigned confirms that the Company has not (A) given any guarantee or representation as to the potential success, return, effect or benefit (either legal, regulatory, tax, financial, accounting or otherwise) and of investment in the Securities or (B) made any representation to the undersigned regarding the legality of an investment in the Securities under applicable legal investment or similar laws or regulations. In deciding to purchase the Securities, the undersigned is not relying on the advice or recommendations of the Company and the undersigned has made its own independent decision, alone or in consultation with its investment advisors, that the investment in the Securities is suitable and appropriate for the undersigned.
 
 d) Status of Undersigned.
 i. The undersigned has such knowledge, skill and experience in business, financial and investment matters that the undersigned is capable of evaluating the merits and risks of an investment in the Securities. With the assistance of the undersigned's own professional advisors, to the extent that the undersigned has deemed appropriate, the undersigned has made its own legal, tax, accounting and financial evaluation of the merits and risks of an investment in the Securities and the consequences of this Subscription Agreement. The undersigned has considered the suitability of the Securities as an investment in light of its own circumstances and financial condition and the undersigned is able to bear the risks associated with an investment in the Securities and its authority to invest in the Securities.
@@ -72,23 +74,20 @@ iii. The undersigned agrees: (A) that the undersigned will not sell, assign, ple
 
 7. Conditions to Obligations of the Undersigned and the Company. The obligations of the undersigned to purchase and pay for the Securities specified on the signature page hereto and of the Company to sell the Securities are subject to the satisfaction at or prior to the Closing of the following conditions precedent: the representations and warranties of the Company contained in Section 5 hereof and of the undersigned contained in Section 6 hereof shall be true and correct as of the Closing in all respects with the same effect as though such representations and warranties had been made as of the Closing.
 
-8. Future Offerings under Regulation A of the Act.
-In the event the Company elects to make an offering of securities (a) of the same class as the Securities, or (b) securities that the Board of Directors in its sole discretion determines to be the economic equivalent of the Securities (“Equivalent Securities”)  under Regulation A of the Act, the undersigned agrees that, at the sole discretion of the Board of Directors of the Company, the Securities (or some portion of the Securities) may be exchanged for an equivalent number of securities of the same class or Equivalent Securities of the Company, at no cost to the undersigned. The undersigned agrees to provide any information necessary to effect such exchange, and to hold the securities issued under Regulation A in the manner prescribed in such offering, including holding the securities to be issued in “street name” in a brokerage account. The undersigned agrees that in the event the undersigned does not provide information sufficient to effect such exchange in a timely manner, the Company may repurchase the Securities at a price to be determined by the Board of Directors.
+8. Future Offerings under Regulation A of the Act. In the event the Company elects to make an offering of securities (a) of the same class as the Securities, or (b) securities that the Board of Directors in its sole discretion determines to be the economic equivalent of the Securities (“Equivalent Securities”)  under Regulation A of the Act, the undersigned agrees that, at the sole discretion of the Board of Directors of the Company, the Securities (or some portion of the Securities) may be exchanged for an equivalent number of securities of the same class or Equivalent Securities of the Company, at no cost to the undersigned. The undersigned agrees to provide any information necessary to effect such exchange, and to hold the securities issued under Regulation A in the manner prescribed in such offering, including holding the securities to be issued in “street name” in a brokerage account. The undersigned agrees that in the event the undersigned does not provide information sufficient to effect such exchange in a timely manner, the Company may repurchase the Securities at a price to be determined by the Board of Directors.
 
-9. Revisions to Manner of Holding.
-In the event that statutory or regulatory changes are adopted such that it becomes possible for companies whose purpose is limited to acquiring, holding and disposing of securities issued by a single company (“Crowdfunding SPVs”) to make offerings under Section 4(a)(6), the undersigned agrees to exchange the Securities for securities issued by a Crowdfunding SPV in a transaction complying with the requirements of Section 3(a)(9) of the Act. The undersigned agrees that in the event the undersigned does not provide information sufficient to effect such exchange in a timely manner, the Company may repurchase the Securities at a price to be determined by the Board of Directors.
+9. Revisions to Manner of Holding. In the event that statutory or regulatory changes are adopted such that it becomes possible for companies whose purpose is limited to acquiring, holding and disposing of securities issued by a single company (“Crowdfunding SPVs”) to make offerings under Section 4(a)(6), the undersigned agrees to exchange the Securities for securities issued by a Crowdfunding SPV in a transaction complying with the requirements of Section 3(a)(9) of the Act. The undersigned agrees that in the event the undersigned does not provide information sufficient to effect such exchange in a timely manner, the Company may repurchase the Securities at a price to be determined by the Board of Directors.
 
 10. Obligations Irrevocable. Following the Closing, the obligations of the undersigned shall be irrevocable.
 
 11. Waiver, Amendment. Neither this Subscription Agreement nor any provisions hereof shall be modified, changed, discharged or terminated except by an instrument in writing, signed by the party against whom any waiver, change, discharge or termination is sought.
 
 12. Assignability. Neither this Subscription Agreement nor any right, remedy, obligation or liability arising hereunder or by reason hereof shall be assignable by either the Company or the undersigned without the prior written consent of the other party.
-
 13. Waiver of Jury Trial. THE UNDERSIGNED IRREVOCABLY WAIVES ANY AND ALL RIGHT TO TRIAL BY JURY WITH RESPECT TO ANY LEGAL PROCEEDING ARISING OUT OF THE TRANSACTIONS CONTEMPLATED BY THIS SUBSCRIPTION AGREEMENT.
 
-14. Submission to Jurisdiction. With respect to any suit, action or proceeding relating to any offers, purchases or sales of the Securities by the undersigned (“Proceedings”), the undersigned irrevocably submits to the jurisdiction of the federal or state courts located in the %%ISSUER_LOCATION%% which submission shall be exclusive unless none of such courts has lawful jurisdiction over such Proceedings.
+14. Submission to Jurisdiction. With respect to any suit, action or proceeding relating to any offers, purchases or sales of the Securities by the undersigned (“Proceedings”), the undersigned irrevocably submits to the jurisdiction of the federal or state courts located in the <%= @company.campaign.company_location_state %> which submission shall be exclusive unless none of such courts has lawful jurisdiction over such Proceedings.
 
-15. Governing Law. This Subscription Agreement shall be governed by and construed in accordance with the laws of the State of %%ISSUER_LOCATION%%, without regard to conflict of law principles thereof.
+15. Governing Law. This Subscription Agreement shall be governed by and construed in accordance with the laws of the State of <%= @company.campaign.company_location_state %>, without regard to conflict of law principles thereof.
 
 16. Section and Other Headings. The section and other headings contained in this Subscription Agreement are for reference purposes only and shall not affect the meaning or interpretation of this Subscription Agreement.
 
@@ -97,17 +96,17 @@ In the event that statutory or regulatory changes are adopted such that it becom
 18. Notices. All notices and other communications provided for herein shall be in writing and shall be deemed to have been duly given if delivered personally or sent by registered or certified mail, return receipt requested, postage prepaid or email to the following addresses (or such other address as either party shall have specified by notice in writing to the other):
 
 If to the Company:
-[ADDRESS OF COMPANY]
-E-mail: %%ISSUER_EMAIL%%
-Attention: %%ISSUER_TITLE%%
+<%= @company.campaign.location %>
+E-mail: <%= @company.user.name%>
+Attention: CEO
 with a copy to:
-Attention: %%LEGAL_NAME%%
-E-mail: %%LEGAL_EMAIL%%
-Attention: %%INVESTOR_TITLE%%
+Attention: <%= @user.name%>
+E-mail: <%= @user.email%>
 
 19. Binding Effect. The provisions of this Subscription Agreement shall be binding upon and accrue to the benefit of the parties hereto and their respective heirs, legal representatives, successors and assigns.
 
-20. Survival. All representations, warranties and covenants contained in this Subscription Agreement shall survive (i) the acceptance of the subscription by the Company, (ii) changes in the transactions, documents and instruments described in the Form C which are not material or which are to the benefit of the undersigned and (iii) the death or disability of the undersigned.
+20. Survival. All representations, warranties and covenants contained in this Subscription Agreement shall survive (i) the acceptance of the subscription by the Company, (ii) changes in
+the transactions, documents and instruments described in the Form C which are not material or which are to the benefit of the undersigned and (iii) the death or disability of the undersigned.
 
 21. Notification of Changes. The undersigned hereby covenants and agrees to notify the Company upon the occurrence of any event prior to the closing of the purchase of the Securities pursuant to this Subscription Agreement, which would cause any representation, warranty, or covenant of the undersigned contained in this Subscription Agreement to be false or incorrect.
 
@@ -116,7 +115,7 @@ Attention: %%INVESTOR_TITLE%%
 [SIGNATURE PAGE FOLLOWS]
 
 
-IN WITNESS WHEREOF, the undersigned has executed this Subscription Agreement this June 9, 2016 at 01:12 PM PDT.
+IN WITNESS WHEREOF, the undersigned has executed this Subscription Agreement this <%= Date.today%> at <%= Time.now.strftime("%I:%M %p") %> PDT.
 
 PURCHASER (if an individual):
 By_
@@ -167,15 +166,15 @@ ________________
 Name:
 
 
-Title:%%INVESTOR_TITLE%%
+Title:<%= @user.name %>
 
 State/Country of Domicile or Formation: ______________________________________
 
 
 
-The offer to purchase Securities as set forth above is confirmed and accepted by the Company as to 30 for 60.0.
+The offer to purchase Securities as set forth above is confirmed and accepted by the Company for <%= funding_goal_with_precision(@amount) %>.
 
-%%NAME_OF_ISSUER%%
+<%= @company.name%>
 By____
 Issuer
 
@@ -186,10 +185,6 @@ ______________________________
 Title
 ______________________________
 _________________
-Name: %%NAME_OF_ISSUER%%
-Title: %%ISSUER_TITLE%%
-
-{00438041.DOCX.1}
-[a]Confirm with Fund America
-
+Name: <%= @company.name%>
+Title: CEO
 
