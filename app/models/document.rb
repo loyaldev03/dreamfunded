@@ -11,6 +11,5 @@ class Document < ActiveRecord::Base
       :access_key_id => "AKIAJWDE6UJS56MXQYPQ",
       :secret_access_key => "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"
     }
-
     validates_attachment_content_type :file, :content_type =>['application/pdf', "application/vnd.openxmlformats-officedocument.presentationml.presentation"]
 end
