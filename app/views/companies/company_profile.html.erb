@@ -92,40 +92,48 @@
 						<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/VQJJJGNeM-s" frameborder="0" allowfullscreen></iframe> -->
 					<% end %>
 				</div>
-				<!-- <br><br><br><br> -->
-				<h2 class= "darkblue twentyf indent">Highlight</h2>
+
+				<a  class='tab-name about_tab active-tab darkblue twentyf'>Company</a>
+				<a  class='tab-name  darkblue twentyf' id='team_tab'>Team</a>
+
+				<div class='about_tab_content tab-content'>
+					<h2 class= "darkblue category-name indent">Highlight</h2>
+						<hr>
+						<p class= "fifteen"><%= nl2br(h(@company.description)).html_safe %></p>
+
+
+					<br>
+					<h2 class= "darkblue category-name indent">Why <%= @company.name %></h2>
 					<hr>
-					<p class= "fifteen"><%= nl2br(h(@company.description)).html_safe %></p>
-				<% if @company.status == 2 || @company.status == 1 %>
-					<% if @members != nil && !@members.empty? %>
-						<br>
-						<h2 class= "darkblue twentyf indent">Team</h2>
-							<hr>
-							<div class= "team-band">
-								<% @members.each do |member| %>
-									<div class= "team-box">
-										<% if user_session != nil && user_session.authority == authority[:Admin] %>
-											<%= button_to "X", { action: 'remove_founder', id: member.id} , {:class => 'remove-button'} %>
+					<p><%= nl2br(h(@company.campaign.elevator_pitch)).html_safe %></p>
+
+					<br>
+					<h2 class= "darkblue category-name indent">Our Mission</h2>
+					<hr>
+					<p><%= nl2br(h(@company.campaign.about_campaign)).html_safe %></p>
+				</div>
+
+				<div class='team_tab_content tab-content'>
+					<% if @company.status == 2 || @company.status == 1 %>
+							<% if @members != nil && !@members.empty? %>
+								<br>
+
+									<div class= "team-band">
+										<% @members.each do |member| %>
+											<div class= "team-box">
+												<% if user_session != nil && user_session.authority == authority[:Admin] %>
+													<%= button_to "X", { action: 'remove_founder', id: member.id} , {:class => 'remove-button'} %>
+												<% end %>
+												<%= image_tag( member.image.url, :class => "image team-pic") %>
+												<h2 class= "twenty no-margin"><%= member.name %>, <%= member.position %></h2>
+												<br>
+												<p class= "fifteen no-margin"><%= nl2br(h(member.content)).html_safe %></p>
+											</div>
 										<% end %>
-										<%= image_tag( member.image.url, :class => "image team-pic") %>
-										<h2 class= "twenty no-margin"><%= member.name %>, <%= member.position %></h2>
-										<br>
-										<p class= "fifteen no-margin"><%= nl2br(h(member.content)).html_safe %></p>
 									</div>
-								<% end %>
-							</div>
-					<% end %>
-				<% end %>
-
-				<br>
-				<h2 class= "darkblue twentyf indent">Why <%= @company.name %></h2>
-				<hr>
-				<p><%= nl2br(h(@company.campaign.elevator_pitch)).html_safe %></p>
-
-				<br>
-				<h2 class= "darkblue twentyf indent">Our Mission</h2>
-				<hr>
-				<p><%= nl2br(h(@company.campaign.about_campaign)).html_safe %></p>
+							<% end %>
+						<% end %>
+				</div>
 
 			</div>
 			<div id="disqus_thread"></div>
@@ -151,6 +159,8 @@
 			</script>
 			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 		</div></div>
+
+
 		<style>
 		.foot-text.darkblue{
 		 	display: none;
@@ -161,6 +171,20 @@
 </html>
 
 <script>
+	$(document).ready(function() {
+		$('#team_tab').click(function(e){
+  		$('.tab-content').hide();
+  		$('.team_tab_content').show();
+  		$('.about_tab').removeClass('active-tab');
+  		$("#team_tab").addClass('active-tab');
+		});
+		$('.about_tab').click(function(e){
+  		$('.tab-content').hide();
+  		$('.about_tab_content').show();
+  		$('.about_tab').addClass('active-tab');
+  		$("#team_tab").removeClass('active-tab');
+		});
+	})
 	$('#slider1').change(function(){
 	  value = $(this).val();
 	  $("#bid_number_of_shares").val(value);

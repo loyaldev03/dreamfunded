@@ -17,6 +17,7 @@
 //= require instafilta.min
 //= require turbolinks
 //= require links
+//= require cocoon
 //= require companies
 //= require tinyscrollbar.min
 //= require jquery.tinyscrollbar.min

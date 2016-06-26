@@ -21,6 +21,25 @@
 	color: grey;
   vertical-align: top;
 }
+.category-name{
+  font-size: 20px;
+}
+.tab-name{
+ font-weight: bold;
+ padding: 3px;
+ margin-right: 15px;
+ margin-bottom: 25px;
+ cursor: pointer;
+}
+.active-tab{
+  border-bottom: 2px solid $darkblue;
+}
+.tab-content{
+  display: none;
+}
+.about_tab_content{
+  display: block;
+}
 
 .companies-container {
 	display: table;

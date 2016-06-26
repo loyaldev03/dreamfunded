@@ -54,6 +54,14 @@
       <label>Company Logo</label>
       <%= f.file_field :image, required:true %>
 
+      <h3>Management Team</h3>
+      <%= f.fields_for :founders do |founder| %>
+        <%= render 'founder_fields', f: founder %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association 'Add', f, :founders %>
+      </div>
+
 
       <div class = "notice centered">
         <%= flash[:errors] if flash[:errors] %>
