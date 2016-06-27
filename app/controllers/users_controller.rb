@@ -98,7 +98,7 @@ class UsersController < ApplicationController
 		@last_name = params[:user][:last_name]
 		@password = params[:user][:password]
 		@password_confirmation = params[:user][:password_confirmation]
-		@email = params[:user][:email]
+		@email = params[:user][:email].delete(' ')
 		@phone = params[:user][:phone]
 		@token = params[:user][:token]
 		@authority = User.Authority[:Accredited]
