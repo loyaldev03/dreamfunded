@@ -60,7 +60,8 @@
            </div>
 
            <div class= "centered">
-           <p class='check_box'>By signing up you agree with our <%= link_to 'Terms and Conditions', asset_path("DreamFundedTermsofUse.pdf"), target: '_blank' %> & <a href='/privacy_policy' target='_blank'>Privacy Policy</a></p>
+           <p class='check_box'>By signing up you agree with our <%= link_to 'Terms and Conditions', asset_path("DreamFundedTermsofUse.pdf"), target: '_blank' %> & <%= link_to 'Privacy Policy', asset_path("DreamFundedPrivacyPolicy.pdf"), target: '_blank' %></p>
+
               <%= f.submit("Submit", :id => "submit-button" ) %>
               <div class='social-login-ions'>
                 <%#= link_to fa_icon("google 2x"), '/auth/google_oauth2', id: 'google-icon' %>
