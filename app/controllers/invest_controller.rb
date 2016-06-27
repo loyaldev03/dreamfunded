@@ -37,7 +37,7 @@ class InvestController < ApplicationController
     number_of_shares = params[:share_amount]
     amount = @company.suggested_target_price * number_of_shares.to_i
     if amount > maximum
-      flash[:maximum] = "Requiested amount of $#{amount} is larger than the maximum allowed"
+      flash[:maximum] = "Requested amount of $#{amount} is larger than the maximum allowed"
       redirect_to pre_purchase_path(@company.name)
     else
       redirect_to(:action => :subscription, amount: amount,number_of_shares: number_of_shares, company_id: @company.id)

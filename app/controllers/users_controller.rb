@@ -200,7 +200,7 @@ class UsersController < ApplicationController
 	end
 
 	def verify
-		user = User.find_by(email: params[:email])
+		user = User.find_by(email: params[:email].delete(' '))
 		user.confirmed = true
 		user.save(:validate => false)
 		session[:current_user] = user
