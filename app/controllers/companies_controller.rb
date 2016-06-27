@@ -123,6 +123,7 @@ class CompaniesController < ApplicationController
 		if params[:id] != nil
 			@id = params[:id]
 			@company = Company.find(params[:id])
+			@financial_details = @company.financial_detail
 			@progress = @company.invested_amount / @company.goal_amount rescue 0
 
 			@members = @company.founders

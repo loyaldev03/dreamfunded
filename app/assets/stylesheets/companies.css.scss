@@ -40,7 +40,10 @@
 .about_tab_content{
   display: block;
 }
-
+.fin_info_col1, .fin_info_col2, .fin_info_col3{
+  display: inline-block;
+  width: 25%;
+}
 .companies-container {
 	display: table;
 	width: 1000px;

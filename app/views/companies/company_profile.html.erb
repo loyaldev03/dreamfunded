@@ -95,11 +95,12 @@
 
 				<a  class='tab-name about_tab active-tab darkblue twentyf'>Company</a>
 				<a  class='tab-name  darkblue twentyf' id='team_tab'>Team</a>
+				<a  class='tab-name  darkblue twentyf' id='finances_tab'>Finances & Risks</a>
 
 				<div class='about_tab_content tab-content'>
 					<h2 class= "darkblue category-name indent">Highlight</h2>
-						<hr>
-						<p class= "fifteen"><%= nl2br(h(@company.description)).html_safe %></p>
+					<hr>
+					<p class= "fifteen"><%= nl2br(h(@company.description)).html_safe %></p>
 
 
 					<br>
@@ -133,6 +134,81 @@
 									</div>
 							<% end %>
 						<% end %>
+				</div>
+
+				<div class='finance_tab_content tab-content'>
+					<h2 class= "darkblue category-name indent">Offering Terms</h2>
+					<hr>
+					<p class= "fifteen"><%= nl2br(h(@financial_details.offering_terms)).html_safe %></p>
+
+					<h2 class= "darkblue category-name indent">Financial Risks</h2>
+					<hr>
+					<p class= "fifteen"><%= nl2br(h(@financial_details.fin_risks)).html_safe %></p>
+					<hr>
+					<h2 class= "darkblue category-name indent">Income</h2>
+					<div>
+						<span>Total Income: </span>
+						<%= number_to_currency @financial_details.totat_income, precision: 0 %>
+					</div>
+
+					<div>
+						<span>Total Taxable: </span>
+						<%= number_to_currency @financial_details.total_taxable_income, precision: 0 %>
+					</div>
+
+					<div>
+						<span>Total Taxes Paid: </span>
+						<%= number_to_currency @financial_details.total_taxes_paid, precision: 0 %>
+					</div>
+					<hr>
+					<div>
+						<div class='fin_info_col1'>
+							<span></span><br>
+							<span>Total Assets</span><br>
+							<span>Cash & Cash Equivalents</span><br>
+							<span>Accounts Receivable</span><br>
+
+							<span>Short-term Debt</span><br>
+							<span> Long-term Debt</span><br>
+							<span> Revenues / Sales</span><br>
+
+							<span> Costs of Goods Sold</span><br>
+							<span> Taxes Paid </span><br>
+							<span> Net Income </span><br>
+
+						</div>
+
+						<div class='fin_info_col2'>
+							<span>Most recent fiscal year-end:</span><br>
+							<span><%= number_to_currency @financial_details.total_assets_this_year, precision: 0 %></span><br>
+							<span><%= number_to_currency @financial_details.cash_this_year, precision: 0 %></span><br>
+							<span><%= number_to_currency @financial_details.acount_receivable_this_year, precision: 0 %></span><br>
+
+							<span><%= number_to_currency @financial_details.short_term_debt_this_year, precision: 0 %></span><br>
+							<span><%= number_to_currency @financial_details.long_term_debt_this_year, precision: 0 %></span><br>
+							<span><%= number_to_currency @financial_details.sales_this_year, precision: 0 %></span><br>
+
+							<span><%= number_to_currency @financial_details.costs_of_goods_this_year, precision: 0 %></span><br>
+							<span><%= number_to_currency @financial_details.taxes_paid_this_year, precision: 0 %></span><br>
+							<span><%= number_to_currency @financial_details.net_income_this_year, precision: 0 %></span><br>
+						</div>
+
+						<div class='fin_info_col3'>
+							<span>Prior fiscal year-end:</span><br>
+							<span><%= number_to_currency @financial_details.total_assets_last_year, precision: 0 %></span><br>
+							<span><%= number_to_currency @financial_details.cash_last_year, precision: 0 %></span><br>
+							<span><%= number_to_currency @financial_details.acount_receivable_last_year, precision: 0 %></span><br>
+
+							<span><%= number_to_currency @financial_details.short_term_debt_last_year, precision: 0 %></span><br>
+							<span><%= number_to_currency @financial_details.long_term_debt_last_year, precision: 0 %></span><br>
+							<span><%= number_to_currency @financial_details.sales_last_year, precision: 0 %></span><br>
+
+							<span><%= number_to_currency @financial_details.costs_of_goods_last_year, precision: 0 %></span><br>
+							<span><%= number_to_currency @financial_details.taxes_paid_last_year, precision: 0 %></span><br>
+							<span><%= number_to_currency @financial_details.net_income_last_year, precision: 0 %></span><br>
+						</div>
+
+					</div>
 				</div>
 
 			</div>
@@ -175,14 +251,20 @@
 		$('#team_tab').click(function(e){
   		$('.tab-content').hide();
   		$('.team_tab_content').show();
-  		$('.about_tab').removeClass('active-tab');
+  		$(".tab-name").removeClass('active-tab');
   		$("#team_tab").addClass('active-tab');
 		});
 		$('.about_tab').click(function(e){
   		$('.tab-content').hide();
   		$('.about_tab_content').show();
+  		$(".tab-name").removeClass('active-tab');
   		$('.about_tab').addClass('active-tab');
-  		$("#team_tab").removeClass('active-tab');
+		});
+		$('#finances_tab').click(function(e){
+  		$('.tab-content').hide();
+  		$('.finance_tab_content').show();
+  		$(".tab-name").removeClass('active-tab');
+  		$('#finances_tab').addClass('active-tab');
 		});
 	})
 	$('#slider1').change(function(){
