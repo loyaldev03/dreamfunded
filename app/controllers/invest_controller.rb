@@ -1,4 +1,6 @@
 class InvestController < ApplicationController
+  before_action :authorize
+  before_action :verify
   before_action :set_company, :set_user
   include InvestHelper
 
@@ -64,6 +66,19 @@ class InvestController < ApplicationController
   end
 
   private
+ def verify
+    user = User.find(session[:current_user])
+    if user.confirmed == false
+      redirect_to url_for(:controller => 'home', :action => 'unverified')
+    end
+ end
+
+ def authorize
+   if session[:current_user] == nil
+     redirect_to url_for(:controller => 'users', :action => 'new')
+   end
+ end
+
   def set_company
     @company = Company.find_by(name: params[:name])
   end
