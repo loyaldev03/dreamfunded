@@ -100,86 +100,27 @@
 						<%= image_tag(@company.image.url, class: "max-width-image")%>
 					<%# end %>
 				</div>
-				<br><br><br><br>
-				<h2 class= "darkblue twentyf indent">Highlight</h2>
-					<hr>
-					<p class= "fifteen"><%= f.text_area :description, rows: 10, :class => 'twenty input-box no-margin ' %></p>
 
-				<% if @members != nil && !@members.empty? %>
-					<br>
-					<h2 class= "darkblue twentyf indent">Team</h2>
-						<hr>
-						<div class= "team-band">
-							<% @members.each do |member| %>
-								<div class= "team-box">
-									<% if user_session != nil && user_session.authority == authority[:Admin] %>
-										<%= button_to "X", { action: 'remove_founder', id: member.id} , {:class => 'remove-button'} %>
-									<% end %>
-									<%= image_tag("companies/#{member.image_address}", :class => "image team-pic") %>
-									<h2 class= "twenty no-margin"><%= member.name %></h2>
-									<br>
-									<p class= "fifteen no-margin"><%= nl2br(h(member.content)).html_safe %></p>
-								</div>
-							<% end %>
-						</div>
-				<% end %>
 
-				<% if @section != nil %>
-					<% if @section.overview && @section.overview != "" %>
-						<br>
-						<h2 class= "darkblue twentyf indent">Overview</h2>
-						<hr>
-						<p><%= nl2br(h(@section.overview)).html_safe %></p>
-					<% end %>
 
-					<% if @section.target_market && @section.target_market != "" %>
-						<h2 class= "darkblue twentyf indent">Target Market</h2>
-						<hr>
-						<p><%= nl2br(h(@section.target_market)).html_safe %></p>
-					<% end %>
+				<p class= "fifteen">
+					<h2 class= "darkblue twentyf indent">Highlight</h2>
+					<%= f.text_area :description, rows: 10, :class => 'twenty input-box no-margin ' %>
+				</p>
 
-					<% if @section.current_investor_details && @section.current_investor_details != "" %>
-						<h2 class= "darkblue twentyf indent">Current Investor Details</h2>
-						<hr>
-						<p><%= nl2br(h(@section.current_investor_details)).html_safe %></p>
-					<% end %>
+				<%= f.fields_for :financial_detail do |fin_details| %>
+					<h2 class= "darkblue category-name indent">Offering Terms</h2>
+        	<%= fin_details.text_area :offering_terms, rows: 6, :class => 'twenty input-box no-margin ' %>
+        	<h2 class= "darkblue category-name indent">Financial Risks</h2>
+        	<%= fin_details.text_area :fin_risks, rows: 6, :class => 'twenty input-box no-margin ' %>
+      	<% end %>
 
-					<% if @section.detailed_metrics && @section.detailed_metrics != "" %>
-						<h2 class= "darkblue twentyf indent">Detailed Metrics</h2>
-						<hr>
-						<p><%= nl2br(h(@section.detailed_metrics)).html_safe %></p>
-					<% end %>
-
-					<% if @section.customer_testimonials && @section.customer_testimonials != "" %>
-						<h2 class= "darkblue twentyf indent">Customer Testimonials</h2>
-						<hr>
-						<p><%= nl2br(h(@section.customer_testimonials)).html_safe %></p>
-					<% end %>
-
-					<% if @section.competitive_landscape && @section.competitive_landscape != "" %>
-						<h2 class= "darkblue twentyf indent">Competitive Landscape</h2>
-						<hr>
-						<p><%= nl2br(h(@section.competitive_landscape)).html_safe %></p>
-					<% end %>
-
-					<% if @section.planned_use_of_funds && @section.planned_use_of_funds != "" %>
-						<h2 class= "darkblue twentyf indent">Planned Use of Funds</h2>
-						<hr>
-						<p><%= nl2br(h(@section.planned_use_of_funds)).html_safe %></p>
-					<% end %>
-
-					<% if @section.pitch_deck && @section.pitch_deck != nil %>
-						<h2 class= "darkblue twentyf indent">Pitch Deck</h2>
-						<hr>
-						<p><%= nl2br(h(@section.pitch_deck)).html_safe %></p>
-					<% end %>
-				<% end %>
 			</div>
 			<div class = "notice centered">
-              <%= flash[:problem_update] if flash[:problem_update] %>
-              <%= @error_update %>
-           </div>
-           <%= f.submit "Update", :class => 'invest-button' %>
+        <%= flash[:problem_update] if flash[:problem_update] %>
+        <%= @error_update %>
+      </div>
+      <%= f.submit "Update", :class => 'invest-button' %>
 		<% end %>
 		</div></div>
 	</body>

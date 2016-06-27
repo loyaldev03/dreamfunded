@@ -101,6 +101,140 @@
             <p class= "fifteen"><%= campaign_fields.text_area :about_campaign, rows: 10, :class => ' edit_textarea twenty no-margin ' %></p>
           <% end %>
         </p>
+        <%= f.fields_for :financial_detail do |fin_details| %>
+          <h2 class= "darkblue category-name indent">Offering Terms</h2>
+          <%= fin_details.text_area :offering_terms, rows: 6, :class => 'twenty edit_textarea no-margin ' %>
+          <h2 class= "darkblue category-name indent">Financial Risks</h2>
+          <%= fin_details.text_area :fin_risks, rows: 6, :class => 'twenty edit_textarea no-margin ' %>
+
+          <div>
+            <div class='edit_fin_info' >
+              <span>Total Income</span><br>
+              <%= fin_details.number_field :totat_income, placeholder: 'Total Income' %>
+            </div>
+            <div class='edit_fin_info'>
+              <span>Total Taxable Income</span><br>
+              <%= fin_details.number_field :total_taxable_income, placeholder: 'Total Taxable Income' %>
+            </div>
+            <div class='edit_fin_info'>
+              <span>Total Taxes Paid</span><br>
+              <%= fin_details.number_field :total_taxes_paid, placeholder: 'Total Taxable Income' %>
+            </div>
+            <hr>
+          </div>
+
+          <div>
+            <div class='edit_fin_info' >
+              <span>Total assets most recent fiscal year</span><br>
+              <%= fin_details.number_field :total_assets_this_year, placeholder: 'Total assets most recent fiscal year' %>
+            </div>
+            <div class='edit_fin_info'>
+              <span>Total assets prior fiscal year</span><br>
+              <%= fin_details.number_field :total_assets_last_year, placeholder: 'Total assets prior fiscal year' %>
+            </div>
+            <hr>
+          </div>
+
+          <div>
+            <div class='edit_fin_info' >
+              <span>Cash & Cash Equivalents most recent fiscal year</span><br>
+              <%= fin_details.number_field :cash_this_year, placeholder: 'Cash & Cash Equivalents most recent fiscal year' %>
+            </div>
+            <div class='edit_fin_info'>
+              <span>Cash & Cash Equivalents prior fiscal year</span><br>
+              <%= fin_details.number_field :cash_last_year, placeholder: 'Cash & Cash Equivalents prior fiscal year' %>
+            </div>
+            <hr>
+          </div>
+
+          <div>
+            <div class='edit_fin_info' >
+              <span>Accounts Receivable recent fiscal year</span><br>
+              <%= fin_details.number_field :acount_receivable_this_year, placeholder: 'Accounts Receivable recent fiscal year' %>
+            </div>
+            <div class='edit_fin_info'>
+              <span>Accounts Receivable prior fiscal year</span><br>
+              <%= fin_details.number_field :acount_receivable_last_year, placeholder: 'Accounts Receivable prior fiscal year' %>
+            </div>
+            <hr>
+          </div>
+
+          <div>
+            <div class='edit_fin_info' >
+              <span>Short-term Debt most recent fiscal year</span><br>
+              <%= fin_details.number_field :short_term_debt_this_year, placeholder: 'Short-term Debt most recent fiscal year' %>
+            </div>
+            <div class='edit_fin_info'>
+              <span>Short-term Debt prior fiscal year</span><br>
+              <%= fin_details.number_field :short_term_debt_last_year, placeholder: 'Short-term Debt prior fiscal year' %>
+            </div>
+            <hr>
+          </div>
+
+          <div>
+            <div class='edit_fin_info' >
+              <span>Long-term Debt most recent fiscal year</span><br>
+              <%= fin_details.number_field :long_term_debt_this_year, placeholder: 'Long-term Debt most recent fiscal year' %>
+            </div>
+            <div class='edit_fin_info'>
+              <span>Long-term Debt prior fiscal year</span><br>
+              <%= fin_details.number_field :long_term_debt_last_year, placeholder: 'Long-term Debt prior fiscal year' %>
+            </div>
+            <hr>
+          </div>
+
+          <div>
+            <div class='edit_fin_info' >
+              <span>Revenues / Sales most recent fiscal year</span><br>
+              <%= fin_details.number_field :sales_this_year, placeholder: 'Revenues / Sales most recent fiscal year' %>
+            </div>
+            <div class='edit_fin_info'>
+              <span>Revenues / Sales prior fiscal year</span><br>
+              <%= fin_details.number_field :sales_last_year, placeholder: 'Revenues / Sales prior fiscal year' %>
+            </div>
+            <hr>
+          </div>
+
+          <div>
+            <div class='edit_fin_info' >
+              <span>Costs of Goods Sold most recent fiscal year</span><br>
+              <%= fin_details.number_field :costs_of_goods_this_year, placeholder: 'Costs of Goods Sold most recent fiscal year' %>
+            </div>
+            <div class='edit_fin_info'>
+              <span>Costs of Goods Sold prior fiscal year</span><br>
+              <%= fin_details.number_field :costs_of_goods_last_year, placeholder: 'Costs of Goods Sold prior fiscal year' %>
+            </div>
+            <hr>
+          </div>
+
+          <div>
+            <div class='edit_fin_info' >
+              <span>Taxes Paid most recent fiscal year</span><br>
+              <%= fin_details.number_field :taxes_paid_this_year, placeholder: 'Taxes Paid most recent fiscal year' %>
+            </div>
+            <div class='edit_fin_info'>
+              <span>Taxes Paid prior fiscal year</span><br>
+              <%= fin_details.number_field :taxes_paid_last_year, placeholder: 'Taxes Paid prior fiscal year' %>
+            </div>
+            <hr>
+          </div>
+
+          <div>
+            <div class='edit_fin_info' >
+              <span>Net Income most recent fiscal year</span><br>
+              <%= fin_details.number_field :net_income_this_year, placeholder: 'Net Income most recent fiscal year' %>
+            </div>
+            <div class='edit_fin_info'>
+              <span>Net Income prior fiscal year</span><br>
+              <%= fin_details.number_field :net_income_last_year, placeholder: 'Net Income prior fiscal year' %>
+            </div>
+            <hr>
+          </div>
+
+
+
+        <% end %>
+
       </div>
 
       <div class = "notice centered">
