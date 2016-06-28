@@ -17,12 +17,12 @@
 			</div>
 			<div class= "company-title indent">
 				<span class= "darkblue small-margin">
-					<%= link_to @company.name, @company.website_link %><br>
+					<span> <%= @company.name %> </span><br>
 				</span>
 					<span class= "darkblue twenty indent"><%= @company.campaign.tagline %> </span>
 			</div>
 			<div class= "stats-container">
-				<div class= "profile-image-wrap"> <%= link_to image_tag( @company.image.url, :class => "stats-image"), @company.website_link %></div>
+				<div class= "profile-image-wrap"> <%=  image_tag( @company.image.url, :class => "stats-image") %></div>
 				<div class= "numbers"><div class= "numbers-content">
 					<div class="meter orange">
 						<% @progress = ((@company.invested.to_f / @company.goal_amount.to_f).to_f) *100 %>
