@@ -125,7 +125,7 @@ class CompaniesController < ApplicationController
 			@company = Company.find(params[:id])
 			@financial_details = @company.financial_detail
 			@progress = @company.invested_amount / @company.goal_amount rescue 0
-			@comments = Comment.all
+			@comments = @company.comments
 			@members = @company.founders
 			@section = @company.sections.first
 		else
