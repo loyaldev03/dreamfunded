@@ -1,0 +1,17 @@
+<% @comments.each do |comment| %>
+  <div class="main comment">
+    <div class="headline">
+      <span class="name">
+        <a><%= comment.user.comments_name%></a>
+      </span>
+
+      <span class="created_at">
+        <%= comment.created_at.strftime("%b-%e-%Y") %>
+      </span>
+    </div>
+
+    <div class="comment_content">
+      <p><%= comment.content%></p>
+    </div>
+  </div>
+<% end %>

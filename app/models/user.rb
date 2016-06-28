@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :investments
 	has_many :companies
+	has_many :comments
 
 	has_many :invites
 
@@ -63,6 +64,10 @@ class User < ActiveRecord::Base
 
 	def name
 		first_name.capitalize + " " + last_name.capitalize
+	end
+
+	def comments_name
+		first_name.capitalize + " " + last_name.capitalize.chars.first + "."
 	end
 
 end

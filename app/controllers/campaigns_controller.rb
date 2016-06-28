@@ -1,4 +1,5 @@
 class CampaignsController < ApplicationController
+  before_action :authorize
   before_action :verify
 
   def funding_goal
@@ -104,6 +105,12 @@ class CampaignsController < ApplicationController
     user = User.find(user_session.id)
     if user.confirmed == false
       redirect_to url_for(:controller => 'home', :action => 'unverified')
+    end
+  end
+
+  def authorize
+    if session[:current_user] == nil
+      redirect_to url_for(:controller => 'users', :action => 'new')
     end
   end
 

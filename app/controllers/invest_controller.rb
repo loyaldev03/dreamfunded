@@ -1,4 +1,6 @@
 class InvestController < ApplicationController
+  before_action :authorize
+  before_action :verify
   before_action :set_company, :set_user
   include InvestHelper
 
@@ -38,7 +40,7 @@ class InvestController < ApplicationController
     amount = @company.suggested_target_price * number_of_shares.to_i
     amount = amount.to_i
     if amount > maximum
-      flash[:maximum] = "Requested amount of $#{ amount} is larger than the maximum allowed"
+      flash[:maximum] = "Requested amount of $#{amount} is larger than the maximum allowed"
       redirect_to pre_purchase_path(@company.name)
     else
       redirect_to(:action => :subscription, amount: amount,number_of_shares: number_of_shares, company_id: @company.id)
@@ -65,6 +67,19 @@ class InvestController < ApplicationController
   end
 
   private
+ def verify
+    user = User.find(session[:current_user])
+    if user.confirmed == false
+      redirect_to url_for(:controller => 'home', :action => 'unverified')
+    end
+ end
+
+ def authorize
+   if session[:current_user] == nil
+     redirect_to url_for(:controller => 'users', :action => 'new')
+   end
+ end
+
   def set_company
     @company = Company.find_by(name: params[:name])
   end

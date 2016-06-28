@@ -1,11 +1,11 @@
 class CompaniesController < ApplicationController
-	before_action :authorize
-	before_action :verify
+	before_action :authorize, except: [:index, :company_profile]
+	before_action :verify, except: [:index, :company_profile]
 
 	def index
-		if session[:current_user] == nil || session[:current_user].authority <= User.Authority[:Basic]
-			redirect_to url_for(:controller => 'users', :action => 'login')
-		end
+		# if session[:current_user] == nil || session[:current_user].authority <= User.Authority[:Basic]
+		# 	redirect_to url_for(:controller => 'users', :action => 'login')
+		# end
 		@companies = Company.all.order(:position).where(hidden: false, accredited: true)
 	end
 
@@ -125,12 +125,9 @@ class CompaniesController < ApplicationController
 			@company = Company.find(params[:id])
 			@financial_details = @company.financial_detail
 			@progress = @company.invested_amount / @company.goal_amount rescue 0
-
+			@comments = @company.comments
 			@members = @company.founders
 			@section = @company.sections.first
-
-			@bid = Bid.find_by(user_id: user_session.id, company_id: @id)
-			@bid = Bid.new if @bid == nil
 		else
 			redirect_to "/companies"
 		end

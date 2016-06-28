@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   resources :documents
   resources :guests
+  resources :comments
   resources :invites
   resources :bids
   resources :events
@@ -225,7 +226,8 @@ Rails.application.routes.draw do
   match "/our-team/bill-payne" => redirect("team/bill-payne"), via: 'get'
   match "/dreamfunded-mentioned-forbes-get-introduced-investors/" => redirect("news/dreamfunded-mentioned-in-forbes"), via: 'get'
   match "/startups-vie-funding-shark-tank-event/" => redirect("news/startups-vie-for-funding-at-shark-tank-event"), via: 'get'
-  get '/buy-equity', to: 'users#new'
+  get '/signup', to: 'users#new'
+  get '/login', to: 'users#login'
   get "/information-selling-equity", to: 'home#exchange'
   match "/regulation-mini-ipos-way-rule-change-allows-regular-joes-invest-startups/" => redirect("news/regulation-a-mini-ipos-on-the-way-as-rule-change-allows-regular-joes-to-invest-in-startups"), via: 'get'
   get '/funding', to: 'home#index'
