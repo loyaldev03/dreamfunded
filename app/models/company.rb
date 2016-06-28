@@ -3,6 +3,7 @@ class Company < ActiveRecord::Base
 	belongs_to :user
 
 	has_many :sections
+  has_many :comments
   has_many :bids
 	has_many :founders
   accepts_nested_attributes_for :founders, reject_if: :all_blank, allow_destroy: true

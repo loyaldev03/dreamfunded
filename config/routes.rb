@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   resources :documents
   resources :guests
+  resources :comments
   resources :invites
   resources :bids
   resources :events

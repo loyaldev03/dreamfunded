@@ -261,8 +261,32 @@
 
 			</div>
 			<div class='comments'>
-				<%= render :comments %>
+				<%= render "comments",  locals: { comments: @comments}  %>
 			</div>
+			<br>
+
+	  <% if user_session %>
+
+			<div class="comment">
+			  <div class="headline">
+			    <span class="name">
+			      <span class='comment_as'>New comment as</span>
+			      <a><%= user_session.comments_name%></a>
+			    </span>
+			  </div>
+			  <div class="comment_content">
+					<%= form_for Comment.new  do |f|%>
+						<div>
+							<%= f.text_area :content, rows: 8, class: 'comment_extarea' %>
+						</div>
+						<%= f.submit "Post Comment", class: 'comment_submit_button' %>
+					<% end %>
+			  </div>
+		<%else%>
+			  <p>First <%= link_to "sign in", "/users/new" %> to post a comment.</p>
+			</div>
+
+		<%end%>
 
 		</div></div>
 
