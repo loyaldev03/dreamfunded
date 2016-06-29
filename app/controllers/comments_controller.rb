@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+ class CommentsController < ApplicationController
 
   def create
     respond_to do |format|
