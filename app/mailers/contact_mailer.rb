@@ -158,4 +158,16 @@ class ContactMailer < ActionMailer::Base
     @investment = Investment.find(investment_id)
     mail(to: user.email, subject: "Your DreamFunded Investment in #{@investment.company.name} Has Been Submitted")
   end
+
+  def new_comment(comment)
+    @comment = comment
+    @user = comment.user
+    mail(to: "info@dreamfunded.com", subject: 'New Comment')
+  end
+
+  def new_comment_company_owner(comment)
+    @comment = comment
+    @user = comment.company.user
+    mail(to: @user.email, subject: 'New Comment under Your Company')
+  end
 end

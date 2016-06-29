@@ -13,5 +13,8 @@
     <div class="comment_content">
       <p><%= comment.content%></p>
     </div>
+  <% if user_session != nil && user_session.authority == authority[:Admin] %>
+    <%= button_to "X", {action: 'remove_comment',controller: 'comments', id: comment.id} , data: { confirm: 'Are you sure?' }, class:'remove-button'%>
+  <% end %>
   </div>
 <% end %>

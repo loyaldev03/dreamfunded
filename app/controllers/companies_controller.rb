@@ -156,14 +156,13 @@ class CompaniesController < ApplicationController
 
 	def remove_company
 		if params[:id] != nil
-	    	@company = Company.find(params[:id])
-	    	if (@company != nil)
+	    @company = Company.find(params[:id])
+	      if (@company != nil)
 	    		@company.destroy
 	    	end
-	    end
-
-    	redirect_to "/companies"
-    end
+	  end
+   	redirect_to "/companies"
+  end
 
     def remove_founder
 			if params[:id] != nil

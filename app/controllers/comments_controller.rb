@@ -7,10 +7,22 @@ class CommentsController < ApplicationController
         format.js   {}
         format.html   {redirect_to :back}
         format.json { render :show, status: :created, location: @comment }
+        ContactMailer.new_comment(@comment).deliver
+        ContactMailer.new_comment_company_owner(@comment).deliver
       else
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def remove_comment
+    if params[:id] != nil
+      @comment = Comment.find(params[:id])
+      if (@comment != nil)
+        @comment.destroy
+      end
+    end
+    redirect_to :back
   end
 
   private
