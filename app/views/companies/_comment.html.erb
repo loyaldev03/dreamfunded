@@ -1,4 +1,4 @@
-<% @comments.each do |comment| %>
+
   <div class="main comment">
     <div class="headline">
       <span class="name">
@@ -10,6 +10,7 @@
       </span>
     </div>
 
+    <%= link_to "Reply", new_comment_path(:parent_id => comment)%>
     <div class="comment_content">
       <p><%= comment.content%></p>
     </div>
@@ -17,4 +18,4 @@
     <%= button_to "X", {action: 'remove_comment',controller: 'comments', id: comment.id} , data: { confirm: 'Are you sure?' }, class:'remove-button'%>
   <% end %>
   </div>
-<% end %>
+

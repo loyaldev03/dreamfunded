@@ -44,6 +44,7 @@ gem 'google_contacts_api'
 gem 'invisible_captcha'
 gem 'hellosign-ruby-sdk'
 gem "cocoon"
+gem 'ancestry'
 
 
 gem 'will_paginate', '~> 3.0.5'

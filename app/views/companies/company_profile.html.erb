@@ -261,7 +261,7 @@
 
 			</div>
 			<div class='comments'>
-				<%= render "comments",  locals: { comments: @comments}  %>
+				<%= render @comments  %>
 			</div>
 			<br>
 
@@ -278,6 +278,7 @@
 					<%= form_for Comment.new, remote: true  do |f|%>
 						 <%= f.hidden_field "user_id", value: user_session.id %>
 						 <%= f.hidden_field "company_id", value: @company.id %>
+						 <%= f.hidden_field :parent_id %>
 						<div>
 							<%= f.text_area :content, rows: 8, class: 'comment_extarea' %>
 						</div>

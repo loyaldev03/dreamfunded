@@ -15,6 +15,10 @@
     end
   end
 
+  def new
+    @comment = Comment.new(parent_id: params[:parent_id])
+  end
+
   def remove_comment
     if params[:id] != nil
       @comment = Comment.find(params[:id])
@@ -27,6 +31,6 @@
 
   private
   def comment_params
-    params.require(:comment).permit(:content, :user_id, :company_id, :created_at, :updated_at)
+    params.require(:comment).permit(:content, :user_id, :company_id, :parent_id, :created_at, :updated_at)
   end
 end
