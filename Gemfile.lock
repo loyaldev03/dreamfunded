@@ -170,7 +170,6 @@ GEM
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    newrelic_rpm (3.15.0.314)
     nokogiri (1.6.7)
       mini_portile2 (~> 2.0.0.rc2)
     oauth (0.5.1)
@@ -313,7 +312,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   letter_opener
-  newrelic_rpm
   omniauth
   omniauth-facebook
   omniauth-google-oauth2
