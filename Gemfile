@@ -44,6 +44,7 @@ gem 'invisible_captcha'
 gem 'hellosign-ruby-sdk'
 gem "cocoon"
 gem 'ancestry'
+gem 'rails_12factor'
 
 
 gem 'will_paginate', '~> 3.0.5'
@@ -57,8 +58,4 @@ group :development do
    gem 'binding_of_caller'
    gem 'spring'
    gem 'byebug'
-end
-
-group :production do
-    gem 'rails_12factor'
 end

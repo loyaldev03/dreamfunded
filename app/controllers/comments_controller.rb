@@ -7,8 +7,8 @@
         format.js   {}
         format.html   {redirect_to :back}
         format.json { render :show, status: :created, location: @comment }
-        ContactMailer.new_comment(@comment).deliver
-        ContactMailer.new_comment_company_owner(@comment).deliver
+        #ContactMailer.new_comment(@comment).deliver
+        #ContactMailer.new_comment_company_owner(@comment).deliver
       else
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end

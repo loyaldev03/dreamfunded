@@ -1,6 +1,6 @@
 module CompaniesHelper
 	def nl2br(s)
-        s.gsub(/\n/, '<br>')
+    s.gsub(/\n/, '<br>')
   end
 
 def nested_messages(messages)
