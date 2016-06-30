@@ -21,7 +21,7 @@ class ContactMailer < ActionMailer::Base
     @email= email
     @phone = phone
     @message = message
-    mail(to: "info@dreamfunded.com", subject: 'Guest Contacted From DreamFunded website')
+    mail(to: "info@dreamfunded.vc", subject: 'Guest Contacted From DreamFunded website')
     # mail(to: "alexandr.larionov88@gmail.com", subject: 'Guest Contacted From DreamFunded website')
   end
 
@@ -37,7 +37,7 @@ class ContactMailer < ActionMailer::Base
     @rofr_restrictions = rofr_restrictions
     @financial_assistance = financial_assistance
     @message = message
-    mail(to: ["info@dreamfunded.com", "rexford@dreamfunded.com"], subject: "Request to liquidate #{number_shares} shares of #{company} (#{timeframe} timeframe)")
+    mail(to: ["info@dreamfunded.vc", "rexford@dreamfunded.com"], subject: "Request to liquidate #{number_shares} shares of #{company} (#{timeframe} timeframe)")
     # mail(to: "alexandr.larionov88@gmail.com", subject: 'Request to liquidate shares')
   end
 
@@ -49,7 +49,7 @@ class ContactMailer < ActionMailer::Base
     @company = company
     @investment_amount = investment_amount
     @shares_price = shares_price
-    mail(to: "info@dreamfunded.com", subject: "Bid on #{company}: $#{shares_price}/share and Total Investment of #{investment_amount}")
+    mail(to: "info@dreamfunded.vc", subject: "Bid on #{company}: $#{shares_price}/share and Total Investment of #{investment_amount}")
   end
 
   def open_auction_email(first_name, last_name, email, phone, company, number_shares, shares_price)
@@ -68,7 +68,7 @@ class ContactMailer < ActionMailer::Base
   def account_created(user)
     @name = user.last_name
     @email= user.email
-    mail(to: "info@dreamfunded.com", subject: 'New Account Created')
+    mail(to: "info@dreamfunded.vc", subject: 'New Account Created')
   end
 
   def personal_hello(user)
@@ -80,7 +80,7 @@ class ContactMailer < ActionMailer::Base
   def reset_password_request(user)
     @name = user.last_name
     @email= user.email
-    mail(to: "info@dreamfunded.com", subject: 'Password Reset Request')
+    mail(to: "info@dreamfunded.vc", subject: 'Password Reset Request')
   end
 
   def invite(invite)
@@ -137,7 +137,7 @@ class ContactMailer < ActionMailer::Base
     @company = company, @email = email, @last_name = last_name, @first_name = first_name, @country = country, @phone = phone, @address = address, @website = website, @city = city, @state = state, @zipcode = zipcode, @timeframe = timeframe, @month_created = month_created, @year_created = year_created, @number_employees = number_employees, @two_line_summary = two_line_summary, @business_summary = business_summary, @market_of_customers = market_of_customers, @customer_problem = customer_problem, @current_customers = current_customers, @solution = solution, @market_strategy = market_strategy, @business_modal = business_modal, @competitors = competitors, @qualifications = qualifications, @barriers = barriers, @executive_summary_file = executive_summary_file, @investor_slide_file = investor_slide_file, @round_name = round_name, @burn_rate = burn_rate, @previous_capital = previous_capital, @current_revenue = current_revenue, @amout_seeking = amout_seeking, @esimated_valuation = esimated_valuation, @exit_strategy =  exit_strategy
     attachments[executive_summary_file.original_filename] =   File.read(executive_summary_file.path)
     attachments[investor_slide_file.original_filename] =  File.read(investor_slide_file.path)
-    mail(to: 'info@dreamfunded.com', subject: 'Get Funded Request')
+    mail(to: 'info@dreamfunded.vc', subject: 'Get Funded Request')
   end
 
   def unaccredited_investor(user)
@@ -150,7 +150,7 @@ class ContactMailer < ActionMailer::Base
 
   def check_campaign(campaign)
     @campaign = campaign
-    mail(to: "info@dreamfunded.com", subject: 'Company Submitted')
+    mail(to: "info@dreamfunded.vc", subject: 'Company Submitted')
   end
 
   def investment_submitted(user, investment_id)
@@ -162,7 +162,7 @@ class ContactMailer < ActionMailer::Base
   def new_comment(comment)
     @comment = comment
     @user = comment.user
-    mail(to: "info@dreamfunded.com", subject: 'New Comment')
+    mail(to: "info@dreamfunded.vc", subject: 'New Comment')
   end
 
   def new_comment_company_owner(comment)
