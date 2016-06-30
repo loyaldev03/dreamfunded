@@ -16,7 +16,7 @@
 		</div>
 
 		<div class= "login-container">
-			<%= form_tag("post_login", method: "get") do %>
+			<%= form_tag("/users/post_login", method: "get") do %>
 				<%= text_field_tag(:email, nil, :class =>"userbox-login", :placeholder => "Email") %>
 				<br>
 				<%= password_field_tag(:password, nil, :class => "passbox", :placeholder => "Password") %>

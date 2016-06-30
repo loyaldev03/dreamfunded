@@ -261,7 +261,8 @@
 
 			</div>
 			<div class='comments'>
-				<%= render @comments  %>
+
+				<%= nested_messages(@comments.arrange(:order => :created_at))%>
 			</div>
 			<br>
 

@@ -99,6 +99,12 @@
   margin: 20px 0;
   position: relative;
 }
+.nested_messages{
+  margin-left: 50px;
+}
+.nested_messages .nested_messages .nested_messages .nested_messages{
+  margin-left: 0px;
+}
 .comment_as{
   font-weight: bold;
   font-family: Verdana;
