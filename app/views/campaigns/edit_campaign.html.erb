@@ -232,8 +232,9 @@
           </div>
 
           <div class='funding_goal_list_item'>
-            <strong>Balance Sheet ( .pdf )</strong>
-            <%= f.file_field :balance_sheet %>
+            <strong>Balance Sheet: </strong>
+            <%= @company.financial_detail.balance_sheet_file_name %>
+            <%= fin_details.file_field :balance_sheet %>
           </div>
 
 

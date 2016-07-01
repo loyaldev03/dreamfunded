@@ -34,7 +34,7 @@
 }
 
 .space-keeper {
-  background-image: url(<%= asset_path "smaller_bg.jpg" %>);
+  background-image: url(/assets/smaller_bg.jpg);
   height: 765px;
   width: 100%;
 	background-size: 100%;
