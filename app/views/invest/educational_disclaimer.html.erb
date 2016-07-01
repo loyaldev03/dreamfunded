@@ -25,7 +25,7 @@
     <%= form_tag "/educational_disclaimer_submit/#{@company.name}", method: :post,  multipart: true do |f| %>
       <%= hidden_field_tag :user_id, @user.id %>
 
-      <div class='little-margin' > View and download <%= link_to 'Educational Materials', asset_path("Dreamfunded_Investor_guide.PDF"), target: '_blank' %> here.</div>
+      <div class='little-margin' > View and download <%= link_to 'Educational Materials', asset_path("investor-guide.pdf"), target: '_blank' %> here.</div>
 
 
        <%= text_field_tag(:name, nil ,:placeholder => "Sign your name in the field below by typing your full name", :class => "input-box", required: true) %><br>
