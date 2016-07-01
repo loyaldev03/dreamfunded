@@ -233,9 +233,71 @@
 
           <div class='funding_goal_list_item'>
             <strong>Balance Sheet: </strong>
-            <%= @company.financial_detail.balance_sheet_file_name %>
+            <%= @company.financial_detail.balance_sheet_file_name %><br>
             <%= fin_details.file_field :balance_sheet %>
           </div>
+
+          <div class='funding_goal_list_item'>
+            <strong>Income Statements: </strong>
+            <%= @company.financial_detail.income_statements_file_name %><br>
+            <%= fin_details.file_field :income_statements %>
+          </div>
+
+          <div class='funding_goal_list_item'>
+            <strong>Statement of Cash Flow: </strong>
+            <%= @company.financial_detail.statement_of_cash_flow_file_name %><br>
+            <%= fin_details.file_field :statement_of_cash_flow %>
+          </div>
+
+          <div class='funding_goal_list_item'>
+            <strong>Statement of Changes in Equity For Past 2 Years: </strong>
+            <%= @company.financial_detail.statement_changes_of_equity_file_name %><br>
+            <%= fin_details.file_field :statement_changes_of_equity %>
+          </div>
+
+          <div class='funding_goal_list_item'>
+            <strong>Business Plan: </strong>
+            <%= @company.financial_detail.business_plan_file_name %><br>
+            <%= fin_details.file_field :business_plan %>
+          </div>
+
+          <div class='funding_goal_list_item'>
+            <strong>Party Transaction: </strong>
+            <%= @company.financial_detail.party_transaction_file_name %><br>
+            <%= fin_details.file_field :party_transaction %>
+          </div>
+
+          <div class='funding_goal_list_item'>
+            <strong>Intended use of proceeds: </strong>
+            <%= @company.financial_detail.intended_use_of_proceeds_file_name %><br>
+            <%= fin_details.file_field :intended_use_of_proceeds %>
+          </div>
+
+          <div class='funding_goal_list_item'>
+            <strong>Capital Structure: </strong>
+            <%= @company.financial_detail.capital_structure_file_name %><br>
+            <%= fin_details.file_field :capital_structure %>
+          </div>
+
+          <div class='funding_goal_list_item'>
+            <strong>Material Terms: </strong>
+            <%= @company.financial_detail.material_terms_file_name %><br>
+            <%= fin_details.file_field :material_terms %>
+          </div>
+
+          <div class='funding_goal_list_item'>
+            <strong>Directors Background: </strong>
+            <%= @company.financial_detail.directors_background_file_name %><br>
+            <%= fin_details.file_field :directors_background %>
+          </div>
+
+          <div class='funding_goal_list_item'>
+            <strong>Accountant Review: </strong>
+            <%= @company.financial_detail.accountant_review_file_name %><br>
+            <%= fin_details.file_field :accountant_review %>
+          </div>
+
+
 
 
 
