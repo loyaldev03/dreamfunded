@@ -29,4 +29,9 @@ module InvestHelper
     number_with_delimiter(output)
   end
 
+  def minimum_shares(company)
+    output = 60 / company.suggested_target_price.to_i
+    number_with_delimiter(output)
+  end
+
 end

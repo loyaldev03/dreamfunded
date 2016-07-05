@@ -24,7 +24,7 @@
 
   <div class='pre_purchase_investment_details' data-price="<%= @company.suggested_target_price %>">
     <div class='invest_column'><strong>$<%= company_price(@company) %> </strong><br> Per Share</div>
-    <div class='invest_column'><strong>30 Shares </strong><br> Minimum Investment<br>($60.00) </div>
+    <div class='invest_column'><strong><%= minimum_shares(@company) %> Shares </strong><br> Minimum Investment<br>($60.00) </div>
     <div class='invest_column'><strong><%= max_number_of_shares(@maximum_investment, @company) %> Shares </strong><br> Maximum Investment<br>($<%=  number_with_precision(@maximum_investment, :precision => 2, :delimiter => ',') %>) </div>
   </div>
 
