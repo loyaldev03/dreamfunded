@@ -255,13 +255,10 @@
 					<% if @financial_details.financial_conditions_file_name %>
 						<p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Financial Condition", @financial_details.financial_conditions.url, target: "_blank", class: 'document-url' %></p>
 					<% end %>
-
-
 				</div>
 
 			</div>
 			<div class='comments'>
-
 				<%= nested_messages(@comments.arrange(:order => :created_at))%>
 			</div>
 			<br>

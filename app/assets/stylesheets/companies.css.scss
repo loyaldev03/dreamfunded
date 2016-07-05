@@ -65,6 +65,12 @@
 	background: white;
 	position: relative;
 }
+
+.comments{
+  width: 69%;
+  max-width: 700px;
+}
+
 .comment .headline {
   padding: 5px 14px;
   font-size: 12px;
@@ -94,7 +100,6 @@
   -moz-border-radius-bottomright: 5px;
 }
 .comment{
-  width: 70%;
   max-width: 700px;
   margin: 20px 0;
   position: relative;
