@@ -14,6 +14,9 @@
 							<%= button_to "X", {action: 'remove_company', id: company.id} , data: { confirm: 'Are you sure?' }, class:'remove-button'%>
 							<span class='company-position'><%= company.position%></span>
 						<% end %>
+						<p class= "twenty no-margin center" >
+							<span class= "darkblue twenty"><%= company.name %> </span>
+						</p>
 						<div class= "company-image"><div class= "image-wrap">
 							<%= link_to image_tag( company.image.url, :class => "image"), {:action => 'company_profile', :id => company.id} %>
 						</div></div>
