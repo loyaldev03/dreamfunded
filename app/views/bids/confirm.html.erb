@@ -23,7 +23,7 @@
     <div class='col-1 centered margin-left-7-percent'>
         <%= form_tag( '/submit_payment', method: :post) do %>
           <p class='payment-form'>Name<br>
-            <%= text_field_tag(:name, user_session.name ) %>
+            <%= text_field_tag(:name, current_user.name ) %>
           </p>
 
           <p class='payment-form'>Routing Number<br>

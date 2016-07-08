@@ -16,7 +16,7 @@ class NewsController < ApplicationController
 
   #create new using admin account
   def new
-	if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Founder]
+	if current_user == nil || current_user.authority < User.Authority[:Founder]
 		redirect_to url_for(:controller => 'home', :action => 'unauthorized')
 	end
    @news = News.new

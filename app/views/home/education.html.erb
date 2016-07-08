@@ -19,9 +19,9 @@
       <br>
       <center>
 
-        <% if user_session != nil && user_session.authority >= authority[:Accredited] %>
+        <% if current_user != nil && current_user.authority >= authority[:Accredited] %>
           <button class='education-button' onclick= "invest()">Get Started</button>
-        <% elsif user_session == nil %>
+        <% elsif current_user == nil %>
           <button class='education-button' onclick= "signUp()">Get Started</button>
         <% end %>
       </center>

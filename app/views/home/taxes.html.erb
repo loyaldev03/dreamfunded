@@ -29,7 +29,7 @@
             <ul class='education-center-list'>
 
             <% @posts.each do |post|%>
-                <% if user_session != nil && user_session.authority == authority[:Admin] %>
+                <% if current_user != nil && current_user.authority == authority[:Admin] %>
                     <%= button_to "Delete", {:controller => :posts,  :action => 'destroy', :id => post.id }, :method => :delete, class: 'float-rigth' %>
                     <%= link_to 'Edit', "/posts/#{post.id}/edit/taxes", {:class => 'right'} %>
 
@@ -41,7 +41,7 @@
                 </div>
 
             <% end %>
-            <% if user_session != nil && user_session.authority == authority[:Admin] %>
+            <% if current_user != nil && current_user.authority == authority[:Admin] %>
                 <h3><%= link_to 'Create New', "/posts/new/taxes", {:class => 'right'} %></h3>
             <% end %>
             </ul>

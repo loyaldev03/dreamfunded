@@ -2,12 +2,12 @@ class BidsController < ApplicationController
 
 	#Default site that shows all startups
 	def index
-		@bids = Bid.where(user_id: user_session.id.to_s)
+		@bids = Bid.where(user_id: current_user.id.to_s)
 	end
 
   #improve associations later
   def sellers_bids
-    @seller = user_session
+    @seller = current_user
     @company = @seller.liquidate_shares.first.company
     @bids = Bid.where(company_id: @company.id)
   end
@@ -24,7 +24,7 @@ class BidsController < ApplicationController
     @members = @company.founders
     @section = @company.sections.first
 
-    @bid = Bid.find_by(user_id: user_session.id, company_id: @id)
+    @bid = Bid.find_by(user_id: current_user.id, company_id: @id)
     @bid = Bid.new if @bid == nil
   end
 
@@ -70,7 +70,7 @@ class BidsController < ApplicationController
   end
 
   def counter_offer
-    @seller = user_session
+    @seller = current_user
     @bid = Bid.find(params[:id])
   end
 
@@ -91,8 +91,8 @@ class BidsController < ApplicationController
   def accept
     @bid = Bid.find(params[:id])
     @bid.update(status: 'Accepted')
-    @seller = user_session
-    docusign(@bid, user_session)
+    @seller = current_user
+    docusign(@bid, current_user)
     ContactMailer.seller_accepts_offer(@bid, @seller).deliver
     ContactMailer.your_offer_win(@bid).deliver
     redirect_to shares_path

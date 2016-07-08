@@ -20,7 +20,7 @@
         </span>
 
         <div class='admin-links-press-post'>
-          <% if user_session != nil && user_session.authority == authority[:Admin] %>
+          <% if current_user != nil && current_user.authority == authority[:Admin] %>
             <%= link_to 'Edit', edit_press_post_path(post) %>
             <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
@@ -30,7 +30,7 @@
     <% end %>
 
 
-    <% if user_session != nil && user_session.authority == authority[:Admin] %>
+    <% if current_user != nil && current_user.authority == authority[:Admin] %>
       <div class='event'>
         <%= link_to 'New Press Post', new_press_post_path, class: 'centered add-new-event' %>
       </div>

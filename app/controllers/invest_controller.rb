@@ -74,14 +74,14 @@ class InvestController < ApplicationController
 
   private
  def verify
-    user = User.find(session[:current_user])
+    user = User.find(current_user)
     if user.confirmed == false
       redirect_to url_for(:controller => 'home', :action => 'unverified')
     end
  end
 
  def authorize
-   if session[:current_user] == nil
+   if current_user == nil
      redirect_to url_for(:controller => 'users', :action => 'new')
    end
  end
@@ -91,7 +91,7 @@ class InvestController < ApplicationController
   end
 
   def set_user
-    id = user_session.id
+    id = current_user.id
     @user = User.find(id)
   end
 

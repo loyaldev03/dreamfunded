@@ -28,7 +28,7 @@
 
         </div>
 
-        <% if user_session != nil && user_session.authority == authority[:Admin] %>
+        <% if current_user != nil && current_user.authority == authority[:Admin] %>
           <%= link_to 'Edit', edit_event_path(event), class: 'event-edit-link' %>
           <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'event-delete-link' %>
         <% end %>
@@ -37,7 +37,7 @@
     <% end %>
 
 
-    <% if user_session != nil && user_session.authority == authority[:Admin] %>
+    <% if current_user != nil && current_user.authority == authority[:Admin] %>
       <div class='event'>
         <%= link_to 'New Event', new_event_path, class: 'centered add-new-event' %>
       </div>

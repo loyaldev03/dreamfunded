@@ -19,11 +19,11 @@
           </div>
           <div class= "white-box">
             <span class="company-position">
-              <% if user_session != nil && user_session.authority == authority[:Admin] %>
+              <% if current_user != nil && current_user.authority == authority[:Admin] %>
                 <%= team.rank%>
               <% end %>
             </span>
-            <% if user_session != nil && user_session.authority == authority[:Admin] %>
+            <% if current_user != nil && current_user.authority == authority[:Admin] %>
               <%= link_to 'X', team, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'remove-button' %>
             <% end %>
             <div class="name indentt"><p class= "darkblue twentyf no-margin"> <%= team.name_title %> </p></div>

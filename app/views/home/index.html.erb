@@ -186,8 +186,8 @@
 				</div>
 			</div>
 		</div> -->
-<% if user_session != nil %>
-	<% if User.find(user_session.id).try(:confirmed) == false %>
+<% if current_user != nil %>
+	<% if User.find(current_user.id).try(:confirmed) == false %>
 		<!-- ---------------------- -->
 		<a href="#dialog" class="modalLink">Verify Email Address</a>
 
@@ -200,7 +200,7 @@
 		    		</div>
 		        <h3>Verify Email Address</h3>
 		        <!-- <hr class='line-verify-modal'> -->
-		        <p class='verify-modal-text'>Thank you for joining DreamFunded. A verification email has been sent to <%= user_session.email %>. Please complete your signup by clicking the link in this email.</p>
+		        <p class='verify-modal-text'>Thank you for joining DreamFunded. A verification email has been sent to <%= current_user.email %>. Please complete your signup by clicking the link in this email.</p>
 		        <center>
 		        	<a href="#" class="close">Close</a>
 

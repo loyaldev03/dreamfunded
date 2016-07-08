@@ -38,7 +38,7 @@
 				</div>
 
 				<div class= "centered twenty margin-bottom-50">
-					<% if user_session.authority > 1 %>
+					<% if current_user.authority > 1 %>
 				  	<%= link_to "Go Back to Offerings", {controller: 'companies' , :action => 'index'}, method: 'get', :id => 'go_back_button' %>
 				  <% else %>
 				  	<%= link_to "Go Back to Offerings", {controller: 'companies' , :action => 'nonaccredited_index'}, method: 'get', :id => 'go_back_button' %>

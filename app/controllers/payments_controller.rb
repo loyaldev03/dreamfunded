@@ -3,7 +3,7 @@ class PaymentsController < ApplicationController
   before_action :authorize
 
   def index
-    @user = session[:current_user]
+    @user = current_user
 	end
 
   def payment
@@ -63,7 +63,7 @@ class PaymentsController < ApplicationController
      # addCreditForReferral
       investment_id = createInvestment( params[:amount], company_id, shares)
       company_name = Company.find(company_id).name
-      ContactMailer.investment_submitted(user_session, investment_id).deliver
+      ContactMailer.investment_submitted(current_user, investment_id).deliver
       redirect_to congratulation_path(investment_id)
     else
 
@@ -81,13 +81,13 @@ class PaymentsController < ApplicationController
   private
 
   def createInvestment(amount, company_id, shares)
-    investment = Investment.create(user_id: user_session.id, company_id: company_id, invested_amount: amount, number_of_shares: shares)
+    investment = Investment.create(user_id: current_user.id, company_id: company_id, invested_amount: amount, number_of_shares: shares)
     investment.id
   end
 
 
   def addCreditForReferral
-    invite = Invite.find_by(email: user_session.email)
+    invite = Invite.find_by(email: current_user.email)
     if invite
       invite.user.increment!(:invite_credit, 100)
       invite.update(status: 'User Invested, you received $100 credit')
@@ -95,7 +95,7 @@ class PaymentsController < ApplicationController
   end
 
   def authorize
-    if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Accredited]
+    if current_user == nil || current_user.authority < User.Authority[:Accredited]
       redirect_to url_for(:controller => 'home', :action => 'unauthorized')
     end
   end

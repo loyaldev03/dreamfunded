@@ -12,7 +12,7 @@
 
 
 				<% @posts.each do |post|%>
-					<% if user_session != nil && user_session.authority == authority[:Admin] %>
+					<% if current_user != nil && current_user.authority == authority[:Admin] %>
 						<%= button_to "Delete", {:controller => :posts,  :action => 'destroy', :id => post.id }, :method => :delete, class: 'float-rigth' %>
 						<%= link_to 'Edit', "/posts/#{post.id}/edit/faq", {:class => 'right'} %>
 						<span class='paragraph-position right'>positon: <%= post.position %></span>
@@ -24,7 +24,7 @@
 					</p>
 					<br>
 				<% end %>
-				<% if user_session != nil && user_session.authority == authority[:Admin] %>
+				<% if current_user != nil && current_user.authority == authority[:Admin] %>
 					<h3><%= link_to 'Create New',  "/posts/new/faq", {:class => 'right', :data => { :page => 'faq' }} %></h3>
 				<% end %>
 

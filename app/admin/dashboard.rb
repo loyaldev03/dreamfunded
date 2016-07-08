@@ -4,7 +4,7 @@ ActiveAdmin.register_page "Dashboard" do
 
     private
     def authenticate
-      if user_session.authority != authority[:Admin]
+      if current_user.authority != authority[:Admin]
         redirect_to root_path
       end
     end

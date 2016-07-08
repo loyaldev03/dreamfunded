@@ -10,7 +10,7 @@
 
 		<div class= "register-content">
 			<%= form_for @company, multipart: true do |f| %>
-				<%= f.hidden_field :user_id, value: session[:current_user].id %>
+				<%= f.hidden_field :user_id, value: current_user.id %>
 				<%= f.text_field(:name, :placeholder => "Name of Your Company", :class => "input-box") %><br>
 				<%= f.number_field(:invested_amount, :placeholder => "Amount Currently Invested", :class => "input-box half") %>
 				<div class= "filler"></div>

@@ -8,10 +8,10 @@
 			<div class= "topbar">
 
 				<%= link_to "↩  Back", :back,  {:class => 'darkblue hide-on-mobile'} %>
-				<% if user_session != nil && user_session.authority == authority[:Admin] %>
+				<% if current_user != nil && current_user.authority == authority[:Admin] %>
 					<%= link_to 'Edit', {:controller => 'companies', :action => 'edit_profile', :id => @id }, {:class => 'left'} %>
 				<% end %>
-				<% if user_session == @company.user %>
+				<% if current_user == @company.user %>
 				<%= link_to 'Edit My Campaign', {:controller => 'campaigns', :action => 'edit_campaign', :id => @company.campaign.id}, {:class => 'right'} %>
 				<% end %>
 			</div>
@@ -120,7 +120,7 @@
 									<div class= "team-band">
 										<% @members.each do |member| %>
 											<div class= "team-box">
-												<% if user_session != nil && user_session.authority == authority[:Admin] %>
+												<% if current_user != nil && current_user.authority == authority[:Admin] %>
 													<%= button_to "X", { action: 'remove_founder', id: member.id} , {:class => 'remove-button'} %>
 												<% end %>
 												<%= image_tag( member.image.url, :class => "image team-pic") %>
@@ -264,18 +264,18 @@
 			</div>
 			<br>
 
-	  <% if user_session %>
+	  <% if current_user %>
 
 			<div class="comment">
 			  <div class="headline">
 			    <span class="name">
 			      <span class='comment_as'>New comment as</span>
-			      <a><%= user_session.comments_name%></a>
+			      <a><%= current_user.comments_name%></a>
 			    </span>
 			  </div>
 			  <div class="comment_content">
 					<%= form_for Comment.new, remote: true  do |f|%>
-						 <%= f.hidden_field "user_id", value: user_session.id %>
+						 <%= f.hidden_field "user_id", value: current_user.id %>
 						 <%= f.hidden_field "company_id", value: @company.id %>
 						 <%= f.hidden_field :parent_id %>
 						<div>
@@ -285,7 +285,7 @@
 					<% end %>
 			  </div>
 		<%else%>
-			  <p>First <%= link_to "sign in", "/users/new" %> to post a comment.</p>
+			  <p>First <%= link_to "sign in", "/users/sign_in" %> to post a comment.</p>
 			</div>
 
 		<%end%>
