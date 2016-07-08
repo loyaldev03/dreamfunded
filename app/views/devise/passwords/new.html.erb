@@ -1,0 +1,30 @@
+
+  <div class= "wrapper"><div class= "box signin-box centered">
+
+    <div class="row">
+      <div class=" darkblue active">
+        <h2 class= "no-margin centered"><a  id="login-form-link">Change Password</a></h2>
+      </div>
+    </div>
+
+    <div class= "login-container">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= devise_error_messages! %>
+
+        <%= f.email_field :email, autofocus: true, :class =>"userbox", :placeholder => "Email" %>
+        <br>
+
+        <div class="centered">
+          <%= f.submit("Send Reset Password Instructions", :class => "login-button") %>
+        </div>
+      <% end %>
+
+    </div>
+
+    <div class= "centered">
+      <%= link_to "Sign up here", new_user_registration_path, class: 'signup' %>
+    </div>
+
+  </div>
+</div>
+

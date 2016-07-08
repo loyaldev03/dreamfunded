@@ -64,6 +64,7 @@ GEM
     aws-sdk-v1 (1.66.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
+    bcrypt (3.1.11)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -100,6 +101,13 @@ GEM
     coffee-script-source (1.10.0)
     daemons (1.2.3)
     debug_inspector (0.0.2)
+    devise (3.5.6)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      responders
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     docusign_rest (0.1.1)
       json
       multipart-post (>= 1.2)
@@ -281,6 +289,8 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    warden (1.2.6)
+      rack (>= 1.0)
     will_paginate (3.0.7)
 
 PLATFORMS
@@ -301,6 +311,7 @@ DEPENDENCIES
   ckeditor!
   cocoon
   coffee-rails (~> 4.0.0)
+  devise
   docusign_rest
   font-awesome-rails
   friendly_id

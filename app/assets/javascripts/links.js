@@ -14,7 +14,7 @@ function profile() {
 }
 
 function signOut() {
-	window.location = "/users/signout";
+	window.location = "/users/sign_out";
 }
 
 function signUp() {
@@ -57,10 +57,10 @@ function whyInv() {
 }
 
 function login() {
-	window.location = "/users/login";
+	window.location = "/users/sign_in";
 }
 function signIn() {
-	window.location = "/users/new";
+	window.location = "/users/sign_up";
 }
 
 function home() {

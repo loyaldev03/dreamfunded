@@ -1,4 +1,10 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+
 	has_many :investments
 	has_many :companies
 	has_many :comments
@@ -33,25 +39,25 @@ class User < ActiveRecord::Base
 	  end
 	end
 
-	def password_valid?(pass)
-		pass_db = self.password_digest
-		salt = self.salt
-		result = pass + salt.to_s
-		pass_candidate = Digest::SHA1.hexdigest(result)
-		return(pass_candidate == pass_db)
-	end
+	# def password_valid?(pass)
+	# 	pass_db = self.password_digest
+	# 	salt = self.salt
+	# 	result = pass + salt.to_s
+	# 	pass_candidate = Digest::SHA1.hexdigest(result)
+	# 	return(pass_candidate == pass_db)
+	# end
 
-	def password
-		return @password
-	end
+	# def password
+	# 	return @password
+	# end
 
-	def password=(pass)
-		@password = pass
-		salt = rand
-		self.salt = salt
-		result = pass + salt.to_s
-		self.password_digest = Digest::SHA1.hexdigest(result)
-	end
+	# def password=(pass)
+	# 	@password = pass
+	# 	salt = rand
+	# 	self.salt = salt
+	# 	result = pass + salt.to_s
+	# 	self.password_digest = Digest::SHA1.hexdigest(result)
+	# end
 
 	def self.Authority
 		{
