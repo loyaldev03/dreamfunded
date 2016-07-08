@@ -4,7 +4,11 @@
 </head>
 
 <body>
-  <div class= "wrapper"><div class= "box signin-box centered">
+  <div class='alert-warning alert password-change-notification'>Your password was reset for security reasons. Please <strong><%= link_to "change your password.", new_user_password_path%></strong>
+    <i class="fa fa-times close-disclaimer" id='close-subcribtion' ></i>
+  </div>
+  <div class= "wrapper">
+    <div class= "box signin-box centered">
 
     <div class="row">
       <div class="tab right-line darkblue active">
@@ -42,5 +46,9 @@
   </div>
 </div>
 </body>
-
+<script type="text/javascript">
+  $('.close-disclaimer').click(function(){
+    $(this).parent().hide()
+   })
+</script>
 </html>
