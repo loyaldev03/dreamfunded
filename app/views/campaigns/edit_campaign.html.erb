@@ -1,8 +1,4 @@
-<html>
-  <head>
-    <title>DreamFunded | Edit </title>
-  </head>
-  <body>
+
     <div class= "word-content"><div class="text-content stretch">
       <%= form_for(@company, :url => url_for(:controller => 'campaigns', :action => 'update_campaign') ) do |f| %>
         <% if @company.errors.any? %>
@@ -312,6 +308,13 @@
       <%= f.submit "Update", :class => 'invest-button' %>
     <% end %>
     </div></div>
-  </body>
-
-</html>
+<!-- if CKEDITOR not Loaded => REFRESH PAGE -->
+<script type="text/javascript">
+  $(document).ready(function(){
+    console.log($('.ckeditor').next().size())
+    // if( $('.ckeditor').next().size() == 0)
+    // {
+    //   location.reload();
+    // }
+  })
+</script>
