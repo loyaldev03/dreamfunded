@@ -21,6 +21,13 @@
 					<span class= "darkblue twenty indent"><%= @company.campaign.tagline %> </span>
 					<div class='company_located'><i class="fa fa-map-marker"></i> <%= @company.campaign.place %> </div>
 				</span>
+				<div class= "video-box">
+					<% if @company.video_link.empty? %>
+						<%= image_tag( @company.image.url, class: 'image-max-width')%>
+					<% else %>
+						<iframe  class='youtube-video' src= <%= @company.video_link %> frameborder="0" allowfullscreen ></iframe>
+					<% end %>
+				</div>
 			</div>
 			<div class= "stats-container">
 				<div class= "profile-image-wrap"> <%=  image_tag( @company.image.url, :class => "stats-image") %></div>
@@ -85,13 +92,7 @@
 			</div>
 
 			<div class= "description-container">
-				<div class= "video-box">
-					<% if @company.video_link.empty? %>
-						<%= image_tag( @company.image.url, class: 'image-max-width')%>
-					<% else %>
-						<iframe  class='youtube-video' src= <%= @company.video_link %> frameborder="0" allowfullscreen ></iframe>
-					<% end %>
-				</div>
+
 
 				<a  class='tab-name about_tab active-tab darkblue twentyf'>Company</a>
 				<a  class='tab-name  darkblue twentyf' id='team_tab'>Team</a>
