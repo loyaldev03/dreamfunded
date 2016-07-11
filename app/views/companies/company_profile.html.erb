@@ -21,6 +21,13 @@
 					<span class= "darkblue twenty indent"><%= @company.campaign.tagline %> </span>
 					<div class='company_located'><i class="fa fa-map-marker"></i> <%= @company.campaign.place %> </div>
 				</span>
+				<div class= "video-box">
+					<% if @company.video_link.empty? %>
+						<%= image_tag( @company.image.url, class: 'image-max-width')%>
+					<% else %>
+						<iframe  class='youtube-video' src= <%= @company.video_link %> frameborder="0" allowfullscreen ></iframe>
+					<% end %>
+				</div>
 			</div>
 			<div class= "stats-container">
 				<div class= "profile-image-wrap"> <%=  image_tag( @company.image.url, :class => "stats-image") %></div>
@@ -85,13 +92,7 @@
 			</div>
 
 			<div class= "description-container">
-				<div class= "video-box">
-					<% if @company.video_link.empty? %>
-						<%= image_tag( @company.image.url, class: 'image-max-width')%>
-					<% else %>
-						<iframe  class='youtube-video' src= <%= @company.video_link %> frameborder="0" allowfullscreen ></iframe>
-					<% end %>
-				</div>
+
 
 				<a  class='tab-name about_tab active-tab darkblue twentyf'>Company</a>
 				<a  class='tab-name  darkblue twentyf' id='team_tab'>Team</a>
@@ -100,16 +101,16 @@
 				<div class='about_tab_content tab-content'>
 					<h2 class= "darkblue category-name indent">Highlight</h2>
 					<hr>
-					<p class= "fifteen"><%= nl2br(h(@company.description)).html_safe %></p>
+					<p class= "fifteen"><%= @company.description.html_safe %></p>
 					<br>
 					<h2 class= "darkblue category-name indent">Why <%= @company.name %></h2>
 					<hr>
-					<p><%= nl2br(h(@company.campaign.elevator_pitch)).html_safe %></p>
+					<p><%= @company.campaign.elevator_pitch.html_safe %></p>
 
 					<br>
 					<h2 class= "darkblue category-name indent">Our Mission</h2>
 					<hr>
-					<p><%= nl2br(h(@company.campaign.about_campaign)).html_safe %></p>
+					<p><%= @company.campaign.about_campaign.html_safe %></p>
 				</div>
 
 				<div class='team_tab_content tab-content'>

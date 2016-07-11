@@ -1,8 +1,4 @@
-<html>
-  <head>
-    <title>DreamFunded | Edit </title>
-  </head>
-  <body>
+
     <div class= "word-content"><div class="text-content stretch">
       <%= form_for(@company, :url => url_for(:controller => 'campaigns', :action => 'update_campaign') ) do |f| %>
         <% if @company.errors.any? %>
@@ -24,9 +20,12 @@
           <%= f.text_field :website_link, :class => 'input-box half scoot-left' %>
           <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
 
-            <%= campaign_fields.text_field :tagline, placeholder: 'Describe your company in one sentence',:class => "input-box", required:true %>
+            <%= campaign_fields.text_field :tagline, placeholder: 'Describe your company in one sentence',:class => "input-box half", required:true %>
           <% end %>
         </h2>
+        <div class= "video-box">
+            <%= image_tag(@company.image.url, class: "max-width-image")%>
+        </div>
       </div>
       <div class= "stats-container">
         <div class= "profile-image-wrap"> <%= link_to image_tag(@company.image.url, :class => "stats-image"), @company.website_link %></div>
@@ -78,27 +77,25 @@
 
 
           </div>
-        </div></div>
+        </div>
+      </div>
 
-        <div class= "fake-button"> Invest </div>
+      <div class= "fake-button"> Invest </div>
       </div>
 
       <div class= "description-container">
-        <div class= "video-box">
-            <%= image_tag(@company.image.url, class: "max-width-image")%>
-        </div>
-        <br><br><br><br>
+        <!-- <br><br><br><br> -->
         <h2 class= "darkblue twentyf indent">Highlight</h2>
         <hr>
-        <p class= "fifteen"><%= f.text_area :description, rows: 10, :class => 'edit_textarea twenty no-margin' %></p>
+        <p class= "fifteen"><%= f.text_area :description, rows: 10, :class => 'ckeditor edit_textarea twenty no-margin' %></p>
         <br>
 
         <h2 class= "darkblue twentyf indent">Why <%= @company.name %></h2>
         <p class= "fifteen">
           <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
-            <p class= "fifteen"><%= campaign_fields.text_area :elevator_pitch, rows: 10, :class => 'edit_textarea twenty  no-margin ' %></p>
+            <p class= "fifteen"><%= campaign_fields.text_area :elevator_pitch, rows: 10, :class => 'ckeditor edit_textarea twenty  no-margin ' %></p>
             <h2 class= "darkblue twentyf indent">Our Mission</h2>
-            <p class= "fifteen"><%= campaign_fields.text_area :about_campaign, rows: 10, :class => ' edit_textarea twenty no-margin ' %></p>
+            <p class= "fifteen"><%= campaign_fields.text_area :about_campaign, rows: 10, :class => 'ckeditor edit_textarea twenty no-margin ' %></p>
           <% end %>
         </p>
         <%= f.fields_for :financial_detail do |fin_details| %>
@@ -302,7 +299,6 @@
 
 
         <% end %>
-
       </div>
 
       <div class = "notice centered">
@@ -312,6 +308,13 @@
       <%= f.submit "Update", :class => 'invest-button' %>
     <% end %>
     </div></div>
-  </body>
-
-</html>
+<!-- if CKEDITOR not Loaded => REFRESH PAGE -->
+<script type="text/javascript">
+  $(document).ready(function(){
+    console.log($('.ckeditor').next().size())
+    // if( $('.ckeditor').next().size() == 0)
+    // {
+    //   location.reload();
+    // }
+  })
+</script>
