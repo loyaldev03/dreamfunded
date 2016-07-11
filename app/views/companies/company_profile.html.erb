@@ -105,12 +105,12 @@
 					<br>
 					<h2 class= "darkblue category-name indent">Why <%= @company.name %></h2>
 					<hr>
-					<p><%= @company.campaign.elevator_pitch.html_safe %></p>
+					<p><%= @company.campaign.elevator_pitch.html_safe  if @company.campaign.elevator_pitch %></p>
 
 					<br>
 					<h2 class= "darkblue category-name indent">Our Mission</h2>
 					<hr>
-					<p><%= @company.campaign.about_campaign.html_safe %></p>
+					<p><%= @company.campaign.about_campaign.html_safe if @company.campaign.about_campaign %></p>
 				</div>
 
 				<div class='team_tab_content tab-content'>
