@@ -100,16 +100,16 @@
 				<div class='about_tab_content tab-content'>
 					<h2 class= "darkblue category-name indent">Highlight</h2>
 					<hr>
-					<p class= "fifteen"><%= nl2br(h(@company.description)).html_safe %></p>
+					<p class= "fifteen"><%= @company.description.html_safe %></p>
 					<br>
 					<h2 class= "darkblue category-name indent">Why <%= @company.name %></h2>
 					<hr>
-					<p><%= nl2br(h(@company.campaign.elevator_pitch)).html_safe %></p>
+					<p><%= @company.campaign.elevator_pitch.html_safe %></p>
 
 					<br>
 					<h2 class= "darkblue category-name indent">Our Mission</h2>
 					<hr>
-					<p><%= nl2br(h(@company.campaign.about_campaign)).html_safe %></p>
+					<p><%= @company.campaign.about_campaign.html_safe %></p>
 				</div>
 
 				<div class='team_tab_content tab-content'>
