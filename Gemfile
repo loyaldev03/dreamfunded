@@ -45,6 +45,7 @@ gem 'hellosign-ruby-sdk'
 gem "cocoon"
 gem 'ancestry'
 gem 'rails_12factor'
+gem 'newrelic_rpm'
 
 
 gem 'will_paginate', '~> 3.0.5'
