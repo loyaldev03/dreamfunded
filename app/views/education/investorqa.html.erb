@@ -10,29 +10,28 @@
       </div> -->
       <div class="header education-center">
         <div class='education-title'><%=link_to "Education Center", education_path%></div>
-        <%= link_to "All Education", education_path, class: 'education-links'%>
-        <%= fa_icon "chevron-right"%> <a href="#" class='education-links'> Investors </a>
-        <%= fa_icon "chevron-right"%>  <a href="#" class='education-links'>Important Terms</a>
+        <%= link_to "All Education", education_path, class: 'education-links'%> <%= fa_icon "chevron-right"%> <a href="#" class='education-links'> Investors </a>
+        <%= fa_icon "chevron-right"%>  <a href="#" class='education-links'>Investor Q&A</a>
       </div>
       <div class= "left-panel">
         <ul class='education-menu'>
-            <a href='/education/investors-basics'><li class='education-item '>The Basics</li></a>
-            <a href='/education/investors-important-terms'><li class='education-item active'>Important Terms</li></a>
-            <a href='/education/investing-tips'><li class='education-item'>Investing Tips & Strategies</li></a>
-            <a href='/education/taxes-gains'><li class='education-item'>Taxes & Gains</li></a>
-            <a href='/education/investor-qa'><li class='education-item'>Investor Q&A</li></a>
+          <a href='/education/investors-basics'><li class='education-item '>The Basics</li></a>
+          <a href='/education/investors-important-terms'><li class='education-item '>Important Terms</li></a>
+          <a href='/education/investing-tips'><li class='education-item '>Investing Tips & Strategies</li></a>
+          <a href='/education/taxes-gains'><li class='education-item '>Taxes & Gains</li></a>
+          <a href='/education/investor-qa'><li class='education-item active'>Investor Q&A</li></a>
         </ul>
       </div>
       <div class= "right-panel ">
         <div class= "text-content">
 
-            <h3 class= "question darkblue flip">Important Terms  </h3>
+            <h3 class= "question darkblue flip">Investor Q&A</h3>
             <ul class='education-center-list'>
 
             <% @posts.each do |post|%>
                 <% if current_user != nil && current_user.authority == authority[:Admin] %>
                     <%= button_to "Delete", {:controller => :posts,  :action => 'destroy', :id => post.id }, :method => :delete, class: 'float-rigth' %>
-                    <%= link_to 'Edit', "/posts/#{post.id}/edit/terms", {:class => 'right'} %>
+                    <%= link_to 'Edit', "/posts/#{post.id}/edit/investor-qa", {:class => 'right'} %>
 
                 <% end %>
                 <li><%= link_to post.title, post %></li>
@@ -43,14 +42,14 @@
 
             <% end %>
             <% if current_user != nil && current_user.authority == authority[:Admin] %>
-                <h3><%= link_to 'Create New', "/posts/new/terms", {:class => 'right'} %></h3>
+                <h3><%= link_to 'Create New', "/posts/new/investor-qa", {:class => 'right'} %></h3>
             <% end %>
             </ul>
 
             <br><br><br>
 
             <div class= "centered twenty">
-              <%= button_to "Get Started", {:action => 'get_started'}, {:id => 'push'} %>
+              <%= button_to "Get Started", {:action => 'get_started', controller: 'home'}, {:id => 'push'} %>
             </div>
 
         </div>

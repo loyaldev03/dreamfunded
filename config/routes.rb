@@ -130,8 +130,6 @@ Rails.application.routes.draw do
   get 'users/admin-companies', to: "users#companies"
   get '/my_campaigns', to: "users#campaign"
 
-  get 'dreamfunded_portfolio', to: "home#portfolio"
-
   post '/marketplace_signup', to: 'guests#marketplace'
 
   get 'homes/faq', to: "home#faq", as: :faq
@@ -143,7 +141,6 @@ Rails.application.routes.draw do
   get '/liquidate', to: 'home#liquidate'
   get '/liquidity', to: 'home#liquidate'
   post '/liquidate_form', to: 'home#liquidate_form'
-  get '/liquidate_after', to: 'home#liquidate_after'
 
   get '/shares', to: 'sellers#shares'
   get '/edit-shares/:id', to: 'sellers#edit'
@@ -156,8 +153,6 @@ Rails.application.routes.draw do
   get '/sellers', to: "home#sellers", as: :sellers
   get '/edit_seller/:id', to: "home#edit_seller", as: 'edit_seller'
   patch '/liquidate_shares', to: "home#edit_liq_seller", as: :edit_shareholder
-
-  get '/email_all_investors/:id', to: "home#email_all_investors", as: :email_all_investors
 
   post 'submit_bid', to: "companies#submit_bid"
 
@@ -195,20 +190,21 @@ Rails.application.routes.draw do
   get '/how_it_works', to: 'home#howItWorks'
   get '/about', to: 'home#about'
   get '/privacy_policy', to: 'home#privacy_policy'
-  get '/education', to: 'home#education', as: 'education'
 
-  get '/education/investors-basics', to: 'home#investors_basics'
-  get '/education/startup-basics', to: 'home#startup_basics'
-  get '/education/investing-tips', to: 'home#tips', as: 'education_tips'
-  # get '/education/rules-regulations', to: 'home#rules'
-  get '/education/investors-important-terms', to: 'home#investors_terms'
-  get '/education/startups-important-terms', to: 'home#startups_terms'
-  get '/education/taxes-gains', to: 'home#taxes', as: 'education_taxes'
-  get '/education/investor-qa', to: 'home#investorqa', as: 'investorqa'
-  get '/education/employee-qa', to: 'home#employeeqa', as: 'employeeqa'
-  get '/education/market_trends', to: 'home#market_trends', as: 'market_trends'
-  get '/education/jobs_act', to: 'home#jobs_act', as: 'jobs_act'
-  get '/education/fund_raising_guide', to: 'home#fund_raising_guide', as: 'fund_raising_guide'
+  # E D U C A T I O N
+  get '/education', to: 'education#education', as: 'education'
+  get '/education/investors-basics', to: 'education#investors_basics'
+  get '/education/startup-basics', to: 'education#startup_basics'
+  get '/education/investing-tips', to: 'education#tips', as: 'education_tips'
+  get '/education/investors-important-terms', to: 'education#investors_terms'
+  get '/education/startups-important-terms', to: 'education#startups_terms'
+  get '/education/taxes-gains', to: 'education#taxes', as: 'education_taxes'
+  get '/education/investor-qa', to: 'education#investorqa', as: 'investorqa'
+  get '/education/employee-qa', to: 'education#employeeqa', as: 'employeeqa'
+  get '/education/market_trends', to: 'education#market_trends', as: 'market_trends'
+  get '/education/jobs_act', to: 'education#jobs_act', as: 'jobs_act'
+  get '/education/fund_raising_guide', to: 'education#fund_raising_guide', as: 'fund_raising_guide'
+
 
   get '/resources', to: 'home#resources'
   get '/marketplace', to: 'home#marketplace'
