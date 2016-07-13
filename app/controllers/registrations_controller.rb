@@ -3,7 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     super
     if @user.persisted?
-      @user.update_attribute(authority: 2)
+      @user.update_attribute(:authority, 2)
       ContactMailer.verify_email(@user).deliver
       ContactMailer.account_created(@user).deliver
       ContactMailer.unaccredited_investor(@user).deliver if @user.authority == 1
