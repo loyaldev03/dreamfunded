@@ -61,10 +61,6 @@
 
 				<% elsif current_user.authority == authority[:Admin] %>
 					<div class= "company-container gray">
-						<% if current_user.authority == authority[:Admin] %>
-							<%= button_to "&#10004;".html_safe, {action: 'approve_company', id: company.id} , {:class => 'approve-button'} %>
-						<% end %>
-
 						<% if current_user != nil && current_user.authority == authority[:Admin] %>
 							<%= button_to "X", {action: 'remove_company', id: company.id} , {:class => 'remove-button'} %>
 						<% end %>

@@ -1,5 +1,5 @@
 class CampaignsController < ApplicationController
-  before_action :authorize
+  before_action :authenticate_user!
   before_action :verify
 
   def funding_goal
@@ -12,6 +12,7 @@ class CampaignsController < ApplicationController
     funding_goal = params[:campaign][:funding_goal].delete('$').delete(',').to_i
     @company = Company.new(user_id: current_user.id, goal_amount: funding_goal, status: 1)
     @company.save(:validate => false)
+    @company.sections << Section.new
     @campaign = Campaign.create(funding_goal: funding_goal, company_id: @company.id)
     FinancialDetail.create(company_id: @company.id)
     redirect_to campaign_basics_path(@campaign.id)
@@ -105,12 +106,6 @@ class CampaignsController < ApplicationController
     user = User.find(current_user.id)
     if user.confirmed == false
       redirect_to url_for(:controller => 'home', :action => 'unverified')
-    end
-  end
-
-  def authorize
-    if current_user == nil
-      redirect_to url_for(:controller => 'users', :action => 'new')
     end
   end
 

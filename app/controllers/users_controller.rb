@@ -11,9 +11,6 @@ class UsersController < ApplicationController
 		@user = User.new
 	end
 
-	def show
-	end
-
 	def edit
 		@user = User.find(params[:id])
 	end
@@ -64,7 +61,7 @@ class UsersController < ApplicationController
 		@current_user = current_user
 	end
 
-	#Promotes a user
+	#move to Admin COntroller
 	def promote
 		user_login = params[:user]
 		@user = User.find_by(email: user_login)
@@ -74,7 +71,7 @@ class UsersController < ApplicationController
 		redirect_to(:action => :write)
 	end
 
-	#Demotes a user
+	#move to Admin COntroller
 	def demote
 		user_login = params[:user]
 		@user = User.find_by(email: user_login)
@@ -84,7 +81,7 @@ class UsersController < ApplicationController
 		redirect_to(:action => :write)
 	end
 
-	#Delete a user
+	#move to Admin COntroller
 	def delete
 		user_login = params[:user]
 		@user = User.find_by(email: user_login)
@@ -229,11 +226,12 @@ class UsersController < ApplicationController
 		redirect_to root_path
 	end
 
-
+	#move to Admin COntroller
 	def admin
 		@users = User.all.where(authority: 1)
 	end
 
+	#move to Admin COntroller
 	def companies
 		@companies = Company.all.where(accredited: false)
 	end

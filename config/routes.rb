@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'home#index'
+
   devise_for :users, controllers: {:registrations => 'registrations'}
 
   ActiveAdmin.routes(self)
@@ -101,7 +103,6 @@ Rails.application.routes.draw do
   post 'update_bid_offer', to: "bids#update_bid_offer", as: :update_bid_offer
   get "docusign", to: "sellers#docusign", as: :docusign
   get "check-status", to: "sellers#check_status", as: :check_status
-  get '/auction', to: "companies#auctions"
   #post '/account/1613988/envelopes', to: "sellers#send", as: :send_docusign
 
   get '/manny-fernandez', to: 'members#manny', as: :manny
@@ -121,7 +122,6 @@ Rails.application.routes.draw do
   get '/new_password', to: "users#new_password", as: :new_password
   post '/reset_password', to: "users#reset_password", as: :reset_password
 
-  get '/epay', to: "companies#epay", as: :epay
   post '/users/verify', to: 'users#verify', as: 'user_verify'
 
   get '/users/certify', to: "users#certify", as: 'certify'
@@ -154,8 +154,6 @@ Rails.application.routes.draw do
   get '/edit_seller/:id', to: "home#edit_seller", as: 'edit_seller'
   patch '/liquidate_shares', to: "home#edit_liq_seller", as: :edit_shareholder
 
-  post 'submit_bid', to: "companies#submit_bid"
-
 
   get '/new_seller', to: "home#new_seller"
   post '/new_seller', to: "home#create_new_seller", as: :create_shareholder
@@ -178,11 +176,8 @@ Rails.application.routes.draw do
   post '/submit_payment', to: "payments#payment"
   get '/congratulation/:id', to: "payments#congrats", as: :congratulation
 
-  get '/thank_you', to: "companies#thank_you"
-  get '/iframe', to: "companies#iframe"
-  get '/companies_docusign', to: "companies#docusign"
 
-  root 'home#index'
+
   #URLs from old site
   get '/how-it-works', to: 'home#why'
   get '/why-invest-with-dream-funded', to: 'home#why'
@@ -211,7 +206,6 @@ Rails.application.routes.draw do
   get '/book', to: 'home#book'
 
   get '/portfolio', to: 'users#portfolio'
-  get '/marketplace_companies', to: 'companies#nonaccredited_index'
   get '/dreamfunded-exchange', to: 'home#exchange'
   get '/our-team', to: 'members#index'
   match "/our-team/manny-fernandez" => redirect("team/manny-fernandez"), via: 'get'
@@ -222,7 +216,7 @@ Rails.application.routes.draw do
   match "/our-team/bill-payne" => redirect("team/bill-payne"), via: 'get'
   match "/dreamfunded-mentioned-forbes-get-introduced-investors/" => redirect("news/dreamfunded-mentioned-in-forbes"), via: 'get'
   match "/startups-vie-funding-shark-tank-event/" => redirect("news/startups-vie-for-funding-at-shark-tank-event"), via: 'get'
-  get '/signup', to: 'users#new'
+  # get '/signup', to: 'users#new'
   get '/login', to: 'users#login'
   get "/information-selling-equity", to: 'home#exchange'
   match "/regulation-mini-ipos-way-rule-change-allows-regular-joes-invest-startups/" => redirect("news/regulation-a-mini-ipos-on-the-way-as-rule-change-allows-regular-joes-to-invest-in-startups"), via: 'get'
