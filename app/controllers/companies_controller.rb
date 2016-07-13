@@ -2,19 +2,16 @@ class CompaniesController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :company_profile]
 	before_action :verify, except: [:index, :company_profile]
 	before_action :admin_check, only: [:new, :edit, :make_team, :make_profile]
+	before_action :set_company, only: [:company_profile, :edit_profile, :update, :make_profile, :remove_company]
 
 	def index
 		@companies = Company.all_accredited
 	end
 
-	def new
-		@company = Company.new
-	end
 
 	def company_profile
 		if params[:id] != nil
 			@id = params[:id]
-			@company = Company.find(params[:id])
 			@financial_details = @company.financial_detail
 			@progress = @company.invested_amount / @company.goal_amount rescue 0
 			@comments = @company.comments
@@ -29,11 +26,9 @@ class CompaniesController < ApplicationController
 		if current_user == nil || current_user.authority < User.Authority[:Admin]
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
 		end
-		@company = Company.find(params[:id])
 	end
 
 	def update
-		@company = Company.find(params[:id])
 		if @company.update(company_params)
 			redirect_to :controller => 'companies', :action => 'company_profile', :id => params[:id]
 		else
@@ -46,12 +41,16 @@ class CompaniesController < ApplicationController
 		end
 	end
 
+	def new
+		redirect_to funding_goal_path
+		@company = Company.new
+	end
+
 	def create
 		@company = Company.new(company_params)
 		if @company.save
 			@company.campaign = Campaign.create
-			section = Section.new
-			@company.sections << section
+			@company.sections << Section.new
 			redirect_to "/companies"
 		else
 			@error_message = ""
@@ -67,6 +66,7 @@ class CompaniesController < ApplicationController
 		@companies = Company.all
 	end
 
+# can be refactored
 	def action
 		@my_company = Company.find_by(id: params[:id])
 		if @my_company == nil
@@ -97,7 +97,6 @@ class CompaniesController < ApplicationController
 	end
 
 	def make_profile
-		@company = Company.find(params[:id])
 		@section = @company.sections.first
 	end
 
@@ -117,44 +116,37 @@ class CompaniesController < ApplicationController
 		end
 	end
 
-
 	def remove_company
-		if params[:id] != nil
-	    @company = Company.find(params[:id])
-	      if (@company != nil)
-	    		@company.destroy
-	    	end
-	  end
+    @company.destroy
    	redirect_to "/companies"
   end
 
   def remove_founder
-		if params[:id] != nil
-    	@founder = Founder.find(params[:id])
-    	if @founder!= nil
-    		@founder.destroy
-    	end
-    end
+    @founder = Founder.find(params[:id])
+    @founder.destroy
     redirect_to "/companies"
   end
 
 private
-	def verify
-	 	user = User.find(current_user)
-	 	if user.confirmed == false
-	 		redirect_to url_for(:controller => 'home', :action => 'unverified')
-	 	end
-	end
-
-	def admin_check
-		if current_user.authority < User.Authority[:Founder]
-			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
+		def set_company
+		  @company = Company.find(params[:id])
 		end
-	end
 
-	def section_params
-		params.require(:section).permit(:id, :company_id, :overview, :target_market, :current_investor_details, :detailed_metrics, :customer_testimonials, :competitive_landscape, :planned_use_of_funds, :pitch_deck, :created_at, :updated_at)
-	end
+		def verify
+		 	if current_user.confirmed == false
+		 		redirect_to url_for(:controller => 'home', :action => 'unverified')
+		 	end
+		end
+
+		def admin_check
+			if current_user.authority < User.Authority[:Founder]
+				redirect_to url_for(:controller => 'home', :action => 'unauthorized')
+			end
+		end
+
+		def section_params
+			params.require(:section).permit(:id, :company_id, :overview, :target_market, :current_investor_details, :detailed_metrics, :customer_testimonials, :competitive_landscape, :planned_use_of_funds, :pitch_deck, :created_at, :updated_at)
+		end
 
 	def company_params
 	  params.require(:company).permit(:image, :end_date, :document, :hidden, :position, :docusign_url, :name, :description,
