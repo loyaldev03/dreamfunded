@@ -11,9 +11,6 @@ class UsersController < ApplicationController
 		@user = User.new
 	end
 
-	def show
-	end
-
 	def edit
 		@user = User.find(params[:id])
 	end
@@ -25,15 +22,15 @@ class UsersController < ApplicationController
 	end
 
 	def portfolio
-		if session[:current_user] == nil
+		if current_user == nil
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
 		end
-		user = User.find(session[:current_user].id)
+		user = User.find(current_user.id)
 		@investments = user.investments
 	end
 
 	def portfolio_admin
-		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Admin]
+		if current_user == nil || current_user.authority < User.Authority[:Admin]
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
 		end
 		@user = User.find(params[:id])
@@ -47,10 +44,10 @@ class UsersController < ApplicationController
 	end
 
 	def write
-		if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Admin]
+		if current_user == nil || current_user.authority < User.Authority[:Admin]
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
 		end
-		@current_user = session[:current_user]
+		@current_user = current_user
 		@Authority = User.Authority
 		@users = User.all.order(:created_at)
 		@new = News.new
@@ -58,13 +55,13 @@ class UsersController < ApplicationController
 
 	# Controller for profile page
 	def profile
-		if session[:current_user] == nil
+		if current_user == nil
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
 		end
-		@current_user = session[:current_user]
+		@current_user = current_user
 	end
 
-	#Promotes a user
+	#move to Admin COntroller
 	def promote
 		user_login = params[:user]
 		@user = User.find_by(email: user_login)
@@ -74,7 +71,7 @@ class UsersController < ApplicationController
 		redirect_to(:action => :write)
 	end
 
-	#Demotes a user
+	#move to Admin COntroller
 	def demote
 		user_login = params[:user]
 		@user = User.find_by(email: user_login)
@@ -84,7 +81,7 @@ class UsersController < ApplicationController
 		redirect_to(:action => :write)
 	end
 
-	#Delete a user
+	#move to Admin COntroller
 	def delete
 		user_login = params[:user]
 		@user = User.find_by(email: user_login)
@@ -123,7 +120,7 @@ class UsersController < ApplicationController
 			if @user.first_name && @user.last_name && @user.email && Rails.env.production?
 				Infusionsoft.contact_add({:FirstName => @user.first_name , :LastName => @user.last_name, :Email => @user.email})
 			end
-			session[:current_user] = @user
+			current_user = @user
 			redirect_to(:controller => 'home', :action => 'index')
 		else
 			flash[:signup_errors] = "Validation failed."
@@ -144,7 +141,7 @@ class UsersController < ApplicationController
 		else
 			password = params[:password]
 			if(login_user.password_valid?(password))
-				session[:current_user] = login_user
+				current_user = login_user
 				if login_user.authority >= 2
 					redirect_to url_for(:controller => 'companies', :action => 'index')
 				else
@@ -159,7 +156,7 @@ class UsersController < ApplicationController
 
 	# Signs out and redirects to the homepage
 	def signout
-		session[:current_user] = nil
+		current_user = nil
 		redirect_to :controller => 'home'
 	end
 
@@ -188,7 +185,7 @@ class UsersController < ApplicationController
 		password = params[:password]
 		password_confirmation = params[:password_confirmation]
 		if @user.update(password: password, password_confirmation: password_confirmation)
-			session[:current_user] = @user
+			current_user = @user
 			redirect_to url_for(:controller => 'home', :action => 'index')
 		else
 			@error_message = ""
@@ -203,7 +200,7 @@ class UsersController < ApplicationController
 		user = User.find_by(email: params[:email].delete(' '))
 		user.confirmed = true
 		user.save(:validate => false)
-		session[:current_user] = user
+		current_user = user
 		#ContactMailer.welcome_email(user).deliver
 		ContactMailer.personal_hello(user).deliver
 		redirect_to root_path
@@ -225,21 +222,22 @@ class UsersController < ApplicationController
 		end
 		ContactMailer.personal_hello(user).deliver
 		ContactMailer.account_created(user).deliver
-		session[:current_user] = user
+		current_user = user
 		redirect_to root_path
 	end
 
-
+	#move to Admin COntroller
 	def admin
 		@users = User.all.where(authority: 1)
 	end
 
+	#move to Admin COntroller
 	def companies
 		@companies = Company.all.where(accredited: false)
 	end
 
 	def campaign
-		user = User.find(user_session.id)
+		user = current_user
 		if user.companies.any?
 			id = user.companies.last.id
 			redirect_to(:controller => 'companies', :action => :company_profile, id: id)

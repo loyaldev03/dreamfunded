@@ -10,7 +10,7 @@
     <div class= "word-content"><div class= "text-content">
       <%= button_to "Download", '/guests.csv', :method => 'get', :id => 'user-button' %>
 
-        <% if user_session.authority == authority[:Admin] %>
+        <% if current_user.authority == authority[:Admin] %>
           <table id="user-table">
            <tr>
             <th>ID</th>

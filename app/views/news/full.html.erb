@@ -8,7 +8,7 @@
 			<div class= "topbar">
 				<a href= "/news" class= "darkblue">&#8617; Back</a>
 				<%= link_to("Next", full_article_path(@article.next_post), class: 'right') if @article.next_post %>
-				<% if user_session != nil && user_session.authority == authority[:Admin] %>
+				<% if current_user != nil && current_user.authority == authority[:Admin] %>
 					<%= link_to 'Edit', edit_news_path(@article), {:class => 'right'} %>
 				<% end %>
 			</div>

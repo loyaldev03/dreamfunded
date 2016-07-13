@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+  root 'home#index'
 
+  devise_for :users, controllers: {:registrations => 'registrations'}
 
   ActiveAdmin.routes(self)
 
@@ -101,7 +103,6 @@ Rails.application.routes.draw do
   post 'update_bid_offer', to: "bids#update_bid_offer", as: :update_bid_offer
   get "docusign", to: "sellers#docusign", as: :docusign
   get "check-status", to: "sellers#check_status", as: :check_status
-  get '/auction', to: "companies#auctions"
   #post '/account/1613988/envelopes', to: "sellers#send", as: :send_docusign
 
   get '/manny-fernandez', to: 'members#manny', as: :manny
@@ -121,7 +122,6 @@ Rails.application.routes.draw do
   get '/new_password', to: "users#new_password", as: :new_password
   post '/reset_password', to: "users#reset_password", as: :reset_password
 
-  get '/epay', to: "companies#epay", as: :epay
   post '/users/verify', to: 'users#verify', as: 'user_verify'
 
   get '/users/certify', to: "users#certify", as: 'certify'
@@ -129,8 +129,6 @@ Rails.application.routes.draw do
   get 'users/admin', to: "users#admin"
   get 'users/admin-companies', to: "users#companies"
   get '/my_campaigns', to: "users#campaign"
-
-  get 'dreamfunded_portfolio', to: "home#portfolio"
 
   post '/marketplace_signup', to: 'guests#marketplace'
 
@@ -143,7 +141,6 @@ Rails.application.routes.draw do
   get '/liquidate', to: 'home#liquidate'
   get '/liquidity', to: 'home#liquidate'
   post '/liquidate_form', to: 'home#liquidate_form'
-  get '/liquidate_after', to: 'home#liquidate_after'
 
   get '/shares', to: 'sellers#shares'
   get '/edit-shares/:id', to: 'sellers#edit'
@@ -156,10 +153,6 @@ Rails.application.routes.draw do
   get '/sellers', to: "home#sellers", as: :sellers
   get '/edit_seller/:id', to: "home#edit_seller", as: 'edit_seller'
   patch '/liquidate_shares', to: "home#edit_liq_seller", as: :edit_shareholder
-
-  get '/email_all_investors/:id', to: "home#email_all_investors", as: :email_all_investors
-
-  post 'submit_bid', to: "companies#submit_bid"
 
 
   get '/new_seller', to: "home#new_seller"
@@ -183,11 +176,8 @@ Rails.application.routes.draw do
   post '/submit_payment', to: "payments#payment"
   get '/congratulation/:id', to: "payments#congrats", as: :congratulation
 
-  get '/thank_you', to: "companies#thank_you"
-  get '/iframe', to: "companies#iframe"
-  get '/companies_docusign', to: "companies#docusign"
 
-  root 'home#index'
+
   #URLs from old site
   get '/how-it-works', to: 'home#why'
   get '/why-invest-with-dream-funded', to: 'home#why'
@@ -195,27 +185,27 @@ Rails.application.routes.draw do
   get '/how_it_works', to: 'home#howItWorks'
   get '/about', to: 'home#about'
   get '/privacy_policy', to: 'home#privacy_policy'
-  get '/education', to: 'home#education', as: 'education'
 
-  get '/education/investors-basics', to: 'home#investors_basics'
-  get '/education/startup-basics', to: 'home#startup_basics'
-  get '/education/investing-tips', to: 'home#tips', as: 'education_tips'
-  # get '/education/rules-regulations', to: 'home#rules'
-  get '/education/investors-important-terms', to: 'home#investors_terms'
-  get '/education/startups-important-terms', to: 'home#startups_terms'
-  get '/education/taxes-gains', to: 'home#taxes', as: 'education_taxes'
-  get '/education/investor-qa', to: 'home#investorqa', as: 'investorqa'
-  get '/education/employee-qa', to: 'home#employeeqa', as: 'employeeqa'
-  get '/education/market_trends', to: 'home#market_trends', as: 'market_trends'
-  get '/education/jobs_act', to: 'home#jobs_act', as: 'jobs_act'
-  get '/education/fund_raising_guide', to: 'home#fund_raising_guide', as: 'fund_raising_guide'
+  # E D U C A T I O N
+  get '/education', to: 'education#education', as: 'education'
+  get '/education/investors-basics', to: 'education#investors_basics'
+  get '/education/startup-basics', to: 'education#startup_basics'
+  get '/education/investing-tips', to: 'education#tips', as: 'education_tips'
+  get '/education/investors-important-terms', to: 'education#investors_terms'
+  get '/education/startups-important-terms', to: 'education#startups_terms'
+  get '/education/taxes-gains', to: 'education#taxes', as: 'education_taxes'
+  get '/education/investor-qa', to: 'education#investorqa', as: 'investorqa'
+  get '/education/employee-qa', to: 'education#employeeqa', as: 'employeeqa'
+  get '/education/market_trends', to: 'education#market_trends', as: 'market_trends'
+  get '/education/jobs_act', to: 'education#jobs_act', as: 'jobs_act'
+  get '/education/fund_raising_guide', to: 'education#fund_raising_guide', as: 'fund_raising_guide'
+
 
   get '/resources', to: 'home#resources'
   get '/marketplace', to: 'home#marketplace'
   get '/book', to: 'home#book'
 
   get '/portfolio', to: 'users#portfolio'
-  get '/marketplace_companies', to: 'companies#nonaccredited_index'
   get '/dreamfunded-exchange', to: 'home#exchange'
   get '/our-team', to: 'members#index'
   match "/our-team/manny-fernandez" => redirect("team/manny-fernandez"), via: 'get'
@@ -226,7 +216,7 @@ Rails.application.routes.draw do
   match "/our-team/bill-payne" => redirect("team/bill-payne"), via: 'get'
   match "/dreamfunded-mentioned-forbes-get-introduced-investors/" => redirect("news/dreamfunded-mentioned-in-forbes"), via: 'get'
   match "/startups-vie-funding-shark-tank-event/" => redirect("news/startups-vie-for-funding-at-shark-tank-event"), via: 'get'
-  get '/signup', to: 'users#new'
+  # get '/signup', to: 'users#new'
   get '/login', to: 'users#login'
   get "/information-selling-equity", to: 'home#exchange'
   match "/regulation-mini-ipos-way-rule-change-allows-regular-joes-invest-startups/" => redirect("news/regulation-a-mini-ipos-on-the-way-as-rule-change-allows-regular-joes-to-invest-in-startups"), via: 'get'

@@ -45,6 +45,7 @@ gem 'hellosign-ruby-sdk'
 gem "cocoon"
 gem 'ancestry'
 gem 'rails_12factor'
+gem 'devise'
 gem 'newrelic_rpm'
 
 

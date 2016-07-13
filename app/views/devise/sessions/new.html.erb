@@ -1,0 +1,54 @@
+<html>
+<head>
+  <% title "DreamFunded | Log In" %>
+</head>
+
+<body>
+  <div class='alert-warning alert password-change-notification'>DreamFunded.vc users passwords were reset for security reasons. Please <strong><%= link_to "change your password", new_user_password_path%></strong> if you can not sign in.
+    <i class="fa fa-times close-disclaimer" id='close-subcribtion' ></i>
+  </div>
+  <div class= "wrapper">
+    <div class= "box signin-box centered">
+
+    <div class="row">
+      <div class="tab right-line darkblue active">
+        <h2 class= "no-margin centered"><a href="/users/sign_in" id="login-form-link">Login</a></h2>
+      </div>
+      <div class="tab darkblue nodec">
+        <h2 class= "no-margin centered"><a href="/users/sign_up" id="register-form-link">Sign Up</a></h2>
+      </div>
+    </div>
+
+    <div class= "login-container">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= f.text_field(:email, :class =>"userbox-login", :placeholder => "Email") %>
+        <br>
+        <%= f.password_field(:password, :class => "passbox", :placeholder => "Password") %>
+        <br>
+          <div class = "notice centered">
+            <%= flash[:notice]  %>
+            <%= flash[:alert] %>
+          </div>
+        <div class= "centered">
+          <%= submit_tag("Login", :class => "login-button") %>
+          <div class='social-login-ions'>
+            <%#= link_to fa_icon("google 2x"), '/auth/google_oauth2', id: 'google-icon' %>
+            <%#= link_to fa_icon("linkedin 2x"), '/auth/linkedin', id: 'linkedin-icon'  %>
+            <%#= link_to fa_icon("facebook 2x"), '/auth/facebook', id: 'facebook-icon'  %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class= "centered">
+        <%= link_to " Forgot password?", new_user_password_path, :class => "signup black" %>
+    </div>
+  </div>
+</div>
+</body>
+<script type="text/javascript">
+  $('.close-disclaimer').click(function(){
+    $(this).parent().hide()
+   })
+</script>
+</html>

@@ -9,7 +9,7 @@
 	</div>
 	<div class= "word-content"><div class= "text-content">
 		<!--<% @posts.each do |post|%>
-			<% if user_session != nil && user_session.authority == authority[:Admin] %>
+			<% if current_user != nil && current_user.authority == authority[:Admin] %>
 				<%= button_to "Delete", {:controller => :posts,  :action => 'destroy', :id => post.id }, :method => :delete, class: 'float-rigth' %>
 				<%= link_to 'Edit', "/posts/#{post.id}/edit/about_us", {:class => 'right'} %>
 
@@ -22,7 +22,7 @@
 			</p>
 			<br>
 		<% end %>
-		<% if user_session != nil && user_session.authority == authority[:Admin] %>
+		<% if current_user != nil && current_user.authority == authority[:Admin] %>
 			<h3><%= link_to 'Create New', "/posts/new/about_us", {:class => 'right', :data => { :page => 'faq' }} %></h3>
 		<% end %> -->
 

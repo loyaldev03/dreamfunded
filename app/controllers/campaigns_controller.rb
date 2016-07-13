@@ -1,17 +1,18 @@
 class CampaignsController < ApplicationController
-  before_action :authorize
+  before_action :authenticate_user!
   before_action :verify
 
   def funding_goal
-    if session[:current_user] == nil
+    if current_user == nil
       redirect_to url_for(:controller => 'users', :action => 'login')
     end
   end
 
   def funding_goal_submit
     funding_goal = params[:campaign][:funding_goal].delete('$').delete(',').to_i
-    @company = Company.new(user_id: user_session.id, goal_amount: funding_goal, status: 1)
+    @company = Company.new(user_id: current_user.id, goal_amount: funding_goal, status: 1)
     @company.save(:validate => false)
+    @company.sections << Section.new
     @campaign = Campaign.create(funding_goal: funding_goal, company_id: @company.id)
     FinancialDetail.create(company_id: @company.id)
     redirect_to campaign_basics_path(@campaign.id)
@@ -77,7 +78,7 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:campaign_id])
     @financial_details = FinancialDetail.find(params[:financial_details])
     @financial_details.update(financial_details_params)
-    ContactMailer.campaign_submitted(user_session).deliver
+    ContactMailer.campaign_submitted(current_user).deliver
     ContactMailer.check_campaign(@campaign).deliver
     redirect_to "/companies/company_profile/#{@campaign.company.id}"
   end
@@ -102,15 +103,9 @@ class CampaignsController < ApplicationController
 
   private
   def verify
-    user = User.find(user_session.id)
+    user = User.find(current_user.id)
     if user.confirmed == false
       redirect_to url_for(:controller => 'home', :action => 'unverified')
-    end
-  end
-
-  def authorize
-    if session[:current_user] == nil
-      redirect_to url_for(:controller => 'users', :action => 'new')
     end
   end
 

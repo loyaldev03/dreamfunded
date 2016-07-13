@@ -10,7 +10,7 @@
 			<% @companies.each do |company| %>
 				<% if company.display != 0 %>
 					<div class= "company-container">
-						<% if user_session != nil && user_session.authority == authority[:Admin] %>
+						<% if current_user != nil && current_user.authority == authority[:Admin] %>
 							<%= button_to "X", {action: 'remove_company', id: company.id} , data: { confirm: 'Are you sure?' }, class:'remove-button'%>
 							<span class='company-position'><%= company.position%></span>
 						<% end %>
@@ -56,13 +56,13 @@
 							</div>
 					</div>
 
-				<% elsif user_session.authority == authority[:Admin] %>
+				<% elsif current_user.authority == authority[:Admin] %>
 					<div class= "company-container gray">
-						<% if user_session.authority == authority[:Admin] %>
+						<% if current_user.authority == authority[:Admin] %>
 							<%= button_to "&#10004;".html_safe, {action: 'approve_company', id: company.id} , {:class => 'approve-button'} %>
 						<% end %>
 
-						<% if user_session != nil && user_session.authority == authority[:Admin] %>
+						<% if current_user != nil && current_user.authority == authority[:Admin] %>
 							<%= button_to "X", {action: 'remove_company', id: company.id} , {:class => 'remove-button'} %>
 						<% end %>
 

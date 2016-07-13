@@ -9,7 +9,7 @@
       <%= hidden_field_tag(:company_id, @company_id) %>
       <%= hidden_field_tag(:number_of_shares, @number_of_shares) %>
       <p class='payment-form'>Name<br>
-        <%= text_field_tag(:name, user_session.name ) %>
+        <%= text_field_tag(:name, current_user.name ) %>
       </p>
 
       <p class='payment-form'>Routing Number<br>

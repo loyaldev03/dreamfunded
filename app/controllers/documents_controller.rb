@@ -70,7 +70,7 @@ class DocumentsController < ApplicationController
     end
 
     def authorize
-      if session[:current_user] == nil || session[:current_user].authority < User.Authority[:Admin]
+      if current_user == nil || current_user.authority < User.Authority[:Admin]
         redirect_to url_for(:controller => 'home', :action => 'unauthorized')
       end
     end

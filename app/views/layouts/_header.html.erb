@@ -6,15 +6,15 @@
             <li id='mobile-menu'><button >Menu <span class="arrow"><i class="fa fa-caret-down" aria-hidden="true"></i></span></button>
               <ul class='sub-menu white'>
                 <!-- <li><button onclick= "whyInv()">Why Invest</button></li> -->
-                <% if user_session != nil && user_session.authority >= authority[:Accredited] %>
+                <% if current_user != nil && current_user.authority >= authority[:Accredited] %>
                   <li><button onclick= "invest()">Invest</button></li>
-                <% elsif user_session != nil && user_session.authority == 1 %>
+                <% elsif current_user != nil && current_user.authority == 1 %>
                   <li><button onclick= "location.href='/marketplace_companies ';">NonAccredited</button></li>
                 <% end %>
                 <li><button onclick= "location.href='/events';">Events</button></li>
                 <li><button onclick="location.href='/education';" >Education</button></li>
                 <li><button onclick= "contact()">Contact Us</button></li>
-                <% if user_session == nil %>
+                <% if current_user == nil %>
                   <li><button onclick= "signIn()">Login</button></li>
                 <% else %>
                   <li><button onclick= "signOut()" >Sign Out</button></li>
@@ -40,11 +40,11 @@
               <ul class='sub-menu white'>
                 <!-- <li><button onclick= "whyInv()">Why Invest</button></li> -->
 
-                <% if user_session == nil %>
+                <% if current_user == nil %>
                   <li><button onclick= "login()">Login</button></li>
                   <li><button onclick= "signUp()">Sign Up</button></li>
                 <% else %>
-                  <li><button onclick= "profile()" >Welcome <%= user_session.first_name.capitalize%> <span class="arrow"></span></button></li>
+                  <li><button onclick= "profile()" >Welcome <%= current_user.first_name.capitalize%> <span class="arrow"></span></button></li>
                   <li><button onclick= "signOut()" >Sign Out</button></li>
                 <% end %>
               </ul>
@@ -61,32 +61,33 @@
             <li class='ipad-menu'><button onclick="location.href='/education';" >Education</button></li>
             <li class='ipad-menu'><button onclick="location.href='/events';" >Events</button></li>
             <li class='ipad-menu'><button onclick= "get_funded()">Get Funded</button></li>
-            <% if user_session != nil && user_session.authority >= authority[:Accredited] %>
+            <% if current_user != nil && current_user.authority >= authority[:Accredited] %>
               <li class='ipad-menu'><button onclick= "invest()">Invest</button></li>
-            <% elsif user_session == nil %>
+            <% elsif current_user == nil %>
               <li class='ipad-menu'><button onclick= "signUp()">Invest</button></li>
             <% end %>
             <li class='ipad-menu'><button onclick= "how_it_works()">How It Works</button></li>
             <!-- iPAD MENU END -->
 
+
             <li id="last-menu-button"></li>
-            <% if user_session == nil %>
+            <% if !current_user %>
               <li><button onclick= "signIn()" id="sign-in-button">Sign Up</button></li>
               <li><button onclick= "login()">Login</button></li>
             <% else %>
-              <li><button onclick= "profile()" >Welcome <%= user_session.first_name.capitalize%> <span class="arrow">&#9660;</span></button>
+              <li><button onclick= "profile()" >Welcome <%= current_user.first_name.capitalize%> <span class="arrow">&#9660;</span></button>
                 <ul class= "sub-menu">
                   <li><button onclick= "portfolio()">My Investments</button></li>
                   <li><button onclick= "campaign()">My Campaign</button></li>
                  <!--  <li><button onclick= "invite()" class='invite-menu-button'>Invites<br><span class='invite-menu-text'>Refer a Friend to (Get and Give $100 For Next Investment!) </span></button></li> -->
-                  <% if user_session.authority != authority[:Admin] %>
+                  <% if current_user.authority != authority[:Admin] %>
                     <li><button onclick= "signOut()" >Sign Out</button></li>
                   <% else %>
                     <li><button onclick= "admin()">Admin Panel</button></li>
                     <li><button onclick="location.href='/admin/users';" >New Admin Panel</button></li>
-                    <li><button onclick= "signOut()" >Sign Out</button></li>
+                    <li><button onclick="signOut()">Sign Out</button></li>
                   <% end %>
-                  <% if user_session.role == "government"%>
+                  <% if current_user.role == "government"%>
                     <li><button onclick= "government_admin()">Admin Panel</button></li>
                   <% end %>
                 </ul>
@@ -103,7 +104,7 @@
                 <li><button onclick= "contact()">Contact Us</button></li>
               </ul>
             </li>
-            <%# if user_session != nil && user_session.authority > 2 %>
+            <%# if current_user != nil && current_user.authority > 2 %>
               <!-- <li><button onclick= "funding()">Get Funded</button></li> -->
             <%# end %>
             <li><button onclick="location.href='/events';" >Events</button></li>

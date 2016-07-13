@@ -12,40 +12,7 @@
 						<%#= link_to "Liquidate Now", {:action => 'liquidate'}, {:class => 'invest-button liquidate-now-button'} %>
 					</div>
 				</div>
-				<!-- FALSE FOR NOW. UNTIL FIND OUT TO DO WITH THIS -->
-				<% if false %>
-					<div class= "story"><div class= "story-cont fullWidth">
-						<h2 class= "centered darkblue yes-margin">Recent Portfolio Successes</h2>
-						<div class= "one-story">
-							<div class= "story-img" onmouseover="document.getElementById('one').style.display = 'block'; document.getElementById('two').style.display = 'none'; document.getElementById('three').style.display = 'none';"><%= link_to (image_tag "news/#{@news_one.image_filename}", :class => "image5"), {:controller => 'news', :action => 'full', :id => @news_one.id} %>
-							</div>
-						</div>
 
-						<div class= "one-story" onmouseover="document.getElementById('two').style.display = 'block'; document.getElementById('one').style.display = 'none'; document.getElementById('three').style.display = 'none';">
-							<div class= "story-img"><%= link_to (image_tag "news/#{@news_two.image_filename}", :class => "image5"), {:controller => 'news', :action => 'full', :id => @news_two.id} %>
-							</div>
-						</div>
-
-						<div class= "one-story" onmouseover="document.getElementById('two').style.display = 'none'; document.getElementById('one').style.display = 'none'; document.getElementById('three').style.display = 'block';">
-							<div class= "story-img"><%= link_to (image_tag "news/#{@news_three.image_filename}", :class => "image5"), {:controller => 'news', :action => 'full', :id => @news_three.id} %>
-							</div>
-						</div>
-
-						<div class= "black-box back" id = "one" ><div class= "black-box-content">
-							<h2 class= "centered"><%= @news_one.title %></h2>
-						</div></div>
-
-						<div class= "black-box back" id = "two"><div class= "black-box-content">
-							<h2 class= "centered"><%= @news_two.title %></h2>
-						</div></div>
-
-						<div class= "black-box back" id = "three"><div class= "black-box-content">
-							<h2 class= "centered"><%= @news_three.title %></h2>
-						</div></div>
-
-
-					</div> </div>
-			<% end %>
 
 
 			<h2 class= "centered darkblue homepage-line-text">We're Your Way Into Silicon Valley Tech Companies </h2>
@@ -186,8 +153,8 @@
 				</div>
 			</div>
 		</div> -->
-<% if user_session != nil %>
-	<% if User.find(user_session.id).try(:confirmed) == false %>
+<% if current_user != nil %>
+	<% if User.find(current_user.id).try(:confirmed) == false %>
 		<!-- ---------------------- -->
 		<a href="#dialog" class="modalLink">Verify Email Address</a>
 
@@ -200,7 +167,7 @@
 		    		</div>
 		        <h3>Verify Email Address</h3>
 		        <!-- <hr class='line-verify-modal'> -->
-		        <p class='verify-modal-text'>Thank you for joining DreamFunded. A verification email has been sent to <%= user_session.email %>. Please complete your signup by clicking the link in this email.</p>
+		        <p class='verify-modal-text'>Thank you for joining DreamFunded. A verification email has been sent to <%= current_user.email %>. Please complete your signup by clicking the link in this email.</p>
 		        <center>
 		        	<a href="#" class="close">Close</a>
 

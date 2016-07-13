@@ -1,7 +1,7 @@
 class SellersController < ApplicationController
 
   def shares
-    @seller = User.find(user_session.id)
+    @seller = User.find(current_user.id)
     @shares = @seller.liquidate_shares
     share_number = @shares.first.number_shares
     @company = @seller.liquidate_shares.first.company
@@ -9,7 +9,7 @@ class SellersController < ApplicationController
   end
 
   def edit
-    @seller = user_session
+    @seller = current_user
     @share = LiquidateShare.find(params[:id])
   end
 

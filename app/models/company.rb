@@ -50,7 +50,11 @@ class Company < ActiveRecord::Base
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 	validates_attachment_content_type :document, :content_type =>['application/pdf']
 
-	def self.Status
+  def self.all_accredited
+    all.order(:position).where(hidden: false, accredited: true)
+  end
+
+  def self.Status
 		{
 			:Coming_Soon => 1,
 			:Active => 2,

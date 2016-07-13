@@ -14,7 +14,7 @@
 				<div class= "news-container">
 					<% @news.each do |article| %>
 						<div class= "news-single-container">
-							<% if user_session != nil && user_session.authority == authority[:Admin] %>
+							<% if current_user != nil && current_user.authority == authority[:Admin] %>
 								<%= button_to "X", {action: 'remove_new', id: article.id} , {:class => 'remove-button'} %>
 
 								<span class='company-position'><%= article.position %></span>
