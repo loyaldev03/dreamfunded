@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	invisible_captcha only: [:create]
+
 	def index
 		@users = User.all()
 	end
@@ -245,5 +246,4 @@ class UsersController < ApplicationController
 			redirect_to funding_goal_path
 		end
 	end
-
 end
