@@ -46,6 +46,7 @@ gem "cocoon"
 gem 'ancestry'
 gem 'rails_12factor'
 gem 'devise'
+gem 'newrelic_rpm'
 
 
 gem 'will_paginate', '~> 3.0.5'

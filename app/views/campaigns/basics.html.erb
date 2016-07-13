@@ -47,8 +47,10 @@
         <%= select_tag(:category, options_for_select(company_categories), required:true ) %><br>
       </div>
 
-      <%= f.text_area :description, placeholder: 'Short Description about your company', class: 'userbox campaign_text_area_width', rows: 6, required:true %>
-
+      <br><br>
+      <label>Short Description about your company</label>
+      <%= f.text_area :description, placeholder: 'Short Description about your company', class: 'ckeditor userbox campaign_text_area_width', rows: 6, required:true %>
+      <br>
       <%= f.text_field :website_link, placeholder: 'Website', :class => "input-box", required:true %><br>
 
       <label>Company Logo</label>
