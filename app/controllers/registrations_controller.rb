@@ -2,6 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
+    p "REGISTRATION CONTROLLER"
     if @user.persisted?
       @user.update_attribute(:authority, 2)
       ContactMailer.verify_email(@user).deliver
