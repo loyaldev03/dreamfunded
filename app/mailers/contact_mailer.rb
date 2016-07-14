@@ -68,7 +68,7 @@ class ContactMailer < ActionMailer::Base
   def account_created(user)
     @name = user.last_name
     @email= user.email
-    mail(to: "info@dreamfunded.vc", subject: 'New Account Created')
+    mail(to: ["info@dreamfunded.vc","info@dreamfunded.com"], subject: 'New Account Created')
   end
 
   def personal_hello(user)
