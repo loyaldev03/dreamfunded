@@ -121,7 +121,6 @@ class UsersController < ApplicationController
 			if @user.first_name && @user.last_name && @user.email && Rails.env.production?
 				Infusionsoft.contact_add({:FirstName => @user.first_name , :LastName => @user.last_name, :Email => @user.email})
 			end
-			current_user = @user
 			redirect_to(:controller => 'home', :action => 'index')
 		else
 			flash[:signup_errors] = "Validation failed."
