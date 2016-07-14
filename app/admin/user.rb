@@ -10,7 +10,7 @@ ActiveAdmin.register User do
     end
   end
 
-permit_params :first_name, :last_name, :login, :email, :authority, :salt, :password, :password_confirmation, :confirmed, :invested_amount, :phone
+permit_params :first_name, :last_name, :login, :email, :role, :authority, :salt, :password, :password_confirmation, :confirmed, :invested_amount, :phone
 
   index do
     column  "first_name"
@@ -39,6 +39,7 @@ permit_params :first_name, :last_name, :login, :email, :authority, :salt, :passw
       f.input   :confirmed
       f.input   :invested_amount
       f.input   :phone
+      f.input   :role
     end
     f.actions
   end

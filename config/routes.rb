@@ -109,7 +109,7 @@ Rails.application.routes.draw do
   get '/rexford-r-hibbs', to: 'members#rexford', as: :rexford
 
   get 'users/portfolio', to: "users#portfolio", as: :portfolio
-  get 'users/portfolio_admin/:id', to: "users#portfolio_admin", as: :portfolio_admin
+  get 'users/portfolio_admin/:id', to: "admin#portfolio_admin", as: :portfolio_admin
   post 'users/portfolio_admin/:id', to: "users#remove_investment", as: :remove_investment
 
   get 'new/full/:id', to: "news#full", as: :full_article
@@ -127,7 +127,7 @@ Rails.application.routes.draw do
   get '/users/certify', to: "users#certify", as: 'certify'
 
   get 'users/admin', to: "users#admin"
-  get 'users/admin-companies', to: "users#companies"
+  get 'users/admin-companies', to: "admin#companies"
   get '/my_campaigns', to: "users#campaign"
 
   post '/marketplace_signup', to: 'guests#marketplace'
