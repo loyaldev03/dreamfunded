@@ -252,6 +252,10 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.2)
+    raygun4ruby (1.1.9)
+      httparty (~> 0.11)
+      json
+      rack
     rdoc (4.2.0)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
@@ -335,6 +339,7 @@ DEPENDENCIES
   rails (= 4.1.7)
   rails_12factor
   rails_autolink
+  raygun4ruby
   sass-rails (>= 3.2)
   sdoc (~> 0.4.0)
   spring

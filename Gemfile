@@ -47,7 +47,7 @@ gem 'ancestry'
 gem 'rails_12factor'
 gem 'devise'
 gem 'newrelic_rpm'
-
+gem 'raygun4ruby'
 
 gem 'will_paginate', '~> 3.0.5'
 gem 'betterlorem', '~> 0.1.2'
