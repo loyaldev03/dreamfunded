@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 	invisible_captcha only: [:create]
 	before_action :authenticate_user!, only: [:portfolio]
 
-
 	def edit
 		@user = User.find(params[:id])
 	end
@@ -52,5 +51,4 @@ class UsersController < ApplicationController
 			redirect_to funding_goal_path
 		end
 	end
-
 end
