@@ -36,19 +36,19 @@
 								<td><%= user.phone %></td>
 								<td><%= user.authority %></td>
 								<td>
-									<%= form_tag("/users/promote", method: "post") do %>
+									<%= form_tag("/admin/promote", method: "post") do %>
 										<%= hidden_field_tag(:user, user.email) %>
 										<%= submit_tag("Promote") %>
 									<% end %>
 								</td>
 								<td>
-									<%= form_tag("/users/demote", method: "post") do %>
+									<%= form_tag("/admin/demote", method: "post") do %>
 										<%= hidden_field_tag(:user, user.email) %>
 										<%= submit_tag("Demote") %>
 									<% end %>
 								</td>
 								<td>
-									<%= form_tag("/users/delete", method: "post") do %>
+									<%= form_tag("/admin/delete", method: "post") do %>
 										<%= hidden_field_tag(:user, user.email) %>
 										<%= submit_tag("Delete") %>
 									<% end %>

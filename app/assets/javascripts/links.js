@@ -72,10 +72,10 @@ function portfolio() {
 }
 
 function admin() {
-	window.location = "/users/write";
+	window.location = "/admin/write";
 }
 function government_admin() {
-	window.location = "/users/admin";
+	window.location = "/admin/admin";
 }
 
 function legal() {

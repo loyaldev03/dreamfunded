@@ -1,16 +1,6 @@
 class UsersController < ApplicationController
 	invisible_captcha only: [:create]
-
-	def index
-		@users = User.all()
-	end
-
-	def login
-	end
-
-	def new
-		@user = User.new
-	end
+	before_action :authenticate_user!, only: [:portfolio]
 
 	def edit
 		@user = User.find(params[:id])
@@ -23,184 +13,13 @@ class UsersController < ApplicationController
 	end
 
 	def portfolio
-		if current_user == nil
-			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
-		end
-		user = User.find(current_user.id)
-		@investments = user.investments
-	end
-
-	def portfolio_admin
-		if current_user == nil || current_user.authority < User.Authority[:Admin]
-			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
-		end
-		@user = User.find(params[:id])
-		@investments = @user.investments
-	end
-
-	def remove_investment
-		investment = Investment.find(params[:id])
-		investment.destroy
-		redirect_to url_for(:action => 'write')
-	end
-
-	def write
-		if current_user == nil || current_user.authority < User.Authority[:Admin]
-			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
-		end
-		@current_user = current_user
-		@Authority = User.Authority
-		@users = User.all.order(:created_at)
-		@new = News.new
-	end
-
-	# Controller for profile page
-	def profile
-		if current_user == nil
-			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
-		end
-		@current_user = current_user
-	end
-
-	#move to Admin COntroller
-	def promote
-		user_login = params[:user]
-		@user = User.find_by(email: user_login)
-		if @user.authority != 4
-			@user.update_column(:authority, @user.authority+1)
-		end
-		redirect_to(:action => :write)
-	end
-
-	#move to Admin COntroller
-	def demote
-		user_login = params[:user]
-		@user = User.find_by(email: user_login)
-		if @user.authority != 1
-			@user.update_column(:authority, @user.authority-1)
-		end
-		redirect_to(:action => :write)
-	end
-
-	#move to Admin COntroller
-	def delete
-		user_login = params[:user]
-		@user = User.find_by(email: user_login)
-		@user.destroy
-		redirect_to(:action => :write)
-	end
-
-	def create
-		#@login = params[:login]
-		@first_name = params[:user][:first_name]
-		@last_name = params[:user][:last_name]
-		@password = params[:user][:password]
-		@password_confirmation = params[:user][:password_confirmation]
-		@email = params[:user][:email].delete(' ')
-		@phone = params[:user][:phone]
-		@token = params[:user][:token]
-		@authority = User.Authority[:Accredited]
-
-		if @token
-			invite = Invite.find_by(token: @token)
-			invite.update(email: @email)
-			invite.use_token
-		end
-		role = params[:user_role]
-
-		@user = User.new(:first_name => @first_name, :last_name => @last_name, :email => @email, :authority => @authority, phone: @phone, role: role, password: @password, password_confirmation: @password_confirmation)
-
-		#@user.password_confirmation = params[:user][:password_confirmation]
-		if @user.valid?
-			@user.save
-			@user.investor = Investor.create
-			ContactMailer.verify_email(@user).deliver
-			ContactMailer.account_created(@user).deliver
-
-			if @user.first_name && @user.last_name && @user.email && Rails.env.production?
-				Infusionsoft.contact_add({:FirstName => @user.first_name , :LastName => @user.last_name, :Email => @user.email})
-			end
-			redirect_to(:controller => 'home', :action => 'index')
-		else
-			flash[:signup_errors] = "Validation failed."
-			@error_message = ""
-			@user.errors.full_messages.each do |error|
-				@error_message = @error_message + error + ". "
-			end
-			render(:action => :new)
-		end
-
-	end
-
-	def post_login
-		login_user = User.find_by(email: params[:email])
-		if login_user == nil
-			flash[:notice] = "This user ID does not exist."
-			redirect_to(:action => :login)
-		else
-			password = params[:password]
-			if(login_user.password_valid?(password))
-				current_user = login_user
-				if login_user.authority >= 2
-					redirect_to url_for(:controller => 'companies', :action => 'index')
-				else
-					redirect_to url_for(:controller => 'home', :action => 'index')
-				end
-			else
-				flash[:notice] = "Wrong password. Please try again."
-				redirect_to(:action => :login)
-			end
-		end
-	end
-
-	# Signs out and redirects to the homepage
-	def signout
-		current_user = nil
-		redirect_to :controller => 'home'
-	end
-
-	def change_password
-	end
-
-	def post_change_password
-		user = User.find_by(email: params[:email])
-		if user
-			ContactMailer.reset_email(user).deliver
-			ContactMailer.reset_password_request(user).deliver
-			flash[:notice] = "You will receive an email with instructions on how to reset your password."
-			redirect_to(:action => :login)
-		else
-			flash[:notice] = "Email not found"
-			redirect_to(:action => :change_password)
-		end
-	end
-
-	def new_password
-		@user = User.find_by(email: params[:reset_password_email])
-	end
-
-	def reset_password
-		@user = User.find_by(email: params[:email])
-		password = params[:password]
-		password_confirmation = params[:password_confirmation]
-		if @user.update(password: password, password_confirmation: password_confirmation)
-			current_user = @user
-			redirect_to url_for(:controller => 'home', :action => 'index')
-		else
-			@error_message = ""
-			@user.errors.full_messages.each do |error|
-				@error_message = @error_message + error + ". "
-			end
-			render :new_password, locals: {user: @user}
-		end
+		@investments = current_user.investments
 	end
 
 	def verify
 		user = User.find_by(email: params[:email].delete(' '))
 		user.confirmed = true
 		user.save(:validate => false)
-		current_user = user
-		#ContactMailer.welcome_email(user).deliver
 		ContactMailer.personal_hello(user).deliver
 		redirect_to root_path
 	end
@@ -221,24 +40,12 @@ class UsersController < ApplicationController
 		end
 		ContactMailer.personal_hello(user).deliver
 		ContactMailer.account_created(user).deliver
-		current_user = user
 		redirect_to root_path
 	end
 
-	#move to Admin COntroller
-	def admin
-		@users = User.all.where(authority: 1)
-	end
-
-	#move to Admin COntroller
-	def companies
-		@companies = Company.all.where(accredited: false)
-	end
-
 	def campaign
-		user = current_user
-		if user.companies.any?
-			id = user.companies.last.id
+		if current_user.companies.any?
+			id = current_user.companies.last.id
 			redirect_to(:controller => 'companies', :action => :company_profile, id: id)
 		else
 			redirect_to funding_goal_path

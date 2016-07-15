@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	before_create :set_authority
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -21,7 +22,7 @@ class User < ActiveRecord::Base
 	validates :first_name, presence:true
 	validates :last_name, presence:true
 	#validates_uniqueness_of :login
-	validates_uniqueness_of :email
+	#validates_uniqueness_of :email
 	#validates :password, length: { in: 6..20 }
 	validates :password, confirmation: true
 
@@ -39,26 +40,6 @@ class User < ActiveRecord::Base
 	  end
 	end
 
-	# def password_valid?(pass)
-	# 	pass_db = self.password_digest
-	# 	salt = self.salt
-	# 	result = pass + salt.to_s
-	# 	pass_candidate = Digest::SHA1.hexdigest(result)
-	# 	return(pass_candidate == pass_db)
-	# end
-
-	# def password
-	# 	return @password
-	# end
-
-	# def password=(pass)
-	# 	@password = pass
-	# 	salt = rand
-	# 	self.salt = salt
-	# 	result = pass + salt.to_s
-	# 	self.password_digest = Digest::SHA1.hexdigest(result)
-	# end
-
 	def self.Authority
 		{
 			:Basic => 1,
@@ -66,6 +47,10 @@ class User < ActiveRecord::Base
 			:Founder => 3,
 			:Admin => 4
 		}
+	end
+
+	def set_authority
+		self.authority = 2
 	end
 
 	def name
