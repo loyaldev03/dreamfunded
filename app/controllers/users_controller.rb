@@ -116,7 +116,6 @@ class UsersController < ApplicationController
 			@user.investor = Investor.create
 			ContactMailer.verify_email(@user).deliver
 			ContactMailer.account_created(@user).deliver
-			ContactMailer.unaccredited_investor(@user).deliver if @user.authority == 1
 
 			if @user.first_name && @user.last_name && @user.email && Rails.env.production?
 				Infusionsoft.contact_add({:FirstName => @user.first_name , :LastName => @user.last_name, :Email => @user.email})
