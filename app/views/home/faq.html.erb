@@ -16,13 +16,14 @@
 						<%= button_to "Delete", {:controller => :posts,  :action => 'destroy', :id => post.id }, :method => :delete, class: 'float-rigth' %>
 						<%= link_to 'Edit', "/posts/#{post.id}/edit/faq", {:class => 'right'} %>
 						<span class='paragraph-position right'>positon: <%= post.position %></span>
-
 					<% end %>
-					<h4 class= "question"><%= post.title%></h4>
-					<p class= "faq-answer"><%#= post.content%>
-						<%= post.content.html_safe %>
-					</p>
-					<br>
+					<div class='faq_post'>
+						<h4 class= "question"><%= post.title%></h4>
+						<p class= "faq-answer">
+							<%= post.content.html_safe %>
+						</p>
+						<br>
+					</div>
 				<% end %>
 				<% if current_user != nil && current_user.authority == authority[:Admin] %>
 					<h3><%= link_to 'Create New',  "/posts/new/faq", {:class => 'right', :data => { :page => 'faq' }} %></h3>
