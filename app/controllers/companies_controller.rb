@@ -8,7 +8,6 @@ class CompaniesController < ApplicationController
 		@companies = Company.all_accredited
 	end
 
-
 	def company_profile
 		if params[:id] != nil
 			@id = params[:id]
@@ -91,7 +90,6 @@ class CompaniesController < ApplicationController
 		if @founder.save
 			redirect_to "/companies"
 		else
-			flash[:notice] = "Image is not valid"
 			redirect_to "/companies/make_team"
 		end
 	end

@@ -14,7 +14,7 @@ class Company < ActiveRecord::Base
   has_one :campaign
   has_one :financial_detail
   accepts_nested_attributes_for :financial_detail
-  accepts_nested_attributes_for :campaign
+
 
 
 	has_attached_file :image,

@@ -7,7 +7,7 @@ class AdminController < ApplicationController
     @user = User.find(params[:id])
     @investments = @user.investments
   end
-  #move to admin
+
   def remove_investment
     investment = Investment.find(params[:id])
     investment.destroy
