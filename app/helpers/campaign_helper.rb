@@ -34,6 +34,7 @@ module CampaignHelper
     "Professional Services",
     "Publishing",
     "Retail",
+    "Real Estate",
     "Social Media",
     "Software & Services",
     "Sports",
