@@ -2,19 +2,23 @@
   <div class="field">
     <%= f.text_field :name, class: 'input-box', required: true, placeholder: "Full Name" %>
   </div>
+  <br>
 
   <div class="field">
     <%= f.text_field :position, class: 'input-box', required: true, placeholder: "Title" %>
   </div>
+  <br>
 
   <label>Upload Team Member Photo: </label>
   <%= f.file_field :image%>
+  <br>
 
   <div class="field">
     <%= f.text_area :content, class: 'userbox campaign_text_area_width', rows: 4, required: true, placeholder: 'Team Member Biography' %>
   </div>
 
-
+  <br>
   <%= link_to_remove_association "Remove", f %><br/>
 </div>
 
+<br>

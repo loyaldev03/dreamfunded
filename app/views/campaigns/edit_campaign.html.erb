@@ -30,6 +30,9 @@
           <% else %>
             <iframe  class='youtube-video' src= <%= @company.video_link %> frameborder="0" allowfullscreen ></iframe>
           <% end %>
+          <div>
+            <%= f.submit "Update", :class => 'invest-button' %>
+          </div>
         </div>
       </div>
       <div class= "stats-container">
@@ -111,23 +114,23 @@
         </div>
 
         <div class='team_tab_content tab-content'>
-                <br>
-                  <div class= "team-band">
-                    <% @members.each do |member|%>
-                      <%= f.fields_for :founders do |founder| %>
-                          <div class= "team-box">
-                            <%= button_to "X", { action: 'remove_founder', id: member.id} , {:class => 'remove-button'} %>
-                            <%= image_tag( member.image.url, :class => "image team-pic") %>
-                            <h2 class= "twenty no-margin"><%= founder.text_field :name %>, <%= founder.text_field :position %></h2>
-                            <br>
-                            <p class= "fifteen no-margin"><%= founder.text_area :content %></p>
-                          </div>
-                      <% end %>
-                    <% end %>
-                    <div class="links">
-                      <%= link_to_add_association 'Add', f, :founders %>
-                    </div>
+          <br>
+          <div class= "team-band">
+
+              <%= f.fields_for :founders do |founder| %>
+                  <div class= "team-box">
+                    <%= button_to "X", { action: 'remove_founder', id: founder.object_id} , {:class => 'remove-button'} %>
+                    <%= image_tag( founder.object.image.url, :class => "image team-pic") %>
+                    <h2 class= "twenty no-margin"><%= founder.text_field :name %>, <%= founder.text_field :position %></h2>
+                    <br>
+                    <p class= "fifteen no-margin"><%= founder.text_area :content %></p>
                   </div>
+              <% end %>
+
+            <div class="links">
+              <%= link_to_add_association 'Add', f, :founders %>
+            </div>
+          </div>
         </div>
 
         <div class='finance_tab_content tab-content'>
@@ -335,7 +338,6 @@
         <%= flash[:problem_update] if flash[:problem_update] %>
         <%= @error_update %>
       </div>
-      <%= f.submit "Update", :class => 'invest-button' %>
     <% end %>
     </div></div>
 <script type="text/javascript">

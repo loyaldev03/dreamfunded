@@ -58,9 +58,6 @@
 							<p class= "twenty no-margin center"><span class= "darkblue twenty">Days Left: </span><%= @company.left_days %><br><br></p>
 						</div>
 
-							<div>
-								<p class= "twenty no-margin center"><span class= "darkblue twenty">Funded: </span><%= "%.1f" % @progress %>%<br><br></p>
-							</div>
 
 							<div>
 								<p class= "twenty no-margin center"><span class= "darkblue twenty">Number of Employees: </span><%= @company.campaign.employees_numer %><br><br></p>
@@ -68,13 +65,6 @@
 
 							<div>
 								<p class= "twenty no-margin center"><span class= "darkblue twenty">Category: </span><%= @company.campaign.category %><br><br></p>
-							</div>
-
-							<div>
-								<span class= "darkblue twenty">Documents: </span>
-								<% @company.documents.each do |doc|%>
-									<p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to doc.file_file_name, doc.file.url, target: "_blank", class: 'document-url' %></p>
-								<% end %>
 							</div>
 
 					<% end %>
