@@ -111,25 +111,23 @@
         </div>
 
         <div class='team_tab_content tab-content'>
-          <% if @company.status == 2 || @company.status == 1 %>
-              <% if @members != nil && !@members.empty? %>
                 <br>
-
                   <div class= "team-band">
-                    <% @members.each do |member| %>
-                      <div class= "team-box">
-                        <% if current_user != nil && current_user.authority == authority[:Admin] %>
-                          <%= button_to "X", { action: 'remove_founder', id: member.id} , {:class => 'remove-button'} %>
-                        <% end %>
-                        <%= image_tag( member.image.url, :class => "image team-pic") %>
-                        <h2 class= "twenty no-margin"><%= member.name %>, <%= member.position %></h2>
-                        <br>
-                        <p class= "fifteen no-margin"><%= nl2br(h(member.content)).html_safe %></p>
-                      </div>
+                    <% @members.each do |member|%>
+                      <%= f.fields_for :founders do |founder| %>
+                          <div class= "team-box">
+                            <%= button_to "X", { action: 'remove_founder', id: member.id} , {:class => 'remove-button'} %>
+                            <%= image_tag( member.image.url, :class => "image team-pic") %>
+                            <h2 class= "twenty no-margin"><%= founder.text_field :name %>, <%= founder.text_field :position %></h2>
+                            <br>
+                            <p class= "fifteen no-margin"><%= founder.text_area :content %></p>
+                          </div>
+                      <% end %>
                     <% end %>
+                    <div class="links">
+                      <%= link_to_add_association 'Add', f, :founders %>
+                    </div>
                   </div>
-              <% end %>
-            <% end %>
         </div>
 
         <div class='finance_tab_content tab-content'>
