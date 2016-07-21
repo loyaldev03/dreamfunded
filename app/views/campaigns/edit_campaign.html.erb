@@ -1,4 +1,3 @@
-`
     <div class= "word-content"><div class="text-content stretch">
       <%= form_for(@company, :url => url_for(:controller => 'campaigns', :action => 'update_campaign') ) do |f| %>
         <% if @company.errors.any? %>
@@ -14,30 +13,32 @@
       <div class= "topbar">
         <a href= "/companies" class= "darkblue">&#8617; Back</a>
       </div>
-      <div class= "company-title indent">
-        <h2 class= "darkblue small-margin">
-          <%= f.text_field :name, :class => 'input-box half' %>
-          <%= f.text_field :website_link, :class => 'input-box half scoot-left' %>
-          <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
+      <div class= "company-title ">
 
-            <%= campaign_fields.text_field :tagline, placeholder: 'Describe your company in one sentence',:class => "input-box half", required:true %>
-          <% end %>
-        </h2>
+          <%= f.text_field :name, :class => '  darkblue edit_company_name' %>,
+
+            <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
+              <%= campaign_fields.text_field :tagline, placeholder: 'Describe your company in one sentence',:class => " campaing_editable_fields edit_tagline  darkblue twenty", required:true %><br>
+              <i class="fa fa-map-marker darkblue company_located"></i>
+              <%= campaign_fields.text_field :company_location_city, placeholder: 'Describe your company in one sentence',:class => " campaing_editable_fields   darkblue", required:true %>
+              <%= campaign_fields.text_field :company_location_state, placeholder: 'Describe your company in one sentence',:class => " campaing_editable_fields   darkblue", required:true %>
+            <% end %>
+
         <div class= "video-box">
-            <%= image_tag(@company.image.url, class: "max-width-image")%>
+          <% if @company.video_link.empty? || @company.video_link == nil %>
+            <%= image_tag( @company.image.url, class: 'image-max-width')%>
+          <% else %>
+            <iframe  class='youtube-video' src= <%= @company.video_link %> frameborder="0" allowfullscreen ></iframe>
+          <% end %>
+          <div>
+            <%= f.submit "Update", :class => 'invest-button' %>
+          </div>
         </div>
       </div>
       <div class= "stats-container">
         <div class= "profile-image-wrap"> <%= link_to image_tag(@company.image.url, :class => "stats-image"), @company.website_link %></div>
         <div class='center'><span class= "darkblue twenty">Change Image: </span><%= f.file_field "image" %></br></br></div>
-        <div class='center'><span class= "darkblue twenty"><%= link_to "Upload Docs", new_document_path(:company_id => @company.id) %> </span></br></br></div>
 
-        <div class='center'>
-          <span class= "darkblue twenty">Documents: </span>
-          <% @company.documents.each do |doc|%>
-            <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to doc.file_file_name, doc.file.url, target: "_blank", class: 'document-url' %><br><%= link_to 'Destroy', doc, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-          <% end %>
-        </div><br>
 
         <div class= "numbers"><div class= "numbers-content">
           <div class="meter orange">
@@ -73,6 +74,12 @@
                 <% end %>
             </div>
 
+            <div>
+              <p class= "twenty no-margin center">
+                <%= f.text_field :website_link, :class => 'input-box no-margin center' %><br>
+                <span class= "darkblue twenty">Website Link</span>
+              </p>
+            </div>
 
 
 
@@ -84,237 +91,274 @@
       </div>
 
       <div class= "description-container">
-        <!-- <br><br><br><br> -->
-        <h2 class= "darkblue twentyf indent">Highlight</h2>
-        <hr>
-        <p class= "fifteen"><%= f.text_area :description, rows: 10, :class => 'ckeditor edit_textarea twenty no-margin' %></p>
-        <br>
 
-        <h2 class= "darkblue twentyf indent">Why <%= @company.name %></h2>
-        <p class= "fifteen">
-          <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
-            <p class= "fifteen"><%= campaign_fields.text_area :elevator_pitch, rows: 10, :class => 'ckeditor edit_textarea twenty  no-margin ' %></p>
-            <h2 class= "darkblue twentyf indent">Our Mission</h2>
-            <p class= "fifteen"><%= campaign_fields.text_area :about_campaign, rows: 10, :class => 'ckeditor edit_textarea twenty no-margin ' %></p>
+        <a  class='tab-name about_tab active-tab darkblue twentyf'>Company</a>
+        <a  class='tab-name  darkblue twentyf' id='team_tab'>Team</a>
+        <a  class='tab-name  darkblue twentyf' id='finances_tab'>Finances & Risks</a>
+
+
+        <div class='about_tab_content tab-content'>
+            <h2 class= "darkblue category-name indent">Highlight</h2>
+            <hr>
+            <p class= "fifteen"><%= f.text_area :description, rows: 10, :class => 'ckeditor edit_textarea twenty no-margin' %></p>
+            <br>
+
+            <h2 class= "darkblue category-name indent">Why <%= @company.name %></h2>
+            <p class= "fifteen">
+              <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
+                <p class= "fifteen"><%= campaign_fields.text_area :elevator_pitch, rows: 10, :class => 'ckeditor edit_textarea twenty  no-margin ' %></p>
+                <h2 class= "darkblue category-name indent">Our Mission</h2>
+                <p class= "fifteen"><%= campaign_fields.text_area :about_campaign, rows: 10, :class => 'ckeditor edit_textarea twenty no-margin ' %></p>
+              <% end %>
+            </p>
+        </div>
+
+        <div class='team_tab_content tab-content'>
+          <br>
+          <div class= "team-band">
+
+              <%= f.fields_for :founders do |founder| %>
+                  <div class= "team-box">
+                    <%= button_to "X", { action: 'remove_founder', id: founder.object_id} , {:class => 'remove-button'} %>
+                    <%= image_tag( founder.object.image.url, :class => "image team-pic") %>
+                    <h2 class= "twenty no-margin"><%= founder.text_field :name %>, <%= founder.text_field :position %></h2>
+                    <br>
+                    <p class= "fifteen no-margin"><%= founder.text_area :content %></p>
+                  </div>
+              <% end %>
+
+            <div class="links">
+              <%= link_to_add_association 'Add', f, :founders %>
+            </div>
+          </div>
+        </div>
+
+        <div class='finance_tab_content tab-content'>
+          <%= f.fields_for :financial_detail do |fin_details| %>
+            <h2 class= "darkblue category-name indent">Offering Terms</h2>
+            <%= fin_details.text_area :offering_terms, rows: 6, :class => 'ckeditor ' %>
+            <h2 class= "darkblue category-name indent">Financial Risks</h2>
+            <%= fin_details.text_area :fin_risks, rows: 6, :class => 'ckeditor ' %>
+
+            <div>
+              <div class='edit_fin_info' >
+                <span>Total Income</span><br>
+                <%= fin_details.number_field :totat_income, placeholder: 'Total Income' %>
+              </div>
+              <div class='edit_fin_info'>
+                <span>Total Taxable Income</span><br>
+                <%= fin_details.number_field :total_taxable_income, placeholder: 'Total Taxable Income' %>
+              </div>
+              <div class='edit_fin_info'>
+                <span>Total Taxes Paid</span><br>
+                <%= fin_details.number_field :total_taxes_paid, placeholder: 'Total Taxable Income' %>
+              </div>
+              <hr>
+            </div>
+
+            <div>
+              <div class='edit_fin_info' >
+                <span>Total assets most recent fiscal year</span><br>
+                <%= fin_details.number_field :total_assets_this_year, placeholder: 'Total assets most recent fiscal year' %>
+              </div>
+              <div class='edit_fin_info'>
+                <span>Total assets prior fiscal year</span><br>
+                <%= fin_details.number_field :total_assets_last_year, placeholder: 'Total assets prior fiscal year' %>
+              </div>
+              <hr>
+            </div>
+
+            <div>
+              <div class='edit_fin_info' >
+                <span>Cash & Cash Equivalents most recent fiscal year</span><br>
+                <%= fin_details.number_field :cash_this_year, placeholder: 'Cash & Cash Equivalents most recent fiscal year' %>
+              </div>
+              <div class='edit_fin_info'>
+                <span>Cash & Cash Equivalents prior fiscal year</span><br>
+                <%= fin_details.number_field :cash_last_year, placeholder: 'Cash & Cash Equivalents prior fiscal year' %>
+              </div>
+              <hr>
+            </div>
+
+            <div>
+              <div class='edit_fin_info' >
+                <span>Accounts Receivable recent fiscal year</span><br>
+                <%= fin_details.number_field :acount_receivable_this_year, placeholder: 'Accounts Receivable recent fiscal year' %>
+              </div>
+              <div class='edit_fin_info'>
+                <span>Accounts Receivable prior fiscal year</span><br>
+                <%= fin_details.number_field :acount_receivable_last_year, placeholder: 'Accounts Receivable prior fiscal year' %>
+              </div>
+              <hr>
+            </div>
+
+            <div>
+              <div class='edit_fin_info' >
+                <span>Short-term Debt most recent fiscal year</span><br>
+                <%= fin_details.number_field :short_term_debt_this_year, placeholder: 'Short-term Debt most recent fiscal year' %>
+              </div>
+              <div class='edit_fin_info'>
+                <span>Short-term Debt prior fiscal year</span><br>
+                <%= fin_details.number_field :short_term_debt_last_year, placeholder: 'Short-term Debt prior fiscal year' %>
+              </div>
+              <hr>
+            </div>
+
+            <div>
+              <div class='edit_fin_info' >
+                <span>Long-term Debt most recent fiscal year</span><br>
+                <%= fin_details.number_field :long_term_debt_this_year, placeholder: 'Long-term Debt most recent fiscal year' %>
+              </div>
+              <div class='edit_fin_info'>
+                <span>Long-term Debt prior fiscal year</span><br>
+                <%= fin_details.number_field :long_term_debt_last_year, placeholder: 'Long-term Debt prior fiscal year' %>
+              </div>
+              <hr>
+            </div>
+
+            <div>
+              <div class='edit_fin_info' >
+                <span>Revenues / Sales most recent fiscal year</span><br>
+                <%= fin_details.number_field :sales_this_year, placeholder: 'Revenues / Sales most recent fiscal year' %>
+              </div>
+              <div class='edit_fin_info'>
+                <span>Revenues / Sales prior fiscal year</span><br>
+                <%= fin_details.number_field :sales_last_year, placeholder: 'Revenues / Sales prior fiscal year' %>
+              </div>
+              <hr>
+            </div>
+
+            <div>
+              <div class='edit_fin_info' >
+                <span>Costs of Goods Sold most recent fiscal year</span><br>
+                <%= fin_details.number_field :costs_of_goods_this_year, placeholder: 'Costs of Goods Sold most recent fiscal year' %>
+              </div>
+              <div class='edit_fin_info'>
+                <span>Costs of Goods Sold prior fiscal year</span><br>
+                <%= fin_details.number_field :costs_of_goods_last_year, placeholder: 'Costs of Goods Sold prior fiscal year' %>
+              </div>
+              <hr>
+            </div>
+
+            <div>
+              <div class='edit_fin_info' >
+                <span>Taxes Paid most recent fiscal year</span><br>
+                <%= fin_details.number_field :taxes_paid_this_year, placeholder: 'Taxes Paid most recent fiscal year' %>
+              </div>
+              <div class='edit_fin_info'>
+                <span>Taxes Paid prior fiscal year</span><br>
+                <%= fin_details.number_field :taxes_paid_last_year, placeholder: 'Taxes Paid prior fiscal year' %>
+              </div>
+              <hr>
+            </div>
+
+            <div>
+              <div class='edit_fin_info' >
+                <span>Net Income most recent fiscal year</span><br>
+                <%= fin_details.number_field :net_income_this_year, placeholder: 'Net Income most recent fiscal year' %>
+              </div>
+              <div class='edit_fin_info'>
+                <span>Net Income prior fiscal year</span><br>
+                <%= fin_details.number_field :net_income_last_year, placeholder: 'Net Income prior fiscal year' %>
+              </div>
+              <hr>
+            </div>
+
+            <div class='funding_goal_list_item'>
+              <strong>Balance Sheet: </strong>
+              <%= @company.financial_detail.balance_sheet_file_name %><br>
+              <%= fin_details.file_field :balance_sheet %>
+            </div>
+
+            <div class='funding_goal_list_item'>
+              <strong>Income Statements: </strong>
+              <%= @company.financial_detail.income_statements_file_name %><br>
+              <%= fin_details.file_field :income_statements %>
+            </div>
+
+            <div class='funding_goal_list_item'>
+              <strong>Statement of Cash Flow: </strong>
+              <%= @company.financial_detail.statement_of_cash_flow_file_name %><br>
+              <%= fin_details.file_field :statement_of_cash_flow %>
+            </div>
+
+            <div class='funding_goal_list_item'>
+              <strong>Statement of Changes in Equity For Past 2 Years: </strong>
+              <%= @company.financial_detail.statement_changes_of_equity_file_name %><br>
+              <%= fin_details.file_field :statement_changes_of_equity %>
+            </div>
+
+            <div class='funding_goal_list_item'>
+              <strong>Business Plan: </strong>
+              <%= @company.financial_detail.business_plan_file_name %><br>
+              <%= fin_details.file_field :business_plan %>
+            </div>
+
+            <div class='funding_goal_list_item'>
+              <strong>Party Transaction: </strong>
+              <%= @company.financial_detail.party_transaction_file_name %><br>
+              <%= fin_details.file_field :party_transaction %>
+            </div>
+
+            <div class='funding_goal_list_item'>
+              <strong>Intended use of proceeds: </strong>
+              <%= @company.financial_detail.intended_use_of_proceeds_file_name %><br>
+              <%= fin_details.file_field :intended_use_of_proceeds %>
+            </div>
+
+            <div class='funding_goal_list_item'>
+              <strong>Capital Structure: </strong>
+              <%= @company.financial_detail.capital_structure_file_name %><br>
+              <%= fin_details.file_field :capital_structure %>
+            </div>
+
+            <div class='funding_goal_list_item'>
+              <strong>Material Terms: </strong>
+              <%= @company.financial_detail.material_terms_file_name %><br>
+              <%= fin_details.file_field :material_terms %>
+            </div>
+
+            <div class='funding_goal_list_item'>
+              <strong>Directors Background: </strong>
+              <%= @company.financial_detail.directors_background_file_name %><br>
+              <%= fin_details.file_field :directors_background %>
+            </div>
+
+            <div class='funding_goal_list_item'>
+              <strong>Accountant Review: </strong>
+              <%= @company.financial_detail.accountant_review_file_name %><br>
+              <%= fin_details.file_field :accountant_review %>
+            </div>
           <% end %>
-        </p>
-        <%= f.fields_for :financial_detail do |fin_details| %>
-          <h2 class= "darkblue category-name indent">Offering Terms</h2>
-          <%= fin_details.text_area :offering_terms, rows: 6, :class => 'twenty edit_textarea no-margin ' %>
-          <h2 class= "darkblue category-name indent">Financial Risks</h2>
-          <%= fin_details.text_area :fin_risks, rows: 6, :class => 'twenty edit_textarea no-margin ' %>
 
-          <div>
-            <div class='edit_fin_info' >
-              <span>Total Income</span><br>
-              <%= fin_details.number_field :totat_income, placeholder: 'Total Income' %>
-            </div>
-            <div class='edit_fin_info'>
-              <span>Total Taxable Income</span><br>
-              <%= fin_details.number_field :total_taxable_income, placeholder: 'Total Taxable Income' %>
-            </div>
-            <div class='edit_fin_info'>
-              <span>Total Taxes Paid</span><br>
-              <%= fin_details.number_field :total_taxes_paid, placeholder: 'Total Taxable Income' %>
-            </div>
-            <hr>
-          </div>
-
-          <div>
-            <div class='edit_fin_info' >
-              <span>Total assets most recent fiscal year</span><br>
-              <%= fin_details.number_field :total_assets_this_year, placeholder: 'Total assets most recent fiscal year' %>
-            </div>
-            <div class='edit_fin_info'>
-              <span>Total assets prior fiscal year</span><br>
-              <%= fin_details.number_field :total_assets_last_year, placeholder: 'Total assets prior fiscal year' %>
-            </div>
-            <hr>
-          </div>
-
-          <div>
-            <div class='edit_fin_info' >
-              <span>Cash & Cash Equivalents most recent fiscal year</span><br>
-              <%= fin_details.number_field :cash_this_year, placeholder: 'Cash & Cash Equivalents most recent fiscal year' %>
-            </div>
-            <div class='edit_fin_info'>
-              <span>Cash & Cash Equivalents prior fiscal year</span><br>
-              <%= fin_details.number_field :cash_last_year, placeholder: 'Cash & Cash Equivalents prior fiscal year' %>
-            </div>
-            <hr>
-          </div>
-
-          <div>
-            <div class='edit_fin_info' >
-              <span>Accounts Receivable recent fiscal year</span><br>
-              <%= fin_details.number_field :acount_receivable_this_year, placeholder: 'Accounts Receivable recent fiscal year' %>
-            </div>
-            <div class='edit_fin_info'>
-              <span>Accounts Receivable prior fiscal year</span><br>
-              <%= fin_details.number_field :acount_receivable_last_year, placeholder: 'Accounts Receivable prior fiscal year' %>
-            </div>
-            <hr>
-          </div>
-
-          <div>
-            <div class='edit_fin_info' >
-              <span>Short-term Debt most recent fiscal year</span><br>
-              <%= fin_details.number_field :short_term_debt_this_year, placeholder: 'Short-term Debt most recent fiscal year' %>
-            </div>
-            <div class='edit_fin_info'>
-              <span>Short-term Debt prior fiscal year</span><br>
-              <%= fin_details.number_field :short_term_debt_last_year, placeholder: 'Short-term Debt prior fiscal year' %>
-            </div>
-            <hr>
-          </div>
-
-          <div>
-            <div class='edit_fin_info' >
-              <span>Long-term Debt most recent fiscal year</span><br>
-              <%= fin_details.number_field :long_term_debt_this_year, placeholder: 'Long-term Debt most recent fiscal year' %>
-            </div>
-            <div class='edit_fin_info'>
-              <span>Long-term Debt prior fiscal year</span><br>
-              <%= fin_details.number_field :long_term_debt_last_year, placeholder: 'Long-term Debt prior fiscal year' %>
-            </div>
-            <hr>
-          </div>
-
-          <div>
-            <div class='edit_fin_info' >
-              <span>Revenues / Sales most recent fiscal year</span><br>
-              <%= fin_details.number_field :sales_this_year, placeholder: 'Revenues / Sales most recent fiscal year' %>
-            </div>
-            <div class='edit_fin_info'>
-              <span>Revenues / Sales prior fiscal year</span><br>
-              <%= fin_details.number_field :sales_last_year, placeholder: 'Revenues / Sales prior fiscal year' %>
-            </div>
-            <hr>
-          </div>
-
-          <div>
-            <div class='edit_fin_info' >
-              <span>Costs of Goods Sold most recent fiscal year</span><br>
-              <%= fin_details.number_field :costs_of_goods_this_year, placeholder: 'Costs of Goods Sold most recent fiscal year' %>
-            </div>
-            <div class='edit_fin_info'>
-              <span>Costs of Goods Sold prior fiscal year</span><br>
-              <%= fin_details.number_field :costs_of_goods_last_year, placeholder: 'Costs of Goods Sold prior fiscal year' %>
-            </div>
-            <hr>
-          </div>
-
-          <div>
-            <div class='edit_fin_info' >
-              <span>Taxes Paid most recent fiscal year</span><br>
-              <%= fin_details.number_field :taxes_paid_this_year, placeholder: 'Taxes Paid most recent fiscal year' %>
-            </div>
-            <div class='edit_fin_info'>
-              <span>Taxes Paid prior fiscal year</span><br>
-              <%= fin_details.number_field :taxes_paid_last_year, placeholder: 'Taxes Paid prior fiscal year' %>
-            </div>
-            <hr>
-          </div>
-
-          <div>
-            <div class='edit_fin_info' >
-              <span>Net Income most recent fiscal year</span><br>
-              <%= fin_details.number_field :net_income_this_year, placeholder: 'Net Income most recent fiscal year' %>
-            </div>
-            <div class='edit_fin_info'>
-              <span>Net Income prior fiscal year</span><br>
-              <%= fin_details.number_field :net_income_last_year, placeholder: 'Net Income prior fiscal year' %>
-            </div>
-            <hr>
-          </div>
-
-          <div class='funding_goal_list_item'>
-            <strong>Balance Sheet: </strong>
-            <%= @company.financial_detail.balance_sheet_file_name %><br>
-            <%= fin_details.file_field :balance_sheet %>
-          </div>
-
-          <div class='funding_goal_list_item'>
-            <strong>Income Statements: </strong>
-            <%= @company.financial_detail.income_statements_file_name %><br>
-            <%= fin_details.file_field :income_statements %>
-          </div>
-
-          <div class='funding_goal_list_item'>
-            <strong>Statement of Cash Flow: </strong>
-            <%= @company.financial_detail.statement_of_cash_flow_file_name %><br>
-            <%= fin_details.file_field :statement_of_cash_flow %>
-          </div>
-
-          <div class='funding_goal_list_item'>
-            <strong>Statement of Changes in Equity For Past 2 Years: </strong>
-            <%= @company.financial_detail.statement_changes_of_equity_file_name %><br>
-            <%= fin_details.file_field :statement_changes_of_equity %>
-          </div>
-
-          <div class='funding_goal_list_item'>
-            <strong>Business Plan: </strong>
-            <%= @company.financial_detail.business_plan_file_name %><br>
-            <%= fin_details.file_field :business_plan %>
-          </div>
-
-          <div class='funding_goal_list_item'>
-            <strong>Party Transaction: </strong>
-            <%= @company.financial_detail.party_transaction_file_name %><br>
-            <%= fin_details.file_field :party_transaction %>
-          </div>
-
-          <div class='funding_goal_list_item'>
-            <strong>Intended use of proceeds: </strong>
-            <%= @company.financial_detail.intended_use_of_proceeds_file_name %><br>
-            <%= fin_details.file_field :intended_use_of_proceeds %>
-          </div>
-
-          <div class='funding_goal_list_item'>
-            <strong>Capital Structure: </strong>
-            <%= @company.financial_detail.capital_structure_file_name %><br>
-            <%= fin_details.file_field :capital_structure %>
-          </div>
-
-          <div class='funding_goal_list_item'>
-            <strong>Material Terms: </strong>
-            <%= @company.financial_detail.material_terms_file_name %><br>
-            <%= fin_details.file_field :material_terms %>
-          </div>
-
-          <div class='funding_goal_list_item'>
-            <strong>Directors Background: </strong>
-            <%= @company.financial_detail.directors_background_file_name %><br>
-            <%= fin_details.file_field :directors_background %>
-          </div>
-
-          <div class='funding_goal_list_item'>
-            <strong>Accountant Review: </strong>
-            <%= @company.financial_detail.accountant_review_file_name %><br>
-            <%= fin_details.file_field :accountant_review %>
-          </div>
-
-
-
-
-
-        <% end %>
+        </div>
       </div>
 
       <div class = "notice centered">
         <%= flash[:problem_update] if flash[:problem_update] %>
         <%= @error_update %>
       </div>
-      <%= f.submit "Update", :class => 'invest-button' %>
     <% end %>
     </div></div>
-<!-- if CKEDITOR not Loaded => REFRESH PAGE -->
 <script type="text/javascript">
-  $(document).ready(function(){
-    console.log($('.ckeditor').next().size())
-    // if( $('.ckeditor').next().size() == 0)
-    // {
-    //   location.reload();
-    // }
+  $(document).ready(function() {
+    $('#team_tab').click(function(e){
+      $('.tab-content').hide();
+      $('.team_tab_content').show();
+      $(".tab-name").removeClass('active-tab');
+      $("#team_tab").addClass('active-tab');
+    });
+    $('.about_tab').click(function(e){
+      $('.tab-content').hide();
+      $('.about_tab_content').show();
+      $(".tab-name").removeClass('active-tab');
+      $('.about_tab').addClass('active-tab');
+    });
+    $('#finances_tab').click(function(e){
+      $('.tab-content').hide();
+      $('.finance_tab_content').show();
+      $(".tab-name").removeClass('active-tab');
+      $('#finances_tab').addClass('active-tab');
+    });
   })
 </script>

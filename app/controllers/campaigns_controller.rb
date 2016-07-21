@@ -91,12 +91,14 @@ class CampaignsController < ApplicationController
   def edit_campaign
     @campaign = Campaign.find(params[:id])
     @company = @campaign.company
+    @members = @company.founders
   end
 
   def update_campaign
     @campaign = Campaign.find(params[:company][:campaign_attributes][:id])
     @company = @campaign.company
     @company.update(company_params)
+
 
     redirect_to :controller => 'companies', :action => 'company_profile', :id => @company.id
   end
@@ -111,7 +113,7 @@ class CampaignsController < ApplicationController
 
   def company_params
      params.require(:company).permit(:image, :name, :description, :video_link, :user_id, :goal_amount, :website_link,
-                     campaign_attributes: [:tagline, :elevator_pitch, :about_campaign, :id, :category, :employees_numer],
+                     campaign_attributes: [:tagline, :elevator_pitch, :about_campaign, :id, :category, :employees_numer, :company_location_city, :company_location_state],
                      founders_attributes: [:id, :image, :name, :position, :content, :company_id, :created_at, :updated_at, :_destroy],
                      financial_detail_attributes: ["offering_terms", "fin_risks", "income", "totat_income", "total_taxable_income",
                        "total_taxes_paid", "total_assets_this_year", "total_assets_last_year", "cash_this_year", "cash_last_year",
