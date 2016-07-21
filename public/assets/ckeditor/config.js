@@ -9,7 +9,7 @@ CKEDITOR.editorConfig = function( config )
   // Define changes to default configuration here. For example:
   // config.language = 'fr';
   // config.uiColor = '#AADC6E';
-  config.height = '500px';
+  config.height = '300px';
   /* Filebrowser routes */
   // The location of an external file browser, that should be launched when "Browse Server" button is pressed.
   config.filebrowserBrowseUrl = "/ckeditor/attachment_files";

@@ -138,11 +138,11 @@
 				<div class='finance_tab_content tab-content'>
 					<h2 class= "darkblue category-name indent">Offering Terms</h2>
 					<hr>
-					<p class= "fifteen"><%= nl2br(h(@financial_details.offering_terms)).html_safe %></p>
+					<p class= "fifteen"><%= @financial_details.offering_terms.html_safe %></p>
 
 					<h2 class= "darkblue category-name indent">Financial Risks</h2>
 					<hr>
-					<p class= "fifteen"><%= nl2br(h(@financial_details.fin_risks)).html_safe %></p>
+					<p class= "fifteen"><%= @financial_details.fin_risks.html_safe %></p>
 					<hr>
 					<h2 class= "darkblue category-name indent">Income</h2>
 					<div>

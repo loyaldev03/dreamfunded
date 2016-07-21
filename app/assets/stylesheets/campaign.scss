@@ -1,7 +1,6 @@
 #funding_goal{
   margin-bottom: 10px;
 }
-
 .funding_goal_list{
   margin-left: 11%;
   width:73%;
@@ -14,6 +13,23 @@
 }
 .campaign_text_area_width {
   width: 97.7% !important;
+}
+.edit_company_name {
+  display: inline-block;
+  width: 10em;
+  font-size: 30px;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+.campaing_editable_fields {
+  font-size: 14px;
+  width: 25%;
+  display: inline-block;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+.edit_tagline{
+  width: 40%;
 }
 .campaign-input-box {
   outline: none;
