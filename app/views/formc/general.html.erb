@@ -1,0 +1,73 @@
+<% title "DreamFunded | Form C" %>
+<div class= "wrapper">
+  <div class="header education-center">
+    <div class='education-title'>Form C Editor</div>
+    <a href="#" class='education-links active-link'>General</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links '>People</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link'>Terms</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link'> Disclosures</a> <%= fa_icon "chevron-right"%>
+    <span href="#" class='education-links disabled-link'> Financial Info </span><%= fa_icon "chevron-right"%>
+    <span href="#" class='education-links disabled-link'> Sign & Submit </span>
+  </div>
+
+  <div class= "campaign-box  get-funded ">
+
+  <div class="row">
+    <div class=" active">
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">General Info</a></h2>
+    </div>
+  </div>
+
+  <div class= "login-container">
+    <%= form_for @general_info, :url => {:action => "basics_submit"},method: "post" do |f| %>
+
+
+      <%= f.text_field :name, placeholder: 'Company Name', :class => "input-box", required:true %>
+      <br><br>
+
+
+      <div class='get-funded-section-name'>What kind of company is it?</div>
+      <%= f.radio_button :kind, "llc" %>
+      <%= f.label :kind, "LLC", :value => "llc" %>
+      <br>
+      <%= f.radio_button :kind, "corporation" %>
+      <%= f.label :kind, "Corporation", :value => "corporation" %>
+
+      <div class="styled-select select-100-width" >
+        <%= f.select( :state, options_for_select(all_states) ) %>
+      </div>
+
+      <div>
+        <div class='get-funded-section-name'>When was it organized?</div>
+        <%= f.date_field :date_formed, class: 'campaign-input-box' %>
+      </div>
+
+      <div>
+
+        <%= f.text_field :employees_numer, placeholder: 'Number of Employees',:class => "campaign-input-box", required:true %>
+      </div>
+
+      <div class='get-funded-section-name'>
+        Company Location
+      </div>
+
+      <%= f.text_field :company_location_address, placeholder: 'Address',:class => "campaign-input-box", required:true %>
+      <%= f.text_field :company_location_city, placeholder: 'City',:class => "campaign-input-box", required:true %>
+      <%= f.text_field :company_location_state, placeholder: 'State',:class => "campaign-input-box", required:true %>
+      <%= f.text_field :company_location_zipcode, placeholder: 'Zipcode',:class => "campaign-input-box", required:true %>
+      <br><br>
+
+
+      <%= f.text_field :website,  placeholder: 'Website', :class => "campaign-input-box", required:true  %><br>
+      <%= f.text_field :employer_id_number,  placeholder: 'EIN or tax id number', :class => "campaign-input-box", required:true  %>
+
+      <div class = "notice centered">
+        <%= flash[:errors] if flash[:errors] %>
+      </div>
+
+      <div class= "centered">
+        <%= submit_tag("Continue", :id => "submit-button") %>
+      </div>
+    <% end %>
+  </div>
+</div>
