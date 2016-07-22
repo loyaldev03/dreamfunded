@@ -45,10 +45,14 @@ class UsersController < ApplicationController
 
 	def campaign
 		if current_user.companies.any?
-			id = current_user.companies.last.id
-			redirect_to(:controller => 'companies', :action => :company_profile, id: id)
+			company = current_user.companies.last
+			if company.campaign.finished?
+				redirect_to(:controller => 'companies', :action => :company_profile, id: company.id)
+			else
+				redirect_to edit_campaign_path(company.campaign.id)
+			end
 		else
-			redirect_to funding_goal_path
+			redirect_to  funding_goal_path
 		end
 	end
 end

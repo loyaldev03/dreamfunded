@@ -21,21 +21,21 @@
   <div class= "login-container">
     <%= form_for @general_info, :url => {:action => "basics_submit"},method: "post" do |f| %>
 
-
       <%= f.text_field :name, placeholder: 'Company Name', :class => "input-box", required:true %>
-      <br><br>
+      <br>
 
 
       <div class='get-funded-section-name'>What kind of company is it?</div>
-      <%= f.radio_button :kind, "llc" %>
+      <%= f.radio_button :kind, "llc",checked: true %>
       <%= f.label :kind, "LLC", :value => "llc" %>
       <br>
       <%= f.radio_button :kind, "corporation" %>
       <%= f.label :kind, "Corporation", :value => "corporation" %>
-
+      <br>
       <div class="styled-select select-100-width" >
         <%= f.select( :state, options_for_select(all_states) ) %>
       </div>
+      <br>
 
       <div>
         <div class='get-funded-section-name'>When was it organized?</div>

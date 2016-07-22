@@ -20,8 +20,8 @@
             <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
               <%= campaign_fields.text_field :tagline, placeholder: 'Describe your company in one sentence',:class => " campaing_editable_fields edit_tagline  darkblue twenty", required:true %><br>
               <i class="fa fa-map-marker darkblue company_located"></i>
-              <%= campaign_fields.text_field :company_location_city, placeholder: 'Describe your company in one sentence',:class => " campaing_editable_fields   darkblue", required:true %>
-              <%= campaign_fields.text_field :company_location_state, placeholder: 'Describe your company in one sentence',:class => " campaing_editable_fields   darkblue", required:true %>
+              <%= campaign_fields.text_field :company_location_city, placeholder: 'City',:class => " campaing_editable_fields   darkblue", required:true %>
+              <%= campaign_fields.text_field :company_location_state, placeholder: 'State',:class => " campaing_editable_fields   darkblue", required:true %>
             <% end %>
 
         <div class= "video-box">
@@ -100,15 +100,15 @@
         <div class='about_tab_content tab-content'>
             <h2 class= "darkblue category-name indent">Highlight</h2>
             <hr>
-            <p class= "fifteen"><%= f.text_area :description, rows: 10, :class => 'ckeditor edit_textarea twenty no-margin' %></p>
+            <p class= "fifteen"><%= f.text_area :description, rows: 10, :class => 'ckeditor edit_textarea twenty no-margin', required:true %></p>
             <br>
 
             <h2 class= "darkblue category-name indent">Why <%= @company.name %></h2>
             <p class= "fifteen">
               <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
-                <p class= "fifteen"><%= campaign_fields.text_area :elevator_pitch, rows: 10, :class => 'ckeditor edit_textarea twenty  no-margin ' %></p>
+                <p class= "fifteen"><%= campaign_fields.text_area :elevator_pitch, rows: 10, :class => 'ckeditor edit_textarea twenty  no-margin',  required:true %></p>
                 <h2 class= "darkblue category-name indent">Our Mission</h2>
-                <p class= "fifteen"><%= campaign_fields.text_area :about_campaign, rows: 10, :class => 'ckeditor edit_textarea twenty no-margin ' %></p>
+                <p class= "fifteen"><%= campaign_fields.text_area :about_campaign, rows: 10, :class => 'ckeditor edit_textarea twenty no-margin ', required:true %></p>
               <% end %>
             </p>
         </div>
