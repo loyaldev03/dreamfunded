@@ -16,8 +16,6 @@ class Company < ActiveRecord::Base
   accepts_nested_attributes_for :financial_detail
   accepts_nested_attributes_for :campaign
 
-
-
 	has_attached_file :image,
 	  :styles =>{
 	    },
@@ -40,14 +38,8 @@ class Company < ActiveRecord::Base
       :secret_access_key => "0SZTrtqzs9C9SQfi5O6RgYranP4Hp04Gbo7NUE0Z"
     }
 
-	# validates_attachment_presence :image
 	validates_attachment_size :image, :less_than => 5.megabytes
-	validates :name, presence:true
-	validates_uniqueness_of :name
-	validates :description, presence:true
-	# validates :invested_amount, presence:true
-	# validates :goal_amount, presence:true
-	# validates :status, presence:true
+  validates :goal_amount, numericality: { less_than_or_equal_to: 1000000 }
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 	validates_attachment_content_type :document, :content_type =>['application/pdf']
 

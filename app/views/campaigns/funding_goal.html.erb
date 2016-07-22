@@ -25,6 +25,16 @@
 
   <div class= "login-container">
     <%= form_for Campaign.new, :url => {:action => "funding_goal_submit"} do |f| %>
+      <% if @company.errors.any? %>
+        <div id="error_explanation">
+
+          <ul>
+          <% @company.errors.full_messages.each do |message| %>
+            <li class='notice'><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
 
        <%= f.text_field(:funding_goal, :placeholder => "$ 100,000.00", :class => "input-box",id: 'funding_goal', required: true) %>
        <i>Enter your funding goal, up to $1,000,000</i>

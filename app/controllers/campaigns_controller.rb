@@ -3,19 +3,20 @@ class CampaignsController < ApplicationController
   before_action :verify
 
   def funding_goal
-    if current_user == nil
-      redirect_to url_for(:controller => 'users', :action => 'login')
-    end
+    @company = Company.new
   end
 
   def funding_goal_submit
     funding_goal = params[:campaign][:funding_goal].delete('$').delete(',').to_i
     @company = Company.new(user_id: current_user.id, goal_amount: funding_goal, status: 1)
-    @company.save(:validate => false)
-    @company.sections << Section.new
-    @campaign = Campaign.create(funding_goal: funding_goal, company_id: @company.id)
-    FinancialDetail.create(company_id: @company.id)
-    redirect_to campaign_basics_path(@campaign.id)
+    if @company.save
+      @company.sections << Section.new
+      @campaign = Campaign.create(funding_goal: funding_goal, company_id: @company.id)
+      FinancialDetail.create(company_id: @company.id)
+      redirect_to campaign_basics_path(@campaign.id)
+    else
+      render :funding_goal
+    end
   end
 
   def funding_goal_exist
@@ -105,8 +106,7 @@ class CampaignsController < ApplicationController
 
   private
   def verify
-    user = User.find(current_user.id)
-    if user.confirmed == false
+    if current_user.confirmed == false
       redirect_to url_for(:controller => 'home', :action => 'unverified')
     end
   end
