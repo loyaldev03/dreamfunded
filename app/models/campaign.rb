@@ -8,4 +8,8 @@ class Campaign < ActiveRecord::Base
   def place
     self.company_location_city + ", " + self.company_location_state
   end
+
+  def finished?
+    self.offering_terms?
+  end
 end

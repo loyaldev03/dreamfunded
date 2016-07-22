@@ -99,8 +99,6 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:company][:campaign_attributes][:id])
     @company = @campaign.company
     @company.update(company_params)
-
-
     redirect_to :controller => 'companies', :action => 'company_profile', :id => @company.id
   end
 
