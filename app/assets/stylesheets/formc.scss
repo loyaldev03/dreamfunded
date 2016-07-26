@@ -1,3 +1,28 @@
-// Place all the styles related to the Formc controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.formc-disclosure{
+  font-size: 14px;
+  /*color: rgba(74,74,74,0.75);*/
+  margin-bottom: 20px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Helvetica,Arial,sans-serif;
+  background-color: white;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #4a4a4a;
+}
+.formc-column{
+  width: 19%;
+  display: inline-block;
+  vertical-align: top;
+}
+.formc-column-title{
+  color: #4a4a4a;
+}
+.formc-row{
+  margin: 10px 0 10px 0;
+}
+.formc-input-field{
+  font-size: 12px !important;
+  width: 75% !important;
+}

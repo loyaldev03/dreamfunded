@@ -1,0 +1,24 @@
+<div class="nested-fields">
+
+  <div class='formc-column'>
+    <%= f.text_field :security_class, class: 'input-box formc-input-field', required: true %>
+  </div>
+
+  <div class='formc-column'>
+    <%= f.text_field :amount, class: 'input-box formc-input-field', required: true %>
+  </div>
+
+  <div class='formc-column'>
+    <%= f.text_field :outstanding, class: 'input-box formc-input-field', required: true %>
+  </div>
+
+  <div class='formc-column'>
+     <%= f.select :voting_rights, ["Choose","Yes", "No"]  %>
+  </div>
+
+  <div class='formc-column'>
+     <%= f.select :other_rights, ["Choose","Yes", "No"]  %>
+  </div>
+
+  <%= link_to_remove_association "Remove", f %><br/>
+</div>

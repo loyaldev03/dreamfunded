@@ -1,0 +1,113 @@
+<% title "DreamFunded | Form C" %>
+<div class= "wrapper">
+  <div class="header education-center">
+    <div class='education-title'>Form C Editor</div>
+    <a href="#" class='education-links '>General</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links active-link'>People</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link'>Terms</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link'> Disclosures</a> <%= fa_icon "chevron-right"%>
+    <span href="#" class='education-links disabled-link'> Financial Info </span><%= fa_icon "chevron-right"%>
+    <span href="#" class='education-links disabled-link'> Sign & Submit </span>
+  </div>
+
+  <div class= "campaign-box  get-funded ">
+
+  <div class="row">
+    <div class=" active">
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Basic Company Information</a></h2>
+      <br>
+      <h3 class= "darkblue no-margin centered">This is the first step in creating your campaign.</h3>
+    </div>
+  </div>
+
+  <div class= "login-container">
+    <%= form_for @general_info, :url => {:action => "basics_submit"},method: "post" do |f| %>
+
+      <h3>Officers And Directors</h3>
+      <div class='formc-disclosure'>
+        Add every officer and director of the company. Officers are defined as the president, vice president, secretary, treasurer or principal financial officer, comptroller or principal accounting officer, and any person routinely performing similar functions.
+      </div>
+      <%= f.fields_for :officers do |officer| %>
+        <%= render 'officer_fields', f: officer %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association 'Add', f, :officers %>
+      </div>
+
+
+      <h3>Principal Security Holders</h3>
+      <div class='formc-disclosure'>
+        Who owns 20 percent or more voting equity securities of your Company, calculated by voting power? Must be accurate within 120 days ago.
+      </div>
+      <%= f.fields_for :principal_holders do |holder| %>
+        <%= render 'principal_holders', f: holder %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association 'Add', f, :principal_holders %>
+      </div>
+      <br>
+
+      <div class='formc-disclosure'>
+        What other securities or classes of securities of the issuer are outstanding?
+      </div>
+      <div class='formc-row'>
+
+          <div class='formc-column'>
+              <span class='formc-column-title'>Class of Security</span>
+          </div>
+
+          <div class='formc-column'>
+            <span class='formc-column-title'>Securities(or Amount) Authorized</span>
+          </div>
+
+          <div class='formc-column'>
+            <span class='formc-column-title'>Securities(or Amount) Outstanding</span>
+          </div>
+
+          <div class='formc-column'>
+            <span class='formc-column-title'>Voting Rights</span>
+          </div>
+
+          <div class='formc-column'>
+            <span class='formc-column-title'>Other Rights</span>
+          </div>
+      </div>
+      <div class='formc-row'>
+        <%= f.fields_for :securities, @securities  do |sec| %>
+            <div class='formc-column'>
+              <%= sec.text_field :security_class, class: 'input-box formc-input-field' %>
+            </div>
+
+            <div class='formc-column'>
+              <%= sec.text_field :amount, class: 'input-box formc-input-field'  %>
+            </div>
+
+            <div class='formc-column'>
+              <%= sec.text_field :outstanding, class: 'input-box formc-input-field'  %>
+            </div>
+
+            <div class='formc-column'>
+              <%= sec.select :voting_rights, ["Choose","Yes", "No"]  %>
+            </div>
+
+            <div class='formc-column'>
+              <%= sec.select :other_rights, ["Choose", "Yes", "No"]  %>
+            </div>
+        <% end %>
+      </div>
+
+      <span class='formc-column-title'>Other</span>
+      <%= f.fields_for :securities do |security| %>
+        <%= render 'security_fields', f: security %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association 'Add', f, :securities %>
+      </div>
+
+      <div class= "centered">
+        <%= submit_tag("Continue", :id => "submit-button") %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

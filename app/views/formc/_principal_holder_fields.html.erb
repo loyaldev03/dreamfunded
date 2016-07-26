@@ -1,0 +1,16 @@
+<div class="nested-fields">
+
+  <div class="field">
+    <%= f.text_field :name, class: 'input-box', required: true, placeholder: "Full Name" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_area :securities_held, class: 'input-box', required: true, placeholder: "Number and Class of Securities Now Held" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :voting_power, class: 'input-box', required: true, placeholder: "Percent voting power" %>
+  </div>
+
+  <%= link_to_remove_association "Remove", f %><br/>
+</div>

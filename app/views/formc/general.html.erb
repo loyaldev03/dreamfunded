@@ -19,9 +19,9 @@
   </div>
 
   <div class= "login-container">
-    <%= form_for @general_info, :url => {:action => "basics_submit"},method: "post" do |f| %>
+    <%= form_for @general_info, :url => {:action => "general_save"}, method: "post" do |f| %>
 
-      <%= f.text_field :name, placeholder: 'Company Name', :class => "input-box", required:true %>
+      <%= f.text_field :name, value: current_user.companies.last.name, placeholder: 'Company Name', :class => "input-box", required:true %>
       <br>
 
 
@@ -32,6 +32,8 @@
       <%= f.radio_button :kind, "corporation" %>
       <%= f.label :kind, "Corporation", :value => "corporation" %>
       <br>
+
+      <div class='get-funded-section-name'>In which state was it incorporated or organized?</div>
       <div class="styled-select select-100-width" >
         <%= f.select( :state, options_for_select(all_states) ) %>
       </div>
@@ -39,27 +41,27 @@
 
       <div>
         <div class='get-funded-section-name'>When was it organized?</div>
-        <%= f.date_field :date_formed, class: 'campaign-input-box' %>
+        <%= f.date_field :date_formed, value: current_user.companies.last.campaign.date_formed, class: 'campaign-input-box' %>
       </div>
 
       <div>
 
-        <%= f.text_field :employees_numer, placeholder: 'Number of Employees',:class => "campaign-input-box", required:true %>
+        <%= f.text_field :employees_numer, value: current_user.companies.last.campaign.employees_numer, placeholder: 'Number of Employees',:class => "campaign-input-box", required:true %>
       </div>
 
       <div class='get-funded-section-name'>
         Company Location
       </div>
 
-      <%= f.text_field :company_location_address, placeholder: 'Address',:class => "campaign-input-box", required:true %>
-      <%= f.text_field :company_location_city, placeholder: 'City',:class => "campaign-input-box", required:true %>
-      <%= f.text_field :company_location_state, placeholder: 'State',:class => "campaign-input-box", required:true %>
-      <%= f.text_field :company_location_zipcode, placeholder: 'Zipcode',:class => "campaign-input-box", required:true %>
+      <%= f.text_field :company_location_address, value: current_user.companies.last.campaign.company_location_address, placeholder: 'Address',:class => "campaign-input-box", required:true %>
+      <%= f.text_field :company_location_city, value: current_user.companies.last.campaign.company_location_city,  placeholder: 'City',:class => "campaign-input-box", required:true %>
+      <%= f.text_field :company_location_state, value: current_user.companies.last.campaign.company_location_state,  placeholder: 'State',:class => "campaign-input-box", required:true %>
+      <%= f.text_field :company_location_zipcode, value: current_user.companies.last.campaign.company_location_zipcode,  placeholder: 'Zipcode',:class => "campaign-input-box", required:true %>
       <br><br>
 
 
-      <%= f.text_field :website,  placeholder: 'Website', :class => "campaign-input-box", required:true  %><br>
-      <%= f.text_field :employer_id_number,  placeholder: 'EIN or tax id number', :class => "campaign-input-box", required:true  %>
+      <%= f.text_field :website,  value: current_user.companies.last.website_link, placeholder: 'Website', :class => "campaign-input-box", required:true  %><br>
+      <%= f.text_field :employer_id_number, value: current_user.companies.last.campaign.employer_id_number, placeholder: 'EIN or tax id number', :class => "campaign-input-box", required:true  %>
 
       <div class = "notice centered">
         <%= flash[:errors] if flash[:errors] %>

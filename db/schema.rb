@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20160722203357) do
+ActiveRecord::Schema.define(version: 20160726003621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -415,6 +414,20 @@ ActiveRecord::Schema.define(version: 20160722203357) do
 
   add_index "news", ["slug"], name: "index_news_on_slug", using: :btree
 
+  create_table "officers", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "year_joined"
+    t.boolean  "officers"
+    t.boolean  "director"
+    t.text     "position"
+    t.text     "occupation"
+    t.string   "main_employer"
+    t.integer  "general_info_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "paragraphs", force: true do |t|
     t.string  "page"
     t.text    "title"
@@ -451,6 +464,15 @@ ActiveRecord::Schema.define(version: 20160722203357) do
     t.datetime "image_updated_at"
   end
 
+  create_table "principal_holders", force: true do |t|
+    t.string   "name"
+    t.text     "securities_held"
+    t.string   "voting_power"
+    t.integer  "general_info_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "prospective_investments", force: true do |t|
     t.string   "user_id"
     t.string   "first_name"
@@ -478,6 +500,18 @@ ActiveRecord::Schema.define(version: 20160722203357) do
     t.text     "pitch_deck"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "securities", force: true do |t|
+    t.string   "security_class"
+    t.string   "amount"
+    t.string   "outstanding"
+    t.boolean  "voting_rights"
+    t.boolean  "other_rights"
+    t.integer  "general_info_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "securities_reserved"
   end
 
   create_table "sessions", force: true do |t|
