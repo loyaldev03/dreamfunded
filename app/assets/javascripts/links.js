@@ -18,7 +18,7 @@ function signOut() {
 }
 
 function signUp() {
-	window.location = "/users/new";
+	window.location = "/users/sign_up";
 }
 
 function about() {

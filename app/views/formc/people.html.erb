@@ -104,6 +104,28 @@
         <%= link_to_add_association 'Add', f, :securities %>
       </div>
 
+      <div class=''>
+        <div class='formc-column'>
+          <span>Class of Security</span>
+        </div>
+        <div class='formc-column-security'>
+          <span>Securities Reserved for Issuance upon Exercise or Conversion</span>
+        </div>
+      </div>
+        <%= f.fields_for :securities, @securities_reserver  do |sec| %>
+          <div class='formc-row'>
+            <div class='formc-column'>
+              <%= sec.text_field :security_class, class: 'input-box formc-input-field' %>
+            </div>
+
+            <div class='formc-column'>
+              <%= sec.text_field :securities_reserved, class: 'input-box formc-input-field'  %>
+            </div>
+
+          </div>
+        <% end %>
+
+      <%= f.file_field "cap_table" %>
       <div class= "centered">
         <%= submit_tag("Continue", :id => "submit-button") %>
       </div>
