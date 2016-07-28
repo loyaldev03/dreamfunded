@@ -14,16 +14,15 @@
 
   <div class="row">
     <div class=" active">
-      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Basic Company Information</a></h2>
-      <br>
-      <h3 class= "darkblue no-margin centered">This is the first step in creating your campaign.</h3>
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Officers And Directors</a></h2>
+
     </div>
   </div>
 
   <div class= "login-container">
-    <%= form_for @general_info, :url => {:action => "basics_submit"},method: "post" do |f| %>
+    <%= form_for @general_info, :url => {:action => "people_save", id: @general_info.id},method: "post" do |f| %>
 
-      <h3>Officers And Directors</h3>
+
       <div class='formc-disclosure'>
         Add every officer and director of the company. Officers are defined as the president, vice president, secretary, treasurer or principal financial officer, comptroller or principal accounting officer, and any person routinely performing similar functions.
       </div>
@@ -125,7 +124,10 @@
           </div>
         <% end %>
 
-      <%= f.file_field "cap_table" %>
+      <div class=''>
+        <span class='formc-column-title'>Upload Cap Table(Optional)</span>
+        <%= f.file_field "cap_table" %>
+      </div>
       <div class= "centered">
         <%= submit_tag("Continue", :id => "submit-button") %>
       </div>

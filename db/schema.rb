@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726005805) do
+ActiveRecord::Schema.define(version: 20160728022110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -292,6 +292,14 @@ ActiveRecord::Schema.define(version: 20160726005805) do
     t.datetime "image_updated_at"
   end
 
+  create_table "fundraise_tiers", force: true do |t|
+    t.string   "amount"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "general_info_id"
+  end
+
   create_table "general_infos", force: true do |t|
     t.string   "name"
     t.string   "kind"
@@ -310,11 +318,37 @@ ActiveRecord::Schema.define(version: 20160726005805) do
     t.string   "cap_table_content_type"
     t.integer  "cap_table_file_size"
     t.datetime "cap_table_updated_at"
+    t.string   "last_year_financials_file_name"
+    t.string   "last_year_financials_content_type"
+    t.integer  "last_year_financials_file_size"
+    t.datetime "last_year_financials_updated_at"
+    t.string   "last_2years_financials_file_name"
+    t.string   "last_2years_financials_content_type"
+    t.integer  "last_2years_financials_file_size"
+    t.datetime "last_2years_financials_updated_at"
+    t.string   "last_year_taxes_file_name"
+    t.string   "last_year_taxes_content_type"
+    t.integer  "last_year_taxes_file_size"
+    t.datetime "last_year_taxes_updated_at"
+    t.string   "cpa_review_file_name"
+    t.string   "cpa_review_content_type"
+    t.integer  "cpa_review_file_size"
+    t.datetime "cpa_review_updated_at"
+    t.text     "outstanding_loan"
+    t.text     "financial_condition"
   end
 
   create_table "guests", force: true do |t|
     t.string   "email"
     t.string   "newsletter_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "investment_perks", force: true do |t|
+    t.text     "content"
+    t.string   "amount"
+    t.integer  "general_info_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -492,6 +526,13 @@ ActiveRecord::Schema.define(version: 20160726005805) do
     t.datetime "updated_at"
   end
 
+  create_table "risks", force: true do |t|
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "general_info_id"
+  end
+
   create_table "sections", force: true do |t|
     t.integer  "company_id"
     t.text     "overview"
@@ -544,6 +585,22 @@ ActiveRecord::Schema.define(version: 20160726005805) do
   end
 
   add_index "teams", ["slug"], name: "index_teams_on_slug", using: :btree
+
+  create_table "terms", force: true do |t|
+    t.string   "safe_cap"
+    t.string   "valuation_cap"
+    t.string   "investor_threshold"
+    t.boolean  "pro_rata?"
+    t.string   "governing_law_state"
+    t.integer  "days"
+    t.string   "raised_this_round"
+    t.integer  "discount"
+    t.integer  "store_credit"
+    t.integer  "store_discount"
+    t.integer  "general_info_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "first_name"
