@@ -26,7 +26,7 @@
       <div class='formc-disclosure'>
         Add every officer and director of the company. Officers are defined as the president, vice president, secretary, treasurer or principal financial officer, comptroller or principal accounting officer, and any person routinely performing similar functions.
       </div>
-      <%= f.fields_for :officers do |officer| %>
+      <%= f.fields_for :officers, @officer do |officer| %>
         <%= render 'officer_fields', f: officer %>
       <% end %>
       <div class="links">
@@ -129,7 +129,7 @@
         <%= f.file_field "cap_table" %>
       </div>
       <div class= "centered">
-        <%= submit_tag("Continue", :id => "submit-button") %>
+        <%= f.submit("Continue", :id => "submit-button") %>
       </div>
     <% end %>
   </div>

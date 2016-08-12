@@ -12,6 +12,7 @@ class Company < ActiveRecord::Base
 
   has_many :docusigns
   has_one :campaign
+  has_many :general_infos
   has_one :financial_detail
   accepts_nested_attributes_for :financial_detail
   accepts_nested_attributes_for :campaign

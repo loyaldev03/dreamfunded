@@ -1,0 +1,72 @@
+<% title "DreamFunded | Form C" %>
+<div class= "wrapper">
+  <div class="header education-center">
+    <div class='education-title'>Form C Editor</div>
+    <a href="#" class='education-links '>General</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links active-link'>Business</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links '>People</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link'>Terms</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link'> Disclosures</a> <%= fa_icon "chevron-right"%>
+    <span href="#" class='education-links disabled-link'> Financial Info </span><%= fa_icon "chevron-right"%>
+    <span href="#" class='education-links disabled-link'> Sign & Submit </span>
+  </div>
+
+  <div class= "campaign-box  get-funded ">
+
+  <div class="row">
+    <div class=" active">
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Business Info</a></h2>
+    </div>
+  </div>
+
+  <div class= "login-container">
+    <%= form_for @general_info, :url => {:action => "business_save",id: @general_info.id}, method: "post" do |f| %>
+
+      <div>
+        <%= f.text_area :business_history, :placeholder => "History of the Business",class: 'userbox campaign_text_area_width',rows: 6, required:true  %>
+      </div>
+      <div>
+        <%= f.text_area :product_description, :placeholder => "The Company’s Products and/or Services",class: 'userbox campaign_text_area_width',rows: 6, required:true  %>
+      </div>
+
+      <div>
+        <%= f.text_area :competition, :placeholder => "Competition",class: 'userbox campaign_text_area_width',rows: 6, required:true  %>
+      </div>
+
+      <div>
+        <%= f.text_area :customer_base, :placeholder => "Supply Chain and Customer Base",class: 'userbox campaign_text_area_width',rows: 6, required:true  %>
+      </div>
+
+      <div>
+        <%= f.text_area :intellectual_property, :placeholder => "Intellectual Property and Research and Development",class: 'userbox campaign_text_area_width',rows: 6, required:true  %>
+      </div>
+
+      <div>
+        <%= f.text_area :governmental_regulatory, :placeholder => "Governmental/Regulatory Approval and Compliance",class: 'userbox campaign_text_area_width',rows: 6, required:true  %>
+      </div>
+
+      <div>
+        <%= f.text_field :litigation, :placeholder => "Litigation",class: 'userbox campaign_text_area_width',rows: 6, required:true  %>
+      </div>
+
+      <div>
+        <%= f.text_field :phone, :placeholder => "Phone nubmer",class: 'userbox campaign_text_area_width',rows: 6, required:true  %>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class= "centered">
+        <%= submit_tag("Continue", :id => "submit-button") %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,5 +1,10 @@
 class GeneralInfo < ActiveRecord::Base
 
+  belongs_to :company
+
+  has_one :financial_detail
+  accepts_nested_attributes_for :financial_detail, reject_if: :all_blank, allow_destroy: true
+
   has_many :officers
   accepts_nested_attributes_for :officers, reject_if: :all_blank, allow_destroy: true
 
@@ -63,5 +68,8 @@ class GeneralInfo < ActiveRecord::Base
     }
   validates_attachment_content_type :last_year_taxes, :content_type =>['application/pdf']
 
+  def address
+    self.company_location_address + ", " + self.company_location_state + ", " +  self.company_location_zipcode
+  end
 
 end

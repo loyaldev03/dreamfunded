@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728022110) do
+ActiveRecord::Schema.define(version: 20160812011005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -276,6 +276,8 @@ ActiveRecord::Schema.define(version: 20160728022110) do
     t.string   "accountant_review_content_type"
     t.integer  "accountant_review_file_size"
     t.datetime "accountant_review_updated_at"
+    t.integer  "general_info_id"
+    t.decimal  "sustain_amount"
   end
 
   create_table "founders", force: true do |t|
@@ -336,6 +338,17 @@ ActiveRecord::Schema.define(version: 20160728022110) do
     t.datetime "cpa_review_updated_at"
     t.text     "outstanding_loan"
     t.text     "financial_condition"
+    t.integer  "company_id"
+    t.text     "business_model"
+    t.text     "business_plan"
+    t.text     "business_history"
+    t.text     "product_description"
+    t.text     "competition"
+    t.text     "customer_base"
+    t.text     "intellectual_property"
+    t.text     "governmental_regulatory"
+    t.text     "litigation"
+    t.text     "phone"
   end
 
   create_table "guests", force: true do |t|
@@ -464,6 +477,7 @@ ActiveRecord::Schema.define(version: 20160728022110) do
     t.integer  "general_info_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "education"
   end
 
   create_table "paragraphs", force: true do |t|

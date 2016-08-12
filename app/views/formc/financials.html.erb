@@ -35,6 +35,48 @@
         The public accountant that audits or reviews the financial statements provided by an issuer must be (1) duly registered and in good standing as a certified public accountant under the laws of the place of his or her residence or principal office or (2) in good standing and entitled to practice as a public accountant under the laws of his or her place of residence or principal office.
         </p>
 
+        <div>
+
+          <%= f.fields_for :financial_detail, @financial_detail do |builder| %>
+
+            <%= builder.number_field :sustain_amount, placeholder: 'How much company requires monthly to sustain operations',:class => "input-box" %><br>
+
+
+            <%= builder.number_field :total_assets_this_year, placeholder: 'Total assets most recent fiscal year',:class => "input-box half" %>
+            <%= builder.number_field :total_assets_last_year, placeholder: 'Total assets prior fiscal year',:class => "input-box half scoot-left " %>
+
+            <%= builder.number_field :cash_this_year, placeholder: 'Cash & Cash Equivalents most recent fiscal year',:class => "input-box half" %>
+            <%= builder.number_field :cash_last_year, placeholder: 'Cash & Cash Equivalents prior fiscal year',:class => "input-box half scoot-left " %>
+
+            <%= builder.number_field :acount_receivable_this_year, placeholder: 'Accounts Receivable recent fiscal year',:class => "input-box half" %>
+            <%= builder.number_field :acount_receivable_last_year, placeholder: 'Accounts Receivable prior fiscal year',:class => "input-box half scoot-left " %>
+
+            <%= builder.number_field :short_term_debt_this_year, placeholder: 'Short-term Debt most recent fiscal year',:class => "input-box half" %>
+            <%= builder.number_field :short_term_debt_last_year, placeholder: 'Short-term Debt prior fiscal year',:class => "input-box half scoot-left " %>
+
+            <%= builder.number_field :long_term_debt_this_year, placeholder: 'Long-term Debt most recent fiscal year',:class => "input-box half" %>
+            <%= builder.number_field :long_term_debt_last_year, placeholder: 'Long-term Debt prior fiscal year',:class => "input-box half scoot-left " %>
+
+            <%= builder.number_field :sales_this_year, placeholder: 'Revenues / Sales most recent fiscal year',:class => "input-box half" %>
+            <%= builder.number_field :sales_last_year, placeholder: 'Revenues / Sales prior fiscal year',:class => "input-box half scoot-left " %>
+
+            <%= builder.number_field :costs_of_goods_this_year, placeholder: 'Costs of Goods Sold most recent fiscal year',:class => "input-box half" %>
+            <%= builder.number_field :costs_of_goods_last_year, placeholder: 'Costs of Goods Sold prior fiscal year',:class => "input-box half scoot-left " %>
+
+            <%= builder.number_field :taxes_paid_this_year, placeholder: 'Taxes Paid most recent fiscal year',:class => "input-box half" %>
+            <%= builder.number_field :taxes_paid_last_year, placeholder: 'Taxes Paid prior fiscal year',:class => "input-box half scoot-left " %>
+
+            <%= builder.number_field :total_taxable_income, placeholder: 'Total Taxable Income most recent fiscal year',:class => "input-box half" %>
+            <%= builder.number_field :total_taxable_income, placeholder: 'Total Taxable Income prior fiscal year',:class => "input-box half scoot-left " %>
+
+            <%= builder.number_field :net_income_this_year, placeholder: 'Net Income most recent fiscal year',:class => "input-box half" %>
+            <%= builder.number_field :net_income_last_year, placeholder: 'Net Income prior fiscal year',:class => "input-box half scoot-left " %>
+
+
+
+          <% end  %>
+        </div>
+
         <div class='formc-row'>
           <span class='formc-column-title'>Upload 2015 Financials</span>
           <%= f.file_field "last_year_financials" %>

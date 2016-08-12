@@ -62,10 +62,15 @@
 
       <%= f.text_field :website,  value: current_user.companies.last.website_link, placeholder: 'Website', :class => "campaign-input-box", required:true  %><br>
       <%= f.text_field :employer_id_number, value: current_user.companies.last.campaign.employer_id_number, placeholder: 'EIN or tax id number', :class => "campaign-input-box", required:true  %>
-
-      <div class = "notice centered">
-        <%= flash[:errors] if flash[:errors] %>
+      <div>
+        <%= f.text_area :business_model, :placeholder => "Company Business Model",class: 'userbox campaign_text_area_width',rows: 6, required:true  %>
       </div>
+      <div>
+        <%= f.text_area :business_plan, :placeholder => "Company Business Plan in short",class: 'userbox campaign_text_area_width',rows: 6, required:true  %>
+      </div>
+
+
+
 
       <div class= "centered">
         <%= submit_tag("Continue", :id => "submit-button") %>
