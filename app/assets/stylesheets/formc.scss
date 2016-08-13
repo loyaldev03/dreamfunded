@@ -41,31 +41,41 @@
 }
 
 /*P R I N T   PDF*/
-.formc-section{
-  margin: 25px 0;
-  font-family: Arial;
-}
 
-.bold_and_italic{
-  font-style: italic;
-  font-weight: bold;
-  font-size: 13pt;
-}
+    .formc-section{
+      margin: 25px 0;
+      font-family: Arial;
+    }
 
-.formc_margin30 {
-  margin-left: 30px;
-}
-.formc_margin60 {
-  margin-left: 60px;
-}
-.formc-table, .formc-table td{
-  border: 1px solid #333;
-  width: 600px;
-}
-.bold{
-  font-weight: bold;
-}
-.margin-left-50{
-  margin-left: 50%;
-  margin-top: 10px;
-}
+    .bold_and_italic{
+      font-style: italic;
+      font-weight: bold;
+      font-size: 13pt;
+    }
+
+    .formc_margin30 {
+      margin-left: 30px;
+    }
+    .formc_margin60 {
+      margin-left: 60px;
+    }
+    .formc-table, .formc-table td{
+      border: 1px solid #333;
+      width: 600px;
+    }
+    .bold{
+      font-weight: bold;
+    }
+    .margin-left-50{
+      margin-left: 50%;
+      margin-top: 10px;
+    }
+    .new-page {
+      page-break-before: always;
+      page-break-after: always;
+    }
+    td{
+      border: 1px solid #333;
+      width: 600px;
+    }
+

@@ -79,7 +79,7 @@ class FormcController < ApplicationController
   def print
     @general_info = GeneralInfo.find(params[:id])
     @company = @general_info.company
-    # render :layout => false
+    render :layout => false
   end
 
 private
