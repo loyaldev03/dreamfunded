@@ -73,6 +73,11 @@
 				</div></div>
 				<% if @company.status == 2 && @company.display != 0 %>
 					<%= link_to "Invest in #{@company.name}", "/personal_info/#{@company.name}", :class => "company-button profile-button mail-to-button", target: "_blank" %>
+					<button type="button" class="company-button profile-button mail-to-button"
+						data-fa-invest-now="yKtSeWqpFSJxWtudfamF7Xd2REbskcMf:L37LGRxzQy2PIa0pDIKWhA"
+						data-fa-referrer="">
+						INVEST NOW
+					</button>
 				<% elsif @company.status == 1 %>
 					<%= mail_to "manny@dreamfunded.com", "Join The Waitlist", subject: "I want to invest in #{@company.name}", :class => "company-button profile-button mail-to-button" %>
 
@@ -347,4 +352,7 @@
 
 
 
+</script>
+<script src="https://sandbox.fundamerica.com/cors/js/invest_now.min.js"
+	id="fa-invest-now-launcher">
 </script>

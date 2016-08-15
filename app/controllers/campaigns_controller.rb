@@ -140,8 +140,12 @@ class CampaignsController < ApplicationController
   end
 
   def youtube_url(url)
-    code = url.split("/watch?v=").last
-    youtube_url = "https://www.youtube.com/embed/" + code
+    if url.include? "youtube"
+      code = url.split("/watch?v=").last
+      youtube_url = "https://www.youtube.com/embed/" + code
+    else
+      ""
+    end
   end
 
 end
