@@ -9,6 +9,7 @@ Rails.application.config.assets.version = '1.0'
 
 #CSS
 Rails.application.config.assets.precompile += %w( application.css )
+Rails.application.config.assets.precompile += %w( loader.css )
 Rails.application.config.assets.precompile += %w( home.css.scss )
 Rails.application.config.assets.precompile += %w( menu.css.scss )
 Rails.application.config.assets.precompile += %w( signup.css.scss )
