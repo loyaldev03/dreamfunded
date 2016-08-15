@@ -1,0 +1,71 @@
+<% title "DreamFunded | Form C" %>
+<div class= "wrapper">
+  <div class="header education-center">
+    <div class='education-title'>Form C Editor</div>
+    <a href="#" class='education-links '>General</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links'>People</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links active-link'>Terms</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link'> Disclosures</a> <%= fa_icon "chevron-right"%>
+    <span href="#" class='education-links disabled-link'> Financial Info </span><%= fa_icon "chevron-right"%>
+    <span href="#" class='education-links disabled-link'> Sign & Submit </span>
+  </div>
+
+  <div class= "campaign-box  get-funded ">
+
+  <div class="row">
+    <div class=" active">
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Terms</a></h2>
+
+    </div>
+  </div>
+
+  <div class= "login-container">
+    <%= form_for @general_info, :url => {:action => "terms_save", id: @general_info.id},method: "post" do |f| %>
+
+      <h3>Set Fundraise Terms</h3>
+      <%= f.fields_for :terms, @term do |term_builder| %>
+          <%#= term_builder.select :safe_cap, ["Choose",["Crowd Safe: Cap, no Discount", "no-discount"], ["SAFE Cap & Discount, Pro Rata","pro-rata"], ["SAFE Cap & Discount, no Pro Rata",'no-pro-rata'] ], class: 'terms-inputs' %>
+          <!-- <br><br> -->
+          <%#= term_builder.text_field :valuation_cap, class: 'input-box terms-inputs', placeholder: 'What is the valuation cap?' %>
+
+          <%#= term_builder.text_field :investor_threshold, class: 'input-box terms-inputs', placeholder: "What's the Major Investor threshold?" %>
+
+          <%#= term_builder.text_field :pro_rata?, class: 'input-box terms-inputs', placeholder: "Will Major Investors get pro rata?" %>
+
+          <!-- <div class='get-funded-section-name'>In which state was it incorporated or organized?</div> -->
+
+            <%#= term_builder.select( :governing_law_state, options_for_select(all_states) ) %>
+
+          <%= term_builder.number_field :days, class: 'input-box terms-inputs', placeholder: "How long will the campaign last? (days)" %>
+
+
+          <!-- <div class='get-funded-section-name'>How much have you raised this round, on the same terms as on DreamFunded?</div> -->
+          <%#= term_builder.number_field :raised_this_round, value: 0, class: 'input-box terms-inputs', placeholder: "0" %>
+
+<!--           <div class='get-funded-section-name'>Set Store Credits</div>
+          <div>Grant a one-time store credit to investors.</div>
+          <%#= term_builder.text_field :store_credit, class: 'input-box terms-inputs', placeholder: "How much store credit do you want to give?" %>
+
+          <div class='get-funded-section-name'>Set Store Discounts</div>
+          <div>Grant store discounts to investors.</div>
+          <%#= term_builder.text_field :store_discount, class: 'input-box terms-inputs', placeholder: "How much store credit do you want to give?" %>
+      <%# end %>
+
+      <h3>Set Investment Perks</h3>
+      <div class='formc-row'>
+        <%#= f.fields_for :investment_perks, @perks  do |perk| %>
+            <div class='formc-row'>
+              <span> Those investing at or over:</span><%#= perk.text_field :amount, class: '' %>
+              <br>
+              <%#= perk.text_area :content, class: '', placeholder: 'Get...'  %>
+            </div>
+
+        <%# end %>
+      </div> -->
+
+      <div class= "centered">
+        <%= submit_tag("Continue", :id => "submit-button") %>
+      </div>
+    <% end %>
+  </div>
+</div>

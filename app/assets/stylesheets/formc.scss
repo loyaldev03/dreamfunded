@@ -1,0 +1,81 @@
+.formc-disclosure{
+  font-size: 14px;
+  /*color: rgba(74,74,74,0.75);*/
+  margin-bottom: 20px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Helvetica,Arial,sans-serif;
+  background-color: white;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #4a4a4a;
+}
+.formc-column{
+  width: 19%;
+  display: inline-block;
+  vertical-align: top;
+}
+.formc-column-title{
+  color: #4a4a4a;
+}
+.formc-row{
+  margin: 10px 0 10px 0;
+}
+.formc-input-field{
+  font-size: 12px !important;
+  width: 75% !important;
+}
+.formc-column-security{
+  display: inline-block;
+}
+.terms-inputs{
+  width: 45% !important;
+  margin-bottom: 22px !important;
+  display: block !important;
+}
+.formc-notice {
+  color: #CF513D;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/*P R I N T   PDF*/
+
+    .formc-section{
+      margin: 25px 0;
+      font-family: Arial;
+    }
+
+    .bold_and_italic{
+      font-style: italic;
+      font-weight: bold;
+      font-size: 13pt;
+    }
+
+    .formc_margin30 {
+      margin-left: 30px;
+    }
+    .formc_margin60 {
+      margin-left: 60px;
+    }
+    .formc-table, .formc-table td{
+      border: 1px solid #333;
+      width: 600px;
+    }
+    .bold{
+      font-weight: bold;
+    }
+    .margin-left-50{
+      margin-left: 50%;
+      margin-top: 10px;
+    }
+    .new-page {
+      page-break-before: always;
+      page-break-after: always;
+    }
+    td{
+      border: 1px solid #333;
+      width: 600px;
+    }
+

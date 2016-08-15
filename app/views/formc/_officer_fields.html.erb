@@ -1,0 +1,24 @@
+<div class="nested-fields">
+
+  <div class="field">
+    <%= f.text_field :name, class: 'input-box', required: true, placeholder: "Full Name" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :email, class: 'input-box', required: true, placeholder: "Email" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :position, class: 'input-box', required: true, placeholder: "Position" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :year_joined, class: 'input-box', required: true, placeholder: "Year Joined" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :education, class: 'input-box', required: true, placeholder: "Education" %>
+  </div>
+
+  <%= link_to_remove_association "Remove", f %><br/>
+</div>

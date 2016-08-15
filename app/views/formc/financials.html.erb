@@ -1,0 +1,108 @@
+<% title "DreamFunded | Form C" %>
+<div class= "wrapper">
+  <div class="header education-center">
+    <div class='education-title'>Form C Editor</div>
+    <a href="#" class='education-links '>General</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links'>People</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links '>Terms</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links '> Disclosures</a> <%= fa_icon "chevron-right"%>
+    <span href="#" class='education-links active-link'> Financial Info </span><%= fa_icon "chevron-right"%>
+    <span href="#" class='education-links disabled-link'> Sign & Submit </span>
+  </div>
+
+  <div class= "campaign-box  get-funded ">
+
+  <div class="row">
+    <div class=" active">
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Financial Info</a></h2>
+
+    </div>
+  </div>
+
+  <div class= "login-container">
+    <%= form_for @general_info, :url => {:action => "financials_save", id: @general_info.id},method: "post" do |f| %>
+
+      <h3>Upload Financials</h3>
+      <strong>We need financials for the the current fiscal year and the previous year.</strong>
+      <p>Financial statements must be prepared in accordance with U.S. generally accepted accounting principles and must include balance sheets, statements of comprehensive income, statements of cash flows, statements of changes in stockholders’ equity and notes to the financial statements.</p>
+
+      <p>
+       For an offering in the first 120 days of a fiscal year, financials may be for the two fiscal years prior to the most recently completed year (unless they are already available). If more than 120 days have passed since the end of the fiscal year, the financials must be for the two most recently completed fiscal years.</p>
+
+       <strong>An independent CPA review is needed for raises over $100k</strong>
+       <p>Since your max offering funding amount is over $100k, Financial statements must be reviewed by a public accountant that is independent of the issuer and must include a signed review report.</p>
+       <p>
+        The public accountant that audits or reviews the financial statements provided by an issuer must be (1) duly registered and in good standing as a certified public accountant under the laws of the place of his or her residence or principal office or (2) in good standing and entitled to practice as a public accountant under the laws of his or her place of residence or principal office.
+        </p>
+
+        <div>
+
+          <%= f.fields_for :financial_detail, @financial_detail do |builder| %>
+
+            <%= builder.number_field :sustain_amount, placeholder: 'How much company requires monthly to sustain operations',:class => "input-box" %><br>
+
+
+            <%= builder.number_field :total_assets_this_year, placeholder: 'Total assets most recent fiscal year',:class => "input-box half" %>
+            <%= builder.number_field :total_assets_last_year, placeholder: 'Total assets prior fiscal year',:class => "input-box half scoot-left " %>
+
+            <%= builder.number_field :cash_this_year, placeholder: 'Cash & Cash Equivalents most recent fiscal year',:class => "input-box half" %>
+            <%= builder.number_field :cash_last_year, placeholder: 'Cash & Cash Equivalents prior fiscal year',:class => "input-box half scoot-left " %>
+
+            <%= builder.number_field :acount_receivable_this_year, placeholder: 'Accounts Receivable recent fiscal year',:class => "input-box half" %>
+            <%= builder.number_field :acount_receivable_last_year, placeholder: 'Accounts Receivable prior fiscal year',:class => "input-box half scoot-left " %>
+
+            <%= builder.number_field :short_term_debt_this_year, placeholder: 'Short-term Debt most recent fiscal year',:class => "input-box half" %>
+            <%= builder.number_field :short_term_debt_last_year, placeholder: 'Short-term Debt prior fiscal year',:class => "input-box half scoot-left " %>
+
+            <%= builder.number_field :long_term_debt_this_year, placeholder: 'Long-term Debt most recent fiscal year',:class => "input-box half" %>
+            <%= builder.number_field :long_term_debt_last_year, placeholder: 'Long-term Debt prior fiscal year',:class => "input-box half scoot-left " %>
+
+            <%= builder.number_field :sales_this_year, placeholder: 'Revenues / Sales most recent fiscal year',:class => "input-box half" %>
+            <%= builder.number_field :sales_last_year, placeholder: 'Revenues / Sales prior fiscal year',:class => "input-box half scoot-left " %>
+
+            <%= builder.number_field :costs_of_goods_this_year, placeholder: 'Costs of Goods Sold most recent fiscal year',:class => "input-box half" %>
+            <%= builder.number_field :costs_of_goods_last_year, placeholder: 'Costs of Goods Sold prior fiscal year',:class => "input-box half scoot-left " %>
+
+            <%= builder.number_field :taxes_paid_this_year, placeholder: 'Taxes Paid most recent fiscal year',:class => "input-box half" %>
+            <%= builder.number_field :taxes_paid_last_year, placeholder: 'Taxes Paid prior fiscal year',:class => "input-box half scoot-left " %>
+
+            <%= builder.number_field :total_taxable_income, placeholder: 'Total Taxable Income most recent fiscal year',:class => "input-box half" %>
+            <%= builder.number_field :total_taxable_income, placeholder: 'Total Taxable Income prior fiscal year',:class => "input-box half scoot-left " %>
+
+            <%= builder.number_field :net_income_this_year, placeholder: 'Net Income most recent fiscal year',:class => "input-box half" %>
+            <%= builder.number_field :net_income_last_year, placeholder: 'Net Income prior fiscal year',:class => "input-box half scoot-left " %>
+
+
+
+          <% end  %>
+        </div>
+
+        <!-- <div class='formc-row'>
+          <span class='formc-column-title'>Upload 2015 Financials</span>
+          <%#= f.file_field "last_year_financials" %>
+        </div>
+        <div class='formc-row'>
+          <span class='formc-column-title'>Upload 2014 Financials</span>
+          <%#= f.file_field "last_2years_financials" %>
+        </div>
+        <div class='formc-row'>
+          <span class='formc-column-title'>CPA Reviewed Statement</span>
+          <%#= f.file_field "cpa_review" %>
+        </div>
+        <div class='formc-row'>
+          <span class='formc-column-title'>Upload 2015 Taxes</span>
+          <%#= f.file_field "last_year_taxes" %>
+        </div> -->
+        <br>
+        <!-- <strong>Financial Condition</strong>
+        <%#= f.text_area :financial_condition, class: 'userbox campaign_text_area_width', placeholder: 'Describe your financial condition'%> -->
+        <strong>Outstanding Loans</strong>
+        <%= f.text_area :outstanding_loan, class: 'userbox campaign_text_area_width', placeholder: 'Describe your outstanding loans. Include creditor, amount owed, interest rate, maturity date, and any other material special terms.' %>
+
+      <div class= "centered">
+        <%= submit_tag("Continue", :id => "submit-button") %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

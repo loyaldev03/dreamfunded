@@ -1,0 +1,15 @@
+<div class="nested-fields">
+
+  <div class="field">
+    <%= f.text_field :amount, class: 'terms-inputs', required: true, placeholder: "Fundraise Target" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :content, class: 'terms-inputs', required: true, placeholder: "Say a few things about how you would use the money..." %>
+  </div>
+
+
+
+  <%= link_to_remove_association "Remove", f %><br/>
+</div>
+

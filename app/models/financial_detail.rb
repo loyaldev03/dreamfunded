@@ -1,5 +1,6 @@
 class FinancialDetail < ActiveRecord::Base
   belongs_to :company
+  belongs_to :general_info
 
   has_attached_file :balance_sheet,
     :storage => :s3,

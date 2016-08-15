@@ -1,0 +1,67 @@
+
+<% title "DreamFunded | Form C" %>
+<div class= "wrapper">
+  <div class="header education-center">
+    <div class='education-title'>Form C Editor</div>
+    <a href="#" class='education-links '>General</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links'>People</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links '>Terms</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links active-link'> Disclosures</a> <%= fa_icon "chevron-right"%>
+    <span href="#" class='education-links disabled-link'> Financial Info </span><%= fa_icon "chevron-right"%>
+    <span href="#" class='education-links disabled-link'> Sign & Submit </span>
+  </div>
+
+  <div class= "campaign-box  get-funded ">
+
+  <div class="row">
+    <div class=" active">
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Disclosures</a></h2>
+
+    </div>
+  </div>
+
+  <div class= "login-container">
+    <%= form_for @general_info, :url => {:action => "disclosure_save", id: @general_info.id},method: "post" do |f| %>
+
+     <!--  <h3>Disclose all Risks</h3>
+      <p>
+        List anything, specific to your company, that would make it risky for investors to invest. Refrain from general statements and try to be as specific as possible on risks that are unique to you. If in doubt, include it. Investors respect transparency. And it protects you.
+      </p>
+      <%#= f.fields_for :risks, @risk do |form_builder| %>
+          <br>
+          <%#= form_builder.text_area :content, class: 'terms-inputs', placeholder: 'Risk' %>
+      <%# end %>
+      <%#= f.fields_for :risks do |risk| %>
+        <%#= render 'risk_fields', f: risk %>
+      <%# end %>
+      <div class="links">
+        <%#= link_to_add_association 'Add', f, :risks %>
+      </div> -->
+
+      <h3>Disclose Use of Funds</h3>
+      <p>Provide a detailed description of how you intend to use the funds, so that investors have enough information to understand how the money will be used. If you have a range of possible uses, describe each probable use and the factors you'll use to choose among them. If you will accept funding in excess of the target offering amount, describe the intended use of the excess proceeds with similar specificity.</p>
+
+      <p>
+          You must hit your minimum funding target or your campaign will fail. Set the minimum funding target to the very lowest number you need (for example, $50,000) and describe how you'd use it. Then, add additional funding targets and disclose how you would use those funds. You can raise up to $1 million.
+      </p>
+      <strong>Minimum Fundraise Target </strong><span class='formc-notice'>(You must hit at least this number or your campaign will fail.)</span>
+      <%= f.fields_for :fundraise_tiers, @tier do |form_builder| %>
+          <br>
+          <%= form_builder.text_field :amount, class: ' terms-inputs', placeholder: 'Fundraise Target' %>
+          <%= form_builder.text_area :content, class: ' terms-inputs', placeholder: 'Say a few things about how you would use the money...' %>
+      <% end %>
+
+      <%= f.fields_for :fundraise_tiers do |target| %>
+        <%= render 'fundraise_tier_fields', f: target %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association 'Add', f, :fundraise_tiers %>
+      </div>
+
+      <div class= "centered">
+        <%= submit_tag("Continue", :id => "submit-button") %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
