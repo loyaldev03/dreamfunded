@@ -20,7 +20,7 @@
   </div>
 
   <div class= "login-container">
-    <%= form_for @general_info, :url => {:action => "financials_save", id: @general_info.id},method: "post" do |f| %>
+    <%= form_for @general_info, :url => {:action => "financials_save", id: @general_info.id}, method: 'post', :html => {target: '_blank'} do |f| %>
 
       <h3>Upload Financials</h3>
       <strong>We need financials for the the current fiscal year and the previous year.</strong>

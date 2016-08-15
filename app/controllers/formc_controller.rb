@@ -7,7 +7,7 @@ class FormcController < ApplicationController
 
   def general_save
     info = GeneralInfo.create(general_info_params)
-    info.company = current_user.companies.last
+    current_user.companies.last.general_info << info
     redirect_to action: :business, id: info.id
   end
 
