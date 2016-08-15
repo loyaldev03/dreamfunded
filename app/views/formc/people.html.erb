@@ -3,6 +3,7 @@
   <div class="header education-center">
     <div class='education-title'>Form C Editor</div>
     <a href="#" class='education-links '>General</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links '>Business</a> <%= fa_icon "chevron-right"%>
     <a href="#" class='education-links active-link'>People</a> <%= fa_icon "chevron-right"%>
     <a href="#" class='education-links disabled-link'>Terms</a> <%= fa_icon "chevron-right"%>
     <a href="#" class='education-links disabled-link'> Disclosures</a> <%= fa_icon "chevron-right"%>
@@ -46,7 +47,7 @@
       </div>
       <br>
 
-      <div class='formc-disclosure'>
+      <!-- <div class='formc-disclosure'>
         What other securities or classes of securities of the issuer are outstanding?
       </div>
       <div class='formc-row'>
@@ -70,37 +71,37 @@
           <div class='formc-column'>
             <span class='formc-column-title'>Other Rights</span>
           </div>
-      </div>
-      <div class='formc-row'>
-        <%= f.fields_for :securities, @securities  do |sec| %>
+      </div> -->
+      <!-- <div class='formc-row'>
+        <%#= f.fields_for :securities, @securities  do |sec| %>
             <div class='formc-column'>
-              <%= sec.text_field :security_class, class: 'input-box formc-input-field' %>
+              <%#= sec.text_field :security_class, class: 'input-box formc-input-field' %>
             </div>
 
             <div class='formc-column'>
-              <%= sec.text_field :amount, class: 'input-box formc-input-field'  %>
+              <%#= sec.text_field :amount, class: 'input-box formc-input-field'  %>
             </div>
 
             <div class='formc-column'>
-              <%= sec.text_field :outstanding, class: 'input-box formc-input-field'  %>
+              <%#= sec.text_field :outstanding, class: 'input-box formc-input-field'  %>
             </div>
 
             <div class='formc-column'>
-              <%= sec.select :voting_rights, ["Choose","Yes", "No"]  %>
+              <%#= sec.select :voting_rights, ["Choose","Yes", "No"]  %>
             </div>
 
             <div class='formc-column'>
-              <%= sec.select :other_rights, ["Choose", "Yes", "No"]  %>
+              <%#= sec.select :other_rights, ["Choose", "Yes", "No"]  %>
             </div>
-        <% end %>
-      </div>
+        <%# end %>
+      </div> -->
 
-      <span class='formc-column-title'>Other</span>
-      <%= f.fields_for :securities do |security| %>
-        <%= render 'security_fields', f: security %>
-      <% end %>
+      <!-- <span class='formc-column-title'>Other</span>
+      <%#= f.fields_for :securities do |security| %>
+        <%#= render 'security_fields', f: security %>
+      <%#end %>
       <div class="links">
-        <%= link_to_add_association 'Add', f, :securities %>
+        <%#= link_to_add_association 'Add', f, :securities %>
       </div>
 
       <div class=''>
@@ -111,23 +112,23 @@
           <span>Securities Reserved for Issuance upon Exercise or Conversion</span>
         </div>
       </div>
-        <%= f.fields_for :securities, @securities_reserver  do |sec| %>
+        <%#= f.fields_for :securities, @securities_reserver  do |sec| %>
           <div class='formc-row'>
             <div class='formc-column'>
-              <%= sec.text_field :security_class, class: 'input-box formc-input-field' %>
+              <%#= sec.text_field :security_class, class: 'input-box formc-input-field' %>
             </div>
 
             <div class='formc-column'>
-              <%= sec.text_field :securities_reserved, class: 'input-box formc-input-field'  %>
+              <%#= sec.text_field :securities_reserved, class: 'input-box formc-input-field'  %>
             </div>
 
           </div>
-        <% end %>
+        <%# end %>
 
       <div class=''>
         <span class='formc-column-title'>Upload Cap Table(Optional)</span>
-        <%= f.file_field "cap_table" %>
-      </div>
+        <%#= f.file_field "cap_table" %>
+      </div> -->
       <div class= "centered">
         <%= f.submit("Continue", :id => "submit-button") %>
       </div>

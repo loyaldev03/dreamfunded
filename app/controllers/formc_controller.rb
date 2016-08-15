@@ -7,6 +7,7 @@ class FormcController < ApplicationController
 
   def general_save
     info = GeneralInfo.create(general_info_params)
+    info.company = current_user.companies.last
     redirect_to action: :business, id: info.id
   end
 
@@ -34,7 +35,7 @@ class FormcController < ApplicationController
   def people_save
     @general_info = GeneralInfo.find(params[:id])
     @general_info.update(general_info_params)
-    redirect_to action: :terms, id: @general_info.id
+    redirect_to action: :disclosures, id: @general_info.id
   end
 
   def terms
@@ -74,6 +75,7 @@ class FormcController < ApplicationController
      @general_info = GeneralInfo.find(params[:id])
      @general_info.update(general_info_params)
      redirect_to action: :print, id: @general_info.id
+
   end
 
   def print
@@ -84,7 +86,7 @@ class FormcController < ApplicationController
 
 private
   def general_info_params
-    params.require(:general_info).permit("name", "cap_table", "kind", "state", "date_formed", "employees_numer", "company_location_address", "company_location_city", "company_location_state", "company_location_zipcode",
+    params.require(:general_info).permit("name", "days", "cap_table", "kind", "state", "date_formed", "employees_numer", "company_location_address", "company_location_city", "company_location_state", "company_location_zipcode",
                                          "website", "employer_id_number", "financial_condition", "outstanding_loan","business_model", "business_plan",
                                          :business_history, :product_description, :competition, :customer_base, :intellectual_property,
                                          :governmental_regulatory, :litigation, :phone,

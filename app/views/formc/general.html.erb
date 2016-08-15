@@ -3,7 +3,8 @@
   <div class="header education-center">
     <div class='education-title'>Form C Editor</div>
     <a href="#" class='education-links active-link'>General</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links '>People</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link'>Business</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link'>People</a> <%= fa_icon "chevron-right"%>
     <a href="#" class='education-links disabled-link'>Terms</a> <%= fa_icon "chevron-right"%>
     <a href="#" class='education-links disabled-link'> Disclosures</a> <%= fa_icon "chevron-right"%>
     <span href="#" class='education-links disabled-link'> Financial Info </span><%= fa_icon "chevron-right"%>
@@ -24,7 +25,6 @@
       <%= f.text_field :name, value: current_user.companies.last.name, placeholder: 'Company Name', :class => "input-box", required:true %>
       <br>
 
-
       <div class='get-funded-section-name'>What kind of company is it?</div>
       <%= f.radio_button :kind, "llc",checked: true %>
       <%= f.label :kind, "LLC", :value => "llc" %>
@@ -38,6 +38,9 @@
         <%= f.select( :state, options_for_select(all_states) ) %>
       </div>
       <br>
+
+      <div class='get-funded-section-name'>How long will the campaign last? (days)</div>
+      <%= f.number_field :days, class: 'campaign-input-box', placeholder: "Up to 180 days" %>
 
       <div>
         <div class='get-funded-section-name'>When was it organized?</div>
@@ -61,7 +64,7 @@
 
 
       <%= f.text_field :website,  value: current_user.companies.last.website_link, placeholder: 'Website', :class => "campaign-input-box", required:true  %><br>
-      <%= f.text_field :employer_id_number, value: current_user.companies.last.campaign.employer_id_number, placeholder: 'EIN or tax id number', :class => "campaign-input-box", required:true  %>
+      <%#= f.text_field :employer_id_number, value: current_user.companies.last.campaign.employer_id_number, placeholder: 'EIN or tax id number', :class => "campaign-input-box", required:true  %>
       <div>
         <%= f.text_area :business_model, :placeholder => "Company Business Model",class: 'userbox campaign_text_area_width',rows: 6, required:true  %>
       </div>

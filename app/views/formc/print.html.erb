@@ -94,7 +94,7 @@
     <div class='formc_margin30'> $<%= minimum_shares(@company)%> </div>
 
     <div class=' formc_margin30 bold_and_italic' style='font-weight: bold;font-size: 13pt;'> Deadline to reach the target offering amount </div>
-    <div class='formc_margin30'> <%= Date.today + @general_info.terms.first.days%></div>
+    <div class='formc_margin30'> <%= Date.today + @general_info.days%></div>
 </section>
 
 <section class='formc-section' style='margin: 25px 0;'>
@@ -886,7 +886,7 @@ The Offering is being made through www.DreamFunded.vc as (the “Intermediary”
 </section>
 
 
-<section class='formc-section' style='margin: 25px 0;'>
+<section class='formc-section' style='margin: 25px 0; page-break-before: always;'>
     <div class=' formc_margin30 formc-row '><strong>FINANCIAL INFORMATION</strong></div>
      <div class=' formc_margin30 formc-row bold_and_italic' style='font-style: italic;font-weight: bold;font-size: 13pt;'>
         Please see the financial information listed on the cover page of this Form C and attached hereto in addition to the following information.
@@ -1230,3 +1230,12 @@ The Offering is being made through www.DreamFunded.vc as (the “Intermediary”
         <div class=' formc_margin30 formc-row '>Financial Statements</div>
     </center>
 </section>
+
+
+<script>
+
+    setTimeout(function(){
+        window.location = "http://localhost:3000/formc/print/20.pdf";
+    }, 3000);
+
+</script>

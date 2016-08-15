@@ -39,29 +39,29 @@
           <%= term_builder.number_field :days, class: 'input-box terms-inputs', placeholder: "How long will the campaign last? (days)" %>
 
 
-          <div class='get-funded-section-name'>How much have you raised this round, on the same terms as on DreamFunded?</div>
-          <%= term_builder.number_field :raised_this_round, value: 0, class: 'input-box terms-inputs', placeholder: "0" %>
+          <!-- <div class='get-funded-section-name'>How much have you raised this round, on the same terms as on DreamFunded?</div> -->
+          <%#= term_builder.number_field :raised_this_round, value: 0, class: 'input-box terms-inputs', placeholder: "0" %>
 
-          <div class='get-funded-section-name'>Set Store Credits</div>
+<!--           <div class='get-funded-section-name'>Set Store Credits</div>
           <div>Grant a one-time store credit to investors.</div>
-          <%= term_builder.text_field :store_credit, class: 'input-box terms-inputs', placeholder: "How much store credit do you want to give?" %>
+          <%#= term_builder.text_field :store_credit, class: 'input-box terms-inputs', placeholder: "How much store credit do you want to give?" %>
 
           <div class='get-funded-section-name'>Set Store Discounts</div>
           <div>Grant store discounts to investors.</div>
-          <%= term_builder.text_field :store_discount, class: 'input-box terms-inputs', placeholder: "How much store credit do you want to give?" %>
-      <% end %>
+          <%#= term_builder.text_field :store_discount, class: 'input-box terms-inputs', placeholder: "How much store credit do you want to give?" %>
+      <%# end %>
 
       <h3>Set Investment Perks</h3>
       <div class='formc-row'>
-        <%= f.fields_for :investment_perks, @perks  do |perk| %>
+        <%#= f.fields_for :investment_perks, @perks  do |perk| %>
             <div class='formc-row'>
-              <span> Those investing at or over:</span><%= perk.text_field :amount, class: '' %>
+              <span> Those investing at or over:</span><%#= perk.text_field :amount, class: '' %>
               <br>
-              <%= perk.text_area :content, class: '', placeholder: 'Get...'  %>
+              <%#= perk.text_area :content, class: '', placeholder: 'Get...'  %>
             </div>
 
-        <% end %>
-      </div>
+        <%# end %>
+      </div> -->
 
       <div class= "centered">
         <%= submit_tag("Continue", :id => "submit-button") %>
@@ -69,8 +69,3 @@
     <% end %>
   </div>
 </div>
-<script type="text/javascript">
-  $('select').change(function(){
-
-  })
-</script>
