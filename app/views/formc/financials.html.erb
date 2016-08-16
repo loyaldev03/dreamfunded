@@ -20,7 +20,8 @@
   </div>
 
   <div class= "login-container">
-    <%= form_for @general_info, :url => {:action => "financials_save", id: @general_info.id}, method: 'post', :html => {target: '_blank'} do |f| %>
+    <%= form_for @general_info, :url => {:action => "financials_save", id: @general_info.id}, method: 'post' do |f| %>
+      <%= f.hidden_field :completed, value: true %>
 
       <h3>Upload Financials</h3>
       <strong>We need financials for the the current fiscal year and the previous year.</strong>
@@ -105,11 +106,3 @@
     <% end %>
   </div>
 </div>
-<script type="text/javascript">
-  $("#submit-button").on('click', function(e){
-
-    $("form").submit();
-    console.log('form submitted');
-    window.location = "/";
-  })
-</script>

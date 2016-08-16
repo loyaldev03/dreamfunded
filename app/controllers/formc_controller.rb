@@ -74,7 +74,6 @@ class FormcController < ApplicationController
   def financials_save
      @general_info = GeneralInfo.find(params[:id])
      @general_info.update(general_info_params)
-     @general_info.update(completed: true)
      redirect_to edit_campaign_path(@general_info.company.campaign.id)
   end
 
@@ -86,7 +85,7 @@ class FormcController < ApplicationController
 
 private
   def general_info_params
-    params.require(:general_info).permit("name", "days", "cap_table", "kind", "state", "date_formed", "employees_numer", "company_location_address", "company_location_city", "company_location_state", "company_location_zipcode",
+    params.require(:general_info).permit("name", "completed", "days", "cap_table", "kind", "state", "date_formed", "employees_numer", "company_location_address", "company_location_city", "company_location_state", "company_location_zipcode",
                                          "website", "employer_id_number", "financial_condition", "outstanding_loan","business_model", "business_plan",
                                          :business_history, :product_description, :competition, :customer_base, :intellectual_property,
                                          :governmental_regulatory, :litigation, :phone,
