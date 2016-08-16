@@ -38,7 +38,7 @@
             <% if @formc.try(:completed) %>
               <p>
                 <%= image_tag "static/pdf_icon.png"%>
-                <%= link_to "#{@company.name} Form C ", formc_path(id: 24, format: 'pdf'), target: '_blank', class: 'document-url' %>
+                <%= link_to "#{@company.name} Form C ", formc_path(id: @formc.id, format: 'pdf'), target: '_blank', class: 'document-url' %>
               </p>
             <% end %>
           <div>
