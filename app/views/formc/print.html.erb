@@ -686,7 +686,7 @@ The Offering is being made through www.DreamFunded.vc as (the “Intermediary”
         The Company’s principal address is <%= @general_info.address %>
      </div>
      <div class=' formc_margin30 formc-row '>
-        The Company’s principal address is <%= @general_info.phone %>
+        The Company’s telephone number is <%= @general_info.phone %>
      </div>
 </section>
 
@@ -1235,6 +1235,6 @@ The Offering is being made through www.DreamFunded.vc as (the “Intermediary”
 
 <script>
     setTimeout(function(){
-        window.location = "http://localhost:3000/formc/print/20.pdf";
+        window.location = "http://localhost:3000/formc/print/<%= @general_info.id %>.pdf";
     }, 3000);
 </script>

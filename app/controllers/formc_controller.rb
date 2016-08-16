@@ -74,8 +74,8 @@ class FormcController < ApplicationController
   def financials_save
      @general_info = GeneralInfo.find(params[:id])
      @general_info.update(general_info_params)
-     redirect_to action: :print, id: @general_info.id
-
+     @general_info.update(completed: true)
+     redirect_to edit_campaign_path(@general_info.company.campaign.id)
   end
 
   def print

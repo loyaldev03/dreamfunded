@@ -92,6 +92,7 @@ class CampaignsController < ApplicationController
   def edit_campaign
     @campaign = Campaign.find(params[:id])
     @company = @campaign.company
+    @formc = @company.general_infos.last
     @members = @company.founders
   end
 

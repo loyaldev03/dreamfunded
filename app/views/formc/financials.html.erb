@@ -2,10 +2,10 @@
 <div class= "wrapper">
   <div class="header education-center">
     <div class='education-title'>Form C Editor</div>
-    <a href="#" class='education-links '>General</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links'>People</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links '>Terms</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links '> Disclosures</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link '>General</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link'>People</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link '>Terms</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link '> Disclosures</a> <%= fa_icon "chevron-right"%>
     <span href="#" class='education-links active-link'> Financial Info </span><%= fa_icon "chevron-right"%>
     <span href="#" class='education-links disabled-link'> Sign & Submit </span>
   </div>
@@ -105,4 +105,11 @@
     <% end %>
   </div>
 </div>
+<script type="text/javascript">
+  $("#submit-button").on('click', function(e){
 
+    $("form").submit();
+    console.log('form submitted');
+    window.location = "/";
+  })
+</script>

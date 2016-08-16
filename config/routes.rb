@@ -65,6 +65,8 @@ Rails.application.routes.draw do
   get '/edit_campaign/:id', to: 'campaigns#edit_campaign', as: 'edit_campaign'
   patch '/update_campaign', to: 'campaigns#update_campaign'
 
+  get 'formc/print/:id', to: "formc#print", as: 'formc'
+
 
   match "/diversity-tech-angels-earn-wings/" => redirect("https://dreamfundedsf.wpengine.com/diversity-tech-angels-earn-wings/"), via: 'get'
 

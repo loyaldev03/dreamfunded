@@ -25,7 +25,9 @@
             <% end %>
 
         <div class= "video-box">
-          <% if @company.video_link.empty? || @company.video_link == nil %>
+          <% if @company.video_link == nil %>
+            <%= image_tag( @company.image.url, class: 'image-max-width')%>
+          <% elsif @company.video_link.empty? %>
             <%= image_tag( @company.image.url, class: 'image-max-width')%>
           <% else %>
             <iframe  class='youtube-video' src= <%= @company.video_link %> frameborder="0" allowfullscreen ></iframe>
@@ -33,9 +35,16 @@
           <div>
             <%= f.submit "Update", :class => 'invest-button' %>
           </div>
+            <% if @formc.try(:completed) %>
+              <p>
+                <%= image_tag "static/pdf_icon.png"%>
+                <%= link_to "#{@company.name} Form C ", formc_path(id: 24, format: 'pdf'), target: '_blank', class: 'document-url' %>
+              </p>
+            <% end %>
           <div>
-            <%= link_to "Forc C Editor", "/formc/general", :class => 'invest-button', id: 'formc-button' %>
+            <%= link_to "Form C Editor", "/formc/general", :class => 'invest-button', id: 'formc-button' %>
           </div>
+
         </div>
       </div>
       <div class= "stats-container">
