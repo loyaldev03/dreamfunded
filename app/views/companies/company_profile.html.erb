@@ -9,92 +9,103 @@
 				<div>	<%= @company.name %>  </div>
 				<div class='company-slogan'>	<%= @company.campaign.tagline %>  </div>
 				<div class='company-location'><i class="fa fa-map-marker"></i> <%= @company.campaign.place %> </div>
+
 			</section>
+		</div>
+
+		<div class='company-info-right-panel'>
+			<div class='company-info-cateogry'>RAISED</div>
+				<div class='company-finance-info'><%= number_to_currency @company.invested, precision: 0 %></div>
+
+			<div class='company-info-cateogry'>TARGET</div>
+				<div class='company-finance-info'><%= number_to_currency @company.goal_amount, precision: 0 %></div>
+
+			<div class='company-info-cateogry'>DAYS LEFT</div>
+				<div class='company-finance-info'> 150 </div>
+
+			<div class='company-info-cateogry'>minimum investment</div>
+				<div class='company-finance-info'> $60 </div>
+
+			<div class="meter orange">
+				<% @progress = ((@company.invested.to_f / @company.goal_amount.to_f).to_f) *100 %>
+				<% if @progress == 0 %>
+					<span class= "front" style="width: 5px"></span>
+				<% elsif @progress > 100 %>
+					<span style= 'width: 100%'></span>
+				<% else %>
+			 		<span style='width: <%= @progress %>%'></span>
+			 	<% end %>
+			</div>
+			<div class='company-info-cateogry percent-funded'><%= @progress.to_i %>% funded</div>
+
+			<div class='fund-america-invest-button'>
+				<button type="button" class="company-button profile-button mail-to-button"
+					data-fa-invest-now="yKtSeWqpFSJxWtudfamF7Xd2REbskcMf:L37LGRxzQy2PIa0pDIKWhA"
+					data-fa-referrer="">
+					Invest in <%= @company.name %>
+				</button>
+			</div>
 		</div>
 	</section>
 
-		<div class= "word-content">
-			<div class="text-content stretch">
-			<div class= "topbar">
+		<div class='grey-section'>
+			<div class=" stretch">
+				<!-- A D M I N   E D I T I N G -->
+					<%# if current_user != nil && current_user.authority == authority[:Admin] %>
+						<%#= link_to 'Edit', {:controller => 'companies', :action => 'edit_profile', :id => @id }, {:class => 'left'} %>
+					<%# end %>
+					<%# if current_user == @company.user %>
+						<%#= link_to 'Edit My Campaign', {:controller => 'campaigns', :action => 'edit_campaign', :id => @company.campaign.id}, {:class => 'right'} %>
+					<%# end %>
 
-				<%= link_to "↩  Back", :back,  {:class => 'darkblue hide-on-mobile'} %>
-				<% if current_user != nil && current_user.authority == authority[:Admin] %>
-					<%= link_to 'Edit', {:controller => 'companies', :action => 'edit_profile', :id => @id }, {:class => 'left'} %>
-				<% end %>
-				<% if current_user == @company.user %>
-				<%= link_to 'Edit My Campaign', {:controller => 'campaigns', :action => 'edit_campaign', :id => @company.campaign.id}, {:class => 'right'} %>
-				<% end %>
-			</div>
-			<div class= "company-title ">
-				<span class= "darkblue ">
-					<span> <%= @company.name %>, </span>
-					<span class= "darkblue twenty indent"><%= @company.campaign.tagline %> </span>
-					<div class='company_located'><i class="fa fa-map-marker"></i> <%= @company.campaign.place %> </div>
-				</span>
-				<div class= "video-box">
-					<% if @company.video_link.empty? %>
-						<%= image_tag( @company.image.url, class: 'image-max-width')%>
-					<% else %>
-						<iframe  class='youtube-video' src= <%= @company.video_link %> frameborder="0" allowfullscreen ></iframe>
-					<% end %>
+				<div >
+					<section class= "video-box">
+						<h2 class='section-title'>Who We Are?</h2>
+						<% if @company.video_link.empty? %>
+							<%= image_tag( @company.image.url, class: 'image-max-width')%>
+						<% else %>
+							<iframe  class='youtube-video' src= <%= @company.video_link + "?rel=0" %> frameborder="0" allowfullscreen ></iframe>
+						<% end %>
+					</section>
+
+					<section class='social-media-campaign'>
+						<p class='help-our-campaign'>
+							Help us reach our goal. <br>Share our campaing to your friend and family.
+						</p>
+						<section class='centered'>
+							<a id='facebook' class="share-invites-social" href='#'> <i class="fa fa-facebook"></i></a>
+							<script type="text/javascript">
+							  $('#facebook').click(function(){
+							    FB.ui({
+							      method: 'share',
+							      href: "https://dreamfunded.vc/companies/company_profile/<%= @company.id %>",
+							      redirect_uri: "https://dreamfunded.vc/companies/company_profile/<%= @company.id %>",
+							      quote: "Invest in <%= @company.name %> "
+							    }, function(response){});
+
+							  })
+							</script>
+							<a id="twitter" class="share-invites-social" target="_blank"
+							 href="http://twitter.com/intent/tweet?text=Invest%20in%20<%= @company.name%>%20on%20https://dreamfunded.vc/companies/company_profile/<%= @company.id %>"
+							  title="Share via Twitter">
+							    <i class="fa fa-twitter"></i>
+							</a>
+
+							<a id ='linkedin' class="share-invites-social" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;ro=false&amp;trk=bookmarklet&amp;title=Invest%in%<%= @company.name%>&amp;url=https://dreamfunded.vc/companies/company_profile/<%= @company.id %>" target="_blank" title="Share via LinkedIn" >
+							    <i class="fa fa-linkedin"></i>
+							</a>
+
+							<div class='company-info-cateogry campaign-website'>
+								<a class='website-url'><%= @company.website_link %></a>
+							</div>
+
+						</section>
+					</section>
 				</div>
 			</div>
-			<div class= "stats-container">
-				<div class= "profile-image-wrap"> <%=  image_tag( @company.image.url, :class => "stats-image") %></div>
-				<div class= "numbers"><div class= "numbers-content">
-					<div class="meter orange">
-						<% @progress = ((@company.invested.to_f / @company.goal_amount.to_f).to_f) *100 %>
-						<% if @progress == 0 %>
-							<span class= "front" style="width: 5px"></span>
-						<% elsif @progress > 100 %>
-							<span style= 'width: 100%'></span>
-						<% else %>
-					 		<span style='width: <%= @progress %>%'></span>
-					 	<% end %>
-					</div><br>
-					<div class= 'statistics'>
-							<div>
-								<p class= "twenty no-margin center"><span class= "darkblue twenty">Status: </span> <%= @company.get_status %><br><br></p>
-							</div>
-					<% if @company.status == 2 %>
-							<div>
-								<p class= "twenty no-margin center"><span class= "darkblue twenty">Invested: </span><%= number_to_currency @company.invested, precision: 0 %><br><br> </p>
-							</div>
-							<div>
-								<p class= "twenty no-margin center"><span class= "darkblue twenty">Goal Amount: </span> <%= number_to_currency @company.goal_amount, precision: 0 %><br><br></p>
-							</div>
+		</div>
 
-						<div>
-							<p class= "twenty no-margin center"><span class= "darkblue twenty">Days Left: </span><%= @company.left_days %><br><br></p>
-						</div>
-
-
-							<div>
-								<p class= "twenty no-margin center"><span class= "darkblue twenty">Number of Employees: </span><%= @company.campaign.employees_numer %><br><br></p>
-							</div>
-
-							<div>
-								<p class= "twenty no-margin center"><span class= "darkblue twenty">Category: </span><%= @company.campaign.category %><br><br></p>
-							</div>
-
-					<% end %>
-					</div>
-
-				</div></div>
-				<% if @company.status == 2 && @company.display != 0 %>
-					<%= link_to "Invest in #{@company.name}", "/personal_info/#{@company.name}", :class => "company-button profile-button mail-to-button", target: "_blank" %>
-					<button type="button" class="company-button profile-button mail-to-button"
-						data-fa-invest-now="yKtSeWqpFSJxWtudfamF7Xd2REbskcMf:L37LGRxzQy2PIa0pDIKWhA"
-						data-fa-referrer="">
-						INVEST NOW
-					</button>
-				<% elsif @company.status == 1 %>
-					<%= mail_to "manny@dreamfunded.com", "Join The Waitlist", subject: "I want to invest in #{@company.name}", :class => "company-button profile-button mail-to-button" %>
-
-				<% else %>
-					<%= button_to "Invest in #{@company.name}", nil, :class => "company-button profile-button", :disabled => true %>
-				<% end %>
-			</div>
+		<div class='white-section'>
 
 			<div class= "description-container">
 
