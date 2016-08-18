@@ -1,10 +1,20 @@
-<html>
-	<head>
-		<% title "DreamFunded | #{@company.name}" %>
-	</head>
+<% title "DreamFunded | #{@company.name}" %>
 
-	<body>
-		<div class= "word-content"><div class="text-content stretch">
+
+	<section class='company-cover-photo' style="background-image:url(<%= @company.cover.url%>)" >
+
+		<div class='company-profile-bottom-line'>
+			<%= image_tag( @company.image.url, class: 'image-max-width company-logo')%>
+			<section class='company-basic-info'>
+				<div>	<%= @company.name %>  </div>
+				<div class='company-slogan'>	<%= @company.campaign.tagline %>  </div>
+				<div class='company-location'><i class="fa fa-map-marker"></i> <%= @company.campaign.place %> </div>
+			</section>
+		</div>
+	</section>
+
+		<div class= "word-content">
+			<div class="text-content stretch">
 			<div class= "topbar">
 
 				<%= link_to "↩  Back", :back,  {:class => 'darkblue hide-on-mobile'} %>
@@ -294,9 +304,7 @@
 		 	display: none;
 		}
 		</style>
-	</body>
 
-</html>
 
 <script>
 	$(document).ready(function() {

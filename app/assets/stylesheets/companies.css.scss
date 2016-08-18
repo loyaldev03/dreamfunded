@@ -12,6 +12,48 @@
 .gray {
 	color: $lightgray;
 }
+.company-cover-photo {
+  min-height: 450px;
+  height: 450px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.company-logo{
+  width: 150px;
+}
+.company-profile-bottom-line{
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+}
+.company-basic-info {
+  font-size: 2em;
+  font-weight: bold;
+  font-family: Gotham, sans-serif;
+  letter-spacing: -1px;
+  color: #fff;
+  padding-left: 15px;
+  padding-top: 15px;
+  display: inline-block;
+  vertical-align: top;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+.company-slogan{
+  font-weight: 500;
+  font-family: Arial;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  font-style: italic;
+}
+.company-location{
+  font-size: 15px;
+  font-family: Arial;
+  letter-spacing: 0;
+  font-weight: 100;
+}
 
 .edit-profile-campaign{
   width: 60%;

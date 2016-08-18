@@ -50,7 +50,7 @@
       <div class= "stats-container">
         <div class= "profile-image-wrap"> <%= link_to image_tag(@company.image.url, :class => "stats-image"), @company.website_link %></div>
         <div class='center'><span class= "darkblue twenty">Change Image: </span><%= f.file_field "image" %></br></br></div>
-
+        <div class='center'><span class= "darkblue twenty">Background Cover: </span><%= f.file_field "cover" %></br></br></div>
 
         <div class= "numbers"><div class= "numbers-content">
           <div class="meter orange">
