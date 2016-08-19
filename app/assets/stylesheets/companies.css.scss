@@ -17,12 +17,30 @@
   padding: 5% 12%;
   padding-bottom: 0;
 }
+.white-section{
+  background-color: #fff;
+  padding-top: 18px;
+}
+.nav-links {
+
+}
+.nav-links a{
+    font-size: 15px;
+    font-weight: bold;
+    padding-bottom: 3px;
+    font-family: 'Gotham',sans-serif;
+    color: #424242;
+    -webkit-font-smoothing: antialiased;
+}
 .company-cover-photo {
   min-height: 450px;
   height: 450px;
   background-size: cover;
   background-position: center;
   position: relative;
+}
+.nav-links{
+  text-align: center;
 }
 .company-logo{
   width: 150px;
@@ -58,6 +76,13 @@
   -webkit-font-smoothing: antialiased;
   text-align: center;
   font-size: 30px;
+}
+.category-name{
+  font-family: Gotham, sans-serif;
+  color: rgb(66, 66, 66);
+  -webkit-font-smoothing: antialiased;
+  text-align: left;
+  font-size: 25px;
 }
 .company-profile-bottom-line{
   position: absolute;
@@ -154,7 +179,7 @@
 .tab-name{
  font-weight: bold;
  padding: 3px;
- margin-right: 15px;
+ margin-right: 60px;
  margin-bottom: 25px;
  cursor: pointer;
 }
@@ -163,6 +188,20 @@
 }
 .tab-content{
   display: none;
+  width: 76%;
+  max-width: 800px;
+  margin-left: 12%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+.tab-content p{
+  text-align: justify;
+  font-size: 16px;
+  line-height: 1.8;
+  letter-spacing: .1px;
+  font-family: GothamBook;
+  color: #4b4b4b
 }
 .about_tab_content{
   display: block;

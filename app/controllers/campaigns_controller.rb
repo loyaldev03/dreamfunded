@@ -111,7 +111,7 @@ class CampaignsController < ApplicationController
   end
 
   def company_params
-     params.require(:company).permit(:image, :cover, :name, :description, :video_link, :user_id, :goal_amount, :website_link,
+     params.require(:company).permit(:image, :id, :cover, :name, :description, :video_link, :user_id, :goal_amount, :website_link,
                      campaign_attributes: [:tagline, :elevator_pitch, :about_campaign, :id, :category, :employees_numer, :company_location_city, :company_location_state],
                      founders_attributes: [:id, :image, :name, :position, :content, :company_id, :created_at, :updated_at, :_destroy],
                      financial_detail_attributes: ["offering_terms", "fin_risks", "income", "totat_income", "total_taxable_income",

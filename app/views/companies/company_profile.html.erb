@@ -58,7 +58,7 @@
 						<%#= link_to 'Edit My Campaign', {:controller => 'campaigns', :action => 'edit_campaign', :id => @company.campaign.id}, {:class => 'right'} %>
 					<%# end %>
 
-				<div >
+				<div>
 					<section class= "video-box">
 						<h2 class='section-title'>Who We Are?</h2>
 						<% if @company.video_link.empty? %>
@@ -96,35 +96,39 @@
 							</a>
 
 							<div class='company-info-cateogry campaign-website'>
-								<a class='website-url'><%= @company.website_link %></a>
+
+								<%= link_to @company.website_link, "http://"+@company.website_link, class: 'website-url', target: '_blank' %>
 							</div>
 
 						</section>
 					</section>
 				</div>
 			</div>
+
 		</div>
 
 		<div class='white-section'>
-
 			<div class= "description-container">
+				<section class='nav-links'>
+					<a  class='tab-name about_tab active-tab'>Company</a>
+					<a  class='tab-name   ' id='team_tab'>Team</a>
+					<a  class='tab-name   ' id='finances_tab'>Financial Info</a>
+					<a  class='tab-name   ' id='comments_tab'>Comments</a>
+					<a  class='tab-name   ' id='comments_tab'>Documents</a>
 
-
-				<a  class='tab-name about_tab active-tab darkblue twentyf'>Company</a>
-				<a  class='tab-name  darkblue twentyf' id='team_tab'>Team</a>
-				<a  class='tab-name  darkblue twentyf' id='finances_tab'>Finances & Risks</a>
+				</section>
 
 				<div class='about_tab_content tab-content'>
-					<h2 class= "darkblue category-name indent">Highlight</h2>
+					<h2 class= " category-name indent">Highlight</h2>
 					<hr>
 					<p class= "fifteen"><%= @company.description.html_safe %></p>
 					<br>
-					<h2 class= "darkblue category-name indent">Why <%= @company.name %></h2>
+					<h2 class= " category-name indent">Why <%= @company.name %></h2>
 					<hr>
 					<p><%= @company.campaign.elevator_pitch.html_safe  if @company.campaign.elevator_pitch %></p>
 
 					<br>
-					<h2 class= "darkblue category-name indent">Our Mission</h2>
+					<h2 class= " category-name indent">Our Mission</h2>
 					<hr>
 					<p><%= @company.campaign.about_campaign.html_safe if @company.campaign.about_campaign %></p>
 				</div>
