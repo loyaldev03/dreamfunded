@@ -27,7 +27,7 @@
 }
 
 .team-member-bio {
-    font-size: 15px;
+    font-size: 14px !important;
 }
 
 .company-income{
@@ -38,6 +38,26 @@
     display: inline-block;
     margin-right: 50px;
 }
-.company-income div{
+
+.company-income div,.company-income span {
     line-height: 1.7;
+}
+
+.fin-info-numbers{
+    display: block;
+    margin-left: 55px;
+}
+
+.company-income-data{
+    margin-left: auto;
+    margin-right: auto;
+    width: 340px;
+}
+
+.company-income-value{
+    font-size: 14px;
+    font-family: GothamBook;
+}
+.italic{
+    font-style: italic;
 }

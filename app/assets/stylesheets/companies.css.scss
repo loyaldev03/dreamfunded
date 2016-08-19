@@ -211,7 +211,12 @@
 }
 .fin_info_col1, .fin_info_col2, .fin_info_col3{
   display: inline-block;
-  width: 25%;
+  width: 30%;
+  margin-right: 0 !important;
+  font-family: GothamBook;
+}
+.fin_info_col1{
+  margin-left: 50px;
 }
 .companies-container {
 	display: table;
