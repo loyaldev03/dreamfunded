@@ -1,0 +1,30 @@
+.company-members{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    display: block;
+}
+
+.team-member-box{
+    display: inline-block;
+    width: 350px;
+    text-align: center;
+    text-align: -webkit-center;
+}
+
+.team-member-name {
+    font-size: 15px;
+    font-family: 'Gotham',sans-serif;
+    color: #424242;
+    margin-top: 11px;
+}
+
+.team-member-title {
+    font-family: 'Gotham',sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.team-member-bio {
+    font-size: 15px;
+}
