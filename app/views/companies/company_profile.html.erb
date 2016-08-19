@@ -112,8 +112,8 @@
 					<a  class='tab-name about_tab active-tab'>Company</a>
 					<a  class='tab-name   ' id='team_tab'>Team</a>
 					<a  class='tab-name   ' id='finances_tab'>Financial Info</a>
-					<a  class='tab-name   ' id='comments_tab'>Comments</a>
 					<a  class='tab-name   ' id='documents_tab'>Documents</a>
+					<a  class='tab-name   ' id='comments_tab'>Comments</a>
 				</section>
 
 				<div class='about_tab_content tab-content'>
@@ -154,30 +154,22 @@
 				</div>
 
 				<div class='finance_tab_content tab-content'>
-					<h2 class= " category-name indent">Offering Terms</h2>
-					<hr>
-					<p class= "fifteen"><%= @financial_details.offering_terms.html_safe %></p>
-
-					<h2 class= " category-name indent">Financial Risks</h2>
-					<hr>
-					<p class= "fifteen"><%= @financial_details.fin_risks.html_safe %></p>
-					<hr>
 					<h2 class= " category-name indent">Income</h2>
-					<div>
-						<span>Total Income: </span>
-						<%= number_to_currency @financial_details.totat_income, precision: 0 %>
-					</div>
-
-					<div>
-						<span>Total Taxable: </span>
-						<%= number_to_currency @financial_details.total_taxable_income, precision: 0 %>
-					</div>
-
-					<div>
-						<span>Total Taxes Paid: </span>
-						<%= number_to_currency @financial_details.total_taxes_paid, precision: 0 %>
-					</div>
 					<hr>
+
+					<div class='company-income inline-block'>
+						<div>Total Income:</div>
+						<div>Total Taxable:</div>
+						<div>Total Taxes Paid:</div>
+					 </div>
+
+					 <div class='company-income'>
+					 	<div>$<%= dollar_format @financial_details.totat_income %></div>
+					 	<div>$<%= dollar_format @financial_details.total_taxable_income %></div>
+					 	<div>$<%= dollar_format @financial_details.total_taxes_paid %></div>
+					  </div>
+					<br><hr><br>
+
 					<div>
 						<div class='fin_info_col1'>
 							<span></span><br>
@@ -226,7 +218,17 @@
 						</div>
 
 					</div>
+
+					<h2 class= " category-name indent">Offering Terms</h2>
 					<hr>
+					<p class= "fifteen"><%= @financial_details.offering_terms.html_safe %></p>
+
+					<h2 class= " category-name indent">Financial Risks</h2>
+					<hr>
+					<p class= "fifteen"><%= @financial_details.fin_risks.html_safe %></p>
+
+
+
 
 					<% if @financial_details.balance_sheet_file_name %>
 						<p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Balance Sheet", @financial_details.balance_sheet.url, target: "_blank", class: 'document-url' %></p>
@@ -277,6 +279,15 @@
 					<% end %>
 				</div>
 
+				<div class='documents_tab_content tab-content'>
+					<% @company.documents.each do |doc| %>
+						<p class= "no-margin doc_name_overflow">
+							<%= image_tag "static/pdf_icon.png" %>
+							<%= link_to doc.file_file_name, doc.file.url, target: "_blank", class: 'document-url' %>
+						</p>
+					<% end %>
+				</div>
+
 				<div class='comments_tab_content tab-content' >
 					<div class='comments'>
 						<%= nested_messages(@comments.arrange(:order => :created_at))%>
@@ -308,9 +319,7 @@
 						<%end%>
 				</div>
 
-				<div class='documents_tab_content tab-content'>
 
-				</div>
 			</div>
 
 

@@ -1,9 +1,9 @@
 class ContactMailer < ActionMailer::Base
-  default from: "RealtyReturns <info@dreamfunded.vc>"
+  default from: "DreamFunded <info@dreamfunded.vc>"
 
   def welcome_email(user)
     @user = user
-    mail(to: user.email, subject: "Welcome to RealtyReturns")
+    mail(to: user.email, subject: "Welcome to DreamFunded")
   end
 
   def reset_email(user)
@@ -21,7 +21,7 @@ class ContactMailer < ActionMailer::Base
     @email= email
     @phone = phone
     @message = message
-    mail(to: "info@dreamfunded.vc", subject: 'Guest Contacted From RealtyReturns website')
+    mail(to: "info@dreamfunded.vc", subject: 'Guest Contacted From DreamFunded website')
   end
 
   def account_created(user)
@@ -33,7 +33,7 @@ class ContactMailer < ActionMailer::Base
   def personal_hello(user)
     @name = user.first_name
     @email= user.email
-    mail(to: @email, subject: 'Following up', from: 'Manny Fernandez <rexford@realtyreturns.com>')
+    mail(to: @email, subject: 'Following up', from: 'Manny Fernandez <manny@dreamfunded.com>')
   end
 
   def reset_password_request(user)
