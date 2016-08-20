@@ -61,3 +61,32 @@
 .italic{
     font-style: italic;
 }
+
+
+/*M O B I L E*/
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+    .company-info-right-panel{
+        right: 0;
+        width: 50%;
+        height: 100%;
+    }
+    .company-cover-photo{
+        height: 650px;
+    }
+    .company-profile-bottom-line{
+        bottom: 5%;
+        left: 5%;
+    }
+    .company-basic-info{
+        font-size: 2.5em;
+    }
+    .company-slogan{
+        font-size: .7em;
+    }
+    .company-location {
+        font-size: 0.6em;
+    }
+}
