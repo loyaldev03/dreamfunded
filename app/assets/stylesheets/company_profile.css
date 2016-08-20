@@ -1,0 +1,92 @@
+.company-members{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    display: block;
+}
+
+.team-member-box{
+    display: inline-block;
+    width: 350px;
+    text-align: center;
+    text-align: -webkit-center;
+}
+
+.team-member-name {
+    font-size: 15px;
+    font-family: 'Gotham',sans-serif;
+    color: #424242;
+    margin-top: 11px;
+}
+
+.team-member-title {
+    font-family: 'Gotham',sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+    color: #4b4b4b;
+}
+
+.team-member-bio {
+    font-size: 14px !important;
+}
+
+.company-income{
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #424242 !important;
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 50px;
+}
+
+.company-income div,.company-income span {
+    line-height: 1.7;
+}
+
+.fin-info-numbers{
+    display: block;
+    margin-left: 55px;
+}
+
+.company-income-data{
+    margin-left: auto;
+    margin-right: auto;
+    width: 340px;
+}
+
+.company-income-value{
+    font-size: 14px;
+    font-family: GothamBook;
+}
+.italic{
+    font-style: italic;
+}
+
+
+/*M O B I L E*/
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+    .company-info-right-panel{
+        right: 0;
+        width: 50%;
+        height: 100%;
+    }
+    .company-cover-photo{
+        height: 650px;
+    }
+    .company-profile-bottom-line{
+        bottom: 5%;
+        left: 5%;
+    }
+    .company-basic-info{
+        font-size: 2.5em;
+    }
+    .company-slogan{
+        font-size: .7em;
+    }
+    .company-location {
+        font-size: 0.6em;
+    }
+}

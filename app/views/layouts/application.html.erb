@@ -45,15 +45,22 @@
 	  <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6033653694759&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
 
 		<!-- facebook code -->
-		<div id="fb-root"></div>
 		<script>
-			(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) return;
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=208256392895631";
-		  fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
+		  window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : '310245845991533',
+		      xfbml      : true,
+		      version    : 'v2.7'
+		    });
+		  };
+
+		  (function(d, s, id){
+		     var js, fjs = d.getElementsByTagName(s)[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement(s); js.id = id;
+		     js.src = "//connect.facebook.net/en_US/sdk.js";
+		     fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
 		</script>
 		<!-- facebook end -->
 
