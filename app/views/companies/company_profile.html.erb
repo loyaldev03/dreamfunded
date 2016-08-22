@@ -81,7 +81,8 @@
 							      method: 'share',
 							      href: "https://dreamfunded.vc/companies/company_profile/<%= @company.id %>",
 							      redirect_uri: "https://dreamfunded.vc/companies/company_profile/<%= @company.id %>",
-							      quote: "Invest in <%= @company.name %>",
+							      quote: "Invest in <%= @company.name %> on DreamFunded",
+							      title: "<%= @company.name %>",
 							      picture: "<%= @company.image.url %>",
 							      description: "<%= @company.campaign.tagline %>"
 							    }, function(response){});
