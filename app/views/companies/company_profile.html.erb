@@ -4,13 +4,13 @@
 <% facebook_og_title @company.name %>
 <% facebook_url("https://dreamfunded.vc/companies/company_profile/#{@company.id}")%>
 
-<% facebook_image @company.image.url %>
-<% facebook_secure_image @company.image.url %>
+<% facebook_image @company.cover.url %>
+<% facebook_secure_image @company.cover.url %>
 
 
 
 
-	<section class='company-cover-photo' style="background-image:url(<%= @company.cover.url%>)" >
+	<section class='company-cover-photo' style="background-image:url(<%= @company.cover.url %>)" >
 
 		<div class='company-profile-bottom-line'>
 			<%= image_tag( @company.image.url, class: 'image-max-width company-logo')%>
@@ -91,7 +91,6 @@
 							      redirect_uri: "https://dreamfunded.vc/companies/company_profile/<%= @company.id %>",
 							      quote: "Invest in <%= @company.name %> on DreamFunded",
 							      title: "<%= @company.name %>",
-							      picture: "<%= @company.image.url %>",
 							      description: "<%= @company.campaign.tagline %>"
 							    }, function(response){});
 
