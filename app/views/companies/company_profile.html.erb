@@ -1,6 +1,8 @@
 <% title "DreamFunded | #{@company.name}" %>
 <% meta_tag @company.campaign.tagline %>
+
 <% facebook_og_title @company.name %>
+<% facebook_url("https://dreamfunded.vc/companies/company_profile/#{@company.id}")%>
 
 <% facebook_image @company.image.url %>
 <% facebook_secure_image @company.image.url %>
