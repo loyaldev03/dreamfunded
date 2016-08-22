@@ -1,6 +1,12 @@
 <% title "DreamFunded | #{@company.name}" %>
- <% meta_tag @company.campaign.tagline %>
- <% facebook_og_title @company.name %>
+<% meta_tag @company.campaign.tagline %>
+<% facebook_og_title @company.name %>
+
+<% facebook_image @company.image.url %>
+<% facebook_secure_image @company.image.url %>
+
+
+
 
 	<section class='company-cover-photo' style="background-image:url(<%= @company.cover.url%>)" >
 

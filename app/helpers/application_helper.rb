@@ -12,6 +12,14 @@ module ApplicationHelper
     content_for :og_title, name.to_s
   end
 
+  def facebook_image(url)
+    content_for :facebook_image, url
+  end
+
+  def facebook_secure_image(url)
+    content_for :facebook_secure_image, url
+  end
+
   def facebook_url(url)
     content_for :url, url.to_s
   end
