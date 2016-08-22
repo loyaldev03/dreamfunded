@@ -1,5 +1,6 @@
 <% title "DreamFunded | #{@company.name}" %>
-
+ <% meta_tag @company.campaign.tagline %>
+ <% facebook_og_title @company.name %>
 
 	<section class='company-cover-photo' style="background-image:url(<%= @company.cover.url%>)" >
 
@@ -80,7 +81,9 @@
 							      method: 'share',
 							      href: "https://dreamfunded.vc/companies/company_profile/<%= @company.id %>",
 							      redirect_uri: "https://dreamfunded.vc/companies/company_profile/<%= @company.id %>",
-							      quote: "Invest in <%= @company.name %> "
+							      quote: "Invest in <%= @company.name %>",
+							      picture: "<%= @company.image.url %>",
+							      description: "<%= @company.campaign.tagline %>"
 							    }, function(response){});
 
 							  })
