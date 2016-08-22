@@ -55,6 +55,10 @@
 
       <label>Company Logo</label>
       <%= f.file_field :image, required:true %>
+      <br><br>
+
+      <label>Cover Photo (Background)</label>
+      <%= f.file_field :cover %>
 
       <h3>Management Team</h3>
       <%= f.fields_for :founders do |founder| %>

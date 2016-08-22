@@ -4,8 +4,8 @@
 <% facebook_og_title @company.name %>
 <% facebook_url("https://dreamfunded.vc/companies/company_profile/#{@company.id}")%>
 
-<% facebook_image @company.cover.url %>
-<% facebook_secure_image @company.cover.url %>
+<% facebook_image "sf_bg.jpg" %>
+<% facebook_secure_image "sf_bg.jpg" %>
 
 
 
@@ -61,10 +61,10 @@
 			<div class=" stretch">
 				<!-- A D M I N   E D I T I N G -->
 					<%# if current_user != nil && current_user.authority == authority[:Admin] %>
-						<%#= link_to 'Edit', {:controller => 'companies', :action => 'edit_profile', :id => @id }, {:class => 'left'} %>
+						<%= link_to 'Edit', {:controller => 'companies', :action => 'edit_profile', :id => @id }, {:class => 'left'} %>
 					<%# end %>
 					<%# if current_user == @company.user %>
-						<%#= link_to 'Edit My Campaign', {:controller => 'campaigns', :action => 'edit_campaign', :id => @company.campaign.id}, {:class => 'right'} %>
+						<%= link_to 'Edit My Campaign', {:controller => 'campaigns', :action => 'edit_campaign', :id => @company.campaign.id}, {:class => 'right'} %>
 					<%# end %>
 
 				<div>
