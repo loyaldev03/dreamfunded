@@ -835,4 +835,22 @@ and (max-device-width : 568px) {
   .company-description {
     height: 230px;
   }
+  .company-logo{
+    display: block;
+  }
+  .video-box{
+    display: block;
+  }
+  .social-media-campaign{
+    display: block;
+  }
+  .tab-name{
+    margin-right: 10px;
+  }
+  .nav-links a{
+    font-size: 12px;
+  }
+  .grey-section{
+    padding-bottom: 10%;
+  }
 }
