@@ -1,116 +1,52 @@
 <% title "DreamFunded " %>
-<div class= "wrapper">
+<div class= "wrapper properties">
 
 	<div class= "header"><h1 class= "centered">Investment Opportunities</h1></div>
 
-	<div class= "wrap">
+	<section class='properties-wrapper'>
+		<% @companies.each do |company| %>
 
-	<% if @companies != nil %>
-		<div class= "companies-container">
-			<% @companies.each do |company| %>
-				<% if company.display != 0 %>
-					<div class= "company-container">
-						<% if current_user != nil && current_user.authority == authority[:Admin] %>
-							<%= button_to "X", {action: 'remove_company', id: company.id} , data: { confirm: 'Are you sure?' }, class:'remove-button'%>
-							<span class='company-position'><%= company.position%></span>
-						<% end %>
-						<p class= "twenty no-margin center" >
-							<span class= "darkblue twenty"><%= company.name %> </span>
-						</p>
-						<div class= "company-image"><div class= "image-wrap">
-							<%= link_to image_tag( company.image.url, :class => "image"), {:action => 'company_profile', :id => company.id} %>
-						</div></div>
-						<div class= "company-description">
-							<div class="meter orange">
-								<% @progress = 100 * (company.invested_amount.to_f / company.goal_amount) %>
-								<% @progress = 0 if company.get_status == 'Coming Soon' %>
+			<div class='property-box'>
 
-								<% if @progress == 0 %>
-									<span class= "front" style= "width: 0px"></span>
-								<% elsif @progress > 100 %>
-									<span style= 'width: 100%'></span>
-								<% else %>
-										<span style= 'width: <%= @progress %>%'></span>
-								<% end %>
-							</div>
-							<br>
-							<div class= "left-column">
-								<div>
-									<p class= "twenty no-margin center"> <span class= "darkblue twenty">Status </span><br> <%= company.get_status %> </p>
-								</div>
-								<br>
-								<hr>
-								<div>
-									<p class= "twenty no-margin center"><span class= "darkblue twenty">Invested </span> <br><%= ("$"+ number_with_delimiter(company.invested, :delimiter => ',')) if company.status == 2%></p>
-								</div>
-							</div>
-							<div class= "right-column">
-								<div>
-									<p class= "twenty no-margin center"><span class= "darkblue twenty">Days Left</span><br> <%= company.left_days if company.status == 2 %> 	&nbsp;</p>
-								</div>
-								<br>
-								<hr>
-								<div>
-									<p class= "twenty no-margin center"><span class= "darkblue twenty">Funded</span><br><%= ("%.2f" % @progress  + "%")if company.status == 2 %></p>
-								</div>
-							</div>
-						</div>
-							<div class= "button-wrap"><%= button_to "Learn More",{:action => 'company_profile',  :id => company.id }, {:class => 'company-button twenty'} %>
-							</div>
+				<%= link_to image_tag( company.cover.url, :class => "property-image"), {:action => 'company_profile', :id => company.id} %>
+				<div class='logo-image-wrapper'>
+					<span class="helper"></span>
+					<%= image_tag( company.image.url, :class => "property-logo-image") %>
+				</div>
+
+
+				<br><br><br>
+				<article>
+					<div class='company-campaign-name'><%= company.name %></div>
+					<div class='company-tagline'>
+						<span class='propety-detail-left'><%= company.campaign.tagline %></span>
 					</div>
 
-				<% elsif current_user.authority == authority[:Admin] %>
-					<div class= "company-container gray">
-						<% if current_user != nil && current_user.authority == authority[:Admin] %>
-							<%= button_to "X", {action: 'remove_company', id: company.id} , {:class => 'remove-button'} %>
-						<% end %>
-
-						<div class= "company-image"><div class= "image-wrap">
-							<%= link_to image_tag("companies/#{company.image_file_name}", :class => "image-gray"), {:action => 'company_profile', :id => company.id} %>
-						</div></div>
-						<div class= "company-description">
-							<div class="meter orange">
-								<% @progress = 100 * (company.invested_amount.to_f / company.goal_amount) %>
-								<% if @progress == 0 %>
-									<span class= "front" style= "width: 5px"></span>
-								<% else %>
-										<span style= 'width: <%= @progress %>%'></span>
-								<% end %>
-							</div>
-							<br>
-							<div class= "left-column">
-								<div>
-									<p class= "twenty no-margin center"> <%= company.get_status %> <span class= "darkblue twenty"><br> Status </span> </p>
-								</div>
-								<br>
-								<hr>
-								<div>
-									<p class= "twenty no-margin center">$<%= number_with_delimiter(company.invested_amount, :delimiter => ',') %><br><span class= "darkblue twenty">Invested </span> </p>
-								</div>
-							</div>
-							<div class= "right-column">
-								<div>
-									<p class= "twenty no-margin center"><%= company.left_days if company.status == 2%><br><span class= "darkblue twenty">Days Left</span></p>
-								</div>
-								<br>
-								<hr>
-								<div>
-									<p class= "twenty no-margin center"><%= "%.2f" % @progress %>%<br><span class= "darkblue twenty"><%= company.get_status%><span></p>
-								</div>
-							</div>
-						</div>
-
-						<div class= "button-wrap"><%= button_to "Learn More", {:action => 'company_profile', :id => company.id }, {:class => 'company-button twenty'} %>
-						</div>
+					<div class='property-detail'>
+						<span class='propety-detail-left'>Category</span>
+						<span class='property-detail-right'><%= company.campaign.category %></span>
 					</div>
-				<% end %>
-			<% end %>
-		</div>
-	<% end %>
-	</div>
+
+					<section class='campaigb-basic-numbers'>
+						<div class='company-details-small-box'>
+							<div class='companies-box-name'>Target</div>
+							<div class='companies-box-value'><%= number_to_currency company.goal_amount, precision: 0 %></div>
+						</div>
+						<div class='company-details-small-box'>
+							<div class='companies-box-name'>Raised</div>
+							<div class='companies-box-value'><%= number_to_currency company.invested, precision: 0 %></div>
+						</div>
+						<div class='company-details-small-box'>
+							<div class='companies-box-name'>Days Left</div>
+							<div class='companies-box-value'>89</div>
+						</div>
+					</section>
+
+
+				</article>
+				<%= link_to "Learn More", {:action => 'company_profile', :id => company.id}, class:'invest-link' %>
+			</div>
+		<% end %>
+	</section>
 </div>
-<style>
-.foot-text.darkblue{
- 	display: none;
-}
-</style>
+

@@ -186,6 +186,7 @@ hr {
     padding: 0px;
     position: relative;
     z-index: 1;
+    background-color: transparent;
 }
 
 .foot-bar {
