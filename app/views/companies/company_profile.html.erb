@@ -61,12 +61,15 @@
 		<div class='grey-section'>
 			<div class=" stretch">
 				<!-- A D M I N   E D I T I N G -->
-					<%# if current_user != nil && current_user.authority == authority[:Admin] %>
-						<%#= link_to 'Edit', {:controller => 'companies', :action => 'edit_profile', :id => @id }, {:class => 'left'} %>
-					<%# end %>
-					<%# if current_user == @company.user %>
-						<%#= link_to 'Edit My Campaign', {:controller => 'campaigns', :action => 'edit_campaign', :id => @company.campaign.id}, {:class => 'right'} %>
-					<%# end %>
+				<div class='company-admin-editing'>
+					<% if current_user != nil && current_user.authority == authority[:Admin] %>
+						<%= link_to 'Edit as Admin', {:controller => 'companies', :action => 'edit_profile', :id => @id }, {:class => 'left'} %>
+					<% end %>
+					<br>
+					<% if current_user == @company.user %>
+						<%= link_to 'Edit My Campaign', {:controller => 'campaigns', :action => 'edit_campaign', :id => @company.campaign.id}, {:class => 'right'} %>
+					<% end %>
+				</div>
 
 				<div>
 					<section class= "video-box">
