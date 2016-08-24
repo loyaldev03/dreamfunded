@@ -1,0 +1,398 @@
+<% title "DreamFunded | #{@company.name}" %>
+<% meta_tag @company.campaign.tagline %>
+
+<% facebook_og_title @company.name %>
+<% facebook_url("https://dreamfunded.vc/companies/company_profile/#{@company.id}")%>
+
+<% facebook_image "https://dreamfunded.vc/assets/sf_bg.jpg" %>
+<% facebook_secure_image "https://dreamfunded.vc/assets/sf_bg.jpg" %>
+
+
+
+
+    <section class='company-cover-photo' style="background-image:url(<%= @company.cover.url %>)" >
+
+        <div class='company-profile-bottom-line'>
+            <%= image_tag( @company.image.url, class: 'image-max-width company-logo')%>
+            <section class='company-basic-info'>
+                <div>   <%= @company.name %>  </div>
+                <div class='company-slogan'>    <%= @company.campaign.tagline %>  </div>
+                <div class='company-location'><i class="fa fa-map-marker"></i> <%= @company.campaign.place %> </div>
+
+            </section>
+        </div>
+
+        <div class='company-info-right-panel'>
+            <div class='company-info-cateogry'>RAISED</div>
+                <div class='company-finance-info'><%= number_to_currency @company.invested, precision: 0 %></div>
+
+            <div class='company-info-cateogry'>TARGET</div>
+                <div class='company-finance-info'><%= number_to_currency @company.goal_amount, precision: 0 %></div>
+
+            <div class='company-info-cateogry'>DAYS LEFT</div>
+                <div class='company-finance-info'> 150 </div>
+
+            <div class='company-info-cateogry'>minimum investment</div>
+                <div class='company-finance-info'> $60 </div>
+
+            <div class="meter orange">
+                <% @progress = ((@company.invested.to_f / @company.goal_amount.to_f).to_f) *100 %>
+                <% if @progress == 0 %>
+                    <span class= "front" style="width: 5px"></span>
+                <% elsif @progress > 100 %>
+                    <span style= 'width: 100%'></span>
+                <% else %>
+                    <span style='width: <%= @progress %>%'></span>
+                <% end %>
+            </div>
+            <div class='company-info-cateogry percent-funded'><%= @progress.to_i %>% funded</div>
+
+            <div class='fund-america-invest-button'>
+                <!-- <button type="button" class="company-button profile-button mail-to-button"
+                    data-fa-invest-now="yKtSeWqpFSJxWtudfamF7Xd2REbskcMf:L37LGRxzQy2PIa0pDIKWhA"
+                    data-fa-referrer="">
+                    Invest in <%#= @company.name %>
+                </button> -->
+                <%= mail_to "manny@dreamfunded.com", "Join The Waitlist", subject: "I want to invest in #{@company.name}", :class => "company-button profile-button mail-to-button", target: '_blank' %>
+            </div>
+        </div>
+    </section>
+
+        <div class='grey-section'>
+            <div class=" stretch">
+                <!-- A D M I N   E D I T I N G -->
+                <div class='company-admin-editing'>
+                    <% if current_user != nil && current_user.authority == authority[:Admin] %>
+                        <%= link_to 'Edit as Admin', {:controller => 'companies', :action => 'edit_profile', :id => @id }, {:class => 'left'} %>
+                    <% end %>
+                    <br>
+                    <% if current_user == @company.user %>
+                        <%= link_to 'Edit My Campaign', {:controller => 'campaigns', :action => 'edit_campaign', :id => @company.campaign.id}, {:class => 'right'} %>
+                    <% end %>
+                </div>
+
+                <div style="text-align:center;">
+                    <section class= "video-box">
+                        <h2 class='section-title'>Who We Are?</h2>
+                        <% if @company.video_link.empty? %>
+                            <%= image_tag( @company.image.url, class: 'image-max-width')%>
+                        <% else %>
+                            <iframe  class='youtube-video' src= <%= @company.video_link + "?rel=0" %> frameborder="0" allowfullscreen ></iframe>
+                        <% end %>
+                    </section>
+
+                    <section class='social-media-campaign'>
+                        <p class='help-our-campaign'>
+                            Help us reach our goal. <br>Share our campaing to your friends and family.
+                        </p>
+                        <section class='centered'>
+                            <a id='facebook' class="share-invites-social" href='#'> <i class="fa fa-facebook"></i></a>
+                            <script type="text/javascript">
+                              $('#facebook').click(function(){
+                                FB.ui({
+                                  method: 'share',
+                                  href: "https://dreamfunded.vc/companies/<%= @company.slug %>",
+                                  redirect_uri: "https://dreamfunded.vc/companies/company_profile/<%= @company.id %>",
+                                  // quote: "Invest in <%= @company.name %> on DreamFunded",
+                                  title: "<%= @company.name %>",
+                                  description: "<%= @company.campaign.tagline %>"
+                                }, function(response){});
+
+                              })
+                            </script>
+                            <a id="twitter" class="share-invites-social" target="_blank"
+                             href="http://twitter.com/intent/tweet?text=Invest%20in%20<%= @company.name%>%20on%20https://dreamfunded.vc/companies/<%= @company.slug %>"
+                              title="Share via Twitter">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+
+                            <a id ='linkedin' class="share-invites-social" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;ro=false&amp;trk=bookmarklet&amp;title=Invest%in%<%= @company.name%>&amp;url=https://dreamfunded.vc/companies/<%= @company.slug %>" target="_blank" title="Share via LinkedIn" >
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+
+                            <div class='company-info-cateogry campaign-website'>
+                                <%= link_to @company.website_link, "http://"+@company.website_link, class: 'website-url', target: '_blank' %>
+                            </div>
+
+                        </section>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+
+        <div class='white-section'>
+            <div class= "description-container">
+                <section class='nav-links'>
+                    <a  class='tab-name about_tab active-tab'>Company</a>
+                    <a  class='tab-name   ' id='team_tab'>Team</a>
+                    <a  class='tab-name   ' id='finances_tab'>Financial Info</a>
+                    <a  class='tab-name   ' id='documents_tab'>Documents</a>
+                    <a  class='tab-name   ' id='comments_tab'>Comments</a>
+                </section>
+
+                <div class='about_tab_content tab-content'>
+                    <h2 class= " category-name indent">Highlight</h2>
+                    <hr>
+                    <p class= "fifteen"><%= @company.description.html_safe %></p>
+                    <br>
+                    <h2 class= " category-name indent">Why <%= @company.name %></h2>
+                    <hr>
+                    <p><%= @company.campaign.elevator_pitch.html_safe  if @company.campaign.elevator_pitch %></p>
+
+                    <br>
+                    <h2 class= " category-name indent">Our Mission</h2>
+                    <hr>
+                    <p><%= @company.campaign.about_campaign.html_safe if @company.campaign.about_campaign %></p>
+                </div>
+
+                <div class='team_tab_content tab-content'>
+                    <% if @company.status == 2 || @company.status == 1 %>
+                        <% if @members != nil && !@members.empty? %>
+                            <br>
+                                <div class= "team-band">
+                                    <% @members.each do |member| %>
+                                        <div class= "team-member-box">
+                                            <% if current_user != nil && current_user.authority == authority[:Admin] %>
+                                                <%= button_to "X", { action: 'remove_founder', id: member.id} , {:class => 'remove-button'} %>
+                                            <% end %>
+                                            <%= image_tag( member.image.url, :class => "company-members") %>
+                                            <h2 class= "team-member-name"><%= member.name %></h2>
+                                            <h2 class='team-member-title'><%= member.position %></h2>
+                                            <br>
+                                            <p class= "team-member-bio"><%= nl2br(h(member.content)).html_safe %></p>
+                                        </div>
+                                    <% end %>
+                                </div>
+                        <% end %>
+                    <% end %>
+                </div>
+
+                <div class='finance_tab_content tab-content'>
+                    <!-- <h2 class= " category-name indent">Income</h2>
+                    <hr><br>
+
+                    <div class='company-income-data'>
+                        <div class='company-income inline-block'>
+                            <div class='company-income-value'>Total Income:</div>
+                            <div class='company-income-value'>Total Taxable:</div>
+                            <div class='company-income-value'>Total Taxes Paid:</div>
+                        </div>
+
+                         <div class='company-income'>
+                            <div class='company-income-value italic'>$<%#= dollar_format @financial_details.totat_income %></div>
+                            <div class='company-income-value italic'>$<%#= dollar_format @financial_details.total_taxable_income %></div>
+                            <div class='company-income-value italic'>$<%#= dollar_format @financial_details.total_taxes_paid %></div>
+                          </div>
+                    </div>
+
+                    <br><hr><br>
+
+                    <div>
+                        <div class='fin_info_col1 company-income'>
+                            <span></span><br>
+                            <span>Total Assets</span><br>
+                            <span>Cash & Cash Equivalents</span><br>
+                            <span>Accounts Receivable</span><br>
+
+                            <span>Short-term Debt</span><br>
+                            <span> Long-term Debt</span><br>
+                            <span> Revenues / Sales</span><br>
+
+                            <span> Costs of Goods Sold</span><br>
+                            <span> Taxes Paid </span><br>
+                            <span> Net Income </span><br>
+
+                        </div>
+
+                        <div class='fin_info_col2 company-income'>
+                            <span>Most recent fiscal year-end:</span>
+                            <div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.total_assets_this_year, precision: 0 %></div>
+                            <div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.cash_this_year, precision: 0 %></div>
+                            <div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.acount_receivable_this_year, precision: 0 %></div>
+
+                            <div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.short_term_debt_this_year, precision: 0 %></div>
+                            <div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.long_term_debt_this_year, precision: 0 %></div>
+                            <div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.sales_this_year, precision: 0 %></div>
+
+                            <div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.costs_of_goods_this_year, precision: 0 %></div>
+                            <div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.taxes_paid_this_year, precision: 0 %></div>
+                            <div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.net_income_this_year, precision: 0 %></div>
+                        </div>
+
+                        <div class='fin_info_col3 company-income'>
+                            <div class=''>Prior fiscal year-end:</div >
+                            <div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.total_assets_last_year, precision: 0 %></div >
+                            <div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.cash_last_year, precision: 0 %></div >
+                            <div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.acount_receivable_last_year, precision: 0 %></div >
+
+                            <div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.short_term_debt_last_year, precision: 0 %></div >
+                            <div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.long_term_debt_last_year, precision: 0 %></div >
+                            <div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.sales_last_year, precision: 0 %></div >
+
+                            <div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.costs_of_goods_last_year, precision: 0 %></div >
+                            <div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.taxes_paid_last_year, precision: 0 %></div >
+                            <div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.net_income_last_year, precision: 0 %></div >
+                        </div>
+
+                    </div> -->
+
+
+                    <h2 class= " category-name indent">Offering Terms</h2>
+                    <hr>
+                    <p class= "fifteen"><%= @financial_details.offering_terms.html_safe %></p>
+
+                    <h2 class= " category-name indent">Financial Risks</h2>
+                    <hr>
+                    <p class= "fifteen"><%= @financial_details.fin_risks.html_safe %></p>
+
+
+
+
+                    <% if @financial_details.balance_sheet_file_name %>
+                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Balance Sheet", @financial_details.balance_sheet.url, target: "_blank", class: 'document-url' %></p>
+                    <% end %>
+
+                    <% if @financial_details.income_statements_file_name %>
+                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Income Statements", @financial_details.income_statements.url, target: "_blank", class: 'document-url' %></p>
+                    <% end %>
+
+                    <% if @financial_details.statement_of_cash_flow_file_name %>
+                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Statement of Cash Flow", @financial_details.statement_of_cash_flow.url, target: "_blank", class: 'document-url' %></p>
+                    <% end %>
+
+                    <% if @financial_details.statement_changes_of_equity_file_name %>
+                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Statement of Changes in Equity For Past 2 Years", @financial_details.statement_changes_of_equity.url, target: "_blank", class: 'document-url' %></p>
+                    <% end %>
+
+                    <% if @financial_details.business_plan_file_name %>
+                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Anticipated Business Plan", @financial_details.business_plan.url, target: "_blank", class: 'document-url' %></p>
+                    <% end %>
+
+                    <% if @financial_details.party_transaction_file_name %>
+                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Any Related Party Transaction", @financial_details.party_transaction.url, target: "_blank", class: 'document-url' %></p>
+                    <% end %>
+
+                    <% if @financial_details.intended_use_of_proceeds_file_name %>
+                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Description of Intended Use of Proceeds", @financial_details.intended_use_of_proceeds.url, target: "_blank", class: 'document-url' %></p>
+                    <% end %>
+
+                    <% if @financial_details.capital_structure_file_name %>
+                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Ownership and Capital Structure", @financial_details.capital_structure.url, target: "_blank", class: 'document-url' %></p>
+                    <% end %>
+
+                    <% if @financial_details.material_terms_file_name %>
+                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Material Terms of Any Indebtedness", @financial_details.material_terms.url, target: "_blank", class: 'document-url' %></p>
+                    <% end %>
+
+                    <% if @financial_details.directors_background_file_name %>
+                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Background of Directors and Officers", @financial_details.directors_background.url, target: "_blank", class: 'document-url' %></p>
+                    <% end %>
+
+                    <% if @financial_details.accountant_review_file_name %>
+                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Independent Accountant's Review", @financial_details.accountant_review.url, target: "_blank", class: 'document-url' %></p>
+                    <% end %>
+
+                    <% if @financial_details.financial_conditions_file_name %>
+                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Financial Condition", @financial_details.financial_conditions.url, target: "_blank", class: 'document-url' %></p>
+                    <% end %>
+                </div>
+
+                <div class='documents_tab_content tab-content'>
+                    <% @company.documents.each do |doc| %>
+                        <p class= "no-margin doc_name_overflow">
+                            <%= image_tag "static/pdf_icon.png" %>
+                            <%= link_to doc.file_file_name, doc.file.url, target: "_blank", class: 'document-url' %>
+                        </p>
+                    <% end %>
+                </div>
+
+                <div class='comments_tab_content tab-content' >
+                    <div class='comments'>
+                        <%= nested_messages(@comments.arrange(:order => :created_at))%>
+                    </div>
+                    <br>
+
+                        <% if current_user %>
+                            <div class="comment">
+                              <div class="headline">
+                                <span class="name">
+                                  <span class='comment_as'>New comment as</span>
+                                  <a><%= current_user.comments_name%></a>
+                                </span>
+                              </div>
+                              <div class="comment_content">
+                                    <%= form_for Comment.new, remote: true  do |f|%>
+                                         <%= f.hidden_field "user_id", value: current_user.id %>
+                                         <%= f.hidden_field "company_id", value: @company.id %>
+                                         <%= f.hidden_field :parent_id %>
+                                        <div>
+                                            <%= f.text_area :content, rows: 8, class: 'comment_extarea' %>
+                                        </div>
+                                        <%= f.submit "Post Comment", class: 'comment_submit_button' %>
+                                    <% end %>
+                            </div>
+                        <%else%>
+                              <p>First <%= link_to "sign in", "/users/sign_in" %> to post a comment.</p>
+                            </div>
+                        <%end%>
+                </div>
+
+
+            </div>
+
+
+        </div></div>
+
+
+        <style>
+        .foot-text.darkblue{
+            display: none;
+        }
+        </style>
+
+<script>
+    $(document).ready(function() {
+        $('#team_tab').click(function(e){
+            $('.tab-content').hide();
+            $('.team_tab_content').show();
+            $(".tab-name").removeClass('active-tab');
+            $("#team_tab").addClass('active-tab');
+        });
+        $('.about_tab').click(function(e){
+            $('.tab-content').hide();
+            $('.about_tab_content').show();
+            $(".tab-name").removeClass('active-tab');
+            $('.about_tab').addClass('active-tab');
+        });
+        $('#finances_tab').click(function(e){
+            $('.tab-content').hide();
+            $('.finance_tab_content').show();
+            $(".tab-name").removeClass('active-tab');
+            $('#finances_tab').addClass('active-tab');
+        });
+        $('#comments_tab').click(function(e){
+            $('.tab-content').hide();
+            $('.comments_tab_content').show();
+            $(".tab-name").removeClass('active-tab');
+            $('#comments_tab').addClass('active-tab');
+        });
+        $("#documents_tab").click(function(e){
+            $('.tab-content').hide();
+            $('.documents_tab_content').show();
+            $(".tab-name").removeClass('active-tab');
+            $('#documents_tab').addClass('active-tab');
+        })
+    })
+
+
+  $(".reply_comment_button").click(function(e){
+        e.preventDefault()
+        $(this).parent().parent().parent().next().show();
+  })
+
+
+</script>
+<script src="https://sandbox.fundamerica.com/cors/js/invest_now.min.js"
+    id="fa-invest-now-launcher">
+</script>

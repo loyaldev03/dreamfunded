@@ -123,6 +123,7 @@
 }
 .property-box article{
     padding-bottom: 10px;
+    padding-top: 42px;
 }
 
 .properties{
@@ -200,7 +201,7 @@ and (max-device-width : 568px) {
         margin-left: -5vh;
     }
     .property-box article{
-        padding-top: 3.5vh;
+        padding-top: 7.5vh;
     }
     .company-campaign-name{
         font-size: 3em;

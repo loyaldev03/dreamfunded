@@ -2,13 +2,26 @@ class CompaniesController < ApplicationController
 	before_action :authenticate_user!, except: [:index ]
 	before_action :verify, except: [:index, :company_profile]
 	before_action :admin_check, only: [:new, :edit, :make_team, :make_profile]
-	before_action :set_company, only: [:company_profile, :edit_profile, :update, :make_profile, :remove_company]
+	before_action :set_company, only: [:company_profile, :edit_profile, :update, :make_profile, :remove_company, :show]
 
 	def index
 		@companies = Company.all_accredited
 	end
 
 	def company_profile
+		if params[:id] != nil
+			@id = params[:id]
+			@financial_details = @company.financial_detail
+			@progress = @company.invested_amount / @company.goal_amount rescue 0
+			@comments = @company.comments
+			@members = @company.founders
+			@section = @company.sections.first
+		else
+			redirect_to "/companies"
+		end
+	end
+
+	def show
 		if params[:id] != nil
 			@id = params[:id]
 			@financial_details = @company.financial_detail
@@ -126,25 +139,25 @@ class CompaniesController < ApplicationController
   end
 
 private
-		def set_company
-		  @company = Company.find(params[:id])
-		end
+	def set_company
+	  @company = Company.friendly.find(params[:id])
+	end
 
-		def verify
-		 	if current_user.confirmed == false
-		 		redirect_to url_for(:controller => 'home', :action => 'unverified')
-		 	end
-		end
+	def verify
+	 	if current_user.confirmed == false
+	 		redirect_to url_for(:controller => 'home', :action => 'unverified')
+	 	end
+	end
 
-		def admin_check
-			if current_user.authority < User.Authority[:Founder]
-				redirect_to url_for(:controller => 'home', :action => 'unauthorized')
-			end
+	def admin_check
+		if current_user.authority < User.Authority[:Founder]
+			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
 		end
+	end
 
-		def section_params
-			params.require(:section).permit(:id, :company_id, :overview, :target_market, :current_investor_details, :detailed_metrics, :customer_testimonials, :competitive_landscape, :planned_use_of_funds, :pitch_deck, :created_at, :updated_at)
-		end
+	def section_params
+		params.require(:section).permit(:id, :company_id, :overview, :target_market, :current_investor_details, :detailed_metrics, :customer_testimonials, :competitive_landscape, :planned_use_of_funds, :pitch_deck, :created_at, :updated_at)
+	end
 
 	def company_params
 	  params.require(:company).permit(:image, :end_date, :document, :hidden, :position, :docusign_url, :name, :description,
