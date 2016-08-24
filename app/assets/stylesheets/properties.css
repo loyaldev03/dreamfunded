@@ -42,7 +42,8 @@
     width: 100%;
     clear: both;
     margin:  0.3em 0;
-    height: 30px;
+    height: 40px;
+    text-align: center;
 }
 
 .propety-detail-left{
@@ -52,6 +53,13 @@
     background: #fff;
     float: left;
     position: relative;
+}
+.company-tagline-text {
+    line-height: 1.5em;
+    padding: 0 10px;
+    z-index: 1;
+    background: #fff;
+    text-align: center;
 }
 
 .property-detail-right{
@@ -174,16 +182,45 @@
 and (min-device-width : 320px)
 and (max-device-width : 568px) {
     .properties-wrapper {
-        margin-left: 6%;
-        height: 84vh;
+        margin-left: 5%;
     }
     .property-box {
-        width: 40% !important;
+        width: 90% !important;
+        max-width: 90% !important;
+    }
+    .property-image{
+        height: 25vh;
+    }
+    .logo-image-wrapper{
+        width: 10vh;
+        height: 10vh;
+        box-shadow: 2px 1px 2px 1px #d1d3d4;
+        top: 21vh;
+        left: 50%;
+        margin-left: -5vh;
+    }
+    .property-box article{
+        padding-top: 3.5vh;
     }
     .company-campaign-name{
+        font-size: 3em;
+    }
+    .property-detail, .campaigb-basic-numbers, .invest-link {
         font-size: 2em;
     }
-    .property-detail {
-        font-size: 1.3em;
+    .property-detail, .company-tagline{
+        margin: 1em 0;
+        font-size: 2em;
+        text-align: center;
     }
+    .companies-box-name{
+        font-size: 1em;
+    }
+    .companies-box-value{
+        font-size: 0.8em;
+    }
+    .invest-link{
+        padding: 1.5vh 0;
+    }
+
 }
