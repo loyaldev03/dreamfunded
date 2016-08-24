@@ -1,6 +1,37 @@
 /////////-------------- MENU ------------------//////////
 @import "colors";
 
+@font-face {
+  font-family: 'GothamBook';
+  src: url('GothamBook.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('Gotham-Bold.otf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gotham';
+  src: url('Gotham-Thin.otf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gotham';
+  src: url('Gotham-Light.otf') format('truetype');
+  font-weight: lighter;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'GothamMedium';
+  src: url('GothamMedium.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 .menu-wrap {
 	background-color: #FFFFFF;
