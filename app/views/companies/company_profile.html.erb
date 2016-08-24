@@ -169,7 +169,7 @@
 				</div>
 
 				<div class='finance_tab_content tab-content'>
-					<h2 class= " category-name indent">Income</h2>
+					<!-- <h2 class= " category-name indent">Income</h2>
 					<hr><br>
 
 					<div class='company-income-data'>
@@ -180,9 +180,9 @@
 					 	</div>
 
 						 <div class='company-income'>
-						 	<div class='company-income-value italic'>$<%= dollar_format @financial_details.totat_income %></div>
-						 	<div class='company-income-value italic'>$<%= dollar_format @financial_details.total_taxable_income %></div>
-						 	<div class='company-income-value italic'>$<%= dollar_format @financial_details.total_taxes_paid %></div>
+						 	<div class='company-income-value italic'>$<%#= dollar_format @financial_details.totat_income %></div>
+						 	<div class='company-income-value italic'>$<%#= dollar_format @financial_details.total_taxable_income %></div>
+						 	<div class='company-income-value italic'>$<%#= dollar_format @financial_details.total_taxes_paid %></div>
 						  </div>
 					</div>
 
@@ -207,37 +207,37 @@
 
 						<div class='fin_info_col2 company-income'>
 							<span>Most recent fiscal year-end:</span>
-							<div class='fin-info-numbers italic'><%= number_to_currency @financial_details.total_assets_this_year, precision: 0 %></div>
-							<div class='fin-info-numbers italic'><%= number_to_currency @financial_details.cash_this_year, precision: 0 %></div>
-							<div class='fin-info-numbers italic'><%= number_to_currency @financial_details.acount_receivable_this_year, precision: 0 %></div>
+							<div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.total_assets_this_year, precision: 0 %></div>
+							<div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.cash_this_year, precision: 0 %></div>
+							<div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.acount_receivable_this_year, precision: 0 %></div>
 
-							<div class='fin-info-numbers italic'><%= number_to_currency @financial_details.short_term_debt_this_year, precision: 0 %></div>
-							<div class='fin-info-numbers italic'><%= number_to_currency @financial_details.long_term_debt_this_year, precision: 0 %></div>
-							<div class='fin-info-numbers italic'><%= number_to_currency @financial_details.sales_this_year, precision: 0 %></div>
+							<div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.short_term_debt_this_year, precision: 0 %></div>
+							<div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.long_term_debt_this_year, precision: 0 %></div>
+							<div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.sales_this_year, precision: 0 %></div>
 
-							<div class='fin-info-numbers italic'><%= number_to_currency @financial_details.costs_of_goods_this_year, precision: 0 %></div>
-							<div class='fin-info-numbers italic'><%= number_to_currency @financial_details.taxes_paid_this_year, precision: 0 %></div>
-							<div class='fin-info-numbers italic'><%= number_to_currency @financial_details.net_income_this_year, precision: 0 %></div>
+							<div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.costs_of_goods_this_year, precision: 0 %></div>
+							<div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.taxes_paid_this_year, precision: 0 %></div>
+							<div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.net_income_this_year, precision: 0 %></div>
 						</div>
 
 						<div class='fin_info_col3 company-income'>
 							<div class=''>Prior fiscal year-end:</div >
-							<div class='fin-info-numbers italic'><%= number_to_currency @financial_details.total_assets_last_year, precision: 0 %></div >
-							<div class='fin-info-numbers italic'><%= number_to_currency @financial_details.cash_last_year, precision: 0 %></div >
-							<div class='fin-info-numbers italic'><%= number_to_currency @financial_details.acount_receivable_last_year, precision: 0 %></div >
+							<div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.total_assets_last_year, precision: 0 %></div >
+							<div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.cash_last_year, precision: 0 %></div >
+							<div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.acount_receivable_last_year, precision: 0 %></div >
 
-							<div class='fin-info-numbers italic'><%= number_to_currency @financial_details.short_term_debt_last_year, precision: 0 %></div >
-							<div class='fin-info-numbers italic'><%= number_to_currency @financial_details.long_term_debt_last_year, precision: 0 %></div >
-							<div class='fin-info-numbers italic'><%= number_to_currency @financial_details.sales_last_year, precision: 0 %></div >
+							<div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.short_term_debt_last_year, precision: 0 %></div >
+							<div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.long_term_debt_last_year, precision: 0 %></div >
+							<div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.sales_last_year, precision: 0 %></div >
 
-							<div class='fin-info-numbers italic'><%= number_to_currency @financial_details.costs_of_goods_last_year, precision: 0 %></div >
-							<div class='fin-info-numbers italic'><%= number_to_currency @financial_details.taxes_paid_last_year, precision: 0 %></div >
-							<div class='fin-info-numbers italic'><%= number_to_currency @financial_details.net_income_last_year, precision: 0 %></div >
+							<div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.costs_of_goods_last_year, precision: 0 %></div >
+							<div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.taxes_paid_last_year, precision: 0 %></div >
+							<div class='fin-info-numbers italic'><%#= number_to_currency @financial_details.net_income_last_year, precision: 0 %></div >
 						</div>
 
-					</div>
+					</div> -->
 
-					<br>
+
 					<h2 class= " category-name indent">Offering Terms</h2>
 					<hr>
 					<p class= "fifteen"><%= @financial_details.offering_terms.html_safe %></p>
