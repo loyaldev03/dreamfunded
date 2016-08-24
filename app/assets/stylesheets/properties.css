@@ -1,0 +1,189 @@
+.recent-properties {
+    position: relative;
+}
+
+.property-box {
+    width: 22.5%;
+    display: inline-block;
+    max-width: 380px;
+    -moz-box-shadow: 2px 1px 2px 1px #d1d3d4;
+    -webkit-box-shadow: 2px 1px 2px 1px #d1d3d4;
+    box-shadow: 2px 2px 2px 2px #d1d3d4;
+    margin: 25px 25px;
+    position: relative;
+    border-radius: 3px;
+    transition: border-color .5s ease;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+.property-box:last-of-type {
+    margin-bottom: 15%;
+}
+.property-box:hover{
+    box-shadow: 1px 1px 5px 2px #d1d3d4;
+}
+
+.company-campaign-name {
+    font-family: 'GothamBook',sans-serif;
+    color: #424242;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.property-detail, .company-tagline {
+    font-size: 13px;
+    line-height: 1.8;
+    font-family: GothamBook;
+    color: #424242;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    clear: both;
+    margin:  0.3em 0;
+    height: 30px;
+}
+
+.propety-detail-left{
+    line-height: 1.5em;
+    padding: 0 10px;
+    z-index: 1;
+    background: #fff;
+    float: left;
+    position: relative;
+}
+
+.property-detail-right{
+    padding: 0 10px;
+    position: absolute;
+    background: #fff;
+    right: 0;
+    z-index: 1;
+    font-family: Gotham;
+    font-weight: 600;
+}
+
+.property-detail:after {
+    content: '';
+    border-bottom: 1px solid #eee;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: .9em;
+}
+
+.property-image {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+.logo-image-wrapper{
+    width: 85px;
+    height: 85px;
+    box-shadow: 2px 1px 2px 1px #d1d3d4;
+    top: 157px;
+    left: 50%;
+    margin-left: -43.5px;
+    background-color: #fff;
+    position: absolute;
+    text-align: center;
+    white-space: nowrap;
+    border: 1px solid #d1d3d4;
+    border-radius: 6px;
+}
+.property-logo-image {
+    max-width:100%;
+    max-height:100%;
+    vertical-align: middle;
+    border-radius: 6px;
+}
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-left: -5px;
+}
+.recent-properties-title{
+    padding-top: 75px;
+    font-family: 'Gotham',sans-serif;
+    color: #424242;
+    font-weight: 400;
+    font-size: 30px;
+}
+.property-box article{
+    padding-bottom: 10px;
+}
+
+.properties{
+    background-color: #fff;
+}
+
+.properties-wrapper{
+    margin-left: 12%;
+    margin-top: 3%;
+    background-color: #fff;
+}
+.properties-wrapper .property-box{
+    width: 25%;
+}
+
+.invest-link {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #10a1d6;
+    color: #fff;
+    font-family: Gotham;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    padding: 15px 0;
+    font-size: 14px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.company-details-small-box {
+    display: inline-block;
+    width: 32%;
+    text-align: center;
+
+    /*border-right: 1px solid #d1d3d4;*/
+}
+.companies-box-name {
+    font-family: GothamBook;
+    color: #424242;
+    font-size: 13px;
+}
+.companies-box-value{
+    font-family: Gotham;
+    font-weight: 600;
+    font-size: 13px;
+    color: #424242;
+    line-height: 1.6;
+}
+.campaigb-basic-numbers{
+    border-top: 1px solid #d1d3d4;
+    padding-top: 15px;
+}
+/*  M O B I L E */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+    .properties-wrapper {
+        margin-left: 6%;
+        height: 84vh;
+    }
+    .property-box {
+        width: 40% !important;
+    }
+    .company-campaign-name{
+        font-size: 2em;
+    }
+    .property-detail {
+        font-size: 1.3em;
+    }
+}
