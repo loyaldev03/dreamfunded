@@ -48,11 +48,12 @@
 			<div class='company-info-cateogry percent-funded'><%= @progress.to_i %>% funded</div>
 
 			<div class='fund-america-invest-button'>
-				<button type="button" class="company-button profile-button mail-to-button"
+				<!-- <button type="button" class="company-button profile-button mail-to-button"
 					data-fa-invest-now="yKtSeWqpFSJxWtudfamF7Xd2REbskcMf:L37LGRxzQy2PIa0pDIKWhA"
 					data-fa-referrer="">
-					Invest in <%= @company.name %>
-				</button>
+					Invest in <%#= @company.name %>
+				</button> -->
+				<%= mail_to "manny@dreamfunded.com", "Join The Waitlist", subject: "I want to invest in #{@company.name}", :class => "company-button profile-button mail-to-button", target: '_blank' %>
 			</div>
 		</div>
 	</section>
