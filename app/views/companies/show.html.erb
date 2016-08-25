@@ -30,10 +30,10 @@
                 <div class='company-finance-info'><%= number_to_currency @company.goal_amount, precision: 0 %></div>
 
             <div class='company-info-cateogry'>DAYS LEFT</div>
-                <div class='company-finance-info'> 150 </div>
+                <div class='company-finance-info'> Coming Soon </div>
 
             <div class='company-info-cateogry'>minimum investment</div>
-                <div class='company-finance-info'> $60 </div>
+                <div class='company-finance-info'> $100 </div>
 
             <div class="meter orange">
                 <% @progress = ((@company.invested.to_f / @company.goal_amount.to_f).to_f) *100 %>
@@ -73,7 +73,7 @@
 
                 <div style="text-align:center;">
                     <section class= "video-box">
-                        <h2 class='section-title'>Who We Are?</h2>
+                        <h2 class='section-title'>Who Are We?</h2>
                         <% if @company.video_link.empty? %>
                             <%= image_tag( @company.image.url, class: 'image-max-width')%>
                         <% else %>
@@ -136,7 +136,7 @@
                     <hr>
                     <p class= "fifteen"><%= @company.description.html_safe %></p>
                     <br>
-                    <h2 class= " category-name indent">Why <%= @company.name %></h2>
+                    <h2 class= " category-name indent">Why <%= @company.name %>?</h2>
                     <hr>
                     <p><%= @company.campaign.elevator_pitch.html_safe  if @company.campaign.elevator_pitch %></p>
 
