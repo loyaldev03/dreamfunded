@@ -2,7 +2,7 @@
 <% meta_tag @company.campaign.tagline %>
 
 <% facebook_og_title @company.name %>
-<% facebook_url("https://dreamfunded.vc/companies/company_profile/#{@company.id}")%>
+<% facebook_url("https://dreamfunded.vc/companies/company_profile/#{@company.slug}")%>
 
 <% facebook_image "https://dreamfunded.vc/assets/sf_bg.jpg" %>
 <% facebook_secure_image "https://dreamfunded.vc/assets/sf_bg.jpg" %>
@@ -92,7 +92,7 @@
                                 FB.ui({
                                   method: 'share',
                                   href: "https://dreamfunded.vc/companies/<%= @company.slug %>",
-                                  redirect_uri: "https://dreamfunded.vc/companies/company_profile/<%= @company.id %>",
+                                  redirect_uri: "https://dreamfunded.vc/companies/<%= @company.slug %>",
                                   // quote: "Invest in <%= @company.name %> on DreamFunded",
                                   title: "<%= @company.name %>",
                                   description: "<%= @company.campaign.tagline %>"
