@@ -16,6 +16,10 @@ module ApplicationHelper
     content_for :facebook_image, url
   end
 
+  def twitter_image(url)
+    content_for :twitter_image, url
+  end
+
   def facebook_secure_image(url)
     content_for :facebook_secure_image, url
   end
