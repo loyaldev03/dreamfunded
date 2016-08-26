@@ -24,7 +24,7 @@
               <%= campaign_fields.text_field :company_location_state, placeholder: 'State',:class => " campaing_editable_fields   darkblue", required:true %>
             <% end %>
 
-        <div class= "video-box">
+        <div class= "">
           <% if @company.video_link == nil %>
             <%= image_tag( @company.image.url, class: 'image-max-width')%>
           <% elsif @company.video_link.empty? %>
