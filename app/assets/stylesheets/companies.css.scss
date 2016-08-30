@@ -27,6 +27,13 @@
 .nav-links {
 
 }
+.sign-in-blur{
+  position: relative;
+}
+.icon-lock{
+  vertical-align: bottom;
+}
+
 .nav-links a{
     font-size: 15px;
     font-weight: bold;
@@ -209,8 +216,9 @@
   line-height: 1.8;
   letter-spacing: .1px;
   font-family: GothamBook;
-  color: #4b4b4b
+  color: #4b4b4b;
 }
+
 .about_tab_content{
   display: block;
 }
