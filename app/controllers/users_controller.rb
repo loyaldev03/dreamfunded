@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	invisible_captcha only: [:create]
-	before_action :authenticate_user!, only: [:portfolio]
+	before_action :authenticate_user!, only: [:portfolio, :campaign]
 
 	def edit
 		@user = User.find(params[:id])
@@ -43,16 +43,48 @@ class UsersController < ApplicationController
 		redirect_to root_path
 	end
 
+	# def campaign
+	# 	if current_user.companies.any?
+	# 		company = current_user.companies.last
+	# 		if company.campaign.finished?
+	# 			redirect_to(:controller => 'companies', :action => :company_profile, id: company.id)
+	# 		else
+	# 			redirect_to edit_campaign_path(company.campaign.id)
+	# 		end
+	# 	else
+	# 		redirect_to  funding_goal_path
+	# 	end
+	# end
+
 	def campaign
 		if current_user.companies.any?
 			company = current_user.companies.last
-			if company.campaign.finished?
+			campaign = company.campaign
+			if campaign.submitted?
 				redirect_to(:controller => 'companies', :action => :company_profile, id: company.id)
 			else
-				redirect_to edit_campaign_path(company.campaign.id)
+				campaign_step = find_campaign_step(campaign.current_state, campaign.id)
+				redirect_to campaign_step
 			end
 		else
 			redirect_to  funding_goal_path
 		end
+	end
+
+private
+	def find_campaign_step(page,id)
+		if page == 'goal'
+        	return funding_goal_exist_path(id)
+      	elsif page == 'basics'
+        	return campaign_basics_path(id)
+        elsif page == 'description'
+          	return description_path(id)
+        elsif page == 'legal'
+          	return legal_info_path(id)
+        elsif page == 'financial'
+          	return financial_info_path(id)
+        else
+        	return funding_goal_path
+        end
 	end
 end

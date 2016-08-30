@@ -61,4 +61,22 @@ class User < ActiveRecord::Base
 		first_name.capitalize + " " + last_name.capitalize.chars.first + "."
 	end
 
+	def my_campaign
+		if self.companies.any?
+			company = self.companies.last
+			campaign = company.campaign
+			if campaign.submitted?
+				company.name
+			else
+				if company.name
+					"Finish #{company.name}"
+				else
+					"Finish Campaign"
+				end
+			end
+		else
+			"Get Funded"
+		end
+	end
+
 end

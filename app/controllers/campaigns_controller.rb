@@ -12,6 +12,7 @@ class CampaignsController < ApplicationController
     if @company.save
       @company.sections << Section.new
       @campaign = Campaign.create(funding_goal: funding_goal, company_id: @company.id)
+    @campaign.basics
       FinancialDetail.create(company_id: @company.id)
       redirect_to campaign_basics_path(@campaign.id)
     else
@@ -40,6 +41,7 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:campaign_id])
     @company = @campaign.company
     @company.update(company_params)
+    @campaign.description
     @campaign.update( tagline: params[:tagline], category: params[:category])
     redirect_to description_path(@campaign.id)
   end
@@ -56,6 +58,7 @@ class CampaignsController < ApplicationController
     @company.update(video_link: youtube_url)
     @campaign = Campaign.find(params[:campaign_id])
     @campaign.update(campaign_params)
+    @campaign.legal
     redirect_to legal_info_path(@campaign.id)
   end
 
@@ -67,6 +70,7 @@ class CampaignsController < ApplicationController
   def legal_info_submit
     @campaign = Campaign.find(params[:campaign_id])
     @campaign.update(campaign_params)
+    @campaign.financial
     redirect_to financial_info_path(@campaign.id)
   end
 
@@ -79,6 +83,7 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:campaign_id])
     @financial_details = FinancialDetail.find(params[:financial_details])
     @financial_details.update(financial_details_params)
+    @campaign.complete
     ContactMailer.campaign_submitted(current_user).deliver
     ContactMailer.check_campaign(@campaign).deliver
     redirect_to "/companies/company_profile/#{@campaign.company.id}"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160824213823) do
+ActiveRecord::Schema.define(version: 20160826020032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,15 @@ ActiveRecord::Schema.define(version: 20160824213823) do
     t.float    "bid_amount"
     t.integer  "counter_amount",   default: 0
   end
+
+  create_table "campaign_events", force: true do |t|
+    t.string   "state"
+    t.integer  "campaign_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "campaign_events", ["campaign_id"], name: "index_campaign_events_on_campaign_id", using: :btree
 
   create_table "campaigns", force: true do |t|
     t.integer "company_id"
