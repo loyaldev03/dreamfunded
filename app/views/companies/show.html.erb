@@ -36,6 +36,19 @@
 
                 <div class='company-info-cateogry'>minimum investment</div>
                 <div class='company-finance-info'> $100 </div>
+
+                <div class="meter orange">
+                    <% @progress = ((@company.invested.to_f / @company.goal_amount.to_f).to_f) *100 %>
+                    <% if @progress == 0 %>
+                        <span class= "front" style="width: 5px"></span>
+                    <% elsif @progress > 100 %>
+                        <span style= 'width: 100%'></span>
+                    <% else %>
+                        <span style='width: <%= @progress %>%'></span>
+                    <% end %>
+                </div>
+                <div class='company-info-cateogry percent-funded'><%= @progress.to_i %>% funded</div>
+
             <% else %>
 
                 <div class='company-info-cateogry'>RAISED</div>
@@ -50,21 +63,15 @@
                 <div class='company-info-cateogry'>minimum investment</div>
                 <div class='company-finance-info'> $XX </div>
 
+                <article class='centered'>
+                    <%= image_tag("lock-icon", width: 50,  class: 'icon-lock')%>
+                    <%= link_to "Sign In to View", new_user_session_path%>
+                </article>
 
             <% end %>
 
 
-            <div class="meter orange">
-                <% @progress = ((@company.invested.to_f / @company.goal_amount.to_f).to_f) *100 %>
-                <% if @progress == 0 %>
-                    <span class= "front" style="width: 5px"></span>
-                <% elsif @progress > 100 %>
-                    <span style= 'width: 100%'></span>
-                <% else %>
-                    <span style='width: <%= @progress %>%'></span>
-                <% end %>
-            </div>
-            <div class='company-info-cateogry percent-funded'><%= @progress.to_i %>% funded</div>
+
 
             <div class='fund-america-invest-button'>
                 <!-- <button type="button" class="company-button profile-button mail-to-button"
@@ -238,60 +245,67 @@
                 </div>
 
                 <div class='documents_tab_content tab-content'>
-                    <% if @financial_details.balance_sheet_file_name %>
-                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Balance Sheet", @financial_details.balance_sheet.url, target: "_blank", class: 'document-url' %></p>
-                    <% end %>
+                    <% if current_user %>
+                        <% if @financial_details.balance_sheet_file_name %>
+                            <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Balance Sheet", @financial_details.balance_sheet.url, target: "_blank", class: 'document-url' %></p>
+                        <% end %>
 
-                    <% if @financial_details.income_statements_file_name %>
-                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Income Statements", @financial_details.income_statements.url, target: "_blank", class: 'document-url' %></p>
-                    <% end %>
+                        <% if @financial_details.income_statements_file_name %>
+                            <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Income Statements", @financial_details.income_statements.url, target: "_blank", class: 'document-url' %></p>
+                        <% end %>
 
-                    <% if @financial_details.statement_of_cash_flow_file_name %>
-                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Statement of Cash Flow", @financial_details.statement_of_cash_flow.url, target: "_blank", class: 'document-url' %></p>
-                    <% end %>
+                        <% if @financial_details.statement_of_cash_flow_file_name %>
+                            <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Statement of Cash Flow", @financial_details.statement_of_cash_flow.url, target: "_blank", class: 'document-url' %></p>
+                        <% end %>
 
-                    <% if @financial_details.statement_changes_of_equity_file_name %>
-                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Statement of Changes in Equity For Past 2 Years", @financial_details.statement_changes_of_equity.url, target: "_blank", class: 'document-url' %></p>
-                    <% end %>
+                        <% if @financial_details.statement_changes_of_equity_file_name %>
+                            <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Statement of Changes in Equity For Past 2 Years", @financial_details.statement_changes_of_equity.url, target: "_blank", class: 'document-url' %></p>
+                        <% end %>
 
-                    <% if @financial_details.business_plan_file_name %>
-                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Anticipated Business Plan", @financial_details.business_plan.url, target: "_blank", class: 'document-url' %></p>
-                    <% end %>
+                        <% if @financial_details.business_plan_file_name %>
+                            <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Anticipated Business Plan", @financial_details.business_plan.url, target: "_blank", class: 'document-url' %></p>
+                        <% end %>
 
-                    <% if @financial_details.party_transaction_file_name %>
-                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Any Related Party Transaction", @financial_details.party_transaction.url, target: "_blank", class: 'document-url' %></p>
-                    <% end %>
+                        <% if @financial_details.party_transaction_file_name %>
+                            <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Any Related Party Transaction", @financial_details.party_transaction.url, target: "_blank", class: 'document-url' %></p>
+                        <% end %>
 
-                    <% if @financial_details.intended_use_of_proceeds_file_name %>
-                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Description of Intended Use of Proceeds", @financial_details.intended_use_of_proceeds.url, target: "_blank", class: 'document-url' %></p>
-                    <% end %>
+                        <% if @financial_details.intended_use_of_proceeds_file_name %>
+                            <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Description of Intended Use of Proceeds", @financial_details.intended_use_of_proceeds.url, target: "_blank", class: 'document-url' %></p>
+                        <% end %>
 
-                    <% if @financial_details.capital_structure_file_name %>
-                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Ownership and Capital Structure", @financial_details.capital_structure.url, target: "_blank", class: 'document-url' %></p>
-                    <% end %>
+                        <% if @financial_details.capital_structure_file_name %>
+                            <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Ownership and Capital Structure", @financial_details.capital_structure.url, target: "_blank", class: 'document-url' %></p>
+                        <% end %>
 
-                    <% if @financial_details.material_terms_file_name %>
-                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Material Terms of Any Indebtedness", @financial_details.material_terms.url, target: "_blank", class: 'document-url' %></p>
-                    <% end %>
+                        <% if @financial_details.material_terms_file_name %>
+                            <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Material Terms of Any Indebtedness", @financial_details.material_terms.url, target: "_blank", class: 'document-url' %></p>
+                        <% end %>
 
-                    <% if @financial_details.directors_background_file_name %>
-                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Background of Directors and Officers", @financial_details.directors_background.url, target: "_blank", class: 'document-url' %></p>
-                    <% end %>
+                        <% if @financial_details.directors_background_file_name %>
+                            <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Background of Directors and Officers", @financial_details.directors_background.url, target: "_blank", class: 'document-url' %></p>
+                        <% end %>
 
-                    <% if @financial_details.accountant_review_file_name %>
-                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Independent Accountant's Review", @financial_details.accountant_review.url, target: "_blank", class: 'document-url' %></p>
-                    <% end %>
+                        <% if @financial_details.accountant_review_file_name %>
+                            <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Independent Accountant's Review", @financial_details.accountant_review.url, target: "_blank", class: 'document-url' %></p>
+                        <% end %>
 
-                    <% if @financial_details.financial_conditions_file_name %>
-                        <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Financial Condition", @financial_details.financial_conditions.url, target: "_blank", class: 'document-url' %></p>
-                    <% end %>
+                        <% if @financial_details.financial_conditions_file_name %>
+                            <p class= "no-margin"><%= image_tag "static/pdf_icon.png" %> <%= link_to "Financial Condition", @financial_details.financial_conditions.url, target: "_blank", class: 'document-url' %></p>
+                        <% end %>
 
-                    <% @company.documents.each do |doc| %>
-                        <p class= "no-margin doc_name_overflow">
-                            <%= image_tag "static/pdf_icon.png" %>
-                            <%= link_to doc.file_file_name, doc.file.url, target: "_blank", class: 'document-url' %>
-                        </p>
-                    <% end %>
+                        <% @company.documents.each do |doc| %>
+                            <p class= "no-margin doc_name_overflow">
+                                <%= image_tag "static/pdf_icon.png" %>
+                                <%= link_to doc.file_file_name, doc.file.url, target: "_blank", class: 'document-url' %>
+                            </p>
+                        <% end %>
+                    <% else %>
+                        <article class='centered'>
+                            <%= image_tag("lock-icon", width: 50,  class: 'icon-lock')%>
+                            <%= link_to "Sign In to View", new_user_session_path%>
+                        </article>
+                    <%end%>
                 </div>
 
                 <div class='comments_tab_content tab-content' >
