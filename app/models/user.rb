@@ -27,7 +27,6 @@ class User < ActiveRecord::Base
 	validates :password, confirmation: true
 
 	def self.from_omniauth(auth)
-		pass =  SecureRandom.uuid.gsub(/\-/, '')
 	  where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
 	    user.provider = auth.provider
 	    user.uid = auth.uid
@@ -35,7 +34,8 @@ class User < ActiveRecord::Base
 	    user.confirmed = true
 	    user.first_name = auth.info.name.split(' ').first
 	    user.last_name = auth.info.name.split(' ').second
-	    user.authority = 1
+	    user.password = Devise.friendly_token[0, 20]
+	    user.authority = 2
 	    #user.image_url = auth.info.image
 	  end
 	end

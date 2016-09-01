@@ -2,11 +2,11 @@ class OmniauthCallbacksController < ApplicationController
 
   def facebook
     @user = User.from_omniauth(request.env["omniauth.auth"])
-
     if @user.persisted?
-      @user.update(verified: true)
+      p "I AM HERE 1"
       sign_in_and_redirect @user
     else
+      p "I AM HERE 2"
       session["devise.user_attributes"] = @user.attributes
       redirect_to new_user_registration_url
     end
@@ -15,27 +15,20 @@ class OmniauthCallbacksController < ApplicationController
   def google_oauth2
     p request.env["omniauth.auth"]
     @user = User.from_omniauth(request.env["omniauth.auth"])
-
     if @user.persisted?
-      @user.update(confirmed: true)
-      current_user = @user
-      if @user.authority >= 2
-        redirect_to root_path
-      else
-        redirect_to certify_path
-      end
+      sign_in_and_redirect @user, notice:'Signed In'
     else
-
+      session["devise.user_attributes"] = @user.attributes
       flash[:signup_errors] = @user.errors.full_messages.first
-
-      redirect_to '/users/new'
+      redirect_to new_user_registration_url
     end
   end
   alias_method :google, :google_oauth2
 
-   def omniauth_failure
+  def omniauth_failure
     p '$$$$$$$$$$$$$$$$$$$$$$$$$$$'
     p params
+    nil.nil
     flash[:signup_errors] = params.first.try(:last)
 
     redirect_to new_user_path
