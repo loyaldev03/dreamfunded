@@ -1,5 +1,5 @@
 class ContactMailer < ActionMailer::Base
-  default from: "DreamFunded <info@dreamfunded.vc>"
+  default from: "DreamFunded <info@dreamfunded.com>"
 
   def welcome_email(user)
     @user = user
@@ -21,13 +21,13 @@ class ContactMailer < ActionMailer::Base
     @email= email
     @phone = phone
     @message = message
-    mail(to: "info@dreamfunded.vc", subject: 'Guest Contacted From DreamFunded website')
+    mail(to: "info@dreamfunded.com", subject: 'Guest Contacted From DreamFunded website')
   end
 
   def account_created(user)
     @name = user.last_name
     @email= user.email
-    mail(to: ["info@dreamfunded.vc","info@dreamfunded.com"], subject: 'New Account Created')
+    mail(to: ["info@dreamfunded.com","info@dreamfunded.com"], subject: 'New Account Created')
   end
 
   def personal_hello(user)
@@ -39,7 +39,7 @@ class ContactMailer < ActionMailer::Base
   def reset_password_request(user)
     @name = user.last_name
     @email= user.email
-    mail(to: "info@dreamfunded.vc", subject: 'Password Reset Request')
+    mail(to: "info@dreamfunded.com", subject: 'Password Reset Request')
   end
 
   def invite(invite)
@@ -55,7 +55,7 @@ class ContactMailer < ActionMailer::Base
 
   def check_campaign(campaign)
     @campaign = campaign
-    mail(to: "info@dreamfunded.vc", subject: 'Company Submitted')
+    mail(to: "info@dreamfunded.com", subject: 'Company Submitted')
   end
 
   def investment_submitted(user, investment_id)
