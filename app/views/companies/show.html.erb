@@ -2,12 +2,12 @@
 <% meta_tag @company.campaign.tagline %>
 
 <% facebook_og_title ("Invest in #{@company.name} on DreamFunded.vc") %>
-<% facebook_url("https://dreamfunded.vc/companies/company_profile/#{@company.slug}")%>
+<% facebook_url("https://dreamfunded.com/companies/company_profile/#{@company.slug}")%>
 
-<% facebook_image "https://dreamfunded.vc/assets/sf_bg.jpg" %>
-<% facebook_secure_image "https://dreamfunded.vc/assets/sf_bg.jpg" %>
+<% facebook_image "https://dreamfunded.com/assets/sf_bg.jpg" %>
+<% facebook_secure_image "https://dreamfunded.com/assets/sf_bg.jpg" %>
 
-<% twitter_image "https://dreamfunded.vc/assets/sf_bg.jpg" %>
+<% twitter_image "https://dreamfunded.com/assets/sf_bg.jpg" %>
 
 
 
@@ -117,8 +117,8 @@
                               $('#facebook').click(function(){
                                 FB.ui({
                                   method: 'share',
-                                  href: "https://dreamfunded.vc/companies/<%= @company.slug %>",
-                                  redirect_uri: "https://dreamfunded.vc/companies/<%= @company.slug %>",
+                                  href: "https://dreamfunded.com/companies/<%= @company.slug %>",
+                                  redirect_uri: "https://dreamfunded.com/companies/<%= @company.slug %>",
                                   // quote: "Invest in <%= @company.name %> on DreamFunded",
                                   title: "<%= @company.name %>",
                                   description: "<%= @company.campaign.tagline %>"
@@ -127,12 +127,12 @@
                               })
                             </script>
                             <a id="twitter" class="share-invites-social" target="_blank"
-                             href="http://twitter.com/intent/tweet?url=https://dreamfunded.vc/companies/<%= @company.slug %>"
+                             href="http://twitter.com/intent/tweet?url=https://dreamfunded.com/companies/<%= @company.slug %>"
                               title="Share via Twitter">
                                 <i class="fa fa-twitter"></i>
                             </a>
 
-                            <a id ='linkedin' class="share-invites-social" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;ro=false&amp;trk=bookmarklet&amp;title=Invest%in%<%= @company.name%>&amp;url=https://dreamfunded.vc/companies/<%= @company.slug %>" target="_blank" title="Share via LinkedIn" >
+                            <a id ='linkedin' class="share-invites-social" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;ro=false&amp;trk=bookmarklet&amp;title=Invest%in%<%= @company.name%>&amp;url=https://dreamfunded.com/companies/<%= @company.slug %>" target="_blank" title="Share via LinkedIn" >
                                 <i class="fa fa-linkedin"></i>
                             </a>
 
