@@ -1,15 +1,72 @@
 <div class= "wrapper">
 
     <div class="header">
-        <h1 class="centered">Latino</h1>
+        <h1 class="centered">DreamFunded Latino</h1>
     </div>
-
 
     <div class= "word-content">
         <div class= "text-content">
-            Coming Soon...
+
+            <h2 class= "darkblue centered"> Tap Into Your Community  </h2><br>
+            <p class= "faq-answer">
+                In July of 2016, DreamFunded.com launched the first equity crowdfunding platform in the San Francisco Bay Area and Silicon Valley. DreamFunded helps small businesses by providing access to loans of up to $1 million. Not only that but because of changes in the law, you can only use a website like DreamFunded to allow everyone to financially support your businesses. It’s a completely new type of banking system that makes it easier for small business owners to grow. Now as an established website, we are launching a latino-focused initiative to help elevate businesses in the latino community but we need your participation.
+            </p>
+
+            <h2 class= "darkblue centered">Learn more about DreamFunded and Join Us.</h2>
+
+            <div class='latino-blocks'>
+                <span class='latino-blocks-text'> <li>Find out what you need to get a loan up to $1 million</li></span>
+            </div>
+
+            <div class='latino-blocks'>
+                <span class='latino-blocks-text'> <li>Learn how you can support small businesses</li></span>
+            </div>
+
+            <div class='latino-blocks'>
+                <span class='latino-blocks-text'><li> Join our web chats with our CEO to learn more about DreamFunded</li></span>
+            </div>
+
+            <p class= "faq-answer">With our new initiative, we are looking for passionate and talented people to help us grow this new division of DreamFunded. Please email
+            <%= mail_to "info@dreamfunded.com", "info@DreamFunded.com", subject: "DreamFunded Latino", target: '_blank' %>
+            if you’re interested in becoming a part of the DreamFunded team.
+            </p>
+
+            <center>
+                <%= image_tag( "manny.jpg", class:'manny-image')%>
+            </center>
+
+            <p class= "faq-answer">
+                Manny Fernandez is a Stanford University educated angel investor, serial entrepreneur and bestselling author. He has been successful in investing in his own ideas and taking companies from startup to exit.
+            </p>
+            <p class='faq-answer'>
+                Fernandez was named by Inc. Magazine as one of 33 entrepreneurs to watch in 2016.
+            </p>
+            <p class='faq-answer'>
+               In 2013, Fernandez founded SF Angels Group and has been an angel investor with TiE Angels since 2012. In 2014, he was named SF Angel Investor of the Year and received the Equity Crowdfunding Leadership Award. In 2016, Menlo College Named Fernandez Silicon Valley Equity CrowdFunding Pioneer.
+            </p>
+            <p class='faq-answer'>
+                Fernandez recently became a #1 bestselling author with his new book, How to Make Money Investing in Pre-IPO Stocks, which is available on Amazon. He is also the #14 Angel Investor to Follow on Twitter and has the #1 most viewed equity crowdfunding video on YouTube.
+            </p>
+            <p class='faq-answer'>
+                He has been featured on mainstream media including CNBC Squawk Box, NBC, CNN Latino, Forbes, Inc. Magazine, Fox News and more.
+            </p>
+            <p class='faq-answer'>
+                Manny’s energetic and inspiring presence has lead to him being a frequent judge, speaker, and panelist for Silicon Valley corporations, startup demo days and universities. He has been a featured guest speaker for events at Stanford University, UC Berkeley, Harvard University, Angel Capital Association Summit (ACA), University of San Francisco (USF), Pepperdine University, Draper University, Plug and Play, Yahoo!, USAWeek in Europe, Qianhai Equity Exchange in China, Intel, California Hispanic Chamber of Commerce’s (CHCC), SharkTank, Startup Grind, AngelHack Global Demo, Startup Weekend, SXSW and many more.
+            </p>
+            <p class='faq-answer'>
+                All of Manny’s experience in the investment landscape has culminated, under his leadership, in the first San Francisco based FINRA and SEC- registered funding portal. In addition, DreamFunded.vc is also the first latino-led FINRA and SEC-registered funding portal.
+            </p>
+
+
+            <p>Check Out DreamFunded in the News:</p>
+            <%= link_to "CNN en Espanol article", "http://latino.foxnews.com/latino/money/2016/06/28/our-american-dream-start-up-guru-manny-fernandez-connects-people-to-money/", target: "_blank"%>
+            <br><br>
+            <%= link_to "Fox News Latino Article", "http://www.cnn.com/videos/spanish/2016/04/16/cnnee-hispanicize-manny-fernandez-dreamfunded-hispanos-tecnologia.cnn " , target: "_blank"%>
+            <br><br>
+            <%= link_to "Forbes Article", "http://www.forbes.com/sites/giovannirodriguez/2016/07/17/a-latino-angel-wants-to-help-you-invest-in-tech-startups/#18c66b4ef271" , target: "_blank"%>
+
+
+
         </div>
     </div>
-
-
 </div>

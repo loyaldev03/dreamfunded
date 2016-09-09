@@ -1,0 +1,23 @@
+.latino-blocks {
+    display: inline-block;
+    width: 300px;
+    height: 150px;
+    margin: 0 10px;
+    position: relative;
+
+}
+.latino-blocks-text{
+    position: absolute;
+    top: 50%;
+    height: 100px;
+    margin-top: -50px;
+    text-align: center;
+    font-family: 'GothamBook',sans-serif;
+    color: #424242;
+    font-size: 20px;
+    font-weight: 500;
+
+}
+.manny-image{
+    width: 250px;
+}
