@@ -58,7 +58,7 @@ class HomeController < ApplicationController
 	def book
 	end
 
-	def latinos
+	def latino
 	end
 
 private
