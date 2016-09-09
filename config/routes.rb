@@ -136,6 +136,7 @@ Rails.application.routes.draw do
 
   get 'latino', to: "home#latino", as: :latino
 
+
   get 'homes/faq', to: "home#faq", as: :faq
   get '/legal', to: "home#legal", as: :legal
   get '/contact', to: 'home#contact_us'
