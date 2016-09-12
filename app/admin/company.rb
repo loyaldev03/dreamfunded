@@ -26,7 +26,7 @@ permit_params :image, :document, :end_date, :accredited, :hidden, :position, :do
     column("url") {|t| link_to t.name, "/companies/company_profile/#{t.id}" }
     column  "website_link"
     column  "goal_amount"
-    column  "CEO"
+    column("Step") { |company| company.campaign.current_state if company.campaign}
     column  "created_at"
     column  "updated_at"
     actions
