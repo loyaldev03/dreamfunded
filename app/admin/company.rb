@@ -25,6 +25,9 @@ ActiveAdmin.register Company do
 
 
 permit_params :image, :document, :end_date, :accredited, :hidden, :position, :docusign_url, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at, :suggested_target_price
+before_filter :only => [:show, :edit, :update, :destroy] do
+    @company = Company.find_by_slug(params[:id])
+end
 
   index do
     column  "name"
