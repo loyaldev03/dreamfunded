@@ -3,11 +3,16 @@ class Campaign < ActiveRecord::Base
   has_many :events, class_name: "CampaignEvent"
 
   def location
-    self.company_location_address + ", " + self.company_location_city + ", " + self.company_location_state + ", "+ self.company_location_zipcode
+    if self.submitted?
+      self.company_location_address + ", " + self.company_location_city + ", " + self.company_location_state + ", "+ self.company_location_zipcode
+    end
   end
 
   def place
-    self.company_location_city + ", " + self.company_location_state
+    if self.submitted?
+      self.company_location_city + ", " + self.company_location_state
+    end
+
   end
 
   def finished?
