@@ -1,4 +1,4 @@
-  ActiveAdmin.register Company do
+ActiveAdmin.register Company do
   controller do
     before_filter :authenticate
 
@@ -8,22 +8,27 @@
         redirect_to root_path
       end
     end
+
+    def description_step?(company)
+      state = company.campaign.current_state if company.campaign
+      status = true
+      if state == "goal"
+        status = false
+      elsif state == "basics"
+        status = false
+      end
+      status
+    end
+    helper_method :description_step?
+
   end
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
+
+
 permit_params :image, :document, :end_date, :accredited, :hidden, :position, :docusign_url, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at, :suggested_target_price
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if resource.something?
-#   permitted
-# end
+
   index do
     column  "name"
-    column("url") {|t| link_to t.name, "/companies/company_profile/#{t.id}" }
+    column("url") {|t| link_to t.name, "/companies/company_profile/#{t.id}" if description_step?(t) }
     column  "website_link"
     column  "goal_amount"
     column("Step") { |company| company.campaign.current_state if company.campaign}
@@ -74,5 +79,6 @@ permit_params :image, :document, :end_date, :accredited, :hidden, :position, :do
       # Will display the image on show object page
     end
    end
+
 
 end
