@@ -35,8 +35,8 @@ end
     column  "website_link"
     column  "goal_amount"
     column("Step") { |company| company.campaign.current_state if company.campaign}
+    column("User") { |company| link_to(company.user.name, admin_user_path(company.user)) }
     column  "created_at"
-    column  "updated_at"
     actions
   end
 
