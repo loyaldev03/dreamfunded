@@ -1,8 +1,8 @@
 class CompaniesController < ApplicationController
-	before_action :authenticate_user!, except: [:index, :show, :company_profile ]
+	before_action :authenticate_user!, except: [:index, :show, :company_profile, :join_waitlist ]
 	before_action :verify, except: [:index, :company_profile, :show]
 	before_action :admin_check, only: [:new, :edit, :make_team, :make_profile]
-	before_action :set_company, only: [:company_profile, :edit_profile, :update, :make_profile, :remove_company, :show]
+	before_action :set_company, only: [:company_profile, :edit_profile, :update, :make_profile, :remove_company, :show, :join_waitlist]
 
 	def index
 		@companies = Company.all_accredited
@@ -128,15 +128,18 @@ class CompaniesController < ApplicationController
 	end
 
 	def remove_company
-    @company.destroy
-   	redirect_to "/companies"
-  end
+    	@company.destroy
+   		redirect_to "/companies"
+	end
 
-  def remove_founder
-    @founder = Founder.find(params[:id])
-    @founder.destroy
-    redirect_to "/companies"
-  end
+	def remove_founder
+    	@founder = Founder.find(params[:id])
+    	@founder.destroy
+    	redirect_to "/companies"
+ 	end
+
+	def join_waitlist
+	end
 
 private
 	def set_company

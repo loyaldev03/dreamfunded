@@ -57,6 +57,7 @@
                     Invest in <%#= @company.name %>
                 </button> -->
                 <%= mail_to "manny@dreamfunded.com", "Join The Waitlist", subject: "I want to invest in #{@company.name}", :class => "company-button profile-button mail-to-button", target: '_blank' %>
+                <%= link_to "Join The Waitlist",  %>
             </div>
         </div>
     </section>
