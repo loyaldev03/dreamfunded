@@ -19,7 +19,6 @@ class InvitesController < ApplicationController
   end
 
   def accept
-
     @token = params[:token]
     @email = params[:email]
   end
@@ -40,6 +39,10 @@ class InvitesController < ApplicationController
     else
       redirect_to root_path
     end
+  end
+
+  def test
+    ContactMailer.invite_to_sign_up.deliver
   end
 
   private

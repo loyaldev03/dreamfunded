@@ -1,4 +1,4 @@
-class Campaign < ActiveRecord::Base
+  class Campaign < ActiveRecord::Base
   belongs_to :company
   has_many :events, class_name: "CampaignEvent"
 

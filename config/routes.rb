@@ -168,6 +168,7 @@ Rails.application.routes.draw do
 
   get '/invite', to: "invites#invite"
   post '/google_contacts', to: "invites#google_contacts"
+  get '/invite_test', to: "invites#test"
 
   get '/accept-invite', to: "invites#accept"
   get '/accept-invite-facebook/:id', to: "invites#accept_from_facebook"
