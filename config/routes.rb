@@ -142,6 +142,9 @@ Rails.application.routes.draw do
   get '/contact', to: 'home#contact_us'
   post '/contact_us', to: 'home#contact_us_send_email'
 
+  post '/join_waitlist', to: 'companies#join_waitlist_send_email'
+  get '/join_waitlist_thank_you', to: 'companies#join_waitlist_thank_you'
+
 
   get '/liquidate', to: 'home#liquidate'
   get '/liquidity', to: 'home#liquidate'

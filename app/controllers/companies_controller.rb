@@ -2,7 +2,7 @@ class CompaniesController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show, :company_profile ]
 	before_action :verify, except: [:index, :company_profile, :show]
 	before_action :admin_check, only: [:new, :edit, :make_team, :make_profile]
-	before_action :set_company, only: [:company_profile, :edit_profile, :update, :make_profile, :remove_company, :show]
+	before_action :set_company, only: [:company_profile, :edit_profile, :update, :make_profile, :remove_company, :show, :join_waitlist ]
 
 	def index
 		@companies = Company.all_accredited
@@ -128,15 +128,32 @@ class CompaniesController < ApplicationController
 	end
 
 	def remove_company
-    @company.destroy
-   	redirect_to "/companies"
-  end
+    	@company.destroy
+   		redirect_to "/companies"
+	end
 
-  def remove_founder
-    @founder = Founder.find(params[:id])
-    @founder.destroy
-    redirect_to "/companies"
-  end
+	def remove_founder
+    	@founder = Founder.find(params[:id])
+    	@founder.destroy
+    	redirect_to "/companies"
+ 	end
+
+	def join_waitlist
+	end
+
+	def join_waitlist_send_email
+		company_name = params[:company_name]
+		@name = params[:name]
+		@email = params[:email]
+		@phone = params[:phone]
+		@message = params[:message]
+		ContactMailer.contact_us_email(@name, @email, @phone, @message).deliver
+		flash[:thank_you_notice] = 'Thank you'
+		redirect_to "/join_waitlist_thank_you"
+	end
+
+	def join_waitlist_thank_you
+	end
 
 private
 	def set_company

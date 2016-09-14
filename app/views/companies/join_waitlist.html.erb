@@ -9,18 +9,17 @@
   </div>
 
   <div class= "login-container">
-    <%= form_tag('contact_us', :method => :post, :id => "contact_us") do %>
+
+    <%= form_tag( '/join_waitlist', :method => :post, :id => "contact_us") do %>
+      <%= hidden_field_tag(:company_name, @company.name) %>
       <%= invisible_captcha %>
       <%= text_field_tag(:name, current_user.name, :class =>"userbox", :placeholder => "Name", :required => true) %>
       <%= text_field_tag(:email, current_user.email, :class =>"userbox", :placeholder => "Email", :required => true) %>
       <%= text_field_tag(:phone, current_user.phone, :class =>"userbox", :placeholder => "Phone") %>
-      <%= text_area_tag(:message, "Hi, I would like to join the waitlist... ", rows: 4, :class =>"userbox expand waitlist", :required => true) %>
+
+      <%= text_area_tag(:message, "Hi, I would like to join the waitlist for #{@company.name} ", rows: 4, :class =>"userbox expand waitlist", :required => true) %>
       <br>
 
-        <div class = "notice centered">
-          <h2 class='darkblue' ><%= flash[:notice] if flash[:notice] %></h2>
-          <%= @error_message %>
-        </div>
       <div class= "centered">
         <%= submit_tag("Send", :class => "login-button") %>
       </div>
