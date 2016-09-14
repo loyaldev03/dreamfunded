@@ -61,7 +61,7 @@ class UsersController < ApplicationController
 			company = current_user.companies.last
 			campaign = company.campaign
 			if campaign.submitted?
-				redirect_to(:controller => 'companies', :action => :company_profile, id: company.id)
+				redirect_to(:controller => 'companies', :action => :show, id: company.slug)
 			else
 				campaign_step = find_campaign_step(campaign.current_state, campaign.id)
 				redirect_to campaign_step
