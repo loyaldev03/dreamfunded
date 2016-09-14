@@ -41,7 +41,7 @@
                 </div>
 
             <% end %>
-            <% if current_user != nil && current_user.authority >= authority[:Admin] %>
+            <% if current_user != nil && current_user.authority >= authority[:Editor] %>
                 <h3><%= link_to 'Create New', "/posts/new/employee-qa", {:class => 'right'} %></h3>
             <% end %>
             </ul>
