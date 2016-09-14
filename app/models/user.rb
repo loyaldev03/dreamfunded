@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
 		{
 			:Basic => 1,
 			:Accredited => 2,
-			:Founder => 3,
+			:Editor => 3,
 			:Admin => 4
 		}
 	end

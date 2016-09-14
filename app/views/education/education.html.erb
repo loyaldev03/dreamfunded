@@ -18,7 +18,6 @@
       </div>
       <br>
       <center>
-
         <% if current_user != nil && current_user.authority >= authority[:Accredited] %>
           <button class='education-button' onclick= "invest()">Get Started</button>
         <% elsif current_user == nil %>
