@@ -252,12 +252,10 @@ hr {
 	max-width: 35px;
 	max-height: 35px;
 	margin: 0 7px;
-	display: table-cell;
-	vertical-align: middle;
 	position: relative;
 	top: 50%;
-	float: left;
-	transform: translateY(-50%);
+	color: #000;
+	font-size: 1.5em;
 }
 
 .image4-box {

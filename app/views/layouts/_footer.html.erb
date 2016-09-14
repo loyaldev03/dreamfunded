@@ -13,18 +13,26 @@
   <div class= "footer-content">
     <a class= "indent foot-text hide-on-mobile"> COPYRIGHT © <%= Time.now.year %> DREAMFUNDED MARKETPLACE, LLC</a>
 
-      <div class= "footer_links darkblue">
+      <div class= "footer_links ">
         <%= link_to "Contact", "/contact", :class => "first-footer-link footer-link-border footer-link" %>
         <%= link_to "Privacy Policy", "/privacy_policy", :class => " footer-link footer-link-border" %>
         <%= link_to "Frequently Asked Questions", "/faq", :class => " footer-link footer-link-border" %>
         <%= link_to "Legal Information", "/legal", :class => " footer-link" %>
+
+        <%= link_to "https://twitter.com/dreamfunded", :target => "_blank", :class => 'image4 hide-on-mobile' do %>
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        <% end %>
+        <%= link_to  "https://www.linkedin.com/company/dreamfunded-com", :target => "_blank", :class => 'image4 hide-on-mobile'  do %>
+          <i class="fa fa-linkedin" aria-hidden="true"></i>
+        <% end %>
+        <%= link_to  "https://angel.co/dreamfunded-1", :target => "_blank", :class => 'image4 hide-on-mobile' do %>
+          <i class="fa fa-angellist" aria-hidden="true"></i>
+        <% end %>
+
+
       </div>
 
       <div class= "image4-box gap">
-        <%= link_to image_tag("static/facebook.png", :class => 'image4'), "https://www.facebook.com/dreamfundedcom", :target => "_blank", class:'hidden-facebook' %>
-        <%#= link_to image_tag("static/twitter.png", :class => 'image4'), "https://twitter.com/dreamfunded", :target => "_blank" %>
-        <%#= link_to image_tag("static/linkedin.png", :class => 'image4'), "https://www.linkedin.com/company/dreamfunded-com", :target => "_blank" %>
-        <%#= link_to image_tag("static/angel.png", :class => 'image4'), "https://angel.co/dreamfunded-1", :target => "_blank" %>
       </div>
 
   </div>
