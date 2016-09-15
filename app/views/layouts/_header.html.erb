@@ -86,6 +86,7 @@
                   <% if current_user.authority != authority[:Admin] %>
                     <li><button onclick= "signOut()" >Sign Out</button></li>
                   <% else %>
+                    <li><button onclick= "invite()">Invite</button></li>
                     <li><button onclick= "admin()">Admin Panel</button></li>
                     <li><button onclick="location.href='/admin/users';" >New Admin Panel</button></li>
                     <li><button onclick="signOut()">Sign Out</button></li>

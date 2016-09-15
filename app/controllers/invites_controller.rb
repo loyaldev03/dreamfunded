@@ -6,7 +6,8 @@ class InvitesController < ApplicationController
 
   def create
     @invite = Invite.create(email: params[:invite][:email], user_id: current_user.id)
-    ContactMailer.invite(@invite).deliver
+    ContactMailer.invite_to_sign_up(params[:invite][:email]).deliver
+    redirect_to '/invite'
   end
 
   def google_contacts
