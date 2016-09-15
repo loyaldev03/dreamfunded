@@ -1,12 +1,14 @@
 class InvitesController < ApplicationController
 
   def invite
-    @invites = Invite.where(user_id: current_user.id).where.not(email: nil)
+    @invites = Invite.where(user_id: current_user.id).where.not(email: nil).reverse
   end
 
   def create
     @invite = Invite.create(email: params[:invite][:email], user_id: current_user.id)
-    ContactMailer.invite_to_sign_up(params[:invite][:email]).deliver
+    email = params[:invite][:email]
+    name = params[:name]
+    ContactMailer.invite_to_sign_up(email, name).deliver
     redirect_to '/invite'
   end
 

@@ -33,6 +33,7 @@
       <span class='invite-text'>Invite via Email</span>
       <span class='invite-form'>
         <%= form_for(Invite.new) do |f| %>
+        <%= text_field_tag(:name, nil, placeholder: 'Name',class: 'invite-text-input') %>
           <%= f.text_field(:email, placeholder: 'Email Address',class: 'invite-text-input', pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")%>
           <%= f.submit "Send", class: 'invite-button' %>
         <% end %>

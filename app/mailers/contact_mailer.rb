@@ -76,7 +76,7 @@ class ContactMailer < ActionMailer::Base
     mail(to: @user.email, subject: 'New Comment under Your Company')
   end
 
-  def invite_to_sign_up(email)
-    mail(to: email, subject: 'Manny, please accept my invite to DreamFunded')
+  def invite_to_sign_up(email, name)
+    mail(to: email, subject: "#{name}, please accept my invite to DreamFunded")
   end
 end
