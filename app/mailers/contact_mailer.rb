@@ -67,7 +67,7 @@ class ContactMailer < ActionMailer::Base
   def new_comment(comment)
     @comment = comment
     @user = comment.user
-    mail(to: "info@dreamfunded.vc", subject: 'New Comment')
+    mail(to: "info@dreamfunded.com", subject: 'New Comment')
   end
 
   def new_comment_company_owner(comment)

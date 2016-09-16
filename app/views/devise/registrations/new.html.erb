@@ -35,7 +35,7 @@
            <div class = "check_box">
              <div class="checbox-block">
               <input type="checkbox" name="net_worth" id="box1" required>
-              <span class="checkbox-label"> I have read the important notice and consent to the Site’s use of <%= link_to 'electronic communications, electronic records, and electronic signatures', asset_path("ElectronicCommunications.pdf"), target: '_blank' %>.</span>
+              <span class="checkbox-label"> I have read the important notice and consent to the Site’s use of <%= link_to 'electronic communications, electronic records, and electronic signatures', asset_path("ElectronicCommunicationsRecordsandSignaturesConsentForm(3).pdf"), target: '_blank' %>.</span>
             </div><br>
 
              <div>
@@ -45,7 +45,8 @@
 
              <div>
               <input type="checkbox" name="investor" id="box4" required>
-              <span class="checkbox-label"> I have read and signed the <%= link_to 'Compensation Disclosure', asset_path("DreamFundedFeeCompensationDisclosure.pdf"), target: '_blank' %>.</span></div>
+              <span class="checkbox-label"> I have read and signed the
+                <%= link_to 'Compensation Disclosure', asset_path("compensation.pdf"), target: '_blank' %>.</span></div>
           </div><br>
 
 
@@ -55,7 +56,7 @@
            </div>
 
            <div class= "centered">
-           <p class='check_box'>By signing up you agree with our <%= link_to 'Terms and Conditions', asset_path("DreamFunded.VCTermsConditions.pdf"), target: '_blank' %> & <%= link_to 'Privacy Policy', asset_path("DreamFundedPrivacyPolicy.pdf"), target: '_blank' %></p>
+           <p class='check_box'>By signing up you agree with our <%= link_to 'Terms and Conditions', asset_path("DreamFunded.VCTermsConditions(2).pdf"), target: '_blank' %> & <%= link_to 'Privacy Policy', asset_path("DreamFunded_PrivacyPolicy.pdf"), target: '_blank' %></p>
 
               <%= f.submit("Submit", :id => "submit-button" ) %>
               <div class='social-login-ions'>
