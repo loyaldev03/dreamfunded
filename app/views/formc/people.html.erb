@@ -4,131 +4,45 @@
     <div class='education-title'>Form C Editor</div>
     <a href="#" class='education-links disabled-link'>General</a> <%= fa_icon "chevron-right"%>
     <a href="#" class='education-links disabled-link'>Business</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links active-link'>People</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links disabled-link'>Terms</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links disabled-link'> Disclosures</a> <%= fa_icon "chevron-right"%>
-    <span href="#" class='education-links disabled-link'> Financial Info </span><%= fa_icon "chevron-right"%>
-    <span href="#" class='education-links disabled-link'> Sign & Submit </span>
+    <a href="#" class='education-links active-link'>People</a>
   </div>
 
   <div class= "campaign-box  get-funded ">
 
   <div class="row">
     <div class=" active">
-      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Officers And Directors</a></h2>
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Securities</a></h2>
 
     </div>
   </div>
 
   <div class= "login-container">
-    <%= form_for @general_info, :url => {:action => "people_save", id: @general_info.id},method: "post" do |f| %>
-
-
-      <div class='formc-disclosure'>
-        Add every officer and director of the company. Officers are defined as the president, vice president, secretary, treasurer or principal financial officer, comptroller or principal accounting officer, and any person routinely performing similar functions.
-      </div>
-      <%= f.fields_for :officers, @officer do |officer| %>
-        <%= render 'officer_fields', f: officer %>
-      <% end %>
-      <div class="links">
-        <%= link_to_add_association 'Add', f, :officers %>
-      </div>
-
+    <%= form_for(@general_info, :url => {:action => "people_save", id: @general_info.id},method: "post", :html => {:target=>'_blank'} ) do |f| %>
+      <%= f.hidden_field :completed, value: true %>
 
       <h3>Principal Security Holders</h3>
       <div class='formc-disclosure'>
         Who owns 20 percent or more voting equity securities of your Company, calculated by voting power? Must be accurate within 120 days ago.
       </div>
-      <%= f.fields_for :principal_holders do |holder| %>
-        <%= render 'principal_holders', f: holder %>
+      <%= f.fields_for :principal_holders, @holder do |holder| %>
+        <%= render 'principal_holder_fields', f: holder %>
       <% end %>
       <div class="links">
         <%= link_to_add_association 'Add', f, :principal_holders %>
       </div>
       <br>
 
-      <!-- <div class='formc-disclosure'>
-        What other securities or classes of securities of the issuer are outstanding?
-      </div>
-      <div class='formc-row'>
 
-          <div class='formc-column'>
-              <span class='formc-column-title'>Class of Security</span>
-          </div>
+      <section>
+        <label class='get-funded-section-name'>What is purpose of this offering</label><br>
+        <%= f.text_field :offering_purpose,  class: 'campaign-input-box' %>
+      </section>
 
-          <div class='formc-column'>
-            <span class='formc-column-title'>Securities(or Amount) Authorized</span>
-          </div>
+      <section>
+        <label class='get-funded-section-name'>Financial Condition</label><br>
+        <%= f.text_field :fin_condition,  class: 'campaign-input-box' %>
+      </section>
 
-          <div class='formc-column'>
-            <span class='formc-column-title'>Securities(or Amount) Outstanding</span>
-          </div>
-
-          <div class='formc-column'>
-            <span class='formc-column-title'>Voting Rights</span>
-          </div>
-
-          <div class='formc-column'>
-            <span class='formc-column-title'>Other Rights</span>
-          </div>
-      </div> -->
-      <!-- <div class='formc-row'>
-        <%#= f.fields_for :securities, @securities  do |sec| %>
-            <div class='formc-column'>
-              <%#= sec.text_field :security_class, class: 'input-box formc-input-field' %>
-            </div>
-
-            <div class='formc-column'>
-              <%#= sec.text_field :amount, class: 'input-box formc-input-field'  %>
-            </div>
-
-            <div class='formc-column'>
-              <%#= sec.text_field :outstanding, class: 'input-box formc-input-field'  %>
-            </div>
-
-            <div class='formc-column'>
-              <%#= sec.select :voting_rights, ["Choose","Yes", "No"]  %>
-            </div>
-
-            <div class='formc-column'>
-              <%#= sec.select :other_rights, ["Choose", "Yes", "No"]  %>
-            </div>
-        <%# end %>
-      </div> -->
-
-      <!-- <span class='formc-column-title'>Other</span>
-      <%#= f.fields_for :securities do |security| %>
-        <%#= render 'security_fields', f: security %>
-      <%#end %>
-      <div class="links">
-        <%#= link_to_add_association 'Add', f, :securities %>
-      </div>
-
-      <div class=''>
-        <div class='formc-column'>
-          <span>Class of Security</span>
-        </div>
-        <div class='formc-column-security'>
-          <span>Securities Reserved for Issuance upon Exercise or Conversion</span>
-        </div>
-      </div>
-        <%#= f.fields_for :securities, @securities_reserver  do |sec| %>
-          <div class='formc-row'>
-            <div class='formc-column'>
-              <%#= sec.text_field :security_class, class: 'input-box formc-input-field' %>
-            </div>
-
-            <div class='formc-column'>
-              <%#= sec.text_field :securities_reserved, class: 'input-box formc-input-field'  %>
-            </div>
-
-          </div>
-        <%# end %>
-
-      <div class=''>
-        <span class='formc-column-title'>Upload Cap Table(Optional)</span>
-        <%#= f.file_field "cap_table" %>
-      </div> -->
       <div class= "centered">
         <%= f.submit("Continue", :id => "submit-button") %>
       </div>

@@ -4,11 +4,8 @@
     <div class='education-title'>Form C Editor</div>
     <a href="#" class='education-links disabled-link'>General</a> <%= fa_icon "chevron-right"%>
     <a href="#" class='education-links active-link'>Business</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links disabled-link'>People</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links disabled-link'>Terms</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links disabled-link'> Disclosures</a> <%= fa_icon "chevron-right"%>
-    <span href="#" class='education-links disabled-link'> Financial Info </span><%= fa_icon "chevron-right"%>
-    <span href="#" class='education-links disabled-link'> Sign & Submit </span>
+    <a href="#" class='education-links disabled-link'>People</a>
+
   </div>
 
   <div class= "campaign-box  get-funded ">
@@ -22,44 +19,37 @@
   <div class= "login-container">
     <%= form_for @general_info, :url => {:action => "business_save",id: @general_info.id}, method: "post" do |f| %>
 
-      <div>
-        <%= f.text_area :business_history, :placeholder => "History of the Business",class: 'userbox campaign_text_area_width',rows: 6, required:true  %>
-      </div>
-      <div>
-        <%= f.text_area :product_description, :placeholder => "The Company’s Products and/or Services",class: 'userbox campaign_text_area_width',rows: 6, required:true  %>
-      </div>
 
-      <div>
-        <%= f.text_area :competition, :placeholder => "Competition",class: 'userbox campaign_text_area_width',rows: 6, required:true  %>
-      </div>
+    <section>
+      <label class='get-funded-section-name'>Name</label>
+      <%= f.text_field :legal_name, value: current_user.name, placeholder: 'Your full legal name(As it appeasrs on your ID)', :class => "input-box", required:true %>
+    </section>
 
-      <div>
-        <%= f.text_area :customer_base, :placeholder => "Supply Chain and Customer Base",class: 'userbox campaign_text_area_width',rows: 6, required:true  %>
-      </div>
+    <section>
+      <label class='get-funded-section-name'>Position/Title</label>
+      <%= f.text_field :position_title, placeholder: '', :class => "input-box", required:true %>
+    </section>
 
-      <div>
-        <%= f.text_area :intellectual_property, :placeholder => "Intellectual Property and Research and Development",class: 'userbox campaign_text_area_width',rows: 6, required:true  %>
-      </div>
+    <section>
+      <label class='get-funded-section-name'>When was your first date as a company</label><br>
+      <%= f.date_field :first_date, value: current_user.companies.last.campaign.date_formed, class: 'campaign-input-box' %>
+    </section>
 
-      <div>
-        <%= f.text_area :governmental_regulatory, :placeholder => "Governmental/Regulatory Approval and Compliance",class: 'userbox campaign_text_area_width',rows: 6, required:true  %>
-      </div>
+    <strong>Business Experience</strong>
+    <br>
+    <section>
+      <label class=''>Where were you previously employed?</label>
+      <%= f.text_field :prev_emp,  :class => "formc-input-box", required:true %><br>
 
-      <div>
-        <%= f.text_field :litigation, :placeholder => "Litigation",class: 'userbox campaign_text_area_width',rows: 6, required:true  %>
-      </div>
+      <label class=''>What was your role?</label>
+      <%= f.text_field :prev_title,  :class => "formc-input-box", required:true %><br>
 
-      <div>
-        <%= f.text_field :phone, :placeholder => "Phone nubmer",class: 'userbox campaign_text_area_width',rows: 6, required:true  %>
-      </div>
+      <label class=''>What are the dates which you were working there?</label>
+      <%= f.text_field :prev_dates, placeholder: "m/yy - m/yy", :class => "formc-input-box", required:true %><br>
 
-
-
-
-
-
-
-
+      <label class=''>What were your responsibilities?</label>
+      <%= f.text_field :prev_resp,  :class => "formc-input-box", required:true %>
+    </section>
 
 
 
