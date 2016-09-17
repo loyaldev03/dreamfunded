@@ -22,16 +22,10 @@
   <div class= "login-container">
     <%= form_for @general_info, :url => {:action => "general_save"}, method: "post" do |f| %>
 
+      <div class='get-funded-section-name'>Name</div>
       <%= f.text_field :name, value: current_user.companies.last.name, placeholder: 'Company Name', :class => "input-box", required:true %>
       <br>
 
-      <div class='get-funded-section-name'>What kind of company is it?</div>
-      <%= f.radio_button :kind, "llc",checked: true %>
-      <%= f.label :kind, "LLC", :value => "llc" %>
-      <br>
-      <%= f.radio_button :kind, "corporation" %>
-      <%= f.label :kind, "Corporation", :value => "corporation" %>
-      <br>
 
       <div class='get-funded-section-name'>In which state was it incorporated or organized?</div>
       <div class="styled-select select-100-width" >
@@ -39,18 +33,18 @@
       </div>
       <br>
 
-      <div class='get-funded-section-name'>How long will the campaign last? (days)</div>
-      <%= f.number_field :days, class: 'campaign-input-box', placeholder: "Up to 180 days", required:true %>
 
       <div>
-        <div class='get-funded-section-name'>When was it organized?</div>
+        <div class='get-funded-section-name'>What is the date of incorporation?</div>
         <%= f.date_field :date_formed, value: current_user.companies.last.campaign.date_formed, class: 'campaign-input-box' %>
       </div>
 
-      <div>
 
-        <%= f.text_field :employees_numer, value: current_user.companies.last.campaign.employees_numer, placeholder: 'Number of Employees',:class => "campaign-input-box", required:true %>
-      </div>
+      <div class='get-funded-section-name'>What kind of securities are you offering?</div>
+      <%= f.text_field(:type_of_securtity, value: "Crowd Safe", class: "campaign-input-box" ) %>
+      <br>
+
+
 
       <div class='get-funded-section-name'>
         Company Location
@@ -62,16 +56,16 @@
       <%= f.text_field :company_location_zipcode, value: current_user.companies.last.campaign.company_location_zipcode,  placeholder: 'Zipcode',:class => "campaign-input-box", required:true %>
       <br><br>
 
-
+      <div class='get-funded-section-name'>Website</div>
       <%= f.text_field :website,  value: current_user.companies.last.website_link, placeholder: 'Website', :class => "campaign-input-box", required:true  %><br>
-      <%#= f.text_field :employer_id_number, value: current_user.companies.last.campaign.employer_id_number, placeholder: 'EIN or tax id number', :class => "campaign-input-box", required:true  %>
       <div>
-        <%= f.text_area :business_model, :placeholder => "Company Business Model",class: 'userbox campaign_text_area_width',rows: 6, required:true  %>
-      </div>
-      <div>
-        <%= f.text_area :business_plan, :placeholder => "Company Business Plan in short",class: 'userbox campaign_text_area_width',rows: 6, required:true  %>
-      </div>
 
+      <div class='get-funded-section-name'>What is the maximum you are looking to raise?</div>
+      <%= f.text_field(:max_amount, value: current_user.companies.last.campaign.funding_goal, class: "campaign-input-box" ) %>
+      <br>
+
+      <div class='get-funded-section-name'>How long will the campaign last? (days)</div>
+      <%= f.number_field :days, class: 'campaign-input-box', placeholder: "Up to 180 days", required:true %>
 
 
 

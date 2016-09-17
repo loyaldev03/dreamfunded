@@ -50,6 +50,7 @@ gem 'newrelic_rpm'
 gem 'raygun4ruby'
 gem 'pdfkit'
 gem 'wkhtmltopdf-heroku'
+gem 'pdf-forms'
 
 gem 'will_paginate', '~> 3.0.5'
 gem 'betterlorem', '~> 0.1.2'

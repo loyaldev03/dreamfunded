@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160826020032) do
+ActiveRecord::Schema.define(version: 20160916225514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -367,6 +367,17 @@ ActiveRecord::Schema.define(version: 20160826020032) do
     t.text     "phone"
     t.integer  "days"
     t.boolean  "completed",                           default: false
+    t.string   "max_amount"
+    t.string   "type_of_securtity"
+    t.string   "legal_name"
+    t.string   "position_title"
+    t.date     "first_date"
+    t.string   "prev_emp"
+    t.string   "prev_title"
+    t.string   "prev_dates"
+    t.string   "prev_resp"
+    t.text     "offering_purpose"
+    t.text     "fin_condition"
   end
 
   create_table "guests", force: true do |t|

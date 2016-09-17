@@ -1,5 +1,8 @@
 class FormcController < ApplicationController
   before_action :authenticate_user!
+  before_filter :set_format, only: [:disclosures]
+
+
 
   def general
     @general_info = GeneralInfo.new
@@ -9,11 +12,14 @@ class FormcController < ApplicationController
     info = GeneralInfo.create(general_info_params)
     current_user.companies.last.general_infos << info
     redirect_to action: :business, id: info.id
+
   end
 
   def business
     @general_info = GeneralInfo.find(params[:id])
+
   end
+
 
   def business_save
     @general_info = GeneralInfo.find(params[:id])
@@ -28,14 +34,27 @@ class FormcController < ApplicationController
     else
       @officer = Officer.new(position: 'CEO')
     end
-    @securities = [Security.new(security_class: 'Common Stock'), Security.new(security_class: 'Debt Securities')]
-    @securities_reserver = [Security.new(security_class: 'Warrants'), Security.new(security_class: 'Options')]
+    @holder = PrincipalHolder.new(securities_held: 'Common Stock')
+    #@securities_reserver = [Security.new(security_class: 'Common Stock'), Security.new(security_class: 'Debt Securities')]
+    #@securities_reserver = [Security.new(security_class: 'Warrants'), Security.new(security_class: 'Options')]
   end
 
   def people_save
     @general_info = GeneralInfo.find(params[:id])
     @general_info.update(general_info_params)
+
     redirect_to action: :disclosures, id: @general_info.id
+  end
+
+
+  def disclosures
+    info = GeneralInfo.find(params[:id])
+    respond_to do |format|
+      format.pdf { send_file TestPdfForm.new(info).export("tmp/formc_#{info.name}.pdf"), type: 'application/pdf' }
+    end
+    # @general_info = GeneralInfo.find(params[:id])
+    # @risk = Risk.new
+    # @tier = FundraiseTier.new(amount: 20000)
   end
 
   def terms
@@ -49,13 +68,6 @@ class FormcController < ApplicationController
     @general_info.update(general_info_params)
     redirect_to action: :disclosures, id: @general_info.id
   end
-
-  def disclosures
-    @general_info = GeneralInfo.find(params[:id])
-    @risk = Risk.new
-    @tier = FundraiseTier.new(amount: 20000)
-  end
-
   def disclosure_save
     @general_info = GeneralInfo.find(params[:id])
     @general_info.update(general_info_params)
@@ -84,11 +96,16 @@ class FormcController < ApplicationController
   end
 
 private
+  def set_format
+    request.format = 'pdf'
+  end
+
   def general_info_params
     params.require(:general_info).permit("name", "completed", "days", "cap_table", "kind", "state", "date_formed", "employees_numer", "company_location_address", "company_location_city", "company_location_state", "company_location_zipcode",
                                          "website", "employer_id_number", "financial_condition", "outstanding_loan","business_model", "business_plan",
                                          :business_history, :product_description, :competition, :customer_base, :intellectual_property,
-                                         :governmental_regulatory, :litigation, :phone,
+                                         :governmental_regulatory, :litigation, :phone, :type_of_securtity,:legal_name,
+                                        :position_title, :first_date, :prev_emp, :prev_title, :prev_dates, :prev_resp, :offering_purpose, :fin_condition,
         securities_attributes: [:security_class,  :_destroy, :amount, :outstanding, :voting_rights, :other_rights, :general_info_id, :securities_reserved, :created_at, :updated_at],
         principal_holders_attributes: [:name, :securities_held, :_destroy, :voting_power, :general_info_id, :created_at, :updated_at],
         officers_attributes: [ "name", "email", "year_joined", "_destroy", "officers", "director", "position", "education", "occupation", "main_employer", "general_info_id", "created_at", "updated_at"],
