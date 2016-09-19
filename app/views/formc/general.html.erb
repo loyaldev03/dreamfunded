@@ -17,9 +17,9 @@
 
   <div class= "login-container">
     <%= form_for @general_info, :url => {:action => "general_save"}, method: "post" do |f| %>
-
+      <%= f.hidden_field :company_id, value: @company.id %>
       <div class='get-funded-section-name'>Name</div>
-      <%= f.text_field :name, placeholder: 'Company Name', :class => "input-box", required:true %>
+      <%= f.text_field :name, value: @company.name, placeholder: 'Company Name', :class => "input-box", required:true %>
       <br>
 
 

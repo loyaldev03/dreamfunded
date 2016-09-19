@@ -6,13 +6,14 @@ class FormcController < ApplicationController
 
   def general
     @general_info = GeneralInfo.new
+    @company = Company.friendly.find(params[:id])
   end
 
   def general_save
+    @company = Company.find(params[:general_info][:company_id])
     info = GeneralInfo.create(general_info_params)
-    current_user.companies.last.general_infos << info
+    @company.general_infos << info
     redirect_to action: :business, id: info.id
-
   end
 
   def business
