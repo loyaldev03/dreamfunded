@@ -32,7 +32,7 @@
                 <div class='company-finance-info'><%= number_to_currency @company.goal_amount, precision: 0 %></div>
 
                 <div class='company-info-cateogry'>DAYS LEFT</div>
-                <div class='company-finance-info'> Coming Soon </div>
+                <div class='company-finance-info'> <%= @company.left_days %></div>
 
                 <div class='company-info-cateogry'>minimum investment</div>
                 <div class='company-finance-info'> $100 </div>
@@ -80,7 +80,7 @@
                         Invest in <%= @company.name %>
                     </button>
                 <% else %>
-                    <%= link_to "Invest in #{@company.name}", new_user_session_path, class: 'company-button profile-button mail-to-button' %>
+                    <%= link_to "Invest in #{@company.name}", new_user_registration_path, class: 'company-button profile-button mail-to-button' %>
                 <% end %>
                 <%#= form_tag("/companies/join_waitlist/#{@company.slug}", target: "_blank")  do %>
                     <%#= submit_tag "Join The Waitlist", class: "company-button profile-button mail-to-button", target: "_blank" %>
