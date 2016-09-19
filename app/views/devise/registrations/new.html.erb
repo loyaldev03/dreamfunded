@@ -32,7 +32,7 @@
            <span class='password-six-chars'>Password must be at least 6 characters</span>
            <br><br>
 
-           <div class = "check_box">
+           <div class = "check_box hide-on-mobile">
              <div class="checbox-block">
               <input type="checkbox" name="net_worth" id="box1" required>
               <span class="checkbox-label"> I have read the important notice and consent to the Site’s use of <%= link_to 'electronic communications, electronic records, and electronic signatures', asset_path("ElectronicCommunicationsRecordsandSignaturesConsentForm(3).pdf"), target: '_blank' %>.</span>
@@ -46,7 +46,8 @@
              <div>
               <input type="checkbox" name="investor" id="box4" required>
               <span class="checkbox-label"> I have read and signed the
-                <%= link_to 'Compensation Disclosure', asset_path("compensation.pdf"), target: '_blank' %>.</span></div>
+                <%= link_to 'Compensation Disclosure', asset_path("compensation.pdf"), target: '_blank' %>.</span>
+              </div>
           </div><br>
 
 
@@ -56,7 +57,7 @@
            </div>
 
            <div class= "centered">
-           <p class='check_box'>By signing up you agree with our <%= link_to 'Terms and Conditions', asset_path("DreamFunded.VCTermsConditions(2).pdf"), target: '_blank' %> & <%= link_to 'Privacy Policy', asset_path("DreamFunded_PrivacyPolicy.pdf"), target: '_blank' %></p>
+           <p class='check_box hide-on-mobile'>By signing up you agree with our <%= link_to 'Terms and Conditions', asset_path("DreamFunded.VCTermsConditions(2).pdf"), target: '_blank' %> & <%= link_to 'Privacy Policy', asset_path("DreamFunded_PrivacyPolicy.pdf"), target: '_blank' %></p>
 
               <%= f.submit("Submit", :id => "submit-button" ) %>
               <div class='social-login-ions'>
@@ -69,4 +70,14 @@
       </div>
       </div>
   </div>
+<script type="text/javascript">
+  $(document).ready(function(){
+      if (window.matchMedia('(max-width: 981px)').matches) {
+
+        $("#box1").removeAttr('required');
+        $("#box3").removeAttr('required');
+        $("#box4").removeAttr('required');
+      }
+  })
+</script>
 
