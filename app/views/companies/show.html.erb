@@ -74,19 +74,17 @@
 
 
             <div class='fund-america-invest-button'>
-               <!--  <button type="button" class="company-button profile-button mail-to-button"
-                    data-fa-invest-now="yKtSeWqpFSJxWtudfamF7Xd2REbskcMf:L37LGRxzQy2PIa0pDIKWhA"
-                    data-fa-referrer="">
-                    Invest in <%#= @company.name %>
-                </button> -->
 
-                <!-- <button type="button" data-fa-invest-now="dV-IRcQpIV5n_FFYJXqUTUJyfn2-BQWx:-O119J6jTjC8GFLEZJ5sGA" class=" company-button profile-button mail-to-button">
-                    Invest in <%#= @company.name %>
-                </button> -->
-                <%#= mail_to "manny@dreamfunded.com", "Join The Waitlist", subject: "I want to invest in #{@company.name}", :class => "company-button profile-button mail-to-button", target: '_blank' %>
-                <%= form_tag("/companies/join_waitlist/#{@company.slug}", target: "_blank")  do %>
-                    <%= submit_tag "Join The Waitlist", class: "company-button profile-button mail-to-button", target: "_blank" %>
+                <% if user_signed_in? %>
+                    <button type="button" data-fa-invest-now="dV-IRcQpIV5n_FFYJXqUTUJyfn2-BQWx:-O119J6jTjC8GFLEZJ5sGA" class=" company-button profile-button mail-to-button" >
+                        Invest in <%= @company.name %>
+                    </button>
+                <% else %>
+                    <%= link_to "Invest in #{@company.name}", new_user_session_path, class: 'company-button profile-button mail-to-button' %>
                 <% end %>
+                <%#= form_tag("/companies/join_waitlist/#{@company.slug}", target: "_blank")  do %>
+                    <%#= submit_tag "Join The Waitlist", class: "company-button profile-button mail-to-button", target: "_blank" %>
+                <%# end %>
             </div>
         </div>
     </section>
@@ -420,6 +418,4 @@
 
 
 </script>
-<script src="https://sandbox.fundamerica.com/cors/js/invest_now.min.js"
-    id="fa-invest-now-launcher">
-</script>
+<script src="https://apps.fundamerica.com/cors/js/invest_now.min.js" id="fa-invest-now-launcher"></script>
