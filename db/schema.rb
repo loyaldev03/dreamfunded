@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160916225514) do
+ActiveRecord::Schema.define(version: 20160919203423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -369,13 +369,13 @@ ActiveRecord::Schema.define(version: 20160916225514) do
     t.boolean  "completed",                           default: false
     t.string   "max_amount"
     t.string   "type_of_securtity"
-    t.string   "legal_name"
+    t.text     "legal_name"
     t.string   "position_title"
     t.date     "first_date"
-    t.string   "prev_emp"
+    t.text     "prev_emp"
     t.string   "prev_title"
     t.string   "prev_dates"
-    t.string   "prev_resp"
+    t.text     "prev_resp"
     t.text     "offering_purpose"
     t.text     "fin_condition"
   end
