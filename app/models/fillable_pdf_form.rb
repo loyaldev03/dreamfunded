@@ -19,7 +19,7 @@ class FillablePdfForm
   end
 
   def template_path
-    @template_path ||= "#{Rails.root}/lib/pdf_templates/formc.pdf"
+    @template_path ||= "#{Rails.root}/lib/pdf_templates/formc_template.pdf"
     # makes assumption about template file path unless otherwise specified
   end
 
