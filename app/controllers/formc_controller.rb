@@ -105,7 +105,7 @@ private
     params.require(:general_info).permit("name", "completed", "days", "cap_table", "kind", "state", "date_formed", "employees_numer", "company_location_address", "company_location_city", "company_location_state", "company_location_zipcode",
                                          "website", "employer_id_number", "financial_condition", "outstanding_loan","business_model", "business_plan",
                                          :business_history, :product_description, :competition, :customer_base, :intellectual_property,
-                                         :governmental_regulatory, :litigation, :phone, :type_of_securtity,:legal_name,
+                                         :governmental_regulatory, :litigation, :phone, :type_of_securtity,:legal_name, :max_amount, :company_id,
                                         :position_title, :first_date, :prev_emp, :prev_title, :prev_dates, :prev_resp, :offering_purpose, :fin_condition,
         securities_attributes: [:security_class,  :_destroy, :amount, :outstanding, :voting_rights, :other_rights, :general_info_id, :securities_reserved, :created_at, :updated_at],
         principal_holders_attributes: [:name, :securities_held, :_destroy, :voting_power, :general_info_id, :created_at, :updated_at],
