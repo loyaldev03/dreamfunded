@@ -69,7 +69,11 @@ class GeneralInfo < ActiveRecord::Base
   validates_attachment_content_type :last_year_taxes, :content_type =>['application/pdf']
 
   def address
-    self.company_location_address + ", " + self.company_location_state + ", " +  self.company_location_zipcode
+    self.company_location_address + ", "+ self.company_location_city + ", " + self.company_location_state + ", " +  self.company_location_zipcode
+  end
+
+  def dead_line
+    Date.today + self.days
   end
 
 end

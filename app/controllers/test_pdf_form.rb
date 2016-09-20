@@ -21,6 +21,8 @@ class TestPdfForm < FillablePdfForm
     fill :class_of_securities, @info.principal_holders.last.securities_held
     fill :voting_power, @info.principal_holders.last.voting_power
     fill :type_of_security, @info.type_of_securtity
+    fill :deadline, @info.dead_line
+
 
   end
 end
