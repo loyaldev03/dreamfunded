@@ -66,6 +66,7 @@
                 <%= link_to fa_icon("facebook 2x"), '/auth/facebook', id: 'facebook-icon'  %>
               </div>
            </div>
+           <p class='check_box hide-on-desktop'>By signing up you agree with our <%= link_to 'Terms and Conditions', asset_path("DreamFunded.VCTermsConditions(2).pdf"), target: '_blank' %>,  <%= link_to 'Privacy Policy', asset_path("DreamFunded_PrivacyPolicy.pdf"), target: '_blank' %>,  <%= link_to 'electronic communications, electronic records, and electronic signatures', asset_path("ElectronicCommunicationsRecordsandSignaturesConsentForm(3).pdf"), target: '_blank' %> & <%= link_to 'Educational Materials', asset_path("investor-guide.pdf"), target: '_blank' %> </p>
         <% end %>
       </div>
       </div>
@@ -73,7 +74,6 @@
 <script type="text/javascript">
   $(document).ready(function(){
       if (window.matchMedia('(max-width: 981px)').matches) {
-
         $("#box1").removeAttr('required');
         $("#box3").removeAttr('required');
         $("#box4").removeAttr('required');
