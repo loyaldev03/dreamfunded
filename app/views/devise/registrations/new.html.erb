@@ -60,10 +60,21 @@
            <p class='check_box hide-on-mobile'>By signing up you agree with our <%= link_to 'Terms and Conditions', asset_path("DreamFunded.VCTermsConditions(2).pdf"), target: '_blank' %> & <%= link_to 'Privacy Policy', asset_path("DreamFunded_PrivacyPolicy.pdf"), target: '_blank' %></p>
 
               <%= f.submit("Sign Up", :id => "submit-button" ) %>
+              <div class='social-media-line'>
+                <span></span>
+                <h4>OR</h4>
+                <span></span>
+              </div>
               <div class='social-login-ions'>
-                <%= link_to fa_icon("google 2x"), '/auth/google_oauth2', id: 'google-icon' %>
-                <%= link_to fa_icon("linkedin 2x"), '/auth/linkedin', id: 'linkedin-icon'  %>
-                <%= link_to fa_icon("facebook 2x"), '/auth/facebook', id: 'facebook-icon'  %>
+                <%= link_to '/auth/google_oauth2', class: 'google-link' do %>
+                  <span>Google</span>
+                <%end%>
+                <%= link_to '/auth/linkedin', class: 'linkedin-link' do %>
+                  <span>LinkedIn</span>
+                <%end%>
+                <%= link_to  '/auth/facebook', class: 'facebook-link'  do %>
+                  <span>Facebook</span>
+                <%end%>
               </div>
            </div>
            <p class='check_box hide-on-desktop'>By signing up you agree with our <%= link_to 'Terms and Conditions', asset_path("DreamFunded.VCTermsConditions(2).pdf"), target: '_blank' %>,  <%= link_to 'Privacy Policy', asset_path("DreamFunded_PrivacyPolicy.pdf"), target: '_blank' %>,  <%= link_to 'electronic communications, electronic records, and electronic signatures', asset_path("ElectronicCommunicationsRecordsandSignaturesConsentForm(3).pdf"), target: '_blank' %> & <%= link_to 'Educational Materials', asset_path("investor-guide.pdf"), target: '_blank' %> </p>
