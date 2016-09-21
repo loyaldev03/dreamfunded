@@ -42,7 +42,7 @@
 
 #submit-button {
 	width: 200px;
-	height: 50px;
+	height: 45px;
 	background: #FFAA00;
 	border: none;
 	outline: 0;
@@ -120,6 +120,53 @@
 .social-login-ions{
 	margin-bottom: 10px;
 }
+.social-media-line{
+	position: relative;
+}
+.social-media-line span{
+	position: relative;
+	top: -4px;
+	border-bottom: 2px solid #000;
+	width: 80px;
+	display: inline-block;
+}
+.social-media-line h4{
+	display: inline-block;
+	margin: 0 4px;
+}
+.google-link, .linkedin-link, .facebook-link {
+	display: block;
+	width: 200px;
+	height: 45px;
+    border: none;
+    outline: 0;
+    margin: 20px auto;
+    font-size: 18px;
+    font-family: "Lato", sans-serif;
+    color: white;
+}
+.google-link span{
+	display: inline-block;
+	margin-top: 11px;
+}
+.linkedin-link span{
+	display: inline-block;
+	margin-top: 11px;
+}
+.facebook-link span{
+	display: inline-block;
+	margin-top: 11px;
+}
+.facebook-link{
+	background-color: #5e7cb4;
+}
+.linkedin-link{
+	background-color: #0079b8;
+}
+.google-link{
+	background-color: #c22e2e;
+}
+
  /*i P A D*/
 @media only screen
 and (min-device-width : 768px)
@@ -170,4 +217,18 @@ and (max-device-width : 568px) {
 	.password-six-chars {
 	    font-size: 1.5em;
 	}
+	.google-link, .linkedin-link, .facebook-link{
+		height: 4.5vh;
+		font-size: 2em !important;
+		min-width: 40% !important;
+		letter-spacing: 2px;
+	}
+	.google-link span, .linkedin-link span, .facebook-link span{
+		margin-top: 1vh;
+	}
+	.social-media-line span{
+		top: -.7vh;
+		 width: 134px;
+	}
+
 }

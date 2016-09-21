@@ -1,0 +1,307 @@
+/* line 11, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/colors.css.scss */
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+}
+
+/* line 6, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.box {
+  margin: 100px auto;
+  font-family: "Lato", sans-serif;
+  border: none;
+  background: #ffffff;
+  padding: 20px 40px 40px 40px;
+}
+
+/* line 14, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.signup-size {
+  width: 500px;
+}
+
+/* line 18, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.input-box {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid gray;
+  border-right: 1px solid white;
+  padding: 3px 6px;
+  font-size: 16px;
+  width: 97%;
+  margin: 0 0 30px 0;
+}
+
+/* line 29, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.input-box:focus {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
+/* line 34, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.half {
+  width: 45%;
+  float: left;
+}
+
+/* line 39, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.scoot-left {
+  margin-left: 3%;
+}
+
+/* line 43, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+#submit-button {
+  width: 200px;
+  height: 45px;
+  background: #FFAA00;
+  border: none;
+  outline: 0;
+  margin: 20px auto;
+  font-size: 18px;
+  font-family: "Lato", sans-serif;
+  color: white;
+}
+
+/* line 55, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+#submit-button:hover {
+  background-color: #C4901E;
+}
+
+/* line 59, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+#submit-button:disabled {
+  background-color: #878787;
+}
+
+/* line 63, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.top-gap {
+  padding-top: 20px;
+}
+
+/* line 67, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.notice {
+  color: #CF513D;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* line 73, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.check_box {
+  font-size: 15px;
+}
+
+/* line 76, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.check_box input {
+  margin-bottom: 6px;
+}
+
+/* line 80, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.tab {
+  width: 49%;
+  float: left;
+  position: relative;
+  display: table-cell;
+  padding-bottom: 10px;
+}
+
+/* line 88, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.row {
+  position: relative;
+  display: table;
+  padding: 20px 0;
+  width: 100%;
+}
+
+/* line 95, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.right-line {
+  border-right: 1px solid #CCCCCC;
+}
+
+/* line 98, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.payment-form {
+  text-align: center;
+}
+
+/* line 101, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.payment-form input {
+  height: 22px;
+  width: 151px;
+}
+
+/* line 105, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+#payment-title {
+  font-size: 35px;
+}
+
+/* line 108, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+#linkedin-icon {
+  color: #0077b5;
+  margin-left: 10px;
+}
+
+/* line 112, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+#google-icon {
+  color: #EF2219;
+  margin-right: 10px;
+}
+
+/* line 116, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+#facebook-icon {
+  color: #3b5998;
+  margin-left: 10px;
+}
+
+/* line 120, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.social-login-ions {
+  margin-bottom: 10px;
+}
+
+/* line 123, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.social-media-line {
+  position: relative;
+}
+
+/* line 126, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.social-media-line span {
+  position: relative;
+  top: -4px;
+  border-bottom: 2px solid #000;
+  width: 80px;
+  display: inline-block;
+}
+
+/* line 133, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.social-media-line h4 {
+  display: inline-block;
+  margin: 0 4px;
+}
+
+/* line 137, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.google-link, .linkedin-link, .facebook-link {
+  display: block;
+  width: 200px;
+  height: 45px;
+  border: none;
+  outline: 0;
+  margin: 20px auto;
+  font-size: 18px;
+  font-family: "Lato", sans-serif;
+  color: white;
+}
+
+/* line 148, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.google-link span {
+  display: inline-block;
+  margin-top: 11px;
+}
+
+/* line 152, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.linkedin-link span {
+  display: inline-block;
+  margin-top: 11px;
+}
+
+/* line 156, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.facebook-link span {
+  display: inline-block;
+  margin-top: 11px;
+}
+
+/* line 160, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.facebook-link {
+  background-color: #5e7cb4;
+}
+
+/* line 163, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.linkedin-link {
+  background-color: #0079b8;
+}
+
+/* line 166, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+.google-link {
+  background-color: #c22e2e;
+}
+
+/*i P A D*/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* line 174, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+  .input-box, .userbox, .passbox {
+    font-size: 25px;
+    border: 1px solid gray;
+    border-radius: 3px;
+  }
+
+  /* line 179, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+  .input-box {
+    font-size: 20px;
+  }
+
+  /* line 182, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+  .userbox:focus {
+    border: 1px solid gray;
+  }
+}
+/*M O B I L E*/
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+  /* line 191, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+  #submit-button {
+    -webkit-appearance: none;
+  }
+
+  /* line 194, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+  .check_box input {
+    min-width: 30px;
+    min-height: 30px;
+  }
+
+  /* line 198, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+  .checkbox-label {
+    top: -7px;
+    position: relative;
+  }
+
+  /* line 202, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+  .checbox-block {
+    position: relative;
+  }
+
+  /* line 205, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+  .notice {
+    font-size: 2.5em;
+  }
+
+  /* line 208, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+  .get-funded {
+    width: 90%;
+  }
+
+  /* line 211, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+  .key_docs {
+    font-size: 2em;
+  }
+
+  /* line 214, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+  #login-form-link {
+    font-size: 2.5em;
+  }
+
+  /* line 217, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+  .password-six-chars {
+    font-size: 1.5em;
+  }
+
+  /* line 220, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+  .google-link, .linkedin-link, .facebook-link {
+    height: 4.5vh;
+    font-size: 2em !important;
+    min-width: 40% !important;
+    letter-spacing: 2px;
+  }
+
+  /* line 226, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+  .google-link span, .linkedin-link span, .facebook-link span {
+    margin-top: 1vh;
+  }
+
+  /* line 229, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/signup.css.scss */
+  .social-media-line span {
+    top: -.7vh;
+    width: 134px;
+  }
+}
