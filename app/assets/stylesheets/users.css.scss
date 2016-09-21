@@ -57,3 +57,20 @@
 .little-margin{
 	margin-bottom: 10px;
 }
+
+/*M O B I L E*/
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+
+	.password-six-chars {
+	    font-size: 1.5em;
+	}
+	#submit-button{
+		height: 4.5vh;
+		font-size: 2em !important;
+		min-width: 40% !important;
+		letter-spacing: 2px;
+	}
+}
