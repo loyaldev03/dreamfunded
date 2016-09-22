@@ -881,11 +881,14 @@ and (max-device-width : 568px) {
   }
   .company-basic-info{
     font-size: 3em;
+    font-weight: bold;
   }
-  .company-slogan, .company-location{
-    font-size: 2em;
+  .company-slogan {
+    font-size: 30px;
   }
-
+  .company-location{
+    font-size: 30px;
+  }
 
 
 }
