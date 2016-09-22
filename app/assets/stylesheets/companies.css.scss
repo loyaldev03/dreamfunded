@@ -870,4 +870,22 @@ and (max-device-width : 568px) {
   .grey-section{
     padding-bottom: 10%;
   }
+  .company-info-cateogry:nth-child(1){
+    margin-top: 3vh;
+  }
+  .company-info-cateogry{
+    font-size: 1.5em;
+  }
+  .company-finance-info{
+    font-size: 2em;
+  }
+  .company-basic-info{
+    font-size: 3em;
+  }
+  .company-slogan, .company-location{
+    font-size: 2em;
+  }
+
+
+
 }
