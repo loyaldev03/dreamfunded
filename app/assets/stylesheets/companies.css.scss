@@ -838,7 +838,8 @@ and (min-device-width : 320px)
 and (max-device-width : 568px) {
   .company-button{
     -webkit-appearance: none;
-    font-size: 31px !important;
+    font-size: 2em;
+    font-weight: bold;
   }
   .twenty{
     font-family: Helvetica;
@@ -886,6 +887,8 @@ and (max-device-width : 568px) {
   }
   .company-slogan {
     font-size: 40px;
+    line-height: 1;
+    font-weight: bold;
   }
   .company-location{
     font-size: 40px;
