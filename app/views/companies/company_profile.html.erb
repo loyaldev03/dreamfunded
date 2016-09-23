@@ -116,7 +116,7 @@
                             </a>
 
                             <div class='company-info-cateogry campaign-website'>
-                                <%= link_to @company.website_link, "http://"+@company.website_link, class: 'website-url', target: '_blank' %>
+                                <%= link_to @company.website_link, "http://"+@company.website_link, class: 'website-url', target: '_blank' if @company.website_link%>
                             </div>
 
                         </section>
