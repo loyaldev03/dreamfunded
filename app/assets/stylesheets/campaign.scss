@@ -41,6 +41,41 @@
   width: 44%;
   margin: 0 10px 30px 0;
 }
+.form-field{
+  font-size: 15px;
+  display: block;
+  width: 98%;
+  height: 50px;
+  padding: 0 0 0 15px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 1px;
+  background-color: #fff;
+  background-image: none;
+}
+.form-select {
+    position: relative;
+    color: #666;
+    background-image: asset-url("arrow-select.png");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.basics-input-box{
+  outline: none;
+  border: none;
+  border-bottom: 1px solid gray;
+  border-right: 1px solid white;
+  padding: 3px 6px;
+  font-size: 16px;
+  width: 97%;
+}
+.text_field{
+  margin-bottom: 30px;
+}
 .campaign-box {
     margin: 0 auto;
     font-family: "Lato", sans-serif;

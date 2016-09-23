@@ -36,7 +36,7 @@
         </div>
       <% end %>
 
-       <%= f.text_field(:funding_goal, :placeholder => "$ 100,000.00", :class => "input-box",id: 'funding_goal', required: true) %>
+       <%= f.text_field(:funding_goal, :placeholder => "$ 100,000.00", :class => "form-field",id: 'funding_goal') %>
        <i>Enter your funding goal, up to $1,000,000</i>
 
       <h2 class= " centered">Title III - Regulation Crowdfunding</h2>
@@ -65,5 +65,26 @@
        var value = addCommas( $( this ).val() );
        value = "$ " + value
        $( this ).val( value );
+   });
+   // F O R M   V A L I D A T I O N
+   $(document).ready(function() {
+        $("#new_campaign").submit(function(e){
+            e.preventDefault();
+
+            var input=$("#funding_goal");
+            var input_value=input.val();
+
+            if(input_value){input.removeClass("invalid").addClass("valid");}
+            else{input.removeClass("valid").addClass("invalid");}
+
+            var valid=input.hasClass("valid");
+            var error_element= input
+
+            if (!valid){error_element.removeClass("error").addClass("error_show"); }
+            else{error_element.removeClass("error_show").addClass("error");}
+
+            if(valid){this.submit();}
+      })
+
    });
 </script>

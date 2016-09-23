@@ -1,0 +1,17 @@
+.error{
+    display: none;
+    margin-left: 10px;
+}
+
+.error_show{
+    border-color: #da3743;
+    display: block;
+}
+#error_explanation{
+    color: #da3743;
+}
+.field_with_errors input{
+
+  border: 1px solid red;
+
+}
