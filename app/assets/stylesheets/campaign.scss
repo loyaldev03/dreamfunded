@@ -52,6 +52,17 @@
   border-radius: 1px;
   background-color: #fff;
   background-image: none;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  margin: 0 5px 9px 0;
+}
+.form-field-half {
+  width: 44%;
+  display: inline-block;
+}
+.form-control-textarea {
+    height: 100px;
+    padding: 15px;
 }
 .form-select {
     position: relative;

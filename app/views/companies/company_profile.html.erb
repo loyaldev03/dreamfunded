@@ -139,7 +139,7 @@
                 <div class='about_tab_content tab-content'>
                     <h2 class= " category-name indent">Highlight</h2>
                     <hr>
-                    <p class= "fifteen"><%= @company.description.html_safe %></p>
+                    <p class= "fifteen"><%= @company.description.html_safe if @company.description %></p>
                     <br>
                     <h2 class= " category-name indent">Why <%= @company.name %>?</h2>
                     <hr>
