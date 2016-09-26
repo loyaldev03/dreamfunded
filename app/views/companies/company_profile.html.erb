@@ -56,8 +56,14 @@
                     data-fa-referrer="">
                     Invest in <%#= @company.name %>
                 </button> -->
-                <%= form_tag("/companies/join_waitlist/#{@company.slug}", target: "_blank")  do %>
-                    <%= submit_tag "Join The Waitlist", class: "company-button profile-button mail-to-button", target: "_blank" %>
+                <% if user_signed_in? %>
+                    <%if @company.accredited %>
+                        <button type="button" data-fa-invest-now="dV-IRcQpIV5n_FFYJXqUTUJyfn2-BQWx:-O119J6jTjC8GFLEZJ5sGA" class=" company-button profile-button mail-to-button" >
+                            Invest in <%= @company.name %>
+                        </button>
+                    <%end%>
+                <% else %>
+                    <%= link_to "Invest in #{@company.name}", new_user_registration_path, class: 'company-button profile-button mail-to-button' %>
                 <% end %>
             </div>
         </div>
