@@ -65,15 +65,15 @@
 
       </div>
 
-      <label>Company Logo</label>
+      <label>Company Logo (Recommended)</label>
       <%= f.file_field :image %>
       <br><br>
 
-      <label>Cover Photo (Background)</label>
+      <label>Cover Photo (Recommended)</label>
       <%= f.file_field :cover %>
 
       <h3>Management Team</h3>
-      <%= f.fields_for :founders do |founder| %>
+      <%= f.fields_for :founders, @founders do |founder| %>
         <%= render 'founder_fields', f: founder %>
       <% end %>
       <div class="links">
@@ -101,12 +101,22 @@
     // F O R M   V A L I D A T I O N
     $(document).ready(function() {
 
+        $(".required-field").each(function(){
+            if( $(this).val() ){
+                $(this).removeClass("invalid").addClass("valid");
+            }
+            else{$(this).removeClass("valid").addClass("invalid");}
+            console.log("check")
+        })
+
         $(".required-field").on("input", function(){
+            console.log("typing");
             var input= $( this );
             var is_name=input.val();
             if(is_name){input.removeClass("invalid").addClass("valid");}
             else{input.removeClass("valid").addClass("invalid");}
         });
+
 
 
         $(".edit_company").submit(function(e){
@@ -126,6 +136,13 @@
                 e.preventDefault();
             }
        })
+
+        if ($('textarea').length > 0) {
+          var data = $('.ckeditor');
+          $.each(data, function(i) {
+              CKEDITOR.replace(data[i].id);
+          });
+        }
 
     });
 </script>

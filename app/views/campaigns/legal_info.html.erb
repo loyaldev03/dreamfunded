@@ -41,13 +41,13 @@
     <%= form_for @campaign, :url => {:action => "legal_info_submit"},method: "post" do |f| %>
       <%= hidden_field_tag :campaign_id, @campaign.id %>
       <%= f.text_field :legal_company_name, placeholder: 'Legal Company Name',:class => "form-field form-field-half required-field " %>
-      <%= f.text_field :employer_id_number, placeholder: 'Employer ID Number',:class => "form-field form-field-half required-field" %>
+      <%#= f.text_field :employer_id_number, placeholder: 'Employer ID Number',:class => "form-field form-field-half required-field" %>
       <%= f.text_field :state_where_incorporated, placeholder: 'State Where Incorporated',:class => "form-field form-field-half required-field " %>
-      <%= f.text_field :office_location, placeholder: 'Main Office Location',:class => "form-field form-field-half required-field " %>
-      <div class='get-funded-section-name'>
+      <%#= f.text_field :office_location, placeholder: 'Main Office Location',:class => "form-field form-field-half required-field " %>
+      <!-- <div class='get-funded-section-name'>
         Date Company was Formed
-      </div>
-      <%= f.date_field :date_formed, placeholder: 'mm/dd/yyyy',:class => "form-field form-field-half required-field" %>
+      </div> -->
+      <%#= f.date_field :date_formed, placeholder: 'mm/dd/yyyy',:class => "form-field form-field-half required-field" %>
 
       <div class='get-funded-section-name'>
         Company Location
@@ -58,10 +58,10 @@
       <%= f.text_field :company_location_zipcode, placeholder: 'Zipcode',:class => "form-field form-field-half required-field" %>
 
 
-      <div class='get-funded-section-name'>
+      <!-- <div class='get-funded-section-name'>
         State Filing Number
-      </div>
-      <%= f.text_field :state_filing_number, placeholder: "State Filing Number",:class => "form-field form-field-half required-field" %>
+      </div> -->
+      <%#= f.text_field :state_filing_number, placeholder: "State Filing Number",:class => "form-field form-field-half required-field" %>
 
       <div class = "notice centered">
         <%= flash[:errors] if flash[:errors] %>

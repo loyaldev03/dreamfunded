@@ -35,6 +35,7 @@ class CampaignsController < ApplicationController
     @campaign_id = params[:id]
     @campaign = Campaign.find(params[:id])
     @company = @campaign.company
+    @founders = @company.founders
   end
 
   def basics_submit

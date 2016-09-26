@@ -54,7 +54,7 @@
       <%= f.text_area :elevator_pitch, placeholder: 'Write Elevator Pitch. What makes your company exceptional? Why should the crowd invest in your company?  ', class: 'ckeditor userbox campaign_text_area_width', rows: 6, required:true %>
 
       <br>
-      <%= f.text_field :tags,  placeholder: 'Tags (optional)',:class => "form-field" %>
+      <%#= f.text_field :tags,  placeholder: 'Tags (optional)',:class => "form-field" %>
       <br>
 
       <label>About Your Company</label>
@@ -86,6 +86,14 @@
   // F O R M   V A L I D A T I O N
   $(document).ready(function() {
 
+      $(".required-field").each(function(){
+          if( $(this).val() ){
+              $(this).removeClass("invalid").addClass("valid");
+          }
+          else{$(this).removeClass("valid").addClass("invalid");}
+          console.log("check")
+      })
+
       $(".required-field").on("input", function(){
           var input= $( this );
           var is_name=input.val();
@@ -110,7 +118,15 @@
           if (!error_free){
               e.preventDefault();
           }
+
      })
+      if ($('textarea').length > 0) {
+        var data = $('.ckeditor');
+        $.each(data, function(i) {
+            CKEDITOR.replace(data[i].id);
+        });
+      }
+
 
   });
 </script>

@@ -80,8 +80,8 @@
             var valid=input.hasClass("valid");
             var error_element= input
 
-            if (!valid){error_element.removeClass("error").addClass("error_show"); }
-            else{error_element.removeClass("error_show").addClass("error");}
+            if (!valid){error_element.addClass("error_show"); }
+            else{error_element.removeClass("error_show");}
 
             if(valid){this.submit();}
       })
