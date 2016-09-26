@@ -40,18 +40,18 @@
 
       <div class='text_field'>
         <%= f.text_field :name, placeholder: 'Company Name',:class => "form-field required-field" %>
-        <span class="error">This field is required</span>
+
       </div>
 
       <div class='text_field'>
         <%= text_field_tag :tagline, @campaign.tagline ,placeholder: 'Describe your company in one sentence',:class => "form-field required-field" %>
-        <span class="error">This field is required</span>
+
       </div>
 
       <label>Category</label>
       <!-- <div class="styled-select select-100-width" > -->
         <%= select_tag(:category, options_for_select(company_categories),:include_blank => true, class: "form-select form-field required-field" ) %>
-        <span class="error">This field is required</span>
+
         <br>
       <!-- </div> -->
 
@@ -62,7 +62,7 @@
 
       <div class='text_field'>
         <%= f.text_field :website_link, placeholder: 'Website', :class => "form-field required-field" %><br>
-        <span class="error">This field is required</span>
+
       </div>
 
       <label>Company Logo</label>
@@ -117,11 +117,11 @@
                 valid = $(this).hasClass("valid");
                 var error_element= $(this);
                 console.log(error_element);
-                if (!valid){error_element.removeClass("error").addClass("error_show"); error_free=false;}
-                else{error_element.removeClass("error_show").addClass("error");}
+                if (!valid){error_element.addClass("error_show"); error_free=false;}
+                else{error_element.removeClass("error_show");}
             })
 
-            debugger
+
             if (!error_free){
                 e.preventDefault();
             }

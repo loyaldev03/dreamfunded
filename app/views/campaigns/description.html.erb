@@ -57,11 +57,11 @@
       <%= f.text_field :tags,  placeholder: 'Tags (optional)',:class => "form-field" %>
       <br>
 
-      <label>About Your Campaign</label>
+      <label>About Your Company</label>
       <div class='disclaimer-box'>
         <div class='disclaimer-container'>
           <i class="fa fa-times close-disclaimer" id='close-subcribtion' ></i>
-          <span class='disclaimer-text'>Be creative with this section. You have the ability to add videos and images to make your message stand out. A well designed description of your campaign will set you apart. Your presentation must be factual and accurate.</span>
+          <span class='disclaimer-text'>Be creative with this section. You have the ability to add videos and images to make your message stand out. A well designed description of your company will set you apart. Your presentation must be factual and accurate.</span>
         </div>
       </div>
       <%= f.text_area :about_campaign, placeholder: 'About Your Campaign', class: 'ckeditor userbox campaign_text_area_width', rows: 6, required:true %>
@@ -102,8 +102,8 @@
               valid = $(this).hasClass("valid");
               var error_element= $(this);
               console.log(error_element);
-              if (!valid){error_element.removeClass("error").addClass("error_show"); error_free=false;}
-              else{error_element.removeClass("error_show").addClass("error");}
+              if (!valid){error_element.addClass("error_show"); error_free=false;}
+              else{error_element.removeClass("error_show");}
           })
 
           debugger
