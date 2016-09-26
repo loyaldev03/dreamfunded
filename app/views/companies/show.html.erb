@@ -80,6 +80,10 @@
                         <button type="button" data-fa-invest-now="dV-IRcQpIV5n_FFYJXqUTUJyfn2-BQWx:-O119J6jTjC8GFLEZJ5sGA" class=" company-button profile-button mail-to-button" >
                             Invest in <%= @company.name %>
                         </button>
+                    <%else%>
+                        <button class=" company-button profile-button mail-to-button" >
+                            Pending Approval
+                        </button>
                     <%end%>
                 <% else %>
                     <%= link_to "Invest in #{@company.name}", new_user_registration_path, class: 'company-button profile-button mail-to-button' %>
