@@ -28,7 +28,7 @@ class OmniauthCallbacksController < ApplicationController
   def omniauth_failure
     p '$$$$$$$$$$$$$$$$$$$$$$$$$$$'
     p params
-    nil.nil
+
     flash[:signup_errors] = params.first.try(:last)
 
     redirect_to new_user_path
