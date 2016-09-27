@@ -4,10 +4,10 @@
 <% facebook_og_title ("Invest in #{@company.name} on DreamFunded.com") %>
 <% facebook_url("https://dreamfunded.com/companies/#{@company.slug}")%>
 
-<% facebook_image "https://dreamfunded.com/assets/sf_bg.jpg" %>
-<% facebook_secure_image "https://dreamfunded.com/assets/sf_bg.jpg" %>
+<% facebook_image @company.cover.url %>
+<% facebook_secure_image @company.cover.url %>
 
-<% twitter_image "https://dreamfunded.com/assets/sf_bg.jpg" %>
+<% twitter_image @company.cover.url %>
 
 
 
