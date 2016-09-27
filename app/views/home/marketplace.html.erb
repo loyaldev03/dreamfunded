@@ -9,7 +9,7 @@
 </div>
 
 <div class='countdown-time big-title'>
-    <div class='countdown-sub-text'>July 7th, Live Equity CrowdFunding Event</div>
+    <div class='countdown-sub-text'>October 20th, Live Equity CrowdFunding Event</div>
     <div id="countdown" class="countdownHolder"></div>
      <h3 class='market-place-subscribe-label'>Sign Up for Updated News About This Event </h3>
       <%= form_tag('/marketplace_signup', remote: true, class: 'marketplace_form') do %>
@@ -33,7 +33,7 @@
   })
 
    $("#countdown")
-     .countdown("2016/07/07", function(event) {
+     .countdown("2016/10/20 12:00:00", function(event) {
        $(this).text(
          event.strftime('%D:%H:%M:%S')
        );
