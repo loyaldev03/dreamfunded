@@ -3,7 +3,6 @@
   belongs_to :company
   has_many :events, class_name: "CampaignEvent"
 
-  validates :funding_goal, presence:true
 
   def location
     if self.submitted?

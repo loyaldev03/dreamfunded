@@ -23,7 +23,7 @@
       <%= hidden_field_tag :campaign_id, @campaign_id %>
       <%= f.hidden_field :user_id, value: current_user.id %>
 
-      <!-- <div class='disclaimer-box'>
+      <div class='disclaimer-box'>
         <div class='disclaimer-container'>
           <i class="fa fa-times close-disclaimer" id='close-subcribtion' ></i>
           <span class='disclaimer-text'>ALL information in this step will be made publicly available</span>
@@ -35,7 +35,7 @@
           <i class="fa fa-times close-disclaimer" id='close-subcribtion' ></i>
           <span class='disclaimer-text'>Use your campaign page to show investors what makes your company unique. Remember to be factual and balanced. Claims cannot be exaggerated or false. Your company must be a US company in order to raise capital under Title III - Regulation Crowdfunding. You may not be a fund.</span>
         </div>
-      </div> -->
+      </div>
 
       <div class='text_field'>
         <%= f.text_field :name, placeholder: 'Company Name',:class => "form-field required-field" %>
@@ -48,11 +48,11 @@
       </div>
 
       <label>Category</label>
-      <!-- <div class="styled-select select-100-width" > -->
+
         <%= select_tag(:category, options_for_select(company_categories),:include_blank => true, class: "form-select form-field required-field" ) %>
 
         <br>
-      <!-- </div> -->
+
 
       <br><br>
       <label>Short Description about your company</label>
