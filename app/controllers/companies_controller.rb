@@ -147,6 +147,7 @@ class CompaniesController < ApplicationController
 		@email = params[:email]
 		@phone = params[:phone]
 		@message = params[:message]
+		Guest.create(email: params[:email], company: company_name, user_id: current_user.id)
 		ContactMailer.contact_us_email(@name, @email, @phone, @message).deliver
 		flash[:thank_you_notice] = 'Thank you'
 		redirect_to "/join_waitlist_thank_you"
