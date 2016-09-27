@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   put 'team/:id', to: 'members#update'
   delete 'team/:id', to: 'members#destroy'
 
-
+  match "/companies/next-minute-inc" => redirect("/"), via: 'get'
   mount Ckeditor::Engine => '/ckeditor'
   get '/posts/new/:page', to: "posts#new"
   get '/posts/:id/edit/:page', to: "posts#edit"
@@ -217,6 +217,7 @@ Rails.application.routes.draw do
   get '/portfolio', to: 'users#portfolio'
   get '/dreamfunded-exchange', to: 'home#exchange'
   get '/our-team', to: 'members#index'
+
   match "/our-team/manny-fernandez" => redirect("team/manny-fernandez"), via: 'get'
   match "/our-team/rexford-r-hibbs" => redirect("team/rexford-r-hibbs"), via: 'get'
   match "/our-team/manny-fernandez" => redirect("team/manny-fernandez"), via: 'get'
