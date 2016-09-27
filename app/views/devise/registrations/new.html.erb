@@ -20,15 +20,15 @@
           </div>
 
            <%= invisible_captcha %>
-           <%= f.text_field(:first_name, :placeholder => "First Name", :class => "input-box half") %>
-           <div class= "filler"></div>
-           <%= f.text_field(:last_name, :placeholder => "Last Name", :class => "input-box half scoot-left") %><br>
-           <%= f.text_field(:phone, :placeholder => "Phone", :class => "input-box") %><br>
+           <%= f.text_field(:first_name, :placeholder => "First Name", :class => "form-field form-field-half") %>
+
+           <%= f.text_field(:last_name, :placeholder => "Last Name", :class => "form-field form-field-half") %><br>
+           <%= f.text_field(:phone, :placeholder => "Phone", :class => "form-field form-field-half") %><br>
 
         <h4>Login Information</h4>
-           <%= f.text_field(:email, :placeholder => "Email", :class => "input-box email-signup") %>
-           <%= f.password_field(:password, :placeholder => "Password ", :class => "input-box half little-margin", required: true, pattern: ".{6,}") %>
-           <%= f.password_field(:password_confirmation, :placeholder => "Confirm Password", required: true, pattern: ".{6,}", :class => "input-box half scoot-left little-margin") %>
+           <%= f.text_field(:email, :placeholder => "Email", :class => "form-field  email-signup") %>
+           <%= f.password_field(:password, :placeholder => "Password ", :class => "form-field form-field-half little-margin", required: true, pattern: ".{6,}") %>
+           <%= f.password_field(:password_confirmation, :placeholder => "Confirm Password", required: true, pattern: ".{6,}", :class => "form-field form-field-half  little-margin") %>
            <span class='password-six-chars'>Password must be at least 6 characters</span>
            <br><br>
 

@@ -6,8 +6,7 @@
     <a href="/funding_campaing_goal/<%= @campaign.id%>" class='education-links '>Funding Goal</a> <%= fa_icon "chevron-right"%>
     <a href="/campaign_basics/<%= @campaign.id%>" class='education-links '>Basics</a> <%= fa_icon "chevron-right"%>
     <a href="/company_description/<%= @campaign.id %>" class='education-links '>Description</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links active-link'> Legal Info </a> <%= fa_icon "chevron-right"%>
-    <span href="#" class='education-links disabled-link'> Financial Info </span>
+    <a href="#" class='education-links active-link'> Legal Info </a>
   </div>
 
 
@@ -40,37 +39,28 @@
   <div class= "login-container">
     <%= form_for @campaign, :url => {:action => "legal_info_submit"},method: "post" do |f| %>
       <%= hidden_field_tag :campaign_id, @campaign.id %>
-      <%= f.text_field :legal_company_name, placeholder: 'Legal Company Name',:class => "campaign-input-box ", required:true %>
-      <%= f.text_field :employer_id_number, placeholder: 'Employer ID Number',:class => "campaign-input-box ", required:true %>
-      <%= f.text_field :state_where_incorporated, placeholder: 'State Where Incorporated',:class => "campaign-input-box ", required:true %>
-      <%= f.text_field :office_location, placeholder: 'Main Office Location',:class => "campaign-input-box ", required:true %>
-      <div class='get-funded-section-name'>
+      <%= f.text_field :legal_company_name, placeholder: 'Legal Company Name',:class => "form-field form-field-half required-field " %>
+      <%#= f.text_field :employer_id_number, placeholder: 'Employer ID Number',:class => "form-field form-field-half required-field" %>
+      <%= f.text_field :state_where_incorporated, placeholder: 'State Where Incorporated',:class => "form-field form-field-half required-field " %>
+      <%#= f.text_field :office_location, placeholder: 'Main Office Location',:class => "form-field form-field-half required-field " %>
+      <!-- <div class='get-funded-section-name'>
         Date Company was Formed
-      </div>
-      <%= f.date_field :date_formed, placeholder: 'Date Company was Formed',:class => "campaign-input-box", required:true %>
+      </div> -->
+      <%#= f.date_field :date_formed, placeholder: 'mm/dd/yyyy',:class => "form-field form-field-half required-field" %>
 
       <div class='get-funded-section-name'>
         Company Location
       </div>
-      <%= f.text_field :company_location_address, placeholder: 'Address',:class => "campaign-input-box", required:true %>
-      <%= f.text_field :company_location_city, placeholder: 'City',:class => "campaign-input-box", required:true %>
-      <%= f.text_field :company_location_state, placeholder: 'State',:class => "campaign-input-box", required:true %>
-      <%= f.text_field :company_location_zipcode, placeholder: 'Zipcode',:class => "campaign-input-box", required:true %>
-
-      <div class='get-funded-section-name'>
-        Company Contact Info
-      </div>
-      <%= f.text_field :company_contact_info_name, placeholder: "Person to contact's full name",:class => "campaign-input-box", required:true %>
-      <%= f.text_field :company_contact_info_email, placeholder: 'Email',:class => "campaign-input-box", required:true %>
-      <%= f.text_field :company_contact_info_phone, placeholder: 'Phone',:class => "campaign-input-box", required:true %>
+      <%= f.text_field :company_location_address, placeholder: 'Address',:class => "form-field form-field-half required-field" %>
+      <%= f.text_field :company_location_city, placeholder: 'City',:class => "form-field form-field-half required-field" %>
+      <%= f.text_field :company_location_state, placeholder: 'State',:class => "form-field form-field-half required-field" %>
+      <%= f.text_field :company_location_zipcode, placeholder: 'Zipcode',:class => "form-field form-field-half required-field" %>
 
 
-
-
-      <div class='get-funded-section-name'>
+      <!-- <div class='get-funded-section-name'>
         State Filing Number
-      </div>
-      <%= f.text_field :state_filing_number, placeholder: "State Filing Number",:class => "input-box", required:true %>
+      </div> -->
+      <%#= f.text_field :state_filing_number, placeholder: "State Filing Number",:class => "form-field form-field-half required-field" %>
 
       <div class = "notice centered">
         <%= flash[:errors] if flash[:errors] %>
@@ -83,3 +73,43 @@
   </div>
 
 </div>
+
+<script type="text/javascript">
+// F O R M   V A L I D A T I O N
+$(document).ready(function() {
+
+    $(".required-field").on("input", function(){
+        var input= $( this );
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+    });
+
+    $(".required-field").each(function(){
+        if( $(this).val() ){
+            $(this).removeClass("invalid").addClass("valid");
+        }
+        else{$(this).removeClass("valid").addClass("invalid");}
+        console.log("check")
+    })
+
+
+    $(".edit_campaign").submit(function(e){
+        var form_data= $(".required-field");
+        var error_free=true;
+
+        form_data.each(function(){
+            valid = $(this).hasClass("valid");
+            var error_element= $(this);
+            console.log(error_element);
+            if (!valid){error_element.addClass("error_show"); error_free=false;}
+            else{error_element.removeClass("error_show");}
+        })
+
+        if (!error_free){
+            e.preventDefault();
+        }
+   })
+
+});
+</script>

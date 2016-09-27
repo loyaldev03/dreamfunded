@@ -18,9 +18,9 @@
 
     <div class= "login-container">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <%= f.text_field(:email, :class =>"userbox-login", :placeholder => "Email") %>
-        <br>
-        <%= f.password_field(:password, :class => "passbox", :placeholder => "Password") %>
+        <%= f.text_field(:email, :class =>" form-field", :placeholder => "Email") %>
+
+        <%= f.password_field(:password, :class => " form-field", :placeholder => "Password") %>
         <br>
           <div class = "notice centered">
             <%= flash[:notice]  %>
@@ -58,8 +58,8 @@
 </div>
 </body>
 <script type="text/javascript">
-  $('.close-disclaimer').click(function(){
-    $(this).parent().hide()
-   })
+
+
+
 </script>
 </html>

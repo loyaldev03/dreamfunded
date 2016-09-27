@@ -185,7 +185,7 @@
                     <h2 class= " category-name indent">Highlight</h2>
                     <hr>
                         <% if current_user %>
-                            <p class= "fifteen "><%= @company.description.html_safe %></p>
+                            <p class= "fifteen "><%= @company.description.html_safe if @company.description %></p>
                         <%else%>
                             <p class= "fifteen "><%= @company.description.split(' ').first(30).join(' ').html_safe %>...</p>
                             <article class='centered'>

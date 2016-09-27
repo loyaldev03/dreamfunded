@@ -35,6 +35,7 @@ class CampaignsController < ApplicationController
     @campaign_id = params[:id]
     @campaign = Campaign.find(params[:id])
     @company = @campaign.company
+    @founders = @company.founders
   end
 
   def basics_submit
@@ -71,7 +72,10 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:campaign_id])
     @campaign.update(campaign_params)
     @campaign.financial
-    redirect_to financial_info_path(@campaign.id)
+    @campaign.complete
+    ContactMailer.campaign_submitted(current_user).deliver
+    ContactMailer.check_campaign(@campaign).deliver
+    redirect_to "/companies/company_profile/#{@campaign.company.id}"
   end
 
   def financial_info

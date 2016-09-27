@@ -37,111 +37,150 @@
       <%= hidden_field_tag :campaign_id, @campaign.id %>
       <%= hidden_field_tag :financial_details, @financial_details.id %>
 
-      <%= f.text_area(:offering_terms, rows: 6, :class =>"userbox ", :placeholder => "Offering Terms", :required => true) %>
+      <%= f.text_area(:offering_terms, rows: 6, :class =>"form-field required-field form-control-textarea", :placeholder => "Offering Terms") %>
 
-      <%= f.text_area(:fin_risks, rows: 6, :class =>"userbox ", :placeholder => "Financial Risks", :required => true) %>
+      <%= f.text_area(:fin_risks, rows: 6, :class =>"form-field required-field form-control-textarea", :placeholder => "Financial Risks") %>
 
-      <%= f.number_field :totat_income, placeholder: 'Total Income',:class => "input-box", required:true %>
+      <%= f.number_field :totat_income, placeholder: 'Total Income',:class => "form-field required-field" %>
 
-      <%= f.number_field :total_taxable_income, placeholder: 'Total Taxable Income',:class => "input-box ", required:true %>
+      <%= f.number_field :total_taxable_income, placeholder: 'Total Taxable Income',:class => "form-field required-field " %>
 
-      <%= f.number_field :total_taxes_paid, placeholder: 'Total Taxes Paid',:class => "input-box ", required:true %>
+      <%= f.number_field :total_taxes_paid, placeholder: 'Total Taxes Paid',:class => "form-field required-field " %>
 
-      <strong class='half'>Most Recent Fiscal Year</strong>
+      <!-- <strong class='half'>Most Recent Fiscal Year</strong>
       <strong class='half scoot-left'>Prior Recent Fiscal Year</strong>
       <br>
 
-      <%= f.number_field :total_assets_this_year, placeholder: 'Total assets most recent fiscal year',:class => "input-box half", required:true %>
-      <%= f.number_field :total_assets_last_year, placeholder: 'Total assets prior fiscal year',:class => "input-box half scoot-left ", required:true %>
+      <%#= f.number_field :total_assets_this_year, placeholder: 'Total assets most recent fiscal year',:class => "input-box half", required:true %>
+      <%#= f.number_field :total_assets_last_year, placeholder: 'Total assets prior fiscal year',:class => "input-box half scoot-left ", required:true %>
 
-      <%= f.number_field :cash_this_year, placeholder: 'Cash & Cash Equivalents most recent fiscal year',:class => "input-box half", required:true %>
-      <%= f.number_field :cash_last_year, placeholder: 'Cash & Cash Equivalents prior fiscal year',:class => "input-box half scoot-left ", required:true %>
+      <%#= f.number_field :cash_this_year, placeholder: 'Cash & Cash Equivalents most recent fiscal year',:class => "input-box half", required:true %>
+      <%#= f.number_field :cash_last_year, placeholder: 'Cash & Cash Equivalents prior fiscal year',:class => "input-box half scoot-left ", required:true %>
 
-      <%= f.number_field :acount_receivable_this_year, placeholder: 'Accounts Receivable recent fiscal year',:class => "input-box half", required:true %>
-      <%= f.number_field :acount_receivable_last_year, placeholder: 'Accounts Receivable prior fiscal year',:class => "input-box half scoot-left ", required:true %>
+      <%#= f.number_field :acount_receivable_this_year, placeholder: 'Accounts Receivable recent fiscal year',:class => "input-box half", required:true %>
+      <%#= f.number_field :acount_receivable_last_year, placeholder: 'Accounts Receivable prior fiscal year',:class => "input-box half scoot-left ", required:true %>
 
-      <%= f.number_field :short_term_debt_this_year, placeholder: 'Short-term Debt most recent fiscal year',:class => "input-box half", required:true %>
-      <%= f.number_field :short_term_debt_last_year, placeholder: 'Short-term Debt prior fiscal year',:class => "input-box half scoot-left ", required:true %>
+      <%#= f.number_field :short_term_debt_this_year, placeholder: 'Short-term Debt most recent fiscal year',:class => "input-box half", required:true %>
+      <%#= f.number_field :short_term_debt_last_year, placeholder: 'Short-term Debt prior fiscal year',:class => "input-box half scoot-left ", required:true %>
 
-      <%= f.number_field :long_term_debt_this_year, placeholder: 'Long-term Debt most recent fiscal year',:class => "input-box half", required:true %>
-      <%= f.number_field :long_term_debt_last_year, placeholder: 'Long-term Debt prior fiscal year',:class => "input-box half scoot-left ", required:true %>
+      <%#= f.number_field :long_term_debt_this_year, placeholder: 'Long-term Debt most recent fiscal year',:class => "input-box half", required:true %>
+      <%#= f.number_field :long_term_debt_last_year, placeholder: 'Long-term Debt prior fiscal year',:class => "input-box half scoot-left ", required:true %>
 
-      <%= f.number_field :sales_this_year, placeholder: 'Revenues / Sales most recent fiscal year',:class => "input-box half", required:true %>
-      <%= f.number_field :sales_last_year, placeholder: 'Revenues / Sales prior fiscal year',:class => "input-box half scoot-left ", required:true %>
+      <%#= f.number_field :sales_this_year, placeholder: 'Revenues / Sales most recent fiscal year',:class => "input-box half", required:true %>
+      <%#= f.number_field :sales_last_year, placeholder: 'Revenues / Sales prior fiscal year',:class => "input-box half scoot-left ", required:true %>
 
-      <%= f.number_field :costs_of_goods_this_year, placeholder: 'Costs of Goods Sold most recent fiscal year',:class => "input-box half", required:true %>
-      <%= f.number_field :costs_of_goods_last_year, placeholder: 'Costs of Goods Sold prior fiscal year',:class => "input-box half scoot-left ", required:true %>
+      <%#= f.number_field :costs_of_goods_this_year, placeholder: 'Costs of Goods Sold most recent fiscal year',:class => "input-box half", required:true %>
+      <%#= f.number_field :costs_of_goods_last_year, placeholder: 'Costs of Goods Sold prior fiscal year',:class => "input-box half scoot-left ", required:true %>
 
-      <%= f.number_field :taxes_paid_this_year, placeholder: 'Taxes Paid most recent fiscal year',:class => "input-box half", required:true %>
-      <%= f.number_field :taxes_paid_last_year, placeholder: 'Taxes Paid prior fiscal year',:class => "input-box half scoot-left ", required:true %>
+      <%#= f.number_field :taxes_paid_this_year, placeholder: 'Taxes Paid most recent fiscal year',:class => "input-box half", required:true %>
+      <%#= f.number_field :taxes_paid_last_year, placeholder: 'Taxes Paid prior fiscal year',:class => "input-box half scoot-left ", required:true %>
 
-      <%= f.number_field :net_income_this_year, placeholder: 'Net Income most recent fiscal year',:class => "input-box half", required:true %>
-      <%= f.number_field :net_income_last_year, placeholder: 'Net Income prior fiscal year',:class => "input-box half scoot-left ", required:true %>
+      <%#= f.number_field :net_income_this_year, placeholder: 'Net Income most recent fiscal year',:class => "input-box half", required:true %>
+      <%#= f.number_field :net_income_last_year, placeholder: 'Net Income prior fiscal year',:class => "input-box half scoot-left ", required:true %>
 
       <div class='funding_goal_list_item'>
         <strong>Balance Sheet ( .pdf )</strong>
-        <%= f.file_field :balance_sheet %>
+        <%#= f.file_field :balance_sheet %>
       </div>
 
       <div class='funding_goal_list_item'>
         <strong>Income Statements ( .pdf )</strong>
-        <%= f.file_field :income_statements %>
+        <%#= f.file_field :income_statements %>
        </div>
 
       <div class='funding_goal_list_item'>
         <strong>Statement of Cash Flow ( .pdf )</strong>
-        <%= f.file_field :statement_of_cash_flow %>
+        <%#= f.file_field :statement_of_cash_flow %>
       </div>
 
       <div class='funding_goal_list_item'>
         <strong>Statement of Changes in Equity For Past 2 Years ( .pdf )</strong>
-        <%= f.file_field :statement_changes_of_equity %>
+        <%#= f.file_field :statement_changes_of_equity %>
       </div>
 
       <div class='funding_goal_list_item'>
         <strong>Anticipated Business Plan ( .pdf )</strong>
-        <%= f.file_field :business_plan %>
+        <%#= f.file_field :business_plan %>
       </div>
 
       <div class='funding_goal_list_item'>
         <strong>Any Related Party Transaction ( .pdf )</strong>
-        <%= f.file_field :party_transaction %>
+        <%#= f.file_field :party_transaction %>
       </div>
 
       <div class='funding_goal_list_item'>
         <strong>Description of Intended Use of Proceeds ( .pdf )</strong>
-        <%= f.file_field :intended_use_of_proceeds %>
+        <%#= f.file_field :intended_use_of_proceeds %>
       </div>
 
       <div class='funding_goal_list_item'>
         <strong>Ownership and Capital Structure ( .pdf )</strong>
-        <%= f.file_field :capital_structure %>
+        <%#= f.file_field :capital_structure %>
       </div>
 
       <div class='funding_goal_list_item'>
         <strong>Material Terms of Any Indebtedness ( .pdf )</strong>
-        <%= f.file_field :material_terms %>
+        <%#= f.file_field :material_terms %>
       </div>
 
       <div class='funding_goal_list_item'>
         <strong>Financial Condition ( .pdf )</strong>
-        <%= f.file_field :financial_conditions %>
+        <%#= f.file_field :financial_conditions %>
       </div>
 
       <div class='funding_goal_list_item'>
         <strong>Background of Directors and Officers ( .pdf )</strong>
-        <%= f.file_field :directors_background %>
+        <%#= f.file_field :directors_background %>
       </div>
 
       <div class='funding_goal_list_item'>
         <strong>Independent Accountant's Review ( .pdf )</strong>
-        <%= f.file_field :accountant_review %>
-      </div>
+        <%#= f.file_field :accountant_review %>
+      </div> -->
 
       <div class= "centered">
         <%= submit_tag("Continue", :id => "submit-button") %>
       </div>
     <% end %>
   </div>
-
 </div>
+
+<script type="text/javascript">
+// F O R M   V A L I D A T I O N
+$(document).ready(function() {
+
+    $(".required-field").on("input", function(){
+        var input= $( this );
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+    });
+
+    $(".required-field").each(function(){
+        if( $(this).val() ){
+            $(this).removeClass("invalid").addClass("valid");
+        }
+        else{$(this).removeClass("valid").addClass("invalid");}
+        console.log("check")
+    })
+
+
+    $(".edit_financial_detail").submit(function(e){
+        var form_data= $(".required-field");
+        var error_free=true;
+
+        form_data.each(function(){
+            valid = $(this).hasClass("valid");
+            var error_element= $(this);
+            console.log(error_element);
+            if (!valid){error_element.addClass("error_show"); error_free=false;}
+            else{error_element.removeClass("error_show");}
+        })
+
+        if (!error_free){
+            e.preventDefault();
+        }
+   })
+
+});
+</script>

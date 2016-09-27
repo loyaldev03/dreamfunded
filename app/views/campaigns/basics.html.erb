@@ -5,8 +5,7 @@
     <a href="/funding_campaing_goal/<%=@campaign_id%>" class='education-links '>Funding Goal</a> <%= fa_icon "chevron-right"%>
     <a href="#" class='education-links active-link'>Basics</a> <%= fa_icon "chevron-right"%>
     <a href="#" class='education-links disabled-link'>Description</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links disabled-link'> Legal Info </a> <%= fa_icon "chevron-right"%>
-    <span href="#" class='education-links disabled-link'> Financial Info </span>
+    <a href="#" class='education-links disabled-link'> Legal Info </a>
   </div>
 
   <div class= "campaign-box  get-funded ">
@@ -37,31 +36,43 @@
           <span class='disclaimer-text'>Use your campaign page to show investors what makes your company unique. Remember to be factual and balanced. Claims cannot be exaggerated or false. Your company must be a US company in order to raise capital under Title III - Regulation Crowdfunding. You may not be a fund.</span>
         </div>
       </div>
-      <br>
-      <%= f.text_field :name, placeholder: 'Company Name',:class => "input-box", required:true %>
-      <br>
-      <%= text_field_tag :tagline, @campaign.tagline ,placeholder: 'Describe your company in one sentence',:class => "input-box", required:true %>
-      <br>
-      <label>Category</label>
-      <div class="styled-select select-100-width" >
-        <%= select_tag(:category, options_for_select(company_categories), required:true ) %><br>
+
+      <div class='text_field'>
+        <%= f.text_field :name, placeholder: 'Company Name',:class => "form-field required-field" %>
+
       </div>
+
+      <div class='text_field'>
+        <%= text_field_tag :tagline, @campaign.tagline ,placeholder: 'Describe your company in one sentence',:class => "form-field required-field" %>
+
+      </div>
+
+      <label>Category</label>
+
+        <%= select_tag(:category, options_for_select(company_categories),:include_blank => true, class: "form-select form-field required-field" ) %>
+
+        <br>
+
 
       <br><br>
       <label>Short Description about your company</label>
-      <%= f.text_area :description, placeholder: 'Short Description about your company', class: 'ckeditor userbox campaign_text_area_width', rows: 6, required:true %>
+      <%= f.text_area :description, placeholder: 'Short Description about your company', class: 'ckeditor userbox campaign_text_area_width', rows: 6 %>
       <br>
-      <%= f.text_field :website_link, placeholder: 'Website', :class => "input-box", required:true %><br>
 
-      <label>Company Logo</label>
-      <%= f.file_field :image, required:true %>
+      <div class='text_field'>
+        <%= f.text_field :website_link, placeholder: 'Website', :class => "form-field required-field" %><br>
+
+      </div>
+
+      <label>Company Logo (Recommended)</label>
+      <%= f.file_field :image %>
       <br><br>
 
-      <label>Cover Photo (Background)</label>
+      <label>Cover Photo (Recommended)</label>
       <%= f.file_field :cover %>
 
       <h3>Management Team</h3>
-      <%= f.fields_for :founders do |founder| %>
+      <%= f.fields_for :founders, @founders do |founder| %>
         <%= render 'founder_fields', f: founder %>
       <% end %>
       <div class="links">
@@ -82,12 +93,55 @@
 </div>
 
 <script type="text/javascript">
-   $( "#funding_goal" ).keyup(function() {
-       var value = addCommas( $( this ).val() );
-       value = "$ " + value
-       $( this ).val( value );
-   });
-   $('.close-disclaimer').click(function(){
-    $(this).parent().hide()
-   })
+    $('.close-disclaimer').click(function(){
+        $(this).parent().hide()
+    })
+
+    // F O R M   V A L I D A T I O N
+    $(document).ready(function() {
+
+        $(".required-field").each(function(){
+            if( $(this).val() ){
+                $(this).removeClass("invalid").addClass("valid");
+            }
+            else{$(this).removeClass("valid").addClass("invalid");}
+            console.log("check")
+        })
+
+        $(".required-field").on("input", function(){
+            console.log("typing");
+            var input= $( this );
+            var is_name=input.val();
+            if(is_name){input.removeClass("invalid").addClass("valid");}
+            else{input.removeClass("valid").addClass("invalid");}
+        });
+
+
+
+        $(".edit_company").submit(function(e){
+            var form_data= $(".required-field");
+            var error_free=true;
+
+            form_data.each(function(){
+                valid = $(this).hasClass("valid");
+                var error_element= $(this);
+                console.log(error_element);
+                if (!valid){error_element.addClass("error_show"); error_free=false;}
+                else{error_element.removeClass("error_show");}
+            })
+
+
+            if (!error_free){
+                e.preventDefault();
+            }
+       })
+
+        if ($('textarea').length > 0) {
+          var data = $('.ckeditor');
+          $.each(data, function(i) {
+              CKEDITOR.replace(data[i].id);
+          });
+        }
+
+    });
 </script>
