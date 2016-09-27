@@ -251,11 +251,11 @@
 
                         <h2 class= " category-name indent">Offering Terms</h2>
                         <hr>
-                        <p class= "fifteen"><%= @financial_details.offering_terms.html_safe if @financial_details.offering_term%></p>
+                        <p class= "fifteen"><%= @financial_details.offering_terms.html_safe if @financial_details.offering_terms %></p>
 
                         <h2 class= " category-name indent">Financial Risks</h2>
                         <hr>
-                        <p class= "fifteen"><%= @financial_details.fin_risks.html_safe if @financial_details.fin_risks%></p>
+                        <p class= "fifteen"><%= @financial_details.fin_risks.html_safe if @financial_details.fin_risks %></p>
                     <%else%>
 
                         <article class='centered'>
