@@ -56,8 +56,24 @@
                     data-fa-referrer="">
                     Invest in <%#= @company.name %>
                 </button> -->
-                <%= form_tag("/companies/join_waitlist/#{@company.slug}", target: "_blank")  do %>
-                    <%= submit_tag "Join The Waitlist", class: "company-button profile-button mail-to-button", target: "_blank" %>
+                <% if user_signed_in? %>
+                    <%if @company.accredited %>
+                        <% if @company.status == 2 %>
+                            <button type="button" data-fa-invest-now="<%= @company.fund_america_code%>" class=" company-button profile-button mail-to-button" >
+                            Invest in <%= @company.name %>
+                        </button>
+                        <%else%>
+                            <%= form_tag("/companies/join_waitlist/#{@company.slug}", target: "_blank")  do %>
+                                <%= submit_tag "Join The Waitlist", class: "company-button profile-button mail-to-button", target: "_blank" %>
+                            <% end %>
+                        <%end%>
+                    <%else%>
+                        <button class=" company-button profile-button mail-to-button" >
+                            Pending Approval
+                        </button>
+                    <%end%>
+                <% else %>
+                    <%= link_to "Invest in #{@company.name}", new_user_registration_path, class: 'company-button profile-button mail-to-button' %>
                 <% end %>
             </div>
         </div>
@@ -91,32 +107,42 @@
                             Help us reach our goal. <br>Share our campaing to your friends and family.
                         </p>
                         <section class='centered'>
-                            <a id='facebook' class="share-invites-social" href='#'> <i class="fa fa-facebook"></i></a>
-                            <script type="text/javascript">
-                              $('#facebook').click(function(){
-                                FB.ui({
-                                  method: 'share',
-                                  href: "https://dreamfunded.com/companies/<%= @company.slug %>",
-                                  redirect_uri: "https://dreamfunded.com/companies/<%= @company.slug %>",
-                                  // quote: "Invest in <%= @company.name %> on DreamFunded",
-                                  title: "<%= @company.name %>",
-                                  description: "<%= @company.campaign.tagline %>"
-                                }, function(response){});
+                            <%if @company.accredited%>
+                                <a id='facebook' class="share-invites-social" href='#'> <i class="fa fa-facebook"></i></a>
+                                <script type="text/javascript">
+                                  $('#facebook').click(function(){
+                                    FB.ui({
+                                      method: 'share',
+                                      href: "https://dreamfunded.com/companies/<%= @company.slug %>",
+                                      redirect_uri: "https://dreamfunded.com/companies/<%= @company.slug %>",
+                                      // quote: "Invest in <%= @company.name %> on DreamFunded",
+                                      title: "<%= @company.name %>",
+                                      description: "<%= @company.campaign.tagline %>"
+                                    }, function(response){});
 
-                              })
-                            </script>
-                            <a id="twitter" class="share-invites-social" target="_blank"
-                             href="http://twitter.com/intent/tweet?text=Invest%20in%20<%= @company.name%>%20on%20https://dreamfunded.com/companies/<%= @company.slug %>"
-                              title="Share via Twitter">
-                                <i class="fa fa-twitter"></i>
-                            </a>
+                                  })
+                                </script>
+                                <a id="twitter" class="share-invites-social" target="_blank"
+                                 href="http://twitter.com/intent/tweet?text=Invest%20in%20<%= @company.name%>%20on%20https://dreamfunded.com/companies/<%= @company.slug %>"
+                                  title="Share via Twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
 
-                            <a id ='linkedin' class="share-invites-social" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;ro=false&amp;trk=bookmarklet&amp;title=Invest%in%<%= @company.name%>&amp;url=https://dreamfunded.com/companies/<%= @company.slug %>" target="_blank" title="Share via LinkedIn" >
-                                <i class="fa fa-linkedin"></i>
-                            </a>
+                                <a id ='linkedin' class="share-invites-social" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;ro=false&amp;trk=bookmarklet&amp;title=Invest%in%<%= @company.name%>&amp;url=https://dreamfunded.com/companies/<%= @company.slug %>" target="_blank" title="Share via LinkedIn" >
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            <%else%>
+                                <a id='facebook' class="share-invites-social" > <i class="fa fa-facebook"></i></a>
+                                <a id="twitter" class="share-invites-social" title="Share via Twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a id ='linkedin' class="share-invites-social" title="Share via LinkedIn" >
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            <%end%>
 
                             <div class='company-info-cateogry campaign-website'>
-                                <%= link_to @company.website_link, "http://"+@company.website_link, class: 'website-url', target: '_blank' %>
+                                <%= link_to @company.website_link, "http://"+@company.website_link, class: 'website-url', target: '_blank' if @company.website_link%>
                             </div>
 
                         </section>
@@ -398,6 +424,4 @@
 
 
 </script>
-<script src="https://sandbox.fundamerica.com/cors/js/invest_now.min.js"
-    id="fa-invest-now-launcher">
-</script>
+<script src="https://apps.fundamerica.com/cors/js/invest_now.min.js" id="fa-invest-now-launcher"></script>

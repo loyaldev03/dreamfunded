@@ -10,10 +10,10 @@
 		<div class= "word-content"><div class= "text-content">
 			<%= button_to "Write a News Article", '/news/new', :method => 'get', :id => 'user-button' %>
 			<%= button_to "Add a new Member", '/members/new', :method => 'get', :id => 'user-button' %>
-			<%= button_to "Add a new Company", '/companies/new', :method => 'get', :id => 'user-button' %>
-			<%= button_to "Edit a Company", '/companies/1/edit', :method => 'get', :id => 'user-button' %>
+			<%#= button_to "Add a new Company", '/companies/new', :method => 'get', :id => 'user-button' %>
+			<%#= button_to "Edit a Company", '/companies/1/edit', :method => 'get', :id => 'user-button' %>
 			<%= button_to "Newsletter Subscribers", '/guests', :method => 'get', :id => 'user-button' %>
-			<%= button_to "Edit Liquidators (Sellers)", '/sellers', :method => 'get', :id => 'user-button' %>
+			<%#= button_to "Edit Liquidators (Sellers)", '/sellers', :method => 'get', :id => 'user-button' %>
 			<% if @current_user.authority == @Authority[:Admin] %>
 				<table id="user-table">
 				 <tr>

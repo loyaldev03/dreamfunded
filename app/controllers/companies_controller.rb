@@ -42,7 +42,7 @@ class CompaniesController < ApplicationController
 
 	def update
 		if @company.update(company_params)
-			redirect_to :controller => 'companies', :action => 'company_profile', :id => params[:id]
+			redirect_to company_path(@company)
 		else
 			@error_update = ""
 			@company.errors.full_messages.each do |error|
@@ -177,9 +177,9 @@ private
 	end
 
 	def company_params
-	  params.require(:company).permit(:image, :end_date, :document, :hidden, :position, :docusign_url, :name, :description,
+	  params.require(:company).permit(:image, :cover, :id, :end_date, :document, :hidden, :position, :docusign_url, :name, :description,
 	  :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number,
-	   :display, :days_left, :created_at, :updated_at, :suggested_target_price,
+	   :display, :days_left, :created_at, :updated_at, :suggested_target_price, :fund_america_code,
 	  financial_detail_attributes: ["offering_terms", "fin_risks", "income", "totat_income", "total_taxable_income",
 				       "total_taxes_paid", "total_assets_this_year", "total_assets_last_year", "cash_this_year", "cash_last_year",
 				       "acount_receivable_this_year", "acount_receivable_last_year", "short_term_debt_this_year", "short_term_debt_last_year",

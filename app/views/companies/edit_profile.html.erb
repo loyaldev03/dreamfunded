@@ -41,6 +41,7 @@
 			<div class= "stats-container">
 				<div class= "profile-image-wrap"> <%= link_to image_tag(@company.image.url, :class => "stats-image"), @company.website_link %></div>
 				<div class='center'><span class= "darkblue twenty">Change Image: </span><%= f.file_field "image" %></br></br></div>
+				<div class='center'><span class= "darkblue twenty">Background Cover: </span><%= f.file_field "cover" %></br></br></div>
 				<div class='center'><span class= "darkblue twenty"><%= link_to "Upload Docs", new_document_path(:company_id => @company.id) %> </span></br></br></div>
 
 				<div class='center'>
@@ -91,7 +92,7 @@
 						</div>
 
 						<div>
-							<p class= "twenty no-margin center"><%= f.text_field :docusign_url, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">DocuSign Link</span></p>
+							<p class= "twenty no-margin center"><%= f.text_field :fund_america_code, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">FundAmerica Code</span></p>
 						</div>
 
 							<div>

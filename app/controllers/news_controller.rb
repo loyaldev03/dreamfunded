@@ -1,4 +1,5 @@
 class NewsController < ApplicationController
+before_action :authenticate_user!, only: [:new ]
 
 #default page with news listed by most recent
   def index
@@ -16,9 +17,6 @@ class NewsController < ApplicationController
 
   #create new using admin account
   def new
-	if current_user == nil || current_user.authority < User.Authority[:Founder]
-		redirect_to url_for(:controller => 'home', :action => 'unauthorized')
-	end
    @news = News.new
   end
 
