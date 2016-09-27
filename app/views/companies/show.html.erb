@@ -77,9 +77,15 @@
 
                 <% if user_signed_in? %>
                     <%if @company.accredited %>
-                        <button type="button" data-fa-invest-now="<%= @company.fund_america_code%>" class=" company-button profile-button mail-to-button" >
+                        <% if @company.status == 2 %>
+                            <button type="button" data-fa-invest-now="<%= @company.fund_america_code%>" class=" company-button profile-button mail-to-button" >
                             Invest in <%= @company.name %>
                         </button>
+                        <%else%>
+                            <%= form_tag("/companies/join_waitlist/#{@company.slug}", target: "_blank")  do %>
+                                <%= submit_tag "Join The Waitlist", class: "company-button profile-button mail-to-button", target: "_blank" %>
+                            <% end %>
+                        <%end%>
                     <%else%>
                         <button class=" company-button profile-button mail-to-button" >
                             Pending Approval
@@ -88,9 +94,6 @@
                 <% else %>
                     <%= link_to "Invest in #{@company.name}", new_user_registration_path, class: 'company-button profile-button mail-to-button' %>
                 <% end %>
-                <%#= form_tag("/companies/join_waitlist/#{@company.slug}", target: "_blank")  do %>
-                    <%#= submit_tag "Join The Waitlist", class: "company-button profile-button mail-to-button", target: "_blank" %>
-                <%# end %>
             </div>
         </div>
     </section>
