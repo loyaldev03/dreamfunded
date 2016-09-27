@@ -31,7 +31,7 @@ end
 
   index do
     column  "name"
-    column("url") {|t| link_to t.name, "/companies/company_profile/#{t.id}" if description_step?(t) }
+    column("url") {|t| link_to t.name, "/companies/#{t.slug}" if description_step?(t) }
     column  "website_link"
     column  "goal_amount"
     column("Step") { |company| company.campaign.current_state if company.campaign}
