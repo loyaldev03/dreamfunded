@@ -43,6 +43,7 @@
 }
 .form-field{
   font-size: 15px;
+  box-sizing: border-box;
   display: block;
   width: 98%;
   height: 50px;
@@ -57,7 +58,7 @@
   margin: 0 5px 9px 0;
 }
 .form-field-half {
-  width: 44%;
+  width: 48%;
   display: inline-block;
 }
 .form-control-textarea {
