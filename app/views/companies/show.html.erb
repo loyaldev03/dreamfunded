@@ -77,7 +77,7 @@
 
                 <% if user_signed_in? %>
                     <%if @company.accredited %>
-                        <button type="button" data-fa-invest-now="dV-IRcQpIV5n_FFYJXqUTUJyfn2-BQWx:-O119J6jTjC8GFLEZJ5sGA" class=" company-button profile-button mail-to-button" >
+                        <button type="button" data-fa-invest-now="<%= @company.fund_america_code%>" class=" company-button profile-button mail-to-button" >
                             Invest in <%= @company.name %>
                         </button>
                     <%else%>
