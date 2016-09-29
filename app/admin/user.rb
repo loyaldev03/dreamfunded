@@ -56,4 +56,10 @@ permit_params :first_name, :last_name, :login, :email, :role, :authority, :salt,
      end
   end
 
+  csv do
+     column :first_name
+     column :last_name
+     column :email
+   end
+
 end

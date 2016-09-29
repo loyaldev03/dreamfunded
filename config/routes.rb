@@ -169,9 +169,12 @@ Rails.application.routes.draw do
   resources :companies
   resources :news
 
-  get '/invite', to: "invites#invite"
+  get '/invite', to: "invites#invite", as: :invite_users
   post '/google_contacts', to: "invites#google_contacts"
-  get '/invite_test', to: "invites#test"
+  post "/upload_csv", to: "invites#upload_csv"
+
+  get '/view_uploaded_csv', to: "invites#view_uploaded_csv", as: :view_uploaded_csv
+  #post '/send_csv_invites', to: "invites#send_csv_invites"
 
   get '/accept-invite', to: "invites#accept"
   get '/accept-invite-facebook/:id', to: "invites#accept_from_facebook"

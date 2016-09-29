@@ -1,41 +1,37 @@
-<head>
-  <% title "DreamFunded | Invite" %>
-</head>
+<% title "DreamFunded | Invite" %>
 
-<body>
+<div class= "wrapper"> <!-- wrapper Starts -->
 
-  <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '1711154149164475',
-        xfbml      : true,
-        version    : 'v2.5'
-      });
-    };
-
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-  </script>
-<div class= "wrapper">
   <div class="header">
     <h1 class="centered">Invites</h1>
   </div>
+
   <div class= "invite-content">
+    <%= flash[:notices] %>
+
+    <% if current_user.authority == authority[:Admin] %>
+      <div class="invite-via-email">
+        <span class='invite-email-icon'><%=  fa_icon("envelope 2x")%> </span>
+        <span class='invite-text'>Invite via Email</span>
+        <span class='invite-form'>
+          <%= form_for(Invite.new) do |f| %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.text_field(:name, placeholder: 'Name',class: 'invite-text-input', required: true) %>
+            <%= f.text_field(:email, placeholder: 'Email Address',class: 'invite-text-input', pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", required: true)%>
+            <%= f.submit "Send", class: 'invite-button' %>
+          <% end %>
+        </span>
+      </div>
+    <% end %>
 
 
     <div class="invite-via-email">
-      <span class='invite-email-icon'><%=  fa_icon("envelope 2x")%> </span>
-      <span class='invite-text'>Invite via Email</span>
-      <span class='invite-form'>
-        <%= form_for(Invite.new) do |f| %>
-        <%= text_field_tag(:name, nil, placeholder: 'Name',class: 'invite-text-input') %>
-          <%= f.text_field(:email, placeholder: 'Email Address',class: 'invite-text-input', pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")%>
-          <%= f.submit "Send", class: 'invite-button' %>
+      <span class='invite-email-icon'><%=  fa_icon("upload 2x")%> </span>
+      <span class='invite-text'>Upload CSV File</span>
+      <span class='invite-form-google'>
+        <%= form_tag('/upload_csv', multipart: true) do %>
+          <%= file_field_tag :file %>
+          <%= submit_tag "Submit", class: 'invite-button' %>
         <% end %>
       </span>
     </div>
@@ -47,10 +43,10 @@
     <h3 class=' education-category darkblue'>You have invited:</h3>
     <% @invites.each do |invite| %>
       <div class="current-invites">
-        <span class='imported-name' ><%= invite.email %></span><br>
-        <span class='invite-status'><%#= invite.status %></span>
+        <span class='imported-email' ><%= invite.email %></span><br>
+        <span class='invite-status imported-email'><%= invite.name %></span>
       </div>
     <% end %>
   </div>
-</div>
-</body>
+
+</div> <!-- End of wrapper -->

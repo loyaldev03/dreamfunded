@@ -1,0 +1,150 @@
+<% title "DreamFunded | Invite" %>
+
+<div class= "wrapper"> <!-- wrapper Starts -->
+
+  <div class="header">
+    <h1 class="centered">Invites</h1>
+  </div>
+
+  <div class= "invite-content">
+    <%= flash[:notice] %>
+
+   <% if current_user.authority == authority[:Admin] %>
+     <div class="invite-via-email">
+       <span class='invite-email-icon'><%=  fa_icon("envelope 2x")%> </span>
+       <span class='invite-text'>Invite via Email</span>
+       <span class='invite-form'>
+         <%= form_for(Invite.new) do |f| %>
+         <%= f.hidden_field :user_id, value: current_user.id %>
+         <%= f.text_field(:name, placeholder: 'Name',class: 'invite-text-input', required: true) %>
+           <%= f.text_field(:email, placeholder: 'Email Address',class: 'invite-text-input', pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", required: true)%>
+           <%= f.submit "Send", class: 'invite-button' %>
+         <% end %>
+       </span>
+     </div>
+   <% end %>
+
+
+    <div class="invite-via-email">
+      <span class='invite-email-icon'><%=  fa_icon("upload 2x")%> </span>
+      <span class='invite-text'>Upload CSV File</span>
+
+      <span class='invite-form-google'>
+        <%= form_tag('/upload_csv', multipart: true) do %>
+
+          <%= file_field_tag :file %>
+          <%= submit_tag "Submit", class: 'invite-button' %>
+
+        <% end %>
+      </span>
+
+    </div>
+
+
+  </div>
+
+  <div class= "invite-content">
+    <h3 class=' education-category darkblue'>You have invited:</h3>
+    <% @invites.each do |invite| %>
+      <div class="current-invites">
+        <span class='imported-name' ><%= invite.email %></span><br>
+        <span class='invite-status'><%#= invite.status %></span>
+      </div>
+    <% end %>
+  </div>
+
+</div> <!-- End of wrapper -->
+
+
+<% if @invites.size > 0 %>
+<a href="#dialog" class="modalLink"></a>
+    <div id="modal">
+      <!-- First modal window -->
+       <div id="dialog" class="google-clients">
+        <div class="contents">
+            <div class='close-icon'>
+              <a href="#" class="close"><span><i class="fa fa-times"></i></span></a>
+            </div>
+            <h3>Invite friends and colleagues</h3>
+            <!-- <hr class='line-verify-modal'> -->
+            <p class='invite-modal-text'>Please select the individuals that you would like to invite to join DreamFunded. We will send them a personalized invitation on your behalf.</p>
+
+            <div class="search">
+              <input type="text" id="fiter-input" placeholder="Search" class='input-search'>
+            </div>
+            <%= form_tag('invites/send_csv_invites') do%>
+              <ul class='instafilta-section imported-contacts'>
+                <% @invites.each do |guest| %>
+                  <div class="contact-item">
+                    <label>
+                      <li class='imported-name'>
+                        <%= check_box_tag "emails[]", guest.email, false, class: "guest_checkbox" %>
+
+                        <%= check_box_tag "names[]", guest.name, false, class: "invisible_checkbox"  %>
+                        <%= guest.name %>
+                        </li>
+                      <li class='imported-email'><%= guest.email %></li>
+                    </label>
+                    <hr>
+                  </div>
+                <% end %>
+              </ul>
+              <center class='invite-buttons'>
+                <a href="#" class="close-button">Cancel</a>
+                <!-- <a href="#" class="invite-google-button">Send Invitations</a> -->
+                <%= submit_tag "Send Invitations", class: 'invite-google-users'%>
+              </center>
+
+            <% end %>
+        </div>
+     </div>
+    </div>
+<% end %>
+<script>
+  $(document).ready(function(){
+      var activeWindow;
+          var id = '#dialog'
+
+          activeWindow = $('.google-clients' + id)
+              .css('opacity', '0') // set to an initial 0 opacity
+              .css('top', '50%') // position vertically at 50%
+              .css('left', '44%') // position horizontally at 50%
+              .fadeTo(500, 1); // fade to an opacity of 1 (100%) over 500 milliseconds
+
+          $('#modal')
+              .append('<div id="blind" />') // create a <div> with an id of 'blind'
+              .find('#blind') // select the div we've just created
+              .css('opacity', '0') // set the initial opacity to 0
+              .fadeTo(500, 0.5) // fade in to an opacity of 0.8 (80%) over 500 milliseconds
+              .click(function(e){
+                  closeModal(); // close modal if someone clicks anywhere on the blind (outside of the window)
+              });
+
+      $('a.close-button').click(function(e){
+              e.preventDefault();
+              closeModal();
+      });
+      $('a.close').click(function(e){
+              e.preventDefault();
+              closeModal();
+      });
+      function closeModal() {
+          activeWindow.fadeOut(250, function(){ $(this).css('top', '-1000px').css('left', '-1000px'); });
+          $('#blind').fadeOut(250,    function(){ $(this).remove(); });
+      }
+
+      $(".guest_checkbox").on("click", function(){
+        debugger
+        var next_checkbox = $(this).next()
+        isChecked = $(this).is(':checked');
+        if(isChecked){  next_checkbox.prop( "checked", true ); console.log("checked");}
+        else{ next_checkbox.prop( "checked", false ); console.log("unckecked");}
+
+      })
+  });
+
+  $('#fiter-input').instaFilta({
+    targets: '.contact-item'
+  });
+</script>
+

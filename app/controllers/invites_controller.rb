@@ -5,9 +5,9 @@ class InvitesController < ApplicationController
   end
 
   def create
-    @invite = Invite.create(email: params[:invite][:email], user_id: current_user.id)
-    email = params[:invite][:email]
-    name = params[:name]
+    @invite = Invite.create(invite_params)
+    email = @invite.email
+    name = @invite.name
     ContactMailer.invite_to_sign_up(email, name).deliver
     redirect_to '/invite'
   end
@@ -17,6 +17,17 @@ class InvitesController < ApplicationController
     emails.each do |email|
       @invite = Invite.create(email: email, user_id: current_user.id)
       ContactMailer.invite(@invite).deliver
+    end
+    redirect_to '/invite'
+  end
+
+  def send_csv_invites
+    emails = params[:emails]
+    names = params[:names]
+    emails.each_with_index do |email, index|
+      @invite = Invite.create(email: email,name: names[index], user_id: current_user.id)
+      p names[index]
+      ContactMailer.csv_invite(@invite, current_user).deliver
     end
     redirect_to '/invite'
   end
@@ -44,13 +55,22 @@ class InvitesController < ApplicationController
     end
   end
 
-  def test
-    ContactMailer.invite_to_sign_up.deliver
+  def upload_csv
+    begin
+        Invite.import(params[:file], current_user.id)
+        redirect_to  view_uploaded_csv_path
+      rescue
+        redirect_to  invite_users_path, notices: "Invalid CSV file format."
+    end
+  end
+
+  def view_uploaded_csv
+    @invites = current_user.guests.reverse
   end
 
   private
 
   def invite_params
-    params.require(:invite).permit(:user_id, :email, :token)
+    params.require(:invite).permit(:user_id, :email, :token, :name)
   end
 end

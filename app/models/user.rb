@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 	has_many :investments
 	has_many :companies
 	has_many :comments
+	has_many :guests
 
 	has_many :invites
 
@@ -77,6 +78,11 @@ class User < ActiveRecord::Base
 		else
 			"Get Funded"
 		end
+	end
+
+	def startup?
+		return true if self.companies.any?
+		false
 	end
 
 end

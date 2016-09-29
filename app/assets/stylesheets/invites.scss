@@ -76,6 +76,9 @@
   position: relative;
   border-radius: 3px;
 }
+.upload-csv-file{
+  padding: 0 25px;
+}
 .imported-contacts{
   height: 350px;
   overflow: scroll;
@@ -150,6 +153,7 @@
 }
 .invite-status{
   color: #9e9e9e;
+
 }
 .invite-google-users{
   margin-left: 5px;
@@ -193,3 +197,6 @@
   vertical-align: -moz-middle-with-baseline;
 }
 
+.invisible_checkbox {
+  visibility: hidden;
+}

@@ -79,4 +79,10 @@ class ContactMailer < ActionMailer::Base
   def invite_to_sign_up(email, name)
     mail(to: email, subject: "#{name}, please accept my invite to DreamFunded")
   end
+
+  def csv_invite(invite, user)
+    @invite = invite
+    @user = user
+    mail(to: @invite.email, subject: "Hi #{@invite.name}, it's #{@user.name}. Check out my startup on DreamFunded.")
+  end
 end
