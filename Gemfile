@@ -44,7 +44,7 @@ gem 'invisible_captcha'
 gem 'hellosign-ruby-sdk'
 gem "cocoon"
 gem 'ancestry'
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 gem 'devise'
 gem 'newrelic_rpm'
 gem 'raygun4ruby'

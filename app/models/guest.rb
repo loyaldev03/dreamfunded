@@ -1,5 +1,6 @@
 require 'csv'
 class Guest < ActiveRecord::Base
+    belongs_to :user
 
   def self.to_csv
      attributes = %w{email}
@@ -12,5 +13,6 @@ class Guest < ActiveRecord::Base
        end
      end
    end
+
 
 end

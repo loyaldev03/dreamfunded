@@ -1,3 +1,4 @@
+require 'csv'
 class Invite < ActiveRecord::Base
   belongs_to :user
 
@@ -12,12 +13,13 @@ class Invite < ActiveRecord::Base
     self.update(status: 'User signed up, but hasn\'t invested yet')
   end
 
-  # def status
-  #   if signedup
-  #     'User signed up, but hasn\'t invested yet'
-  #   else
-  #     "Hasn't signed up yet"
-  #   end
-  # end
+  def self.import(file, user_id)
+    CSV.foreach(file.path, headers: true) do |row|
+
+      product_hash = row.to_hash # exclude the price field
+      Guest.create!(email: row['Email'], name: row['Name'], user_id: user_id)
+
+    end # end CSV.foreach
+  end # end self.import(file)
 
 end
