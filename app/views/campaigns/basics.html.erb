@@ -2,10 +2,19 @@
 <div class= "wrapper">
   <div class="header education-center">
     <div class='education-title'>Edit My Campaign</div>
-    <a href="/funding_campaing_goal/<%=@campaign_id%>" class='education-links '>Funding Goal</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links active-link'>Basics</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links disabled-link'>Description</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links disabled-link'> Legal Info </a>
+    <section class='campaign-links'>
+      <a href="/funding_campaing_goal/<%=@campaign_id%>" class='education-links '>Funding Goal</a> <%= fa_icon "chevron-right"%>
+      <a href="#" class='education-links active-link'>Basics</a> <%= fa_icon "chevron-right"%>
+      <a href="#" class='education-links disabled-link'>Description</a> <%= fa_icon "chevron-right"%>
+      <a href="#" class='education-links disabled-link'> Legal Info </a>
+    </section>
+
+    <section class='progress-bar'>
+      <div class="progress animate">
+        <span style="width: 25%"><span></span></span>
+      </div>
+    </section>
+
   </div>
 
   <div class= "campaign-box  get-funded ">
@@ -117,7 +126,6 @@
         });
 
 
-
         $(".edit_company").submit(function(e){
             var form_data= $(".required-field");
             var error_free=true;
@@ -130,7 +138,6 @@
                 else{error_element.removeClass("error_show");}
             })
 
-
             if (!error_free){
                 e.preventDefault();
             }
@@ -142,6 +149,15 @@
               CKEDITOR.replace(data[i].id);
           });
         }
+
+        $(".progress > span").each(function() {
+          $(this)
+            .data("origWidth", $(this).width())
+            .width(0)
+            .animate({
+              width: $(this).data("origWidth") // or + "%" if fluid
+            }, 1200);
+        });
 
     });
 </script>
