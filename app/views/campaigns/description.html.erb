@@ -125,18 +125,18 @@
               else{error_element.removeClass("error_show");}
           })
 
-          debugger
+
           if (!error_free){
               e.preventDefault();
           }
 
      })
-      if ($('textarea').length > 0) {
-        var data = $('.ckeditor');
-        $.each(data, function(i) {
-            CKEDITOR.replace(data[i].id);
-        });
-      }
+      // if ($('textarea').length > 0) {
+      //   var data = $('.ckeditor');
+      //   $.each(data, function(i) {
+      //       CKEDITOR.replace(data[i].id);
+      //   });
+      // }
 
       $(".progress > span").each(function() {
         $(this)
