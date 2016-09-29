@@ -51,9 +51,11 @@ class InvitesController < ApplicationController
         invites.each do |invite|
             ContactMailer.csv_invite(invite, current_user).deliver
         end
-        redirect_to  invite_users_path, notices: "Emails sent"
+        flash[:email_sent] = "Emails sent"
+        redirect_to  invite_users_path
       rescue
-        redirect_to  invite_users_path, notices: "Invalid CSV file format."
+        flash[:email_sent] = "Invalid CSV file format."
+        redirect_to  invite_users_path
     end
   end
 

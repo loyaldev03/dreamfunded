@@ -7,7 +7,7 @@
   </div>
 
   <div class= "invite-content">
-    <%= flash[:notices] %>
+    <%= flash[:email_sent] %>
 
     <% if current_user.authority == authority[:Admin] %>
       <div class="invite-via-email">
