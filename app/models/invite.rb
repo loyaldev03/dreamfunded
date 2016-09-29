@@ -1,8 +1,9 @@
 require 'csv'
 class Invite < ActiveRecord::Base
   belongs_to :user
-
   before_save :set_token
+
+  validates :email, presence: true
 
 
   def set_token
