@@ -28,12 +28,16 @@
     <div class="invite-via-email">
       <span class='invite-email-icon'><%=  fa_icon("upload 2x")%> </span>
       <span class='invite-text'>Upload CSV File</span>
+
       <span class='invite-form-google'>
         <%= form_tag('/upload_csv', multipart: true) do %>
           <%= file_field_tag :file %>
-          <%= submit_tag "Submit", class: 'invite-button' %>
+          <%= submit_tag "Send", class: 'invite-button' %>
         <% end %>
       </span>
+      <div>
+        <i>Please see proper <%= link_to "CSV file", asset_path("test_users.csv"), target: '_blank' %> format. It should containt 2 table headers: Email, First Name </i>
+      </div>
     </div>
 
 

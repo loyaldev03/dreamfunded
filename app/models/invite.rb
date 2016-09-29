@@ -18,7 +18,7 @@ class Invite < ActiveRecord::Base
     CSV.foreach(file.path, headers: true) do |row|
 
       product_hash = row.to_hash # exclude the price field
-      invites << Invite.create!(email: row['Email'], name: row['Name'], user_id: user_id)
+      invites << Invite.create!(email: row['Email'], name: row['First Name'], user_id: user_id)
 
     end # end CSV.foreach
     invites
