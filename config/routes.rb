@@ -134,9 +134,6 @@ Rails.application.routes.draw do
 
   post '/marketplace_signup', to: 'guests#marketplace'
 
-  get 'latino', to: "home#latino", as: :latino
-
-
   get 'homes/faq', to: "home#faq", as: :faq
   get '/legal', to: "home#legal", as: :legal
   get '/contact', to: 'home#contact_us'

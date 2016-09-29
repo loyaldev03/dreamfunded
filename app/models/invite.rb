@@ -14,12 +14,14 @@ class Invite < ActiveRecord::Base
   end
 
   def self.import(file, user_id)
+    invites = []
     CSV.foreach(file.path, headers: true) do |row|
 
       product_hash = row.to_hash # exclude the price field
-      Guest.create!(email: row['Email'], name: row['Name'], user_id: user_id)
+      invites << Invite.create!(email: row['Email'], name: row['Name'], user_id: user_id)
 
     end # end CSV.foreach
+    invites
   end # end self.import(file)
 
 end

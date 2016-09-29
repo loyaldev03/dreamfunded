@@ -58,9 +58,6 @@ class HomeController < ApplicationController
 	def book
 	end
 
-	def latino
-	end
-
 private
    def liquidate_share_params
    	params.require(:liquidate_share).permit(:first_name, :last_name, :email,  :phone, :company, :number_shares, :shares_price, :timeframe, :rofr_restrictions, :financial_assistance, :message)
