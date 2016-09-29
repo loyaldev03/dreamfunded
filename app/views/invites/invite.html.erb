@@ -7,35 +7,33 @@
   </div>
 
   <div class= "invite-content">
-    <%= flash[:notice] %>
+    <%= flash[:notices] %>
 
-    <div class="invite-via-email">
-      <span class='invite-email-icon'><%=  fa_icon("envelope 2x")%> </span>
-      <span class='invite-text'>Invite via Email</span>
-      <span class='invite-form'>
-        <%= form_for(Invite.new) do |f| %>
-        <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= f.text_field(:name, placeholder: 'Name',class: 'invite-text-input', required: true) %>
-          <%= f.text_field(:email, placeholder: 'Email Address',class: 'invite-text-input', pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", required: true)%>
-          <%= f.submit "Send", class: 'invite-button' %>
-        <% end %>
-      </span>
-    </div>
+    <% if current_user.authority == authority[:Admin] %>
+      <div class="invite-via-email">
+        <span class='invite-email-icon'><%=  fa_icon("envelope 2x")%> </span>
+        <span class='invite-text'>Invite via Email</span>
+        <span class='invite-form'>
+          <%= form_for(Invite.new) do |f| %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.text_field(:name, placeholder: 'Name',class: 'invite-text-input', required: true) %>
+            <%= f.text_field(:email, placeholder: 'Email Address',class: 'invite-text-input', pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", required: true)%>
+            <%= f.submit "Send", class: 'invite-button' %>
+          <% end %>
+        </span>
+      </div>
+    <% end %>
 
 
     <div class="invite-via-email">
       <span class='invite-email-icon'><%=  fa_icon("upload 2x")%> </span>
       <span class='invite-text'>Upload CSV File</span>
-
       <span class='invite-form-google'>
         <%= form_tag('/upload_csv', multipart: true) do %>
-
           <%= file_field_tag :file %>
           <%= submit_tag "Submit", class: 'invite-button' %>
-
         <% end %>
       </span>
-
     </div>
 
 

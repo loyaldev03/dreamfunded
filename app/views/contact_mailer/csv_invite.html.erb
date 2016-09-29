@@ -9,7 +9,7 @@
 <div>
 
 <h1 style="margin:0;margin-top:16px;font-size:30px;line-height:48px;color:#333333;font-weight:200;text-align:center;margin-bottom:16px">
-You were invited by <%= @user.companies.last.name %> to join DreamFunded.
+You were invited by <%= @user.companies.try(:last).try(:name) %> to join DreamFunded.
 </h1>
 <p style="margin:0;font-size:16px;line-height:24px;color:#777777;text-align:center;font-weight:300;margin-bottom:16px">
 We are on DreamFunded an Equity Crowdfunding Crowdfunding Platform.<br>

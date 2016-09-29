@@ -79,12 +79,11 @@
               <li><button onclick= "profile()" >Welcome <%= current_user.first_name.capitalize%> <span class="arrow">&#9660;</span></button>
                 <ul class= "sub-menu">
                   <li><button onclick= "portfolio()">My Investments</button></li>
-
-
                   <li><button onclick= "campaign()"><%= current_user.my_campaign %></button></li>
 
                   <% if current_user.authority != authority[:Admin] %>
                     <li><button onclick= "signOut()" >Sign Out</button></li>
+                    <% if current_user.startup? %><li><button onclick= "invite()">Invite</button></li> <% end %>
                   <% else %>
                     <li><button onclick= "invite()">Invite</button></li>
                     <li><button onclick= "admin()">Admin Panel</button></li>

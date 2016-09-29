@@ -60,12 +60,12 @@ class InvitesController < ApplicationController
         Invite.import(params[:file], current_user.id)
         redirect_to  view_uploaded_csv_path
       rescue
-        redirect_to  invite_users_path, notice: "Invalid CSV file format."
+        redirect_to  invite_users_path, notices: "Invalid CSV file format."
     end
   end
 
   def view_uploaded_csv
-    @invites = current_user.guests
+    @invites = current_user.guests.reverse
   end
 
   private

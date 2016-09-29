@@ -80,4 +80,9 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	def startup?
+		return true if self.companies.any?
+		false
+	end
+
 end
