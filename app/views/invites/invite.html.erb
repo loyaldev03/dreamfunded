@@ -9,6 +9,15 @@
   <div class= "invite-content">
     <%= flash[:email_sent] %>
 
+    <% if flash[:upload_error] %>
+      <p>
+          Failed to upload Emails. Invalid CSV file format. Please download our
+          <%= link_to "CSV file Template", '/download_template', targe: "_blank" %>
+          and paste your data in the template.
+     </p>
+
+    <% end %>
+
     <% if current_user.authority == authority[:Admin] %>
       <div class="invite-via-email">
         <span class='invite-email-icon'><%=  fa_icon("envelope 2x")%> </span>
@@ -36,7 +45,7 @@
         <% end %>
       </span>
       <div>
-        <span class='password-six-chars'>Please see proper <%= link_to "CSV file", asset_path("test_users.csv"), target: '_blank' %> format. It should containt 2 table headers: "First Name" and "Email". Both CAPITALIZED </span>
+        <span class='password-six-chars'>Please see proper <%= link_to "CSV file", asset_path("test_users.csv"), target: '_blank' %> format. It should containt 2 table headers: "First Name" and "Email". Both <span class='capitalized-word'>Capitalized</span> </span>
       </div>
     </div>
 

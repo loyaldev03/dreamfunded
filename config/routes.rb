@@ -170,6 +170,7 @@ Rails.application.routes.draw do
   post '/google_contacts', to: "invites#google_contacts"
   post "/upload_csv", to: "invites#upload_csv"
 
+  get 'download_template', to: "invites#download"
   get '/view_uploaded_csv', to: "invites#view_uploaded_csv", as: :view_uploaded_csv
   #post '/send_csv_invites', to: "invites#send_csv_invites"
 

@@ -54,7 +54,7 @@ class InvitesController < ApplicationController
         flash[:email_sent] = "Emails sent"
         redirect_to  invite_users_path
       rescue
-        flash[:email_sent] = "Invalid CSV file format."
+        flash[:upload_error] = "Invalid CSV file format."
         redirect_to  invite_users_path
     end
   end
@@ -72,6 +72,13 @@ class InvitesController < ApplicationController
 
   def view_uploaded_csv
     @invites = current_user.guests.reverse
+  end
+
+
+  IMAGES_PATH = File.join( "assets", "docs")
+  def download
+
+    send_file(Rails.root.join('app' , 'assets', 'doc', "test_users.csv"))
   end
 
   private
