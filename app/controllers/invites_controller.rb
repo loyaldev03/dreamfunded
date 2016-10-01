@@ -64,8 +64,7 @@ class InvitesController < ApplicationController
     names = params[:names]
     emails.each_with_index do |email, index|
       @invite = Invite.create(email: email,name: names[index], user_id: current_user.id)
-      p names[index]
-      ContactMailer.csv_invite(@invite, current_user).deliver
+      ContactMailer.delay.csv_invite(@invite, current_user)
     end
     redirect_to '/invite'
   end
