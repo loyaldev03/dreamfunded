@@ -43,6 +43,12 @@ class UsersController < ApplicationController
 		redirect_to root_path
 	end
 
+	def become
+	    return unless current_user.authority == User.Authority[:Admin]
+	    sign_in(:user, User.find(params[:id]))
+	    redirect_to root_url # or user_root_url
+	  end
+
 	# def campaign
 	# 	if current_user.companies.any?
 	# 		company = current_user.companies.last
