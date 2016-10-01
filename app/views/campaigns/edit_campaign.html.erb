@@ -1,14 +1,57 @@
-    <div class= "word-content"><div class="text-content stretch">
-      <%= form_for(@company, :url => url_for(:controller => 'campaigns', :action => 'update_campaign') ) do |f| %>
-        <% if @company.errors.any? %>
-          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this company from being saved: </h2>
+<section class='company-cover-photo' style="background-image:url(<%= @company.cover.url %>)" >
+    <%= form_for(@company, :url => url_for(:controller => 'campaigns', :action => 'update_campaign') ) do |f| %>
 
-          <ul>
-            <% @company.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
+    <div class='company-profile-bottom-line'>
+        <%= image_tag( @company.image.url, class: 'image-max-width company-logo')%>
+        <section class='company-basic-info'>
+            <div>   <%= f.text_field :name %> </div>
+
+            <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
+              <%= campaign_fields.text_field :tagline, placeholder: 'Describe your company in one sentence',:class => " campaing_editable_fields edit_tagline   twenty", required:true %><br>
+              <i class="fa fa-map-marker  company_located"></i>
+              <%= campaign_fields.text_field :company_location_city, placeholder: 'City',:class => " campaing_editable_fields   ", required:true %>
+              <%= campaign_fields.text_field :company_location_state, placeholder: 'State',:class => " campaing_editable_fields   ", required:true %>
             <% end %>
-          </ul>
-        <% end %>
+
+            <%= f.file_field "image" %>
+        </section>
+    </div>
+
+    <div class='company-info-right-panel'>
+            <div class='company-info-cateogry'>RAISED</div>
+            <div class='company-finance-info'><%= number_to_currency @company.invested, precision: 0 %></div>
+
+            <div class='company-info-cateogry'>TARGET</div>
+            <div class='company-finance-info'><%= number_to_currency @company.goal_amount, precision: 0 %></div>
+
+            <div class='company-info-cateogry'>DAYS LEFT</div>
+            <div class='company-finance-info'> <%= @company.left_days %></div>
+
+            <div class='company-info-cateogry'>minimum investment</div>
+            <div class='company-finance-info'> $100 </div>
+
+            <div class="meter orange">
+                <% @progress = ((@company.invested.to_f / @company.goal_amount.to_f).to_f) *100 %>
+                <% if @progress == 0 %>
+                    <span class= "front" style="width: 5px"></span>
+                <% elsif @progress > 100 %>
+                    <span style= 'width: 100%'></span>
+                <% else %>
+                    <span style='width: <%= @progress %>%'></span>
+                <% end %>
+            </div>
+            <div class='company-info-cateogry percent-funded'><%= @progress.to_i %>% funded</div>
+    </div>
+</section>
+
+
+
+
+
+
+
+    <div class= "word-content"><div class="text-content stretch">
+
 
       <div class= "topbar">
         <a href= "/companies" class= "darkblue">&#8617; Back</a>
