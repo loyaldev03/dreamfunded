@@ -49,7 +49,7 @@ class InvitesController < ApplicationController
     begin
         invites = Invite.import(params[:file], current_user.id)
         invites.each do |invite|
-            ContactMailer.csv_invite(invite, current_user).deliver
+            ContactMailer.delay.csv_invite(invite, current_user)
         end
         flash[:email_sent] = "Emails sent"
         redirect_to  invite_users_path
