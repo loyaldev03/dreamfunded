@@ -47,10 +47,9 @@ class InvitesController < ApplicationController
 
   def upload_csv
     begin
-        invites = Invite.import(params[:file], current_user.id)
-        invites.each do |invite|
-            ContactMailer.delay.csv_invite(invite, current_user)
-        end
+        #Delayed jobs for Importing and Sendig 1000s emails
+        Invite.delay.import(params[:file], current_user)
+
         flash[:email_sent] = "Emails sent"
         redirect_to  invite_users_path
       rescue

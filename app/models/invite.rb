@@ -14,15 +14,16 @@ class Invite < ActiveRecord::Base
     self.update(status: 'User signed up, but hasn\'t invested yet')
   end
 
-  def self.import(file, user_id)
-    invites = []
+  def self.import(file, user)
+
     CSV.foreach(file.path, headers: true) do |row|
 
-      product_hash = row.to_hash # exclude the price field
-      invites << Invite.create!(email: row['Email'], name: row['First Name'], user_id: user_id)
+      product_hash = row.to_hash
+      invite = Invite.create!(email: row['Email'], name: row['First Name'], user_id: user.id)
+      ContactMailer.delay.csv_invite(invite, user)
 
     end # end CSV.foreach
-    invites
+
   end # end self.import(file)
 
 end
