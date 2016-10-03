@@ -24,7 +24,7 @@ ActiveAdmin.register Company do
   end
 
 
-permit_params :image, :document, :end_date, :accredited, :hidden, :position, :docusign_url, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at, :fund_america_code, :suggested_target_price
+permit_params :image, :document, :end_date, :accredited, :hidden, :position, :docusign_url, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at, :fund_america_code, :suggested_target_price, :min_investment
 before_filter :only => [:show, :edit, :update, :destroy] do
     @company = Company.find_by_slug(params[:id])
 end
@@ -50,6 +50,7 @@ end
         f.input  :suggested_target_price
         f.input  :website_link
         f.input  :goal_amount
+        f.input  :min_investment
         f.input  :status
         f.input  :video_link
         f.input  :fund_america_code
@@ -74,6 +75,7 @@ end
       row :suggested_target_price
       row :website_link
       row :goal_amount
+      row :min_investment
       row :video_link
       row :CEO
       row :fund_america_code

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161001001224) do
+ActiveRecord::Schema.define(version: 20161003175516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -175,6 +175,7 @@ ActiveRecord::Schema.define(version: 20161001001224) do
     t.datetime "cover_updated_at"
     t.string   "slug"
     t.text     "fund_america_code",      default: ""
+    t.integer  "min_investment",         default: 100
   end
 
   add_index "companies", ["slug"], name: "index_companies_on_slug", using: :btree

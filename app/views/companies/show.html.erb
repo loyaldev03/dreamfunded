@@ -35,7 +35,7 @@
                 <div class='company-finance-info'> <%= @company.left_days %></div>
 
                 <div class='company-info-cateogry'>minimum investment</div>
-                <div class='company-finance-info'> $100 </div>
+                <div class='company-finance-info'> $<%= @company.min_investment%> </div>
 
                 <div class="meter orange">
                     <% @progress = ((@company.invested.to_f / @company.goal_amount.to_f).to_f) *100 %>
