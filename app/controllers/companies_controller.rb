@@ -178,8 +178,8 @@ private
 	end
 
 	def company_params
-	  params.require(:company).permit(:image, :cover, :id, :end_date, :document, :hidden, :position, :docusign_url, :name, :description,
-	  :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :min_investment,
+	  params.require(:company).permit(:image, :min_investment, :cover, :id, :end_date, :document, :hidden, :position, :docusign_url, :name,
+	  	:description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number,
 	   :display, :days_left, :created_at, :updated_at, :suggested_target_price, :fund_america_code,
 	  financial_detail_attributes: ["offering_terms", "fin_risks", "income", "totat_income", "total_taxable_income",
 				       "total_taxes_paid", "total_assets_this_year", "total_assets_last_year", "cash_this_year", "cash_last_year",
