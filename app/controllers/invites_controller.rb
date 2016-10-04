@@ -49,10 +49,21 @@ class InvitesController < ApplicationController
     begin
         #Delayed jobs for Importing and Sendig 1000s emails
         #Invite.delay.import(params[:file], current_user)
-        SubscribeJob.new.async.csv_save_emails(params[:file], current_user)
+        SubscribeJob.new.async.csv_save_emails(params[:file], current_user, 'from_Startup')
         # invites.each do |invite|
         #   ContactMailer.csv_invite(invite, current_user).deliver
         # end
+        flash[:email_sent] = "Emails sent"
+        redirect_to  invite_users_path
+      rescue
+        flash[:upload_error] = "Invalid CSV file format."
+        redirect_to  invite_users_path
+    end
+  end
+
+  def invites_from_manny
+    begin
+        SubscribeJob.new.async.csv_save_emails(params[:file], current_user, 'from_Manny')
         flash[:email_sent] = "Emails sent"
         redirect_to  invite_users_path
       rescue

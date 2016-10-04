@@ -169,6 +169,7 @@ Rails.application.routes.draw do
   get '/invite', to: "invites#invite", as: :invite_users
   post '/google_contacts', to: "invites#google_contacts"
   post "/upload_csv", to: "invites#upload_csv"
+  post "/invites_from_manny", to: "invites#invites_from_manny"
 
   get 'download_template', to: "invites#download"
   get '/view_uploaded_csv', to: "invites#view_uploaded_csv", as: :view_uploaded_csv

@@ -44,7 +44,7 @@ class SubscribeJob
     end
   end
 
-  def csv_save_emails(file, user)
+  def csv_save_emails(file, user, email_template)
     ActiveRecord::Base.connection_pool.with_connection do
       invites = []
 
@@ -54,7 +54,8 @@ class SubscribeJob
             invites << Invite.create!(email: row['Email'], name: row['First Name'], user_id: user.id)
           end # end CSV.foreach
           invites.each do |invite|
-             ContactMailer.delay.csv_invite(invite, user)
+            ContactMailer.delay.invite_to_sign_up(invite.email, invite.name) if email_template == 'from_Manny'
+            ContactMailer.delay.csv_invite(invite, user) if email_template == 'from_Startup'
           end
 
       rescue Gibbon::MailChimpError => mce

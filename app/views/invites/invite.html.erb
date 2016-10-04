@@ -19,6 +19,7 @@
     <% end %>
 
     <% if current_user.authority == authority[:Admin] %>
+      <!-- Invite via Email -->
       <div class="invite-via-email">
         <span class='invite-email-icon'><%=  fa_icon("envelope 2x")%> </span>
         <span class='invite-text'>Invite via Email</span>
@@ -31,13 +32,29 @@
           <% end %>
         </span>
       </div>
+
+     <!--   Upload from Manny -->
+      <div class="invite-via-email">
+        <span class='invite-email-icon'><%=  fa_icon("upload 2x")%> </span>
+        <span class='invite-text'>Invites from Manny</span>
+
+        <span class='invite-form-google'>
+          <%= form_tag('/invites_from_manny', multipart: true) do %>
+            <%= file_field_tag :file %>
+            <%= submit_tag "Send", class: 'invite-button' %>
+          <% end %>
+        </span>
+        <div>
+          <span class='password-six-chars'>Please see proper <%= link_to "CSV file", asset_path("test_users.csv"), target: '_blank' %> format. It should containt 2 table headers: "First Name" and "Email". Both <span class='capitalized-word'>Capitalized</span> </span>
+        </div>
+      </div>
     <% end %>
 
 
+     <!-- Upload CSV File -->
     <div class="invite-via-email">
       <span class='invite-email-icon'><%=  fa_icon("upload 2x")%> </span>
       <span class='invite-text'>Upload CSV File</span>
-
       <span class='invite-form-google'>
         <%= form_tag('/upload_csv', multipart: true) do %>
           <%= file_field_tag :file %>
