@@ -15,15 +15,17 @@ class Invite < ActiveRecord::Base
   end
 
   def self.import(file, user)
-
+    invites = []
     CSV.foreach(file.path, headers: true) do |row|
 
       product_hash = row.to_hash
-      invite = Invite.create!(email: row['Email'], name: row['First Name'], user_id: user.id)
-      ContactMailer.delay.csv_invite(invite, user)
+      invites << Invite.create!(email: row['Email'], name: row['First Name'], user_id: user.id)
+      #ContactMailer.delay.csv_invite(invite, user)
 
     end # end CSV.foreach
-
+    invites.each do |invite|
+       ContactMailer.delay.csv_invite(invite, user)
+    end
   end # end self.import(file)
 
 end

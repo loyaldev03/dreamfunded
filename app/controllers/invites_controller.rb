@@ -50,6 +50,9 @@ class InvitesController < ApplicationController
         #Delayed jobs for Importing and Sendig 1000s emails
         Invite.delay.import(params[:file], current_user)
 
+        # invites.each do |invite|
+        #   ContactMailer.csv_invite(invite, current_user).deliver
+        # end
         flash[:email_sent] = "Emails sent"
         redirect_to  invite_users_path
       rescue
