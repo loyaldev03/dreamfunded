@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get '/posts/:id/edit/:page', to: "posts#edit"
   resources :posts
 
+  resources :companies
+  resources :news
   resources :documents
   resources :guests
   resources :comments
@@ -66,6 +68,8 @@ Rails.application.routes.draw do
   patch '/update_campaign', to: 'campaigns#update_campaign'
 
   get 'formc/print/:id', to: "formc#print", as: 'formc'
+
+  get "company_not_accretited", to: "companies#company_not_accretited", as: "company_not_accretited"
 
 
   match "/diversity-tech-angels-earn-wings/" => redirect("https://dreamfundedsf.wpengine.com/diversity-tech-angels-earn-wings/"), via: 'get'
@@ -163,8 +167,6 @@ Rails.application.routes.draw do
   get '/new_seller', to: "home#new_seller"
   post '/new_seller', to: "home#create_new_seller", as: :create_shareholder
 
-  resources :companies
-  resources :news
 
   get '/invite', to: "invites#invite", as: :invite_users
   post '/google_contacts', to: "invites#google_contacts"
