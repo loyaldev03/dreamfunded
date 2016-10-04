@@ -48,8 +48,8 @@ class InvitesController < ApplicationController
   def upload_csv
     begin
         #Delayed jobs for Importing and Sendig 1000s emails
-        Invite.delay.import(params[:file], current_user)
-
+        #Invite.delay.import(params[:file], current_user)
+        SubscribeJob.new.async.csv_save_emails(params[:file], current_user)
         # invites.each do |invite|
         #   ContactMailer.csv_invite(invite, current_user).deliver
         # end

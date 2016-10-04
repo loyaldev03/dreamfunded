@@ -1,3 +1,4 @@
+require 'csv'
 class SubscribeJob
   include SuckerPunch::Job
 
@@ -40,6 +41,31 @@ class SubscribeJob
         SuckerPunch.logger.error("subscribe failed: due to #{e.message}")
         raise e
       end
+    end
+  end
+
+  def csv_save_emails(file, user)
+    ActiveRecord::Base.connection_pool.with_connection do
+      invites = []
+
+      begin
+          CSV.foreach(file.path, headers: true) do |row|
+            product_hash = row.to_hash
+            invites << Invite.create!(email: row['Email'], name: row['First Name'], user_id: user.id)
+          end # end CSV.foreach
+          invites.each do |invite|
+             ContactMailer.delay.csv_invite(invite, user)
+          end
+
+      rescue Gibbon::MailChimpError => mce
+        SuckerPunch.logger.error("subscribe failed: due to #{mce.message}")
+        raise mce
+
+      rescue Exception => e
+        SuckerPunch.logger.error("subscribe failed: due to #{e.message}")
+        raise e
+      end
+
     end
   end
 
