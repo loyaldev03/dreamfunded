@@ -50,8 +50,9 @@ class SubscribeJob
 
       begin
           CSV.foreach(file.path, headers: true) do |row|
-            product_hash = row.to_hash
+
             invites << Invite.create!(email: row['Email'], name: row['First Name'], user_id: user.id)
+
           end # end CSV.foreach
           invites.each do |invite|
             ContactMailer.delay.invite_to_sign_up(invite.email, invite.name) if email_template == 'from_Manny'
