@@ -3,6 +3,7 @@ class CompaniesController < ApplicationController
 	before_action :verify, except: [:index, :company_profile, :show]
 	before_action :admin_check, only: [:new, :edit, :make_team, :make_profile]
 	before_action :set_company, only: [:company_profile, :edit_profile, :update, :make_profile, :remove_company, :show, :join_waitlist ]
+	before_action :check_company_accreditation, only: [:show, :company_profile]
 
 	def index
 		@companies = Company.all_accredited
@@ -156,6 +157,9 @@ class CompaniesController < ApplicationController
 	def join_waitlist_thank_you
 	end
 
+	def company_not_accretited
+	end
+
 private
 	def set_company
 	  @company = Company.friendly.find(params[:id])
@@ -165,6 +169,26 @@ private
 	 	if current_user.confirmed == false
 	 		redirect_to url_for(:controller => 'home', :action => 'unverified')
 	 	end
+	end
+
+	def check_company_accreditation
+		if @company.accredited
+			return nil
+		else
+			if current_user
+				check_company_ownership
+			else
+				redirect_to root_path
+			end
+		end
+	end
+
+	def check_company_ownership
+		if @company.user == current_user || current_user.authority == 4
+			return
+		else
+			redirect_to company_not_accretited_path
+		end
 	end
 
 	def admin_check
