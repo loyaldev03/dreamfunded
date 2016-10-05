@@ -1,34 +1,39 @@
+<%= form_for(@company, :url => url_for(:controller => 'campaigns', :action => 'update_campaign') ) do |f| %>
 <section class='company-cover-photo' style="background-image:url(<%= @company.cover.url %>)" >
-    <%= form_for(@company, :url => url_for(:controller => 'campaigns', :action => 'update_campaign') ) do |f| %>
 
-    <div class='company-profile-bottom-line'>
-        <%= image_tag( @company.image.url, class: 'image-max-width company-logo')%>
-        <section class='company-basic-info'>
-            <div>   <%= f.text_field :name %> </div>
+      <div class='company-profile-bottom-line'>
+          <div class='inline-block'>
+              <%= image_tag( @company.image.url, class: 'image-max-width company-logo')%>
+              <br>
+              <%= f.file_field "image" %>
+          </div>
+          <section class='company-basic-info'>
+              <div>   <%= f.text_field :name %> </div>
 
-            <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
-              <%= campaign_fields.text_field :tagline, placeholder: 'Describe your company in one sentence',:class => " campaing_editable_fields edit_tagline   twenty", required:true %><br>
-              <i class="fa fa-map-marker  company_located"></i>
-              <%= campaign_fields.text_field :company_location_city, placeholder: 'City',:class => " campaing_editable_fields   ", required:true %>
-              <%= campaign_fields.text_field :company_location_state, placeholder: 'State',:class => " campaing_editable_fields   ", required:true %>
-            <% end %>
+              <%= f.fields_for :campaign  do |campaign_fields| %>
+                <%= campaign_fields.text_area :tagline, placeholder: 'Describe your company in one sentence',:class => " campaing_editable_fields edit_tagline   twenty", required:true %><br>
+                <i class="fa fa-map-marker  company_located"></i>
+                <%= campaign_fields.text_field :company_location_city, placeholder: 'City',:class => " campaing_editable_fields   ", required:true %>
+                <%= campaign_fields.text_field :company_location_state, placeholder: 'State',:class => " campaing_editable_fields   ", required:true %>
+              <% end %>
 
-            <%= f.file_field "image" %>
-        </section>
-    </div>
 
-    <div class='company-info-right-panel'>
-            <div class='company-info-cateogry'>RAISED</div>
-            <div class='company-finance-info'><%= number_to_currency @company.invested, precision: 0 %></div>
 
-            <div class='company-info-cateogry'>TARGET</div>
-            <div class='company-finance-info'><%= number_to_currency @company.goal_amount, precision: 0 %></div>
+          </section>
+      </div>
 
-            <div class='company-info-cateogry'>DAYS LEFT</div>
-            <div class='company-finance-info'> <%= @company.left_days %></div>
+      <div class='company-info-right-panel'>
+          <div class='company-info-cateogry'>RAISED</div>
+          <div class='company-finance-info'><%= number_to_currency @company.invested, precision: 0 %></div>
 
-            <div class='company-info-cateogry'>minimum investment</div>
-            <div class='company-finance-info'> $100 </div>
+          <div class='company-info-cateogry'>TARGET</div>
+          <div class='company-finance-info'><%= number_to_currency @company.goal_amount, precision: 0 %></div>
+
+          <div class='company-info-cateogry'>DAYS LEFT</div>
+          <div class='company-finance-info'> <%= @company.left_days %></div>
+
+          <div class='company-info-cateogry'>minimum investment</div>
+          <div class='company-finance-info'> $100 </div>
 
             <div class="meter orange">
                 <% @progress = ((@company.invested.to_f / @company.goal_amount.to_f).to_f) *100 %>
@@ -41,7 +46,9 @@
                 <% end %>
             </div>
             <div class='company-info-cateogry percent-funded'><%= @progress.to_i %>% funded</div>
-    </div>
+          <%= f.submit "Update", :class => 'company-button profile-button mail-to-button' %>
+
+        </div>
 </section>
 
 
@@ -75,9 +82,7 @@
           <% else %>
             <iframe  class='youtube-video' src= <%= @company.video_link %> frameborder="0" allowfullscreen ></iframe>
           <% end %>
-          <div>
-            <%= f.submit "Update", :class => 'invest-button' %>
-          </div>
+
             <% if @formc.try(:completed) %>
               <p>
                 <%= image_tag "static/pdf_icon.png"%>
@@ -95,7 +100,8 @@
         <div class='center'><span class= "darkblue twenty">Change Image: </span><%= f.file_field "image" %></br></br></div>
         <div class='center'><span class= "darkblue twenty">Background Cover: </span><%= f.file_field "cover" %></br></br></div>
 
-        <div class= "numbers"><div class= "numbers-content">
+        <div class= "numbers">
+        <div class= "numbers-content">
           <div class="meter orange">
             <% @progress = ((@company.invested_amount.to_f / @company.goal_amount.to_f).to_f) *100 %>
             <% if @progress == 0 %>
@@ -103,10 +109,13 @@
             <% else %>
               <span style='width: <%= @progress %>%'></span>
             <% end %>
-          </div><br>
+          </div>
+          <br>
           <div class= 'statistics'>
+
             <div>
-              <p class= "twenty no-margin center"><%= f.number_field :goal_amount, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Goal Amount </span> </p>
+              <p class= "twenty no-margin center"><%= f.number_field :goal_amount, :class => 'input-box no-margin center' %><br><span
+                  class=" darkblue twenty">Goal Amount </span> </p>
             </div>
 
             <div>
@@ -136,11 +145,10 @@
               </p>
             </div>
 
-
-
           </div>
+
         </div>
-      </div>
+        </div>
 
       <div class= "fake-button"> Invest </div>
       </div>
@@ -152,6 +160,7 @@
         <a  class='tab-name  darkblue twentyf' id='finances_tab'>Finances & Risks</a>
 
 
+        <!-- O V E R V I E W    T A B -->
         <div class='about_tab_content tab-content'>
             <h2 class= "darkblue category-name indent">Highlight</h2>
             <hr>
@@ -168,6 +177,7 @@
             </p>
         </div>
 
+        <!-- T E A M    T A B -->
         <div class='team_tab_content tab-content'>
           <br>
           <div class= "team-band">
@@ -188,6 +198,7 @@
           </div>
         </div>
 
+        <!-- F I N A N C E    T A B  -->
         <div class='finance_tab_content tab-content'>
           <%= f.fields_for :financial_detail do |fin_details| %>
             <h2 class= "darkblue category-name indent">Offering Terms</h2>
@@ -319,82 +330,16 @@
               <hr>
             </div>
 
-            <div class='funding_goal_list_item'>
-              <strong>Balance Sheet: </strong>
-              <%= @company.financial_detail.balance_sheet_file_name %><br>
-              <%= fin_details.file_field :balance_sheet %>
-            </div>
 
-            <div class='funding_goal_list_item'>
-              <strong>Income Statements: </strong>
-              <%= @company.financial_detail.income_statements_file_name %><br>
-              <%= fin_details.file_field :income_statements %>
-            </div>
-
-            <div class='funding_goal_list_item'>
-              <strong>Statement of Cash Flow: </strong>
-              <%= @company.financial_detail.statement_of_cash_flow_file_name %><br>
-              <%= fin_details.file_field :statement_of_cash_flow %>
-            </div>
-
-            <div class='funding_goal_list_item'>
-              <strong>Statement of Changes in Equity For Past 2 Years: </strong>
-              <%= @company.financial_detail.statement_changes_of_equity_file_name %><br>
-              <%= fin_details.file_field :statement_changes_of_equity %>
-            </div>
-
-            <div class='funding_goal_list_item'>
-              <strong>Business Plan: </strong>
-              <%= @company.financial_detail.business_plan_file_name %><br>
-              <%= fin_details.file_field :business_plan %>
-            </div>
-
-            <div class='funding_goal_list_item'>
-              <strong>Party Transaction: </strong>
-              <%= @company.financial_detail.party_transaction_file_name %><br>
-              <%= fin_details.file_field :party_transaction %>
-            </div>
-
-            <div class='funding_goal_list_item'>
-              <strong>Intended use of proceeds: </strong>
-              <%= @company.financial_detail.intended_use_of_proceeds_file_name %><br>
-              <%= fin_details.file_field :intended_use_of_proceeds %>
-            </div>
-
-            <div class='funding_goal_list_item'>
-              <strong>Capital Structure: </strong>
-              <%= @company.financial_detail.capital_structure_file_name %><br>
-              <%= fin_details.file_field :capital_structure %>
-            </div>
-
-            <div class='funding_goal_list_item'>
-              <strong>Material Terms: </strong>
-              <%= @company.financial_detail.material_terms_file_name %><br>
-              <%= fin_details.file_field :material_terms %>
-            </div>
-
-            <div class='funding_goal_list_item'>
-              <strong>Directors Background: </strong>
-              <%= @company.financial_detail.directors_background_file_name %><br>
-              <%= fin_details.file_field :directors_background %>
-            </div>
-
-            <div class='funding_goal_list_item'>
-              <strong>Accountant Review: </strong>
-              <%= @company.financial_detail.accountant_review_file_name %><br>
-              <%= fin_details.file_field :accountant_review %>
-            </div>
           <% end %>
-
         </div>
       </div>
 
-      <div class = "notice centered">
-        <%= flash[:problem_update] if flash[:problem_update] %>
-        <%= @error_update %>
-      </div>
     <% end %>
+
     </div></div>
+
+
 <script type="text/javascript">
   $(document).ready(function() {
     $('#team_tab').click(function(e){
@@ -423,9 +368,4 @@
       });
     }
   });
-
-
-
-
-
 </script>
