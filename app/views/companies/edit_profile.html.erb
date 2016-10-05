@@ -71,9 +71,9 @@
 								<%= f.select( :hidden, [["Yes", true],["No", false] ])  %>
 							</div>
 
-							<!-- <div>
-								<p class= "twenty no-margin center"><%#= f.number_field :invested_amount, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Invested </span> </p>
-							</div> -->
+							<div>
+								<p class= "twenty no-margin center"><%= f.number_field :invested_amount, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Invested </span> </p>
+							</div>
 							<div>
 								<p class= "twenty no-margin center"><%= f.text_field :min_investment, :class => 'input-box no-margin center' %><br><span class= "darkblue twenty">Minimum Investment: </span> </p>
 							</div>
