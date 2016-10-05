@@ -1,371 +1,241 @@
 <%= form_for(@company, :url => url_for(:controller => 'campaigns', :action => 'update_campaign') ) do |f| %>
-<section class='company-cover-photo' style="background-image:url(<%= @company.cover.url %>)" >
 
-      <div class='company-profile-bottom-line'>
-          <div class='inline-block'>
-              <%= image_tag( @company.image.url, class: 'image-max-width company-logo')%>
-              <br>
-              <%= f.file_field "image" %>
-          </div>
-          <section class='company-basic-info'>
-              <div>   <%= f.text_field :name %> </div>
+  <section class='company-cover-photo' style="background-image:url(<%= @company.cover.url %>)" >
+
+        <div class='company-profile-bottom-line'>
+            <div class='inline-block'>
+                <%= image_tag( @company.image.url, class: 'image-max-width company-logo')%>
+                <br>
+                <%= f.file_field "image", class: "company-logo" %>
+            </div>
+            <section class='company-basic-info'>
+                <div>   <%= f.text_field :name, class: "form-field form-field-half" %> </div>
 
 
 
-              <%= f.fields_for :campaign  do |campaign_fields| %>
-                <%= campaign_fields.text_field :tagline, placeholder: 'Describe your company in one sentence',:class => " campaing_editable_fields edit_tagline  darkblue twenty", required:true %><br>
-                <i class="fa fa-map-marker darkblue company_located"></i>
-                <%= campaign_fields.text_field :company_location_city, placeholder: 'City',:class => " campaing_editable_fields", required:true %>
-                <%= campaign_fields.text_field :company_location_state, placeholder: 'State',:class => " campaing_editable_fields", required:true %>
-              <% end %>
-
-          </section>
-      </div>
-
-      <div class='company-info-right-panel'>
-          <div class='company-info-cateogry'>RAISED</div>
-          <div class='company-finance-info'><%= number_to_currency @company.invested, precision: 0 %></div>
-
-          <div class='company-info-cateogry'>TARGET</div>
-          <div class='company-finance-info'><%= number_to_currency @company.goal_amount, precision: 0 %></div>
-
-          <div class='company-info-cateogry'>DAYS LEFT</div>
-          <div class='company-finance-info'> <%= @company.left_days %></div>
-
-          <div class='company-info-cateogry'>minimum investment</div>
-          <div class='company-finance-info'> $100 </div>
-
-            <div class="meter orange">
-                <% @progress = ((@company.invested.to_f / @company.goal_amount.to_f).to_f) *100 %>
-                <% if @progress == 0 %>
-                    <span class= "front" style="width: 5px"></span>
-                <% elsif @progress > 100 %>
-                    <span style= 'width: 100%'></span>
-                <% else %>
-                    <span style='width: <%= @progress %>%'></span>
+                <%= f.fields_for :campaign  do |campaign_fields| %>
+                  <%= campaign_fields.text_area :tagline, placeholder: 'Describe your company in one sentence',:class => " form-field", required:true %><br>
+                  <!-- <i class="fa fa-map-marker darkblue company_located"></i> -->
+                  <%= campaign_fields.text_field :company_location_city, placeholder: 'City',:class => "form-field form-field-half", required:true %>
+                  <%= campaign_fields.text_field :company_location_state, placeholder: 'State',:class => "form-field form-field-half", required:true %>
                 <% end %>
-            </div>
-            <div class='company-info-cateogry percent-funded'><%= @progress.to_i %>% funded</div>
-          <%= f.submit "Update", :class => 'company-button profile-button mail-to-button' %>
 
+            </section>
         </div>
-</section>
 
+        <div class='company-info-right-panel'>
+            <div class='company-info-cateogry'>RAISED</div>
+            <div class='company-finance-info'><%= number_to_currency @company.invested, precision: 0 %></div>
 
+            <div class='company-info-cateogry'>TARGET</div>
+            <div class='company-finance-info'><%= number_to_currency @company.goal_amount, precision: 0 %></div>
 
+            <div class='company-info-cateogry'>DAYS LEFT</div>
+            <div class='company-finance-info'> <%= @company.left_days %></div>
 
+            <div class='company-info-cateogry'>minimum investment</div>
+            <div class='company-finance-info'> $100 </div>
 
+            <div class='company-info-cateogry'>Background Cover:</div>
+            <div class='company-finance-info'> <%= f.file_field "cover" %> </div>
 
-
-    <div class= "word-content"><div class="text-content stretch">
-
-
-      <div class= "topbar">
-        <a href= "/companies" class= "darkblue">&#8617; Back</a>
-      </div>
-      <div class= "company-title ">
-
-          <%= f.text_field :name, :class => '  darkblue edit_company_name' %>,
-
-            <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
-              <%= campaign_fields.text_field :tagline, placeholder: 'Describe your company in one sentence',:class => " campaing_editable_fields edit_tagline  darkblue twenty", required:true %><br>
-              <i class="fa fa-map-marker darkblue company_located"></i>
-              <%= campaign_fields.text_field :company_location_city, placeholder: 'City',:class => " campaing_editable_fields   darkblue", required:true %>
-              <%= campaign_fields.text_field :company_location_state, placeholder: 'State',:class => " campaing_editable_fields   darkblue", required:true %>
-            <% end %>
-
-        <div class= "">
-          <% if @company.video_link == nil %>
-            <%= image_tag( @company.image.url, class: 'image-max-width')%>
-          <% elsif @company.video_link.empty? %>
-            <%= image_tag( @company.image.url, class: 'image-max-width')%>
-          <% else %>
-            <iframe  class='youtube-video' src= <%= @company.video_link %> frameborder="0" allowfullscreen ></iframe>
-          <% end %>
-
-            <% if @formc.try(:completed) %>
-              <p>
-                <%= image_tag "static/pdf_icon.png"%>
-                <%= link_to "#{@company.name} Form C ", formc_path(id: @formc.id, format: 'pdf'), target: '_blank', class: 'document-url' %>
-              </p>
-            <% end %>
-            <div>
-              <%#= link_to "Form C Editor", "/formc/general", :class => 'invest-button', id: 'formc-button' %>
-            </div>
-
-        </div>
-      </div>
-      <div class= "stats-container">
-        <div class= "profile-image-wrap"> <%= link_to image_tag(@company.image.url, :class => "stats-image"), @company.website_link %></div>
-        <div class='center'><span class= "darkblue twenty">Change Image: </span><%= f.file_field "image" %></br></br></div>
-        <div class='center'><span class= "darkblue twenty">Background Cover: </span><%= f.file_field "cover" %></br></br></div>
-
-        <div class= "numbers">
-        <div class= "numbers-content">
-          <div class="meter orange">
-            <% @progress = ((@company.invested_amount.to_f / @company.goal_amount.to_f).to_f) *100 %>
-            <% if @progress == 0 %>
-              <span class= "front" style="width: 5px"></span>
-            <% else %>
-              <span style='width: <%= @progress %>%'></span>
-            <% end %>
-          </div>
-          <br>
-          <div class= 'statistics'>
-
-            <div>
-              <p class= "twenty no-margin center"><%= f.number_field :goal_amount, :class => 'input-box no-margin center' %><br><span
-                  class=" darkblue twenty">Goal Amount </span> </p>
-            </div>
-
-            <div>
-              <p class= "twenty no-margin center">
-                <%= f.text_field :video_link, :class => 'input-box no-margin center' %><br>
-                <span class= "darkblue twenty">Video Link</span>
-              </p>
-            </div>
-
-            <div>
-                <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
-                  <p class= "twenty no-margin center">
-                    <%= campaign_fields.text_field(:category, :class => 'input-box no-margin center', required:true ) %>
-                    <span class= "darkblue twenty">Category</span>
-                  </p>
-                  <p class= "twenty no-margin center">
-                    <%= campaign_fields.text_field(:employees_numer, :class => 'input-box no-margin center', required:true ) %>
-                    <span class= "darkblue twenty">Number of Employees</span>
-                  </p>
-                <% end %>
-            </div>
-
-            <div>
-              <p class= "twenty no-margin center">
-                <%= f.text_field :website_link, :class => 'input-box no-margin center' %><br>
-                <span class= "darkblue twenty">Website Link</span>
-              </p>
-            </div>
+              <div class="meter orange">
+                  <% @progress = ((@company.invested.to_f / @company.goal_amount.to_f).to_f) *100 %>
+                  <% if @progress == 0 %>
+                      <span class= "front" style="width: 5px"></span>
+                  <% elsif @progress > 100 %>
+                      <span style= 'width: 100%'></span>
+                  <% else %>
+                      <span style='width: <%= @progress %>%'></span>
+                  <% end %>
+              </div>
+              <div class='company-info-cateogry percent-funded'><%= @progress.to_i %>% funded</div>
+            <%= f.submit "Update", :class => 'company-button profile-button mail-to-button' %>
 
           </div>
+  </section>
 
-        </div>
-        </div>
+  <div class='grey-section'>
+      <div class=" stretch">
 
-      <div class= "fake-button"> Invest </div>
+
+          <div style="text-align:center;">
+              <section class= "video-box">
+                  <h2 class='section-title'>Who Are We?</h2>
+                  <% if @company.video_link.empty? %>
+                      <%= image_tag( @company.image.url, class: 'image-max-width')%>
+                  <% else %>
+                      <iframe  class='youtube-video' src= <%= @company.video_link + "?rel=0" %> frameborder="0" allowfullscreen ></iframe>
+                  <% end %>
+              </section>
+
+              <section class='social-media-campaign'>
+                  <p class='help-our-campaign'>
+                      Help us reach our goal. <br>Share our campaing to your friends and family.
+                  </p>
+                  <section class='centered'>
+
+                          <a id='facebook' class="share-invites-social" > <i class="fa fa-facebook"></i></a>
+                          <a id="twitter" class="share-invites-social" title="Share via Twitter">
+                              <i class="fa fa-twitter"></i>
+                          </a>
+                          <a id ='linkedin' class="share-invites-social" title="Share via LinkedIn" >
+                              <i class="fa fa-linkedin"></i>
+                          </a>
+
+
+                      <div class='company-info-cateogry campaign-website'>
+                           <%= f.text_field :website_link, class: "form-field" %>
+                      </div>
+                      <div class='company-info-cateogry campaign-website'>
+                          <label>Youtube Link</label><br>
+                           <%= f.text_field :video_link, class: "form-field" %>
+                      </div>
+
+                  </section>
+              </section>
+          </div>
       </div>
 
+  </div>
+  <div class='white-section'>
       <div class= "description-container">
+          <section class='nav-links'>
+              <a  class='tab-name about_tab active-tab'>Company</a>
+              <a  class='tab-name   ' id='team_tab'>Team</a>
+              <a  class='tab-name   ' id='finances_tab'>Financial Info</a>
+              <a  class='tab-name   ' id='documents_tab'>Documents</a>
+              <a  class='tab-name   ' id='comments_tab'>Comments</a>
+          </section>
 
-        <a  class='tab-name about_tab active-tab darkblue twentyf'>Company</a>
-        <a  class='tab-name  darkblue twentyf' id='team_tab'>Team</a>
-        <a  class='tab-name  darkblue twentyf' id='finances_tab'>Finances & Risks</a>
-
-
-        <!-- O V E R V I E W    T A B -->
-        <div class='about_tab_content tab-content'>
-            <h2 class= "darkblue category-name indent">Highlight</h2>
-            <hr>
-            <p class= "fifteen"><%= f.text_area :description, rows: 10, :class => 'ckeditor edit_textarea twenty no-margin', required:true %></p>
-            <br>
-
-            <h2 class= "darkblue category-name indent">Why <%= @company.name %></h2>
-            <p class= "fifteen">
+          <div class='about_tab_content tab-content'>
+              <h2 class= " category-name indent">Highlight</h2>
+              <hr>
+                  <%= f.text_area :description, rows: 10, :class => 'ckeditor edit_textarea twenty no-margin', required:true %>
+              <br>
+              <h2 class= " category-name indent">Why <%= @company.name %>?</h2>
+              <hr>
               <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
                 <p class= "fifteen"><%= campaign_fields.text_area :elevator_pitch, rows: 10, :class => 'ckeditor edit_textarea twenty  no-margin',  required:true %></p>
-                <h2 class= "darkblue category-name indent">Our Mission</h2>
+              <% end %>
+
+              <br>
+
+              <h2 class= " category-name indent">Our Mission</h2>
+              <hr>
+              <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
                 <p class= "fifteen"><%= campaign_fields.text_area :about_campaign, rows: 10, :class => 'ckeditor edit_textarea twenty no-margin ', required:true %></p>
               <% end %>
-            </p>
-        </div>
-
-        <!-- T E A M    T A B -->
-        <div class='team_tab_content tab-content'>
-          <br>
-          <div class= "team-band">
-
-              <%= f.fields_for :founders do |founder| %>
-                  <div class= "team-box">
-                    <%= button_to "X", { action: 'remove_founder', id: founder.object_id} , {:class => 'remove-button'} %>
-                    <%= image_tag( founder.object.image.url, :class => "image team-pic") %>
-                    <h2 class= "twenty no-margin"><%= founder.text_field :name %>, <%= founder.text_field :position %></h2>
-                    <br>
-                    <p class= "fifteen no-margin"><%= founder.text_area :content %></p>
-                  </div>
-              <% end %>
-
-            <div class="links">
-              <%= link_to_add_association 'Add', f, :founders %>
-            </div>
           </div>
-        </div>
 
-        <!-- F I N A N C E    T A B  -->
-        <div class='finance_tab_content tab-content'>
-          <%= f.fields_for :financial_detail do |fin_details| %>
-            <h2 class= "darkblue category-name indent">Offering Terms</h2>
-            <%= fin_details.text_area :offering_terms, rows: 6, :class => 'ckeditor ' %>
-            <h2 class= "darkblue category-name indent">Financial Risks</h2>
-            <%= fin_details.text_area :fin_risks, rows: 6, :class => 'ckeditor ' %>
+          <div class='team_tab_content tab-content'>
+            <div class= "team-band">
+               <%= f.fields_for :founders do |founder| %>
+                   <div class= "team-member-box">
+                     <%= button_to "X", { action: 'remove_founder', id: founder.object_id} , {:class => 'remove-button'} %>
+                     <%= image_tag( founder.object.image.url, :class => "company-members") %>
+                     Image
+                     <%= founder.file_field :image %>
+                     <h2 class= "twenty no-margin">
+                      <%= founder.text_field :name, class: "form-field " %>
+                      <%= founder.text_field :position, class: "form-field " %></h2>
+                     <br>
+                     <p class= "fifteen no-margin"><%= founder.text_area :content, class: "form-field " %></p>
+                   </div>
 
-            <div>
-              <div class='edit_fin_info' >
-                <span>Total Income</span><br>
-                <%= fin_details.number_field :totat_income, placeholder: 'Total Income' %>
-              </div>
-              <div class='edit_fin_info'>
-                <span>Total Taxable Income</span><br>
-                <%= fin_details.number_field :total_taxable_income, placeholder: 'Total Taxable Income' %>
-              </div>
-              <div class='edit_fin_info'>
-                <span>Total Taxes Paid</span><br>
-                <%= fin_details.number_field :total_taxes_paid, placeholder: 'Total Taxable Income' %>
-              </div>
-              <hr>
+               <% end %>
             </div>
+             <div class="links">
+               <%= link_to_add_association 'Add', f, :founders %>
+             </div>
+          </div>
 
-            <div>
-              <div class='edit_fin_info' >
-                <span>Total assets most recent fiscal year</span><br>
-                <%= fin_details.number_field :total_assets_this_year, placeholder: 'Total assets most recent fiscal year' %>
-              </div>
-              <div class='edit_fin_info'>
-                <span>Total assets prior fiscal year</span><br>
-                <%= fin_details.number_field :total_assets_last_year, placeholder: 'Total assets prior fiscal year' %>
-              </div>
-              <hr>
-            </div>
+          <div class='finance_tab_content tab-content'>
+            <%= f.fields_for :financial_detail do |fin_details| %>
+              <h2 class= " category-name indent">Offering Terms</h2>
+              <%= fin_details.text_area :offering_terms, rows: 6, :class => 'ckeditor ' %>
 
-            <div>
-              <div class='edit_fin_info' >
-                <span>Cash & Cash Equivalents most recent fiscal year</span><br>
-                <%= fin_details.number_field :cash_this_year, placeholder: 'Cash & Cash Equivalents most recent fiscal year' %>
-              </div>
-              <div class='edit_fin_info'>
-                <span>Cash & Cash Equivalents prior fiscal year</span><br>
-                <%= fin_details.number_field :cash_last_year, placeholder: 'Cash & Cash Equivalents prior fiscal year' %>
-              </div>
-              <hr>
-            </div>
+               <h2 class= " category-name indent">Financial Risks</h2>
+              <%= fin_details.text_area :fin_risks, rows: 6, :class => 'ckeditor ' %>
+            <% end %>
+          </div>
 
-            <div>
-              <div class='edit_fin_info' >
-                <span>Accounts Receivable recent fiscal year</span><br>
-                <%= fin_details.number_field :acount_receivable_this_year, placeholder: 'Accounts Receivable recent fiscal year' %>
-              </div>
-              <div class='edit_fin_info'>
-                <span>Accounts Receivable prior fiscal year</span><br>
-                <%= fin_details.number_field :acount_receivable_last_year, placeholder: 'Accounts Receivable prior fiscal year' %>
-              </div>
-              <hr>
-            </div>
+          <div class='documents_tab_content tab-content'>
+          </div>
 
-            <div>
-              <div class='edit_fin_info' >
-                <span>Short-term Debt most recent fiscal year</span><br>
-                <%= fin_details.number_field :short_term_debt_this_year, placeholder: 'Short-term Debt most recent fiscal year' %>
+          <div class='comments_tab_content tab-content' >
+              <div class='comments'>
+                  <%= nested_messages(@comments.arrange(:order => :created_at))%>
               </div>
-              <div class='edit_fin_info'>
-                <span>Short-term Debt prior fiscal year</span><br>
-                <%= fin_details.number_field :short_term_debt_last_year, placeholder: 'Short-term Debt prior fiscal year' %>
-              </div>
-              <hr>
-            </div>
+              <br>
 
-            <div>
-              <div class='edit_fin_info' >
-                <span>Long-term Debt most recent fiscal year</span><br>
-                <%= fin_details.number_field :long_term_debt_this_year, placeholder: 'Long-term Debt most recent fiscal year' %>
-              </div>
-              <div class='edit_fin_info'>
-                <span>Long-term Debt prior fiscal year</span><br>
-                <%= fin_details.number_field :long_term_debt_last_year, placeholder: 'Long-term Debt prior fiscal year' %>
-              </div>
-              <hr>
-            </div>
-
-            <div>
-              <div class='edit_fin_info' >
-                <span>Revenues / Sales most recent fiscal year</span><br>
-                <%= fin_details.number_field :sales_this_year, placeholder: 'Revenues / Sales most recent fiscal year' %>
-              </div>
-              <div class='edit_fin_info'>
-                <span>Revenues / Sales prior fiscal year</span><br>
-                <%= fin_details.number_field :sales_last_year, placeholder: 'Revenues / Sales prior fiscal year' %>
-              </div>
-              <hr>
-            </div>
-
-            <div>
-              <div class='edit_fin_info' >
-                <span>Costs of Goods Sold most recent fiscal year</span><br>
-                <%= fin_details.number_field :costs_of_goods_this_year, placeholder: 'Costs of Goods Sold most recent fiscal year' %>
-              </div>
-              <div class='edit_fin_info'>
-                <span>Costs of Goods Sold prior fiscal year</span><br>
-                <%= fin_details.number_field :costs_of_goods_last_year, placeholder: 'Costs of Goods Sold prior fiscal year' %>
-              </div>
-              <hr>
-            </div>
-
-            <div>
-              <div class='edit_fin_info' >
-                <span>Taxes Paid most recent fiscal year</span><br>
-                <%= fin_details.number_field :taxes_paid_this_year, placeholder: 'Taxes Paid most recent fiscal year' %>
-              </div>
-              <div class='edit_fin_info'>
-                <span>Taxes Paid prior fiscal year</span><br>
-                <%= fin_details.number_field :taxes_paid_last_year, placeholder: 'Taxes Paid prior fiscal year' %>
-              </div>
-              <hr>
-            </div>
-
-            <div>
-              <div class='edit_fin_info' >
-                <span>Net Income most recent fiscal year</span><br>
-                <%= fin_details.number_field :net_income_this_year, placeholder: 'Net Income most recent fiscal year' %>
-              </div>
-              <div class='edit_fin_info'>
-                <span>Net Income prior fiscal year</span><br>
-                <%= fin_details.number_field :net_income_last_year, placeholder: 'Net Income prior fiscal year' %>
-              </div>
-              <hr>
-            </div>
-
-
-          <% end %>
-        </div>
+                  <% if current_user %>
+                      <div class="comment">
+                        <div class="headline">
+                          <span class="name">
+                            <span class='comment_as'>New comment as</span>
+                            <a><%= current_user.comments_name%></a>
+                          </span>
+                        </div>
+                        <div class="comment_content">
+                              <%= form_for Comment.new, remote: true  do |f|%>
+                                   <%= f.hidden_field "user_id", value: current_user.id %>
+                                   <%= f.hidden_field "company_id", value: @company.id %>
+                                   <%= f.hidden_field :parent_id %>
+                                  <div>
+                                      <%= f.text_area :content, rows: 8, class: 'comment_extarea' %>
+                                  </div>
+                                  <%= f.submit "Post Comment", class: 'comment_submit_button' %>
+                              <% end %>
+                      </div>
+                  <%else%>
+                        <p>First <%= link_to "sign in", "/users/sign_in" %> to post a comment.</p>
+                      </div>
+                  <%end%>
+          </div>
       </div>
-
-    <% end %>
-
-    </div></div>
+  </div>
+<% end %>
 
 
 <script type="text/javascript">
   $(document).ready(function() {
     $('#team_tab').click(function(e){
-      $('.tab-content').hide();
-      $('.team_tab_content').show();
-      $(".tab-name").removeClass('active-tab');
-      $("#team_tab").addClass('active-tab');
+        $('.tab-content').hide();
+        $('.team_tab_content').show();
+        $(".tab-name").removeClass('active-tab');
+        $("#team_tab").addClass('active-tab');
     });
     $('.about_tab').click(function(e){
-      $('.tab-content').hide();
-      $('.about_tab_content').show();
-      $(".tab-name").removeClass('active-tab');
-      $('.about_tab').addClass('active-tab');
+        $('.tab-content').hide();
+        $('.about_tab_content').show();
+        $(".tab-name").removeClass('active-tab');
+        $('.about_tab').addClass('active-tab');
     });
     $('#finances_tab').click(function(e){
-      $('.tab-content').hide();
-      $('.finance_tab_content').show();
-      $(".tab-name").removeClass('active-tab');
-      $('#finances_tab').addClass('active-tab');
+        $('.tab-content').hide();
+        $('.finance_tab_content').show();
+        $(".tab-name").removeClass('active-tab');
+        $('#finances_tab').addClass('active-tab');
     });
+    $('#comments_tab').click(function(e){
+        $('.tab-content').hide();
+        $('.comments_tab_content').show();
+        $(".tab-name").removeClass('active-tab');
+        $('#comments_tab').addClass('active-tab');
+    });
+    $("#documents_tab").click(function(e){
+        $('.tab-content').hide();
+        $('.documents_tab_content').show();
+        $(".tab-name").removeClass('active-tab');
+        $('#documents_tab').addClass('active-tab');
+    })
 
-    if ($('textarea').length > 0) {
-      var data = $('.ckeditor');
-      $.each(data, function(i) {
-          CKEDITOR.replace(data[i].id);
-      });
-    }
+    // if ($('textarea').length > 0) {
+    //   var data = $('.ckeditor');
+    //   $.each(data, function(i) {
+    //       CKEDITOR.replace(data[i].id);
+    //   });
+    // }
   });
 </script>

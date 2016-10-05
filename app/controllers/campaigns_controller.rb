@@ -103,6 +103,7 @@ class CampaignsController < ApplicationController
     @company = @campaign.company
     @formc = @company.general_infos.last
     @members = @company.founders
+    @comments = @company.comments
   end
 
   def update_campaign
