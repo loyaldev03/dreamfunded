@@ -10,14 +10,14 @@
           <section class='company-basic-info'>
               <div>   <%= f.text_field :name %> </div>
 
+
+
               <%= f.fields_for :campaign  do |campaign_fields| %>
-                <%= campaign_fields.text_area :tagline, placeholder: 'Describe your company in one sentence',:class => " campaing_editable_fields edit_tagline   twenty", required:true %><br>
-                <i class="fa fa-map-marker  company_located"></i>
-                <%= campaign_fields.text_field :company_location_city, placeholder: 'City',:class => " campaing_editable_fields   ", required:true %>
-                <%= campaign_fields.text_field :company_location_state, placeholder: 'State',:class => " campaing_editable_fields   ", required:true %>
+                <%= campaign_fields.text_field :tagline, placeholder: 'Describe your company in one sentence',:class => " campaing_editable_fields edit_tagline  darkblue twenty", required:true %><br>
+                <i class="fa fa-map-marker darkblue company_located"></i>
+                <%= campaign_fields.text_field :company_location_city, placeholder: 'City',:class => " campaing_editable_fields", required:true %>
+                <%= campaign_fields.text_field :company_location_state, placeholder: 'State',:class => " campaing_editable_fields", required:true %>
               <% end %>
-
-
 
           </section>
       </div>
