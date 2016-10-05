@@ -1,0 +1,58 @@
+/* line 1, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/contact_us.css.scss */
+.contact-us-info {
+  margin-top: 5px;
+}
+
+/* line 5, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/contact_us.css.scss */
+.liquidate-info {
+  margin-top: 5px;
+  text-align: justify;
+}
+
+/* line 9, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/contact_us.css.scss */
+.company-name {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* line 13, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/contact_us.css.scss */
+.address1 {
+  display: inline-block;
+  text-align: left;
+  margin-right: 22px;
+  margin-left: 30px;
+}
+
+/* line 19, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/contact_us.css.scss */
+.contact-phone-number {
+  margin-top: 20px;
+}
+
+/* line 22, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/contact_us.css.scss */
+.marging-top-30 {
+  margin-top: 30px !important;
+}
+
+/* line 25, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/contact_us.css.scss */
+.contact_us_icons {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+}
+
+/* line 30, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/contact_us.css.scss */
+.wechat-text {
+  vertical-align: middle;
+}
+
+/* line 33, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/contact_us.css.scss */
+.wechat_whatsapp_icons {
+  text-align: left;
+  margin-left: 59px;
+  margin-top: 20px;
+}
+
+/* line 38, /Users/apprentice/Desktop/dreamfundedvc/app/assets/stylesheets/contact_us.css.scss */
+.address1 + .address1 .contact-us-info:nth-child(5) {
+  color: #fff;
+}
