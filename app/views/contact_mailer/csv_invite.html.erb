@@ -9,14 +9,14 @@
 <div>
 
 <h1 style="margin:0;margin-top:16px;font-size:30px;line-height:48px;color:#333333;font-weight:200;text-align:center;margin-bottom:16px">
-Your friend <%= @user.name %> has launched a new company <%= @user.companies.try(:last).try(:name) %> and invited you to participate in their funding round.
+Your friend <%= @user.name %> has launched a new company <%= @user.try(:company).try(:name) %> and invited you to participate in their funding round.
 </h1>
 <p style="margin:0;font-size:16px;line-height:24px;color:#777777;text-align:center;font-weight:300;margin-bottom:16px">
 Hi <%= @invite.name%>, we just launched a funding round for my new company on <a href="https://dreamfunded.com/">DreamFunded.com</a>, an Equity Crowdfunding Platform, which allows all my friends to invest in my company.
 </p>
 
 <p style="margin:0;font-size:16px;line-height:24px;color:#777777;text-align:center;font-weight:300;margin-bottom:16px">
-I invite you to sign up at DreamFunded and help <%= @user.companies.try(:last).try(:name) %> be successful. Thank you <%= @invite.name%>.
+I invite you to sign up at DreamFunded and help <%= @user.try(:company).try(:name) %> be successful. Thank you <%= @invite.name%>.
 </p>
 
 <p style="margin:0;margin-top:32px;font-size:16px;line-height:24px;color:#777777;text-align:center;font-weight:300;margin-bottom:16px">

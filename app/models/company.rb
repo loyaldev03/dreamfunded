@@ -3,8 +3,11 @@ class Company < ActiveRecord::Base
   friendly_id :name, use: :slugged
 
 
-	has_many :investments
-	belongs_to :user
+	has_many :users
+
+
+
+  has_many :investments
 
 	has_many :sections
   has_many :comments

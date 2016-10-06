@@ -87,7 +87,7 @@
                         <%= link_to 'Edit as Admin', {:controller => 'companies', :action => 'edit_profile', :id => @id }, {:class => 'left'} %>
                     <% end %>
                     <br>
-                    <% if current_user == @company.user %>
+                    <% if current_user.company == @company %>
                         <%= link_to 'Edit My Campaign', {:controller => 'campaigns', :action => 'edit_campaign', :id => @company.campaign.id}, {:class => 'right'} %>
                     <% end %>
                 </div>

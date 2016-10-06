@@ -5,12 +5,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+	belongs_to :company
+
 
 	has_many :investments
-	has_many :companies
 	has_many :comments
 	has_many :guests
-
 	has_many :invites
 
 	has_many :liquidate_shares
@@ -63,8 +63,8 @@ class User < ActiveRecord::Base
 	end
 
 	def my_campaign
-		if self.companies.any?
-			company = self.companies.last
+		if self.company
+			company = self.company
 			campaign = company.campaign
 			if campaign.submitted?
 				company.name
@@ -81,7 +81,7 @@ class User < ActiveRecord::Base
 	end
 
 	def startup?
-		return true if self.companies.any?
+		return true if self.company
 		false
 	end
 

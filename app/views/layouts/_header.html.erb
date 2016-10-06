@@ -113,7 +113,7 @@
 
 
             <% if current_user %>
-              <% if current_user.companies.any? %>
+              <% if current_user.company %>
                 <li><button onclick= "campaign()">Edit My Campaign</button></li>
               <%else%>
                 <li><button onclick= "get_funded()">Get Funded</button></li>
