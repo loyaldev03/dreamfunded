@@ -72,7 +72,7 @@ class ContactMailer < ActionMailer::Base
 
   def new_comment_company_owner(comment)
     @comment = comment
-    @user = comment.company.user
+    @user = comment.company.users.last
     mail(to: @user.email, subject: 'New Comment under Your Company')
   end
 
