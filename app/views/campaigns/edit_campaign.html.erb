@@ -88,8 +88,12 @@
                            <%= f.text_field :website_link, class: "form-field" %>
                       </div>
                       <div class='company-info-cateogry campaign-website'>
-                          <label>Youtube Link</label><br>
+                          <a>Youtube Link</a><br>
                            <%= f.text_field :video_link, class: "form-field" %>
+                      </div>
+
+                      <div class='company-info-cateogry campaign-website'>
+                           <%= link_to "Invite Co-Founder", "/", class: 'company-button profile-button mail-to-button' %>
                       </div>
 
                   </section>
