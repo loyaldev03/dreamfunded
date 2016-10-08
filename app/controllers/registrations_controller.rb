@@ -19,7 +19,7 @@ protected
   def check_if_was_invited(user)
     email = user.email
     invited_person = user
-    invite = Invite.find_by(email: email)
+    invite = CoFounder.find_by(email: email)
     if invite
       invite.user.company.users << invited_person
     end
