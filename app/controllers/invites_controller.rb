@@ -93,6 +93,24 @@ class InvitesController < ApplicationController
     send_file(Rails.root.join('app' , 'assets', 'doc', "test_users.csv"))
   end
 
+  def invite_cofounder
+
+  end
+
+  def post_invite_cofounder
+    email = params[:email]
+    name = params[:name]
+    invited_person = User.find_by(email: email)
+    Invite.create(email: email, name: name, user_id: current_user.id)
+    if invited_person
+      current_user.company.users << invited_person
+      ContactMailer.invite_cofounder_exist(email, name, current_user).deliver
+    else
+      ContactMailer.invite_cofounder_dont_exist(email, name, current_user).deliver
+    end
+    redirect_to company_path(current_user.company)
+  end
+
   private
 
   def invite_params

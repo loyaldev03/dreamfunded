@@ -63,8 +63,8 @@ class UsersController < ApplicationController
 	# end
 
 	def campaign
-		if current_user.companies.any?
-			company = current_user.companies.last
+		if current_user.company
+			company = current_user.company
 			campaign = company.campaign
 			if campaign.submitted?
 				redirect_to(:controller => 'companies', :action => :show, id: company.slug)

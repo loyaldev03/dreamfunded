@@ -72,7 +72,7 @@ class ContactMailer < ActionMailer::Base
 
   def new_comment_company_owner(comment)
     @comment = comment
-    @user = comment.company.user
+    @user = comment.company.users.last
     mail(to: @user.email, subject: 'New Comment under Your Company')
   end
 
@@ -85,4 +85,21 @@ class ContactMailer < ActionMailer::Base
     @user = user
     mail(to: @invite.email, subject: "Hi #{@invite.name}, it's #{@user.name}. Check out my startup on DreamFunded.")
   end
+
+  def invite_cofounder_exist(email, name, current_user)
+    @email = email
+    @name = name
+    @current_user = current_user
+    @company = current_user.company
+    mail(to: email, subject: "#{@current_user.name} has invited you to collaborate on #{@company.name} ")
+  end
+
+  def invite_cofounder_dont_exist(email, name, current_user)
+    @email = email
+    @name = name
+    @current_user = current_user
+    @company = current_user.company
+    mail(to: email, subject: "#{@current_user.name} has invited you to collaborate on #{@company.name} ")
+  end
+
 end

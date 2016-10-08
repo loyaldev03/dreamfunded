@@ -173,6 +173,9 @@ Rails.application.routes.draw do
   post "/upload_csv", to: "invites#upload_csv"
   post "/invites_from_manny", to: "invites#invites_from_manny"
 
+  get "/invite_cofounder", to: "invites#invite_cofounder"
+  post "/invite_cofounder", to: "invites#post_invite_cofounder"
+
   get 'download_template', to: "invites#download"
   get '/view_uploaded_csv', to: "invites#view_uploaded_csv", as: :view_uploaded_csv
   #post '/send_csv_invites', to: "invites#send_csv_invites"

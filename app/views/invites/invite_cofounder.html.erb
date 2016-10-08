@@ -1,0 +1,29 @@
+<% title "DreamFunded | Invite Co-Founder" %>
+
+<div class= "wrapper"> <!-- wrapper Starts -->
+
+  <div class="header">
+    <h1 class="centered">Invite Co-Founder to <%= current_user.company.name%></h1>
+  </div>
+
+  <div class= "invite-content">
+
+
+      <!-- Invite via Email -->
+      <div class="invite-via-email">
+        <span class='invite-email-icon'><%=  fa_icon("envelope 2x")%> </span>
+        <span class='invite-text'>Invite via Email</span>
+        <span class='invite-form'>
+          <%= form_tag( "/invite_cofounder") do %>
+          <%= text_field_tag(:name, nil,placeholder: 'Name',class: 'invite-text-input', required: true) %>
+            <%= text_field_tag(:email,nil, placeholder: 'Email Address',class: 'invite-text-input', pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", required: true)%>
+            <%= submit_tag "Send", class: 'invite-button' %>
+          <% end %>
+        </span>
+      </div>
+
+
+  </div>
+
+
+</div> <!-- End of wrapper -->

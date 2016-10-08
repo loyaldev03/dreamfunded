@@ -34,8 +34,8 @@ end
     column("url") {|t| link_to t.name, "/companies/#{t.slug}" if description_step?(t) }
     column  "website_link"
     column  "goal_amount"
-    column("Step") { |company| company.campaign.current_state if company.campaign}
-    column("User") { |company| link_to(company.user.name, admin_user_path(company.user)) }
+    column("Step") { |company| company.campaign.current_state if company.campaign }
+    column("User") { |company| link_to(company.users.first.name, admin_user_path(company.users.first)) if company.users.any?}
     column  "created_at"
     actions
   end

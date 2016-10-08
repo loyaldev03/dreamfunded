@@ -5,23 +5,19 @@
 </a>
 </h1>
 </td></tr></tbody></table></div>
-<table cellspacing="0" cellpadding="16px" border="0" width="100%" style="border-collapse:collapse;min-width:100%!important;width:100%!important"><tbody><tr><td style="border-collapse:collapse"><table cellspacing="0" cellpadding="0" border="0" width="550" align="center" style="border-collapse:collapse;table-layout:fixed;margin:0 auto"><tbody><tr><td style="border-collapse:collapse">
+<table cellspacing="0" cellpadding="16px" border="0" width="100%" style="border-collapse:collapse;min-width:100%!important;width:100%!important"><tbody><tr><td style="border-collapse:collapse"><table cellspacing="0" cellpadding="0" border="0" width="450" align="center" style="border-collapse:collapse;table-layout:fixed;margin:0 auto"><tbody><tr><td style="border-collapse:collapse">
 <div>
 
+
 <h1 style="margin:0;margin-top:16px;font-size:30px;line-height:48px;color:#333333;font-weight:200;text-align:center;margin-bottom:16px">
-Your friend <%= @user.name %> has launched a new company <%= @user.try(:company).try(:name) %> and invited you to participate in their funding round.
+Let's collaborate
 </h1>
 <p style="margin:0;font-size:16px;line-height:24px;color:#777777;text-align:center;font-weight:300;margin-bottom:16px">
-Hi <%= @invite.name%>, we just launched a funding round for my new company on <a href="https://dreamfunded.com/">DreamFunded.com</a>, an Equity Crowdfunding Platform, which allows all my friends to invest in my company.
+<%= @current_user.name %> invites you to join <%= @company.name %>
 </p>
-
-<p style="margin:0;font-size:16px;line-height:24px;color:#777777;text-align:center;font-weight:300;margin-bottom:16px">
-I invite you to sign up at DreamFunded and help <%= @user.try(:company).try(:name) %> be successful. Thank you <%= @invite.name%>.
-</p>
-
 <p style="margin:0;margin-top:32px;font-size:16px;line-height:24px;color:#777777;text-align:center;font-weight:300;margin-bottom:16px">
 
-<a style="color:#03a9f4;border-radius:3px;display:inline-block;font-size:16px;line-height:50px;min-height:50px;text-align:center;text-decoration:none;color:#fefefe;background-color:#222222;border:1px solid #222222;width:250px;background-color:#10a1d6;border:1px solid #10a1d6;color:#ffffff;width:240px;min-height:48px;line-height:48px" href="https://dreamfunded.com/users/sign_up" target="_blank" data-saferedirecturl="">Accept Invite</a>
+<a style="color:#03a9f4;border-radius:3px;display:inline-block;font-size:16px;line-height:50px;min-height:50px;text-align:center;text-decoration:none;color:#fefefe;background-color:#222222;border:1px solid #222222;width:250px;background-color:#10a1d6;border:1px solid #10a1d6;color:#ffffff;width:240px;min-height:48px;line-height:48px" href="https://dreamfunded.com/users/sign_up" target="_blank" data-saferedirecturl="">Accept invite</a>
 
 </p>
 <hr style="margin-top:15px;margin-bottom:16px;border:0;border-top:1px solid #eeeeee;margin-bottom:32px;margin-top:48px">
@@ -32,10 +28,10 @@ I invite you to sign up at DreamFunded and help <%= @user.try(:company).try(:nam
 </td>
 <td style="padding-top:16px;padding-bottom:16px;padding-left:32px;border-collapse:collapse">
 <div style="font-size:22px;line-height:32px;font-weight:300;color:#222222">
-Discover
+Engage
 </div>
 <div style="font-size:17px;line-height:32px;margin-top:8px;font-weight:300;color:#888888">
-Find out more about my startup and what we have to offer.
+Browse and share a selection of innovative private companies.
 </div>
 </td>
 </tr>
@@ -48,7 +44,7 @@ Find out more about my startup and what we have to offer.
 Invest
 </div>
 <div style="font-size:17px;line-height:32px;margin-top:8px;font-weight:300;color:#888888">
-Support our company by investing in equity.
+Learn what it takes to become an investor and sign up on DreamFunded.
 </div>
 </td>
 </tr>
@@ -61,7 +57,7 @@ Support our company by investing in equity.
 Empower
 </div>
 <div style="font-size:17px;line-height:32px;margin-top:8px;font-weight:300;color:#888888">
-Become part of the leading equity crowdfunding platform in San Francisco.
+Support companies you believe in and help them reach their goals.
 </div>
 </td>
 </tr>
@@ -88,4 +84,3 @@ DreamFunded
 </td></tr></tbody></table>
 <img src="" alt="" width="1" height="1" border="0" style="min-height:1px!important;width:1px!important;border-width:0!important;margin-top:0!important;margin-bottom:0!important;margin-right:0!important;margin-left:0!important;padding-top:0!important;padding-bottom:0!important;padding-right:0!important;padding-left:0!important" >
 </div>
-
