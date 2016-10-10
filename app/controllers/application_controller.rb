@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
     def logout_user_session
       session[:current_user] = nil
     end
+
+    def set_admin_timezone
+      Time.zone = "Pacific Time (US & Canada)"
+    end
 end
