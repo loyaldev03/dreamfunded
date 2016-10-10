@@ -12,6 +12,19 @@ class InvitesController < ApplicationController
     redirect_to '/invite'
   end
 
+
+  def upload_csv
+    begin
+        SubscribeJob.new.async.csv_importer_gem(params[:file], current_user, 'from_Startup')
+        flash[:email_sent] = "Emails sent"
+        redirect_to  invite_users_path
+      rescue
+        flash[:upload_error] = "Invalid CSV file format."
+        redirect_to  invite_users_path
+    end
+  end
+
+
   def google_contacts
     emails = params[:emails]
     emails.each do |email|
@@ -45,21 +58,6 @@ class InvitesController < ApplicationController
     end
   end
 
-  def upload_csv
-    begin
-        #Delayed jobs for Importing and Sendig 1000s emails
-        #Invite.delay.import(params[:file], current_user)
-        SubscribeJob.new.async.csv_save_emails(params[:file], current_user, 'from_Startup')
-        # invites.each do |invite|
-        #   ContactMailer.csv_invite(invite, current_user).deliver
-        # end
-        flash[:email_sent] = "Emails sent"
-        redirect_to  invite_users_path
-      rescue
-        flash[:upload_error] = "Invalid CSV file format."
-        redirect_to  invite_users_path
-    end
-  end
 
   def invites_from_manny
     begin
@@ -117,3 +115,4 @@ class InvitesController < ApplicationController
     params.require(:invite).permit(:user_id, :email, :token, :name)
   end
 end
+
