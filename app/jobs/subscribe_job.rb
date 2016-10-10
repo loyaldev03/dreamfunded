@@ -70,4 +70,35 @@ class SubscribeJob
     end
   end
 
+  def csv_importer_gem(file, user, email_template)
+      ActiveRecord::Base.connection_pool.with_connection do
+
+        import = ImportUserCSV.new(path: file.path) do
+          token = SecureRandom.uuid.gsub(/\-/, '').first(10)
+
+        after_save do |invite|
+            invite.token = token
+            invite.save
+          end
+        end
+
+        import.run!
+        p import.valid_header? # => true
+        p import.report.success? # => false
+        p import.report.status # => :aborted
+        p import.report.message # => "Import aborted"
+
+        last_token = Invite.last.token
+        new_invites = Invite.where(token: last_token)
+        new_invites.update_all(user_id: user.id)
+
+        new_invites.each do |invite|
+          ContactMailer.delay.invite_to_sign_up(invite.email, invite.name) if email_template == 'from_Manny'
+          ContactMailer.delay.csv_invite(invite, user) if email_template == 'from_Startup'
+        end
+
+      end
+
+  end
+
 end
