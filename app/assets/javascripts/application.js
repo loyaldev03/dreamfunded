@@ -22,5 +22,6 @@
 //= require tinyscrollbar.min
 //= require jquery.tinyscrollbar.min
 //= require jquery.countdown.min
+//= require owl.carousel
 //= require_tree .
 

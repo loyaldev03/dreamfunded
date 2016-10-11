@@ -43,8 +43,40 @@
     </section>
 
 
-    <section class='mentioned-in'></section>
+    <section class='mentioned-in'>
+        <div class='section-title'>DreamFunded Mentioned In</div>
+        <div class="mainSeen__slider1__wrap">
+            <button class="btn mainSeen__slider1__left"></button>
+            <button class="btn mainSeen__slider1__right"></button>
+            <div class="mainSeen__slider1 owl-carousel">
+                <div class="item">
+                    <%= image_tag("static/cnn.png") %>
+                </div>
+                <div class="item">
+                    <%= image_tag("static/fortune_logo.png") %>
+                </div>
+                <div class="item">
+                    <%= image_tag("static/inc_logo.png",) %>
+                </div>
+                <div class="item">
+                    <%= link_to image_tag("static/cnbc.png"), 'news/betting-on-pre-ipo-companies' %>
+                </div>
+                <div class="item">
+                    <%= image_tag("static/fox.jpg") %>
+                </div>
+                <div class="item">
+                    <%= image_tag("static/tech.png") %>
+                </div>
+                <div class="item">
+                    <%= image_tag("static/Forbes.jpg") %>
+                </div>
+                <div class="item">
+                    <%= image_tag("static/nbc-logo.png") %>
+                </div>
 
+            </div>
+        </div>
+    </section>
 
 
     <section class='currently-fundraising'></section>
@@ -100,6 +132,35 @@
     <script>
     // run when page is ready
     $(document).ready(function(){
+
+
+
+            $('.mainSeen__slider1').owlCarousel({
+                loop: true,
+                margin: 0,
+                nav: false,
+                responsive: {
+                    0: {
+                        items: 2
+                    },
+                    768: {
+                        items: 4
+                    },
+                    991: {
+                        items: 5
+                    },
+                    1230: {
+                        items: 6
+                    }
+                }
+            });
+            $('.mainSeen__slider1__left').on('click', function () {
+                $('.mainSeen__slider1').trigger('prev.owl.carousel');
+            });
+            $('.mainSeen__slider1__right').on('click', function () {
+                $('.mainSeen__slider1').trigger('next.owl.carousel');
+            });
+
 
         // create variable to hold the current modal window
         var activeWindow;
