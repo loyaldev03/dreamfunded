@@ -28,7 +28,7 @@
   </div>
 
   <div class= "login-container">
-    <%= form_for @company, :url => {:action => "basics_submit"},method: "post" do |f| %>
+    <%= form_for @company, :url => {:action => "basics_submit"},method: "post", html: { multipart: true } do |f| %>
       <%= hidden_field_tag :campaign_id, @campaign_id %>
       <%= f.hidden_field :user_id, value: current_user.id %>
 
@@ -74,7 +74,16 @@
       </div>
 
       <label>Company Logo</label>
-      <%= f.file_field :image, required: true %>
+
+      <% if @company.image? %>
+          <br>
+          <%= image_tag( @company.image.url, class: 'image-max-width company-logo')%>
+          <br>
+         Update Logo<%= f.file_field :image %>
+      <% else %>
+          <%= f.file_field :image, required: true %>
+      <% end %>
+
       <br><br>
 
       <label>Cover Photo (Recommended)</label>
@@ -82,6 +91,7 @@
 
       <h3>Management Team</h3>
       <%= f.fields_for :founders, @founders do |founder| %>
+        <%= %>
         <%= render 'founder_fields', f: founder %>
       <% end %>
       <div class="links">
@@ -109,6 +119,12 @@
     // F O R M   V A L I D A T I O N
     $(document).ready(function() {
 
+        var scroll_to_error_element = function(error_element){
+            $('html, body').animate({
+               scrollTop: (error_element.offset().top - 100)
+            }, 1000)
+        }
+
         $(".required-field").each(function(){
             if( $(this).val() ){
                 $(this).removeClass("invalid").addClass("valid");
@@ -134,11 +150,16 @@
                 valid = $(this).hasClass("valid");
                 var error_element= $(this);
                 console.log(error_element);
-                if (!valid){error_element.addClass("error_show"); error_free=false;}
+                if (!valid) {
+                   error_element.addClass("error_show");
+                   error_free=false;
+                   scroll_to_error_element(error_element);
+                }
                 else{error_element.removeClass("error_show");}
             })
 
             if (!error_free){
+
                 e.preventDefault();
             }
        })
@@ -158,6 +179,8 @@
               width: $(this).data("origWidth") // or + "%" if fluid
             }, 1200);
         });
+
+
 
     });
 </script>

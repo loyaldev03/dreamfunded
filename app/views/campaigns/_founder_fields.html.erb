@@ -10,7 +10,17 @@
   <br>
 
   <label>Upload Team Member Photo: </label>
-  <%= f.file_field :image%>
+
+
+  <% if f.object.image? %>
+      <br>
+      <%= image_tag( f.object.image.url, class: 'company-members')%>
+      <br>
+      Update Photo<%= f.file_field :image %>
+  <% else %>
+      <%= f.file_field :image, required: true %>
+  <% end %>
+
   <br>
 
   <div class="field">

@@ -76,7 +76,7 @@ class CompaniesController < ApplicationController
 	end
 
 	def edit
-		@companies = Company.all
+		@company = Company.find(params[:id])
 	end
 
 # can be refactored
@@ -192,7 +192,7 @@ private
 	end
 
 	def admin_check
-		if current_user.authority < User.Authority[:Founder]
+		if current_user.authority < User.Authority[:Editor]
 			redirect_to url_for(:controller => 'home', :action => 'unauthorized')
 		end
 	end
