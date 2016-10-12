@@ -36,3 +36,20 @@
 </div>
 
 <br>
+<script type="text/javascript">
+$(".required-field").each(function(){
+    if( $(this).val() ){
+        $(this).removeClass("invalid").addClass("valid");
+    }
+    else{$(this).removeClass("valid").addClass("invalid");}
+    console.log("check")
+})
+
+$(".required-field").on("change", function(){
+    console.log("typing");
+    var input= $( this );
+    var is_name=input.val();
+    if(is_name){input.removeClass("invalid").addClass("valid");}
+    else{input.removeClass("valid").addClass("invalid");}
+});
+</script>
