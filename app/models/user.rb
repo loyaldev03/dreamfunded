@@ -81,7 +81,7 @@ class User < ActiveRecord::Base
 	end
 
 	def startup?
-		return true if self.company.accredited
+		return true if self.try(:company).try(:accredited)
 		false
 	end
 

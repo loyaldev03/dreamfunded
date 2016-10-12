@@ -76,7 +76,7 @@ class CompaniesController < ApplicationController
 	end
 
 	def edit
-		@company = Company.find(params[:id])
+		@companies = Company.all
 	end
 
 # can be refactored
