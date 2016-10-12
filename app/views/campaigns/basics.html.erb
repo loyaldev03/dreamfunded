@@ -81,7 +81,7 @@
           <br>
          Update Logo<%= f.file_field :image %>
       <% else %>
-          <%= f.file_field :image, required: true %>
+          <%= f.file_field :image, class: "required-field" %>
       <% end %>
 
       <br><br>
@@ -95,7 +95,10 @@
         <%= render 'founder_fields', f: founder %>
       <% end %>
       <div class="links">
-        <%= link_to_add_association 'Add', f, :founders %>
+        <%= link_to_add_association( f, :founders, class: "add-remove-member") do %>
+          <i class="fa fa-user-plus" aria-hidden="true"></i>
+          <span class='edit-my-company-button'>Add Team Member</span>
+        <% end %>
       </div>
 
 
@@ -133,7 +136,7 @@
             console.log("check")
         })
 
-        $(".required-field").on("input", function(){
+        $(".required-field").on("change", function(){
             console.log("typing");
             var input= $( this );
             var is_name=input.val();
@@ -149,8 +152,9 @@
             form_data.each(function(){
                 valid = $(this).hasClass("valid");
                 var error_element= $(this);
-                console.log(error_element);
+
                 if (!valid) {
+                   console.log(error_element);
                    error_element.addClass("error_show");
                    error_free=false;
                    scroll_to_error_element(error_element);
@@ -170,6 +174,10 @@
         //       CKEDITOR.replace(data[i].id);
         //   });
         // }
+
+        var data = $('.ckeditor');
+        CKEDITOR.replace(data[0].id);
+
 
         $(".progress > span").each(function() {
           $(this)
