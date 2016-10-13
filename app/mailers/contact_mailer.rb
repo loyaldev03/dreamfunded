@@ -77,7 +77,7 @@ class ContactMailer < ActionMailer::Base
   end
 
   def invite_to_sign_up(email, name)
-    mail(to: email, subject: "#{name}, please accept my invite to DreamFunded")
+    mail(to: email, subject: "#{name.try(:capitalize)}, please accept my invite to DreamFunded")
   end
 
   def csv_invite(invite, user)

@@ -51,7 +51,7 @@ class SubscribeJob
       begin
           CSV.foreach(file.path, headers: true) do |row|
             begin
-                invites << Invite.create!(email: row['Email'], name: row['First Name'], user_id: user.id)
+                invites << Invite.create!(email: row['Email'], name: row['Name'], user_id: user.id)
             rescue ActiveRecord::RecordInvalid => invalid
               puts invalid.record.errors
             end
