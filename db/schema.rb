@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012030845) do
+ActiveRecord::Schema.define(version: 20161013190017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -193,6 +193,16 @@ ActiveRecord::Schema.define(version: 20161012030845) do
     t.string   "email"
     t.integer  "company_id"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "csv_files", force: true do |t|
+    t.integer  "user_id"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -464,8 +474,12 @@ ActiveRecord::Schema.define(version: 20161012030845) do
     t.datetime "updated_at"
     t.boolean  "accepted"
     t.boolean  "signedup"
-    t.string   "status",     default: "Hasn't signed up yet"
+    t.string   "status",            default: "Hasn't signed up yet"
     t.string   "name"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
   end
 
   create_table "liquidate_shares", force: true do |t|

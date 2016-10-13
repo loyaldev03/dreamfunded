@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 	has_many :comments
 	has_many :guests
 	has_many :invites
+	has_many :csv_files
 
 	has_many :liquidate_shares
 	has_many :bids

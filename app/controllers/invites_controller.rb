@@ -1,4 +1,5 @@
 class InvitesController < ApplicationController
+  require 'net/http'
 
   def invite
     @invites = Invite.where(user_id: current_user.id).where.not(email: nil).reverse
@@ -15,10 +16,10 @@ class InvitesController < ApplicationController
 
   def upload_csv
     begin
-        SubscribeJob.new.async.csv_importer_gem(params[:file], current_user, 'from_Startup')
-        flash[:email_sent] = "Emails sent"
+        @csv_file = CsvFile.create(csv_file_params)
+        flash[:email_sent] = "File has been uploaded, we will contact you after we have reviewed it."
         redirect_to  invite_users_path
-      rescue
+     rescue
         flash[:upload_error] = "Invalid CSV file format."
         redirect_to  invite_users_path
     end
@@ -85,7 +86,7 @@ class InvitesController < ApplicationController
   end
 
 
-  IMAGES_PATH = File.join( "assets", "docs")
+
   def download
 
     send_file(Rails.root.join('app' , 'assets', 'doc', "test_users.csv"))
@@ -111,8 +112,13 @@ class InvitesController < ApplicationController
 
   private
 
+
   def invite_params
-    params.require(:invite).permit(:user_id, :email, :token, :name)
+    params.require(:invite).permit(:user_id, :email, :token, :name, :file)
+  end
+
+  def csv_file_params
+    params.require(:csv_file).permit(:user_id, :file)
   end
 end
 

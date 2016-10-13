@@ -70,21 +70,23 @@ class SubscribeJob
     end
   end
 
-  def csv_importer_gem(file, user, email_template)
+  def csv_importer_gem(invite,user, email_template)
       ActiveRecord::Base.connection_pool.with_connection do
 
-        import = ImportUserCSV.new(path: file.path) do
-          token = SecureRandom.uuid.gsub(/\-/, '').first(10)
+        paperclip_content =   Paperclip.io_adapters.for(invite.file).read.delete('"')
+        import = ImportUserCSV.new(content: paperclip_content) do
+        token = SecureRandom.uuid.gsub(/\-/, '').first(10)
 
-        after_save do |invite|
-            invite.token = token
-            invite.save
+          after_save do |invite|
+              invite.token = token
+              invite.save
           end
         end
 
+        p import.report.message
         import.run!
-        p import.valid_header? # => true
-        p import.report.success? # => false
+        p  "Header is valid: #{import.valid_header?}"  # => true
+        p "Success #{import.report.success?}" # => false
         p import.report.status # => :aborted
         p import.report.message # => "Import aborted"
 

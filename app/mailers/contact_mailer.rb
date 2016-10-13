@@ -83,7 +83,7 @@ class ContactMailer < ActionMailer::Base
   def csv_invite(invite, user)
     @invite = invite
     @user = user
-    mail(to: @invite.email, subject: "Hi #{@invite.name.try(:capitalize)}, it's #{@user.name}. Check out my startup on DreamFunded.")
+    mail(to: @invite.email, subject: "Hi #{@invite.try(:name).try(:capitalize)}, it's #{@user.name}. Check out my startup on DreamFunded.")
   end
 
   def invite_cofounder_exist(email, name, current_user)
