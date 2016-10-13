@@ -1,5 +1,5 @@
-ActiveAdmin.register Invite  do
-  menu label: "Uploaded Emails"
+ActiveAdmin.register CsvFile  do
+  menu label: "CSV Files"
   controller do
     before_filter :authenticate
 
@@ -13,25 +13,20 @@ ActiveAdmin.register Invite  do
   end
 
 
-permit_params  :user_id, :email, :token, :created_at, :updated_at, :accepted, :signedup, :status, :name
-  before_filter :only => [:show, :edit, :update, :destroy] do
-      @company = Company.find_by_slug(params[:id])
-  end
+permit_params  :user_id, :file, :created_at, :updated_at
+
 
   index :title => 'Uploaded Emails' do
-    column  "name"
-    column  "email"
-    column  "token"
-    column("User") { |company| link_to(company.user.name, admin_user_path(company.user)) }
+    column("User Emails") { |csv_file| csv_file.user.email }
+    column("User") { |csv_file| link_to(csv_file.user.name, admin_user_path(csv_file.user)) }
+    column("File") { |csv_file| link_to(csv_file.file.name, csv_file.file.url) if csv_file.file?}
     column  "created_at"
     actions
   end
 
   form do |f|
     f.inputs 'Company Details' do
-        f.input  :name
-        f.input  :email
-        f.input  :user
+
         f.input  :created_at
         f.input  :updated_at
     end
@@ -40,9 +35,7 @@ permit_params  :user_id, :email, :token, :created_at, :updated_at, :accepted, :s
 
   show do |ad|
     attributes_table do
-      row :name
-      row :email
-      row :user
+
       row :created_at
       row :updated_at
       # Will display the image on show object page
