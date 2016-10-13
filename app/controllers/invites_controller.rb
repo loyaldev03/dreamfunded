@@ -3,6 +3,7 @@ class InvitesController < ApplicationController
 
   def invite
     @invites = Invite.where(user_id: current_user.id).where.not(email: nil).reverse
+    @companies = Company.where(accredited: true)
   end
 
   def create
