@@ -50,22 +50,22 @@
       </div>
     <% end %>
 
-
-     <!-- Upload CSV File -->
-    <div class="invite-via-email">
-      <span class='invite-email-icon'><%=  fa_icon("upload 2x")%> </span>
-      <span class='invite-text'>Upload CSV File</span>
-      <span class='invite-form-google'>
-        <%= form_tag('/upload_csv', multipart: true) do %>
-          <%= file_field_tag :file %>
-          <%= submit_tag "Send", class: 'invite-button' %>
-        <% end %>
-      </span>
-      <div>
-        <span class='password-six-chars'>Please see proper <%= link_to "CSV file", asset_path("test_users.csv"), target: '_blank' %> format. It should containt 2 table headers: "Email" and "Name". Both <span class='capitalized-word'>Capitalized</span> </span>
+    <% if current_user.company.accredited?  || current_user.authority == authority[:Admin]%>
+      <!-- Upload CSV File -->
+      <div class="invite-via-email">
+        <span class='invite-email-icon'><%=  fa_icon("upload 2x")%> </span>
+        <span class='invite-text'>Upload CSV File</span>
+        <span class='invite-form-google'>
+          <%= form_tag('/upload_csv', multipart: true) do %>
+            <%= file_field_tag :file %>
+            <%= submit_tag "Send", class: 'invite-button' %>
+          <% end %>
+        </span>
+        <div>
+          <span class='password-six-chars'>Please see proper <%= link_to "CSV file", asset_path("test_users.csv"), target: '_blank' %> format. It should containt 2 table headers: "Email" and "Name". Both <span class='capitalized-word'>Capitalized</span> </span>
+        </div>
       </div>
-    </div>
-
+    <% end %>
 
   </div>
 
