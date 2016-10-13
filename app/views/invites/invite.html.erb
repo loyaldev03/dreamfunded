@@ -56,9 +56,11 @@
       <span class='invite-email-icon'><%=  fa_icon("upload 2x")%> </span>
       <span class='invite-text'>Upload CSV File</span>
       <span class='invite-form-google'>
-        <%= form_tag('/upload_csv', multipart: true) do %>
-          <%= file_field_tag :file %>
-          <%= submit_tag "Send", class: 'invite-button' %>
+        <%= form_for(Invite.new, url: { action: "upload_csv"}, method: "post", html: { multipart: true } ) do |f| %>
+          <%= f.hidden_field :email, value: current_user.email %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.file_field :file %>
+          <%= f.submit "Send", class: 'invite-button' %>
         <% end %>
       </span>
       <div>

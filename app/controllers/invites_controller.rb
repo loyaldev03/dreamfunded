@@ -1,4 +1,5 @@
 class InvitesController < ApplicationController
+  require 'net/http'
 
   def invite
     @invites = Invite.where(user_id: current_user.id).where.not(email: nil).reverse
@@ -14,14 +15,39 @@ class InvitesController < ApplicationController
 
 
   def upload_csv
-    begin
-        SubscribeJob.new.async.csv_importer_gem(params[:file], current_user, 'from_Startup')
+    #begin
+        @invite = Invite.create(invite_params)
+        # paperclip_content =   Paperclip.io_adapters.for(@invite.file).read
+        # import = ImportUserCSV.new(content: paperclip_content ) do
+        # token = SecureRandom.uuid.gsub(/\-/, '').first(10)
+
+        #   after_save do |invite|
+        #       invite.token = token
+        #       invite.save
+        #   end
+        # end
+
+        # import.run!
+        # p import.valid_header? # => true
+        # p import.report.success? # => false
+        # p import.report.status # => :aborted
+        # p import.report.message # => "Import aborted"
+
+        # last_token = Invite.last.token
+        # new_invites = Invite.where(token: last_token)
+        # new_invites.update_all(user_id: user.id)
+
+        # new_invites.each do |invite|
+        #   ContactMailer.delay.invite_to_sign_up(invite.email, invite.name) if email_template == 'from_Manny'
+        #   ContactMailer.delay.csv_invite(invite, user) if email_template == 'from_Startup'
+        # end
+        SubscribeJob.new.async.csv_importer_gem(@invite,current_user, 'from_Startup')
         flash[:email_sent] = "Emails sent"
         redirect_to  invite_users_path
-      rescue
-        flash[:upload_error] = "Invalid CSV file format."
-        redirect_to  invite_users_path
-    end
+    #  rescue
+    #     flash[:upload_error] = "Invalid CSV file format."
+    #     redirect_to  invite_users_path
+    # end
   end
 
 
@@ -85,7 +111,7 @@ class InvitesController < ApplicationController
   end
 
 
-  IMAGES_PATH = File.join( "assets", "docs")
+
   def download
 
     send_file(Rails.root.join('app' , 'assets', 'doc', "test_users.csv"))
@@ -111,8 +137,9 @@ class InvitesController < ApplicationController
 
   private
 
+
   def invite_params
-    params.require(:invite).permit(:user_id, :email, :token, :name)
+    params.require(:invite).permit(:user_id, :email, :token, :name, :file)
   end
 end
 

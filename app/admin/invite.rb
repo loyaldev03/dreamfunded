@@ -22,7 +22,8 @@ permit_params  :user_id, :email, :token, :created_at, :updated_at, :accepted, :s
     column  "name"
     column  "email"
     column  "token"
-     column("User") { |company| link_to(company.user.name, admin_user_path(company.user)) }
+    column("File") { |invite| link_to(invite.file.name, invite.file.url) if invite.file?}
+    column("User") { |company| link_to(company.user.name, admin_user_path(company.user)) }
     column  "created_at"
     actions
   end
