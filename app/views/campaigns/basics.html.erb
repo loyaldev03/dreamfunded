@@ -136,7 +136,7 @@
             console.log("check")
         })
 
-        $(".required-field").on("change input", function(){
+        $(".required-field").on("change keyup blur input", function(){
             console.log("typing");
             var input= $( this );
             var is_name=input.val();
