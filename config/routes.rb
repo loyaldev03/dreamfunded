@@ -172,6 +172,7 @@ Rails.application.routes.draw do
   post '/google_contacts', to: "invites#google_contacts"
   post "/upload_csv", to: "invites#upload_csv"
   post "/invites_from_manny", to: "invites#invites_from_manny"
+  post "/send_start_up_emails", to: "invites#send_start_up_emails"
 
   get "/invite_cofounder", to: "invites#invite_cofounder"
   post "/invite_cofounder", to: "invites#post_invite_cofounder"

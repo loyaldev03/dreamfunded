@@ -111,6 +111,15 @@ class InvitesController < ApplicationController
     redirect_to company_path(current_user.company)
   end
 
+  def send_start_up_emails
+    name = params[:name]
+    company = params[:company]
+    file = params[:file]
+    SubscribeJob.new.async.csv_send_checked_emails(file, name, company)
+
+    redirect_to  invite_users_path
+  end
+
   private
 
 

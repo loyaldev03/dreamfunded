@@ -47,11 +47,10 @@ class SubscribeJob
   def csv_save_emails(file, user, email_template)
     ActiveRecord::Base.connection_pool.with_connection do
       invites = []
-
       begin
           CSV.foreach(file.path, headers: true) do |row|
             begin
-                invites << Invite.create!(email: row['Email'], name: row['Name'], user_id: user.id)
+              invites << Invite.create!(email: row['Email'], name: row['Name'], user_id: user.id)
             rescue ActiveRecord::RecordInvalid => invalid
               puts invalid.record.errors
             end
@@ -61,12 +60,32 @@ class SubscribeJob
             ContactMailer.delay.invite_to_sign_up(invite.email, invite.name) if email_template == 'from_Manny'
             ContactMailer.delay.csv_invite(invite, user) if email_template == 'from_Startup'
           end
-
       rescue Exception => e
         SuckerPunch.logger.error("subscribe failed: due to #{e.message}")
         raise e
       end
+    end
+  end
 
+  def csv_send_checked_emails(file, invitee_name, company_name)
+    ActiveRecord::Base.connection_pool.with_connection do
+      invites = []
+      begin
+          CSV.foreach(file.path, headers: true) do |row|
+            begin
+              invites << Invite.create!(email: row['Email'], name: row['Name'])
+            rescue ActiveRecord::RecordInvalid => invalid
+              puts invalid.record.errors
+            end
+
+          end # end CSV.foreach
+          invites.each do |invite|
+            ContactMailer.delay.csv_invite(invite, invitee_name, company_name)
+          end
+      rescue Exception => e
+        SuckerPunch.logger.error("subscribe failed: due to #{e.message}")
+        raise e
+      end
     end
   end
 

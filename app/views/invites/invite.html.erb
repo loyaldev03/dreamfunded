@@ -50,19 +50,20 @@
       </div>
 
       <!--   Send StartUp Emails -->
-<!--       <div class="invite-via-email">
+      <div class="invite-via-email">
         <span class='invite-email-icon'><%=  fa_icon("envelope 2x")%> </span>
-        <span class='invite-text'>Invite via Email</span>
+        <span class='invite-text'>Send on Behalf Of</span>
         <span class='invite-form'>
-          <%#= form_tag('/send_start_up_emails') do  %>
-          <%#= text_field_tag(:name,nil, placeholder: 'Name',class: 'invite-text-input', required: true) %>
-          <%#= select_tag(:name, options_from_collection_for_select(@companies, "id", "name") ) %>
+          <%= form_tag('/send_start_up_emails', multipart: true) do  %>
+          <%= text_field_tag(:name,nil, placeholder: 'Name',class: 'invite-text-input', required: true) %>
+          <%= select_tag(:company, options_from_collection_for_select(@companies, "name", "name"), required: true ) %>
+          <%= file_field_tag :file, required: true %>
 
 
-            <%#= submit_tag "Send", class: 'invite-button' %>
-          <%# end %>
+            <%= submit_tag "Send", class: 'invite-button' %>
+          <% end %>
         </span>
-      </div> -->
+      </div>
     <% end %>
 
 
