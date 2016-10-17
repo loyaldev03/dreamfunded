@@ -32,10 +32,10 @@
                     </div>
                 <% end %>
                 <% if current_user != nil && current_user.authority >= authority[:Editor] %>
-                    <h3><%= link_to 'Create New Post', "/posts/new/blog", {:class => 'centered'} %></h3>
+                    <h3 class='centered'><%= link_to 'Create New Post', "/posts/new/blog" %></h3>
                 <% end %>
             </div>
-            <br><br><br><br>
+
 
         </div>
 
