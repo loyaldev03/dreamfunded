@@ -15,9 +15,8 @@
                 <% @posts.each do |article| %>
                     <div class= "blog_wrapper ">
                         <% if current_user != nil && current_user.authority == authority[:Admin] %>
-                            <%= button_to "X", {action: 'remove_new', id: article.id} , {:class => 'remove-button'} %>
-                            <span class='company-position'><%= article.position %></span>
-                            <%= link_to 'Edit', "/posts/#{article.id}/edit/blog", {:class => 'right'} %>
+                            <%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?'}, :class => 'right red_link' %>
+                            <%= link_to 'Edit', "/posts/#{article.id}/edit/blog", {:class => 'right red_link'} %>
                         <% end %>
 
 
