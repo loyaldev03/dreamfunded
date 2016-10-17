@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <% title "DreamFunded | Blog " %>
+</head>
+
+<body>
+
+    <div class= "wrapper">
+        <div class= "header"><h1 class= "centered">DreamFunded Blog<h1></div>
+
+        <div class= "wrap">
+
+            <div class= "news-container">
+                <% @posts.each do |article| %>
+                    <div class= "news-single-container">
+                        <% if current_user != nil && current_user.authority == authority[:Admin] %>
+                            <%= button_to "X", {action: 'remove_new', id: article.id} , {:class => 'remove-button'} %>
+                            <span class='company-position'><%= article.position %></span>
+                            <%= link_to 'Edit', "/posts/#{article.id}/edit/blog", {:class => 'right'} %>
+                        <% end %>
+
+
+                        <div class= "news">
+                            <div class= "title-container"> <%= article.title %> </div>
+                            <div class= > <%= article.content.first(300).html_safe %></div>
+                            <div class='news-read-more-buton'>
+                                <%= link_to "Read More", blog_post_path(article), :class =>'article-button' %>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+                <% if current_user != nil && current_user.authority >= authority[:Editor] %>
+                    <h3><%= link_to 'Create New Post', "/posts/new/blog", {:class => 'centered'} %></h3>
+                <% end %>
+            </div>
+            <br><br><br><br>
+
+        </div>
+
+    </div>
+
+</body>

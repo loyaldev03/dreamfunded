@@ -193,7 +193,8 @@ Rails.application.routes.draw do
   post '/submit_payment', to: "payments#payment"
   get '/congratulation/:id', to: "payments#congrats", as: :congratulation
 
-
+  get '/blog', to: "posts#blog", as: :blog
+  get '/blog_post/:id', to: "posts#blog_post", as: :blog_post
 
   #URLs from old site
   get '/how-it-works', to: 'home#why'
