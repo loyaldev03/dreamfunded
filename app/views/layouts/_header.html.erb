@@ -109,24 +109,44 @@
               </ul>
             </li>
 
-            <li><button onclick="location.href='/events';" >Events</button></li>
-            <li><button onclick="location.href='/education';" >Education</button></li>
+            <li id="hidden-menu"><button disabled= "true">More <span class="arrow">&#9660;</span></button>
+              <ul class= "sub-menu">
+                <li><button onclick="location.href='/events';" >Events</button></li>
+                <li><button onclick="location.href='/education';" >Education</button></li>
+
+                <% if current_user %>
+                  <% if current_user.company %>
+                    <li><button onclick= "campaign()">Edit My Campaign</button></li>
+                  <%else%>
+                    <li><button onclick= "get_funded()">Get Funded</button></li>
+                   <% end %>
+                <% else %>
+                  <li><button onclick= "get_funded()">Get Funded</button></li>
+                <% end %>
+
+                <li><button onclick= "invest()">Investments </button></li>
+                <li><button onclick= "how_it_works()">How It Works</button></li>
+              </ul>
+            </li>
+
+            <li class='items-to-hide'><button onclick="location.href='/events';" >Events</button></li>
+            <li class='items-to-hide'><button onclick="location.href='/education';" >Education</button></li>
 
 
             <% if current_user %>
               <% if current_user.company %>
-                <li><button onclick= "campaign()">Edit My Campaign</button></li>
+                <li class='items-to-hide'><button onclick= "campaign()">Edit My Campaign</button></li>
               <%else%>
-                <li><button onclick= "get_funded()">Get Funded</button></li>
+                <li class='items-to-hide'><button onclick= "get_funded()">Get Funded</button></li>
                <% end %>
             <% else %>
-              <li><button onclick= "get_funded()">Get Funded</button></li>
+              <li class='items-to-hide'><button onclick= "get_funded()">Get Funded</button></li>
             <% end %>
 
 
-            <li><button onclick= "invest()">Investments </button></li>
-            <li><button onclick= "how_it_works()">How It Works</button></li>
-            <li><button onclick= "svexchange()">SVExchange</button></li>
+            <li class='items-to-hide'><button onclick= "invest()">Investments </button></li>
+            <li class='items-to-hide'><button onclick= "how_it_works()">How It Works</button></li>
+            <!-- <li><button onclick= "svexchange()">SVExchange</button></li> -->
             <li id= "left"><button onclick= "home()" id= "nopadding"><div class= "logo"></div></button></li>
           </ul>
         </nav>

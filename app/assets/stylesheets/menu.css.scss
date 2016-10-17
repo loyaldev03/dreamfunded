@@ -190,6 +190,9 @@ button {
 .invite-menu-button{
 	height: 70px !important;
 }
+#hidden-menu{
+	display: none;
+}
 
 
 /*M O B I L E*/
@@ -202,3 +205,31 @@ and (max-device-width : 568px) {
 	}
 
 }
+
+@media screen and (max-width : 1275px){
+	.menu button {
+		font-size: 15px !important;
+		padding: 0 12px;
+	}
+	#left{
+		margin-left: 20px
+	}
+}
+@media screen and (max-width : 1163px){
+	.menu button {
+		font-size: 14px !important;
+		padding: 0 10px;
+	}
+	#left{
+		margin-left: 10px
+	}
+}
+@media screen and (max-width : 963px){
+	#hidden-menu{
+		display: block;
+	}
+	.items-to-hide{
+		display: none !important;
+	}
+}
+
