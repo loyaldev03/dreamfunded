@@ -103,4 +103,9 @@ class ContactMailer < ActionMailer::Base
     mail(to: email, subject: "#{@current_user.name} has invited you to collaborate on #{@company.name} ")
   end
 
+  def file_uploaded(user)
+    @user = user
+    mail(to: "manny@dreamfunded.com", subject: "#{@user.name} uploaded CSV file")
+  end
+
 end
