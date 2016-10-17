@@ -102,6 +102,9 @@ function rexford(){
 function campaign(){
 	window.location = "/my_campaigns";
 }
+function blog(){
+	window.location = "/blog";
+}
 function svexchange(){
 	window.location = "http://svexchange.com/";
 }

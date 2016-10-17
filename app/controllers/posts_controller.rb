@@ -1,10 +1,17 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :blog_post]
 
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all
+  end
+
+  def blog
+    @posts = Post.order(:created_at).where(page: 'blog')
+  end
+
+  def blog_post
   end
 
   # GET /posts/1
@@ -62,6 +69,8 @@ class PostsController < ApplicationController
     def find_redirect(page)
       if page == 'about_us'
         return about_path
+      elsif page == 'blog'
+        return blog_path
       elsif page == 'faq'
         return faq_path
       elsif page == 'basics'
