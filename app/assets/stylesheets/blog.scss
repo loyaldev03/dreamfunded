@@ -1,0 +1,27 @@
+.blog_title{
+    font-family: 'Gotham',sans-serif;
+    color: #424242;
+    -webkit-font-smoothing: antialiased;
+    color: #333;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.blog_content{
+    text-align: justify;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.8;
+    letter-spacing: .1px;
+    font-family: GothamBook;
+}
+
+.blog_wrapper{
+    width: 65%;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 30px;
+    background: white;
+    position: relative;
+}
