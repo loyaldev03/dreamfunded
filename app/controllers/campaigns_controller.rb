@@ -10,6 +10,7 @@ class CampaignsController < ApplicationController
     funding_goal = params[:campaign][:funding_goal].delete('$').delete(',').to_i
     @company = Company.new(goal_amount: funding_goal, status: 1)
     @company.users << current_user
+    current_user.make_founder
     if @company.save
       @company.sections << Section.new
       @campaign = Campaign.create(funding_goal: funding_goal, company_id: @company.id)
@@ -115,6 +116,12 @@ class CampaignsController < ApplicationController
     @company = @campaign.company
     @company.update(company_params)
     redirect_to :controller => 'companies', :action => 'show', :id => @company.slug
+  end
+
+  def team
+    @company = current_user.company
+    @campaign = @company.campaign
+    @team = @company.users.order(:created_at)
   end
 
   private

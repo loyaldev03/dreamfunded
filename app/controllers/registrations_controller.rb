@@ -19,9 +19,15 @@ protected
   def check_if_was_invited(user)
     email = user.email
     invited_person = user
-    invite = CoFounder.find_by(email: email)
-    if invite
-      invite.user.company.users << invited_person
+    co_founder = CoFounder.find_by(email: email)
+    supporter = Supporter.find_by(email: email)
+    if co_founder
+      co_founder.try(:user).try(:company).users << invited_person
+      user.make_founder
+    end
+    if supporter
+      supporter.try(:user).try(:company).users << invited_person
+      user.make_supporter
     end
   end
 
