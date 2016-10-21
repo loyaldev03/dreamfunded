@@ -1,0 +1,25 @@
+
+<div class="invite-content">
+    <center>
+        <%= image_tag( @company.image.url, class: 'image-max-width company-logo')%>
+     </center>
+    <h2 class='section-title'><%= @company.name%> team</h2>
+
+    <% @team.each do |user| %>
+      <div class='centered'>
+         <span class='team-list-width'><%= user.name%></span>
+         <span class='team-list-width'><%= user.email %></span>
+         <span class='team-list-width'><%= user.role %></span>
+      </div>
+    <% end %>
+    <div class="invite-via-email">
+      <!-- <span class='invite-form'> -->
+        <%= form_tag( "/invite_cofounder") do %>
+        <%= text_field_tag(:name, nil,placeholder: 'Name',class: 'invite-text-input manage_team-width', required: true) %>
+          <%= text_field_tag(:email,nil, placeholder: 'Email Address',class: 'invite-text-input manage_team-width', pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", required: true)%>
+          <%= select_tag(:role, options_for_select(team_roles), class: "form-select form-field   manage_team-width" ) %>
+          <%= submit_tag "Add", class: 'invite-button' %>
+        <% end %>
+      <!-- </span> -->
+    </div>
+</div>
