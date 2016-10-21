@@ -1,5 +1,9 @@
 module CampaignHelper
 
+    def team_roles
+        [  ["Supporter, can only invite users", "supporter"], ["Co-founder, can edit company and invite users", "founder"] ]
+    end
+
   def company_categories
     ["Advertising and Marketing",
     "Agriculture",

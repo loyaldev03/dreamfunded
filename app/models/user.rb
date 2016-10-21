@@ -81,6 +81,14 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	def make_founder
+		self.update(role: 'founder')
+	end
+
+	def make_supporter
+		self.update(role: "supporter")
+	end
+
 	def startup?
 		return true if self.try(:company).try(:accredited)
 		false

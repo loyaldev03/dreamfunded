@@ -102,9 +102,16 @@ class InvitesController < ApplicationController
     email = params[:email]
     name = params[:name]
     invited_person = User.find_by(email: email)
-    CoFounder.create(email: email, name: name, user_id: current_user.id)
+
+    if params[:role] == 'founder'
+      CoFounder.create(email: email, name: name, user_id: current_user.id)
+    elsif params[:role] == 'supporter'
+      Supporter.create(email: email, name: name, user_id: current_user.id)
+    end
+
     if invited_person
       current_user.company.users << invited_person
+      invited_person.update(role: params[:role])
       ContactMailer.invite_cofounder_exist(email, name, current_user).deliver
     else
       ContactMailer.invite_cofounder_dont_exist(email, name, current_user).deliver

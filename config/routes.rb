@@ -67,6 +67,8 @@ Rails.application.routes.draw do
   get '/edit_campaign/:id', to: 'campaigns#edit_campaign', as: 'edit_campaign'
   patch '/update_campaign', to: 'campaigns#update_campaign'
 
+  get '/manage_team', to: 'campaigns#team', as: "manage_team"
+
   get 'formc/print/:id', to: "formc#print", as: 'formc'
 
   get "company_not_accretited", to: "companies#company_not_accretited", as: "company_not_accretited"
