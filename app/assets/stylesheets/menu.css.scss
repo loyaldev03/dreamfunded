@@ -208,7 +208,7 @@ and (max-device-width : 568px) {
 
 @media screen and (max-width : 1275px){
 	.menu button {
-		font-size: 15px !important;
+		font-size: 15px;
 		padding: 0 12px;
 	}
 	#left{
@@ -217,7 +217,7 @@ and (max-device-width : 568px) {
 }
 @media screen and (max-width : 1163px){
 	.menu button {
-		font-size: 14px !important;
+		font-size: 14px;
 		padding: 0 10px;
 	}
 	#left{
