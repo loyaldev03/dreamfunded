@@ -64,6 +64,22 @@
           <% end %>
         </span>
       </div>
+
+
+      <!--   Send From Team Member -->
+      <div class="invite-via-email">
+        <span class='invite-email-icon'><%=  fa_icon("user 2x")%> </span>
+        <span class='invite-text'>From Team Member</span>
+        <span class='invite-form'>
+          <%= form_tag('/send_from_team_member', multipart: true) do  %>
+
+          <%= select_tag(:member, options_from_collection_for_select(@members, "id", "name"), required: true ) %>
+          <%= file_field_tag :file, required: true %>
+
+          <%= submit_tag "Send", class: 'invite-button' %>
+          <% end %>
+        </span>
+      </div>
     <% end %>
 
 

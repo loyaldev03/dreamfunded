@@ -108,4 +108,11 @@ class ContactMailer < ActionMailer::Base
     mail(to: "manny@dreamfunded.com", subject: "#{@user.name} uploaded CSV file")
   end
 
+  def invite_from_member(email, name, member)
+    @email = email
+    @name = name
+    @member = member
+    mail(to: email, subject: "Hi #{@name}, your friend #{@member.name} has invited you to sign up on DreamFunded" )
+  end
+
 end

@@ -170,6 +170,7 @@ Rails.application.routes.draw do
   post '/new_seller', to: "home#create_new_seller", as: :create_shareholder
 
 
+  # I N V I T E S
   get '/invite', to: "invites#invite", as: :invite_users
   post '/google_contacts', to: "invites#google_contacts"
   post "/upload_csv", to: "invites#upload_csv"
@@ -186,6 +187,8 @@ Rails.application.routes.draw do
   get '/accept-invite', to: "invites#accept"
   get '/accept-invite-facebook/:id', to: "invites#accept_from_facebook"
   get '/create-invite/:id', to: 'invites#create_from_social'
+
+  post '/send_from_team_member', to: 'invites#send_from_team_member'
 
   #resources :teams
 
