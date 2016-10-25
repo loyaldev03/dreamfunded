@@ -4,6 +4,7 @@ class InvitesController < ApplicationController
   def invite
     @invites = Invite.where(user_id: current_user.id).where.not(email: nil).reverse
     @companies = Company.where(accredited: true)
+    @members = Member.all
   end
 
   def create
@@ -25,6 +26,13 @@ class InvitesController < ApplicationController
         flash[:upload_error] = "Invalid CSV file format."
         redirect_to  invite_users_path
     end
+  end
+
+  def send_from_team_member
+    @member = Member.find( params[:member] )
+    flash[:email_sent] = "Emails sent from #{@member.name}"
+    SubscribeJob.new.async.emails_from_member(params[:file], current_user, @member)
+    redirect_to  invite_users_path
   end
 
 
