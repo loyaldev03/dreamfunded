@@ -112,7 +112,7 @@ class ContactMailer < ActionMailer::Base
     @email = email
     @name = name
     @member = member
-    mail(to: email, subject: "Hi #{@name}, your friend #{@member.name} has invited you to sign up on DreamFunded" )
+    mail(to: email, subject: "Hi #{@name}, your friend #{@member.name} has invited you to join DreamFunded" )
   end
 
 end
