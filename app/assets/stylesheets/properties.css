@@ -22,7 +22,15 @@
 .property-box:hover{
     box-shadow: 1px 1px 5px 2px #d1d3d4;
 }
-
+.companies-back-image{
+    width: 100%;
+    height: 200px;
+    position: relative;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    background-size: cover;
+    background-position: 50% 0;
+}
 .company-campaign-name {
     font-family: 'GothamBook',sans-serif;
     color: #424242;

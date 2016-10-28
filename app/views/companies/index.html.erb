@@ -9,7 +9,9 @@
 			<div class='property-box'>
 
 				<%= link_to company do %>
-				<%= image_tag( company.cover.url, :class => "property-image") %>
+				<div class='companies-back-image' style="background-image: url(<%= company.cover.url %>">
+					<%#= image_tag( company.cover.url, :class => "property-image") %>
+				</div>
 				<div class='logo-image-wrapper'>
 					<span class="helper"></span>
 					<%= image_tag( company.image.url, :class => "property-logo-image") %>
