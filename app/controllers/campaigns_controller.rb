@@ -103,9 +103,9 @@ class CampaignsController < ApplicationController
   def edit_campaign
     @campaign = Campaign.find(params[:id])
     @company = @campaign.company
-    if current_user.company != @company
-      redirect_to company_path(@company)
-    end
+    # if current_user.company != @company
+    #   redirect_to company_path(@company)
+    # end
     @formc = @company.general_infos.last
     @members = @company.founders
     @comments = @company.comments

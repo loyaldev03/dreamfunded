@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+fclass UsersController < ApplicationController
 	invisible_captcha only: [:create]
 	before_action :authenticate_user!, only: [:portfolio, :campaign]
 
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
 	    return unless current_user.authority == User.Authority[:Admin]
 	    sign_in(:user, User.find(params[:id]))
 	    redirect_to root_url # or user_root_url
-	  end
+	end
 
 	# def campaign
 	# 	if current_user.companies.any?

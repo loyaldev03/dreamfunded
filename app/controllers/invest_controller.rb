@@ -9,7 +9,6 @@ class InvestController < ApplicationController
   end
 
   def personal_submit
-
     @user.investor.update( investor_params )
     if @user.investor.date_of_birth < (Date.today-18.years)
       redirect_to investor_details_path(@company.name)
