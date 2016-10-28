@@ -1,4 +1,4 @@
-fclass UsersController < ApplicationController
+class UsersController < ApplicationController
 	invisible_captcha only: [:create]
 	before_action :authenticate_user!, only: [:portfolio, :campaign]
 
