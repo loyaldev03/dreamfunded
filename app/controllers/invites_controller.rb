@@ -62,7 +62,7 @@ class InvitesController < ApplicationController
 
   def send_from_advisor
     @invite = Invite.create(name: params[:name], email: params[:email] )
-    ContactMailer.delay.send_from_advisor(@invite, current_user)
+    ContactMailer.delay.send_from_advisor(@invite, current_user.name)
     redirect_to '/invite'
   end
 
