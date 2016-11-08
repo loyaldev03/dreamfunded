@@ -1,0 +1,22 @@
+<% title "DreamFunded | Events" %>
+
+<div class= "wrapper">
+  <div class="header">
+    <h1 class="centered">DreamFunded Advisors</h1>
+  </div>
+  <div class= "events-content">
+
+
+    <% @advisors.each do |advisor| %>
+      <div class= "team-member-box">
+
+          <%= image_tag( advisor.image.url, :class => "company-members") %>
+          <h2 class= "team-member-name"><%= advisor.name %></h2>
+          <br>
+
+      </div>
+    <% end %>
+
+
+  </div>
+</div>

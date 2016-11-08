@@ -49,6 +49,10 @@ class UsersController < ApplicationController
 	    redirect_to root_url # or user_root_url
 	end
 
+	def advisors
+		@advisors = User.where(advisor: true)
+	end
+
 	# def campaign
 	# 	if current_user.companies.any?
 	# 		company = current_user.companies.last

@@ -120,6 +120,8 @@ Rails.application.routes.draw do
   get 'users/portfolio_admin/:id', to: "admin#portfolio_admin", as: :portfolio_admin
   post 'users/portfolio_admin/:id', to: "admin#remove_investment", as: :remove_investment
 
+  get '/advisors', to: "users#advisors", as: :advisors
+
   get 'new/full/:id', to: "news#full", as: :full_article
   post 'home_controller/create', to: "home#create"
   post 'companies_controller/add_team_member', to: "companies#add_team_member"

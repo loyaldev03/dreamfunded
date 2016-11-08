@@ -10,7 +10,7 @@ ActiveAdmin.register User do
     end
   end
 
-permit_params :first_name, :last_name, :login, :email, :role, :advisor,  :authority, :salt, :password, :password_confirmation, :confirmed, :invested_amount, :phone
+permit_params :first_name, :last_name, :login, :email, :image, :role, :advisor,  :authority, :salt, :password, :password_confirmation, :confirmed, :invested_amount, :phone
 
   index do
     column  "first_name"
@@ -34,6 +34,7 @@ permit_params :first_name, :last_name, :login, :email, :role, :advisor,  :author
       f.input   :login
       f.input   :email
       f.input   :authority
+      f.input   :image, :required => false, :as => :file
       f.input   :advisor
       f.input   :role
       f.input   :salt
@@ -47,6 +48,25 @@ permit_params :first_name, :last_name, :login, :email, :role, :advisor,  :author
     f.actions
   end
 
+  show do |ad|
+    attributes_table do
+      row :first_name
+      row :last_name
+      row :email
+      row :phone
+      row :authority
+      row :image do
+        image_tag(ad.image.url)
+      end
+      row :advisor
+      row :confirmed
+      row :invested_amount
+      row :created_at
+      row :updated_at
+      # Will display the image on show object page
+    end
+   end
+
 
   controller do
 
@@ -57,6 +77,7 @@ permit_params :first_name, :last_name, :login, :email, :role, :advisor,  :author
        end
        super
      end
+
   end
 
   csv do

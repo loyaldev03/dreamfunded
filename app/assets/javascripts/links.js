@@ -35,6 +35,9 @@ function faq() {
 function blog() {
 	window.location = "/posts";
 }
+function advisors() {
+	window.location = "/advisors";
+}
 
 function contact() {
 	window.location = "/contact";
