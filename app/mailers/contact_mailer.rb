@@ -115,4 +115,11 @@ class ContactMailer < ActionMailer::Base
     mail(to: email, subject: "Hi #{@name}, your friend #{@member.name} has invited you to join DreamFunded" )
   end
 
+  def send_from_advisor(invite, advisor_name)
+    @advisor = advisor_name.split(' ').map(&:capitalize).join(' ')
+    @email = invite.email
+    @name = invite.name
+    mail(to: @email, subject: "Hi #{@name}, your friend #{@advisor} has invited you to join DreamFunded" )
+  end
+
 end

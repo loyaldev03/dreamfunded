@@ -40,6 +40,7 @@ module ApplicationHelper
     date.strftime("%b %e, %Y")
   end
 
+
   def all_states
     [
       "Delaware","Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho",

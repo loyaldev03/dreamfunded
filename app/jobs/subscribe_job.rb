@@ -89,6 +89,28 @@ class SubscribeJob
     end
   end
 
+  def csv_advisors_emails(file, advisor)
+    ActiveRecord::Base.connection_pool.with_connection do
+      invites = []
+      begin
+          CSV.foreach(file.path, headers: true, :encoding => 'ISO-8859-1') do |row|
+            begin
+              invites << Invite.create!( name: row['Name'], email: row['Email'] )
+            rescue ActiveRecord::RecordInvalid => invalid
+              puts invalid.record.errors
+            end
+
+          end # end CSV.foreach
+          invites.each do |invite|
+            ContactMailer.delay.send_from_advisor(invite, advisor)
+          end
+      rescue Exception => e
+        SuckerPunch.logger.error("subscribe failed: due to #{e.message}")
+        raise e
+      end
+    end
+  end
+
   def csv_send_checked_emails(file, invitee_name, company_name)
     ActiveRecord::Base.connection_pool.with_connection do
       invites = []

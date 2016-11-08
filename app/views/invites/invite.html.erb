@@ -80,9 +80,39 @@
           <% end %>
         </span>
       </div>
+
+
+      <!--   From Advisors -->
+      <div class="invite-via-email">
+        <span class='invite-email-icon'><%=  fa_icon("line-chart 2x")%> </span>
+        <span class='invite-text'>Send Advisors Emails</span>
+        <span class='invite-form'>
+          <%= form_tag('/send_advisors_csv_invites', multipart: true) do  %>
+            <%= text_field_tag(:name,nil, placeholder: 'Advisors Name',class: 'invite-text-input', required: true) %>
+            <%= file_field_tag :file, required: true %>
+            <%= submit_tag "Send", class: 'invite-button' %>
+          <% end %>
+        </span>
+        <div>
+          <span class='password-six-chars'>Please see proper <%= link_to "CSV file", asset_path("test_users.csv"), target: '_blank' %> format. It should containt 2 table headers: "Name" and "Email". Both <span class='capitalized-word'>Capitalized</span> </span>
+        </div>
+      </div>
     <% end %>
 
 
+    <% if current_user.advisor %>
+      <!-- Invite from Advisor -->
+      <div class="invite-via-email">
+        <span class='invite-email-icon'><%=  fa_icon("envelope 2x")%> </span>
+        <span class='invite-text'>Invite via Email</span>
+        <span class='invite-form'>
+          <%= form_tag('/send_from_advisor', multipart: true) do  %>
+          <%= text_field_tag(:name, nil, placeholder: 'Name',class: 'invite-text-input', required: true) %>
+            <%= text_field_tag(:email,nil, placeholder: 'Email Address',class: 'invite-text-input', pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", required: true)%>
+            <%= submit_tag "Send", class: 'invite-button' %>
+          <% end %>
+        </span>
+      </div>
 
       <!-- Upload CSV File -->
       <div class="invite-via-email">
@@ -99,7 +129,7 @@
           <span class='password-six-chars'>Please see proper <%= link_to "CSV file", asset_path("test_users.csv"), target: '_blank' %> format. It should containt 2 table headers: "Email" and "Name". Both <span class='capitalized-word'>Capitalized</span> </span>
         </div>
       </div>
-
+    <% end %>
   </div>
 
   <!-- <div class= "invite-content">
