@@ -197,7 +197,7 @@ and (max-device-width : 568px) {
         width: 90% !important;
         max-width: 90% !important;
     }
-    .property-image{
+    .property-image, .companies-back-image{
         height: 25vh;
     }
     .logo-image-wrapper{
