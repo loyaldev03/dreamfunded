@@ -7,9 +7,15 @@
 </td></tr></tbody></table></div>
 <table cellspacing="0" cellpadding="16px" border="0" width="100%" style="border-collapse:collapse;min-width:100%!important;width:100%!important"><tbody><tr><td style="border-collapse:collapse"><table cellspacing="0" cellpadding="0" border="0" width="520" align="center" style="border-collapse:collapse;table-layout:fixed;margin:0 auto"><tbody><tr><td style="border-collapse:collapse">
 <div>
-
+<div style="text-align:center">
+<div style="display:inline-block;display:inline-flex;overflow:hidden;background:white;width:104px;min-height:104px;border-radius:3px;vertical-align:middle">
+<div style="display:inline-block;display:inline-flex;overflow:hidden;background:white;width:104px;height:104px;border-radius:3px;vertical-align:middle;border-radius:100%">
+<img alt="" title="" src=<%= @advisor.image.url %> style="width:104px;height:104px;border:0 none;line-height:100%;outline:none;text-decoration:none;display:inline-block;" >
+</div>
+</div>
+</div>
 <h1 style="margin:0;margin-top:16px;font-size:28px;line-height:48px;color:#333333;font-weight:200;text-align:center;margin-bottom:16px">
-Your friend <%= @advisor %> has invited you to join DreamFunded, an equity crowdfunding platform where anyone can invest in startups or raise capital.
+Your friend <%= @advisor.name %> has invited you to join DreamFunded, an equity crowdfunding platform where anyone can invest in startups or raise capital.
 </h1>
 <!-- <p style="margin:0;font-size:16px;line-height:24px;color:#777777;text-align:center;font-weight:300;margin-bottom:16px">
 Become a member of DreamFunded just like Manny and invest in promising startups.
