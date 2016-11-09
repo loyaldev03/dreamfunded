@@ -17,10 +17,12 @@
             <%= image_tag( @company.image.url, class: 'image-max-width company-logo')%>
             <section class='company-basic-info'>
                 <div>   <%= @company.name %>  </div>
+                <button type="button" data-fa-invest-now="dV-IRcQpIV5n_FFYJXqUTUJyfn2-BQWx:-O119J6jTjC8GFLEZJ5sGA" class="btn btn-lg btn-danger">INVEST NOW!</button>
                 <div class='company-slogan'>    <%= @company.campaign.tagline %>  </div>
                 <div class='company-location'><i class="fa fa-map-marker"></i> <%= @company.campaign.place %> </div>
 
             </section>
+
         </div>
 
         <div class='company-info-right-panel'>
@@ -109,6 +111,7 @@
                     <%end%>
                 <% else %>
                     <%= link_to "Invest in #{@company.name}", new_user_registration_path, class: 'company-button profile-button mail-to-button' %>
+
                 <% end %>
             </div>
         </div>
