@@ -34,19 +34,6 @@ class HomeController < ApplicationController
 	end
 
 	def legal
-		# sandbox_key FundAmerica.api_key = 'HGW5qJtVbIM7AWLxWg-KG40DqDQpV-iS'
-		FundAmerica.api_key = 'nSgy4St7K_vFsyaBXypCI6ls6SGEFduM'
-		FundAmerica.mode = 'production'
-
-		begin
-		  offering = FundAmerica::Offering.details("-O119J6jTjC8GFLEZJ5sGA")
-		  p '**************************'
-		  p offering["funds_in_escrow"]
-
-		rescue FundAmerica::Error => e
-		  # Print response from FundAmerica API in case of unsuccessful response
-		  puts e.parsed_response
-		end
 	end
 
 	def contact_us
