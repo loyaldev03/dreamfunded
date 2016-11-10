@@ -124,9 +124,10 @@ class Company < ActiveRecord::Base
          p offering_code
           offering = FundAmerica::Offering.details(offering_code)
           offering["funds_in_escrow"]
-        rescue FundAmerica::Error => e
+        rescue JSON::ParserError => e
           # Print response from FundAmerica API in case of unsuccessful response
-          puts e.parsed_response
+          puts e
+          return '0'
         end
     else
         invested_amount
