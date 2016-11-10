@@ -49,6 +49,8 @@ class Company < ActiveRecord::Base
 
   has_attached_file :cover,
     :styles =>{
+      small: "360x",
+      large: "900x"
       },
     :storage => :s3,
     :bucket => 'dreamfunded',
