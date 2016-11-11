@@ -42,6 +42,7 @@ class ContactMailer < ActionMailer::Base
     mail(to: "info@dreamfunded.com", subject: 'Password Reset Request')
   end
 
+  # Invites
   def invite(invite)
     @email = invite.email
     @name = invite.user.name
@@ -76,10 +77,12 @@ class ContactMailer < ActionMailer::Base
     mail(to: @user.email, subject: 'New Comment under Your Company')
   end
 
+  # Invites
   def invite_to_sign_up(email, name)
     mail(to: email, subject: "#{name.try(:capitalize)}, please accept my invite to DreamFunded")
   end
 
+  # Invites
   def csv_invite(invite, user_name, user_company)
     @invite = invite
     @user_name = user_name
@@ -87,6 +90,7 @@ class ContactMailer < ActionMailer::Base
     mail(to: @invite.email, subject: "Hi #{@invite.try(:name).try(:capitalize)}, it's #{@user_name}. Check out my startup on DreamFunded.")
   end
 
+  # Invites
   def invite_cofounder_exist(email, name, current_user)
     @email = email
     @name = name
@@ -95,6 +99,7 @@ class ContactMailer < ActionMailer::Base
     mail(to: email, subject: "#{@current_user.name} has invited you to collaborate on #{@company.name} ")
   end
 
+  # Invites
   def invite_cofounder_dont_exist(email, name, current_user)
     @email = email
     @name = name
@@ -103,11 +108,13 @@ class ContactMailer < ActionMailer::Base
     mail(to: email, subject: "#{@current_user.name} has invited you to collaborate on #{@company.name} ")
   end
 
+  # Invites
   def file_uploaded(user)
     @user = user
     mail(to: "manny@dreamfunded.com", subject: "#{@user.name} uploaded CSV file")
   end
 
+  # Invites
   def invite_from_member(email, name, member)
     @email = email
     @name = name
@@ -115,6 +122,7 @@ class ContactMailer < ActionMailer::Base
     mail(to: email, subject: "Hi #{@name}, your friend #{@member.name} has invited you to join DreamFunded" )
   end
 
+  # Invites
   def send_from_advisor(invite, advisor)
     @advisor = advisor
     @email = invite.email

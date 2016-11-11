@@ -12,7 +12,7 @@ class InvitesController < ApplicationController
     @invite = Invite.create(invite_params)
     email = @invite.email
     name = @invite.name
-    ContactMailer.invite_to_sign_up(email, name).deliver
+    InviteMailer.invite_to_sign_up(email, name).deliver
     redirect_to '/invite'
   end
 
