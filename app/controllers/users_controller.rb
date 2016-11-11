@@ -50,7 +50,7 @@ class UsersController < ApplicationController
 	end
 
 	def advisors
-		@advisors = User.where(advisor: true)
+		@advisors = User.where(advisor: true).order(:position)
 	end
 
 	# def campaign
