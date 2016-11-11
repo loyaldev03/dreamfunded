@@ -11,7 +11,7 @@
 
 
 
-    <section class='company-cover-photo' style="background-image:url(<%= @company.cover.url %>)" >
+    <section class='company-cover-photo' style="background-image:url(<%= @company.cover.url(:large) %>)" >
 
         <div class='company-profile-bottom-line'>
             <%= image_tag( @company.image.url, class: 'image-max-width company-logo')%>
