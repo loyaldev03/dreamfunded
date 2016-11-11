@@ -19,6 +19,7 @@ permit_params :first_name, :last_name, :login, :email, :position, :image, :title
     column  "authority"
     column  "confirmed"
     column  "advisor"
+    column("Company") { |user| user.company.name if user.company }
     column  "invested_amount"
     column  "phone"
     column  "provider"
