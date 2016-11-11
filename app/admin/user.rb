@@ -10,7 +10,7 @@ ActiveAdmin.register User do
     end
   end
 
-permit_params :first_name, :last_name, :login, :email, :image, :role, :advisor,  :authority, :salt, :password, :password_confirmation, :confirmed, :invested_amount, :phone
+permit_params :first_name, :last_name, :login, :email, :image, :title, :bio, :role, :advisor,  :authority, :salt, :password, :password_confirmation, :confirmed, :invested_amount, :phone
 
   index do
     column  "first_name"
@@ -34,6 +34,8 @@ permit_params :first_name, :last_name, :login, :email, :image, :role, :advisor, 
       f.input   :login
       f.input   :email
       f.input   :authority
+      f.input   :title
+      f.input   :bio
       f.input   :image, :required => false, :as => :file
       f.input   :advisor
       f.input   :role
@@ -55,6 +57,7 @@ permit_params :first_name, :last_name, :login, :email, :image, :role, :advisor, 
       row :email
       row :phone
       row :authority
+      row :title
       row :image do
         image_tag(ad.image.url)
       end

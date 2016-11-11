@@ -12,7 +12,8 @@
 
           <%= image_tag( advisor.image.url, :class => "company-members") %>
           <h2 class= "team-member-name"><%= advisor.name %></h2>
-          <br>
+          <h2 class='team-member-title'><%= advisor.title %></h2>
+          <p class= "team-member-bio"><%= nl2br(h(advisor.bio)).html_safe %></p>
 
       </div>
     <% end %>
