@@ -19,9 +19,7 @@
                 <div>   <%= @company.name %>  </div>
                 <div class='company-slogan'>    <%= @company.campaign.tagline %>  </div>
                 <div class='company-location'><i class="fa fa-map-marker"></i> <%= @company.campaign.place %> </div>
-
             </section>
-
         </div>
 
         <div class='company-info-right-panel'>
@@ -30,7 +28,6 @@
                     <div class='company-info-cateogry'>RAISED</div>
                     <div class='company-finance-info'>
                         <%= number_to_currency @company.fund_america_invested_amount, precision: 0 %>
-
                     </div>
 
                     <div class='company-info-cateogry'>TARGET</div>
