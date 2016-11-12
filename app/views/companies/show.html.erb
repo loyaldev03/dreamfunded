@@ -438,7 +438,18 @@
             $(".tab-name").removeClass('active-tab');
             $('#documents_tab').addClass('active-tab');
         })
-    })
+
+        document.addEventListener('fa.investnow.success', function(e){
+          var InvestorInvestmentID = e.investment_id;
+           $.ajax({
+                type: 'POST',
+                url: "/investment_made",
+                data: { company_id: <%= @company.id %>  },
+                dataType: "json",
+                success: function(resultData) { alert("Save Complete") }
+          });
+        });
+    });
 
 
   $(".reply_comment_button").click(function(e){

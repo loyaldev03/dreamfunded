@@ -49,6 +49,8 @@ Rails.application.routes.draw do
   post '/pre_purchase_submit/:name', to: 'invest#pre_purchase_submit'
   get '/investment_payment', to: 'invest#payment'
 
+  post '/investment_made', to: 'invest#investment_made'
+
   # Company Compaign Submit
   get '/funding_goal', to: 'campaigns#funding_goal', as: 'funding_goal'
   post '/funding_goal_submit', to: 'campaigns#funding_goal_submit'

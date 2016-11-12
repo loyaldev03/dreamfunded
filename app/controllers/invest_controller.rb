@@ -18,6 +18,11 @@ class InvestController < ApplicationController
     end
   end
 
+  def investment_made
+    ContactMailer.new_investment_made(current_user, params[:company_id]).deliver
+    head :ok
+  end
+
   def investor_details
   end
 
