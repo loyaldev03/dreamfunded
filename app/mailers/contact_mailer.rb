@@ -130,4 +130,10 @@ class ContactMailer < ActionMailer::Base
     mail(to: @email, subject: "Hi #{@name}, your friend #{@advisor.name} has invited you to join DreamFunded" )
   end
 
+  def new_investment_made(user, company_id)
+    @company = Company.find(company_id)
+    @user = user
+    mail(to: "info@dreamfunded.com", subject: "New Investment made in #{@company.name}")
+  end
+
 end

@@ -19,7 +19,6 @@
                 <div>   <%= @company.name %>  </div>
                 <div class='company-slogan'>    <%= @company.campaign.tagline %>  </div>
                 <div class='company-location'><i class="fa fa-map-marker"></i> <%= @company.campaign.place %> </div>
-
             </section>
         </div>
 
@@ -27,7 +26,9 @@
             <% if current_user %>
                 <% if @company.status == 2 %>
                     <div class='company-info-cateogry'>RAISED</div>
-                    <div class='company-finance-info'><%= number_to_currency @company.invested_amount, precision: 0 %></div>
+                    <div class='company-finance-info'>
+                        <%= number_to_currency @company.fund_america_invested_amount, precision: 0 %>
+                    </div>
 
                     <div class='company-info-cateogry'>TARGET</div>
                     <div class='company-finance-info'><%= number_to_currency @company.goal_amount, precision: 0 %></div>
@@ -109,6 +110,7 @@
                     <%end%>
                 <% else %>
                     <%= link_to "Invest in #{@company.name}", new_user_registration_path, class: 'company-button profile-button mail-to-button' %>
+
                 <% end %>
             </div>
         </div>
@@ -436,7 +438,18 @@
             $(".tab-name").removeClass('active-tab');
             $('#documents_tab').addClass('active-tab');
         })
-    })
+
+        document.addEventListener('fa.investnow.success', function(e){
+          var InvestorInvestmentID = e.investment_id;
+           $.ajax({
+                type: 'POST',
+                url: "/investment_made",
+                data: { company_id: <%= @company.id %>  },
+                dataType: "json",
+                success: function(resultData) { alert("Save Complete") }
+          });
+        });
+    });
 
 
   $(".reply_comment_button").click(function(e){
@@ -463,6 +476,7 @@
       return false;
     });
 
-
 </script>
+
+<!-- <script src="https://sandbox.fundamerica.com/cors/js/invest_now.min.js" id="fa-invest-now-launcher"></script> -->
 <script src="https://apps.fundamerica.com/cors/js/invest_now.min.js" id="fa-invest-now-launcher"></script>

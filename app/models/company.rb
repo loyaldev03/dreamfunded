@@ -117,4 +117,26 @@ class Company < ActiveRecord::Base
   def invested
     investments.pluck(:invested_amount).sum
   end
+
+  def fund_america_invested_amount
+    if !self.fund_america_code.empty?
+        offering_code = self.fund_america_code.split(':').second
+        begin
+         p "PULLING FundAmerica API"
+         p offering_code
+          offering = FundAmerica::Offering.details(offering_code)
+          return offering["funds_in_escrow"]
+        rescue JSON::ParserError => e
+          puts e
+          return '0'
+        rescue FundAmerica::Error => e
+          # Print response from FundAmerica API in case of unsuccessful response
+          puts e.parsed_response
+        else
+          invested_amount
+        end
+    else
+        invested_amount
+    end
+  end
 end

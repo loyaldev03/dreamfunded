@@ -140,6 +140,9 @@ GEM
     formtastic_i18n (0.6.0)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
+    fund_america (0.0.1)
+      httparty
+      json
     gibbon (1.1.5)
       httparty
       multi_json (>= 1.9.0)
@@ -351,6 +354,7 @@ DEPENDENCIES
   docusign_rest
   font-awesome-rails
   friendly_id
+  fund_america
   gibbon
   google_contacts_api
   hellosign-ruby-sdk
