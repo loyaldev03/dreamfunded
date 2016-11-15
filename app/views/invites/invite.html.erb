@@ -1,4 +1,7 @@
 <% title "DreamFunded | Invite" %>
+<% twitter_image  "https://dreamfunded.com/assets/smaller_bg.jpg" %>
+<% facebook_image "https://dreamfunded.com/assets/logo_for_facebook.jpg" %>
+<% facebook_secure_image "https://dreamfunded.com/assets/logo_for_facebook.jpg" %>
 
 <div class= "wrapper"> <!-- wrapper Starts -->
 
@@ -28,6 +31,35 @@
           <%= f.text_field(:email, placeholder: 'Email Address',class: 'invite-text-input', pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", required: true)%>
           <%= f.submit "Send", class: 'invite-button' %>
         <% end %>
+      </span>
+    </div>
+
+    <div class="invite-via-email">
+      <span class='invite-email-icon'><%=  fa_icon("share-alt 2x")%> </span>
+      <span class='invite-text'>Share on Social Media</span>
+      <span class='invite-form-google'>
+
+            <a id='facebook' class="share-invites-social" href='#'> <i class="fa fa-facebook"></i></a>
+            <script type="text/javascript">
+              $('#facebook').click(function(){
+                FB.ui({
+                  method: 'share',
+                  href: "https://dreamfunded.com/",
+                  redirect_uri: "https://dreamfunded.com/",
+                  quote: "Join DreamFunded, an equity crowdfunding platform where anyone can invest in startups or raise capital."
+                }, function(response){});
+
+              })
+            </script>
+
+            <a id="twitter" class="share-invites-social" target="_blank" href="http://twitter.com/intent/tweet?text=Join%20DreamFunded,%20an%20equity%20crowdfunding%20platform%20where%20anyone%20can%20invest%20in%20startups%20or%20raise%20capital.%20https://dreamfunded.com/" title="Share via Twitter">
+                <i class="fa fa-twitter"></i>
+            </a>
+
+            <a id ='linkedin' class="share-invites-social" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;ro=false&amp;trk=bookmarklet&amp;title=Join%20DreamFunded,%20an%20equity%20crowdfunding%20platform%20where%20anyone%20can%20invest%20in%20startups%20or%20raise%20capital.&amp;url=https://dreamfunded.com/" target="_blank" title="Share via LinkedIn" >
+                <i class="fa fa-linkedin"></i>
+            </a>
+
       </span>
     </div>
 
