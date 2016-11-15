@@ -34,7 +34,7 @@
 .invite-form, .invite-form-google{
   display: inline-block;
   float: right;
-  width: 600px;
+  width: 566px;
   padding-top: 19px;
   text-align: right;
   margin-right: 10px;
@@ -212,4 +212,33 @@
 .team-list-width{
   width: 28%;
   display: inline-block;
+}
+
+@media screen and (max-width: 1340px) {
+  .invite-text-input {
+    max-width: 150px;
+  }
+  .invite-text{
+    font-size: 22px;
+  }
+  .invite-form{
+    width: 470px;
+  }
+}
+@media screen and (max-width: 1170px) {
+  .invite-content{
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 910px) {
+  .invite-via-email{
+    padding-left: 0px;
+  }
+  .invite-text{
+    font-size: 18px;
+  }
+  .invite-email-icon{
+    margin-right: 0px;
+  }
 }

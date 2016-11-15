@@ -8,6 +8,13 @@ class InviteMailer < ActionMailer::Base
     mail(to: @email, subject: "Congratulations, #{@name} has given you $100 to invest on DreamFunded")
   end
 
+  def invite_from_user(email, name, user)
+    @email = email
+    @name = name
+    @user = user
+    mail(to: @email, subject: "Hi #{@name}, your friend #{@user.name} has invited you to join DreamFunded" )
+  end
+
   def invite_to_sign_up(email, name)
     mail(to: email, subject: "#{name.try(:capitalize)}, please accept my invite to DreamFunded")
   end

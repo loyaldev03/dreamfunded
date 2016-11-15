@@ -15,24 +15,23 @@
           <%= link_to "CSV file Template", '/download_template', targe: "_blank" %>
           and paste your data in the template.
      </p>
-
     <% end %>
 
-    <% if current_user.authority == authority[:Admin] %>
-      <!-- Invite via Email -->
-      <div class="invite-via-email">
-        <span class='invite-email-icon'><%=  fa_icon("envelope 2x")%> </span>
-        <span class='invite-text'>Invite via Email</span>
-        <span class='invite-form'>
-          <%= form_for(Invite.new) do |f| %>
-          <%= f.hidden_field :user_id, value: current_user.id %>
-          <%= f.text_field(:name, placeholder: 'Name',class: 'invite-text-input', required: true) %>
-            <%= f.text_field(:email, placeholder: 'Email Address',class: 'invite-text-input', pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", required: true)%>
-            <%= f.submit "Send", class: 'invite-button' %>
-          <% end %>
-        </span>
-      </div>
+    <!-- Invite via Email -->
+    <div class="invite-via-email">
+      <span class='invite-email-icon'><%=  fa_icon("envelope 2x")%> </span>
+      <span class='invite-text'>Invite via Email</span>
+      <span class='invite-form'>
+        <%= form_for(Invite.new) do |f| %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.text_field(:name, placeholder: 'Name',class: 'invite-text-input', required: true) %>
+          <%= f.text_field(:email, placeholder: 'Email Address',class: 'invite-text-input', pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", required: true)%>
+          <%= f.submit "Send", class: 'invite-button' %>
+        <% end %>
+      </span>
+    </div>
 
+    <% if current_user.authority == authority[:Admin] %>
      <!--   Upload from Manny -->
       <div class="invite-via-email">
         <span class='invite-email-icon'><%=  fa_icon("upload 2x")%> </span>
@@ -105,7 +104,7 @@
       <!-- Invite from Advisor -->
       <div class="invite-via-email">
         <span class='invite-email-icon'><%=  fa_icon("envelope 2x")%> </span>
-        <span class='invite-text'>Invite via Email</span>
+        <span class='invite-text'>Invite from Advisor</span>
         <span class='invite-form'>
           <%= form_tag('/send_from_advisor', multipart: true) do  %>
           <%= text_field_tag(:name, nil, placeholder: 'Name',class: 'invite-text-input', required: true) %>
