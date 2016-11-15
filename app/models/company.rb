@@ -15,6 +15,7 @@ class Company < ActiveRecord::Base
 	has_many :founders
   accepts_nested_attributes_for :founders, reject_if: :all_blank, allow_destroy: true
 	has_many :documents
+  accepts_nested_attributes_for :documents, reject_if: :all_blank, allow_destroy: true
   has_many :liquidate_shares
 
   has_many :docusigns

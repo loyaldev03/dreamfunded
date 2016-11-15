@@ -232,6 +232,18 @@
               <%= fin_details.file_field :accountant_review %>
             </div>
             <%end%>
+            <% @company.documents.each do |doc| %>
+                <p class= "fifteen ">Pitch Deck:</p>
+                <p class= "no-margin doc_name_overflow">
+                    <%= image_tag "static/pdf_icon.png" %>
+                    <%= link_to doc.file_file_name, doc.file.url, target: "_blank", class: 'document-url' %>
+                    <%= link_to 'Destroy', doc, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </p>
+            <% end %>
+            <%= f.fields_for :documents, Document.new do |doc| %>
+              <strong>Upload Pitch Deck: </strong> <br>
+              <%= doc.file_field :file %>
+            <% end %>
           </div>
 
           <div class='comments_tab_content tab-content' >

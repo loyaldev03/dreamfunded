@@ -89,9 +89,13 @@
       <label>Cover Photo (Recommended)</label>
       <%= f.file_field :cover %>
 
+      <br><br>
+      <label>Pitch Deck (Recommended)</label>
+      <%= f.fields_for :documents, Document.new do |doc| %>
+        <%= doc.file_field :file %>
+      <% end %>
       <h3>Management Team</h3>
       <%= f.fields_for :founders, @founders do |founder| %>
-        <%= %>
         <%= render 'founder_fields', f: founder %>
       <% end %>
       <div class="links">

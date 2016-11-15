@@ -348,6 +348,7 @@
                         <% end %>
 
                         <% @company.documents.each do |doc| %>
+                            <p class= "fifteen ">Pitch Deck:</p>
                             <p class= "no-margin doc_name_overflow">
                                 <%= image_tag "static/pdf_icon.png" %>
                                 <%= link_to doc.file_file_name, doc.file.url, target: "_blank", class: 'document-url' %>
