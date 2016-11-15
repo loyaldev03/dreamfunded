@@ -31,10 +31,15 @@
   font-size: 24px;
   color: #4d4d4d;
 }
+.invite-form{
+  width: 600px;
+}
+.invite-form-google{
+  width: 300px;
+}
 .invite-form, .invite-form-google{
   display: inline-block;
   float: right;
-  width: 566px;
   padding-top: 19px;
   text-align: right;
   margin-right: 10px;
@@ -224,6 +229,9 @@
   .invite-form{
     width: 470px;
   }
+  .invite-form-google{
+    width: 300px;
+  }
 }
 @media screen and (max-width: 1170px) {
   .invite-content{
@@ -239,6 +247,6 @@
     font-size: 18px;
   }
   .invite-email-icon{
-    margin-right: 0px;
+    margin-right: 20px;
   }
 }
