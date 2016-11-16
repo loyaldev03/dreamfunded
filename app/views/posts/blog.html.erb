@@ -23,7 +23,7 @@
                         <div class= "">
                             <div class= "blog_title"> <%= article.title %> </div>
                             <div class= "blog_content"> <%= article.content.first(300).html_safe %></div>
-                            <div class="press-post-item press-date"><%= article.created_at.strftime("%b,  %e %Y") %></div>
+                            <div class="press-post-item press-date"><%= article.created_at.strftime("%b %e %Y") %></div>
                             <div class='news-read-more-buton'>
                                 <%= link_to "Read More", blog_post_path(article), :class =>'article-button' %>
                             </div>
