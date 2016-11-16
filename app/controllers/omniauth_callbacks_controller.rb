@@ -31,7 +31,7 @@ class OmniauthCallbacksController < ApplicationController
 
     flash[:signup_errors] = params.first.try(:last)
 
-    redirect_to new_user_path
+    redirect_to new_user_registration_path
     #redirect wherever you want.
   end
 

@@ -60,6 +60,7 @@ class SubscribeJob
             ContactMailer.delay.invite_to_sign_up(invite.email, invite.name) if email_template == 'from_Manny'
             ContactMailer.delay.csv_invite(invite, user) if email_template == 'from_Startup'
           end
+          invites = []
       rescue Exception => e
         SuckerPunch.logger.error("subscribe failed: due to #{e.message}")
         raise e
@@ -82,6 +83,7 @@ class SubscribeJob
           invites.each do |invite|
             ContactMailer.delay.invite_from_member(invite.email, invite.name, member)
           end
+          invites = []
       rescue Exception => e
         SuckerPunch.logger.error("subscribe failed: due to #{e.message}")
         raise e
@@ -104,6 +106,7 @@ class SubscribeJob
           invites.each do |invite|
             ContactMailer.delay.send_from_advisor(invite, advisor)
           end
+          invites = []
       rescue Exception => e
         SuckerPunch.logger.error("subscribe failed: due to #{e.message}")
         raise e
@@ -126,6 +129,7 @@ class SubscribeJob
           invites.each do |invite|
             ContactMailer.delay.csv_invite(invite, invitee_name, company_name)
           end
+          invites = []
       rescue Exception => e
         SuckerPunch.logger.error("subscribe failed: due to #{e.message}")
         raise e
