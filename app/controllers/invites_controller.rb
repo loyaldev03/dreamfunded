@@ -25,8 +25,8 @@ class InvitesController < ApplicationController
           flash[:email_sent] = "File has been uploaded, we will contact you after we have reviewed it."
           redirect_to  invite_users_path
         else
-          p @csv_file.errors
-          flash[:upload_error] = @csv_file.errors
+          #p @csv_file.errors
+          flash[:upload_error] = "Invalid CSV file format."
           render :invite
         end
      rescue
