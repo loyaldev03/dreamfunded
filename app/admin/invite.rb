@@ -12,6 +12,7 @@ ActiveAdmin.register Invite  do
 
   end
 
+config.filters = false
 
 permit_params  :user_id, :email, :token, :created_at, :updated_at, :accepted, :signedup, :status, :name
   before_filter :only => [:show, :edit, :update, :destroy] do

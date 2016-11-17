@@ -12,7 +12,7 @@ ActiveAdmin.register CsvFile  do
 
   end
 
-
+config.filters = false
 permit_params  :user_id, :file, :created_at, :updated_at
 
 

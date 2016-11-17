@@ -10,6 +10,13 @@ ActiveAdmin.register User do
     end
   end
 
+   filter :first_name
+   filter :last_name
+   filter :email
+   filter :created_at
+   filter :confirmed
+   filter :advisor
+
 permit_params :first_name, :last_name, :login, :email, :position, :image, :title, :bio, :role, :advisor,  :authority, :salt, :password, :password_confirmation, :confirmed, :invested_amount, :phone
 
   index do

@@ -23,6 +23,7 @@ ActiveAdmin.register Company do
 
   end
 
+filter :name
 
 permit_params :image, :document, :end_date, :accredited, :hidden, :position, :docusign_url, :user_id, :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number, :display, :days_left, :created_at, :updated_at, :fund_america_code, :suggested_target_price, :min_investment
 before_filter :only => [:show, :edit, :update, :destroy] do
