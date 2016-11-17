@@ -19,10 +19,16 @@ class InvitesController < ApplicationController
 
   def upload_csv
     begin
-        @csv_file = CsvFile.create(csv_file_params)
-        ContactMailer.delay.file_uploaded(current_user)
-        flash[:email_sent] = "File has been uploaded, we will contact you after we have reviewed it."
-        redirect_to  invite_users_path
+        @csv_file = CsvFile.new(csv_file_params)
+        if @csv_file.save
+          ContactMailer.delay.file_uploaded(current_user)
+          flash[:email_sent] = "File has been uploaded, we will contact you after we have reviewed it."
+          redirect_to  invite_users_path
+        else
+          p @csv_file.errors
+          flash[:upload_error] = @csv_file.errors
+          render :invite
+        end
      rescue
         flash[:upload_error] = "Invalid CSV file format."
         redirect_to  invite_users_path
