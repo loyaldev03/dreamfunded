@@ -17,5 +17,5 @@ class CsvFile < ActiveRecord::Base
 
     validates_attachment_size :file, :less_than => 5.megabytes
     #validates_attachment_content_type :file, :content_type =>["text/csv", "text/comma-separated-values", "application/vnd.ms-excel"]
-    validates_attachment_content_type :file, content_type: ['text/csv', 'text/comma-separated-values', 'application/csv', 'application/excel', 'application/vnd.ms-excel', 'application/vnd.msexcel']
+    validates_attachment_content_type :file, content_type: ['text/csv', "text/plain", 'text/comma-separated-values', 'application/csv', 'application/excel', 'application/vnd.ms-excel', 'application/vnd.msexcel']
 end
