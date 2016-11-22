@@ -4,7 +4,7 @@ ActiveAdmin.register Company do
 
     private
     def authenticate
-      if current_user.authority != authority[:Admin]
+      if current_user.authority < authority[:Editor]
         redirect_to root_path
       end
     end
@@ -37,6 +37,7 @@ end
     column  "goal_amount"
     column("Step") { |company| company.campaign.current_state if company.campaign }
     column("User") { |company| link_to(company.users.first.name, admin_user_path(company.users.first)) if company.users.any?}
+    column("Phone") { |company| company.users.first.phone if company.users.any?}
     column  "created_at"
     actions
   end

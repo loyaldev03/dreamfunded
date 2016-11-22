@@ -91,6 +91,9 @@
                     <li><button onclick="location.href='/admin/users';" >New Admin Panel</button></li>
                     <li><button onclick="signOut()">Sign Out</button></li>
                   <% end %>
+                  <% if current_user.authority == authority[:Editor] %>
+                    <li><button onclick="location.href='/admin/companies';" >Admin Panel</button></li>
+                  <% end %>
                   <% if current_user.role == "government"%>
                     <li><button onclick= "government_admin()">Admin Panel</button></li>
                   <% end %>
