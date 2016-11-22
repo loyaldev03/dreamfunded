@@ -16,6 +16,7 @@ ActiveAdmin.register User do
    filter :created_at
    filter :confirmed
    filter :advisor
+   filter :authority
 
 permit_params :first_name, :last_name, :login, :email, :position, :image, :title, :bio, :role, :advisor,  :authority, :salt, :password, :password_confirmation, :confirmed, :invested_amount, :phone
 
