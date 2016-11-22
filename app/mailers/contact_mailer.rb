@@ -85,6 +85,7 @@ class ContactMailer < ActionMailer::Base
   # Invites
   def csv_invite(invite, user_name, user_company)
     @invite = invite
+    @slug = Company.find_by(name: user_company).slug
     @user_name = user_name
     @user_company = user_company
     mail(to: @invite.email, subject: "Hi #{@invite.try(:name).try(:capitalize)}, it's #{@user_name}. Check out my startup on DreamFunded.")

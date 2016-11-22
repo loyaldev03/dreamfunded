@@ -1,4 +1,5 @@
 class InvitesController < ApplicationController
+  before_action :authenticate_user!
   require 'net/http'
 
   def invite
