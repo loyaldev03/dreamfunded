@@ -14,6 +14,7 @@ class InvitesController < ApplicationController
     email = @invite.email
     name = @invite.name
     InviteMailer.invite_from_user(email, name, current_user).deliver
+    flash[:email_sent] = "Email Sent"
     redirect_to '/invite'
   end
 
@@ -23,6 +24,7 @@ class InvitesController < ApplicationController
     name = @invite.name
     company_name = current_user.company.name
     ContactMailer.csv_invite(@invite, current_user.name, company_name).deliver
+    flash[:email_sent] = "Email Sent"
     redirect_to '/invite'
   end
 
