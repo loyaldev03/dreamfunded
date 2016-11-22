@@ -19,20 +19,35 @@
           and paste your data in the template.
      </p>
     <% end %>
+    <% if current_user.has_company? %>
+      <!-- Invite from my Company -->
+      <div class="invite-via-email">
+        <span class='invite-email-icon'><%=  fa_icon("envelope 2x")%> </span>
+        <span class='invite-text'>Invite from <%= current_user.company.name %><br>
 
-    <!-- Invite via Email -->
-    <div class="invite-via-email">
-      <span class='invite-email-icon'><%=  fa_icon("envelope 2x")%> </span>
-      <span class='invite-text'>Invite via Email</span>
-      <span class='invite-form'>
-        <%= form_for(Invite.new) do |f| %>
-        <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= f.text_field(:name, placeholder: 'Name',class: 'invite-text-input', required: true) %>
-          <%= f.text_field(:email, placeholder: 'Email Address',class: 'invite-text-input', pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", required: true)%>
-          <%= f.submit "Send", class: 'invite-button' %>
-        <% end %>
-      </span>
-    </div>
+          <%= form_for(Invite.new, :url => invite_from_startup_path, html: {class: 'invite-from-startup'}) do |f| %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.text_field(:name, placeholder: 'Name',class: 'invite-text-input', required: true) %>
+            <%= f.text_field(:email, placeholder: 'Email Address',class: 'invite-text-input', pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", required: true)%>
+            <%= f.submit "Send", class: 'invite-button' %>
+          <% end %>
+        </span>
+      </div>
+    <% else %>
+      <!-- Invite via Email -->
+      <div class="invite-via-email">
+        <span class='invite-email-icon'><%=  fa_icon("envelope 2x")%> </span>
+        <span class='invite-text'>Invite via Email</span>
+        <span class='invite-form'>
+          <%= form_for(Invite.new) do |f| %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.text_field(:name, placeholder: 'Name',class: 'invite-text-input', required: true) %>
+            <%= f.text_field(:email, placeholder: 'Email Address',class: 'invite-text-input', pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", required: true)%>
+            <%= f.submit "Send", class: 'invite-button' %>
+          <% end %>
+        </span>
+      </div>
+    <% end%>
 
     <div class="invite-via-email">
       <span class='invite-email-icon'><%=  fa_icon("share-alt 2x")%> </span>

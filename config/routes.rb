@@ -197,6 +197,8 @@ Rails.application.routes.draw do
   post '/send_from_advisor', to: 'invites#send_from_advisor'
   post '/send_advisors_csv_invites', to: 'invites#send_advisors_csv_invites'
 
+  post '/invite_from_startup', to: "invites#invite_from_startup", as: :invite_from_startup
+
   #resources :teams
 
   get '/team/:id', to: "members#show", as: :team

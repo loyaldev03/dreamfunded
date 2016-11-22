@@ -16,6 +16,15 @@ class InvitesController < ApplicationController
     redirect_to '/invite'
   end
 
+  def invite_from_startup
+    @invite = Invite.create(invite_params)
+    email = @invite.email
+    name = @invite.name
+    company_name = current_user.company.name
+    ContactMailer.csv_invite(@invite, current_user.name, company_name).deliver
+    redirect_to '/invite'
+  end
+
 
   def upload_csv
     begin
@@ -84,7 +93,6 @@ class InvitesController < ApplicationController
         redirect_to  invite_users_path
     end
   end
-
 
 
   def download
