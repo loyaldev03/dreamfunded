@@ -112,4 +112,9 @@ class User < ActiveRecord::Base
 		false
 	end
 
+	def has_company?
+		return true if self.try(:company).try(:name?)
+		false
+	end
+
 end
