@@ -38,6 +38,7 @@ end
     column("Step") { |company| company.campaign.current_state if company.campaign }
     column("User") { |company| link_to(company.users.first.name, admin_user_path(company.users.first)) if company.users.any?}
     column("Phone") { |company| company.users.first.phone if company.users.any?}
+    column("Phone") { |company| company.users.first.email if company.users.any?}
     column  "created_at"
     actions
   end
