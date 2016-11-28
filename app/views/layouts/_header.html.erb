@@ -55,18 +55,18 @@
               <ul class='sub-menu white'>
                 <li><button onclick= "about()">About Us</button></li>
                 <li><button onclick= "faq()">FAQ</button></li>
+                <li><button onclick="location.href='/events';" >Events</button></li>
                 <li><button onclick= "team()">Team</button></li>
                 <li><button onclick= "news()">News</button></li>
                 <li><button onclick= "contact()">Contact Us</button></li>
               </ul>
             </li>
             <li class='ipad-menu'><button onclick="location.href='/education';" >Education</button></li>
-            <li class='ipad-menu'><button onclick="location.href='/events';" >Events</button></li>
             <li class='ipad-menu'><button onclick= "get_funded()">Get Funded</button></li>
             <% if current_user != nil && current_user.authority >= authority[:Accredited] %>
-              <li class='ipad-menu'><button onclick= "invest()">Invest</button></li>
+              <li class='ipad-menu'><button onclick= "invest()">Investments</button></li>
             <% elsif current_user == nil %>
-              <li class='ipad-menu'><button onclick= "signUp()">Invest</button></li>
+              <li class='ipad-menu'><button onclick= "signUp()">Investments</button></li>
             <% end %>
             <li class='ipad-menu'><button onclick= "how_it_works()">How It Works</button></li>
             <!-- iPAD MENU END -->
@@ -130,7 +130,7 @@
                   <li><button onclick= "get_funded()">Get Funded</button></li>
                 <% end %>
 
-                <li><button onclick= "invest()">Investments </button></li>
+                <li><button onclick= "invest()">Investments</button></li>
                 <li><button onclick= "how_it_works()">How It Works</button></li>
               </ul>
             </li>
