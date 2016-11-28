@@ -233,3 +233,19 @@ and (max-device-width : 568px) {
     }
 
 }
+
+ /*i P A D*/
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)  {
+    .properties-wrapper .property-box {
+        width: 29%;
+    }
+    .properties-wrapper{
+        margin-left: 3%;
+    }
+    .property-box{
+        margin: 25px 11px;
+    }
+
+}
