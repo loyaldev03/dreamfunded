@@ -112,14 +112,14 @@
                 <li><button onclick= "news()">News</button></li>
                 <li><button onclick= "press()">Press</button></li>
                 <li><button onclick= "blog()">Blog</button></li>
-                <li><button onclick= "advisors()">Mentors</button></li>
+                <li><button onclick="location.href='/events';" >Events</button></li>
                 <li><button onclick= "contact()">Contact Us</button></li>
               </ul>
             </li>
 
             <li id="hidden-menu"><button disabled= "true">More <span class="arrow">&#9660;</span></button>
               <ul class= "sub-menu">
-                <li><button onclick="location.href='/events';" >Events</button></li>
+
                 <li><button onclick="location.href='/education';" >Education</button></li>
 
                 <% if current_user %>
@@ -133,11 +133,11 @@
                 <% end %>
 
                 <li><button onclick= "invest()">Investments</button></li>
+                <li><button onclick= "advisors()">Mentors</button></li>
                 <li><button onclick= "how_it_works()">How It Works</button></li>
               </ul>
             </li>
 
-            <li class='items-to-hide'><button onclick="location.href='/events';" >Events</button></li>
             <li class='items-to-hide'><button onclick="location.href='/education';" >Education</button></li>
 
 
@@ -153,8 +153,8 @@
 
 
             <li class='items-to-hide'><button onclick= "invest()">Investments </button></li>
+            <li class='items-to-hide'><button onclick= "advisors()">Mentors</button></li>
             <li class='items-to-hide'><button onclick= "how_it_works()">How It Works</button></li>
-            <!-- <li><button onclick= "svexchange()">SVExchange</button></li> -->
             <li id= "left"><button onclick= "home()" id= "nopadding"><div class= "logo"></div></button></li>
           </ul>
         </nav>
