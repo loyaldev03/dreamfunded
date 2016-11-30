@@ -118,7 +118,7 @@ class SubscribeJob
     ActiveRecord::Base.connection_pool.with_connection do
       invites = []
       begin
-          CSV.foreach(file.path, headers: true) do |row|
+          CSV.foreach(file.path, headers: true, :encoding => 'ISO-8859-1') do |row|
             begin
               invites << Invite.create!(email: row['Email'], name: row['Name'])
             rescue ActiveRecord::RecordInvalid => invalid
