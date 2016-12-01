@@ -91,13 +91,12 @@
 
 
             <div class='fund-america-invest-button'>
-
                 <% if user_signed_in? %>
                     <%if @company.accredited %>
                         <% if @company.status == 2 %>
                             <button type="button" data-fa-invest-now="<%= @company.fund_america_code%>" class=" company-button profile-button mail-to-button" >
-                            Invest in <%= @company.name %>
-                        </button>
+                                Invest in <%= @company.name %>
+                            </button>
                         <%else%>
                             <%= form_tag("/companies/join_waitlist/#{@company.slug}", target: "_blank")  do %>
                                 <%= submit_tag "Join The Waitlist", class: "company-button profile-button mail-to-button", target: "_blank" %>

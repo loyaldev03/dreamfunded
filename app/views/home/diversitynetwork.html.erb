@@ -1,0 +1,23 @@
+<% title "DreamFunded | Diversity Network" %>
+
+<div class= "wrapper">
+  <div class="header">
+    <h1 class="centered">DreamFunded's Diversity Network</h1>
+  </div>
+  <div class= "mentors-content">
+
+
+    <% @logos.each do |logo| %>
+
+      <div class= "mentor-box">
+          <%= image_tag( logo.image.url, class: "diversity-logo-image") %>
+          <h2 class= "team-member-name"><%= logo.name %></h2>
+          <p class= "team-member-bio"><%= nl2br(h(logo.info)).html_safe %></p>
+      </div>
+
+    <% end %>
+
+
+  </div>
+</div>
+
