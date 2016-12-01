@@ -59,7 +59,7 @@ class HomeController < ApplicationController
 	end
 
 	def diversitynetwork
-		@logos = Logo.all
+		@logos = Logo.all.order(:position)
 	end
 
 private

@@ -11,13 +11,14 @@ ActiveAdmin.register Logo do
     end
   end
 
-  permit_params :name, :info, :image
+  permit_params :name, :info, :image, :position
 
   form do |f|
     f.inputs 'Details' do
       f.input   :name
       f.input   :info
       f.input   :image, :required => false, :as => :file
+      f.input   :position
     end
     f.actions
   end
@@ -30,6 +31,7 @@ ActiveAdmin.register Logo do
         image_tag(ad.image.url)
       end
       row :info
+      row :position
     end
    end
 
