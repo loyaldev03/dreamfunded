@@ -108,3 +108,6 @@ function blog(){
 function svexchange(){
 	window.location = "http://svexchange.com/";
 }
+function diversity_network(){
+	window.location = "/diversitynetwork"
+}

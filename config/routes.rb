@@ -123,6 +123,7 @@ Rails.application.routes.draw do
   post 'users/portfolio_admin/:id', to: "admin#remove_investment", as: :remove_investment
 
   get '/mentors', to: "users#advisors", as: :advisors
+  get '/diversitynetwork', to: "home#diversitynetwork", as: :diversitynetwork
 
   get 'new/full/:id', to: "news#full", as: :full_article
   post 'home_controller/create', to: "home#create"
