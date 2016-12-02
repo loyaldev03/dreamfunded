@@ -16,9 +16,24 @@
     margin-bottom: 100px;
 }
 .diversity-logo-image {
-    width: auto;
-    max-width: 320px;
-    height: 200px;
+/*    width: 270px;
+    height: auto;*/
+    max-height: 100%;
+       max-width: 100%;
+       width: auto;
+       height: auto;
+       position: absolute;
+       top: 0;
+       bottom: 0;
+       left: 0;
+       right: 0;
+       margin: auto;
+}
+.diversity-logo-image-wrapper{
+    height: 250px;
+    width: 270px;
+    overflow: hidden;
+    position: relative;
 }
 
 @media screen and (max-width: 1250px) {

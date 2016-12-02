@@ -10,7 +10,9 @@
     <% @logos.each do |logo| %>
 
       <div class= "mentor-box">
-          <%= image_tag( logo.image.url, class: "diversity-logo-image") %>
+          <div class='diversity-logo-image-wrapper'>
+            <%= image_tag( logo.image.url, class: "diversity-logo-image") %>
+          </div>
           <h2 class= "team-member-name"><%= logo.name %></h2>
           <p class= "team-member-bio"><%= nl2br(h(logo.info)).html_safe %></p>
       </div>
