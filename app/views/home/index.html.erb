@@ -82,7 +82,8 @@
 							</div>
 							<div class= "row2">
 								<%=  image_tag("static/entrepreneur.png") %>
-								<%=  image_tag("static/wallstreet.png", id: 'wallstreet_logo') %>
+								<%= link_to( image_tag("static/wallstreet.png", id: 'wallstreet_logo'), "http://www.wsj.com/articles/startup-investing-for-the-little-guy-1480907701" ) %>
+								<%#=  image_tag("static/wallstreet.png", id: 'wallstreet_logo') %>
 								<%=  image_tag("static/fast_company.png", id: 'fast_company_logo') %>
 							</div>
 					</span>
@@ -103,7 +104,8 @@
 							  <span class='homepage-press-mentions'><%=  image_tag("static/entrepreneur.png", id: "entrepreneur_logo") %></span>
 							</div>
 							<div class= "row2 last_row">
-							  <%=  image_tag("static/wallstreet.png", id: 'wallstreet_logo') %>
+							  <%#=  image_tag("static/wallstreet.png", id: 'wallstreet_logo') %>
+							  <%= link_to( image_tag("static/wallstreet.png", id: 'wallstreet_logo'), "http://www.wsj.com/articles/startup-investing-for-the-little-guy-1480907701" ) %>
 							  <%=  image_tag("static/fast_company.png", id: 'fast_company_logo') %>
 							</div>
 					</span>
