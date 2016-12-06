@@ -34,3 +34,27 @@
     border-radius: 4px;
     border: 1px solid #D0D3D6;
 }
+
+.number-of-members{
+  font-weight: 500;
+  font-family: Arial;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.join-group-button {
+  width: 42%;
+  margin: 20px auto;
+  display: block;
+  font-size: 17px;
+  border-radius: 4px;
+}
+
+.group-blog-title {
+    font-family: 'Gotham',sans-serif;
+    color: #424242;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1.4rem;
+    font-weight: bold;
+}

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :groups
+
 
   root 'home#index'
 
@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   resources :invites
   resources :bids
   resources :events
+  resources :groups
   resources :press_posts, except: [:index]
   get '/press', to: "press_posts#index"
 
@@ -234,6 +235,9 @@ Rails.application.routes.draw do
   get '/education/market_trends', to: 'education#market_trends', as: 'market_trends'
   get '/education/jobs_act', to: 'education#jobs_act', as: 'jobs_act'
   get '/education/fund_raising_guide', to: 'education#fund_raising_guide', as: 'fund_raising_guide'
+
+  # G R O U P S
+  get '/join_group/:id', to: 'groups#join_group', as: 'join_group'
 
 
   get '/resources', to: 'home#resources'

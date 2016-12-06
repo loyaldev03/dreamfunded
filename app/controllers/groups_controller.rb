@@ -1,30 +1,27 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
-  before_action :admin_check
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :join_group]
+  before_action :admin_check, except: [:show, :join_group]
+  before_action :authenticate_user!, except: [:show ]
 
-  # GET /groups
-  # GET /groups.json
+
   def index
     @groups = Group.all
   end
 
-  # GET /groups/1
-  # GET /groups/1.json
+
   def show
     @posts = Post.order(:created_at).where(page: 'group')
   end
 
-  # GET /groups/new
+
   def new
     @group = Group.new
   end
 
-  # GET /groups/1/edit
+
   def edit
   end
 
-  # POST /groups
-  # POST /groups.json
   def create
     @group = Group.new(group_params)
 
@@ -39,8 +36,7 @@ class GroupsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /groups/1
-  # PATCH/PUT /groups/1.json
+
   def update
     respond_to do |format|
       if @group.update(group_params)
@@ -53,8 +49,7 @@ class GroupsController < ApplicationController
     end
   end
 
-  # DELETE /groups/1
-  # DELETE /groups/1.json
+
   def destroy
     @group.destroy
     respond_to do |format|
@@ -63,13 +58,19 @@ class GroupsController < ApplicationController
     end
   end
 
+  def join_group
+    current_user.groups << @group
+    ContactMailer.join_group_request(current_user, @group).deliver
+    redirect_to @group, notice: "Request to join #{@group.name} was sent."
+  end
+
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_group
       @group = Group.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+
     def group_params
       params.require(:group).permit(:name, :description, :image, :background)
     end

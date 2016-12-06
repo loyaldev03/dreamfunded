@@ -137,4 +137,9 @@ class ContactMailer < ActionMailer::Base
     mail(to: "info@dreamfunded.com", subject: "New Investment made in #{@company.name}")
   end
 
+  def join_group_request(user, group)
+    @user, @group = user, group
+    mail(to: "info@dreamfunded.com", subject: "#{@user.name} requested to join #{@group.name}")
+  end
+
 end

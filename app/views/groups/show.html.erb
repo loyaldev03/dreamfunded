@@ -20,13 +20,13 @@
             <section class='company-basic-info'>
                 <div>   <%= @group.name %>  </div>
                 <div class='company-slogan'>    <%= @group.description %>  </div>
-                <div class='company-slogan'> 68 members</div>
+                <div class='number-of-members'> 68 members</div>
             </section>
         </div>
 
         <div class='group-info-right-panel'>
             <div class='fund-america-invest-button'>
-                <%= link_to "Join Group", new_user_registration_path, class: 'company-button profile-button mail-to-button' %>
+                <%= link_to "Join Group", join_group_path(@group), class: 'company-button join-group-button mail-to-button' %>
             </div>
         </div>
     </section>
@@ -49,7 +49,7 @@
 
 
                                     <div class= "">
-                                        <div class= "blog_title"> <%= article.title %> </div>
+                                        <div class= "group-blog-title"> <%= article.title %> </div>
                                         <div class= "blog_content">
                                             <%= article.content.first(300).html_safe %>...
                                             <%= link_to "Read more", blog_post_path(article) %>
