@@ -1,0 +1,53 @@
+<% title "DreamFunded | #{@group.name}" %>
+
+
+<% facebook_og_title ("Invest in #{@group.name} on DreamFunded.com") %>
+<% facebook_url("https://dreamfunded.com/companies/#{@group.name}")%>
+
+<% facebook_image @group.background.url %>
+<% facebook_secure_image @group.background.url %>
+
+<% twitter_image @group.background.url %>
+
+
+
+    <section class='company-cover-photo' style="background-image:url(<%= @group.background.url %>)" >
+        <div class='group-opacity-on-background'>
+        </div>
+
+        <div class='company-profile-bottom-line'>
+            <%= image_tag( @group.image.url, class: 'image-max-width company-logo')%>
+            <section class='company-basic-info'>
+                <div>   <%= @group.name %>  </div>
+                <div class='company-slogan'>    <%= @group.description %>  </div>
+            </section>
+        </div>
+
+        <div class='group-info-right-panel'>
+            <div class='company-finance-info'> 68 members</div>
+            <div class='fund-america-invest-button'>
+                <%= link_to "Join Group", new_user_registration_path, class: 'company-button profile-button mail-to-button' %>
+            </div>
+        </div>
+    </section>
+
+        <div class='grey-section'>
+            <div class=" stretch">
+                <!-- A D M I N   E D I T I N G -->
+
+
+                <div style="text-align:center;">
+                    <section class= "video-box">
+                        <h2 class='section-title'>Who Are We?</h2>
+
+                    </section>
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
