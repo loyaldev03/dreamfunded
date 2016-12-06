@@ -135,8 +135,9 @@ class CompaniesController < ApplicationController
 
 	def remove_founder
     	@founder = Founder.find(params[:id])
+    	@company = @founder.company
     	@founder.destroy
-    	redirect_to "/companies"
+    	redirect_to company_path(@company)
  	end
 
 	def join_waitlist

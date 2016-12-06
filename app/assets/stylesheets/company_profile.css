@@ -11,6 +11,7 @@
     text-align: center;
     text-align: -webkit-center;
     vertical-align: top;
+    position: relative;
 }
 
 .team-member-name {
