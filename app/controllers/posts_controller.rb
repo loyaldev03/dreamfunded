@@ -71,6 +71,8 @@ class PostsController < ApplicationController
         return about_path
       elsif page == 'blog'
         return blog_path
+      elsif page == 'group'
+        return root_path
       elsif page == 'faq'
         return faq_path
       elsif page == 'basics'

@@ -11,7 +11,7 @@
 
 
 
-    <section class='company-cover-photo' style="background-image:url(<%= @group.background.url %>)" >
+    <section class='group-cover-photo' style="background-image:url(<%= @group.background.url %>)" >
         <div class='group-opacity-on-background'>
         </div>
 
@@ -20,31 +20,62 @@
             <section class='company-basic-info'>
                 <div>   <%= @group.name %>  </div>
                 <div class='company-slogan'>    <%= @group.description %>  </div>
+                <div class='company-slogan'> 68 members</div>
             </section>
         </div>
 
         <div class='group-info-right-panel'>
-            <div class='company-finance-info'> 68 members</div>
             <div class='fund-america-invest-button'>
                 <%= link_to "Join Group", new_user_registration_path, class: 'company-button profile-button mail-to-button' %>
             </div>
         </div>
     </section>
 
-        <div class='grey-section'>
+        <div class='group-blog-section'>
             <div class=" stretch">
-                <!-- A D M I N   E D I T I N G -->
 
-
-                <div style="text-align:center;">
+                <div >
                     <section class= "video-box">
-                        <h2 class='section-title'>Who Are We?</h2>
+                        <h2 class='section-title'>Group Dialog</h2>
+
+
+                        <div class= "news-container">
+                            <% @posts.each do |article| %>
+                                <div class= "group-blog_wrapper">
+                                    <% if current_user != nil && current_user.authority >= authority[:Editor] %>
+                                        <%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?'}, :class => 'right red_link' %>
+                                        <%= link_to 'Edit', "/posts/#{article.id}/edit/group", {:class => 'right red_link'} %>
+                                    <% end %>
+
+
+                                    <div class= "">
+                                        <div class= "blog_title"> <%= article.title %> </div>
+                                        <div class= "blog_content">
+                                            <%= article.content.first(300).html_safe %>...
+                                            <%= link_to "Read more", blog_post_path(article) %>
+                                        </div>
+                                        <div class="press-post-item press-date">
+                                            <%= article.created_at.strftime("%b %e %Y") %>
+                                        </div>
+                                        <!-- <div class='news-read-more-buton'>
+                                            <%#= link_to "Read More", blog_post_path(article), :class =>'article-button' %>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            <% end %>
+                            <% if current_user != nil && current_user.authority >= authority[:Editor] %>
+                                <h3 class='centered'><%= link_to 'Write New Group Post', "/posts/new/group" %></h3>
+                            <% end %>
+                        </div>
+
+
+
 
                     </section>
-
-
                 </div>
             </div>
+
+
 
         </div>
 

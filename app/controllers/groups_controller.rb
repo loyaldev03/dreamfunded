@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :admin_check
 
   # GET /groups
   # GET /groups.json
@@ -10,6 +11,7 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+    @posts = Post.order(:created_at).where(page: 'group')
   end
 
   # GET /groups/new
@@ -70,5 +72,11 @@ class GroupsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
       params.require(:group).permit(:name, :description, :image, :background)
+    end
+
+    def admin_check
+      if current_user.authority < User.Authority[:Editor]
+        redirect_to url_for(:controller => 'home', :action => 'unauthorized')
+      end
     end
 end
