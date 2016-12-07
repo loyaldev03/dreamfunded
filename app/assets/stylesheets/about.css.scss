@@ -17,6 +17,12 @@
    /* set the background to a suitably dark tone */
    background-color:#000000;
 }
+#invite-dialog{
+  display: none;
+}
+.modalLink{
+  display: none;
+}
 #modal .window {
    /* position the element so that the z-index can be applied */
    position:absolute;
@@ -38,6 +44,14 @@
    -webkit-box-shadow:4px 4px 80px #000;
    -moz-box-shadow:4px 4px 80px #000;
    border-radius: 7px;
+}
+#modal .invite-to-group {
+  margin-left:0px;
+  margin-top:0px;
+  width: 35%;
+  left: 35%;
+  top: 250px;
+  /*display: none;*/
 }
 #modal .google-clients{
   /* position the element so that the z-index can be applied */

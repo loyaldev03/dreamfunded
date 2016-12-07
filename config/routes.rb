@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+
   root 'home#index'
 
   devise_for :users, controllers: {:registrations => 'registrations'}
@@ -29,6 +31,7 @@ Rails.application.routes.draw do
   resources :invites
   resources :bids
   resources :events
+  resources :groups
   resources :press_posts, except: [:index]
   get '/press', to: "press_posts#index"
 
@@ -200,6 +203,8 @@ Rails.application.routes.draw do
 
   post '/invite_from_startup', to: "invites#invite_from_startup", as: :invite_from_startup
 
+  post '/invite_to_group', to: "invites#invite_to_group", as: :invite_to_group
+
   #resources :teams
 
   get '/team/:id', to: "members#show", as: :team
@@ -232,6 +237,9 @@ Rails.application.routes.draw do
   get '/education/market_trends', to: 'education#market_trends', as: 'market_trends'
   get '/education/jobs_act', to: 'education#jobs_act', as: 'jobs_act'
   get '/education/fund_raising_guide', to: 'education#fund_raising_guide', as: 'fund_raising_guide'
+
+  # G R O U P S
+  get '/join_group/:id', to: 'groups#join_group', as: 'join_group'
 
 
   get '/resources', to: 'home#resources'

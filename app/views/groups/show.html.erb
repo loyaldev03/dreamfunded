@@ -1,0 +1,133 @@
+<% title "DreamFunded | #{@group.name}" %>
+
+
+<% facebook_og_title ("Invest in #{@group.name} on DreamFunded.com") %>
+<% facebook_url("https://dreamfunded.com/companies/#{@group.name}")%>
+
+<% facebook_image @group.background.url %>
+<% facebook_secure_image @group.background.url %>
+
+<% twitter_image @group.background.url %>
+
+
+
+    <section class='group-cover-photo' style="background-image:url(<%= @group.background.url %>)" >
+
+        <% if flash[:notice]%>
+            <div class='alert-warning join-group-alert password-change-notification hide-on-mobile'>
+               <%= flash[:notice]%>
+            </div>
+        <% end %>
+
+        <div class='group-opacity-on-background'>
+        </div>
+
+        <div class='company-profile-bottom-line'>
+            <%= image_tag( @group.image.url, class: 'image-max-width company-logo')%>
+            <section class='company-basic-info'>
+                <div>   <%= @group.name %>  </div>
+                <div class='company-slogan'>    <%= @group.description %>  </div>
+                <div class='number-of-members'> <%= @group.users.count%> members</div>
+            </section>
+        </div>
+
+        <div class='group-info-right-panel'>
+            <div class='fund-america-invest-button'>
+                <% if current_user %>
+                    <% if @group.users.include?(current_user) %>
+                        <%= link_to "Member", '#', class: 'company-button join-group-button mail-to-button'  %>
+                    <% else %>
+                        <%= link_to "Join Group", join_group_path(@group), class: 'company-button join-group-button mail-to-button' %>
+                    <% end %>
+                <% else %>
+                    <%= link_to "Join Group", join_group_path(@group), class: 'company-button join-group-button mail-to-button' %>
+                <% end %>
+            </div>
+        </div>
+    </section>
+
+        <div class='group-blog-section'>
+            <div class=" stretch">
+                <!-- A D M I N   E D I T I N G -->
+                <div class='group-admin-editing'>
+                    <% if current_user != nil && current_user.authority == authority[:Admin] %>
+                        <%= link_to( edit_group_path(@group), class: 'edit-company-button' ) do %>
+                           <i class="fa fa-cogs" aria-hidden="true"></i>
+                           <span class='edit-my-company-button'> Edit Group</span>
+                        <% end %>
+                    <% end %>
+                </div>
+
+                <div >
+                    <section class= "video-box">
+                        <h2 class='section-title'>Group Dialog</h2>
+
+
+                        <div class= "news-container">
+                            <% @posts.each do |article| %>
+                                <div class= "group-blog_wrapper">
+                                    <% if current_user != nil && current_user.authority >= authority[:Editor] %>
+                                        <%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?'}, :class => 'right red_link' %>
+                                        <%= link_to 'Edit', "/posts/#{article.id}/edit/group", {:class => 'right red_link'} %>
+                                    <% end %>
+
+
+                                    <div class= "">
+                                        <div class= "group-blog-title"> <%= article.title %> </div>
+                                        <div class= "blog_content">
+                                            <%= article.content.first(300).html_safe %>...
+                                            <%= link_to "Read more", blog_post_path(article) %>
+                                        </div>
+                                        <div class="press-post-item press-date">
+                                            <%= article.created_at.strftime("%b %e %Y") %>
+                                        </div>
+                                        <!-- <div class='news-read-more-buton'>
+                                            <%#= link_to "Read More", blog_post_path(article), :class =>'article-button' %>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            <% end %>
+                            <% if current_user != nil && current_user.authority >= authority[:Editor] %>
+                                <h3 class='centered'><%= link_to 'Write New Group Post', "/posts/new/group" %></h3>
+                            <% end %>
+                        </div>
+
+                    </section>
+
+                    <section class="group-members-box">
+                        <div class='group-members-header'>Group Members</div>
+                        <ul>
+                            <% @members.each do |member| %>
+                                <li> <%= member.name %> </li>
+                            <% end%>
+                        </ul>
+                        <%= link_to "Invite Friend", "#", class: 'company-button join-group-button mail-to-button invt-fr-btn' %>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+
+<a href="#invite-dialog" class="modalLink"> Invite Friend </a>
+
+<div id="modal">
+  <!-- First modal window -->
+   <div id="invite-dialog" class="window invite-to-group">
+    <div class="contents">
+            <div class='close-icon'>
+                <a href="#" class="close"><i class="fa fa-times"></i></a>
+            </div>
+        <h3>Invite Friend </h3>
+        <!-- <hr class='line-verify-modal'> -->
+        <%= form_for Invite.new, url: invite_to_group_path do |f| %>
+            <%= hidden_field_tag :group_id, @group.id %>
+            <%= f.text_field(:name, :placeholder => "Name", :class => "form-field") %>
+            <%= f.text_field(:email, :placeholder => "Email", :class => "form-field") %>
+            <%= f.submit "Invite", class: "company-button join-group-button" %>
+        <% end %>
+
+    </div>
+ </div>
+</div>
+
+
