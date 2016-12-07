@@ -247,7 +247,7 @@ Rails.application.routes.draw do
   get '/book', to: 'home#book'
 
   get '/portfolio', to: 'users#portfolio'
-  get '/dreamfunded-exchange', to: 'home#exchange'
+  match '/dreamfunded-exchange' => redirect("http://svexchange.com/dreamfunded-exchange"), via: 'get'
   get '/our-team', to: 'members#index'
 
   match "/our-team/manny-fernandez" => redirect("team/manny-fernandez"), via: 'get'
