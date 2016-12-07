@@ -203,6 +203,8 @@ Rails.application.routes.draw do
 
   post '/invite_from_startup', to: "invites#invite_from_startup", as: :invite_from_startup
 
+  post '/invite_to_group', to: "invites#invite_to_group", as: :invite_to_group
+
   #resources :teams
 
   get '/team/:id', to: "members#show", as: :team

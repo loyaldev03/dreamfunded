@@ -18,6 +18,13 @@ class InvitesController < ApplicationController
     redirect_to '/invite'
   end
 
+  def invite_to_group
+      @invite = Invite.create(invite_params)
+      @group = Group.find(params[:group_id])
+      InviteMailer.invite_to_group(@invite.email, @invite.name, current_user, @group).deliver
+      redirect_to @group
+  end
+
   def invite_from_startup
     @invite = Invite.create(invite_params)
     email = @invite.email
