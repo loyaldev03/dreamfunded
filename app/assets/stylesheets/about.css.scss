@@ -20,6 +20,9 @@
 #invite-dialog{
   display: none;
 }
+.modalLink{
+  display: none;
+}
 #modal .window {
    /* position the element so that the z-index can be applied */
    position:absolute;
