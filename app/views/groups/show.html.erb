@@ -101,15 +101,32 @@
                                 <li> <%= member.name %> </li>
                             <% end%>
                         </ul>
-                        <%= link_to "Invite Friend", "#", class: 'company-button join-group-button mail-to-button' %>
+                        <%= link_to "Invite Friend", "#", class: 'company-button join-group-button mail-to-button invt-fr-btn' %>
                     </section>
                 </div>
             </div>
-
-
-
         </div>
 
 
+<a href="#invite-dialog" class="modalLink"> Invite Friend </a>
+
+<div id="modal">
+  <!-- First modal window -->
+   <div id="invite-dialog" class="window invite-to-group">
+    <div class="contents">
+            <div class='close-icon'>
+                <a href="#" class="close"><i class="fa fa-times"></i></a>
+            </div>
+        <h3>Invite Friend </h3>
+        <!-- <hr class='line-verify-modal'> -->
+        <%= form_for Invite.new do |f| %>
+            <%= f.text_field(:name, :placeholder => "Name", :class => "form-field") %>
+            <%= f.text_field(:email, :placeholder => "Email", :class => "form-field") %>
+            <%= f.submit "Invite", class: "company-button join-group-button" %>
+        <% end %>
+
+    </div>
+ </div>
+</div>
 
 
