@@ -12,6 +12,13 @@
 
 
     <section class='group-cover-photo' style="background-image:url(<%= @group.background.url %>)" >
+
+        <% if flash[:notice]%>
+            <div class='alert-warning join-group-alert password-change-notification hide-on-mobile'>
+               <%= flash[:notice]%>
+            </div>
+        <% end %>
+
         <div class='group-opacity-on-background'>
         </div>
 
@@ -20,19 +27,36 @@
             <section class='company-basic-info'>
                 <div>   <%= @group.name %>  </div>
                 <div class='company-slogan'>    <%= @group.description %>  </div>
-                <div class='number-of-members'> 68 members</div>
+                <div class='number-of-members'> <%= @group.users.count%> members</div>
             </section>
         </div>
 
         <div class='group-info-right-panel'>
             <div class='fund-america-invest-button'>
-                <%= link_to "Join Group", join_group_path(@group), class: 'company-button join-group-button mail-to-button' %>
+                <% if current_user %>
+                    <% if @group.users.include?(current_user) %>
+                        <%= link_to "Member", '#', class: 'company-button join-group-button mail-to-button'  %>
+                    <% else %>
+                        <%= link_to "Join Group", join_group_path(@group), class: 'company-button join-group-button mail-to-button' %>
+                    <% end %>
+                <% else %>
+                    <%= link_to "Join Group", join_group_path(@group), class: 'company-button join-group-button mail-to-button' %>
+                <% end %>
             </div>
         </div>
     </section>
 
         <div class='group-blog-section'>
             <div class=" stretch">
+                <!-- A D M I N   E D I T I N G -->
+                <div class='group-admin-editing'>
+                    <% if current_user != nil && current_user.authority == authority[:Admin] %>
+                        <%= link_to( edit_group_path(@group), class: 'edit-company-button' ) do %>
+                           <i class="fa fa-cogs" aria-hidden="true"></i>
+                           <span class='edit-my-company-button'> Edit Group</span>
+                        <% end %>
+                    <% end %>
+                </div>
 
                 <div >
                     <section class= "video-box">
@@ -68,9 +92,16 @@
                             <% end %>
                         </div>
 
+                    </section>
 
-
-
+                    <section class="group-members-box">
+                        <div class='group-members-header'>Group Members</div>
+                        <ul>
+                            <% @members.each do |member| %>
+                                <li> <%= member.name %> </li>
+                            <% end%>
+                        </ul>
+                        <%= link_to "Invite Friend", "#", class: 'company-button join-group-button mail-to-button' %>
                     </section>
                 </div>
             </div>

@@ -11,6 +11,7 @@ class GroupsController < ApplicationController
 
   def show
     @posts = Post.order(:created_at).where(page: 'group')
+    @members = @group.users
   end
 
 
@@ -67,7 +68,7 @@ class GroupsController < ApplicationController
   private
 
     def set_group
-      @group = Group.find(params[:id])
+      @group = Group.friendly.find(params[:id])
     end
 
 
