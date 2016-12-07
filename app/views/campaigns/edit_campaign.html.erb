@@ -136,7 +136,7 @@
             <div class= "team-band">
                <%= f.fields_for :founders do |founder| %>
                    <div class= "team-member-box">
-                     <%= button_to "X", { action: 'remove_founder', id: founder.object_id} , {:class => 'remove-button'} %>
+                     <%= button_to "X", { action: 'remove_founder',controller: "companies", id: founder.object.id} , {:class => 'remove-button'} %>
                      <%= image_tag( founder.object.image.url, :class => "company-members") %>
                      Image
                      <%= founder.file_field :image %>
