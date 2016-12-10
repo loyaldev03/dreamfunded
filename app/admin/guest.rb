@@ -17,7 +17,7 @@ config.filters = false
 permit_params  :user_id, :email, :name, :created_at, :updated_at
 
 
-  index :title => 'Uploaded Emails' do
+  index :title => 'Waitlist' do
     column  "name"
     column  "email"
     column("User") { |guest| link_to(guest.user.name, admin_user_path(guest.user)) if guest.user}
