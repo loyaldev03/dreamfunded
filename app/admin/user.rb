@@ -97,6 +97,7 @@ permit_params :first_name, :last_name, :login, :email, :position, :image, :title
      column :first_name
      column :last_name
      column :email
+     column :phone
    end
 
 end
