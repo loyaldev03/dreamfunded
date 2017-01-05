@@ -90,5 +90,12 @@ end
     end
    end
 
+   csv do
+      column :name
+      column("User") {|company| company.users.first.name if company.users.any?}
+      column("Phone") { |company| company.users.first.phone if company.users.any?}
+      column("Email") { |company| company.users.first.email if company.users.any?}
+    end
+
 
 end
