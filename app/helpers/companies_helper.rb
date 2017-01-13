@@ -11,7 +11,7 @@ module CompaniesHelper
 
     def raised_amount(company)
         if company.invested == 0
-            return 'XXX'
+            return 'TBA'
         else
             return number_to_currency company.invested, precision: 0
         end
