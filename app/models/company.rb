@@ -129,7 +129,8 @@ class Company < ActiveRecord::Base
           return offering["funds_in_escrow"]
         rescue JSON::ParserError => e
           puts e
-          return '0'
+          puts 'ERROR'
+          return 'TBA'
         rescue FundAmerica::Error => e
           # Print response from FundAmerica API in case of unsuccessful response
           puts e.parsed_response
