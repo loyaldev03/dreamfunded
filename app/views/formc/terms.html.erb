@@ -3,11 +3,9 @@
   <div class="header education-center">
     <div class='education-title'>Form C Editor</div>
     <a href="#" class='education-links '>General</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links'>People</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links active-link'>Terms</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links disabled-link'> Disclosures</a> <%= fa_icon "chevron-right"%>
-    <span href="#" class='education-links disabled-link'> Financial Info </span><%= fa_icon "chevron-right"%>
-    <span href="#" class='education-links disabled-link'> Sign & Submit </span>
+  <a href="#" class='education-links disabled-link'>Team</a> <%= fa_icon "chevron-right"%>
+  <a href="#" class='education-links disabled-link'>Terms</a> <%= fa_icon "chevron-right"%>
+  <a href="#" class='education-links disabled-link'>Disclosures</a>
   </div>
 
   <div class= "campaign-box  get-funded ">
@@ -20,9 +18,14 @@
   </div>
 
   <div class= "login-container">
-    <%= form_for @general_info, :url => {:action => "terms_save", id: @general_info.id},method: "post" do |f| %>
+    <%= form_for(@general_info, :url => {:action => "terms_save", id: @general_info.id},  method: "post",  target: '_blank') do |f| %>
 
       <h3>Set Fundraise Terms</h3>
+
+      <div class='get-funded-section-name'>What is the minimum investment amount for each member? ($100 or more is recommended ) </div>
+      <%= f.text_field(:min_investment, value: '$100',  class: "campaign-input-box" ) %>
+      <br>
+
       <%= f.fields_for :terms, @term do |term_builder| %>
           <%#= term_builder.select :safe_cap, ["Choose",["Crowd Safe: Cap, no Discount", "no-discount"], ["SAFE Cap & Discount, Pro Rata","pro-rata"], ["SAFE Cap & Discount, no Pro Rata",'no-pro-rata'] ], class: 'terms-inputs' %>
           <!-- <br><br> -->
@@ -62,7 +65,7 @@
 
         <%# end %>
       </div> -->
-
+      <% end %>
       <div class= "centered">
         <%= submit_tag("Continue", :id => "submit-button") %>
       </div>

@@ -3,20 +3,21 @@
 		<div class="header education-center">
 				<div class='education-title'>Form C Editor</div>
 				<a href="#" class='education-links disabled-link'>General</a> <%= fa_icon "chevron-right"%>
-				<a href="#" class='education-links disabled-link'>Business</a> <%= fa_icon "chevron-right"%>
-				<a href="#" class='education-links active-link'>People</a>
+				<a href="#" class='education-links disabled-link'>Team</a> <%= fa_icon "chevron-right"%>
+				<a href="#" class='education-links disabled-link'>Terms</a> <%= fa_icon "chevron-right"%>
+				<a href="#" class='education-links disabled-link'>Disclosures</a>
 		</div>
 
 	<div class= "campaign-box  get-funded ">
 
 		<div class="row">
 			<div class=" active">
-				<h2 class= "darkblue no-margin centered"><a  id="login-form-link">Securities</a></h2>
+				<h2 class= "darkblue no-margin centered"><a  id="login-form-link">Team</a></h2>
 			</div>
 		</div>
 
 		<div class= "login-container">
-			<%= form_for(@general_info, :url => {:action => "people_save", id: @general_info.id},method: "post", :html => {:target=>'_blank'} ) do |f| %>
+			<%= form_for(@general_info, :url => {:action => "people_save", id: @general_info.id}, method: "post" ) do |f| %>
 				<%= f.hidden_field :completed, value: true %>
 
 				<h3>Principal Security Holders</h3>
@@ -32,15 +33,15 @@
 				<br>
 
 
-				<section>
+				<!-- <section>
 					<label class='get-funded-section-name'>What is purpose of this offering</label><br>
-					<%= f.text_field :offering_purpose,  class: 'campaign-input-box' %>
+					<%#= f.text_field :offering_purpose,  class: 'campaign-input-box' %>
 				</section>
 
 				<section>
 					<label class='get-funded-section-name'>Financial Condition</label><br>
-					<%= f.text_field :fin_condition,  class: 'campaign-input-box' %>
-				</section>
+					<%#= f.text_field :fin_condition,  class: 'campaign-input-box' %>
+				</section> -->
 
 				<div class= "centered">
 					<%= f.submit("Continue", :id => "submit-button") %>
