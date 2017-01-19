@@ -23,7 +23,7 @@
         </div>
 
         <div class='company-info-right-panel'>
-            <% if current_user %>
+
                 <% if @company.status == 2 %>
                     <div class='company-info-cateogry'>RAISED</div>
                     <div class='company-finance-info'>
@@ -56,36 +56,16 @@
                     <div class='company-finance-info'> TBA</div>
 
                     <div class='company-info-cateogry'>TARGET</div>
-                    <div class='company-finance-info'>$X,XXX,XXX</div>
+                    <div class='company-finance-info'>TBA</div>
 
                     <div class='company-info-cateogry'>DAYS LEFT</div>
-                    <div class='company-finance-info'> XX </div>
+                    <div class='company-finance-info'> TBA </div>
 
                     <div class='company-info-cateogry'>minimum investment</div>
-                    <div class='company-finance-info'> $XX </div>
+                    <div class='company-finance-info'> TBA </div>
 
                 <% end %>
 
-            <% else %>
-
-                <div class='company-info-cateogry'>RAISED</div>
-                <div class='company-finance-info'> TBA</div>
-
-                <div class='company-info-cateogry'>TARGET</div>
-                <div class='company-finance-info'>$X,XXX,XXX</div>
-
-                <div class='company-info-cateogry'>DAYS LEFT</div>
-                <div class='company-finance-info'> XX </div>
-
-                <div class='company-info-cateogry'>minimum investment</div>
-                <div class='company-finance-info'> $XX </div>
-
-                <article class='centered'>
-                    <%= image_tag("lock-icon", width: 50,  class: 'icon-lock')%>
-                    <%= link_to "Sign In to View", new_user_session_path%>
-                </article>
-
-            <% end %>
 
 
 
