@@ -76,4 +76,12 @@ class GeneralInfo < ActiveRecord::Base
     Date.today + self.days
   end
 
+  def team_names
+    self.principal_holders.map(&:name).join(", ")
+  end
+
+  def team_titles
+    self.principal_holders.map(&:title).join(", ")
+  end
+
 end

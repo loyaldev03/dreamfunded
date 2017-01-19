@@ -10,8 +10,8 @@ class TestPdfForm < FillablePdfForm
   def fill_out
 
     [:name, :kind, :state, :address, :website, :type_of_securtity, :max_amount, :website,
-     :days, :legal_name, :dead_line, :position_title, :first_date,
-     :prev_emp, :prev_title, :prev_dates, :prev_resp, :offering_purpose, :fin_condition, :maket_strategy,
+     :days, :legal_name, :dead_line, :position_title, :first_date, :competition, :phone, :business_plan, :ceo,
+     :prev_emp, :prev_title, :prev_dates, :prev_resp, :offering_purpose, :fin_condition, :maket_strategy, :discount,
      :price_of_securities, :number_of_securities, :min_amount, :min_investment, :product_description, :company_description
      ].each do |field|
       fill field, @info.send(field)
@@ -21,10 +21,14 @@ class TestPdfForm < FillablePdfForm
     fill :date_next_year, (Date.today + 1.year).strftime("%b %d %Y")
 
     fill :address, @info.address
+    fill :category, @info.company.campaign.category
     fill :date, @info.date_formed
     fill :type_of_security, @info.type_of_securtity
     fill :num_of_employees, @info.company.campaign.employees_numer
     fill :deadline, @info.dead_line
+
+    fill :team_names, @info.team_names
+    fill :team_titles, @info.team_titles
 
   end
 end

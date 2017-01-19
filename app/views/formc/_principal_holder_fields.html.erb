@@ -5,7 +5,11 @@
   </div>
 
   <div class="field">
-    <%= f.text_area :securities_held, class: 'input-box', placeholder: "Number and Class of Securities Now Held" %>
+    <%= f.text_field :title, class: 'input-box', placeholder: "Title" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_area :securities_held,value: 'Common Stock', class: 'input-box', placeholder: "Number and Class of Securities Now Held" %>
   </div>
 
   <div class="field">

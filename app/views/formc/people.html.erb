@@ -24,7 +24,7 @@
 				<div class='formc-disclosure'>
 					Who owns 20 percent or more voting equity securities of your Company, calculated by voting power? Must be accurate within 120 days ago.
 				</div>
-				<%= f.fields_for :principal_holders, @holder do |holder| %>
+				<%= f.fields_for :principal_holders, @holders do |holder| %>
 					<%= render 'principal_holder_fields', f: holder %>
 				<% end %>
 				<div class="links">

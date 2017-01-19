@@ -57,7 +57,7 @@
       </div> -->
 
       <div class='get-funded-section-name'>Competition</div>
-      <%= f.text_field(:competition,  class: "campaign-input-box" ) %>
+      <%= f.text_area(:competition,  rows: 10, class: "campaign_text_area_width" ) %>
       <br>
 
       <div class='get-funded-section-name'>Short description of primary product(s), in one sentence.</div>
@@ -65,11 +65,15 @@
       <br>
 
       <div class='get-funded-section-name'>Summary of your go to market strategy</div>
-      <%= f.text_field(:maket_strategy,  class: "campaign-input-box" ) %>
+      <%= f.text_area(:maket_strategy,  rows: 10, class: "campaign_text_area_width" ) %>
       <br>
 
       <div class='get-funded-section-name'>company_description</div>
-      <%= f.text_field(:company_description,  class: "campaign-input-box" ) %>
+      <%= f.text_area(:company_description, rows: 10, class: "campaign_text_area_width" ) %>
+      <br>
+
+      <div class='get-funded-section-name'>Business Plan</div>
+      <%= f.text_area(:business_plan,  rows: 10, class: "campaign_text_area_width" ) %>
       <br>
 
       <div class= "centered">

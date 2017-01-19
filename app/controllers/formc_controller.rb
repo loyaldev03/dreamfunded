@@ -23,7 +23,7 @@ class FormcController < ApplicationController
     else
       @officer = Officer.new(position: 'CEO')
     end
-    @holder = PrincipalHolder.new(securities_held: 'Common Stock')
+    @holders = @general_info.principal_holders
     #@securities_reserver = [Security.new(security_class: 'Common Stock'), Security.new(security_class: 'Debt Securities')]
     #@securities_reserver = [Security.new(security_class: 'Warrants'), Security.new(security_class: 'Options')]
   end
@@ -106,12 +106,12 @@ private
 
   def general_info_params
     params.require(:general_info).permit("name", "completed", "days", "cap_table", "kind", "state", "date_formed", "employees_numer", "company_location_address", "company_location_city", "company_location_state", "company_location_zipcode",
-                                         "website", "employer_id_number", "financial_condition", "outstanding_loan","business_model", "business_plan",
+                                         "website", "employer_id_number", "financial_condition", "outstanding_loan","business_model", "business_plan", :ceo,
                                          :business_history, :product_description, :competition, :customer_base, :intellectual_property, :min_amount, :company_description,
-                                         :governmental_regulatory, :litigation, :phone, :type_of_securtity,:legal_name, :max_amount, :company_id, :min_investment, :maket_strategy,
+                                         :governmental_regulatory, :litigation, :phone, :type_of_securtity,:legal_name, :max_amount, :company_id, :min_investment, :maket_strategy, :discount,
                                         :position_title, :first_date, :prev_emp, :prev_title, :prev_dates, :prev_resp, :offering_purpose, :fin_condition, :price_of_securities, :number_of_securities,
         securities_attributes: [:security_class,  :_destroy, :amount, :outstanding, :voting_rights, :other_rights, :general_info_id, :securities_reserved, :created_at, :updated_at],
-        principal_holders_attributes: [:name, :securities_held, :_destroy, :voting_power, :general_info_id, :created_at, :updated_at],
+        principal_holders_attributes: [:name, :securities_held, :_destroy, :voting_power, :title, :general_info_id, :created_at, :updated_at],
         officers_attributes: [ "name", "email", "year_joined", "_destroy", "officers", "director", "position", "education", "occupation", "main_employer", "general_info_id", "created_at", "updated_at"],
         investment_perks_attributes: [:content, :amount,:_destroy],
         terms_attributes: [
