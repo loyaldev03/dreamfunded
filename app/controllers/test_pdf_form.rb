@@ -11,7 +11,7 @@ class TestPdfForm < FillablePdfForm
 
     [:name, :kind, :state, :address, :website, :type_of_securtity, :max_amount, :website,
      :days, :legal_name, :dead_line, :position_title, :first_date, :competition, :phone, :business_plan, :ceo,
-     :prev_emp, :prev_title, :prev_dates, :prev_resp, :offering_purpose, :fin_condition, :maket_strategy, :discount,
+     :prev_emp, :prev_title, :prev_dates, :prev_resp, :offering_purpose, :fin_condition, :maket_strategy, :discount, :customer_base,
      :price_of_securities, :number_of_securities, :min_amount, :min_investment, :product_description, :company_description
      ].each do |field|
       fill field, @info.send(field)

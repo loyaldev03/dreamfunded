@@ -68,13 +68,18 @@
       <%= f.text_area(:maket_strategy,  rows: 10, class: "campaign_text_area_width" ) %>
       <br>
 
-      <div class='get-funded-section-name'>company_description</div>
+      <div class='get-funded-section-name'>Company Description</div>
       <%= f.text_area(:company_description, rows: 10, class: "campaign_text_area_width" ) %>
       <br>
 
       <div class='get-funded-section-name'>Business Plan</div>
       <%= f.text_area(:business_plan,  rows: 10, class: "campaign_text_area_width" ) %>
       <br>
+
+      <div class='get-funded-section-name'>Who are your customers (Market)?</div>
+      <%= f.text_area(:customer_base,  rows: 10, class: "campaign_text_area_width" ) %>
+      <br>
+
 
       <div class= "centered">
         <%= submit_tag("Continue", :id => "submit-button") %>

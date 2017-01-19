@@ -20,6 +20,11 @@
 			<%= form_for(@general_info, :url => {:action => "people_save", id: @general_info.id}, method: "post" ) do |f| %>
 				<%= f.hidden_field :completed, value: true %>
 
+
+				<div class='get-funded-section-name'>CEO Name</div>
+				<%= f.text_field(:ceo,  class: "campaign-input-box" ) %>
+				<br>
+
 				<h3>Principal Security Holders</h3>
 				<div class='formc-disclosure'>
 					Who owns 20 percent or more voting equity securities of your Company, calculated by voting power? Must be accurate within 120 days ago.
