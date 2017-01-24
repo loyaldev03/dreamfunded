@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170123222701) do
+ActiveRecord::Schema.define(version: 20170124205713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -432,8 +432,11 @@ ActiveRecord::Schema.define(version: 20170123222701) do
     t.boolean  "additional_sources_capital"
     t.boolean  "additional_sources_necessary"
     t.boolean  "has_material_capital"
-    t.string   "material_capital"
+    t.text     "material_capital"
     t.text     "material_capital_expenditures"
+    t.text     "transactin"
+    t.text     "related_person"
+    t.text     "conflicts"
   end
 
   create_table "groups", force: true do |t|

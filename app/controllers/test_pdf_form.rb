@@ -14,7 +14,8 @@ class TestPdfForm < FillablePdfForm
      :prev_emp, :prev_title, :prev_dates, :prev_resp, :offering_purpose, :fin_condition, :maket_strategy, :discount, :customer_base,
      :price_of_securities, :number_of_securities, :min_amount, :min_investment, :product_description, :company_description,
      :rds, :rds_years, :upcoming_rd, :real_estate, :litigation,
-     :valuation, :burn_rate, :has_material_capital, :material_capital, :material_capital_expenditures
+     :valuation, :burn_rate, :has_material_capital, :material_capital, :material_capital_expenditures,
+     :transactin, :related_person, :conflicts
      ].each do |field|
       fill field, @info.send(field)
     end

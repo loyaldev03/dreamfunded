@@ -52,6 +52,14 @@
         <strong>The Company intends to make the following material capital expenditures in the future:</strong>
         <%= f.text_area :material_capital_expenditures, rows: 10, class: "campaign_text_area_width", placeholder: 'The Company intends to make the following material capital expenditures in the future:' %>
 
+        <strong>List any transactions with related persons.</strong>
+        <strong>Description of transaction</strong>
+        <%= f.text_area :transactin, rows: 5, class: "campaign_text_area_width" %>
+        <strong>Name of related person</strong>
+        <%= f.text_area :related_person, rows: 5, class: "campaign_text_area_width" %>
+        <strong>Describe there any conflicts of interest between the Company and any related person? </strong>
+        <%= f.text_area :conflicts, rows: 5, class: "campaign_text_area_width" %>
+
       <div class= "centered">
         <%= submit_tag("Continue", :id => "submit-button") %>
       </div>

@@ -105,6 +105,7 @@ private
                                         :position_title, :first_date, :prev_emp, :prev_title, :prev_dates, :prev_resp, :offering_purpose, :fin_condition, :price_of_securities, :number_of_securities,
                                         :rds, :rds_years, :upcoming_rd, :real_estate,
                                         :valuation, :burn_rate, :additional_financing, :additional_sources_capital, :additional_sources_necessary, :has_material_capital, :material_capital, :material_capital_expenditures,
+                                        :transactin, :related_person, :conflicts,
         securities_attributes: [:security_class,  :_destroy, :amount, :outstanding, :voting_rights, :other_rights, :general_info_id, :securities_reserved, :created_at, :updated_at],
         principal_holders_attributes: [:name, :securities_held, :_destroy, :voting_power, :title, :general_info_id, :created_at, :updated_at],
         officers_attributes: [ "name", "email", "year_joined", "_destroy", "officers", "director", "position", "education", "occupation", "main_employer", "general_info_id", "created_at", "updated_at"],
