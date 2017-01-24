@@ -1,6 +1,6 @@
 class FormcController < ApplicationController
   before_action :authenticate_user!
-  before_filter :set_format, only: [:financials]
+  before_filter :set_format, only: [:print]
 
 
   def general
@@ -76,27 +76,20 @@ class FormcController < ApplicationController
 
   def financials
     @general_info = GeneralInfo.find(params[:id])
-    info = @general_info
-    respond_to do |format|
-      format.pdf { send_file TestPdfForm.new(info).export("tmp/formc_#{info.name}.pdf"), type: 'application/pdf' }
-    end
-
-    if @general_info.financial_detail.nil?
-      @general_info.financial_detail = FinancialDetail.new
-    end
-    @financial_detail = @general_info.financial_detail
   end
 
   def financials_save
      @general_info = GeneralInfo.find(params[:id])
      @general_info.update(general_info_params)
-     redirect_to edit_campaign_path(@general_info.company.campaign.id)
+     redirect_to action: :print, id: @general_info.id
   end
 
   def print
     @general_info = GeneralInfo.find(params[:id])
-    @company = @general_info.company
-    render :layout => false
+    info = @general_info
+    respond_to do |format|
+      format.pdf { send_file TestPdfForm.new(info).export("tmp/formc_#{info.name}.pdf"), type: 'application/pdf' }
+    end
   end
 
 private
@@ -110,6 +103,8 @@ private
                                          :business_history, :product_description, :competition, :customer_base, :intellectual_property, :min_amount, :company_description,
                                          :governmental_regulatory, :litigation, :phone, :type_of_securtity,:legal_name, :max_amount, :company_id, :min_investment, :maket_strategy, :discount,
                                         :position_title, :first_date, :prev_emp, :prev_title, :prev_dates, :prev_resp, :offering_purpose, :fin_condition, :price_of_securities, :number_of_securities,
+                                        :rds, :rds_years, :upcoming_rd, :real_estate,
+                                        :valuation, :burn_rate, :additional_financing, :additional_sources_capital, :additional_sources_necessary, :has_material_capital, :material_capital, :material_capital_expenditures,
         securities_attributes: [:security_class,  :_destroy, :amount, :outstanding, :voting_rights, :other_rights, :general_info_id, :securities_reserved, :created_at, :updated_at],
         principal_holders_attributes: [:name, :securities_held, :_destroy, :voting_power, :title, :general_info_id, :created_at, :updated_at],
         officers_attributes: [ "name", "email", "year_joined", "_destroy", "officers", "director", "position", "education", "occupation", "main_employer", "general_info_id", "created_at", "updated_at"],

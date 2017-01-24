@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170119041538) do
+ActiveRecord::Schema.define(version: 20170123222701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -422,6 +422,18 @@ ActiveRecord::Schema.define(version: 20170119041538) do
     t.text     "company_description"
     t.string   "discount"
     t.string   "ceo"
+    t.string   "rds"
+    t.string   "rds_years"
+    t.string   "upcoming_rd"
+    t.text     "real_estate"
+    t.string   "valuation"
+    t.string   "burn_rate"
+    t.boolean  "additional_financing"
+    t.boolean  "additional_sources_capital"
+    t.boolean  "additional_sources_necessary"
+    t.boolean  "has_material_capital"
+    t.string   "material_capital"
+    t.text     "material_capital_expenditures"
   end
 
   create_table "groups", force: true do |t|

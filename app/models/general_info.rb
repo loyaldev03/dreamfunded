@@ -84,4 +84,22 @@ class GeneralInfo < ActiveRecord::Base
     self.principal_holders.map(&:title).join(", ")
   end
 
+
+  def addit_financing
+    self.additional_financing ? 'Will' : 'Will not'
+  end
+
+  def add_sources_capital
+    self.additional_sources_capital ? 'Does' : 'Does not'
+  end
+
+  def add_sources_necessary
+    self.additional_sources_necessary ? 'Are' : 'Are not'
+  end
+
+  def has_material_captl
+    self.has_material_capital ? 'Have' : 'Have not'
+  end
+
+
 end

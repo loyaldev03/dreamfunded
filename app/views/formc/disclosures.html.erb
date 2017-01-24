@@ -6,7 +6,8 @@
     <a href="#" class='education-links disabled-link'>General</a> <%= fa_icon "chevron-right"%>
     <a href="#" class='education-links disabled-link'>Team</a> <%= fa_icon "chevron-right"%>
     <a href="#" class='education-links disabled-link'>Terms</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links disabled-link'>Disclosures</a>
+    <a href="#" class='education-links disabled-link'>Disclosures</a> <%= fa_icon "chevron-right"%>
+    <span href="#" class='education-links active-link'> Financial Info </span>
   </div>
 
   <div class= "campaign-box  get-funded ">
@@ -61,7 +62,7 @@
       <br>
 
       <div class='get-funded-section-name'>Short description of primary product(s), in one sentence.</div>
-      <%= f.text_field(:product_description,  class: "campaign-input-box" ) %>
+      <%= f.text_field(:product_description,  class: "form-field" ) %>
       <br>
 
       <div class='get-funded-section-name'>Summary of your go to market strategy</div>
@@ -78,6 +79,28 @@
 
       <div class='get-funded-section-name'>Who are your customers (Market)?</div>
       <%= f.text_area(:customer_base,  rows: 10, class: "campaign_text_area_width" ) %>
+      <br>
+
+      <div class='get-funded-section-name'>Have you spent on Research and Development(R&D)? (If yes)</div>
+      <div class='get-funded-section-name'>Amount spent on R&D (2016)?</div>
+      <%= f.text_field(:rds,  class: "form-field" ) %>
+      <br>
+      <div class='get-funded-section-name'>Years Spent (rangeex. 2015-2017) </div>
+      <%= f.text_field(:rds_years,  class: "form-field" ) %>
+      <div class='get-funded-section-name'>Amount budgeted for upcoming year R&D? </div>
+      <%= f.text_field(:upcoming_rd,  class: "form-field" ) %>
+
+
+      <div class='get-funded-section-name'>Do you own Real Estate? (if yes, they describe)<br>
+        List Real Property ownership or leases
+      </div>
+      <%= f.text_area(:real_estate,  rows: 5, class: "campaign_text_area_width" ) %>
+      <br>
+
+      <div class='get-funded-section-name'>Is the company subject to litigation? <br>
+          If so please list and describe, if not, state NONE
+      </div>
+      <%= f.text_area(:litigation,  rows: 5, class: "campaign_text_area_width" ) %>
       <br>
 
 
