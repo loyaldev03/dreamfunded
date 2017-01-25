@@ -142,4 +142,10 @@ class ContactMailer < ActionMailer::Base
     mail(to: "info@dreamfunded.com", subject: "#{@user.name} requested to join #{@group.name}")
   end
 
+  def formc_submitted(user, formc)
+    @user = user
+    @formc = formc
+    mail(to: "info@dreamfunded.com", subject: "#{@user.name} submitted Form C")
+  end
+
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206235831) do
+ActiveRecord::Schema.define(version: 20170124222042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -368,26 +368,6 @@ ActiveRecord::Schema.define(version: 20161206235831) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "company_location_city"
-    t.string   "cap_table_file_name"
-    t.string   "cap_table_content_type"
-    t.integer  "cap_table_file_size"
-    t.datetime "cap_table_updated_at"
-    t.string   "last_year_financials_file_name"
-    t.string   "last_year_financials_content_type"
-    t.integer  "last_year_financials_file_size"
-    t.datetime "last_year_financials_updated_at"
-    t.string   "last_2years_financials_file_name"
-    t.string   "last_2years_financials_content_type"
-    t.integer  "last_2years_financials_file_size"
-    t.datetime "last_2years_financials_updated_at"
-    t.string   "last_year_taxes_file_name"
-    t.string   "last_year_taxes_content_type"
-    t.integer  "last_year_taxes_file_size"
-    t.datetime "last_year_taxes_updated_at"
-    t.string   "cpa_review_file_name"
-    t.string   "cpa_review_content_type"
-    t.integer  "cpa_review_file_size"
-    t.datetime "cpa_review_updated_at"
     t.text     "outstanding_loan"
     t.text     "financial_condition"
     t.integer  "company_id"
@@ -402,7 +382,7 @@ ActiveRecord::Schema.define(version: 20161206235831) do
     t.text     "litigation"
     t.text     "phone"
     t.integer  "days"
-    t.boolean  "completed",                           default: false
+    t.boolean  "completed",                     default: false
     t.string   "max_amount"
     t.string   "type_of_securtity"
     t.text     "legal_name"
@@ -414,6 +394,33 @@ ActiveRecord::Schema.define(version: 20161206235831) do
     t.text     "prev_resp"
     t.text     "offering_purpose"
     t.text     "fin_condition"
+    t.string   "number_of_securities"
+    t.string   "price_of_securities"
+    t.string   "min_amount"
+    t.string   "min_investment"
+    t.text     "maket_strategy"
+    t.text     "company_description"
+    t.string   "discount"
+    t.string   "ceo"
+    t.string   "rds"
+    t.string   "rds_years"
+    t.string   "upcoming_rd"
+    t.text     "real_estate"
+    t.string   "valuation"
+    t.string   "burn_rate"
+    t.boolean  "additional_financing"
+    t.boolean  "additional_sources_capital"
+    t.boolean  "additional_sources_necessary"
+    t.boolean  "has_material_capital"
+    t.text     "material_capital"
+    t.text     "material_capital_expenditures"
+    t.text     "transactin"
+    t.text     "related_person"
+    t.text     "conflicts"
+    t.string   "cap_table_file_name"
+    t.string   "cap_table_content_type"
+    t.integer  "cap_table_file_size"
+    t.datetime "cap_table_updated_at"
   end
 
   create_table "groups", force: true do |t|
@@ -632,6 +639,7 @@ ActiveRecord::Schema.define(version: 20161206235831) do
     t.integer  "general_info_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
   end
 
   create_table "prospective_investments", force: true do |t|

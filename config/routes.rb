@@ -75,6 +75,8 @@ Rails.application.routes.draw do
   get '/manage_team', to: 'campaigns#team', as: "manage_team"
 
   get 'formc/print/:id', to: "formc#print", as: 'formc'
+  get 'formc/:id', to: "formc#show", as: 'formc_show'
+  get 'formc/edit/:id', to: "formc#edit", as: :edit_formc
 
   get "company_not_accretited", to: "companies#company_not_accretited", as: "company_not_accretited"
 

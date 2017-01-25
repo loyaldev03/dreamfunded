@@ -4,11 +4,10 @@
   <div class="header education-center">
     <div class='education-title'>Form C Editor</div>
     <a href="#" class='education-links disabled-link'>General</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links disabled-link'>People</a> <%= fa_icon "chevron-right"%>
+    <a href="#" class='education-links disabled-link'>Team</a> <%= fa_icon "chevron-right"%>
     <a href="#" class='education-links disabled-link'>Terms</a> <%= fa_icon "chevron-right"%>
-    <a href="#" class='education-links active-link'> Disclosures</a> <%= fa_icon "chevron-right"%>
-    <span href="#" class='education-links disabled-link'> Financial Info </span><%= fa_icon "chevron-right"%>
-    <span href="#" class='education-links disabled-link'> Sign & Submit </span>
+    <a href="#" class='education-links active-link'>Disclosures</a> <%= fa_icon "chevron-right"%>
+    <span href="#" class='education-links disabled-link'> Financial Info </span>
   </div>
 
   <div class= "campaign-box  get-funded ">
@@ -23,22 +22,22 @@
   <div class= "login-container">
     <%= form_for @general_info, :url => {:action => "disclosure_save", id: @general_info.id},method: "post" do |f| %>
 
-     <!--  <h3>Disclose all Risks</h3>
+     <h3>Disclose all Risks</h3>
       <p>
         List anything, specific to your company, that would make it risky for investors to invest. Refrain from general statements and try to be as specific as possible on risks that are unique to you. If in doubt, include it. Investors respect transparency. And it protects you.
       </p>
-      <%#= f.fields_for :risks, @risk do |form_builder| %>
+      <%= f.fields_for :risks, @risk do |form_builder| %>
           <br>
-          <%#= form_builder.text_area :content, class: 'terms-inputs', placeholder: 'Risk' %>
-      <%# end %>
-      <%#= f.fields_for :risks do |risk| %>
-        <%#= render 'risk_fields', f: risk %>
-      <%# end %>
+          <%= form_builder.text_area :content, class: 'terms-inputs', placeholder: 'Risk' %>
+      <% end %>
+      <%= f.fields_for :risks do |risk| %>
+        <%= render 'risk_fields', f: risk %>
+      <% end %>
       <div class="links">
-        <%#= link_to_add_association 'Add', f, :risks %>
-      </div> -->
+        <%= link_to_add_association 'Add', f, :risks %>
+      </div>
 
-      <h3>Disclose Use of Funds</h3>
+      <!-- <h3>Disclose Use of Funds</h3>
       <p>Provide a detailed description of how you intend to use the funds, so that investors have enough information to understand how the money will be used. If you have a range of possible uses, describe each probable use and the factors you'll use to choose among them. If you will accept funding in excess of the target offering amount, describe the intended use of the excess proceeds with similar specificity.</p>
 
       <p>
@@ -51,12 +50,59 @@
           <%= form_builder.text_area :content, class: ' terms-inputs', placeholder: 'Say a few things about how you would use the money...' %>
       <% end %>
 
-      <%= f.fields_for :fundraise_tiers do |target| %>
-        <%= render 'fundraise_tier_fields', f: target %>
-      <% end %>
+      <%#= f.fields_for :fundraise_tiers do |target| %>
+        <%#= render 'fundraise_tier_fields', f: target %>
+      <%# end %>
       <div class="links">
-        <%= link_to_add_association 'Add', f, :fundraise_tiers %>
+        <%#= link_to_add_association 'Add', f, :fundraise_tiers %>
+      </div> -->
+
+      <div class='get-funded-section-name'>Competition</div>
+      <%= f.text_area(:competition,  rows: 10, class: "campaign_text_area_width" ) %>
+      <br>
+
+      <div class='get-funded-section-name'>Short description of primary product(s), in one sentence.</div>
+      <%= f.text_field(:product_description,  class: "form-field" ) %>
+      <br>
+
+      <div class='get-funded-section-name'>Summary of your go to market strategy</div>
+      <%= f.text_area(:maket_strategy,  rows: 10, class: "campaign_text_area_width" ) %>
+      <br>
+
+      <div class='get-funded-section-name'>Company Description</div>
+      <%= f.text_area(:company_description, rows: 10, class: "campaign_text_area_width" ) %>
+      <br>
+
+      <div class='get-funded-section-name'>Business Plan</div>
+      <%= f.text_area(:business_plan,  rows: 10, class: "campaign_text_area_width" ) %>
+      <br>
+
+      <div class='get-funded-section-name'>Who are your customers (Market)?</div>
+      <%= f.text_area(:customer_base,  rows: 10, class: "campaign_text_area_width" ) %>
+      <br>
+
+      <div class='get-funded-section-name'>Have you spent on Research and Development(R&D)? (If yes)</div>
+      <div class='get-funded-section-name'>Amount spent on R&D (2016)?</div>
+      <%= f.text_field(:rds,  class: "form-field" ) %>
+      <br>
+      <div class='get-funded-section-name'>Years Spent (rangeex. 2015-2017) </div>
+      <%= f.text_field(:rds_years,  class: "form-field" ) %>
+      <div class='get-funded-section-name'>Amount budgeted for upcoming year R&D? </div>
+      <%= f.text_field(:upcoming_rd,  class: "form-field" ) %>
+
+
+      <div class='get-funded-section-name'>Do you own Real Estate? (if yes, they describe)<br>
+        List Real Property ownership or leases
       </div>
+      <%= f.text_area(:real_estate,  rows: 5, class: "campaign_text_area_width" ) %>
+      <br>
+
+      <div class='get-funded-section-name'>Is the company subject to litigation? <br>
+          If so please list and describe, if not, state NONE
+      </div>
+      <%= f.text_area(:litigation,  rows: 5, class: "campaign_text_area_width" ) %>
+      <br>
+
 
       <div class= "centered">
         <%= submit_tag("Continue", :id => "submit-button") %>

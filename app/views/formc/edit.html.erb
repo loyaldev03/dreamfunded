@@ -1,0 +1,28 @@
+<% title "DreamFunded | Form C" %>
+<div class= "wrapper">
+  <div class="header education-center">
+    <div class='education-title'>Form C Editor</div>
+
+  </div>
+
+  <div class= "campaign-box  get-funded ">
+
+  <div class="row">
+    <div class=" active">
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">Disclosures</a></h2>
+
+    </div>
+  </div>
+
+  <div class= "login-container">
+    <%= form_for @general_info, :url => {:action => "disclosure_save", id: @general_info.id},method: "post" do |f| %>
+
+
+
+      <div class= "centered">
+        <%= submit_tag("Print", :id => "submit-button") %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
