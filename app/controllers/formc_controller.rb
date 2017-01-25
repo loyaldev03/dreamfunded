@@ -1,6 +1,21 @@
 class FormcController < ApplicationController
   before_action :authenticate_user!
   before_filter :set_format, only: [:print]
+  before_action :editor_check, only: [:show, :edit, :update ]
+
+  def show
+    @general_info = GeneralInfo.find(params[:id])
+  end
+
+  def edit
+    @general_info = GeneralInfo.find(params[:id])
+  end
+
+  def update
+    @general_info = GeneralInfo.find(params[:id])
+    @general_info.update(general_info_params)
+    redirect_to action: :show, id: @general_info.id
+  end
 
 
   def general
@@ -24,8 +39,6 @@ class FormcController < ApplicationController
       @officer = Officer.new(position: 'CEO')
     end
     @holders = @general_info.principal_holders
-    #@securities_reserver = [Security.new(security_class: 'Common Stock'), Security.new(security_class: 'Debt Securities')]
-    #@securities_reserver = [Security.new(security_class: 'Warrants'), Security.new(security_class: 'Options')]
   end
 
   def people_save
@@ -34,20 +47,7 @@ class FormcController < ApplicationController
     redirect_to action: :terms, id: @general_info.id
   end
 
-  # def business
-  #   @general_info = GeneralInfo.find(params[:id])
-  #   info = @general_info
-  #   # respond_to do |format|
-  #   #   format.pdf { send_file TestPdfForm.new(info).export("tmp/formc_#{info.name}.pdf"), type: 'application/pdf' }
-  #   # end
-  # end
 
-
-  # def business_save
-  #   @general_info = GeneralInfo.find(params[:id])
-  #   @general_info.update(general_info_params)
-  #   redirect_to action: :people, id: @general_info.id
-  # end
   def terms
     @general_info = GeneralInfo.find(params[:id])
     @perks = [InvestmentPerk.new(amount: 250), InvestmentPerk.new(amount: 500),InvestmentPerk.new(amount: 1000), InvestmentPerk.new(amount: 5000)]
@@ -73,7 +73,6 @@ class FormcController < ApplicationController
     redirect_to action: :financials, id: @general_info.id
   end
 
-
   def financials
     @general_info = GeneralInfo.find(params[:id])
   end
@@ -81,6 +80,7 @@ class FormcController < ApplicationController
   def financials_save
      @general_info = GeneralInfo.find(params[:id])
      @general_info.update(general_info_params)
+     ContactMailer.formc_submitted(current_user, @general_info).deliver
      redirect_to action: :print, id: @general_info.id
   end
 
@@ -93,6 +93,13 @@ class FormcController < ApplicationController
   end
 
 private
+
+  def editor_check
+    if current_user.authority <= User.Authority[:Editor]
+      redirect_to url_for(:controller => 'home', :action => 'unauthorized')
+    end
+  end
+
   def set_format
     request.format = 'pdf'
   end

@@ -1,0 +1,9 @@
+
+
+<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>
+<%= @user.name %> submitted Form C for <%= @formc.company.name%>
+</p>
+
+<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>
+    View it here <%= link_to "Form C",  "http://localhost:3000/formc/#{@formc.id}" %>
+</p>

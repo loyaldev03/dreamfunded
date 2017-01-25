@@ -1,0 +1,183 @@
+<% title "DreamFunded | Form C" %>
+<div class= "wrapper">
+  <div class="header education-center">
+    <div class='education-title'>Form C Editor</div>
+
+  </div>
+
+  <div class= "campaign-box  get-funded ">
+
+  <div class="row">
+    <div class=" active">
+      <h2 class= "darkblue no-margin centered"><a  id="login-form-link">All Q&A</a></h2>
+
+    </div>
+  </div>
+
+  <div>
+    <%= button_to "Edit", edit_formc_path(@general_info), class: 'formc_button' %>
+  </div>
+
+  <div>
+    <%= button_to "Print PDF", formc_path(@general_info), class: 'formc_button' %>
+  </div>
+
+    <div class= "login-container">
+        <div>1. Legal Company Name</div>
+        <div> <%= @general_info.name %> </div>
+            <br><br>
+        <div>2. Legal status</div>
+        <div> <%= @general_info.kind %> </div>
+            <br><br>
+        <div>3. State of Incorporation</div>
+        <div> <%= @general_info.state %> </div>
+            <br><br>
+        <div>4. When was it organized?</div>
+        <div> <%= @general_info.date_formed %> </div>
+            <br><br>
+        <div>5. Number of Employees?</div>
+        <div> <%= @general_info.employees_numer %> </div>
+            <br><br>
+        <div>6. Company Address</div>
+        <div> <%= @general_info.company_location_address %> </div>
+            <br><br>
+        <div>7. Company Location City</div>
+        <div> <%= @general_info.company_location_city %> </div>
+            <br><br>
+        <div>8. Company State</div>
+        <div> <%= @general_info.company_location_state %> </div>
+            <br><br>
+        <div>9. Company Zipcode</div>
+        <div> <%= @general_info.company_location_zipcode %> </div>
+            <br><br>
+        <div>10. Website</div>
+        <div> <%= @general_info.website %> </div>
+             <br><br>
+        <div>11. Employer Id Number</div>
+        <div> <%= @general_info.employer_id_number %> </div>
+            <br><br>
+        <div>12. Outstading Loan</div>
+        <div> <%= @general_info.outstanding_loan %> </div>
+            <br><br>
+        <div>13. Financial Condition</div>
+        <div> <%= @general_info.financial_condition %> </div>
+            <br><br>
+
+        <div>14. Business Model </div>
+        <div> <%= @general_info.business_model %> </div>
+            <br><br>
+
+        <div>15. Business Plan </div>
+        <div> <%= @general_info.business_plan %> </div>
+            <br><br>
+
+        <div>16. Product Description </div>
+        <div> <%= @general_info.product_description %> </div>
+            <br><br>
+
+        <div>17. Competitors</div>
+        <div> <%= @general_info.competition %> </div>
+            <br><br>
+
+        <div>18. Who are customers (Market)?</div>
+        <div> <%= @general_info.customer_base %> </div>
+            <br><br>
+        <div>19. Litigatin</div>
+        <div> <%= @general_info.litigation %> </div>
+            <br><br>
+
+        <div>20. Phone #</div>
+        <div> <%= @general_info.phone %> </div>
+            <br><br>
+
+        <div>21. How long will the campaign last? (days)</div>
+        <div> <%= @general_info.days %> </div>
+            <br><br>
+
+        <div>22. What is the maximum you are looking to raise?</div>
+        <div> <%= @general_info.max_amount %> </div>
+            <br><br>
+
+        <div>23. Type of Securtity</div>
+        <div> <%= @general_info.type_of_securtity %> </div>
+            <br><br>
+
+        <div>24. Target number of securities to be offered</div>
+        <div> <%= @general_info.number_of_securities %> </div>
+            <br><br>
+
+        <div>25. Price (or method for determining price)</div>
+        <div> <%= @general_info.price_of_securities %> </div>
+            <br><br>
+
+        <div>26. What is your target minimum amount</div>
+        <div> <%= @general_info.min_amount %> </div>
+            <br><br>
+
+        <div>27. Min Investment</div>
+        <div> <%= @general_info.min_investment %> </div>
+            <br><br>
+
+        <div>28. Market Strategy</div>
+        <div> <%= @general_info.maket_strategy %> </div>
+            <br><br>
+
+        <div>29. Company Description</div>
+        <div> <%= @general_info.company_description %> </div>
+            <br><br>
+
+        <div>30. What is the discount of the securities</div>
+        <div> <%= @general_info.discount %> </div>
+            <br><br>
+        <div>31. CEO Name</div>
+        <div> <%= @general_info.ceo %> </div>
+            <br><br>
+        <div>32. Amount spent on R&D</div>
+        <div> <%= @general_info.rds %> </div>
+            <br><br>
+        <div>33. Years Spent (rangeex. 2015-2017) on R&D</div>
+        <div> <%= @general_info.rds_years %> </div>
+            <br><br>
+        <div>34. Amount budgeted for upcoming year R&D?</div>
+        <div> <%= @general_info.upcoming_rd %> </div>
+            <br><br>
+        <div>35. Real Property ownership or leases</div>
+        <div> <%= @general_info.real_estate %> </div>
+            <br><br>
+        <div>36. Valuation</div>
+        <div> <%= @general_info.valuation %> </div>
+            <br><br>
+        <div>37. Burn Rate</div>
+        <div> <%= @general_info.burn_rate %> </div>
+            <br><br>
+        <div>38. Will company require additional financing</div>
+        <div> <%= @general_info.additional_financing %> </div>
+            <br><br>
+        <div>39. Does company have any additional sources of capital other than the proceeds from the offering?</div>
+        <div> <%= @general_info.additional_sources_capital %> </div>
+            <br><br>
+        <div>40. Are  aditional sources of capital  necessary to the operations of the Company?</div>
+        <div> <%= @general_info.additional_sources_necessary %> </div>
+            <br><br>
+        <div>41. Has company made any material capital expenditures in the past two years?</div>
+        <div> <%= @general_info.has_material_capital %> </div>
+            <br><br>
+        <div>42. Material capital expenditures</div>
+        <div> <%= @general_info.material_capital %> </div>
+            <br><br>
+        <div>43. The Company intends to make the following material capital expenditures in the future:</div>
+        <div> <%= @general_info.material_capital_expenditures %> </div>
+            <br><br>
+        <div>44. Transactions with related persons</div>
+        <div> <%= @general_info.transactin %> </div>
+            <br><br>
+        <div>45. Name of related person</div>
+        <div> <%= @general_info.related_person %> </div>
+            <br><br>
+        <div>46. Any conflicts of interest between the Company and any related person?</div>
+        <div> <%= @general_info.conflicts %> </div>
+
+
+  </div>
+</div>
+
