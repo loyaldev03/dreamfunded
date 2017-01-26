@@ -115,7 +115,7 @@ private
                                         :transactin, :related_person, :conflicts,
         securities_attributes: [:security_class,  :_destroy, :amount, :outstanding, :voting_rights, :other_rights, :general_info_id, :securities_reserved, :created_at, :updated_at],
         principal_holders_attributes: [:name, :securities_held, :_destroy, :voting_power, :title, :general_info_id, :created_at, :updated_at],
-        officers_attributes: [ "name", "email", "year_joined", "_destroy", "officers", "director", "position", "education", "occupation", "main_employer", "general_info_id", "created_at", "updated_at"],
+        officers_attributes: [ "name", "employment", "email", "year_joined", "_destroy", "officers", "director", "position", "education", "occupation", "main_employer", "general_info_id", "created_at", "updated_at"],
         investment_perks_attributes: [:content, :amount,:_destroy],
         terms_attributes: [
           "safe_cap", "valuation_cap", "_destroy", "investor_threshold", "pro_rata?", "governing_law_state", "days", "raised_this_round", "discount", "store_credit", "store_discount", "general_info_id"

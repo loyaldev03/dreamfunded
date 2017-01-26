@@ -37,6 +37,27 @@ class TestPdfForm < FillablePdfForm
     fill :additional_sources_necessary, @info.add_sources_necessary
 
     fill :has_material_capital, @info.has_material_captl
+
+    if @info.officers.first
+        fill :officer_name_1, @info.officers.first.name
+        fill :officer_position_1, @info.officers.first.position
+        fill :officer_education_1, @info.officers.first.education
+        fill :officer_employment_1, @info.officers.first.employment
+    end
+
+    if @info.officers.second
+        fill :officer_name_2, @info.officers.second.name
+        fill :officer_position_2, @info.officers.second.position
+        fill :officer_education_2, @info.officers.second.education
+        fill :officer_employment_2, @info.officers.second.employment
+    end
+
+    if @info.officers.third
+        fill :officer_name_3, @info.officers.third.name
+        fill :officer_position_3, @info.officers.third.position
+        fill :officer_education_3, @info.officers.third.education
+        fill :officer_employment_3, @info.officers.third.employment
+    end
   end
 end
 

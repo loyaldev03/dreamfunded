@@ -37,16 +37,17 @@
 				</div>
 				<br>
 
-
-				<!-- <section>
-					<label class='get-funded-section-name'>What is purpose of this offering</label><br>
-					<%#= f.text_field :offering_purpose,  class: 'campaign-input-box' %>
-				</section>
-
-				<section>
-					<label class='get-funded-section-name'>Financial Condition</label><br>
-					<%#= f.text_field :fin_condition,  class: 'campaign-input-box' %>
-				</section> -->
+				<h3 > Directors and Officers </h3>
+				<br>
+				<div class='formc-disclosure'>
+					The directors or managers of the managing entity are listed below along with all positions and offices held at the managing entity and their principal occupation and employment responsibilities for the past three (3) years and their educational background and qualifications.
+				</div>
+				<%= f.fields_for :officers  do |holder| %>
+					<%= render 'officer_field', f: holder %>
+				<% end %>
+				<div class="links">
+					<%= link_to_add_association 'Add', f, :officers %>
+				</div>
 
 				<div class= "centered">
 					<%= f.submit("Continue", :id => "submit-button") %>

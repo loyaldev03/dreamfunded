@@ -20,5 +20,18 @@
     <%= f.text_field :education, class: 'input-box', required: true, placeholder: "Education" %>
   </div>
 
+  <div class="field">
+    <%= f.text_area :employment, value: 'Employer:
+Principal business:
+Title:
+Responsibilities:
+Dates:', rows: 10, class: "campaign_text_area_width", placeholder: "Employer:
+Principal business:
+Title:
+Responsibilities:
+Dates:
+" %>
+  </div>
+
   <%= link_to_remove_association "Remove", f %><br/>
 </div>
