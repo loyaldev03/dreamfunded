@@ -142,7 +142,9 @@
                      <%= founder.file_field :image %>
                      <h2 class= "twenty no-margin">
                       <%= founder.text_field :name, class: "form-field " %>
-                      <%= founder.text_field :position, class: "form-field " %></h2>
+                      <%= founder.text_field :title, class: "form-field " %>
+                      <%= founder.select :position, options_for_select((1..10).to_a),{:include_blank => 'Position on a page'},  {class: "form-select form-field required-field"} %>
+                    </h2>
                      <br>
                      <p class= "fifteen no-margin"><%= founder.text_area :content, class: "form-field " %></p>
                    </div>

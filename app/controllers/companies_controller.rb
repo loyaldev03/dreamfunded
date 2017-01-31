@@ -15,7 +15,7 @@ class CompaniesController < ApplicationController
 			@financial_details = @company.financial_detail
 			@progress = @company.invested_amount / @company.goal_amount rescue 0
 			@comments = @company.comments
-			@members = @company.founders
+			@members = @company.founders.order(:position)
 			@section = @company.sections.first
 		else
 			redirect_to "/companies"

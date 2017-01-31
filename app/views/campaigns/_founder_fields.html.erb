@@ -5,9 +5,15 @@
   <br>
 
   <div class="field">
-    <%= f.text_field :position, class: 'form-field required-field', placeholder: "Title" %>
+    <%= f.text_field :title, class: 'form-field required-field', placeholder: "Title" %>
   </div>
   <br>
+
+  <div class="field">
+    <%= f.select :position, options_for_select((1..10).to_a),{:include_blank => 'Position on a page'},  {class: "form-select form-field required-field"} %>
+  </div>
+  <br>
+
 
   <label>Upload Team Member Photo: </label>
 
