@@ -392,5 +392,8 @@ DEPENDENCIES
   will_paginate (~> 3.0.5)
   wkhtmltopdf-heroku
 
+RUBY VERSION
+   ruby 2.2.2p95
+
 BUNDLED WITH
-   1.10.6
+   1.14.3

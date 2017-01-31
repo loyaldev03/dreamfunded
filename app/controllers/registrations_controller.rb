@@ -1,6 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
 
   def create
+    byebug
     super
     p "REGISTRATION CONTROLLER"
     if @user.persisted?
@@ -33,6 +34,8 @@ protected
 
 private
   def sign_up_params
-    params.require(:user).permit(:first_name, :last_name, :email, :phone, :password, :password_confirmation)
+    _params = params.require(:user).permit(:first_name, :last_name, :email, :phone, :password, :password_confirmation)
+    _params[:user_type] = (params[:user][:investor] || "") + "," + (params[:user][:entrepreneur] || "")
+    return _params
   end
 end

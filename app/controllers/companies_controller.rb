@@ -161,6 +161,24 @@ class CompaniesController < ApplicationController
 	def company_not_accretited
 	end
 
+	def accept_company
+		byebug
+		user = User.find_by(email: params[:email])
+		company = Company.find_by(name: params[:company_name])
+		company.status_of_company = "accept"
+		comany.save
+		ContactMailer.send_accept_email_to_company(user, company)
+	end
+
+	def reject_company
+		byebug
+		user = User.find_by(email: params[:email])
+		company = Company.find_by(name: params[:company_name])
+		company.status_of_company = "reject"
+		comany.save		
+		ContactMailer.send_reject_email_to_company(user, company)
+	end
+
 private
 	def set_company
 	  @company = Company.friendly.find(params[:id])

@@ -1,7 +1,22 @@
 
-<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>Hi,<p>
+<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>Dear Manny,<p>
 
-<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>New company was submitted for funding on DreamFunded.com.</p>
-<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>You can check Company Profile <a href="https://dreamfunded.com/companies/<%= @campaign.company.slug %>">here</a></p>
+<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'><%=@name%>’s Company, <%=@company_name%>, has just applied to fundraise on DreamFunded.</p>
 
-<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>Thank you</p>
+<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>Here is their information:
+</p>
+
+<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'><a href="#">Company</a></p>
+
+<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'><a href="#">Team</a></p>
+
+<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'><a href="#">Financial Info</a></p>
+
+<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'><a href="#">Documents</a></p>
+
+<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'><a href="#">Links</a></p>
+
+<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>
+	<a href="http://localhost:3000/companies/accept_company?email=<%= @user.email %>&company_name=<%= @company_name%>"> Accept </a>
+	<a href="http://localhost:3000/companies/reject_company?email=<%= @user.email %>&company_name=<%= @company_name%>"> Reject </a>
+</p>

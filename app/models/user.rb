@@ -28,7 +28,8 @@ class User < ActiveRecord::Base
 	#validates_uniqueness_of :email
 	#validates :password, length: { in: 6..20 }
 	validates :password, confirmation: true
-
+	
+	serialize :users_type,Array
 
 	has_attached_file :image,
 	  :styles =>{

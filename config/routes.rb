@@ -23,7 +23,12 @@ Rails.application.routes.draw do
   get '/posts/:id/edit/:page', to: "posts#edit"
   resources :posts
 
-  resources :companies
+  resources :companies do
+    collection do
+      get 'accept_company', to: 'companies#accept_company'
+      get 'reject_company', to: 'companies#reject_company'
+    end
+  end
   resources :news
   resources :documents
   resources :guests

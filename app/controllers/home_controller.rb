@@ -2,6 +2,9 @@ class HomeController < ApplicationController
 	invisible_captcha only: [:liquidate_form, :contact_us_send_email, :get_funded_send]
 
 	def index
+		if (current_user && current_user.user_type.include?('entrepreneur'))
+			redirect_to "/funding_goal"
+		end
 	end
 
 	def about
@@ -12,6 +15,7 @@ class HomeController < ApplicationController
 	end
 
 	def get_started
+		debugger
 		if current_user == nil
 			redirect_to "/users/sign_up"
 		else
