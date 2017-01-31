@@ -126,7 +126,7 @@ class Company < ActiveRecord::Base
          p "PULLING FundAmerica API"
          p offering_code
           offering = FundAmerica::Offering.details(offering_code)
-          return offering["funds_in_escrow"].to_i
+          return '$' + offering["funds_in_escrow"].to_s
         rescue JSON::ParserError => e
           puts e
           puts 'ERROR'
