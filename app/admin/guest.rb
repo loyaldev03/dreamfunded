@@ -28,7 +28,7 @@ permit_params  :user_id, :email, :name, :created_at, :updated_at
 
   csv do
      column  "company"
-     column("User") {|guest| guest.user.name if guest.user }
+     column("User") {|guest| guest.user.first_name if guest.user }
      column :email
      column("Phone") {|guest| guest.user.phone if guest.user }
    end
