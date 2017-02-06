@@ -13,7 +13,7 @@ ActiveAdmin.register Guest  do
   end
 
 # config.filters = false
-filter :company, as: 'select', collection: proc { Company.all.pluck(:name) }
+filter :company, as: 'select', collection: proc { Company.all_accredited.pluck(:name) }
 
 permit_params  :user_id, :email, :name, :created_at, :updated_at
 
