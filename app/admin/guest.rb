@@ -12,7 +12,8 @@ ActiveAdmin.register Guest  do
 
   end
 
-config.filters = false
+# config.filters = false
+filter :company, as: 'select', collection: proc { Company.order(:name) }
 
 permit_params  :user_id, :email, :name, :created_at, :updated_at
 
