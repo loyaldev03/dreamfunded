@@ -52,7 +52,6 @@ gem 'pdfkit'
 gem 'wkhtmltopdf-heroku'
 gem 'pdf-forms'
 gem 'delayed_job_active_record'
-gem 'owlcarousel-rails'
 
 gem 'will_paginate', '~> 3.0.5'
 gem 'betterlorem', '~> 0.1.2'

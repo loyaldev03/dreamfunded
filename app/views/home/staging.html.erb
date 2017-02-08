@@ -43,12 +43,13 @@
     </section>
 
 
-    <section class='mentioned-in'>
+    <section class='mentioned-in container'>
         <div class='section-title'>DreamFunded Mentioned In</div>
         <div class="mainSeen__slider1__wrap">
             <button class="btn mainSeen__slider1__left"></button>
             <button class="btn mainSeen__slider1__right"></button>
-            <div class="mainSeen__slider1 owl-carousel">
+            <div class="mainSeen__slider1 main-invs__slider">
+
                 <div class="item">
                     <%= image_tag("static/cnn.png") %>
                 </div>
@@ -56,7 +57,7 @@
                     <%= image_tag("static/fortune_logo.png") %>
                 </div>
                 <div class="item">
-                    <%= image_tag("static/inc_logo.png",) %>
+                    <%= image_tag("static/inc_logo.png") %>
                 </div>
                 <div class="item">
                     <%= link_to image_tag("static/cnbc.png"), 'news/betting-on-pre-ipo-companies' %>
@@ -75,6 +76,8 @@
                 </div>
 
             </div>
+            <a href="#" class="main-invs__sl_btn __left"><i class="ico ico-ar-left"></i></a>
+            <a href="#" class="main-invs__sl_btn __right"><i class="ico ico-ar-right"></i></a>
         </div>
     </section>
 
@@ -133,35 +136,6 @@
     // run when page is ready
     $(document).ready(function(){
 
-
-
-            $('.mainSeen__slider1').owlCarousel({
-                loop: true,
-                margin: 0,
-                nav: false,
-                responsive: {
-                    0: {
-                        items: 2
-                    },
-                    768: {
-                        items: 4
-                    },
-                    991: {
-                        items: 5
-                    },
-                    1230: {
-                        items: 6
-                    }
-                }
-            });
-            $('.mainSeen__slider1__left').on('click', function () {
-                $('.mainSeen__slider1').trigger('prev.owl.carousel');
-            });
-            $('.mainSeen__slider1__right').on('click', function () {
-                $('.mainSeen__slider1').trigger('next.owl.carousel');
-            });
-
-
         // create variable to hold the current modal window
         var activeWindow;
 
@@ -206,3 +180,38 @@
     <% end %>
 <% end %>
 
+
+<script type="text/javascript">
+    /*----------  main invs slider  ----------*/
+    $('.main-invs__slider').slick({
+      dots: false,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      prevArrow: $('.main-invs__sl_btn.__left'),
+      nextArrow: $('.main-invs__sl_btn.__right'),
+      responsive: [
+        {
+          breakpoint: 1220,
+          settings: {
+            slidesToShow: 3
+
+          }
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 2
+
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+</script>

@@ -18,10 +18,10 @@
 //= require turbolinks
 //= require links
 //= require cocoon
+//= require slick.min
 //= require companies
 //= require tinyscrollbar.min
 //= require jquery.tinyscrollbar.min
 //= require jquery.countdown.min
-//= require owl.carousel
 //= require_tree .
 
