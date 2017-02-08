@@ -24,8 +24,7 @@
 								<div class= "right-column-portfolio">
 									<div>
 										<p class= "twenty no-margin center"><span class= "darkblue twenty">Invested </span>
-											<%#=("$"+ number_with_delimiter(investment.fund_america_invested_amount, :delimiter => ','))%>
-											<%= investment.fund_america_invested_amount %>
+											<%= number_to_currency investment.fund_america_invested_amount %>
 										</p>
 									</div>
 								</div>
