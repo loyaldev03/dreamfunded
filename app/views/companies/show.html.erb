@@ -394,9 +394,10 @@
 
         document.addEventListener('fa.investnow.success', function(e){
           var InvestorInvestmentID = e.investment_id;
+          console.log(e);
            $.ajax({
                 type: 'POST',
-                url: "/investment_made",
+                url: "/investment_made/"+InvestorInvestmentID,
                 data: { company_id: <%= @company.id %>  },
                 dataType: "json",
                 success: function(resultData) { alert("Save Complete") }
