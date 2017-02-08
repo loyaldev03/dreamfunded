@@ -28,11 +28,18 @@
 }
 .new-invest-button{
     margin: 0px;
-    -webkit-font-smoothing: antialiased;
+    /*-webkit-font-smoothing: antialiased;
     letter-spacing: .1px;
     font-weight: 700;
-    font-family: 'proxima-nova',sans-serif;
-
+    font-family: 'proxima-nova',sans-serif;*/
+    font-family: 'Gotham',sans-serif;
+    font-size: 1.3em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: bold;
+}
+.margin-get-started-btn{
+    margin-bottom: 100px;
 }
 
 .section-title{
