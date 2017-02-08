@@ -4,7 +4,7 @@ class Investment < ActiveRecord::Base
 
 
   def fund_america_invested_amount
-    if !self.fund_america_id
+    if self.fund_america_id
         investment_code = self.fund_america_id
         begin
          p "PULLING FundAmerica API"
