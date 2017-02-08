@@ -54,16 +54,13 @@
                     <%= image_tag("static/cnn.png") %>
                 </div>
                 <div class="item">
-                    <%= image_tag("static/fortune_logo.png") %>
-                </div>
-                <div class="item">
                     <%= image_tag("static/inc_logo.png") %>
                 </div>
                 <div class="item">
-                    <%= link_to image_tag("static/cnbc.png"), 'news/betting-on-pre-ipo-companies' %>
+                    <%= image_tag("static/fox.jpg") %>
                 </div>
                 <div class="item">
-                    <%= image_tag("static/fox.jpg") %>
+                    <%= link_to image_tag("static/cnbc.png"), 'news/betting-on-pre-ipo-companies' %>
                 </div>
                 <div class="item">
                     <%= image_tag("static/tech.png") %>
@@ -74,10 +71,13 @@
                 <div class="item">
                     <%= image_tag("static/nbc-logo.png") %>
                 </div>
+                <div class="item">
+                    <%= image_tag("static/fortune_logo.png") %>
+                </div>
 
             </div>
-            <a href="#" class="main-invs__sl_btn __left"><i class="ico ico-ar-left"></i></a>
-            <a href="#" class="main-invs__sl_btn __right"><i class="ico ico-ar-right"></i></a>
+            <a href="#" class="main-invs__sl_btn __left"><%= image_tag("left_arrow.png", size: '40x40') %></a>
+            <a href="#" class="main-invs__sl_btn __right"><%= image_tag("right_arrow.png", size: '40x40') %></a>
         </div>
     </section>
 
@@ -187,29 +187,30 @@
       dots: false,
       infinite: true,
       speed: 300,
-      slidesToShow: 3,
+      slidesToShow: 5,
       slidesToScroll: 1,
+      variableWidth: true,
       prevArrow: $('.main-invs__sl_btn.__left'),
       nextArrow: $('.main-invs__sl_btn.__right'),
       responsive: [
         {
           breakpoint: 1220,
           settings: {
-            slidesToShow: 3
+            slidesToShow: 4
 
           }
         },
         {
           breakpoint: 992,
           settings: {
-            slidesToShow: 2
+            slidesToShow: 3
 
           }
         },
         {
           breakpoint: 480,
           settings: {
-            slidesToShow: 1
+            slidesToShow: 2
           }
         }
       ]
