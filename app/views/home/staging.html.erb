@@ -21,25 +21,46 @@
 
     <section class='what-is-dreamfunded centered'>
         <div class='section-title'>What is DreamFunded?</div>
+
         <div>
-            <span class="about-us-icons active-tab">Startups</span>
-            <span class="about-us-icons">Investors</span>
+            <span class="about-startups about-us-icons active-tab">Startups</span>
+            <span class="about-investors about-us-icons">Investors</span>
         </div>
-        <article class='inline-block-icons ' >
-            <%= image_tag "communication-1297544_640.png", class: "about-us-images" %>
-            <p class='icon-description'>Reach our Network of 100K+  Potential Investors and <br>Use our Free Marketing Tools</p>
 
-        </article>
+        <div class='about-startups-tab'>
+            <article class='inline-block-icons ' >
+                <%= image_tag "communication-1297544_640.png", class: "about-us-images" %>
+                <p class='icon-description'>Reach our Network of 100K+  Potential Investors and <br>Use our Free Marketing Tools</p>
+            </article>
 
-        <article class='inline-block-icons '>
-            <%= image_tag "clean_image_laptop.png", class: "about-us-images" %>
-            <p class='icon-description'>Accept investments <br> directly online</p><br>
-        </article>
+            <article class='inline-block-icons '>
+                <%= image_tag "clean_image_laptop.png", class: "about-us-images" %>
+                <p class='icon-description'>Accept investments <br> directly online</p><br>
+            </article>
 
-        <article class='inline-block-icons '>
-            <%= image_tag "time.png", class: "about-us-images" %>
-            <p class='icon-description'>Focus on Building your Business <br>Spend less time on fundraising</p><br>
-        </article>
+            <article class='inline-block-icons '>
+                <%= image_tag "time.png", class: "about-us-images" %>
+                <p class='icon-description'>Focus on Building your Business <br>Spend less time on fundraising</p><br>
+            </article>
+        </div>
+
+        <div class='about-investors-tab'>
+            <article class='inline-block-icons ' >
+                <%= image_tag "access_icon_clean.png", class: "about-us-images" %>
+                <p class='icon-description'>Insider Access<br> Become an Insider by Investing in Pre-Screened Startups</p>
+            </article>
+
+            <article class='inline-block-icons '>
+                <%= image_tag "browse_clear.png", class: "about-us-images" %>
+                <p class='icon-description'>Browse Investments<br> As a Member, You Can Review Our Selection of Innovative Tech Companies</p>
+            </article>
+
+            <article class='inline-block-icons '>
+                <%= image_tag "low_mins.png", class: "about-us-images" %>
+                <p class='icon-description'>Low Minimums<br> You Can Invest as Little as $10 to Build a Diversified Portfolio</p>
+            </article>
+        </div>
+
     </section>
 
 
@@ -221,4 +242,19 @@
         }
       ]
     });
+
+
+    /* tabs for Startups and Investors */
+    $(".about-startups").click(function(){
+        $(this).addClass('active-tab');
+        $(".about-investors").removeClass('active-tab');
+        $('.about-investors-tab').hide();
+        $('.about-startups-tab').show();
+    })
+    $(".about-investors").click(function(){
+        $(this).addClass('active-tab');
+        $(".about-startups").removeClass('active-tab');
+        $('.about-startups-tab').hide();
+        $('.about-investors-tab').show();
+    })
 </script>

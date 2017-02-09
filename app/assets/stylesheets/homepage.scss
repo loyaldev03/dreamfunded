@@ -18,10 +18,11 @@
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
 }
 .website-subtitle{
-    font-family: "Gotham", arial, sans-serif;
+    font-family: 'Gotham',sans-serif;
+    font-size: 1.5em;
+    -webkit-font-smoothing: antialiased;
     margin: 0;
     font-size: 25px;
-    font-weight: 500;
     padding: 10px 0;
     text-align: center;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
@@ -88,3 +89,8 @@
     width: auto;
     position: relative;
 }
+
+.about-investors-tab{
+    display: none;
+}
+
