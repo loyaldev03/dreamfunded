@@ -97,7 +97,7 @@ class SubscribeJob
       begin
           CSV.foreach(file.path, headers: false, :encoding => 'ISO-8859-1') do |row|
             begin
-              p row['Email']
+              p row[1]
               invites << Invite.create!( name: row[0], email: row[1] )
             rescue ActiveRecord::RecordInvalid => invalid
               puts invalid.record.errors
