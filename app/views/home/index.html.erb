@@ -1,233 +1,259 @@
 <% title "DreamFunded | Equity Crowdfunding Platform" %>
-<% facebook_url "https://dreamfunded.com/" %>
+<% facebook_url "https://dreamfunded.vc/" %>
 <% meta_tag "DreamFunded is a Silicon Valley equity crowdfunding platform.  " %>
 <% facebook_image "https://dreamfunded.com/assets/logo_for_facebook.jpg" %>
 <% facebook_secure_image "https://dreamfunded.com/assets/logo_for_facebook.jpg" %>
 
+    <section class='background-image centered'>
+        <div class='background-opacity'>
 
-		<div class= "cover-image">
-				<div class= "space-keeper"><%#= image_tag("smaller_bg.jpg", :class => "sky") %></div>
-				<div class= "big-title white ">
+            <h1 class='website-title' >Invest in Startups</h1>
+            <h3 class='website-subtitle '>Now Everyone Can Back Companies They Love.</h3>
 
-					<h1 class= "remove-margin"> Invest in What You Believe </h1>
-					<div class= "top-space-slogan"><h1 class= "remove-margin equity-crowdfuning-line">  Equity Crowdfunding for All  </h1></div>
-
-					<div class= "top-space"><h3 class= "remove-margin"></h3></div>
-					<div class= "centered button-box">
-						<%= link_to "Get Started", {:action => 'get_started'}, {:class => 'invest-button invest-now-button'} %>
-						<%#= link_to "Liquidate Now", {:action => 'liquidate'}, {:class => 'invest-button liquidate-now-button'} %>
-					</div>
-				</div>
-
-			<h2 class= "centered darkblue homepage-line-text">We're Your Way Into Private Companies </h2>
-
-			<div class= "section2-wrap"><div class= "section2"><div class="boxes">
-				<div class= "section2-box">
-						<div class= "section2-content">
-							<div class= "outer"><%= image_tag("static/lock.png", :class => "image2") %></div>
-							<br><br>
-							<h2 class= "centered darkblue">Insider Access</h2>
-							<div class= "box-text">
-								<p class= "seventeen centered">Become an Insider by Investing in Pre-Screened Startups</p>
-							</div>
-						</div>
-				</div>
+            <div class= "centered button-box">
+                <%= link_to "Get Started", {:action => 'get_started'}, {:class => 'invest-button new-invest-button'} %>
+            </div>
+        </div>
+    </section>
 
 
-				<div class= "section2-box"><div class= "section2-content">
-					<div class= "outer middle"><%= image_tag("static/glass.png", :class => "image2") %></div>
-					<br>
-					<h2 class= "centered darkblue">Browse Investments</h2>
-					<div class= "box-text">
-						<p class= "seventeen centered">As a Member, You Can Review Our Selection of Innovative Tech Companies</p>
-					</div>
-					<!-- <h2 class='centered darkblue padding-mentioned-in'>Mentioned In</h2> -->
-				</div></div>
 
-				<div class= "section2-box"><div class= "section2-content">
-					<div class= "outer"><%= image_tag("static/wheel.png", :class => "image2") %></div>
-					<br><br>
-					<h2 class= "centered darkblue">Low Minimums</h2>
-					<div class= "box-text">
-						<p class= "seventeen centered">You Can Invest as Little as $10 to Build a Diversified Portfolio</p>
-					</div>
-				</div>
-			</div>
-			</div></div>
+    <section class='what-is-dreamfunded centered'>
+        <div class='section-title'>What is DreamFunded?</div>
 
-			<div class= "logos fullWidth">
-				<div class= "logo-title">
-					<h2 class= "centered transparent">DreamFunded</h2>
-				</div>
-				<div class= "logos-container">
-					<div class= "logo-title">
-						<h2 class= "centered darkblue" id='mentioned_in'>As Seen On</h2>
-					</div>
-					<span class="desktop_logos">
-							<div class= "row1">
-								<span class='homepage-press-mentions'><%= image_tag("static/nbc-logo.png") %></span>
-								<span class='homepage-press-mentions'><%= image_tag("static/Forbes.jpg", class: "padding-top-100") %></span>
-								<span class='homepage-press-mentions'><%= link_to image_tag("static/tech.png"), "https://techcrunch.com/2016/10/12/what-regulation-crowdfunding-in-the-jobs-act-means-to-entrepreneurs-and-startups/", target: '_blank' %></span>
-								<span class='homepage-press-mentions'><%= image_tag("static/fox.jpg", id: 'fox-news-logo') %></span>
-								<span class='homepage-press-mentions'><%= link_to image_tag("static/cnbc.png"), 'news/betting-on-pre-ipo-companies' %></span>
-							</div>
-							<div class='row1'>
-								<span class='homepage-press-mentions'><%= image_tag("static/inc_logo.png", id: "inc_logo") %></span>
-								<span class='homepage-press-mentions'><%= image_tag("static/fortune_logo.png", id: "fortune_logo") %></span>
-								<span class='homepage-press-mentions'><%= image_tag("static/cnn.png", class: 'cnn-logo') %></span>
-							</div>
-							<div class= "row2">
-								<%=  image_tag("static/entrepreneur.png") %>
-								<%= link_to( image_tag("static/wallstreet.png", id: 'wallstreet_logo'), "http://www.wsj.com/articles/startup-investing-for-the-little-guy-1480907701", target: "_blank" ) %>
-								<%#=  image_tag("static/wallstreet.png", id: 'wallstreet_logo') %>
-								<%=  image_tag("static/fast_company.png", id: 'fast_company_logo') %>
-							</div>
-					</span>
-					<span class="mobile-logos">
-							<div class= "row1">
-							  <span class='homepage-press-mentions'><%= image_tag("static/nbc-logo.png") %></span>
-							  <span class='homepage-press-mentions'><%= image_tag("static/Forbes.jpg", class: "padding-top-100") %></span>
-							  <span class='homepage-press-mentions'><%= image_tag("static/inc.png", id: "inc_logo") %></span>
-							</div>
-							<div class='row1'>
-							  <span class='homepage-press-mentions'><%= image_tag("static/fox.jpg", id: 'fox-news-logo') %></span>
-							  <span class='homepage-press-mentions'><%= link_to image_tag("static/cnbc.png"), 'news/betting-on-pre-ipo-companies' %></span>
-							  <span class='homepage-press-mentions'><%= image_tag("static/tech.png") %></span>
-							  <span class='homepage-press-mentions'><%#= image_tag("static/cnn.png", class: 'cnn-logo') %></span>
-							</div>
-							<div class= "row2">
-							  <span class='homepage-press-mentions'><%= image_tag("static/fortune_logo.png", id: "fortune_logo") %></span>
-							  <span class='homepage-press-mentions'><%=  image_tag("static/entrepreneur.png", id: "entrepreneur_logo") %></span>
-							</div>
-							<div class= "row2 last_row">
-							  <%#=  image_tag("static/wallstreet.png", id: 'wallstreet_logo') %>
-							  <%= link_to( image_tag("static/wallstreet.png", id: 'wallstreet_logo'), "http://www.wsj.com/articles/startup-investing-for-the-little-guy-1480907701", target: "_blank" ) %>
-							  <%=  image_tag("static/fast_company.png", id: 'fast_company_logo') %>
-							</div>
-					</span>
+        <div>
+            <span class="about-startups about-us-icons active-tab">Startups</span>
+            <span class="about-investors about-us-icons">Investors</span>
+        </div>
 
-				</div>
-			</div>
+        <div class='about-startups-tab'>
+            <article class='inline-block-icons ' >
+                <%= image_tag "communication-1297544_640.png", class: "about-us-images" %>
+                <p class='icon-description'>Reach out to our Network of 100K+  Investors &<br>Utilize our Free Marketing Tools</p>
+            </article>
 
-			<div class= "centered	bottom-buttons">
-				<%= link_to "Get Started", {:action => 'get_started'}, {:class => 'invest-button invest-now-button'} %>
-				<%#= link_to "Liquidate Now", {:action => 'liquidate'}, {:class => 'invest-button liquidate-now-button'} %>
-			</div>
-		</div>
-		<!-- Newsletter Subscribers -->
-	<!-- 	<div class='cnbc-video-wrapper'>
-				<h2 class='watch-video-cnbc'>DreamFunded as seen on CNBC Squawk Box</h2>
-				<iframe class='cnbc-youtube-video' src="https://www.youtube.com/embed/UosDuIgUCjI" frameborder="0" allowfullscreen></iframe>
-				<div class='cnbc-video-title watch-video-cnbc'>
-					<span class='cnbc-video-text'>Betting on pre-IPO companies</span><br>
-					<span class='cnbc-video-description'>DreamFunded CEO, Manny Fernandez weighs in on Silicon Valley’s new Equity CrowdFunding trend and how DreamFunded.vc matches investors with pre-screened startup companies.</span>
-					<%#= link_to 'More News', news_index_path, class: 'cnbc-link-news' %>
-				</div>
-		</div> -->
+            <article class='inline-block-icons '>
+                <%= image_tag "clean_image_laptop.png", class: "about-us-images" %>
+                <p class='icon-description'>Showcase Your Company & Accept Investments <br> Directly Online</p><br>
+            </article>
 
-		<div id='toast-container'>
-			<div id='toastEmail'>
-				<i class="fa fa-times" id='close-subcribtion'></i>
-				<p>Join our educational newsletter and <b>become a better investor</b> today.</p>
-				<%= form_for Guest.new, remote: true do |f|%>
-					<%= f.text_field 'email', required: true, id: 'newsletter-text-field' %>
-					<button id='newsletter-submit-button'>SUBSCRIBE</button>
-					<p id='display-later'>THANK YOU</p>
-				<% end %>
-			</div>
-		</div>
+            <article class='inline-block-icons '>
+                <%= image_tag "time.png", class: "about-us-images" %>
+                <p class='icon-description'>Focus on Building your Business &<br>Spend Less Time on Fundraising</p><br>
+            </article>
+        </div>
 
-		<div class="investor-logos">
-			<!-- <div class="fb-like" data-href="https://www.facebook.com/dreamfundedcom/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div> -->
-			<div class="fb-like" data-href="https://www.facebook.com/dreamfundedcom/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+        <div class='about-investors-tab'>
+            <article class='inline-block-icons ' >
+                <%= image_tag "access_icon_clean.png", class: "about-us-images" %>
+                <p class='icon-description'>Insider Access:<br> Become an Insider by Investing in Pre-Screened Startups</p>
+            </article>
 
-			<%= image_tag("static/aca_logo.png", :class => 'aca-logo') %>
-			<%= image_tag("static/perkins.png", :class => 'perkins-logo') %>
-			<a class= "indent foot-text hide-on-desktop"> COPYRIGHT © <%= Time.now.year %></a>
-		</div>
-<!-- 		<div class= "foot-bar">
-			<div class= "foot-wrap">
-				<div class= "image3-box gap"><%= image_tag("static/DreamFunded-Logo-Vertical-lightblue.png", :class => 'image3') %></div>
-				<div class= "image4-box gap">
-					<%= link_to image_tag("static/facebook.png", :class => 'image4'), "https://www.facebook.com/dreamfundedcom", :target => "_blank" %>
-					<%= link_to image_tag("static/twitter.png", :class => 'image4'), "https://twitter.com/dreamfunded", :target => "_blank" %>
-					<%= link_to image_tag("static/linkedin.png", :class => 'image4'), "https://www.linkedin.com/company/dreamfunded-com", :target => "_blank" %>
-					<%= link_to image_tag("static/angel.png", :class => 'image4'), "https://angel.co/dreamfunded-1", :target => "_blank" %>
-				</div>
-			</div>
-		</div> -->
+            <article class='inline-block-icons '>
+                <%= image_tag "browse_clear.png", class: "about-us-images" %>
+                <p class='icon-description'>Browse Investments:<br> As a Member, You Can Review Our Selection of Innovative Tech Companies</p>
+            </article>
+
+            <article class='inline-block-icons '>
+                <%= image_tag "low_mins.png", class: "about-us-images" %>
+                <p class='icon-description'>Low Minimums:<br> You Can Invest as Little as $10 to Build a Diversified Portfolio</p>
+            </article>
+        </div>
+
+    </section>
+
+
+    <section class='mentioned-in container'>
+        <div class='section-title'>DreamFunded Mentioned In</div>
+        <div class="mainSeen__slider1__wrap">
+            <button class="btn mainSeen__slider1__left"></button>
+            <button class="btn mainSeen__slider1__right"></button>
+            <div class="mainSeen__slider1 main-invs__slider">
+
+                <div class="item">
+                    <%= image_tag("static/cnn.png") %>
+                </div>
+                <div class="item">
+                    <%= image_tag("static/inc.png") %>
+                </div>
+                <div class="item">
+                    <%= image_tag("static/fox.jpg") %>
+                </div>
+                <div class="item">
+                    <%= link_to image_tag("static/cnbc.png"), 'news/betting-on-pre-ipo-companies' %>
+                </div>
+                <div class="item">
+                    <%= image_tag("static/tech.png") %>
+                </div>
+                <div class="item">
+                    <%= image_tag("static/Forbes.jpg") %>
+                </div>
+                <div class="item">
+                    <%= image_tag("static/nbc-logo.png") %>
+                </div>
+                <div class="item">
+                    <%= image_tag("static/fortune.png") %>
+                </div>
+
+            </div>
+            <a href="#" class="main-invs__sl_btn __left"><%= image_tag("left_arrow.png", size: '40x40') %></a>
+            <a href="#" class="main-invs__sl_btn __right"><%= image_tag("right_arrow.png", size: '40x40') %></a>
+        </div>
+    </section>
+
+
+    <section class='currently-fundraising'></section>
+
+
+    <section class='faq'></section>
+
+
+
+<br><br><br><br><br><br><br><br><br>
+
+        <div class= "centered   bottom-buttons">
+            <%= link_to "Get Started", {:action => 'get_started'}, {:class => 'invest-button invest-now-button margin-get-started-btn new-invest-button'} %>
+            <%#= link_to "Liquidate Now", {:action => 'liquidate'}, {:class => 'invest-button liquidate-now-button'} %>
+        </div>
+
+        <div class="investor-logos">
+            <!-- <div class="fb-like" data-href="https://www.facebook.com/dreamfundedcom/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div> -->
+            <div class="fb-like" data-href="https://www.facebook.com/dreamfundedcom/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+
+            <%= image_tag("static/aca_logo.png", :class => 'aca-logo') %>
+            <%= image_tag("static/perkins.png", :class => 'perkins-logo') %>
+            <a class= "indent foot-text hide-on-desktop"> COPYRIGHT © <%= Time.now.year %></a>
+        </div>
+<!--        <div class= "foot-bar">
+            <div class= "foot-wrap">
+                <div class= "image3-box gap"><%= image_tag("static/DreamFunded-Logo-Vertical-lightblue.png", :class => 'image3') %></div>
+                <div class= "image4-box gap">
+                    <%= link_to image_tag("static/facebook.png", :class => 'image4'), "https://www.facebook.com/dreamfundedcom", :target => "_blank" %>
+                    <%= link_to image_tag("static/twitter.png", :class => 'image4'), "https://twitter.com/dreamfunded", :target => "_blank" %>
+                    <%= link_to image_tag("static/linkedin.png", :class => 'image4'), "https://www.linkedin.com/company/dreamfunded-com", :target => "_blank" %>
+                    <%= link_to image_tag("static/angel.png", :class => 'image4'), "https://angel.co/dreamfunded-1", :target => "_blank" %>
+                </div>
+            </div>
+        </div> -->
 <% if current_user != nil %>
-	<% if User.find(current_user.id).try(:confirmed) == false %>
-		<!-- ---------------------- -->
-		<a href="#dialog" class="modalLink">Verify Email Address</a>
+    <% if User.find(current_user.id).try(:confirmed) == false %>
+        <!-- ---------------------- -->
+        <a href="#dialog" class="modalLink">Verify Email Address</a>
 
-		<div id="modal">
-		  <!-- First modal window -->
-		   <div id="dialog" class="window">
-		    <div class="contents">
-		    		<div class='close-icon'>
-		    			<a href="#" class="close"><i class="fa fa-times"></i></a>
-		    		</div>
-		        <h3>Verify Email Address</h3>
-		        <!-- <hr class='line-verify-modal'> -->
-		        <p class='verify-modal-text'>Thank you for joining DreamFunded. A verification email has been sent to <%= current_user.email %>. Please complete your signup by clicking the link in this email.</p>
-		        <center>
-		        	<a href="#" class="close">Close</a>
+        <div id="modal">
+          <!-- First modal window -->
+           <div id="dialog" class="window">
+            <div class="contents">
+                    <div class='close-icon'>
+                        <a href="#" class="close"><i class="fa fa-times"></i></a>
+                    </div>
+                <h3>Verify Email Address</h3>
+                <!-- <hr class='line-verify-modal'> -->
+                <p class='verify-modal-text'>Thank you for joining DreamFunded. A verification email has been sent to <%= current_user.email %>. Please complete your signup by clicking the link in this email.</p>
+                <center>
+                    <a href="#" class="close">Close</a>
 
-		        </center>
-		    </div>
-		 </div>
-		</div>
-		<!-- ------------- -->
-	<script>
-	// run when page is ready
-	$(document).ready(function(){
+                </center>
+            </div>
+         </div>
+        </div>
+        <!-- ------------- -->
+    <script>
+    // run when page is ready
+    $(document).ready(function(){
 
-	    // create variable to hold the current modal window
-	    var activeWindow;
+        // create variable to hold the current modal window
+        var activeWindow;
 
-	        // cancel the default link behaviour
+            // cancel the default link behaviour
 
-	        // find the href of the link that was clicked to use as an id
-	        var id = '#dialog'
-	        console.log(id);
-	        // assign the window with matching id to the activeWindow variable, move it to the center of the screen and fade in
-	        activeWindow = $('.window' + id)
-	            .css('opacity', '0') // set to an initial 0 opacity
-	            .css('top', '50%') // position vertically at 50%
-	            .css('left', '50%') // position horizontally at 50%
-	            .fadeTo(500, 1); // fade to an opacity of 1 (100%) over 500 milliseconds
+            // find the href of the link that was clicked to use as an id
+            var id = '#dialog'
+            console.log(id);
+            // assign the window with matching id to the activeWindow variable, move it to the center of the screen and fade in
+            activeWindow = $('.window' + id)
+                .css('opacity', '0') // set to an initial 0 opacity
+                .css('top', '50%') // position vertically at 50%
+                .css('left', '50%') // position horizontally at 50%
+                .fadeTo(500, 1); // fade to an opacity of 1 (100%) over 500 milliseconds
 
-	        // create blind and fade in
-	        $('#modal')
-	            .append('<div id="blind" />') // create a <div> with an id of 'blind'
-	            .find('#blind') // select the div we've just created
-	            .css('opacity', '0') // set the initial opacity to 0
-	            .fadeTo(500, 0.8) // fade in to an opacity of 0.8 (80%) over 500 milliseconds
-	            .click(function(e){
-	                closeModal(); // close modal if someone clicks anywhere on the blind (outside of the window)
-	            });
+            // create blind and fade in
+            $('#modal')
+                .append('<div id="blind" />') // create a <div> with an id of 'blind'
+                .find('#blind') // select the div we've just created
+                .css('opacity', '0') // set the initial opacity to 0
+                .fadeTo(500, 0.8) // fade in to an opacity of 0.8 (80%) over 500 milliseconds
+                .click(function(e){
+                    closeModal(); // close modal if someone clicks anywhere on the blind (outside of the window)
+                });
 
-	    $('a.close').click(function(e){
-	            // cancel default behaviour
-	            e.preventDefault();
-	            // call the closeModal function passing this close button's window
-	            closeModal();
-	    });
-	    function closeModal()
-	    {
-	        // fade out window and then move back to off screen when fade completes
-	        activeWindow.fadeOut(250, function(){ $(this).css('top', '-1000px').css('left', '-1000px'); });
-	        // fade out blind and then remove it
-	        $('#blind').fadeOut(250,    function(){ $(this).remove(); });
-	    }
-	  // close NewsLetter Subscription Box
-	});
-	</script>
-	<% end %>
+        $('a.close').click(function(e){
+                // cancel default behaviour
+                e.preventDefault();
+                // call the closeModal function passing this close button's window
+                closeModal();
+        });
+        function closeModal()
+        {
+            // fade out window and then move back to off screen when fade completes
+            activeWindow.fadeOut(250, function(){ $(this).css('top', '-1000px').css('left', '-1000px'); });
+            // fade out blind and then remove it
+            $('#blind').fadeOut(250,    function(){ $(this).remove(); });
+        }
+      // close NewsLetter Subscription Box
+    });
+    </script>
+    <% end %>
 <% end %>
+
+
 <script type="text/javascript">
-	 $('#close-subcribtion').click(function(){
-	  $('#toast-container').hide();
-	 })
+    /*----------  main invs slider  ----------*/
+    $('.main-invs__slider').slick({
+      dots: false,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 5,
+      slidesToScroll: 1,
+      variableWidth: true,
+      prevArrow: $('.main-invs__sl_btn.__left'),
+      nextArrow: $('.main-invs__sl_btn.__right'),
+      responsive: [
+        {
+          breakpoint: 1220,
+          settings: {
+            slidesToShow: 4
+
+          }
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 3
+
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 2
+          }
+        }
+      ]
+    });
+
+
+    /* tabs for Startups and Investors */
+    $(".about-startups").click(function(){
+        $(this).addClass('active-tab');
+        $(".about-investors").removeClass('active-tab');
+        $('.about-investors-tab').hide();
+        $('.about-startups-tab').show();
+    })
+    $(".about-investors").click(function(){
+        $(this).addClass('active-tab');
+        $(".about-startups").removeClass('active-tab');
+        $('.about-startups-tab').hide();
+        $('.about-investors-tab').show();
+    })
 </script>
