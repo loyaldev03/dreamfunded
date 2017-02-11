@@ -1,6 +1,7 @@
 class CampaignsController < ApplicationController
   before_action :authenticate_user!
   before_action :verify
+  respond_to :docx
 
   def funding_goal
     @company = Company.new
@@ -96,8 +97,11 @@ class CampaignsController < ApplicationController
   end
 
   def campaign_review
-    @campaign = Campaign.find(params[:id])
-    @company = @campaign.company
+    # @campaign = Campaign.find(params[:id])
+    # @company = @campaign.company
+    #@name = 'Alex'
+    #respond_with(@name, filename: 'my_file.docx')
+    render :layout => false
   end
 
   def edit_campaign
