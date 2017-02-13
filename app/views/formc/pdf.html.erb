@@ -1129,45 +1129,44 @@
 
             <ol class="c16 lst-kix_list_11-0 start" start="1"><li class="c22 c27"><h1 id="h.40ew0vw" style="display:inline"><span class="c8">Directors and Officers</span></h1></li></ol><p class="c22"><span class="c1">The directors or managers of the Company are listed below along with all positions and offices held at the Company and their principal occupation and employment responsibilities for the past three (3) years and their educational background and qualifications.</span></p>
 
+
+
             <p class="c2"><span class="c1"></span></p>
 
             <p class="c22"><span class="c65">DIRECTORS </span></p>
 
             <p class="c2"><span class="c65"></span></p>
 
-            <p class="c22" id="h.2fk6b3p"><span class="c112">Directors or Managers </span></p>
+            <p class="c22" id="h.2fk6b3p"><span class="c112">Directors or Managers</span></p>
 
             <p class="c22"><span class="c7">The directors or managers of the managing entity are listed below along with all positions and offices held at the managing entity and their principal occupation and employment responsibilities for the past three (3) years and their educational background and qualifications.</span></p>
 
-            <p class="c2"><span class="c7"></span></p>
-
-            <p class="c22"><span class="c77">Name</span></p>
-
-            <p class="c2"><span class="c7"></span></p>
-
-            <p class="c2"><span class="c7"></span></p>
-
             <p class="c22"><span class="c77">All positions and offices held with the Company and date such position(s) was held with start and ending dates</span></p>
+            <br>
 
-            <p class="c2"><span class="c7"></span></p>
+            <% @general_info.officers.each do |officer| %>
 
-            <p class="c2"><span class="c7"></span></p>
 
-            <p class="c22"><span class="c7">Responsibilities- Research, product development, sales, day to day, fund raising, resourcing</span></p>
+                <p class="c22"><span class="c77">Name</span></p>
+                <p class="c2"><span class="c7"><%= officer.name%> <%= officer.position%></span></p>
+                </br></br>
 
-            <p class="c2"><span class="c7"></span></p>
+                <p class="c22"><span class="c7">Responsibilities- Research, product development, sales, day to day, fund raising, resourcing</span></p>
+                <br>
+                <p class="c2"><span class="c7"><%= officer.employment%></span></p>
 
-            <p class="c22"><span class="c77">Principal occupation and employment responsibilities during at least the last three (3) years with start and ending dates</span></p>
+                <br>
+                <p class="c22"><span class="c77">Principal occupation and employment responsibilities during at least the last three (3) years with start and ending dates</span></p>
+                <br>
 
-            <p class="c2"><span class="c7"></span></p>
+                <p class="c22"><span class="c77">Education</span></p>
+                <p class="c2"><span class="c7"><%= officer.education %> </span></p>
+                <br>
+            <% end %>
 
-            <p class="c2"><span class="c7"></span></p>
 
-            <p class="c2"><span class="c7"></span></p>
 
-            <p class="c22"><span class="c77">Education</span></p>
 
-            <p class="c2"><span class="c65"></span></p>
 
             <p class="c22"><span class="c65">OFFICERS</span></p>
 
@@ -1240,11 +1239,13 @@
             <p class="c2"><span class="c36"></span></p>
             <p class="c23 c10"><span class="c69 c62"></span></p>
 
-            <ol class="c16 lst-kix_list_11-0" start="3"><li class="c0 c27"><h2 id="h.3ep43zb" style="display:inline"><span class="c8">Indemnification</span></h2></li></ol><h2 class="c0 c5"><span class="c4"></span></h2><p class="c3"><span class="c1">Indemnification is authorized by the Company to directors, officers or controlling persons acting in their professional capacity pursuant to </span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;law. Indemnification includes expenses such as attorney&rsquo;s fees and, in certain circumstances, judgements, fines and settlement amounts actually paid or incurred in connection with actual or threatened actions, suits or proceedings involving such person, except in certain circumstances where a person is adjudged to be guilty of gross negligence or willful misconduct, unless a court of competent jurisdiction determines that such indemnification is fair and reasonable under the circumstances.</span></p>
+            <ol class="c16 lst-kix_list_11-0" start="3"><li class="c0 c27"><h2 id="h.3ep43zb" style="display:inline"><span class="c8">Indemnification</span></h2></li></ol><h2 class="c0 c5"><span class="c4"></span></h2><p class="c3"><span class="c1">Indemnification is authorized by the Company to directors, officers or controlling persons acting in their professional capacity pursuant to </span><%= @general_info.state%> <span class="c1">&nbsp;law. Indemnification includes expenses such as attorney&rsquo;s fees and, in certain circumstances, judgements, fines and settlement amounts actually paid or incurred in connection with actual or threatened actions, suits or proceedings involving such person, except in certain circumstances where a person is adjudged to be guilty of gross negligence or willful misconduct, unless a court of competent jurisdiction determines that such indemnification is fair and reasonable under the circumstances.</span></p>
 
             <p class="c2"><span class="c1"></span></p>
 
-            <ol class="c16 lst-kix_list_11-0" start="4"><li class="c22 c27"><h1 id="h.1tuee74" style="display:inline"><span class="c8">Employees</span></h1></li></ol><h1 class="c22 c5"><span class="c8"></span></h1><p class="c22"><span class="c1">The Company currently has </span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;employees in </span><span class="c1 c12">[]</span></p>
+            <ol class="c16 lst-kix_list_11-0" start="4"><li class="c22 c27"><h1 id="h.1tuee74" style="display:inline"><span class="c8">Employees</span></h1></li></ol>
+            <h1 class="c22 c5"><span class="c8"></span></h1>
+            <p class="c22"><span class="c1">The Company currently has <%= @general_info.company.campaign.employees_numer%> employees.</span></p>
 
             <p class="c2"><span class="c1"></span></p>
 
@@ -1283,71 +1284,61 @@
             </tbody></table>
             <p class="c23 c10"><span class="c58"></span></p>
 
+            <a id="t.675c1f4aed493dfa4689296c0b99b4e8c747adf4"></a><a id="t.8"></a>
 
-                    <a id="t.675c1f4aed493dfa4689296c0b99b4e8c747adf4"></a><a id="t.8"></a>
-                    <table class="c37"><tbody><tr class="c6"><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Type of security</span></p>
+            <table class="c37"><tbody>
+                <tr class="c6">
+                    <td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Type of security</span></p></td>
+                    <td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Preferred Stock Preferred Stock</span></p></td>
+                </tr>
+                <tr class="c6">
+                    <td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Amount outstanding</span></p></td>
+                    <td class="c71 c78" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p></td>
+                </tr><tr class="c6"><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Voting Rights</span></p></td>
+                    <td class="c71 c78" colspan="1" rowspan="1"><p class="c9"><span class="c1">Voting Stock based upon conversion rate</span></p></td>
+                </tr><tr class="c6"><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Anti-Dilution Rights</span></p></td>
+                    <td class="c71 c78" colspan="1" rowspan="1"><p class="c2"><span class="c7"></span></p></td>
+                </tr>
+                <tr class="c20">
+                    <td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">How this security may limit, dilute or qualify the Notes/Bonds being offered</span></p></td>
+                    <td class="c71 c78" colspan="1" rowspan="1"><p class="c2"><span class="c7"></span></p></td>
+                </tr>
+                <tr class="c50">
+                    <td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Percentage ownership of the company by holders of the Class B Common Stock Common Stock (assuming conversion if convertible securities)</span></p></td>
+                    <td class="c71 c78" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p></td>
+                </tr>
+            </tbody></table>
 
-                </td><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Preferred Stock Preferred Stock</span></p>
-
-            </td></tr><tr class="c6"><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Amount outstanding</span></p>
-
-            </td><td class="c71 c78" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p>
-
-            </td></tr><tr class="c6"><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Voting Rights</span></p>
-
-            </td><td class="c71 c78" colspan="1" rowspan="1"><p class="c9"><span class="c1">Voting Stock based upon conversion rate</span></p>
-
-            </td></tr><tr class="c6"><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Anti-Dilution Rights</span></p>
-
-            </td><td class="c71 c78" colspan="1" rowspan="1"><p class="c2"><span class="c7"></span></p>
-
-            </td></tr><tr class="c20"><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">How this security may limit, dilute or qualify the Notes/Bonds being offered</span></p>
-
-            </td><td class="c71 c78" colspan="1" rowspan="1"><p class="c2"><span class="c7"></span></p>
-
-            </td></tr><tr class="c50"><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Percentage ownership of the company by holders of the Class B Common Stock Common Stock (assuming conversion if convertible securities)</span></p>
-
-            </td><td class="c71 c78" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p>
-
-            </td></tr></tbody></table><p class="c2"><span class="c36"></span></p>
+            <p class="c2"><span class="c36"></span></p>
 
                 <ol class="c16 lst-kix_list_12-0" start="2"><li class="c26 c27"><span class="c65">Debt</span></li></ol><p class="c0"><span class="c1">The Company has the following debt outstanding:</span></p>
 
                     <p class="c2"><span class="c1"></span></p>
 
-                    <a id="t.598c4e4da06ac741021f5190367c96fb36cdd9cf"></a><a id="t.9"></a><table class="c37"><tbody><tr class="c6"><td class="c57 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Type of debt</span></p>
+                    <a id="t.598c4e4da06ac741021f5190367c96fb36cdd9cf"></a><a id="t.9"></a>
 
-                </td><td class="c76" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p>
+            <table class="c37"><tbody>
+                <tr class="c6">
+                    <td class="c57 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Type of debt</span></p></td>
+                    <td class="c76" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p></td>
+                </tr><tr class="c6"><td class="c52 c57" colspan="1" rowspan="1"><p class="c9"><span class="c8">Name of creditor</span></p></td>
+                    <td class="c76" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p></td>
+                </tr><tr class="c6"><td class="c57 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Amount outstanding</span></p></td>
+                    <td class="c76" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p></td>
+                </tr><tr class="c6"><td class="c57 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Interest rate and payment schedule</span></p></td>
+                    <td class="c76" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p></td>
+                </tr><tr class="c117"><td class="c57 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Amortization schedule</span></p></td>
+                    <td class="c76" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p></td>
+                </tr><tr class="c6"><td class="c57 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Describe any collateral or security</span></p></td>
+                    <td class="c76" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p></td>
+                </tr><tr class="c6"><td class="c57 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Maturity date</span></p></td>
+                    <td class="c76" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p></td>
+                </tr><tr class="c6"><td class="c57 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Other material terms</span></p></td>
+                    <td class="c76" colspan="1" rowspan="1"><p class="c2"><span class="c7"></span></>p</td>
+                </tr>
+            </tbody></table>
 
-            </td></tr><tr class="c6"><td class="c52 c57" colspan="1" rowspan="1"><p class="c9"><span class="c8">Name of creditor</span></p>
-
-            </td><td class="c76" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p>
-
-            </td></tr><tr class="c6"><td class="c57 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Amount outstanding</span></p>
-
-            </td><td class="c76" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p>
-
-            </td></tr><tr class="c6"><td class="c57 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Interest rate and payment schedule</span></p>
-
-            </td><td class="c76" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p>
-
-            </td></tr><tr class="c117"><td class="c57 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Amortization schedule</span></p>
-
-            </td><td class="c76" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p>
-
-            </td></tr><tr class="c6"><td class="c57 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Describe any collateral or security</span></p>
-
-            </td><td class="c76" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p>
-
-            </td></tr><tr class="c6"><td class="c57 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Maturity date</span></p>
-
-            </td><td class="c76" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p>
-
-            </td></tr><tr class="c6"><td class="c57 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Other material terms</span></p>
-
-            </td><td class="c76" colspan="1" rowspan="1"><p class="c2"><span class="c7"></span></p>
-
-            </td></tr></tbody></table><p class="c2"><span class="c7"></span></p>
+            <p class="c2"><span class="c7"></span></p>
 
                 <hr style="page-break-before:always;display:none;"><p class="c29 c10"><span class="c7"></span></p>
 
@@ -1365,99 +1356,81 @@
 
                     <p class="c0 c10"><span class="c1"></span></p>
 
-                    <a id="t.08e911df75a8b631480825bf2e69b09d607fc17f"></a><a id="t.10"></a><table class="c37"><tbody><tr class="c6"><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Type of Security</span></p>
+                    <a id="t.08e911df75a8b631480825bf2e69b09d607fc17f"></a><a id="t.10"></a>
 
-                </td><td class="c71" colspan="1" rowspan="1"><p class="c9"><span class="c1">Warrant</span></p>
+            <table class="c37"><tbody>
+                <tr class="c6">
+                    <td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Type of Security</span></p></td>
+                    <td class="c71" colspan="1" rowspan="1"><p class="c9"><span class="c1">Warrant</span></p></td>
+                </tr><tr class="c6"><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Underlying Security</span></p></td>
+                    <td class="c71 c78" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p></td>
+                </tr><tr class="c6"><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Amount outstanding</span></p></td>
+                    <td class="c71 c78" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p></td>
+                </tr><tr class="c6"><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Strike Price</span></p></td>
+                    <td class="c71 c78" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p></td>
+                </tr><tr class="c6"><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Expiration Date</span></p></td>
+                    <td class="c71 c78" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p></td>
+                </tr><tr class="c6"><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Name of Holder</span></p></td>
+                    <td class="c71 c78" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p></td>
+                </tr><tr class="c6"><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">&nbsp;Other material terms</span></p></td>
+                    <td class="c71 c78" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p></td>
+                </tr>
+            </tbody></table>
 
-            </td></tr><tr class="c6"><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Underlying Security</span></p>
+            <p class="c0 c10"><span class="c1"></span></p>
 
-            </td><td class="c71 c78" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p>
+            <p class="c0 c10"><span class="c1"></span></p>
 
-            </td></tr><tr class="c6"><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Amount outstanding</span></p>
+            <ol class="c16 lst-kix_list_12-0" start="4"><li class="c0 c27"><span class="c8">Prior Offerings</span></li></ol><p class="c0 c10"><span class="c1"></span></p>
 
-            </td><td class="c71 c78" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p>
+            <p class="c0"><span class="c1">The Company has conducted the following prior securities offerings in the past three years:</span></p>
 
-            </td></tr><tr class="c6"><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Strike Price</span></p>
+            <p class="c2"><span class="c1"></span></p>
 
-            </td><td class="c71 c78" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p>
+            <a id="t.9a5dec2ebb4dd249747c1c1dae727cd5150f7e22"></a><a id="t.11"></a>
 
-            </td></tr><tr class="c6"><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Expiration Date</span></p>
+            <table class="c37"><tbody>
+                <tr class="c122">
+                    <td class="c31 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Security Type</span></p></td>
+                    <td class="c31 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Number Sold</span></p></td>
+                    <td class="c31 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Money Raised</span></p></td>
+                    <td class="c31 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Use of Proceeds</span></p></td>
+                    <td class="c31 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Offering Date</span></p></td>
+                    <td class="c31 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Exemption from Registration Used or Public Offering</span></p></td>
+                </tr><tr class="c121"><td class="c70" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p></td>
+                    <td class="c70" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p></td>
+                    <td class="c70" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p></td>
+                    <td class="c70" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p></td>
+                    <td class="c70" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p></td>
+                    <td class="c70" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p></td>
+                </tr><tr class="c124"><td class="c64" colspan="1" rowspan="1"><p class="c49 c10"><span class="c1"></span></p></td>
+                    <td class="c64" colspan="1" rowspan="1"><p class="c2"><span class="c7"></span></p></td>
+                    <td class="c64" colspan="1" rowspan="1"><p class="c2"><span class="c7"></span></p></td>
+                    <td class="c64" colspan="1" rowspan="1"><p class="c10 c49"><span class="c1"></span></p></td>
+                    <td class="c64" colspan="1" rowspan="1"><p class="c49 c10"><span class="c1"></span></p></td>
+                    <td class="c64" colspan="1" rowspan="1"><p class="c49 c10"><span class="c1"></span></p></td>
+                </tr>
+            </tbody></table>
 
-            </td><td class="c71 c78" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p>
+            <p class="c46 c10"><span class="c101 c62"></span></p>
 
-            </td></tr><tr class="c6"><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">Name of Holder</span></p>
+            <ol class="c16 lst-kix_list_12-0" start="5"><li class="c0 c27"><h2 id="h.3s49zyc" style="display:inline"><span class="c8">Valuation</span></h2></li></ol><h2 class="c0 c5"><span class="c4"></span></h2><p class="c22"><span class="c1">Based on the Offering price of the Securities, the pre-Offering value ascribed to the Company is $</span><%= @general_info.valuation%><span class="c1">. </span></p>
 
-            </td><td class="c71 c78" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p>
+            <p class="c2"><span class="c1"></span></p>
 
-            </td></tr><tr class="c6"><td class="c39" colspan="1" rowspan="1"><p class="c9"><span class="c8">&nbsp;Other material terms</span></p>
+            <p class="c22"><span class="c1">Before making an investment decision, you should carefully consider this valuation and the factors used to reach such valuation. Such valuation may not be accurate and you are encouraged to determine your own independent value of the Company prior to investing.</span></p>
 
-            </td><td class="c71 c78" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p>
+            <p class="c2"><span class="c1"></span></p>
 
-            </td></tr></tbody></table><p class="c0 c10"><span class="c1"></span></p>
+            <ol class="c16 lst-kix_list_12-0" start="6"><li class="c22 c27"><h1 id="h.279ka65" style="display:inline"><span class="c8">Ownership</span></h1></li></ol><p class="c22"><span class="c1">The Company&#39;s shareholders consist of its founders and executive officers as well as a number of early investors and service providers. The Company currently has </span><span class="c1 c12">ten (10)</span><span class="c1">&nbsp;shareholders who all hold shares of Common Stock.</span></p>
 
-                <p class="c0 c10"><span class="c1"></span></p>
+            <p class="c2"><span class="c1"></span></p>
 
-                    <ol class="c16 lst-kix_list_12-0" start="4"><li class="c0 c27"><span class="c8">Prior Offerings</span></li></ol><p class="c0 c10"><span class="c1"></span></p>
+            <p class="c22"><span class="c1">Below the beneficial owners of 20% percent or more of the Company&rsquo;s outstanding voting equity securities, calculated on the basis of voting power, are listed along with the amount they own.</span></p>
 
-                    <p class="c0"><span class="c1">The Company has conducted the following prior securities offerings in the past three years:</span></p>
+            <p class="c2"><span class="c1"></span></p>
 
-                    <p class="c2"><span class="c1"></span></p>
-
-                    <a id="t.9a5dec2ebb4dd249747c1c1dae727cd5150f7e22"></a><a id="t.11"></a><table class="c37"><tbody><tr class="c122"><td class="c31 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Security Type</span></p>
-
-                </td><td class="c31 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Number Sold</span></p>
-
-            </td><td class="c31 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Money Raised</span></p>
-
-            </td><td class="c31 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Use of Proceeds</span></p>
-
-            </td><td class="c31 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Offering Date</span></p>
-
-            </td><td class="c31 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Exemption from Registration Used or Public Offering</span></p>
-
-            </td></tr><tr class="c121"><td class="c70" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p>
-
-            </td><td class="c70" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p>
-
-            </td><td class="c70" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p>
-
-            </td><td class="c70" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p>
-
-            </td><td class="c70" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p>
-
-            </td><td class="c70" colspan="1" rowspan="1"><p class="c9 c10"><span class="c1"></span></p>
-
-            </td></tr><tr class="c124"><td class="c64" colspan="1" rowspan="1"><p class="c49 c10"><span class="c1"></span></p>
-
-            </td><td class="c64" colspan="1" rowspan="1"><p class="c2"><span class="c7"></span></p>
-
-            </td><td class="c64" colspan="1" rowspan="1"><p class="c2"><span class="c7"></span></p>
-
-            </td><td class="c64" colspan="1" rowspan="1"><p class="c10 c49"><span class="c1"></span></p>
-
-            </td><td class="c64" colspan="1" rowspan="1"><p class="c49 c10"><span class="c1"></span></p>
-
-            </td><td class="c64" colspan="1" rowspan="1"><p class="c49 c10"><span class="c1"></span></p>
-
-            </td></tr></tbody></table><p class="c46 c10"><span class="c101 c62"></span></p>
-
-                <ol class="c16 lst-kix_list_12-0" start="5"><li class="c0 c27"><h2 id="h.3s49zyc" style="display:inline"><span class="c8">Valuation</span></h2></li></ol><h2 class="c0 c5"><span class="c4"></span></h2><p class="c22"><span class="c1">Based on the Offering price of the Securities, the pre-Offering value ascribed to the Company is $</span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">. </span></p>
-
-                    <p class="c2"><span class="c1"></span></p>
-
-                    <p class="c22"><span class="c1">Before making an investment decision, you should carefully consider this valuation and the factors used to reach such valuation. Such valuation may not be accurate and you are encouraged to determine your own independent value of the Company prior to investing.</span></p>
-
-                    <p class="c2"><span class="c1"></span></p>
-
-                    <ol class="c16 lst-kix_list_12-0" start="6"><li class="c22 c27"><h1 id="h.279ka65" style="display:inline"><span class="c8">Ownership</span></h1></li></ol><p class="c22"><span class="c1">The Company&#39;s shareholders consist of its founders and executive officers as well as a number of early investors and service providers. The Company currently has </span><span class="c1 c12">ten (10)</span><span class="c1">&nbsp;shareholders who all hold shares of Common Stock.</span></p>
-
-                    <p class="c2"><span class="c1"></span></p>
-
-                    <p class="c22"><span class="c1">Below the beneficial owners of 20% percent or more of the Company&rsquo;s outstanding voting equity securities, calculated on the basis of voting power, are listed along with the amount they own.</span></p>
-
-                    <p class="c2"><span class="c1"></span></p>
-
-                    <a id="t.b6227be655061023651617a4fed22687954c5847"></a><a id="t.12"></a><table class="c37"><tbody><tr class="c137"><td class="c134 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Name</span></p>
+            <a id="t.b6227be655061023651617a4fed22687954c5847"></a><a id="t.12"></a><table class="c37"><tbody><tr class="c137"><td class="c134 c52" colspan="1" rowspan="1"><p class="c9"><span class="c8">Name</span></p>
 
                 </td><td class="c52 c93" colspan="1" rowspan="1"><p class="c9"><span class="c8">Class of securities (common/preferred)</span></p>
 
@@ -1487,7 +1460,7 @@
 
                     <p class="c3 c10"><span class="c1"></span></p>
 
-                    <p class="c3"><span class="c1">The Company currently requires $</span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;a month to sustain operations.</span></p>
+                    <p class="c3"><span class="c1">The Company currently requires $</span><%= @general_info.burn_rate%><span class="c1">&nbsp;a month to sustain operations.</span></p>
 
                     <p class="c2"><span class="c1"></span></p>
 
@@ -1497,23 +1470,29 @@
 
                     <p class="c2"><span class="c1"></span></p>
 
-                    <p class="c22"><span class="c1">The Company </span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;require additional financing in excess of the proceeds from the Offering in order to sustain operations for the next 12 months.</span></p>
+                    <p class="c22"><span class="c1">The Company </span><%= @general_info.addit_financing %><span class="c1">&nbsp;require additional financing in excess of the proceeds from the Offering in order to sustain operations for the next 12 months.</span></p>
 
                     <p class="c2"><span class="c1"></span></p>
 
-                    <p class="c22"><span class="c1">The Company</span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;have any additional sources of capital other than the proceeds from the offering.</span></p>
+                    <p class="c22"><span class="c1">The Company</span> <%= @general_info.add_sources_capital%><span class="c1">&nbsp;have any additional sources of capital other than the proceeds from the offering.</span></p>
 
                     <p class="c2"><span class="c1"></span></p>
 
-                    <p class="c22"><span class="c1">Such additional sources of capital </span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;necessary to the operations of the Company.</span></p>
+                    <p class="c22"><span class="c1">Such additional sources of capital </span><%= @general_info.add_sources_necessary%><span class="c1">&nbsp;necessary to the operations of the Company.</span></p>
 
                     <p class="c2"><span class="c1"></span></p>
 
-                    <ol class="c16 lst-kix_list_13-0" start="3"><li class="c22 c27"><h1 id="h.zu0gcz" style="display:inline"><span class="c8">Capital Expenditures and Other Obligations</span></h1></li></ol><h1 class="c22 c5"><span class="c8"></span></h1><p class="c3"><span class="c1">The Company</span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">made any material capital expenditures in the past two years. [If so, then list].</span></p>
+                    <ol class="c16 lst-kix_list_13-0" start="3"><li class="c22 c27"><h1 id="h.zu0gcz" style="display:inline"><span class="c8">Capital Expenditures and Other Obligations</span></h1></li></ol>
 
-                    <ul class="c16 lst-kix_list_26-0 start"><li class="c3 c24 c10"><span class="c1"></span></li></ul><p class="c3"><span class="c1">The Company intends to make the following material capital expenditures in the future:</span></p>
+                    <h1 class="c22 c5"><span class="c8"></span></h1><p class="c3"><span class="c1">The Company</span> <%= @general_info.has_material_captl%> <span class="c1">made any material capital expenditures in the past two years. [If so, then list].</span></p>
 
-                    <ul class="c16 lst-kix_list_14-0 start"><li class="c3 c24"><span class="c1 c12">&nbsp; &nbsp;</span></li></ul><p class="c2"><span class="c1"></span></p>
+                    <ul class="c16 lst-kix_list_26-0 start"><li class="c3 c24 c10"><span class="c1"><%= @general_info.material_capital %></span></li></ul>
+
+                    <p class="c3"><span class="c1">The Company intends to make the following material capital expenditures in the future:</span></p>
+
+                    <ul class="c16 lst-kix_list_14-0 start"><li class="c1 c24"><%= @general_info.material_capital_expenditures %></li></ul>
+
+                    <p class="c2"><span class="c1"></span></p>
 
                     <ol class="c16 lst-kix_list_13-0" start="4"><li class="c22 c27"><h1 id="h.3jtnz0s" style="display:inline"><span class="c8">Material Changes and Other Information Trends and Uncertainties</span></h1></li></ol><h1 class="c22 c5"><span class="c8"></span></h1><p class="c22"><span class="c1">The Company does not currently believe it is subject to any trends or uncertainties.</span></p>
 
@@ -1531,7 +1510,7 @@
 
                     <ol class="c16 lst-kix_list_15-0 start" start="1"><li class="c22 c27"><h1 id="h.4iylrwe" style="display:inline"><span class="c8">The Offering</span></h1></li></ol><p class="c2"><span class="c8"></span></p>
 
-                    <p class="c3"><span class="c1">The Company is offering up to </span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;in SAFE instruments (the &ldquo;Securities&rdquo;) for up to $</span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">. The Company is attempting to raise a minimum amount of $</span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;in this Offering (the &ldquo;Minimum Amount&rdquo;). The Company must receive commitments from investors in an amount totaling the Minimum Amount by </span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;(the &ldquo;Offering Deadline&rdquo;) in order to receive any funds. If the sum of the investment commitments does not equal or exceed the Minimum Amount by the Offering Deadline, no Securities will be sold in the Offering, investment commitments will be cancelled and committed funds will be returned to potential investors without interest or deductions. The Company has the right to extend the Offering Deadline at its discretion. The Company will accept investments in excess of the Minimum Amount up to $</span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;(the &ldquo;Maximum Amount&rdquo;) and the additional securities will be allocated in the discretion of the Company. Current subscribers will be allowed to purchase additional shares up to their investment limitations. &nbsp;Excess or unpurchased Securities will then be offered to subscribers that have the ability to purchase additional shares. &nbsp;</span></p>
+                    <p class="c3"><span class="c1">The Company is offering up to <%= @general_info.max_amount%><span class="c1"> in SAFE instruments (the &ldquo;Securities&rdquo;) for up to $<%= @general_info.max_amount%>. The Company is attempting to raise a minimum amount of $ <%= @general_info.number_of_securities%>  in this Offering (the &ldquo;Minimum Amount&rdquo;). The Company must receive commitments from investors in an amount totaling the Minimum Amount by <%= @general_info.dead_line %> (the &ldquo;Offering Deadline&rdquo;) in order to receive any funds. If the sum of the investment commitments does not equal or exceed the Minimum Amount by the Offering Deadline, no Securities will be sold in the Offering, investment commitments will be cancelled and committed funds will be returned to potential investors without interest or deductions. The Company has the right to extend the Offering Deadline at its discretion. The Company will accept investments in excess of the Minimum Amount up to $ <%= @general_info.max_amount%> (the &ldquo;Maximum Amount&rdquo;) and the additional securities will be allocated in the discretion of the Company. Current subscribers will be allowed to purchase additional shares up to their investment limitations.  Excess or unpurchased Securities will then be offered to subscribers that have the ability to purchase additional shares.  </span></p>
 
                     <p class="c2"><span class="c1"></span></p>
 
