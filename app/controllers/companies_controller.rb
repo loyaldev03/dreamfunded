@@ -185,7 +185,7 @@ private
 	end
 
 	def check_company_ownership
-		if @company == current_user.company || current_user.authority == 4
+		if @company == current_user.company || current_user.authority >= 3
 			return
 		else
 			redirect_to company_not_accretited_path
