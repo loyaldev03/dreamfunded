@@ -628,7 +628,7 @@
 
         <p class="c2"><span class="c1"></span></p>
 
-        <h2 class="c22" id="h.41mghml"><span class="c4">We have a limited operating history upon which you can evaluate our performance, and accordingly, our prospects must be considered in light of the risks that any new company encounters.</span></h2><h2 class="c22 c5"><span class="c4"></span></h2><p class="c3"><span class="c1">We were formed under the laws of </span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;on </span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">. Accordingly, we have no history upon which an evaluation of our prospects and future performance can be made. Our proposed operations are subject to all business risks associated with new enterprises. The likelihood of our creation of a viable business must be considered in light of the problems, expenses, difficulties, complications, and delays frequently encountered in connection with the inception of a business, operation in a competitive industry, and the continued development of advertising, promotions, and a corresponding client base. We anticipate that our operating expenses will increase for the near future. There can be no assurances that we will ever operate profitably. You should consider the Company&rsquo;s business, operations and prospects in light of the risks, expenses and challenges faced as an early-stage company.</span></p>
+        <h2 class="c22" id="h.41mghml"><span class="c4">We have a limited operating history upon which you can evaluate our performance, and accordingly, our prospects must be considered in light of the risks that any new company encounters.</span></h2><h2 class="c22 c5"><span class="c4"></span></h2><p class="c3"><span class="c1">We were formed under the laws of </span><%= @general_info.state %> on <%= @general_info.date_formed%><span class="c1">. Accordingly, we have no history upon which an evaluation of our prospects and future performance can be made. Our proposed operations are subject to all business risks associated with new enterprises. The likelihood of our creation of a viable business must be considered in light of the problems, expenses, difficulties, complications, and delays frequently encountered in connection with the inception of a business, operation in a competitive industry, and the continued development of advertising, promotions, and a corresponding client base. We anticipate that our operating expenses will increase for the near future. There can be no assurances that we will ever operate profitably. You should consider the Company&rsquo;s business, operations and prospects in light of the risks, expenses and challenges faced as an early-stage company.</span></p>
 
         <p class="c2"><span class="c1"></span></p>
 
@@ -636,7 +636,7 @@
 
         <p class="c2"><span class="c1"></span></p>
 
-        <h2 class="c3" id="h.vx1227"><span>Our management team has limited experience in the </span><span class="c12 c103">&nbsp; &nbsp;</span><span class="c4">&nbsp;industry and has not managed a business with similar risks and challenges specific to our business.</span></h2><h2 class="c3 c5"><span class="c4"></span></h2><p class="c3"><span class="c1">Members of our management team may make decisions detrimental to our business and/or be unable to successfully manage our operations. The ineffective management of our business will have a negative effect on our results of operations.</span></p>
+        <h2 class="c3" id="h.vx1227"><span>Our management team has limited experience in the </span><%= @general_info.company.campaign.category %><span class="c4">&nbsp;industry and has not managed a business with similar risks and challenges specific to our business.</span></h2><h2 class="c3 c5"><span class="c4"></span></h2><p class="c3"><span class="c1">Members of our management team may make decisions detrimental to our business and/or be unable to successfully manage our operations. The ineffective management of our business will have a negative effect on our results of operations.</span></p>
 
         <p class="c2"><span class="c1"></span></p>
 
@@ -644,11 +644,11 @@
 
         <p class="c2"><span class="c1"></span></p>
 
-        <h2 class="c3" id="h.1v1yuxt"><span class="c4">The development and commercialization of our product is highly competitive.</span></h2><h2 class="c3 c5"><span class="c4"></span></h2><p class="c3"><span class="c1">We face competition with respect to any products that we may seek to develop or commercialize in the future. Our competitors include </span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;and many other major companies. Many of our competitors have significantly greater financial, technical and human resources than we have and superior expertise in research and development and marketing approved products and services and thus may be better equipped than us to develop and commercialize products and services. These competitors also compete with us in recruiting and retaining qualified personnel and acquiring technologies. Smaller or early stage companies may also prove to be significant competitors, particularly through collaborative arrangements with large and established companies. Accordingly, our competitors may commercialize products more rapidly or effectively than we are able to, which would &nbsp; adversely affect our competitive position, the likelihood that our products will achieve initial market acceptance and our ability to generate meaningful additional revenues from our products. &nbsp;In addition, we face the following risks associated with the development and marketing of our products:</span></p>
+        <h2 class="c3" id="h.1v1yuxt"><span class="c4">The development and commercialization of our product is highly competitive.</span></h2><h2 class="c3 c5"><span class="c4"></span></h2><p class="c3"><span class="c1">We face competition with respect to any products that we may seek to develop or commercialize in the future. Our competitors include </span><%= @general_info.competition %><span class="c1">&nbsp;and many other major companies. Many of our competitors have significantly greater financial, technical and human resources than we have and superior expertise in research and development and marketing approved products and services and thus may be better equipped than us to develop and commercialize products and services. These competitors also compete with us in recruiting and retaining qualified personnel and acquiring technologies. Smaller or early stage companies may also prove to be significant competitors, particularly through collaborative arrangements with large and established companies. Accordingly, our competitors may commercialize products more rapidly or effectively than we are able to, which would &nbsp; adversely affect our competitive position, the likelihood that our products will achieve initial market acceptance and our ability to generate meaningful additional revenues from our products. &nbsp;In addition, we face the following risks associated with the development and marketing of our products:</span></p>
 
         <p class="c3 c10"><span class="c1"></span></p>
 
-        <p class="c3"><span class="c1 c12">&nbsp; &nbsp;</span></p>
+        <p class="c3"><%#= @general_info.risks%></p>
 
         <p class="c66 c10"><span class="c1"></span></p>
 
@@ -656,7 +656,7 @@
 
         <p class="c2"><span class="c1 c12"></span></p>
 
-        <h2 class="c22" id="h.2u6wntf"><span class="c4 c12">Manufacturing or design defects, unanticipated use of our products, or inadequate disclosure of risks relating to the use of the products can lead to injury or other adverse events.</span></h2><h2 class="c22 c5"><span class="c4 c12"></span></h2><p class="c3"><span class="c1 c12">These events could lead to recalls or safety alerts relating to our products (either voluntary or required by governmental authorities) and could result, in certain cases, in the removal of a product from the market. Any recall could result in significant costs as well as negative publicity that could reduce demand for our products. Personal injuries relating to the use of our products can also result in product liability claims being brought against us. In some circumstances, such adverse events could also cause delays in new product approvals. Similarly, negligence in performing our services can lead to injury or other adverse events.</span></p>
+        <h2 class="c22" id="h.2u6wntf"><span class="c4 ">Manufacturing or design defects, unanticipated use of our products, or inadequate disclosure of risks relating to the use of the products can lead to injury or other adverse events.</span></h2><h2 class="c22 c5"><span class="c4 c12"></span></h2><p class="c3"><span class="c1 ">These events could lead to recalls or safety alerts relating to our products (either voluntary or required by governmental authorities) and could result, in certain cases, in the removal of a product from the market. Any recall could result in significant costs as well as negative publicity that could reduce demand for our products. Personal injuries relating to the use of our products can also result in product liability claims being brought against us. In some circumstances, such adverse events could also cause delays in new product approvals. Similarly, negligence in performing our services can lead to injury or other adverse events.</span></p>
 
         <p class="c2"><span class="c1 c12"></span></p>
 
@@ -666,7 +666,7 @@
 
         <h2 class="c0" id="h.3tbugp1"><span class="c4">The Company&rsquo;s success depends on the experience and skill of the board of directors, its executive officers and key employees.</span></h2><p class="c3 c10"><span class="c1"></span></p>
 
-        <p class="c3"><span class="c1">In particular, the Company is dependent on [17a- NEED TO LIST EACH KEY OFFICER AND LINK TO THAT] who are [TITLES OF THE LISTED OFFICERS] of the Company. The Company has or intends to enter into employment agreements with [NAME OF OFFICERS] although there can be no assurance that it will do so or that they will continue to be employed by the Company for a particular period of time. The loss of [NAME OF OFFICERS] and other key employees or consultants or any member of the board of directors or executive officer could harm the Company&rsquo;s business, financial condition, cash flow and results of operations.</span></p>
+        <p class="c3"><span class="c1">In particular, the Company is dependent on <%= @general_info.team_names %> who are <%= @general_info.team_titles%> of the Company. The Company has or intends to enter into employment agreements with <%= @general_info.team_names %> although there can be no assurance that it will do so or that they will continue to be employed by the Company for a particular period of time. The loss of <%= @general_info.team_names%> and other key employees or consultants or any member of the board of directors or executive officer could harm the Company&rsquo;s business, financial condition, cash flow and results of operations.</span></p>
 
         <p class="c2"><span class="c1"></span></p>
 
@@ -680,7 +680,7 @@
 
         <p class="c2"><span class="c1"></span></p>
 
-        <h2 class="c22" id="h.37m2jsg"><span class="c4">Although dependent on certain key personnel, the Company does not have any key man life insurance policies on any such people.</span></h2><h2 class="c22 c5"><span class="c4"></span></h2><p class="c3"><span class="c1">The Company is dependent on [LINK TO NAMES OF OFFICERS AND DIRECTORS] in order to conduct its operations and execute its business plan, however, the Company has not purchased any insurance policies with respect to those individuals in the event of their death or disability. Therefore, in any of [LINK TO NAMES OF OFFICERS AND DIRECTORS] die or become disabled, the Company will not receive any compensation to assist with such person&rsquo;s absence. The loss of such person could negatively affect the Company and its operations.</span></p>
+        <h2 class="c22" id="h.37m2jsg"><span class="c4">Although dependent on certain key personnel, the Company does not have any key man life insurance policies on any such people.</span></h2><h2 class="c22 c5"><span class="c4"></span></h2><p class="c3"><span class="c1">The Company is dependent on <%= @general_info.team_names%> in order to conduct its operations and execute its business plan, however, the Company has not purchased any insurance policies with respect to those individuals in the event of their death or disability. Therefore, in any of <%= @general_info.team_names%> die or become disabled, the Company will not receive any compensation to assist with such person&rsquo;s absence. The loss of such person could negatively affect the Company and its operations.</span></p>
 
         <h2 class="c22 c5" id="h.1mrcu09"><span class="c1"></span></h2><h2 class="c22" id="h.46r0co2"><span class="c4">We are subject to income taxes as well as non-income based taxes, such as payroll, sales, use, value-added, net worth, property and goods and services taxes, in the US </span></h2><h2 class="c22 c5"><span class="c4"></span></h2><p class="c3"><span class="c1">Significant judgment is required in determining our provision for income taxes and other tax liabilities. In the ordinary course of our business, there are many transactions and calculations where the ultimate tax determination is uncertain. Although we believe that our tax estimates are reasonable: (i) there is no assurance that the final determination of tax audits or tax disputes will not be different from what is reflected in our income tax provisions, expense amounts for non- income based taxes and accruals and (ii) any material differences could have an adverse effect on our financial position and results of operations in the period or periods for which determination is made.</span></p>
 
@@ -790,7 +790,7 @@
 
         <h2 class="c22" id="h.34g0dwd"><span class="c4">No Guarantee of Return on Investment</span></h2><h2 class="c22 c5"><span class="c4"></span></h2><p class="c3"><span class="c1">There is no assurance that a Purchaser will realize a return on its investment or that it will not lose its entire investment. For this reason, each Purchaser should read the Form C and all Exhibits carefully and should consult with its own attorney and business advisor prior to making any investment decision.</span></p>
 
-        <h2 class="c22 c5" id="h.1jlao46"><span class="c4"></span></h2><h2 class="c22" id="h.43ky6rz"><span class="c4">A majority of the Company is owned by a small number of owners.</span></h2><h2 class="c22 c5"><span class="c4"></span></h2><p class="c3" id="h.2iq8gzs"><span class="c1">Prior to the offering the Company&rsquo;s current owners of [ ] % or more beneficially own up to [ ]% of the Company. Subject to any fiduciary duties owed to our other owners or investors under </span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;law, these owners may be able to exercise significant influence over matters requiring owner approval, including the election of directors or managers and approval of significant Company transactions, and will have significant control over the Company&rsquo;s management and policies. Some of these persons may have interests that are different from yours. For example, these owners may support proposals and actions with which you may disagree. The concentration of ownership could delay or prevent a change in control of the Company or otherwise discourage a potential acquirer from attempting to obtain control of the Company, which in turn could reduce the price potential investors are willing to pay for the Company. In addition, these owners could use their voting influence to maintain the Company&rsquo;s existing management, delay or prevent changes in control of the Company, or support or reject other management and board proposals that are subject to owner approval.</span></p>
+        <h2 class="c22 c5" id="h.1jlao46"><span class="c4"></span></h2><h2 class="c22" id="h.43ky6rz"><span class="c4">A majority of the Company is owned by a small number of owners.</span></h2><h2 class="c22 c5"><span class="c4"></span></h2><p class="c3" id="h.2iq8gzs"><span class="c1">Prior to the offering the Company&rsquo;s current owners of [ ] % or more beneficially own up to [ ]% of the Company. Subject to any fiduciary duties owed to our other owners or investors under </span><%= @general_info.state %><span class="c1">&nbsp;law, these owners may be able to exercise significant influence over matters requiring owner approval, including the election of directors or managers and approval of significant Company transactions, and will have significant control over the Company&rsquo;s management and policies. Some of these persons may have interests that are different from yours. For example, these owners may support proposals and actions with which you may disagree. The concentration of ownership could delay or prevent a change in control of the Company or otherwise discourage a potential acquirer from attempting to obtain control of the Company, which in turn could reduce the price potential investors are willing to pay for the Company. In addition, these owners could use their voting influence to maintain the Company&rsquo;s existing management, delay or prevent changes in control of the Company, or support or reject other management and board proposals that are subject to owner approval.</span></p>
 
         <h2 class="c22 c5"><span class="c4"></span></h2><h2 class="c22"><span class="c4">The Company has the right to extend the Offering deadline.</span></h2><p class="c2"><span class="c4"></span></p>
 
@@ -832,27 +832,59 @@
         <ol class="c16 lst-kix_list_6-0" start="3">
             <li class="c22 c25"><h1 id="h.1x0gk37" style="display:inline"><span class="c8">BUSINESS</span></h1></li></ol><p class="c2"><span class="c8"></span></p><ol class="c16 lst-kix_list_9-0 start" start="1">
 
-            <li class="c22 c27"><h1 id="h.4h042r0" style="display:inline"><span class="c8">Description of the Business</span></h1></li></ol><h1 class="c22 c5"><span class="c8"></span></h1><p class="c3"><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;is a </span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;</span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;that </span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">. &nbsp;The Company&rsquo;s products consist of </span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;</span></p><p class="c2"><span class="c1"></span></p><ol class="c16 lst-kix_list_9-0" start="2">
+            <li class="c22 c27">
+                <h1 id="h.4h042r0" style="display:inline">
+                    <span class="c8">Description of the Business</span>
+                </h1>
+            </li>
+        </ol>
+        <br>
+        <p class="c3"><span class="c1">
+            <%= @general_info.name%> is a <%= @general_info.state%> <%= @general_info.kind %> The Company's products consist of <%= @general_info.product_description%>
+        </span></p>
+        <br>
 
-            <li class="c22 c27"><h1 id="h.2w5ecyt" style="display:inline"><span class="c8">Business Plan</span></h1></li></ol><h1 class="c22 c5"><span class="c8"></span></h1><p class="c3"><span class="c1 c12">&nbsp; &nbsp;</span></p><p class="c2"><span class="c1"></span></p><ol class="c16 lst-kix_list_9-0" start="3">
+        <ol class="c16 lst-kix_list_9-0" start="2">
+            <li class="c22 c27">
+                <h1 id="h.2w5ecyt" style="display:inline"><span class="c8">Business Plan</span></h1>
+            </li>
+        </ol>
+            <br>
+        <p class="c3"><span class="c1"><%= @general_info.business_plan %> </span></p>
+        <p class="c2"><span class="c1"></span></p>
 
-            <li class="c22 c27"><h1 id="h.1baon6m" style="display:inline"><span class="c8">History of the Business</span></h1></li></ol><h1 class="c22 c5"><span class="c8"></span></h1><p class="c3"><span class="c1">The Company was incorporated as a </span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;</span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;corporation by [LINK TO NAME OF ORGANIZER] in </span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;for the initial purpose of developing, marketing and selling its </span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">.</span></p><p class="c2"><span class="c1"></span></p><ol class="c16 lst-kix_list_9-0" start="4">
+        <ol class="c16 lst-kix_list_9-0" start="3">
+            <li class="c22 c27"><h1 id="h.1baon6m" style="display:inline"><span class="c8">History of the Business</span></h1></li>
+        </ol>
 
+        <h1 class="c22 c5"><span class="c8"></span></h1>
+        <p class="c3"><span class="c1">The Company was incorporated as a </span><%= @general_info.state %> <%= @general_info.kind%> corporation by <%=@general_info.ceo %> in <%= @general_info.date_formed%> for the initial purpose of developing, marketing and selling its <%= @general_info.product_description%>.</span></p>
+
+        <p class="c2"><span class="c1"></span></p>
+
+        <ol class="c16 lst-kix_list_9-0" start="4">
             <li class="c22 c27"><h1 id="h.3vac5uf" style="display:inline"><span class="c8">The Company&rsquo;s Products and/or Services</span></h1></li>
         </ol>
 
-            <p class="c23 c10"><span class="c90 c103 c100 c112"></span></p><p class="c45"><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;produces </span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;</span></p><p class="c2"><span class="c1"></span></p>
+            <p class="c23 c10"><span class="c90 c103 c100 c112"></span></p>
+            <p class="c45"><%= @general_info.name%><span class="c1">&nbsp;produces </span><%= @general_info.product_description%> </p>
+            <p class="c2"><span class="c1"></span></p>
+
 
             <ol class="c16 lst-kix_list_9-0" start="5">
                 <li class="c22 c27"><h1 id="h.2afmg28" style="display:inline"><span class="c8">Competition</span></h1></li>
             </ol>
 
             <p class="c2"><span class="c1"></span></p>
+
             <p class="c3"><span class="c1">The markets for the Company&rsquo;s products and services are highly competitive and the Company is confronted by aggressive competition in all areas of its business. &nbsp;These markets are characterized by frequent product introductions and rapid technological advances. The Company&rsquo;s competitors may aggressively cut prices or lower their product margins to gain or maintain market share. Principal competitive factors important to the Company include price, product features, relative price/performance, product quality and reliability, design innovation, a strong third-party software and accessories ecosystem, marketing and distribution capability, service and support and corporate reputation.</span></p>
 
             <p class="c2"><span class="c1"></span></p>
 
-            <p class="c3"><span class="c1">The Company&rsquo;s primary competitors are [ 37] and other companies in the </span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;industry. &nbsp;</span></p>
+            <p class="c3">
+                <span class="c1">The Company's primary competitors are <%= @general_info.competition %> and other companies in the <%= @general_info.company.campaign.category %> industry.
+                </span>
+            </p>
 
             <p class="c2"><span class="c1"></span></p>
 
@@ -864,11 +896,12 @@
 
             <p class="c2"><span class="c1"></span></p>
 
-            <p class="c3"><span class="c1">Although most components essential to the Company&rsquo;s business are generally available from multiple sources, a number of components are currently obtained from single or limited sources, many of which are outside of the United States. In addition, the Company competes for various components with other participants in the </span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;markets. Therefore, many components used by the Company, including those that are available from multiple sources, are at times subject to industry-wide shortage and significant pricing fluctuations that could materially adversely affect the Company&rsquo;s financial condition and operating results.</span></p>
+            <p class="c3"><span class="c1">Although most components essential to the Company&rsquo;s business are generally available from multiple sources, a number of components are currently obtained from single or limited sources, many of which are outside of the United States. In addition, the Company competes for various components with other participants in the </span>
+            <%= @general_info.company.campaign.category %><span class="c1">&nbsp;markets. Therefore, many components used by the Company, including those that are available from multiple sources, are at times subject to industry-wide shortage and significant pricing fluctuations that could materially adversely affect the Company&rsquo;s financial condition and operating results.</span></p>
 
             <p class="c2"><span class="c1"></span></p>
 
-            <p class="c3"><span class="c1">Initially, we will focus on marketing to </span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">. &nbsp;</span></p>
+            <p class="c3"><span class="c1">Initially, we will focus on marketing to </span><%= @general_info.customer_base %><span class="c1">. &nbsp;</span></p>
 
             <p class="c2"><span class="c1"></span></p>
 
@@ -936,7 +969,7 @@
 
                 <p class="c2"><span class="c4"></span></p>
 
-                <p class="c3"><span class="c1">Continued innovation is very important to our success. We spent $</span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;in [</span><span class="c1 c12">&nbsp;</span><span class="c1">], and expect to spend $</span><span class="c1 c12">&nbsp; &nbsp;</span><span class="c1">&nbsp;in [2017] on R&amp;D, purpose of R&amp;D.</span></p>
+                <p class="c3"><span class="c1">Continued innovation is very important to our success. We spent $<%= @general_info.rds%> in <%= @general_info.rds_years %>, and expect to spend $<%= @general_info.upcoming_rd %> in [2017] on R&amp;D, purpose of R&amp;D.</span></p>
 
                 <p class="c2"><span class="c1"></span></p>
 
@@ -945,7 +978,13 @@
             </ol>
             <p class="c2"><span class="c8"></span></p>
 
-            <h1 class="c22" id="h.2nusc19"><span class="c1">The Company owns or leases the following properties: </span></h1><h1 class="c22 c5"><span class="c1"></span></h1><h1 class="c22"><span class="c12 c103 c114">&nbsp; &nbsp;</span></h1><h1 class="c22 c5"><span class="c1"></span></h1><ol class="c16 lst-kix_list_9-0" start="9"><li class="c22 c27"><h1 id="h.1302m92" style="display:inline"><span class="c8">Governmental/Regulatory Approval and Compliance</span></h1></li></ol><p class="c2"><span class="c8"></span></p>
+            <h1 class="c22" id="h.2nusc19"><span class="c1">The Company owns or leases the following properties: </span></h1>
+            <h1 class="c22 c5"><span class="c1"></span></h1>
+            <span class="c1"><%= @general_info.real_estate %></span>
+            <h1 class="c22 c5"><span class="c1"></span></h1>
+
+            <ol class="c16 lst-kix_list_9-0" start="9"><li class="c22 c27">
+            <h1 id="h.1302m92" style="display:inline"><span class="c8">Governmental/Regulatory Approval and Compliance</span></h1></li></ol><p class="c2"><span class="c8"></span></p>
 
             <p class="c3"><span class="c1 c12">Our products and services are not subject to federal, state and local laws and regulations.</span><span class="c1">&nbsp;</span></p>
 
