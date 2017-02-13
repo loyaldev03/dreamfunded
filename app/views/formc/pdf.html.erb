@@ -1722,13 +1722,19 @@
 
                 <p class="c22"><span class="c1">The Company has conducted the following transactions with related persons:</span></p>
 
-                <ul class="c16 lst-kix_list_14-0"><li class="c22 c143"><span class="c1 c12">&nbsp;</span><span class="c1">with</span><span class="c1 c12">&nbsp; </span><span class="c1">&nbsp;</span></li></ul><ol class="c16 lst-kix_list_16-0" start="2"><li class="c0 c27"><h1 id="h.2hio093" style="display:inline"><span class="c8">Conflicts of Interest</span></h1></li></ol><p class="c2"><span class="c8"></span></p>
+                <ul class="c16 lst-kix_list_14-0"><li class="c22 c143"><span class="c1 c12"><%= @general_info.transactin%></span>
+
+                <span class="c1">with</span>
+                <span class="c1 c12">&nbsp; </span><span class="c1"><%= @general_info.related_person%></span></li>
+
+                </ul>
+
+                <ol class="c16 lst-kix_list_16-0" start="2"><li class="c0 c27"><h1 id="h.2hio093" style="display:inline"><span class="c8">Conflicts of Interest</span></h1></li></ol><p class="c2"><span class="c8"></span></p>
 
                 <p class="c22"><span class="c1">The Company has engaged in the following transactions or relationships which may give rise to a conflict of interest with the Company, its operations and its security holders.</span></p>
 
-                <p class="c2"><span class="c1"></span></p>
+                <p class="c2"><span class="c1"><%= @general_info.conflicts%></span></p>
 
-                <p class="c22"><span class="c1 c12">&nbsp; &nbsp;</span></p>
 
                 <p class="c2"><span class="c1"></span></p>
 
