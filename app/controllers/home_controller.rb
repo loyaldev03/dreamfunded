@@ -42,10 +42,6 @@ class HomeController < ApplicationController
 	def contact_us
 	end
 
-	def pdf
-		render :layout => false
-	end
-
 	def contact_us_send_email
 		@name = params[:name]
 		@email = params[:email]
