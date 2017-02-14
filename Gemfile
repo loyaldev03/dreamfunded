@@ -49,12 +49,13 @@ gem 'devise'
 gem 'newrelic_rpm'
 gem 'raygun4ruby'
 gem 'pdfkit'
-gem 'wkhtmltopdf-heroku'
+#gem 'wkhtmltopdf-heroku'
 gem 'pdf-forms'
 gem 'delayed_job_active_record'
 gem 'csv-importer'
 gem 'fund_america'
 gem "oink"
+gem 'htmltoword'
 
 
 gem 'will_paginate', '~> 3.0.5'

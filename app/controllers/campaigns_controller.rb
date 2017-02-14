@@ -95,10 +95,6 @@ class CampaignsController < ApplicationController
     redirect_to "/companies/company_profile/#{@campaign.company.id}"
   end
 
-  def campaign_review
-    @campaign = Campaign.find(params[:id])
-    @company = @campaign.company
-  end
 
   def edit_campaign
     @campaign = Campaign.find(params[:id])
