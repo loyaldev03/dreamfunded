@@ -48,12 +48,10 @@
 
       <div class='text_field'>
         <%= f.text_field :name, placeholder: 'Company Name',:class => "form-field required-field" %>
-
       </div>
 
       <div class='text_field'>
         <%= text_field_tag :tagline, @campaign.tagline ,placeholder: 'Describe your company in one sentence',:class => "form-field required-field" %>
-
       </div>
 
       <label>Category</label>
@@ -62,6 +60,9 @@
 
         <br>
 
+      <div class='text_field'>
+        <%= text_field_tag :phone, current_user.phone, placeholder: 'Phone Number', :class => "form-field required-field" %>
+      </div>
 
       <br><br>
       <label>Short Description about your company</label>

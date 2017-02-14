@@ -44,6 +44,7 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:campaign_id])
     @company = @campaign.company
     @company.update(company_params)
+    current_user.update(phone: params[:phone])
     @campaign.description
     @campaign.update( tagline: params[:tagline], category: params[:category])
     redirect_to description_path(@campaign.id)
