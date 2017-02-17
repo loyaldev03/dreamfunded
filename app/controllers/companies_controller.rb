@@ -175,7 +175,13 @@ class CompaniesController < ApplicationController
 	def update_campaign
 	  @campaign = Campaign.find(params[:company][:campaign_attributes][:id])
 	  @company = @campaign.company
-	  @company.update(company_params)
+	  @campaign.update(tagline: params[:company][:campaign_attributes][:tagline],
+	  				  elevator_pitch: params[:company][:campaign_attributes][:elevator_pitch],
+	  				  about_campaign: params[:company][:campaign_attributes][:about_campaign],
+	  				  category: params[:company][:campaign_attributes][:category],
+	  				  employees_numer: params[:company][:campaign_attributes][:employees_numer],
+	  				  company_location_city: params[:company][:campaign_attributes][:company_location_city],
+	  				  company_location_state: params[:company][:campaign_attributes][:company_location_state])
 	  redirect_to :controller => 'companies', :action => 'show', :id => @company.slug
 	end
 
