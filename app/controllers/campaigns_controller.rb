@@ -97,23 +97,7 @@ class CampaignsController < ApplicationController
   end
 
 
-  def edit_campaign
-    @campaign = Campaign.find(params[:id])
-    @company = @campaign.company
-    # if current_user.company != @company
-    #   redirect_to company_path(@company)
-    # end
-    @formc = @company.general_infos.last
-    @members = @company.founders
-    @comments = @company.comments
-  end
 
-  def update_campaign
-    @campaign = Campaign.find(params[:company][:campaign_attributes][:id])
-    @company = @campaign.company
-    @company.update(company_params)
-    redirect_to :controller => 'companies', :action => 'show', :id => @company.slug
-  end
 
   def team
     @company = current_user.company

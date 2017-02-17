@@ -1,0 +1,61 @@
+<div class="nested-fields member-box">
+  <div class="field">
+    <%= f.text_field :name, class: 'form-field required-field', placeholder: "Full Name" %>
+  </div>
+  <br>
+
+  <div class="field">
+    <%= f.text_field :title, class: 'form-field required-field', placeholder: "Title" %>
+  </div>
+  <br>
+
+  <div class="field">
+    <%= f.select :position, options_for_select((1..10).to_a),{:include_blank => 'Position on a page'},  {class: "form-select form-field required-field"} %>
+  </div>
+  <br>
+
+
+  <label>Upload Team Member Photo: </label>
+
+
+  <% if f.object.image? %>
+      <br>
+      <%= image_tag( f.object.image.url, class: 'company-members')%>
+      <br>
+      Update Photo<%= f.file_field :image %>
+  <% else %>
+      <%= f.file_field :image, class: "required-field" %>
+  <% end %>
+
+  <br>
+
+  <div class="field">
+    <%= f.text_area :content, class: 'form-field form-field-textarea required-field', rows: 4, placeholder: 'Team Member Biography' %>
+  </div>
+
+  <br>
+  <%= link_to_remove_association( f, class: "add-remove-member" ) do %>
+    <i class="fa fa-trash-o" aria-hidden="true"></i>
+    <span>Remove Team Member</span>
+  <% end %>
+  <br/>
+</div>
+
+<br>
+<script type="text/javascript">
+$(".required-field").each(function(){
+    if( $(this).val() ){
+        $(this).removeClass("invalid").addClass("valid");
+    }
+    else{$(this).removeClass("valid").addClass("invalid");}
+    console.log("check")
+})
+
+$(".required-field").on("change", function(){
+    console.log("typing");
+    var input= $( this );
+    var is_name=input.val();
+    if(is_name){input.removeClass("invalid").addClass("valid");}
+    else{input.removeClass("valid").addClass("invalid");}
+});
+</script>

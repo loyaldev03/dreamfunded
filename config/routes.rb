@@ -69,8 +69,8 @@ Rails.application.routes.draw do
   post '/financial_info_submit', to: 'campaigns#financial_info_submit'
   get '/campaign_review/:id', to: 'campaigns#campaign_review', as: 'campaign_review'
 
-  get '/edit_campaign/:id', to: 'campaigns#edit_campaign', as: 'edit_campaign'
-  patch '/update_campaign', to: 'campaigns#update_campaign'
+  get '/edit_campaign/:id', to: 'companies#edit_campaign', as: 'edit_campaign'
+  patch '/update_campaign', to: 'companies#update_campaign'
 
   get '/manage_team', to: 'campaigns#team', as: "manage_team"
 

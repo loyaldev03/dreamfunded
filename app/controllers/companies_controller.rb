@@ -161,6 +161,24 @@ class CompaniesController < ApplicationController
 	def company_not_accretited
 	end
 
+	def edit_campaign
+	  @campaign = Campaign.find(params[:id])
+	  @company = @campaign.company
+	  # if current_user.company != @company
+	  #   redirect_to company_path(@company)
+	  # end
+	  @formc = @company.general_infos.last
+	  @members = @company.founders
+	  @comments = @company.comments
+	end
+
+	def update_campaign
+	  @campaign = Campaign.find(params[:company][:campaign_attributes][:id])
+	  @company = @campaign.company
+	  @company.update(company_params)
+	  redirect_to :controller => 'companies', :action => 'show', :id => @company.slug
+	end
+
 private
 	def set_company
 	  @company = Company.friendly.find(params[:id])
@@ -203,10 +221,13 @@ private
 	end
 
 	def company_params
-	  params.require(:company).permit(:image, :min_investment, :cover, :id, :end_date, :document, :hidden, :position, :docusign_url, :name,
-	  	:description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number,
+	  params.require(:company).permit(:image, :min_investment, :cover, :id, :end_date, :document, :hidden, :position, :docusign_url,
+	   :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number,
 	   :display, :days_left, :created_at, :updated_at, :suggested_target_price, :fund_america_code,
-	  financial_detail_attributes: ["offering_terms", "fin_risks", "income", "totat_income", "total_taxable_income",
+	   campaign_attributes: [:tagline, :elevator_pitch, :about_campaign, :id, :category, :employees_numer, :company_location_city, :company_location_state],
+	   founders_attributes: [:id, :image, :name, :position, :title, :content, :company_id, :created_at, :updated_at, :_destroy],
+	   documents_attributes: [:id, :file, :name, :company_id ],
+	  financial_detail_attributes: ["id", "offering_terms", "fin_risks", "income", "totat_income", "total_taxable_income",
 				       "total_taxes_paid", "total_assets_this_year", "total_assets_last_year", "cash_this_year", "cash_last_year",
 				       "acount_receivable_this_year", "acount_receivable_last_year", "short_term_debt_this_year", "short_term_debt_last_year",
 				       "long_term_debt_this_year", "long_term_debt_last_year", "sales_this_year", "sales_last_year", "costs_of_goods_this_year",

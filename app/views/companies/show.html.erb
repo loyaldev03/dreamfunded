@@ -106,7 +106,7 @@
                         <% end %>
                     <% end %>
                     <% if current_user != nil && current_user.authority >= authority[:Editor] %>
-                        <%= link_to( {:controller => 'campaigns', :action => 'edit_campaign', :id => @company.campaign.id}, class: 'edit-company-button' )  do %>
+                        <%= link_to( { :action => 'edit_campaign', :id => @company.campaign.id}, class: 'edit-company-button' )  do %>
                             <i class="fa fa-cog" aria-hidden="true"></i>
                             <span class='edit-my-company-button'>Edit My Company</span>
                         <%end%>
@@ -114,7 +114,7 @@
                     <br>
                     <% if current_user %>
                         <% if current_user.company == @company && current_user.role == 'founder' %>
-                            <%= link_to( {:controller => 'campaigns', :action => 'edit_campaign', :id => @company.campaign.id}, class: 'edit-company-button' )  do %>
+                            <%= link_to( { :action => 'edit_campaign', :id => @company.campaign.id}, class: 'edit-company-button' )  do %>
                                 <i class="fa fa-cog" aria-hidden="true"></i>
                                 <span class='edit-my-company-button'>Edit My Company</span>
                             <%end%>
