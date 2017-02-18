@@ -7,6 +7,7 @@ class CompaniesController < ApplicationController
 
 	def index
 		@companies = Company.all_accredited
+		@funded_companies = Company.all_funded
 	end
 
 	def company_profile
