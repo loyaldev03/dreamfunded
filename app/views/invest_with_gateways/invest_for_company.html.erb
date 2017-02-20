@@ -179,7 +179,7 @@
 		<!-- <h3><u><%=@user.first_name + " " + @user.last_name%></u></h3> -->
 		<!-- <button type="button" data-fa-invest-now="fPb4hLyNdjNMae5gPxtItmjQcKsLXAfj:weF78DdBSJ-tdDrTod7tzQ" class="fa-invest-now-btn fa-invest-now-btn-4">COMPLETE INVESTMENT</button> -->
     <h3> Personal Info</h3>
-    <%= form_tag(create_investment_path, id: "complete-investment-form") do %>
+    <%= form_tag(create_investment_path, id: "complete-investment-form", remote: true) do %>
       <%= csrf_meta_tag %>
       <%= hidden_field_tag :issuer_id, @company.id %>
       <%= hidden_field_tag :offering_id, "kheizlUUSeukdA3iUl3Xtg" %>
