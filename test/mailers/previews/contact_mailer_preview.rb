@@ -3,6 +3,6 @@ class ContactMailerPreview < ActionMailer::Preview
 
 	def personal_hello
 		user = User.first
-		ContactMailer.personal_hello_to_inverstors(user)
+		ContactMailer.personal_hello_to_investors(user)
 	end
 end

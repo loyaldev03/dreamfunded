@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-
-
   root 'home#index'
 
   devise_for :users, controllers: {:registrations => 'registrations'}
@@ -277,4 +275,32 @@ Rails.application.routes.draw do
   post ':controller(/:action(/:id))'
 
   # match "/:id" => redirect("/"), via: 'get'
+
+  #Plaid 
+  mount PlaidRails::Engine => '/plaid', as: :plaid_rails
+
+  #Payment Gateways Integation
+  resources :invest_with_gateways
+  get "/invest_for_company/:user_id/:id", to: "invest_with_gateways#invest_for_company", as: "invest_for_company"
+  get "/invest_with_paypal/:id", to: "invest_with_gateways#invest_with_paypal", as: "invest_with_paypal" 
+  get "/invest_with_plaid/:id", to: "invest_with_gateways#invest_with_plaid", as: "invest_with_plaid"
+  post "/return_from_paypal/:user_id/:id", to: "invest_with_gateways#return_from_paypal", as: "return_from_paypal"
+  post "/hook" => "invest_with_gateways#hook"
+  post "/authenticate_bank_account_for_plaid", to: "invest_with_gateways#authenticate_bank_account_for_plaid", as: "authenticate_bank_account_for_plaid"
+  post "/update_bank_account_for_plaid", to: "invest_with_gateways#update_bank_account_for_plaid", as: "update_bank_account_for_plaid"
+  post "/update_selected_account", to: "invest_with_gateways#update_selected_account_for_current_user", as: "update_selected_account_for_current_user"
+  get "/get_bank_info_for_current_user", to: "invest_with_gateways#get_bank_info_for_current_user", as: "get_bank_info_for_current_user"
+  get "/get_selected_accont_for_current_user", to: "invest_with_gateways#get_selected_accont_for_current_user", as: "get_selected_accont_for_current_user"
+  #FundAmerica
+  post "/create_offering", to: "fundamerica_business#create_offering", as: "create_offering"
+  get "/list_offerings", to: "fundamerica_business#list_offerings", as: "list_offerings"
+  post "/create_investment", to: "fundamerica_business#create_investment", as: "create_investment"
+  get "/get_subscription_agreement/:offering_id/:issuer_id/:amount", to: "fundamerica_business#get_subscription_agreement", as: "get_subscription_agreement"
+  #HelloSign
+  resources :signatures, only: [:new] do
+    collection do
+      post 'callbacks'
+      post 'create_signature'
+    end
+  end
 end

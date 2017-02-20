@@ -1,0 +1,17 @@
+<!-- Gotta include the HelloSign embedded.js library -->
+<div id="signature">
+</div>
+<script src="//s3.amazonaws.com/cdn.hellofax.com/js/embedded.js" type="text/javascript"></script>
+<!-- Open the embedded signer iFrame -->
+<script type="text/javascript">
+// <![CDATA[
+  HelloSign.init("<%= Rails.application.secrets.hello_sign_client_id %>");
+  HelloSign.open({
+    'url': '<%= @sign_url %>',
+    'allowCancel': true,
+    'messageListener': function(eventData) {
+      alert("HelloSign event received");
+    }
+  });
+// ]]>
+</script>

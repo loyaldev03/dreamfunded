@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 	end
 
 	def verify
-		byebug
+		
 		user = User.find_by(email: params[:email].delete(' '))
 		user.confirmed = true
 		user.save(:validate => false)

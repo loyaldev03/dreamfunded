@@ -78,8 +78,13 @@ class ContactMailer < ActionMailer::Base
   def check_campaign(user, campaign)
     @campaign = campaign
     @name = user.first_name + " " + user.last_name
+    byebug
     @company_name = campaign.company.name
     @user = user
+    @company = campaign.company
+    @financial_detail = @company.financial_detail
+    @documents = @company.documents
+    @links = {website_link: @company.website_link, video_link: @company.video_link}
     subject = @name + '’s Company, ' + @company_name + ', Has Just  !'
     mail(to: "ptulr2016@gmail.com", subject: subject)
   end

@@ -162,21 +162,21 @@ class CompaniesController < ApplicationController
 	end
 
 	def accept_company
-		byebug
 		user = User.find_by(email: params[:email])
 		company = Company.find_by(name: params[:company_name])
 		company.status_of_company = "accept"
-		comany.save
+		company.save
 		ContactMailer.send_accept_email_to_company(user, company)
+		render json: {accept: 'OK'}
 	end
 
 	def reject_company
-		byebug
 		user = User.find_by(email: params[:email])
 		company = Company.find_by(name: params[:company_name])
 		company.status_of_company = "reject"
-		comany.save		
+		company.save		
 		ContactMailer.send_reject_email_to_company(user, company)
+		render json: {reject: 'OK'}
 	end
 
 private

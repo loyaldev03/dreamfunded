@@ -30,6 +30,7 @@ module Dreamfunded
     # config.i18n.default_locale = :de
     # config.middleware.use "PDFKit::Middleware", :print_media_type => true
     config.middleware.use Oink::Middleware, :logger => Hodel3000CompliantLogger.new(STDOUT)
+
   end
 end
 

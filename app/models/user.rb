@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
 	has_many :bids
 
 	has_one :investor
+	has_many :investmentforfundamericas
 
 	has_many :docusigns
 	#Getter
@@ -30,7 +31,9 @@ class User < ActiveRecord::Base
 	validates :password, confirmation: true
 	
 	serialize :users_type,Array
-
+	serialize :bank_info, Array
+	serialize :selected_bank_account
+	
 	has_attached_file :image,
 	  :styles =>{
 	    },

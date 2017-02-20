@@ -1,7 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
 
   def create
-    byebug
+    
     super
     p "REGISTRATION CONTROLLER"
     if @user.persisted?

@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require plaid_rails
 //= require jquery_ujs
 //= require ckeditor/init
 //= require bootstrap.min
@@ -23,4 +24,3 @@
 //= require jquery.tinyscrollbar.min
 //= require jquery.countdown.min
 //= require_tree .
-

@@ -15,12 +15,11 @@ class HomeController < ApplicationController
 	end
 
 	def get_started
-		debugger
 		if current_user == nil
 			redirect_to "/users/sign_up"
 		else
 			redirect_to "/companies"
-		end
+		end	
 	end
 
 	def unauthorized

@@ -75,9 +75,10 @@ class CampaignsController < ApplicationController
     @campaign.update(campaign_params)
     @campaign.financial
     @campaign.complete
-    byebug  
+      
     ContactMailer.campaign_submitted(current_user, @campaign.company).deliver
     ContactMailer.check_campaign(current_user, @campaign).deliver
+    
     redirect_to company_path(@campaign.company)
   end
 

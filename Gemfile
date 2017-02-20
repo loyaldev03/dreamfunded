@@ -13,6 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 gem 'docusign_rest'
+gem 'autoprefixer-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -55,11 +56,16 @@ gem 'delayed_job_active_record'
 gem 'csv-importer'
 gem 'fund_america'
 gem "oink"
-
+gem 'argyle'
+gem 'browser'
+gem 'city-state'
 
 gem 'will_paginate', '~> 3.0.5'
 gem 'betterlorem', '~> 0.1.2'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
+
+gem 'plaid_rails'
+gem 'hellosign-ruby-sdk'
 
 group :development do
    gem "thin"
