@@ -178,7 +178,8 @@ class CompaniesController < ApplicationController
 		company.save		
 		ContactMailer.send_reject_email_to_company(user, company)
 		render json: {reject: 'OK'}
-
+	end 
+	
 	def edit_campaign
 	  @campaign = Campaign.find(params[:id])
 	  @company = @campaign.company
