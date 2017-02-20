@@ -1,0 +1,327 @@
+<%= form_for(@company, :url => url_for( :action => 'update_campaign') ) do |f| %>
+
+  <section class='company-cover-photo' style="background-image:url(<%= @company.cover.url %>)" >
+
+        <div class='company-profile-bottom-line'>
+            <div class='inline-block'>
+                <%= image_tag( @company.image.url, class: 'image-max-width company-logo')%>
+                <br>
+                <%= f.file_field "image", class: "company-logo" %>
+            </div>
+            <section class='company-basic-info'>
+                <div>   <%= f.text_field :name, class: "form-field form-field-half" %> </div>
+
+
+
+                <%= f.fields_for :campaign  do |campaign_fields| %>
+                  <%= campaign_fields.text_area :tagline, placeholder: 'Describe your company in one sentence',:class => " form-field", required:true %><br>
+                  <!-- <i class="fa fa-map-marker darkblue company_located"></i> -->
+                  <%= campaign_fields.text_field :company_location_city, placeholder: 'City',:class => "form-field form-field-half", required:true %>
+                  <%= campaign_fields.text_field :company_location_state, placeholder: 'State',:class => "form-field form-field-half", required:true %>
+                <% end %>
+
+            </section>
+        </div>
+
+        <div class='company-info-right-panel'>
+            <div class='company-info-cateogry no-margin-top'>RAISED</div>
+            <div class='company-finance-info'><%= number_to_currency @company.invested, precision: 0 %></div>
+
+            <div class='company-info-cateogry'>TARGET</div>
+            <div class='company-finance-info'><%= number_to_currency @company.goal_amount, precision: 0 %></div>
+
+            <div class='company-info-cateogry'>DAYS LEFT</div>
+            <div class='company-finance-info'> <%= @company.left_days %></div>
+
+            <div class='company-info-cateogry'>minimum investment</div>
+            <div class='company-finance-info'> $100 </div>
+
+            <div class='company-info-cateogry'>Background Cover:</div>
+            <div class='company-finance-info'> <%= f.file_field "cover" %> </div>
+
+              <div class="meter orange">
+                  <% @progress = ((@company.invested.to_f / @company.goal_amount.to_f).to_f) *100 %>
+                  <% if @progress == 0 %>
+                      <span class= "front" style="width: 5px"></span>
+                  <% elsif @progress > 100 %>
+                      <span style= 'width: 100%'></span>
+                  <% else %>
+                      <span style='width: <%= @progress %>%'></span>
+                  <% end %>
+              </div>
+              <div class='company-info-cateogry percent-funded'><%= @progress.to_i %>% funded</div>
+            <%= f.submit "Update", :class => 'company-button profile-button mail-to-button' %>
+
+          </div>
+  </section>
+
+  <div class='grey-section'>
+      <div class=" stretch">
+
+
+          <div style="text-align:center;">
+              <section class= "video-box">
+                  <h2 class='section-title'>Who Are We?</h2>
+                  <% if @company.video_link.empty? %>
+                      <%= image_tag( @company.image.url, class: 'image-max-width')%>
+                  <% else %>
+                      <iframe  class='youtube-video' src= <%= @company.video_link + "?rel=0" %> frameborder="0" allowfullscreen ></iframe>
+                  <% end %>
+              </section>
+
+              <section class='social-media-campaign'>
+                  <p class='help-our-campaign'>
+                      Help us reach our goal. <br>Share our campaign to your friends and family.
+                  </p>
+                  <section class='centered'>
+
+                          <a id='facebook' class="share-invites-social" > <i class="fa fa-facebook"></i></a>
+                          <a id="twitter" class="share-invites-social" title="Share via Twitter">
+                              <i class="fa fa-twitter"></i>
+                          </a>
+                          <a id ='linkedin' class="share-invites-social" title="Share via LinkedIn" >
+                              <i class="fa fa-linkedin"></i>
+                          </a>
+
+
+                      <div class='company-info-cateogry campaign-website'>
+                           <%= f.text_field :website_link, class: "form-field" %>
+                      </div>
+                      <div class='company-info-cateogry campaign-website'>
+                          <a>Youtube Link</a><br>
+                           <%= f.text_field :video_link, class: "form-field" %>
+                      </div>
+
+                      <div class='company-info-cateogry campaign-website'>
+                          <%= link_to "Manage Team", "/manage_team", class: 'company-button profile-button mail-to-button' %>
+                          <%= link_to "Form C Editor", "/formc/general/#{@company.slug}", :class => 'company-button profile-button mail-to-button', id: '' %>
+                      </div>
+
+                  </section>
+              </section>
+          </div>
+      </div>
+
+  </div>
+  <div class='white-section'>
+      <div class= "description-container">
+          <section class='nav-links'>
+              <a  class='tab-name about_tab active-tab'>Company</a>
+              <a  class='tab-name   ' id='team_tab'>Team</a>
+              <a  class='tab-name   ' id='finances_tab'>Financial Info</a>
+              <a  class='tab-name   ' id='documents_tab'>Documents</a>
+              <a  class='tab-name   ' id='comments_tab'>Comments</a>
+          </section>
+
+          <div class='about_tab_content tab-content'>
+              <h2 class= " category-name indent">Highlight</h2>
+              <hr>
+                  <%= f.text_area :description, rows: 10, :class => 'ckeditor edit_textarea twenty no-margin', required:true %>
+              <br>
+              <h2 class= " category-name indent">Why <%= @company.name %>?</h2>
+              <hr>
+              <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
+                <p class= "fifteen"><%= campaign_fields.text_area :elevator_pitch, rows: 10, :class => 'ckeditor edit_textarea twenty  no-margin',  required:true %></p>
+              <% end %>
+
+              <br>
+
+              <h2 class= " category-name indent">Our Mission</h2>
+              <hr>
+              <%= f.fields_for :campaign, @company.campaign do |campaign_fields| %>
+                <p class= "fifteen"><%= campaign_fields.text_area :about_campaign, rows: 10, :class => 'ckeditor edit_textarea twenty no-margin ', required:true %></p>
+              <% end %>
+          </div>
+
+          <div class='team_tab_content tab-content'>
+            <div class= "team-band">
+               <%= f.fields_for :founders, @members do |founder| %>
+                   <div class= "team-member-box">
+                     <%= button_to "X", { action: 'remove_founder',controller: "companies", id: founder.object.id} , {:class => 'remove-button'} %>
+                     <%= image_tag( founder.object.image.url, :class => "company-members") %>
+                     Image
+                     <%= founder.file_field :image %>
+                     <h2 class= "twenty no-margin">
+                      <%= founder.text_field :name, class: "form-field " %>
+                      <%= founder.text_field :title, class: "form-field " %>
+                      <%= founder.select :position, options_for_select((1..10).to_a, founder.object.position),{:include_blank => 'Position on a page'},  {class: "form-select form-field required-field"} %>
+                    </h2>
+                     <br>
+                     <p class= "fifteen no-margin"><%= founder.text_area :content, class: "form-field " %></p>
+                   </div>
+
+               <% end %>
+            </div>
+             <div class="links">
+               <%= link_to_add_association 'Add', f, :founders %>
+             </div>
+          </div>
+
+          <div class='finance_tab_content tab-content'>
+            <%= f.fields_for :financial_detail do |fin_details| %>
+              <h2 class= " category-name indent">Offering Terms</h2>
+              <%= fin_details.text_area :offering_terms, rows: 6, :class => 'ckeditor ' %>
+
+               <h2 class= " category-name indent">Financial Risks</h2>
+              <%= fin_details.text_area :fin_risks, rows: 6, :class => 'ckeditor ' %>
+            <% end %>
+          </div>
+
+          <div class='documents_tab_content tab-content'>
+            <%= f.fields_for :financial_detail do |fin_details| %>
+            <div class='funding_goal_list_item'>
+              <strong>Balance Sheet: </strong>
+              <%= @company.financial_detail.balance_sheet_file_name %><br>
+              <%= fin_details.file_field :balance_sheet %>
+            </div>
+
+            <div class='funding_goal_list_item'>
+              <strong>Income Statements: </strong>
+              <%= @company.financial_detail.income_statements_file_name %><br>
+              <%= fin_details.file_field :income_statements %>
+            </div>
+
+            <div class='funding_goal_list_item'>
+              <strong>Statement of Cash Flow: </strong>
+              <%= @company.financial_detail.statement_of_cash_flow_file_name %><br>
+              <%= fin_details.file_field :statement_of_cash_flow %>
+            </div>
+
+            <div class='funding_goal_list_item'>
+              <strong>Statement of Changes in Equity For Past 2 Years: </strong>
+              <%= @company.financial_detail.statement_changes_of_equity_file_name %><br>
+              <%= fin_details.file_field :statement_changes_of_equity %>
+            </div>
+
+            <div class='funding_goal_list_item'>
+              <strong>Business Plan: </strong>
+              <%= @company.financial_detail.business_plan_file_name %><br>
+              <%= fin_details.file_field :business_plan %>
+            </div>
+
+            <div class='funding_goal_list_item'>
+              <strong>Party Transaction: </strong>
+              <%= @company.financial_detail.party_transaction_file_name %><br>
+              <%= fin_details.file_field :party_transaction %>
+            </div>
+
+            <div class='funding_goal_list_item'>
+              <strong>Intended use of proceeds: </strong>
+              <%= @company.financial_detail.intended_use_of_proceeds_file_name %><br>
+              <%= fin_details.file_field :intended_use_of_proceeds %>
+            </div>
+
+            <div class='funding_goal_list_item'>
+              <strong>Capital Structure: </strong>
+              <%= @company.financial_detail.capital_structure_file_name %><br>
+              <%= fin_details.file_field :capital_structure %>
+            </div>
+
+            <div class='funding_goal_list_item'>
+              <strong>Material Terms: </strong>
+              <%= @company.financial_detail.material_terms_file_name %><br>
+              <%= fin_details.file_field :material_terms %>
+            </div>
+
+            <div class='funding_goal_list_item'>
+              <strong>Directors Background: </strong>
+              <%= @company.financial_detail.directors_background_file_name %><br>
+              <%= fin_details.file_field :directors_background %>
+            </div>
+
+            <div class='funding_goal_list_item'>
+              <strong>Accountant Review: </strong>
+              <%= @company.financial_detail.accountant_review_file_name %><br>
+              <%= fin_details.file_field :accountant_review %>
+            </div>
+            <%end%>
+            <% @company.documents.each do |doc| %>
+                <p class= "fifteen ">Pitch Deck:</p>
+                <p class= "no-margin doc_name_overflow">
+                    <%= image_tag "static/pdf_icon.png" %>
+                    <%= link_to doc.file_file_name, doc.file.url, target: "_blank", class: 'document-url' %>
+                    <%= link_to 'Destroy', doc, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </p>
+            <% end %>
+            <%= f.fields_for :documents, Document.new do |doc| %>
+              <strong>Upload Pitch Deck: </strong> <br>
+              <%= doc.file_field :file %>
+            <% end %>
+          </div>
+
+          <div class='comments_tab_content tab-content' >
+              <div class='comments'>
+                  <%= nested_messages(@comments.arrange(:order => :created_at))%>
+              </div>
+              <br>
+
+                  <% if current_user %>
+                      <div class="comment">
+                        <div class="headline">
+                          <span class="name">
+                            <span class='comment_as'>New comment as</span>
+                            <a><%= current_user.comments_name%></a>
+                          </span>
+                        </div>
+                        <div class="comment_content">
+                              <%= form_for Comment.new, remote: true  do |f|%>
+                                   <%= f.hidden_field "user_id", value: current_user.id %>
+                                   <%= f.hidden_field "company_id", value: @company.id %>
+                                   <%= f.hidden_field :parent_id %>
+                                  <div>
+                                      <%= f.text_area :content, rows: 8, class: 'comment_extarea' %>
+                                  </div>
+                                  <%= f.submit "Post Comment", class: 'comment_submit_button' %>
+                              <% end %>
+                      </div>
+                  <%else%>
+                        <p>First <%= link_to "sign in", "/users/sign_in" %> to post a comment.</p>
+                      </div>
+                  <%end%>
+          </div>
+      </div>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#team_tab').click(function(e){
+        $('.tab-content').hide();
+        $('.team_tab_content').show();
+        $(".tab-name").removeClass('active-tab');
+        $("#team_tab").addClass('active-tab');
+    });
+    $('.about_tab').click(function(e){
+        $('.tab-content').hide();
+        $('.about_tab_content').show();
+        $(".tab-name").removeClass('active-tab');
+        $('.about_tab').addClass('active-tab');
+    });
+    $('#finances_tab').click(function(e){
+        $('.tab-content').hide();
+        $('.finance_tab_content').show();
+        $(".tab-name").removeClass('active-tab');
+        $('#finances_tab').addClass('active-tab');
+    });
+    $('#comments_tab').click(function(e){
+        $('.tab-content').hide();
+        $('.comments_tab_content').show();
+        $(".tab-name").removeClass('active-tab');
+        $('#comments_tab').addClass('active-tab');
+    });
+    $("#documents_tab").click(function(e){
+        $('.tab-content').hide();
+        $('.documents_tab_content').show();
+        $(".tab-name").removeClass('active-tab');
+        $('#documents_tab').addClass('active-tab');
+    })
+
+      if ($('textarea').length > 0) {
+        var data = $('.ckeditor');
+        $.each(data, function(i) {
+            CKEDITOR.replace(data[i].id);
+        });
+      }
+  });
+</script>

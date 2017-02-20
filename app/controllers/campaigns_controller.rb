@@ -44,6 +44,7 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:campaign_id])
     @company = @campaign.company
     @company.update(company_params)
+    current_user.update(phone: params[:phone])
     @campaign.description
     @campaign.update( tagline: params[:tagline], category: params[:category])
     redirect_to description_path(@campaign.id)
@@ -97,28 +98,8 @@ class CampaignsController < ApplicationController
     redirect_to "/companies/company_profile/#{@campaign.company.id}"
   end
 
-  def campaign_review
-    @campaign = Campaign.find(params[:id])
-    @company = @campaign.company
-  end
 
-  def edit_campaign
-    @campaign = Campaign.find(params[:id])
-    @company = @campaign.company
-    # if current_user.company != @company
-    #   redirect_to company_path(@company)
-    # end
-    @formc = @company.general_infos.last
-    @members = @company.founders
-    @comments = @company.comments
-  end
 
-  def update_campaign
-    @campaign = Campaign.find(params[:company][:campaign_attributes][:id])
-    @company = @campaign.company
-    @company.update(company_params)
-    redirect_to :controller => 'companies', :action => 'show', :id => @company.slug
-  end
 
   def team
     @company = current_user.company
@@ -136,7 +117,7 @@ class CampaignsController < ApplicationController
   def company_params
      params.require(:company).permit(:image, :id, :cover, :name, :description, :video_link, :user_id, :goal_amount, :website_link,
                      campaign_attributes: [:tagline, :elevator_pitch, :about_campaign, :id, :category, :employees_numer, :company_location_city, :company_location_state],
-                     founders_attributes: [:id, :image, :name, :position, :content, :company_id, :created_at, :updated_at, :_destroy],
+                     founders_attributes: [:id, :image, :name, :position, :title, :content, :company_id, :created_at, :updated_at, :_destroy],
                      documents_attributes: [:id, :file, :name, :company_id ],
                      financial_detail_attributes: ["id", "offering_terms", "fin_risks", "income", "totat_income", "total_taxable_income",
                        "total_taxes_paid", "total_assets_this_year", "total_assets_last_year", "cash_this_year", "cash_last_year",

@@ -19,7 +19,7 @@
   </div>
 
   <div>
-    <%= button_to "Print PDF", formc_path(@general_info), class: 'formc_button' %>
+    <%= button_to "Print PDF", "/formc/pdf/#{@general_info.id}.pdf", class: 'formc_button' %>
   </div>
 
     <div class= "login-container">

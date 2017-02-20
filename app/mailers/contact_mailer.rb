@@ -33,7 +33,7 @@ class ContactMailer < ActionMailer::Base
   def personal_hello(user)
     @name = user.first_name
     @email= user.email
-    mail(to: @email, subject: 'Following up', from: 'Manny Fernandez <manny@dreamfunded.com>')
+    mail(to: @email, subject: 'Following up', from: 'Manny Fernandez <info@dreamfunded.com>')
   end
 
   def personal_hello_to_investors(user)

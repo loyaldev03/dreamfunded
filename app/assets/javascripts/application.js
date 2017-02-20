@@ -19,6 +19,7 @@
 //= require turbolinks
 //= require links
 //= require cocoon
+//= require slick.min
 //= require companies
 //= require tinyscrollbar.min
 //= require jquery.tinyscrollbar.min

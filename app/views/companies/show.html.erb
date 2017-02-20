@@ -27,7 +27,7 @@
                 <% if @company.status == 2 %>
                     <div class='company-info-cateogry'>RAISED</div>
                     <div class='company-finance-info'>
-                        <%= number_to_currency @company.fund_america_invested_amount, precision: 0 %>
+                        <%= raised_amount(@company) %>
                     </div>
 
                     <div class='company-info-cateogry'>TARGET</div>
@@ -101,7 +101,9 @@
                             <i class="fa fa-user-secret" aria-hidden="true"></i>
                            <span class='edit-my-company-button'> Edit as Admin</span>
                         <% end %>
-                        <%= link_to( {:controller => 'campaigns', :action => 'edit_campaign', :id => @company.campaign.id}, class: 'edit-company-button' )  do %>
+                    <% end %>
+                    <% if current_user != nil && current_user.authority >= authority[:Editor] %>
+                        <%= link_to( { :action => 'edit_campaign', :id => @company.campaign.id}, class: 'edit-company-button' )  do %>
                             <i class="fa fa-cog" aria-hidden="true"></i>
                             <span class='edit-my-company-button'>Edit My Company</span>
                         <%end%>
@@ -109,7 +111,7 @@
                     <br>
                     <% if current_user %>
                         <% if current_user.company == @company && current_user.role == 'founder' %>
-                            <%= link_to( {:controller => 'campaigns', :action => 'edit_campaign', :id => @company.campaign.id}, class: 'edit-company-button' )  do %>
+                            <%= link_to( { :action => 'edit_campaign', :id => @company.campaign.id}, class: 'edit-company-button' )  do %>
                                 <i class="fa fa-cog" aria-hidden="true"></i>
                                 <span class='edit-my-company-button'>Edit My Company</span>
                             <%end%>
@@ -190,44 +192,17 @@
 
                     <h2 class= " category-name indent">Highlight</h2>
                     <hr>
-                        <% if current_user %>
                             <p class= "fifteen "><%= @company.description.html_safe if @company.description %></p>
-                        <%else%>
-                            <p class= "fifteen "><%= @company.description.split(' ').first(30).join(' ').html_safe %>...</p>
-                            <article class='centered'>
-                                <%= image_tag("lock-icon", width: 50,  class: 'icon-lock')%>
-                                <%= link_to "Sign In to View", new_user_session_path%>
-                            </article>
-                        <%end%>
-
                     <br>
 
                     <h2 class= " category-name indent">Why <%= @company.name %>?</h2>
                     <hr>
-                    <% if current_user %>
                         <p class='sign-in-blur'><%= @company.campaign.elevator_pitch.html_safe  if @company.campaign.elevator_pitch %></p>
-                    <% else %>
-                        <p class= "fifteen "><%= @company.campaign.elevator_pitch.split(' ').first(30).join(' ').html_safe if @company.campaign.elevator_pitch%>...</p>
-                        <article class='centered'>
-                            <%= image_tag("lock-icon", width: 50,  class: 'icon-lock')%>
-                            <%= link_to "Sign In to View", new_user_session_path%>
-                        </article>
-                    <%end%>
-
                     <br>
 
                     <h2 class= " category-name indent">Our Mission</h2>
                     <hr>
-                    <% if current_user %>
-                        <p><%= @company.campaign.about_campaign.html_safe if @company.campaign.about_campaign %></p>
-                    <% else %>
-                        <p class= "fifteen "><%= @company.campaign.about_campaign.split(' ').first(30).join(' ').html_safe if @company.campaign.about_campaign%>...</p>
-                        <article class='centered'>
-                            <%= image_tag("lock-icon", width: 50,  class: 'icon-lock')%>
-                            <%= link_to "Sign In to View", new_user_session_path%>
-                        </article>
-                    <%end%>
-
+                    <p><%= @company.campaign.about_campaign.html_safe if @company.campaign.about_campaign %></p>
                 </div>
 
                 <div class='team_tab_content tab-content'>
@@ -242,7 +217,7 @@
                                             <%# end %>
                                             <%= image_tag( member.image.url, :class => "company-members") %>
                                             <h2 class= "team-member-name"><%= member.name %></h2>
-                                            <h2 class='team-member-title'><%= member.position %></h2>
+                                            <h2 class='team-member-title'><%= member.title %></h2>
                                             <br>
                                             <p class= "team-member-bio"><%= nl2br(h(member.content)).html_safe %></p>
                                         </div>
@@ -420,9 +395,10 @@
 
         document.addEventListener('fa.investnow.success', function(e){
           var InvestorInvestmentID = e.investment_id;
+          console.log(e);
            $.ajax({
                 type: 'POST',
-                url: "/investment_made",
+                url: "/investment_made/"+InvestorInvestmentID,
                 data: { company_id: <%= @company.id %>  },
                 dataType: "json",
                 success: function(resultData) { alert("Save Complete") }

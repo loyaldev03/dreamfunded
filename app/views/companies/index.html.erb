@@ -38,7 +38,7 @@
 						<div class='company-details-small-box'>
 							<div class='companies-box-name'>Raised</div>
 							<% if company.status == 2 %>
-								<div class='companies-box-value'><%= company.fund_america_invested_amount %></div>
+								<div class='companies-box-value'><%=  raised_amount(company) %></div>
 							<% else %>
 								<div class='companies-box-value'><%= raised_amount(company) %></div>
 							<% end %>
@@ -53,6 +53,37 @@
 				</article>
 				<% end %>
 				<%= link_to "Learn More", company, class:'invest-link' %>
+			</div>
+		<% end %>
+
+		<h1 class='centered accredited-investor-title'>Funded by accredited investors under 506(b)</h1>
+		<% @funded_companies.each do |company| %>
+
+			<div class='property-box'>
+
+				<div class='companies-back-image' style="background-image: url(<%= company.cover.url(:small) %>)">
+					<%#= image_tag( company.cover.url, :class => "property-image") %>
+				</div>
+				<div class='logo-image-wrapper'>
+					<span class="helper"></span>
+					<%= image_tag( company.image.url, :class => "property-logo-image") %>
+				</div>
+
+
+				<article>
+					<div class='company-campaign-name'><%= company.name %></div>
+
+					<div class='company-tagline'>
+						<span class='company-tagline-text'><%= company.campaign.tagline %></span>
+					</div>
+
+					<div class='property-detail'>
+						<span class='propety-detail-left'>Category</span>
+						<span class='property-detail-right'><%= company.campaign.category %></span>
+					</div>
+
+
+				</article>
 			</div>
 		<% end %>
 	</section>

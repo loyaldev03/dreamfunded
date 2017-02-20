@@ -80,8 +80,13 @@ class FormcController < ApplicationController
   def financials_save
      @general_info = GeneralInfo.find(params[:id])
      @general_info.update(general_info_params)
-     ContactMailer.formc_submitted(current_user, @general_info).deliver
-     redirect_to action: :print, id: @general_info.id
+     #ContactMailer.formc_submitted(current_user, @general_info).deliver
+     redirect_to "/formc/pdf/#{@general_info.id}.pdf"
+  end
+
+  def pdf
+    @general_info = GeneralInfo.find(params[:id])
+    render :layout => false
   end
 
   def print

@@ -169,6 +169,10 @@ GEM
       multi_json
     hitimes (1.2.3)
     hodel_3000_compliant_logger (0.1.1)
+    htmltoword (0.5.1)
+      actionpack
+      nokogiri
+      rubyzip (>= 1.0)
     httparty (0.13.3)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -380,6 +384,7 @@ DEPENDENCIES
   gibbon
   google_contacts_api
   hellosign-ruby-sdk
+  htmltoword
   infusionsoft
   invisible_captcha
   jbuilder (~> 2.0)

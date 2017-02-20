@@ -55,7 +55,7 @@ Rails.application.routes.draw do
   post '/pre_purchase_submit/:name', to: 'invest#pre_purchase_submit'
   get '/investment_payment', to: 'invest#payment'
 
-  post '/investment_made', to: 'invest#investment_made'
+  post '/investment_made/:id', to: 'invest#investment_made'
 
   # Company Compaign Submit
   get '/funding_goal', to: 'campaigns#funding_goal', as: 'funding_goal'
@@ -72,8 +72,8 @@ Rails.application.routes.draw do
   post '/financial_info_submit', to: 'campaigns#financial_info_submit'
   get '/campaign_review/:id', to: 'campaigns#campaign_review', as: 'campaign_review'
 
-  get '/edit_campaign/:id', to: 'campaigns#edit_campaign', as: 'edit_campaign'
-  patch '/update_campaign', to: 'campaigns#update_campaign'
+  get '/edit_campaign/:id', to: 'companies#edit_campaign', as: 'edit_campaign'
+  patch '/update_campaign', to: 'companies#update_campaign'
 
   get '/manage_team', to: 'campaigns#team', as: "manage_team"
 
@@ -273,6 +273,7 @@ Rails.application.routes.draw do
   resources :users, only: [:update, :edit, :create, :new]
   get ':controller(/:action(/:id))'
   post ':controller(/:action(/:id))'
+
 
   # match "/:id" => redirect("/"), via: 'get'
 

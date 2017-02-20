@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170213174542) do
 
   # These are extensions that must be enabled in order to support this database
@@ -319,6 +320,7 @@ ActiveRecord::Schema.define(version: 20170213174542) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "title"
   end
 
   create_table "fundraise_tiers", force: true do |t|
@@ -461,6 +463,7 @@ ActiveRecord::Schema.define(version: 20170213174542) do
     t.datetime "updated_at"
     t.integer  "invested_amount",  default: 0
     t.integer  "number_of_shares"
+    t.string   "fund_america_id"
   end
 
   add_index "investments", ["company_id"], name: "index_investments_on_company_id", using: :btree

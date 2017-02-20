@@ -93,7 +93,8 @@
                       </div>
 
                       <div class='company-info-cateogry campaign-website'>
-                           <%= link_to "Manage Team", "/manage_team", class: 'company-button profile-button mail-to-button' %>
+                          <%= link_to "Manage Team", "/manage_team", class: 'company-button profile-button mail-to-button' %>
+                          <%= link_to "Form C Editor", "/formc/general/#{@company.slug}", :class => 'company-button profile-button mail-to-button', id: '' %>
                       </div>
 
                   </section>
@@ -134,7 +135,7 @@
 
           <div class='team_tab_content tab-content'>
             <div class= "team-band">
-               <%= f.fields_for :founders do |founder| %>
+               <%= f.fields_for :founders, @members do |founder| %>
                    <div class= "team-member-box">
                      <%= button_to "X", { action: 'remove_founder',controller: "companies", id: founder.object.id} , {:class => 'remove-button'} %>
                      <%= image_tag( founder.object.image.url, :class => "company-members") %>
@@ -142,7 +143,9 @@
                      <%= founder.file_field :image %>
                      <h2 class= "twenty no-margin">
                       <%= founder.text_field :name, class: "form-field " %>
-                      <%= founder.text_field :position, class: "form-field " %></h2>
+                      <%= founder.text_field :title, class: "form-field " %>
+                      <%= founder.select :position, options_for_select((1..10).to_a, founder.object.position),{:include_blank => 'Position on a page'},  {class: "form-select form-field required-field"} %>
+                    </h2>
                      <br>
                      <p class= "fifteen no-margin"><%= founder.text_area :content, class: "form-field " %></p>
                    </div>

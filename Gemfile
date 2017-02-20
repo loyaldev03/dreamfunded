@@ -59,6 +59,7 @@ gem "oink"
 gem 'argyle'
 gem 'browser'
 gem 'city-state'
+gem 'htmltoword'
 
 gem 'will_paginate', '~> 3.0.5'
 gem 'betterlorem', '~> 0.1.2'

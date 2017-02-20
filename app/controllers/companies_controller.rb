@@ -7,6 +7,7 @@ class CompaniesController < ApplicationController
 
 	def index
 		@companies = Company.all_accredited
+		@funded_companies = Company.all_funded
 	end
 
 	def company_profile
@@ -15,7 +16,7 @@ class CompaniesController < ApplicationController
 			@financial_details = @company.financial_detail
 			@progress = @company.invested_amount / @company.goal_amount rescue 0
 			@comments = @company.comments
-			@members = @company.founders
+			@members = @company.founders.order(:position)
 			@section = @company.sections.first
 		else
 			redirect_to "/companies"
@@ -28,7 +29,7 @@ class CompaniesController < ApplicationController
 			@financial_details = @company.financial_detail
 			@progress = @company.invested_amount / @company.goal_amount rescue 0
 			@comments = @company.comments
-			@members = @company.founders
+			@members = @company.founders.order(:position)
 			@section = @company.sections.first
 		else
 			redirect_to "/companies"
@@ -177,6 +178,29 @@ class CompaniesController < ApplicationController
 		company.save		
 		ContactMailer.send_reject_email_to_company(user, company)
 		render json: {reject: 'OK'}
+
+	def edit_campaign
+	  @campaign = Campaign.find(params[:id])
+	  @company = @campaign.company
+	  # if current_user.company != @company
+	  #   redirect_to company_path(@company)
+	  # end
+	  @formc = @company.general_infos.last
+	  @members = @company.founders
+	  @comments = @company.comments
+	end
+
+	def update_campaign
+	  @campaign = Campaign.find(params[:company][:campaign_attributes][:id])
+	  @company = @campaign.company
+	  @campaign.update(tagline: params[:company][:campaign_attributes][:tagline],
+	  				  elevator_pitch: params[:company][:campaign_attributes][:elevator_pitch],
+	  				  about_campaign: params[:company][:campaign_attributes][:about_campaign],
+	  				  category: params[:company][:campaign_attributes][:category],
+	  				  employees_numer: params[:company][:campaign_attributes][:employees_numer],
+	  				  company_location_city: params[:company][:campaign_attributes][:company_location_city],
+	  				  company_location_state: params[:company][:campaign_attributes][:company_location_state])
+	  redirect_to :controller => 'companies', :action => 'show', :id => @company.slug
 	end
 
 private
@@ -203,7 +227,7 @@ private
 	end
 
 	def check_company_ownership
-		if @company == current_user.company || current_user.authority == 4
+		if @company == current_user.company || current_user.authority >= 3
 			return
 		else
 			redirect_to company_not_accretited_path
@@ -221,10 +245,13 @@ private
 	end
 
 	def company_params
-	  params.require(:company).permit(:image, :min_investment, :cover, :id, :end_date, :document, :hidden, :position, :docusign_url, :name,
-	  	:description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number,
+	  params.require(:company).permit(:image, :min_investment, :cover, :id, :end_date, :document, :hidden, :position, :docusign_url,
+	   :name, :description, :image, :invested_amount, :website_link, :video_link, :goal_amount, :status, :CEO, :CEO_number,
 	   :display, :days_left, :created_at, :updated_at, :suggested_target_price, :fund_america_code,
-	  financial_detail_attributes: ["offering_terms", "fin_risks", "income", "totat_income", "total_taxable_income",
+	   campaign_attributes: [:tagline, :elevator_pitch, :about_campaign, :id, :category, :employees_numer, :company_location_city, :company_location_state],
+	   founders_attributes: [:id, :image, :name, :position, :title, :content, :company_id, :created_at, :updated_at, :_destroy],
+	   documents_attributes: [:id, :file, :name, :company_id ],
+	  financial_detail_attributes: ["id", "offering_terms", "fin_risks", "income", "totat_income", "total_taxable_income",
 				       "total_taxes_paid", "total_assets_this_year", "total_assets_last_year", "cash_this_year", "cash_last_year",
 				       "acount_receivable_this_year", "acount_receivable_last_year", "short_term_debt_this_year", "short_term_debt_last_year",
 				       "long_term_debt_this_year", "long_term_debt_last_year", "sales_this_year", "sales_last_year", "costs_of_goods_this_year",

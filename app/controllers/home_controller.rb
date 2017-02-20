@@ -7,6 +7,9 @@ class HomeController < ApplicationController
 		end
 	end
 
+	def staging
+	end
+
 	def about
 		@posts = Post.order(:position).where(page: 'about_us')
 	end

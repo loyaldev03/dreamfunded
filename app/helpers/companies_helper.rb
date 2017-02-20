@@ -10,10 +10,10 @@ module CompaniesHelper
     end
 
     def raised_amount(company)
-        if company.invested == 0
+        if company.invested_amount == 0
             return 'TBA'
         else
-            return number_to_currency company.invested, precision: 0
+            return number_to_currency company.invested_amount, precision: 0
         end
     end
 
