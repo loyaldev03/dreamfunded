@@ -1,7 +1,50 @@
+<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>Dear Manny,<p>
 
-<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>Hi,<p>
+<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'><%=@name%>’s Company, <%=@company_name%>, has just applied to fundraise on DreamFunded.</p>
 
-<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>New company was submitted for funding on DreamFunded.com.</p>
-<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>You can check Company Profile <a href="https://dreamfunded.com/companies/<%= @campaign.company.slug %>">here</a></p>
+<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>Here is their information:
+</p>
 
-<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>Thank you</p>
+<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>
+	<h1> Company </h1>
+	<h4> Name: <%= @company.name %> </h4>
+	<h4> Description: <%= @company.description %> </h4>
+	<h4> Invested amount: <%= @company.invested_amount %> </h4>
+	<h4> Goal amount: <%= @company.goal_amount %> </h4>
+	<h4> CEO <%= @company.CEO %> </h4>
+</p>
+
+<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>
+	<h1>Team</h1>
+</p>
+<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>
+	<h1>Financial Info</h1>
+	<h4>Offering Terms: <%= @financial_detail.offering_terms%></h4>
+	<h4>Fin_risks: <%= @financial_detail.fin_risks%></h4>
+	<h4>Income: <%= @financial_detail.income%></h4>
+	<h4>Total Income: <%= @financial_detail.totat_income%></h4>
+	<h4>Offering Terms: <%= @financial_detail.offering_terms%></h4>
+	<h4>Offering Terms: <%= @financial_detail.offering_terms%></h4>
+</p>
+
+<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>
+	<h1>Documents</h1>
+	<% for document in @documents do %>
+		<h4>Name: <%=@document.name%></h4>
+		<h4>File Name: <%=@document.file_file_name%></h4>
+		<h4>Content Type: <%=@document.file_content_type%></h4>
+	<% end %>
+</p>
+
+<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>
+	<h1>Links</h1>
+	<h4>Website Link <a href="<%= @links[:website_link]%>"><%= @links[:website_link] %></a></h4>
+	<h4>Video Link <a href="<%= @links[:video_link]%>"><%= @links[:video_link] %></a></h4>
+
+</p>
+
+<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>
+
+	<a href="http://localhost:3000/companies/accept_company?email=<%= @user.email%>&company_name=<%= @company_name%>">Accept</a>
+	<a href="http://localhost:3000/companies/reject_company?email=<%= @user.email%>&company_name=<%= @company_name%>">Reject</a>
+</p>

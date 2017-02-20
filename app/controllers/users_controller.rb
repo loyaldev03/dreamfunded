@@ -17,10 +17,18 @@ class UsersController < ApplicationController
 	end
 
 	def verify
+		
 		user = User.find_by(email: params[:email].delete(' '))
 		user.confirmed = true
 		user.save(:validate => false)
-		ContactMailer.personal_hello(user).deliver
+		if (user.user_type.include?("entrepreneuer") && user.user_type.include?("investor"))
+			ContactMailer.personal_hello_to_entrepreneuers(user).deliver
+			ContactMailer.personal_hello_to_investors(user).deliver
+		elsif (user.user_type.include?("entrepreneuer"))
+			ContactMailer.personal_hello_to_entrepreneuers(user).deliver
+		else
+			ContactMailer.personal_hello_to_investors(user).deliver
+		end
 		redirect_to root_path
 	end
 

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  investor_id: MyString
+  subscription_agreement_id: MyString
+  investment_id: MyString
+
+two:
+  user_id: 
+  investor_id: MyString
+  subscription_agreement_id: MyString
+  investment_id: MyString

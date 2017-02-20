@@ -27,38 +27,75 @@ Rails.application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
-  config.assets.debug = true
+  config.assets.debug = false
 
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
-  config.assets.raise_runtime_errors = true
+  # config.assets.raise_runtime_errors = true
 
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: 'localhost:3000'}
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.delivery_method = :letter_opener
-  # ActionMailer::Base.smtp_settings = {
-  #   :user_name => 'DreamFunded',
-  #   :password => 'agyu@7dS',
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.default_url_options = { host: 'localhost:3000'}
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.delivery_method = :letter_opener
+  # # ActionMailer::Base.smtp_settings = {
+  # #   :user_name => 'DreamFunded',
+  # #   :password => 'agyu@7dS',
+  # #   :domain => "dreamfunded.com",
+  # #   :address => 'smtp.sendgrid.net',
+  # #   :port => 587,
+  # #   :authentication => :plain,
+  # #   :enable_starttls_auto => true
+  # # }
+
+  # config.action_mailer.smtp_settings = {
+  #   :address  => 'smtp.gmail.com',
+  #   :port   => 587,
   #   :domain => "dreamfunded.com",
-  #   :address => 'smtp.sendgrid.net',
-  #   :port => 587,
-  #   :authentication => :plain,
+  #   :user_name => 'dreamfundedmembership@gmail.com',
+  #   :password => 'accesstech',
+  #   :authentication => 'plain',
   #   :enable_starttls_auto => true
   # }
-
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.default_url_options = { host: 'localhost:3000'}
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.delivery_method = :smtp
+  # ActionMailer::Base.smtp_settings = {
+  #  :user_name => 'dreamfundedvc',
+  #  :password => 'kjSa@91k',
+  #  :domain => "dreamfunded.vc",
+  #  :address => 'smtp.sendgrid.net',
+  #  :port => 587,
+  #  :authentication => :plain,
+  #  :enable_starttls_auto => true
+  # }
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #     #:port           => 1025,
+  #     #:address        => "localhost",
+  #     :port           => 587,
+  #     :address        => "smtp.mailgun.org",
+  #     :domain         => "digitalfaith.org",
+  #     :user_name      => "postmaster@digitalfaith.org",
+  #     :password       => "6a2b14a1ed3455a2a5e32aa2a973e11d",
+  #     :authentication => :plain
+  # }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address  => 'smtp.gmail.com',
-    :port   => 587,
-    :domain => "dreamfunded.com",
-    :user_name => 'dreamfundedmembership@gmail.com',
-    :password => 'accesstech',
-    :authentication => 'plain',
-    :enable_starttls_auto => true
+      #:port           => 1025,
+      #:address        => "localhost",
+      :port           => 587,
+      :address        => "smtp.gmail.com",
+      :domain         => "gmail.com",
+      :user_name      => "ptulr2016@gmail.com",
+      :password       => "dkzcviwerkzcv123",
+      :authentication => :plain
   }
-
-
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

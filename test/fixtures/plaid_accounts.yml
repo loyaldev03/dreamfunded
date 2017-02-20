@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  access_token: MyString
+  token: MyString
+  plaid_type: MyString
+  name: MyString
+  bank_name: MyString
+  number: 1
+  plaid_id: MyString
+  owner_type: MyString
+  owner_id: MyString
+  last_sync: 2017-02-07 10:31:26
+  current_balance: 9.99
+  available_balance: 9.99
+  error: MyString
+
+two:
+  access_token: MyString
+  token: MyString
+  plaid_type: MyString
+  name: MyString
+  bank_name: MyString
+  number: 1
+  plaid_id: MyString
+  owner_type: MyString
+  owner_id: MyString
+  last_sync: 2017-02-07 10:31:26
+  current_balance: 9.99
+  available_balance: 9.99
+  error: MyString

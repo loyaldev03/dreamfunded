@@ -1,0 +1,485 @@
+<div class="wrapper invest-page">
+  <div class="row" id="invest-errors">
+  </div>
+	<div class="row title">
+		<h1>Invest in <%= @company.name%> </h1>
+	</div>
+	<div class="row">
+		<div class="invest-info">
+			$35K raised previously ?
+		</div>
+		<div class="invest-info">
+			$400 raised this round ?
+		</div>
+		<div class="invest-info">
+			1% funded ?
+		</div>
+	</div>
+	<div class="row">
+		<div class="invest-action">
+      <label class="invest-amount-error"></label>
+			I want to invest: <input type="number" class="invest-amount" id="invest-amount" value="0">
+		</div>
+		<div class="invest-action">
+			<label>Fee: + $<label id="fee-amount">0</label></label>
+		</div>
+		<div class="invest-action">
+			<label>Total Payment:$<label id="total-amount">0</label></label>
+    </div>
+	</div>
+	<hr>
+	<div class="row convertable-note">
+		<h3>Future Equity (SAFE)</h3>
+		<h5>$2M valuation cap | 15% discount</h5>
+		<p>A SAFE gives you the right to future shares in Vera Roasting. If you invest, you're betting the company will be worth more than $2M in the future.</p>
+	</div>
+	<div class="row investor-perks">
+		<h3>Investor Perks</h3>
+		<p>
+			<b>$100+:</b> 20% off purchases for investors (while still holding shares) One free bag of CoffVee or 12-count K-Cup carton of any variety shipped to your address
+		</p>
+		<p>
+			<b>$250+:</b> Two free bags of CoffVee or 12-count K-Cup carton of any variety plus a Vera T-shirt shipped to your address
+		</p>
+		<p>
+			<b>$500+: </b>A free monthly shipment of any two CoffVee items for three months, plus a T-shirt, and your choice of a branded ceramic mug or iced coffee tumbler.
+		</p>
+	</div>
+	<hr>
+	<div class="row payment-method">
+		<h3> Payment Method </h3>
+		<div>
+			<a href="javascript:void(0)" class="select-payment-gateway tablinks" link-id="ach-info">Bank</a>
+			<a href="javascript:void(0)" class="select-payment-gateway tablinks" link-id="wire-info">Wire</a>
+			<a href="javascript:void(0)" class="select-payment-gateway tablinks" link-id="check-info">Check</a>
+			<a href="javascript:void(0)" class="select-payment-gateway tablinks" link-id="paypal-info">Paypal</a>
+			<a href="javascript:void(0)" class="select-payment-gateway tablinks" link-id="bitcoin-info">Bitcoin</a>
+		</div>	
+		<div class="detail-info">
+			<div class="tabcontent" id="ach-info">	
+				<div class="row bank-list">
+					<div class="bank" bank_type="bofa"><img src="<%=image_path('logo/bank_of_america_logo.png')%>" ></div> 
+					<div class="bank" bank_type="chase"><img src="<%=image_path('logo/chase_bank_logo.png')%>" ></div> 
+					<div class="bank" bank_type="citi"><img src="<%=image_path('logo/citi_logo.png')%>" ></div> 
+					<div class="bank" bank_type="fidelity"><img src="<%=image_path('logo/fidelity_logo.png')%>" ></div> 
+					<div class="bank" bank_type="pnc"><img src="<%=image_path('logo/pnc_logo.png')%>" ></div> 
+					<div class="bank" bank_type="usaa"><img src="<%=image_path('logo/usaa_logo.png')%>" ></div> 
+					<div class="bank" bank_type="us"><img src="<%=image_path('logo/us_bank_logo.png')%>" ></div> 
+					<div class="bank" bank_type="wells"><img src="<%=image_path('logo/wells_fargo_logo.jpg')%>" ></div> 
+					<div class="bank" bank_type="capone"><img src="<%=image_path('logo/capital_one_logo.png')%>" ></div> 
+					<div class="bank" bank_type="td"><img src="<%=image_path('logo/td_bank_logo.png')%>" ></div> 
+					<div class="bank" bank_type="suntrust"><img src="<%=image_path('logo/suntrust_logo.png')%>" ></div> 
+					<div class="bank" bank_type="nfcu"><img src="<%=image_path('logo/navy_federal_bank_logo.png')%>" ></div> 
+					<div class="bank" bank_type="schwab"><img src="<%=image_path('logo/charles_schwab_bank_logo.png')%>" ></div> 
+					<div class="bank" bank_type="bbt"><img src="<%=image_path('logo/bbat_bank_logo.png')%>" ></div> 
+				</div>
+			</div>
+
+			<div class="tabcontent" id="wire-info">
+        <p>Dear <%= @user.name%>,</p>
+
+        <p>This is a quick note regarding your investment in <%= @company.name %>.. </p>
+
+        <p>Name in which investment will be held: <%= @user.name %></p>
+        <p>Amount Invested: $<label id="amount-invested-for-wire">0.00</label></p>
+        <p>Please send funds at your earliest convenience in order to confirm your participation.</p>
+
+        <p>Note: Bank account name must match investor name. Our escrow trustee, Provident Trust Group, LLC, cannot accept Western Union wires.</p>
+
+        <p>If paying by wire:</p>
+
+        <p>Beneficiary/Recipient:</p>
+        <p>Name: <%= @wire_details["beneficiary_name"] %> </p>
+        <p>Address: <%= @wire_details["beneficiary_address"]%> </p>
+        <p>Routing ABA: <%= @wire_details["routing_number"] %> </p> 
+        <p>Account Number: <%= @wire_details["account_number"] %> </p> 
+        <p>Bank Name: <%= @wire_details["bank_name"] %></p> 
+        <p>Bank Address:<%= @wire_details["bank_address"] %> </p>
+        <p><%= @wire_details["bank_phone"] %></p>
+			</div>
+
+			<div class="tabcontent" id="check-info">
+        <p>Attn: Escrow</p> 
+        <p><%= @offering["check_mailing_address"]%> </p>
+        <p>Ref:</p>
+        <p>We can only accept checks drawn on US banks.</p>
+        <p>Thank you!</p>
+        <p>Your bank or financial institution or may charge you a fee for sending wire transfers. Wire fees, if any, are outside of our control and are unrelated to this offering. Important: You must ensure that the amount of money delivered to Escrow is sufficient to cover your investment commitment. Any wire fee charged by your bank should be handled separately. If we do not receive sufficient funds to cover the full amount of your investment it will cause problems operationally.<p>
+        <p>If you have any questions please contact us anytime at <%= @issuer["email"] %></p>
+
+        <p>Sincerely,</p> 
+        <p><%= @issuer["name"] %></p>
+        <p>Co-Founder/ CEO</p> 
+        <p><%= @company.name %>.</p>
+			</div>
+
+			<div class="tabcontent" id="paypal-info">
+				<%= link_to "Invest With Paypal", invest_with_paypal_path(@company) %>
+			</div>
+
+			<div class="tabcontent" id="bitcoin-info">
+			</div>
+		</div>
+
+		<!-- The Modal -->
+		<div id="accounts-modal" class="modal">
+		  <!-- Modal content -->
+		  <div class="modal-content">
+		    <span class="close" id="close-accounts-select">&times;</span>
+		    <form id="accounts">
+		    </form>
+		  </div>
+		</div>
+
+	</div>
+	<hr>
+	<div class="row investment-contracts">
+		<h3> Investment Contracts </h3>
+		<div class="docs">
+			<ul>
+				<li><a href="#">Vera Roasting Early Bird SAFE 1.5m </a></li>
+        <li><a href="#">Form C</a></li>
+        <li><a href="javascript:void(0)" id="subscription-agreement">Subscription Agreement</a></li>
+        <!-- The Modal -->
+			</ul>
+		</div>
+		<div class="investment-contracts-details">
+      <input type="checkbox">
+      <div class="investment-contracts-description">
+        I recently read the investor education section and understand startups are risky. I can afford to lose my entire investment.
+      </div>
+    </div>
+    <div class="investment-contracts-details">
+      <input type="checkbox">
+      <div class="investment-contracts-description">
+        I understand these investments are not easily re-sold, as they are not traded on a stock market. I can wait years for a return.
+      </div>
+    </div>
+    <div class="investment-contracts-details">
+      <input type="checkbox">
+      <div class="investment-contracts-description">
+        I understand Wefunder does not offer investment advice. I am knowledgable enough to make my own investment decisions.
+      </div>
+    </div>
+    <div class="investment-contracts-details">
+      <input type="checkbox">
+      <div class="investment-contracts-description">
+        I understand the law limits how much I may invest. I am complying with my annual investment limit.
+      </div>
+    </div>
+    <div class="investment-contracts-details">
+      <input type="checkbox">
+      <div class="investment-contracts-description">
+        I agree to the contracts with my electronic signature and understand my investment may be canceled if funds aren't received within 7 days.
+      </div>
+    </div>
+	</div>
+  <hr>
+	<div class="row signature">
+		<!-- <h3><u><%=@user.first_name + " " + @user.last_name%></u></h3> -->
+		<!-- <button type="button" data-fa-invest-now="fPb4hLyNdjNMae5gPxtItmjQcKsLXAfj:weF78DdBSJ-tdDrTod7tzQ" class="fa-invest-now-btn fa-invest-now-btn-4">COMPLETE INVESTMENT</button> -->
+    <h3> Personal Info</h3>
+    <%= form_tag(create_investment_path, id: "complete-investment-form") do %>
+      <%= csrf_meta_tag %>
+      <%= hidden_field_tag :issuer_id, @company.id %>
+      <%= hidden_field_tag :offering_id, "kheizlUUSeukdA3iUl3Xtg" %>
+      <%= hidden_field_tag :amount %>
+      <%= hidden_field_tag :payment_method, "bank" %>
+      <div class='legal-info-label'>City</div>
+      <%= text_field_tag :city, "", placeholder: "Las Vegas" %>
+      <div class='legal-info-label'>Country</div>
+      <%= select_tag :temporary_country, options_for_select(CS.countries, "United States") %>
+      <%= hidden_field_tag :country, "US" %>
+      <div class='legal-info-label'>email</div>
+      <%= text_field_tag :email, "", placeholder: "john.investor@example.com" %>
+      <div class='legal-info-label'>Name</div>
+      <%= text_field_tag :name, @user.name, placeholder: "John Investor" %>
+      <div class='legal-info-label'>Comapny</div>
+      <%= text_field_tag :company, "", placeholder: "John Company" %>
+      <div class='legal-info-label'>Account Share Count</div>
+      <%= text_field_tag :account_share_count, "", placeholder: "2" %>
+      <div class='legal-info-label'>Phone</div>
+      <%= text_field_tag :phone, @user.phone, placeholder: "17025551212" %>
+      <div class='legal-info-label'>Postal Code</div>
+      <%= text_field_tag :postal_code, "", placeholder: "20004" %>
+      <div class='legal-info-label'>Region</div>
+      <%= select_tag :region, options_for_select(us_states) %>
+      <div class='legal-info-label'>Street Address 1</div>
+      <%= text_field_tag :street_address_1, "", placeholder: "555 some st" %>
+      <div class='legal-info-label'>Street Address 2</div>
+      <%= text_field_tag :street_address_2, "", placeholder: "" %>
+      <div class='legal-info-label'>Tax Id Number</div>
+      <%= text_field_tag :tax_id_number,"", placeholder: "000000000" %>
+      <div class='legal-info-label'>Type</div>
+      <%= select_tag :type, options_for_select(["company", "personal", "custodial"]) %>
+      <div class="subscription-agreement-title">
+        <div class='legal-info-label'>Title(Subscription Agreement)</div>
+        <%= text_field_tag :subscription_agreement_title, "", placeholder: "El President" %>
+      </div>
+      <div class='legal-info-label'>Executive Name</div>
+      <%= text_field_tag :executive_name, "", placeholder: "John Johnson" %>
+      <div class='legal-info-label'>Region Formed In</div>
+      <%= select_tag :region_formed_in, options_for_select(us_states) %>
+      <div class='legal-info-label'>Signature</div>
+      <%= text_field_tag :literal, current_user.name, placeholder: current_user.name %>
+      <%= submit_tag "COMPLETE INVESTMENT", :id => "complete-investment" %>
+    <% end %>
+    <div id="complete-investment-modal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close" id="close-investment">&times;</span>
+        <div id="welcome-for-investment">
+        </div>
+      </div>
+    </div>
+	</div>
+</div>
+<div id="complete-for-investment-progress">
+  <%= image_tag "companies/progress-bar.gif" %>
+</div>
+<script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+<div class="complete-investment-progress-bar">
+  <
+</div>
+<script>
+$(document).ready(function(){
+  var selected_account_order = 0;
+  var accounts_modal = document.getElementById('accounts-modal');
+  var complete_investment_modal = document.getElementById('complete-investment-modal')
+  $('#complete-for-investment-progress').css("display", "none");
+  $("#complete-investment").click(function(event) {
+    $('#complete-for-investment-progress').css("display", "block");
+  });
+  $("#complete-investment-form").on("ajax:success", function(e, data, status, xhr){
+    $("#welcome-for-investment").html(data);
+    $("#complete-investment-modal").css("display", "block");
+    $('#complete-for-investment-progress').css("display", "none");
+  }).on("ajax:error", function(e, data, status, xhr){
+    $("#invest-errors").html(data);
+  });
+  $("#close-investment").on('click', function(event){
+    complete_investment_modal.style.display = "none"
+  });
+  $("#close-accounts-select").click(function(){
+      accounts_modal.style.display = "none";
+  });
+  $("#type").change(function(event){
+    if ($(this).val() === "company"){
+      $(".subscription-agreement-title").css("display", "block");
+    } else {
+      $(".subscription-agreement-title").css("display", "none");
+    }
+  });
+  $("#temporary_country").change(function(event){
+    $("#country").val($("#temporary_country option[value='" + $(this).val() + "']").text());
+  });
+  $(".select-payment-gateway").click(function() {
+    var payment_method = $(this).attr("link-id").substring(0, $(this).attr("link-id").indexOf("-info"));
+    $("#payment_method").val(payment_method);
+  })
+	function set_registerd_accounts(registered_accounts) {
+		for (var i = 0; i < registered_accounts.length; i++){
+        $("div[bank_type='" + registered_accounts[i]["bank_type"] + "']").addClass("registered-bank");
+		};
+	}
+	set_registerd_accounts(<%=raw current_user.bank_info.to_json %>);
+
+  window.onclick = function(event) {
+      if (event.target == accounts_modal) {
+          accounts_modal.style.display = "none";
+      }
+  }  
+  $("form#accounts").submit(function(event){
+    event.preventDefault();
+    accounts_modal.style.display = "none";
+    selected_bank_type = $("input[name='bank_type']").val();
+    selected_account_order = $("input[name='account-order']:checked").val();
+    url = "<%= update_selected_account_for_current_user_path(:format => :json) %>"
+    $("#account-number-for-wire").text("selected_bank_type")
+    $.ajax({
+    	type: 'POST',
+    	url: url,
+    	data: {
+    		bank_type: selected_bank_type, account_order: selected_account_order
+    	},
+    	success: function(res) {
+    		console.log(res);
+    	},
+    	error: function(err) {
+    		console.log("error", err);
+    	}
+    });
+  })
+
+  function showSelectAccountModal(accounts_ref){
+    $("#accounts").html("");
+    accounts_html = "";
+    bank_type_html = "<input type='hidden' name='bank_type' value='" + accounts_ref["bank_type"] + "'>";
+    accounts_html += bank_type_html
+    for (var i=0; i< accounts_ref["auth_info"]["accounts"].length; i++) {
+      account = accounts_ref["auth_info"]["accounts"][i];
+      account_number = account["numbers"]["account"];
+      routing_number = account["numbers"]["routing"];
+      console.log(typeof(account_number));
+      if (account_number != null) {
+	      account_html = "<label for='account-number'>Account Number:</label><div class='account-number'>" + account_number + "</div>";
+	      routing_html = "<label for='routing-number'>Routing Number:</label><div class='routing-number'>" + routing_number + "</div>";
+	      bank_account_html = "<div class='account'><input type='radio' class='account-order' name='account-order' value='" + i + "'>" + account_html + routing_html + "</div>";                        
+	      accounts_html += bank_account_html;      	
+      }
+    }
+    accounts_html += "<button type='submit'>OK</button>"
+    $("#accounts").html(accounts_html);
+    get_selected_account_url = "<%= get_selected_accont_for_current_user_path(:format => :json) %>";
+    $.ajax({
+    	type: 'GET',
+    	url: get_selected_account_url,
+    	data: {},
+    	success: function(res){
+		    if (res["bank_type"] == accounts_ref["bank_type"]) {
+		    	$('.account-order').eq(Number(res["account_order"])).attr('checked', true);
+		    }
+		    accounts_modal.style.display = "block";    		
+    	},
+    	error: function(err){
+    		console.log(err);
+    	}
+    });
+  }
+  function getPlaid(plaidData) {
+      var url = null;
+      var token = plaidData.data('token');
+      // var env = '<%= Rails.env.development? ? "tartan" : "production" %>';
+      var env = "production";
+      if (typeof token === 'undefined') {
+          url = '<%= Rails.application.routes.url_helpers.authenticate_bank_account_for_plaid_path(:format => :json) %>';
+          token = null;
+      } else {
+          url = '<%= Rails.application.routes.url_helpers.update_bank_account_for_plaid_path(:format => :json) %>';
+      }
+      if (env === 'tartan' && typeof plaidData.data('type') !== 'undefined') {
+          token = 'test,' + plaidData.data('type') + ',connected';
+      }
+
+      var linkHandler = Plaid.create({
+          env: env,
+          clientName: "client-name",
+          key: '<%= Rails.application.secrets.plaid_public_key %>',
+          product: 'auth',
+          onLoad: function () {
+              // The Link module finished loading.
+          },
+          onSuccess: function (public_token, metadata) {
+              $.ajax({
+                  type: 'POST',
+                  url: url,
+                  data: {
+                      public_token: public_token,
+                  },
+                  success: function(res) {
+                  	$("div[bank_type='" + res["bank_type"] + "']").addClass("registered-bank");
+                    showSelectAccountModal(res);
+                  },
+                  error: function(err) {
+                  }
+              })
+          },
+          onExit: function () {
+          }
+      });
+      return linkHandler;
+  }
+  $(document).on("click", '.bank', function (event) {
+    if ($(this).hasClass('registered-bank')) {
+      var banks = <%=raw current_user.bank_info.to_json %>
+      for (var i = 0; i < banks.length; i++){
+          if ($(this).attr("bank_type") == banks[i]["bank_type"])
+          {
+            showSelectAccountModal(banks[i]);
+            break; 
+          }
+      }
+    }
+    else {
+      var plaidData = $(this);
+      linkHandler = getPlaid(plaidData);
+      var plaidType = $(this).attr("bank_type");
+      if (typeof plaidType === 'undefined') {
+          linkHandler.open();
+      } else {
+          linkHandler.open(plaidType);
+      }            
+    }
+  });
+  $(document).on("click", ".select-payment-gateway", function(event) {
+  	var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    $("#" + $(this).attr("link-id")).css("display", "block");
+    event.currentTarget.className += " active";  
+  })
+  $("a[link-id='ach-info']").click();
+  $("#invest-amount").bind("keyup change", function(e) {
+      var amount = parseInt($(this).val());
+      if ($(this).val() === "") {
+        $('#total-amount').text("0");
+        $('#fee-amount').text("0");
+        $('#amount-invested-for-wire').text("0");
+        $('#amount').val("0");
+      }
+      else {
+        if (amount < <%= @min_investment_amount %>) {
+          $(".invest-amount-error").text("amount should bigger than " + <%= @min_investment_amount %>);
+        }
+        else {
+          $(".invest-amount-error").text("");
+        }
+        var fee = 0;
+        switch (payment_method) {
+          case "ach": 
+            fee = (amount / 100.0) * 5.0 + 0.5;
+            break;
+          case "wire":
+            fee = (amount / 100.0) * 5.0 + 15;
+            break;
+          case "check":
+            fee = (amount / 100.0) * 5.0 + 10;
+            break;
+          default:
+            fee = (amount / 100.0) * 5.0 + 0.5;
+            break;           
+        }
+        var total = amount + fee;
+        $('#total-amount').text(total);
+        $('#fee-amount').text(fee);
+        $('#amount-invested-for-wire').text(total);
+        $('#amount').val(amount);  
+      }
+      
+  })
+  $("#subscription-agreement").click(function(){
+    var win = window.open("http://localhost:3000/get_subscription_agreement/kheizlUUSeukdA3iUl3Xtg/<%= @company.id %>/"+parseInt($("#total-amount").text()), '_blank');
+  })
+  // function set_signature_block() {
+  //   set_signature_block_url = <%= create_signature_signatures_path %>
+  //   $.ajax({
+  //     type: "POST",
+  //     url: set_signature_block_url,
+  //     data: { email: "john@example.com", name: 'John Martin' },
+  //     success: function(res) {
+  //       $("#signature-block").innerHTML = res;
+  //     },
+  //     error: function(err) {
+  //       console.log("error", err);
+  //     }
+  //   })
+  // }
+  // set_signature_block();
+})
+</script>

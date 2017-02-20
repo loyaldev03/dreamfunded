@@ -5,13 +5,13 @@ development:
   pool: 5
   # username: MinKim
   # password:
-  host: localhost
+  #host: localhost
 
 test:
   adapter: postgresql
   encoding: unicode
-  database: myapp_test
+  database: dreamfundedvc_test
   pool: 5
   # username: MinKim
   # password:
-  host: localhost
+  #host: localhost

@@ -1,0 +1,13 @@
+<%= form_tag create_signature_signatures_path, method: :post, :class => "signature-part" do %>
+  <%= label_tag 'Name' %>
+  <%= text_field_tag :name %>
+  <%= label_tag 'Email' %>
+  <%= text_field_tag :email %>
+  <%= submit_tag 'Create Embedded Signature Request' %>
+<% end %>
+
+<style>
+	.signature-part {
+		margin-top: 100px;
+	}
+</style>
