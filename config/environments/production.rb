@@ -71,14 +71,14 @@ Rails.application.configure do
  config.action_mailer.delivery_method = :smtp
  ActionMailer::Base.smtp_settings = {
    :user_name => 'dreamfunded',
-   #:password => 'kjSa@91k',
    :password => 'hasin@Af6',
-   :domain => "dreamfunded.vc",
+   :domain => "dreamfunded.com",
    :address => 'smtp.sendgrid.net',
    :port => 587,
    :authentication => :plain,
    :enable_starttls_auto => true
  }
+  #:password => 'kjSa@91k',
 
  #config.action_mailer.smtp_settings = {
  #   :address  => 'smtp.gmail.com',
