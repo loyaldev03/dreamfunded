@@ -54,6 +54,10 @@
     text-align: center;
 }
 
+.company-funded-status{
+    height: inherit;
+}
+
 .propety-detail-left{
     line-height: 1.5em;
     padding: 0 10px;
