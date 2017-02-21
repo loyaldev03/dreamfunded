@@ -66,13 +66,25 @@ Rails.application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
  config.action_mailer.raise_delivery_errors = true
- config.action_mailer.default_url_options = { host: 'www.dreamfunded.com'}
+ # config.action_mailer.default_url_options = { host: 'www.dreamfunded.com'}
+ # config.action_mailer.perform_deliveries = true
+ # config.action_mailer.delivery_method = :smtp
+ # ActionMailer::Base.smtp_settings = {
+ #   :user_name => 'dreamfundedvc',
+ #   :password => 'kjSa@91k',
+ #   :domain => "dreamfunded.vc",
+ #   :address => 'smtp.sendgrid.net',
+ #   :port => 587,
+ #   :authentication => :plain,
+ #   :enable_starttls_auto => true
+ # }
+ config.action_mailer.default_url_options = { host: 'www.svexchange.com'}
  config.action_mailer.perform_deliveries = true
  config.action_mailer.delivery_method = :smtp
  ActionMailer::Base.smtp_settings = {
-   :user_name => 'dreamfundedvc',
-   :password => 'kjSa@91k',
-   :domain => "dreamfunded.vc",
+   :user_name => 'dreamfunded',
+   :password => 'hasin@Af6',
+   :domain => "dreamfunded.com",
    :address => 'smtp.sendgrid.net',
    :port => 587,
    :authentication => :plain,
