@@ -79,6 +79,7 @@ class ContactMailer < ActionMailer::Base
 
   # Invites
   def invite_to_sign_up(email, name)
+    @email = email
     mail(to: email, subject: "#{name.try(:capitalize)}, please accept my invite to DreamFunded")
   end
 
