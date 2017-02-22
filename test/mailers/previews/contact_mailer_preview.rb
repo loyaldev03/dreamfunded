@@ -2,7 +2,8 @@
 class ContactMailerPreview < ActionMailer::Preview
 
 	def personal_hello
+		byebug
 		user = User.first
-		ContactMailer.personal_hello_to_investors(user)
+		# ContactMailer.personal_hello(user)
 	end
 end

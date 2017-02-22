@@ -1,5 +1,5 @@
 class InviteMailer < ActionMailer::Base
-  default from: "DreamFunded <mor1084leo@gmail.com>"
+  default from: "DreamFunded <info@dreamfunded.com>"
 
   def invite(invite)
     @email = invite.email

@@ -6,6 +6,12 @@
 </p>
 
 <p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>
+	<h1>Links</h1>
+	<h4>Website Link <a href="<%= @links[:website_link]%>"><%= @links[:website_link] %></a></h4>
+	<h4>Video Link <a href="<%= @links[:video_link]%>"><%= @links[:video_link] %></a></h4>
+</p>
+
+<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>
 	<h1> Company </h1>
 	<h4> Name: <%= @company.name %> </h4>
 	<h4> Description: <%= @company.description %> </h4>
@@ -34,13 +40,6 @@
 		<h4>File Name: <%=@document.file_file_name%></h4>
 		<h4>Content Type: <%=@document.file_content_type%></h4>
 	<% end %>
-</p>
-
-<p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>
-	<h1>Links</h1>
-	<h4>Website Link <a href="<%= @links[:website_link]%>"><%= @links[:website_link] %></a></h4>
-	<h4>Video Link <a href="<%= @links[:video_link]%>"><%= @links[:video_link] %></a></h4>
-
 </p>
 
 <p style='font-family:Arial,Palatino,serif;font-size:13px;margin-bottom:24px;padding:0px;line-height:18px;max-width:540px'>

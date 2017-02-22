@@ -70,19 +70,6 @@ Rails.application.configure do
   #  :authentication => :plain,
   #  :enable_starttls_auto => true
   # }
-  # config.action_mailer.raise_delivery_errors = true
-  # config.action_mailer.default_url_options = { host: 'localhost:3000' }
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #     #:port           => 1025,
-  #     #:address        => "localhost",
-  #     :port           => 587,
-  #     :address        => "smtp.mailgun.org",
-  #     :domain         => "digitalfaith.org",
-  #     :user_name      => "postmaster@digitalfaith.org",
-  #     :password       => "6a2b14a1ed3455a2a5e32aa2a973e11d",
-  #     :authentication => :plain
-  # }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
@@ -92,8 +79,8 @@ Rails.application.configure do
       :port           => 587,
       :address        => "smtp.gmail.com",
       :domain         => "gmail.com",
-      :user_name      => "ptulr2016@gmail.com",
-      :password       => "dkzcviwerkzcv123",
+      :user_name      => "manny@dreamfunded.com",
+      :password       => "",
       :authentication => :plain
   }
   # Raises error for missing translations

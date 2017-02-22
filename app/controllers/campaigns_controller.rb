@@ -76,7 +76,7 @@ class CampaignsController < ApplicationController
     @campaign.update(campaign_params)
     @campaign.financial
     @campaign.complete
-      
+    byebug
     ContactMailer.campaign_submitted(current_user, @campaign.company).deliver
     ContactMailer.check_campaign(current_user, @campaign).deliver
     
@@ -93,6 +93,7 @@ class CampaignsController < ApplicationController
     @financial_details = FinancialDetail.find(params[:financial_details])
     @financial_details.update(financial_details_params)
     @campaign.complete
+    byebug
     ContactMailer.campaign_submitted(current_user).deliver
     ContactMailer.check_campaign(@campaign).deliver
     redirect_to "/companies/company_profile/#{@campaign.company.id}"

@@ -1,5 +1,5 @@
 class ContactMailer < ActionMailer::Base
-  default from: "DreamFunded <mor1084leo@gmail.com>"
+  default from: "DreamFunded <info@dreamfunded.com>"
 
   def welcome_email(user)
     @user = user
@@ -21,13 +21,13 @@ class ContactMailer < ActionMailer::Base
     @email= email
     @phone = phone
     @message = message
-    mail(to: "mor1084leo@gmail.com", subject: 'Guest Contacted From DreamFunded website')
+    mail(to: "info@dreamfunded.com", subject: 'Guest Contacted From DreamFunded website')
   end
 
   def account_created(user)
     # @name = user.last_name
     # @email= user.email
-    # mail(to: ["mor1084leo@gmail.com","mor1084leo@gmail.com"], subject: 'New Account Created')
+    # mail(to: ["info@dreamfunded.com","info@dreamfunded.com"], subject: 'New Account Created')
   end
 
   def personal_hello(user)
@@ -57,7 +57,7 @@ class ContactMailer < ActionMailer::Base
   def reset_password_request(user)
     @name = user.last_name
     @email= user.email
-    mail(to: "mor1084leo@gmail.com", subject: 'Password Reset Request')
+    mail(to: "info@dreamfunded.com", subject: 'Password Reset Request')
   end
 
   # Invites
@@ -69,6 +69,7 @@ class ContactMailer < ActionMailer::Base
   end
 
   def campaign_submitted(user, company)
+    byebug
     @email = user.email
     @name = user.first_name
     @company_name = company.name
@@ -85,8 +86,8 @@ class ContactMailer < ActionMailer::Base
     @financial_detail = @company.financial_detail
     @documents = @company.documents
     @links = {website_link: @company.website_link, video_link: @company.video_link}
-    subject = @name + '’s Company, ' + @company_name + ', Has Just  !'
-    mail(to: "ptulr2016@gmail.com", subject: subject)
+    subject = @name + '’s Company, ' + @company_name + ', Has Just Applied!'
+    mail(to: "manny@dreamfunded.com", subject: subject)
   end
 
   def send_accept_email_to_company(user, company)
@@ -109,7 +110,7 @@ class ContactMailer < ActionMailer::Base
   def new_comment(comment)
     @comment = comment
     @user = comment.user
-    mail(to: "mor1084leo@gmail.com", subject: 'New Comment')
+    mail(to: "info@dreamfunded.com", subject: 'New Comment')
   end
 
   def new_comment_company_owner(comment)
@@ -175,18 +176,18 @@ class ContactMailer < ActionMailer::Base
   def new_investment_made(user, company_id)
     @company = Company.find(company_id)
     @user = user
-    mail(to: "mor1084leo@gmail.com", subject: "New Investment made in #{@company.name}")
+    mail(to: "info@dreamfunded.com", subject: "New Investment made in #{@company.name}")
   end
 
   def join_group_request(user, group)
     @user, @group = user, group
-    mail(to: "mor1084leo@gmail.com", subject: "#{@user.name} requested to join #{@group.name}")
+    mail(to: "info@dreamfunded.com", subject: "#{@user.name} requested to join #{@group.name}")
   end
 
   def formc_submitted(user, formc)
     @user = user
     @formc = formc
-    mail(to: "mor1084leo@gmail.com", subject: "#{@user.name} submitted Form C")
+    mail(to: "info@dreamfunded.com", subject: "#{@user.name} submitted Form C")
   end
 
 end
