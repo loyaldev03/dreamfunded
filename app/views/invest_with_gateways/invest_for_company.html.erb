@@ -52,8 +52,6 @@
 			<a href="javascript:void(0)" class="select-payment-gateway tablinks" link-id="ach-info">Bank</a>
 			<a href="javascript:void(0)" class="select-payment-gateway tablinks" link-id="wire-info">Wire</a>
 			<a href="javascript:void(0)" class="select-payment-gateway tablinks" link-id="check-info">Check</a>
-			<a href="javascript:void(0)" class="select-payment-gateway tablinks" link-id="paypal-info">Paypal</a>
-			<a href="javascript:void(0)" class="select-payment-gateway tablinks" link-id="bitcoin-info">Bitcoin</a>
 		</div>	
 		<div class="detail-info">
 			<div class="tabcontent" id="ach-info">	
@@ -112,15 +110,6 @@
         <p>Co-Founder/ CEO</p> 
         <p><%= @company.name %>.</p>
 			</div>
-
-			<div class="tabcontent" id="paypal-info">
-				<%= link_to "Invest With Paypal", invest_with_paypal_path(@company) %>
-			</div>
-
-			<div class="tabcontent" id="bitcoin-info">
-			</div>
-		</div>
-
 		<!-- The Modal -->
 		<div id="accounts-modal" class="modal">
 		  <!-- Modal content -->

@@ -29,47 +29,6 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = false
 
-  # Adds additional error checking when serving assets at runtime.
-  # Checks for improperly declared sprockets dependencies.
-  # Raises helpful error messages.
-  # config.assets.raise_runtime_errors = true
-
-  # config.action_mailer.raise_delivery_errors = true
-  # config.action_mailer.default_url_options = { host: 'localhost:3000'}
-  # config.action_mailer.perform_deliveries = true
-  # config.action_mailer.delivery_method = :letter_opener
-  # # ActionMailer::Base.smtp_settings = {
-  # #   :user_name => 'DreamFunded',
-  # #   :password => 'agyu@7dS',
-  # #   :domain => "dreamfunded.com",
-  # #   :address => 'smtp.sendgrid.net',
-  # #   :port => 587,
-  # #   :authentication => :plain,
-  # #   :enable_starttls_auto => true
-  # # }
-
-  # config.action_mailer.smtp_settings = {
-  #   :address  => 'smtp.gmail.com',
-  #   :port   => 587,
-  #   :domain => "dreamfunded.com",
-  #   :user_name => 'dreamfundedmembership@gmail.com',
-  #   :password => 'accesstech',
-  #   :authentication => 'plain',
-  #   :enable_starttls_auto => true
-  # }
-  # config.action_mailer.raise_delivery_errors = true
-  # config.action_mailer.default_url_options = { host: 'localhost:3000'}
-  # config.action_mailer.perform_deliveries = true
-  # config.action_mailer.delivery_method = :smtp
-  # ActionMailer::Base.smtp_settings = {
-  #  :user_name => 'dreamfundedvc',
-  #  :password => 'kjSa@91k',
-  #  :domain => "dreamfunded.vc",
-  #  :address => 'smtp.sendgrid.net',
-  #  :port => 587,
-  #  :authentication => :plain,
-  #  :enable_starttls_auto => true
-  # }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
